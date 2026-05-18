@@ -1,0 +1,60 @@
+{
+  "id": "ruy-lopez-open-black-tacticals",
+  "name": "Ruy López Open Defense — Black Tactics",
+  "description": "4 strategic challenges for Black in the Open Defense. Maintain the powerful Ne4 and generate counter-play against White's e5-pawn.",
+  "arena": "ruy-lopez-open",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-open-bt1",
+      "name": "Activate the Bishop to c5",
+      "theme": "Diagonal Pressure",
+      "description": "After White plays c3, Black develops the bishop to c5 — activating it on the dangerous diagonal and pressuring White's kingside.",
+      "fen": "r2qkb1r/2p2ppp/p1n1b3/1p1pP3/4n3/1BP2N2/PP3PPP/RNBQ1RK1 b kq - 0 9",
+      "whitePromptMove": "c3",
+      "solutionMoves": ["Bc5", "O-O"],
+      "opponentResponse": "Nbd2",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black activates the f8-bishop to c5 and then castles king-side to bring the rook into play.",
+      "explanation": "Bc5 is the most active bishop development — from c5 the bishop eyes the f2-pawn and creates unpleasant threats on the long diagonal. After White plays Nbd2 (preparing to challenge Ne4), Black castles king-side with O-O — bringing the rook to e8 after ...Re8 to support the Ne4 and the d5-pawn. The bishop on c5 also prevents White from playing Nf1-e3 without losing a tempo (the bishop would attack the ne3 square). The Bc5 + O-O plan keeps maximum pressure on White's center."
+    },
+    {
+      "drillId": "ruy-lopez-open-bt2",
+      "name": "Reinforce the Knight with f5",
+      "theme": "Central Counter",
+      "description": "After White plays Nd4, Black plays Qd7 to defend Nc6, then plays f5 to support the Ne4 and counter White's e5-pawn.",
+      "fen": "r2qkb1r/2p2ppp/p1n1b3/1p1pP3/3Nn3/1B6/PPP2PPP/RNBQ1RK1 b kq - 1 9",
+      "whitePromptMove": "Nd4",
+      "solutionMoves": ["Qd7", "f5"],
+      "opponentResponse": "Nxc6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black defends with Qd7 and then plays f5 to lock down the Ne4 and counter the e5-pawn.",
+      "explanation": "Qd7 defends the Nc6 — after 9.Nd4 attacks both Nc6 and Be6, Black must choose what to protect. Qd7 defends the Nc6 (Nd4 can't take it now without Black recapturing) and keeps Be6 protected. After White plays Nxc6 (forcing), Black plays f5 — the key counter-blow. f5 supports the Ne4 (prevents f4 from attacking it), locks the e5-pawn, and prepares future ...g5-g4 kingside pressure. The f5 advance is Black's most important thematic response to Nd4-Nxc6."
+    },
+    {
+      "drillId": "ruy-lopez-open-bt3",
+      "name": "Rook to e8 — Pressure the Pawn",
+      "theme": "e-File Domination",
+      "description": "After White plays Qe2, Black challenges the e5-pawn immediately with Nc5 and then connects the rooks with a developing move.",
+      "fen": "r2qkb1r/2p2ppp/p1n1b3/1p1pP3/4n3/1B3N2/PPP1QPPP/RNB2RK1 b kq - 1 9",
+      "whitePromptMove": "Qe2",
+      "solutionMoves": ["Nc5", "Nxb3"],
+      "opponentResponse": "Rfe1",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black retreats the knight to c5, attacking the Bb3, then captures it to open the c-file.",
+      "explanation": "Nc5 is Black's best response to Qe2 — the Ne4 retreats before White plays Nc3 attacking it again, and from c5 it immediately attacks the Bb3. After White plays Rfe1 (supporting e5), Black captures Nxb3 — winning the bishop pair and opening the c-file for the rook. The exchange of Bb3 for the knight gives Black the bishop pair and long-term compensation. The c-file becomes a powerful avenue for Black's rooks, and the bishop pair gives excellent prospects in any endgame or long-term middlegame."
+    },
+    {
+      "drillId": "ruy-lopez-open-bt4",
+      "name": "Hold the Knight — Play Be7",
+      "theme": "Tactical Defense",
+      "description": "After White plays Nbd2, Black defends the Ne4 with Be7 and then supports it with O-O to bring the rook to e8.",
+      "fen": "r2qkb1r/2p2ppp/p1n1b3/1p1pP3/4n3/1B3N2/PPPN1PPP/R1BQ1RK1 b kq - 1 9",
+      "whitePromptMove": "Nbd2",
+      "solutionMoves": ["Be7", "O-O"],
+      "opponentResponse": "Nf1",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black plays Be7 to defend the Ne4 with the bishop, then castles to strengthen the defense.",
+      "explanation": "Be7 is a solid defensive move — the bishop retreats to e7 where it protects the Ne4 (after White's Nf1-e3 plan, the knight on e3 cannot take Ne4 because Be7 recaptures). After White plays Nf1 (heading for e3), Black castles O-O — bringing the rook to e8 with tempo. The Re8 rook directly supports the Ne4 and challenges White's e5-pawn. The Be7 + O-O + Re8 plan is a classical and solid approach: maintain the Ne4, support it with the rook, and create counter-play against the e5-pawn."
+    }
+  ]
+}

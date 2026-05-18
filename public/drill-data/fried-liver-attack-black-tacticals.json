@@ -1,0 +1,60 @@
+{
+  "id": "fried-liver-attack-black-tacticals",
+  "name": "Fried Liver Attack — Black Tactics",
+  "description": "4 tactical challenges for Black in the Fried Liver Attack. Find the precise defensive and counter-attacking sequences to keep the extra piece and survive White's assault!",
+  "arena": "two-knights",
+  "drills": [
+    {
+      "drillId": "fried-liver-bt1",
+      "name": "King Escape to d6",
+      "theme": "King Safety",
+      "description": "Black runs the king to safety.",
+      "fen": "r1bq1b1r/ppp2kpp/2n5/3np3/2B5/8/PPPP1PPP/RNBQK2R w KQ - 0 7",
+      "whitePromptMove": "Qf3+",
+      "solutionMoves": ["Ke6", "Kd6"],
+      "opponentResponse": "Nc3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Ke6 steps into the center, then Kd6 escapes further checks after Nc3.",
+      "explanation": "Kd6 escapes the checks. Black continues with 9...c6 and 10...Kc7, consolidating and keeping the extra piece. Once the king reaches c7, Black can begin coordinating the pieces and converting the material advantage."
+    },
+    {
+      "drillId": "fried-liver-bt2",
+      "name": "Counter-attack with ...c6",
+      "theme": "Central Counter",
+      "description": "Black challenges the center.",
+      "fen": "r1bq1b1r/ppp3pp/2n1k3/3np3/2B5/5Q2/PPPP1PPP/RNB1K2R w KQ - 2 8",
+      "whitePromptMove": "Nc3",
+      "solutionMoves": ["Nce7", "c6"],
+      "opponentResponse": "d4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Nce7 defends the d5-knight. When White plays d4, c6 challenges the bishop and gains space.",
+      "explanation": "c6 attacks the bishop. Black continues with 10...Kc7 and 11...d5, gaining space and counter-play. After Nce7 retreats the knight to safety, the c6 counter-thrust strikes at White's bishop on c4 and stakes a claim in the center."
+    },
+    {
+      "drillId": "fried-liver-bt3",
+      "name": "Queen Check on h4",
+      "theme": "Counter-Attack",
+      "description": "Black creates counter-threats.",
+      "fen": "r1bq1b1r/ppp1n1pp/4k3/3n4/2B5/2N2Q2/PPPP1PPP/R1B1K2R w KQ - 2 9",
+      "whitePromptMove": "d4",
+      "solutionMoves": ["c6", "Qh4"],
+      "opponentResponse": "Bg5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "c6 challenges the center. After Bg5, Qh4 threatens mate on f2 and counter-attacks.",
+      "explanation": "Qh4 threatens mate on f2. Black follows with 11...Bg4, pinning and attacking. The queen on h4 creates immediate threats that force White to defend rather than continue the attack. Black seizes the initiative and turns the tables."
+    },
+    {
+      "drillId": "fried-liver-bt4",
+      "name": "Bishop Development to g4",
+      "theme": "Bishop Pin",
+      "description": "Black pins the knight.",
+      "fen": "r1bq1b1r/pp2n1pp/2p1k3/3n4/2BP4/2N2Q2/PPP2PPP/R1B1K2R w KQ - 0 10",
+      "whitePromptMove": "Bb5+",
+      "solutionMoves": ["Kd6", "Bg4"],
+      "opponentResponse": "Qe4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Kd6 steps away from the check. After Qe4 attacks the knight, Bg4 pins the queen.",
+      "explanation": "Bg4 pins the queen. Black continues with 12...Qh4, creating unstoppable threats. The bishop pin on the queen forces White to resolve the pin before pressing the attack, giving Black time to activate pieces and consolidate the extra material."
+    }
+  ]
+}

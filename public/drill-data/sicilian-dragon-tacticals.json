@@ -1,0 +1,72 @@
+{
+  "id": "sicilian-dragon-tacticals",
+  "name": "Sicilian Dragon — White Tactics",
+  "description": "4 strategic challenges for White in the Dragon Yugoslav Attack. Find the right plan after 8...Nc6!",
+  "arena": "sicilian-dragon",
+  "drills": [
+    {
+      "drillId": "sicilian-dragon-t1",
+      "name": "Dark Bishop Exchange",
+      "theme": "Bishop Exchange",
+      "description": "White trades the critical dark-squared bishops by sending the Be3 to h6, targeting the Dragon's most powerful piece.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
+      "solutionMoves": ["Bh6", "Qxh6"],
+      "opponentResponse": "Bxh6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays Bh6 to force the exchange of dark-squared bishops. After Bxh6, White recaptures with Qxh6 and Black's kingside is weakened.",
+      "explanation": "Bh6 is the signature move of the Yugoslav Attack — White's Be3 sails up to h6, directly challenging Black's Dragon bishop on g7. The Dragon bishop (Bg7) is Black's most important defensive piece: it controls the long h8-a1 diagonal and is the soul of the Dragon defense. After Black plays Bxh6 (forced, otherwise the bishop is simply traded for free), White recaptures with Qxh6, putting immediate pressure on the weakened kingside. With the Dragon bishop gone, Black's king on g8 is far more vulnerable to White's coming g4-g5-h4-h5 pawn storm. Trading dark-squared bishops is White's most direct plan: remove the defender, then storm the castle."
+    },
+    {
+      "drillId": "sicilian-dragon-t2",
+      "name": "Queenside Castle",
+      "theme": "Queenside Castle",
+      "description": "White castles queenside to launch a full opposite-sides-castling race — the defining motif of the Yugoslav Attack.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
+      "solutionMoves": ["O-O-O", "exd5"],
+      "opponentResponse": "d5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles queenside. When Black tries to break with d5, White captures exd5 — the pawn chain falls and White opens lines for the kingside attack.",
+      "explanation": "O-O-O is the defining move of the Yugoslav Attack — White tucks the king away on the queenside and immediately prepares to march the h- and g-pawns forward. This is the opposite-sides-castling race: White storms the kingside with h4-h5-g4-g5, while Black races on the queenside with ...Qa5, ...a5-a4, and ...Rxc3. When Black plays d5 (the thematic central counter), White responds with exd5, accepting the pawn trade and opening the e-file. After exd5 Nxd5 (or Nxd5 Nxd4), White's pieces pour into the center. The Yugoslav Attack is a race — whoever attacks faster wins. O-O-O is the gun being loaded."
+    },
+    {
+      "drillId": "sicilian-dragon-t3",
+      "name": "Kingside Pawn Storm",
+      "theme": "Kingside Attack",
+      "description": "White launches the g4-g5 pawn storm to rip open the kingside, then uses Nxe6 to remove Black's defensive resource.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
+      "solutionMoves": ["g4", "Nxe6"],
+      "opponentResponse": "Be6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White advances g4, starting the kingside pawn storm. When Black develops with Be6, White plays Nxe6 — eliminating the defensive bishop and winning a pawn.",
+      "explanation": "g4 is the engine of White's kingside attack in the Yugoslav Attack. The g-pawn will advance to g5, attacking the Nf6 and threatening to rip open the g-file with g5xh6 or g5-g6. When Black responds with Be6 (developing the c8 bishop and challenging the Nd4), White plays Nxe6 — the Nd4 captures on e6, forking the bishop and winning material. After fxe6 (forced, otherwise Black loses the bishop for free), White has shattered Black's kingside pawn structure. The f7-pawn is now backward, the e6-pawn is a target, and White's attack crashes through with h4-h5-g5-g6. The pawn storm, once started, must be relentless."
+    },
+    {
+      "drillId": "sicilian-dragon-t4",
+      "name": "Bc4 Targeting f7",
+      "theme": "Diagonal Pressure",
+      "description": "White develops the Bf1 to c4, targeting the f7 weakness. After Black defends with Bd7, White retreats to Bb3 — a safe, powerful square.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
+      "solutionMoves": ["Bc4", "Bb3"],
+      "opponentResponse": "Bd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White develops the bishop to c4, targeting the f7 square. After Black plays Bd7, White retreats to Bb3 — an ideal square that keeps f7 under long-term pressure.",
+      "explanation": "Bc4 is a standard Yugoslav Attack development move: the Bf1 eyes the f7-square, which is only defended by the Kg8. If Black is careless, Bxf7+ Rxf7 Qxd6 wins material. After Black plays Bd7 (developing and preparing ...Qa5 or ...Nc4 counterplay), White plays Bb3 — retreating the bishop to a safer, more permanent square. From b3, the bishop is protected from ...Nc4 forks, still dominates the a2-g8 diagonal, and puts latent pressure on f7. The Bb3 also clears c4 for future knight maneuvers (Nd5). This is the subtle positional dance of the Yugoslav Attack: set up the attack before launching it."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "greco-counter-attack-black-tacticals",
+  "name": "Greco Counter-Attack — Black Tactics",
+  "description": "4 tactical challenges for Black in the Greco Counter-Attack. Use your active pieces and the e4-pawn to create counter-threats!",
+  "arena": "giuoco-piano",
+  "drills": [
+    {
+      "drillId": "greco-bt1",
+      "name": "Bishop Strikes the Outpost",
+      "theme": "Central Coordination",
+      "description": "Black trades the active bishop for White's powerful knight on e5, then regrouping after White recaptures.",
+      "fen": "r1bq1rk1/p4pp1/2pb1n1p/n3N3/4p3/8/PPPPBPPP/RNBQ1RK1 b - - 4 12",
+      "whitePromptMove": "d4",
+      "solutionMoves": ["Bxe5", "Nd7"],
+      "opponentResponse": "dxe5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black eliminates the dominant Ne5 with the bishop, forcing White to recapture, then repositions the knight.",
+      "explanation": "Bxe5 removes White's most active piece. After dxe5 recaptures, White's e5 pawn immediately attacks Black's Nf6. The calm Nd7 regrouping keeps Black's position solid — the knight heads for c5 or f6 next, keeping White on the back foot despite the pawn."
+    },
+    {
+      "drillId": "greco-bt2",
+      "name": "En Passant + Central Outpost",
+      "theme": "Knight Outpost",
+      "description": "Black snaps off White's d-pawn with en passant, then installs the knight on the powerful d5 outpost.",
+      "fen": "r1bq1rk1/p4pp1/2pb1n1p/n3N3/4p3/8/PPPPBPPP/RNBQ1RK1 b - - 4 12",
+      "whitePromptMove": "d4",
+      "solutionMoves": ["exd3", "Nd5"],
+      "opponentResponse": "Bxd3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black captures en passant to snatch White's d-pawn, then plants the knight on the ideal d5 outpost.",
+      "explanation": "exd3 (en passant) removes White's d-pawn before it can consolidate. After Bxd3, Black plays Nd5! — the knight occupies a dominant central square where it cannot be challenged by White pawns. From d5, the knight eyes c3, e3, and b4, giving Black excellent long-term compensation."
+    },
+    {
+      "drillId": "greco-bt3",
+      "name": "The Queenside Ambush",
+      "theme": "Queenside Play",
+      "description": "Black's knight on a5 leaps to b3 — simultaneously attacking the queen, rook, and bishop on three different squares.",
+      "fen": "r1bq1rk1/p4pp1/2pb1n1p/n3N3/4p3/8/PPPPBPPP/RNBQ1RK1 b - - 4 12",
+      "whitePromptMove": "Qd2",
+      "solutionMoves": ["Nb3", "Nxa1"],
+      "opponentResponse": "Qd1",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black's outcast Na5 suddenly becomes a monster — Nb3 attacks the queen, bishop, and rook all at once.",
+      "explanation": "Nb3 is a triple fork! The knight simultaneously attacks the queen on d2, the rook on a1, and the bishop on c1. White cannot save all three pieces. If the queen retreats to d1, Black plays Nxa1, winning the rook. The misplaced Na5 transforms into the hero of the position."
+    },
+    {
+      "drillId": "greco-bt4",
+      "name": "The e4 Pawn Wedge",
+      "theme": "Central Pawn Break",
+      "description": "Black recaptures White's knight on d7, then advances the e-pawn to create an unstoppable passed pawn on e3.",
+      "fen": "r1bq1rk1/p4pp1/2pb1n1p/n3N3/4p3/8/PPPPBPPP/RNBQ1RK1 b - - 4 12",
+      "whitePromptMove": "Nd7",
+      "solutionMoves": ["Nxd7", "e3"],
+      "opponentResponse": "Re1",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black recaptures on d7 to neutralize the fork, then drives the e-pawn forward to create an unstoppable wedge.",
+      "explanation": "Nxd7 immediately neutralizes White's fork attempt. After White activates the rook with Re1, Black plays e3! — the advanced pawn drives deep into White's position. The e3 pawn threatens to advance to e2 and is extremely difficult to dislodge, tying White's pieces to passive defense."
+    }
+  ]
+}

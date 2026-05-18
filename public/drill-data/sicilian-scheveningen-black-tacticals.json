@@ -1,0 +1,52 @@
+{
+  "id": "sicilian-scheveningen-black-tacticals",
+  "name": "Sicilian Scheveningen — Black Tactics",
+  "description": "4 strategic challenges for Black in the Scheveningen. Find the right counter-attacking plan!",
+  "arena": "sicilian-open",
+  "drills": [
+    {
+      "drillId": "sicilian-scheveningen-bt1",
+      "name": "Counter the Keres: h6 Prophylaxis",
+      "description": "White has played g4 with the Keres Attack. Find Black's best prophylactic move to slow the attack.",
+      "fen": "rnbqkb1r/pp3ppp/3ppn2/2p5/3NP1P1/2N5/PPP2P1P/R1BQKB1R b KQkq - 0 6",
+      "solution": [
+        "h6"
+      ],
+      "hint": "Stop the g5 advance before it happens.",
+      "explanation": "h6 is the key prophylactic move against the Keres Attack. By preventing g5, Black keeps the Nf6 active and slows White's attack. After h6, Black can develop normally and fight for the center."
+    },
+    {
+      "drillId": "sicilian-scheveningen-bt2",
+      "name": "Queenside Counter: b5-b4",
+      "description": "White has castled queenside in the English Attack. Find Black's thematic counter-attack.",
+      "fen": "2rq1rk1/1b1nbppp/pp1pp3/8/3NP3/2N1BP2/PPPQ2PP/2KR1B1R b - - 0 11",
+      "solution": [
+        "b4"
+      ],
+      "hint": "Attack White's king with the queenside pawns.",
+      "explanation": "b4 is the thematic counter when White has castled queenside. Black attacks White's king directly, creating threats on the queenside while White attacks on the kingside. This race is the heart of the English Attack — whoever gets there first wins."
+    },
+    {
+      "drillId": "sicilian-scheveningen-bt3",
+      "name": "Activate the Bb7",
+      "description": "Black has fianchettoed the bishop to b7. Find the best move to activate it and create pressure on White's center.",
+      "fen": "r2q1rk1/1b1nbppp/pp1pp3/8/3NP3/2N1B1P1/PPP1BP1P/R2Q1RK1 b - - 0 10",
+      "solution": [
+        "d5"
+      ],
+      "hint": "Break in the center to open the Bb7's diagonal.",
+      "explanation": "d5 is the thematic central break in the Scheveningen. By pushing d5, Black opens the b7-bishop's diagonal, challenges White's center, and creates counterplay. The Bb7 becomes a monster piece after the d-file opens."
+    },
+    {
+      "drillId": "sicilian-scheveningen-bt4",
+      "name": "Rook to c8: Pressure on c-file",
+      "description": "Black needs to activate the rooks. Find the best move to create pressure on the c-file and prepare queenside counterplay.",
+      "fen": "r1bq1rk1/1b1nbppp/pp1pp3/8/3NP3/2N1B3/PPP1BPPP/R2Q1RK1 b - - 0 9",
+      "solution": [
+        "Rc8"
+      ],
+      "hint": "Place the rook on the open c-file.",
+      "explanation": "Rc8 is the key rook activation in the Scheveningen. The c-file is semi-open and Black's rook belongs there, pressuring White's c2 pawn and preparing queenside counterplay. This is the standard setup before launching b5-b4."
+    }
+  ]
+}

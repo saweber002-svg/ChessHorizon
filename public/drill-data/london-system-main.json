@@ -1,0 +1,16 @@
+{
+  "id": "london-system-main",
+  "name": "London System — Classical Setup",
+  "description": "The most popular d4 system at club level. White builds a solid pyramidal structure with d4-e3-c3 and develops the bishops actively before committing the center. After 8...b6, both sides have staked out their plans — White controls the center, Black seeks queenside counter-play.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "london-main",
+      "name": "London System — Classical Setup",
+      "description": "White develops Bf4 before e3 — the defining move-order trick of the London. The d4-e3-c3 pawn pyramid is rock-solid. After Nd2, Ngf3, Bg3, and Bd3, White has a harmonious, low-theory setup that fights for long-term positional pressure. Black's ...Bd6-...b6 plan contests the light squares and prepares queenside play.",
+      "moves": ["d4", "d5", "Bf4", "Nf6", "e3", "c5", "c3", "Nc6", "Nd2", "e6", "Ngf3", "Bd6", "Bg3", "O-O", "Bd3", "b6"],
+      "moveCount": 16,
+      "difficulty": "Beginner"
+    }
+  ]
+}

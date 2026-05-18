@@ -1,0 +1,56 @@
+{
+  "id": "moeller-attack-tacticals",
+  "name": "Moeller Attack — White Tactics",
+  "description": "4 tactical challenges for White in the Moeller Attack. Find the winning 2-move sequence from the critical Moeller positions.",
+  "arena": "giuoco-piano",
+  "drills": [
+    {
+      "drillId": "moeller-t1",
+      "name": "The e-file Pin & Overload",
+      "theme": "e-File Pressure",
+      "description": "White retreats the rook to e1 to double on the e-file, then centralises the queen on e2 to add decisive pressure on the pinned knight.",
+      "fen": "r1bq1rk1/ppp1nppp/3p4/3P2N1/2B1R3/8/PP3PPP/R2Q2K1 w - - 0 14",
+      "solutionMoves": ["Re1", "Qe2"],
+      "opponentResponse": "Nf5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Re1 reloads the rook on the open e-file. When Black centralises the knight, Qe2 adds overwhelming pressure.",
+      "explanation": "After Re1, White doubles major pieces on the e-file. If Black plays Nf5, Qe2 piles on the pressure immediately. White now threatens Bf4, d6, and Rxe7 simultaneously — Black cannot meet all threats. The knight on g5 eyes f7 while the e-file battery targets the unprotected Ne7. White has a crushing initiative."
+    },
+    {
+      "drillId": "moeller-t2",
+      "name": "The f7 Knight Sacrifice",
+      "theme": "Knight Sacrifice",
+      "description": "White sacrifices the knight on f7, ripping open the black king's defences and winning back material with the e-file rook.",
+      "fen": "r1bq1rk1/ppp1nppp/3p4/3P2N1/2B1R3/8/PP3PPP/R2Q2K1 w - - 0 14",
+      "solutionMoves": ["Nxf7", "Rxe7"],
+      "opponentResponse": "Rxf7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Nxf7 tears apart Black's kingside. After Rxf7, White wins the knight on e7 with the rook.",
+      "explanation": "After Nxf7 Rxf7, White plays Rxe7! The rook crashes into e7, winning the knight outright. Black has no good reply — the queen on d8 is attacked, and after Qxe7 White continues with Qd3 and Bc4 pressure on f7. White recovers material with a continuing attack. The open e-file was the key — every Moeller position revolves around it."
+    },
+    {
+      "drillId": "moeller-t3",
+      "name": "The d6 Breakthrough",
+      "theme": "Pawn Breakthrough",
+      "description": "White advances the d-pawn to d6, cramping Black's position. After Black captures the pawn, White occupies the e-file with the rook.",
+      "fen": "r1bqk2r/pppp1ppp/2n2b2/3P4/2B1n3/5N2/PP3PPP/R1BQ1RK1 w kq - 0 10",
+      "solutionMoves": ["d6", "Re1"],
+      "opponentResponse": "Nxd6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "d6 wedges deep into Black's position. After Nxd6, Re1 puts the rook on the open file attacking the exposed knight.",
+      "explanation": "After d6, Black is forced to capture with Nxd6 (allowing the knight to be targeted). Re1 seizes the e-file and eyes the exposed Nd6 immediately. White follows with Bf4 and Qd2, creating a powerful passed pawn and attacking the e7-knight simultaneously. The d6-pawn disrupts Black's queenside coordination and gives White a lasting initiative."
+    },
+    {
+      "drillId": "moeller-t4",
+      "name": "The Bg5 Pin Exploitation",
+      "theme": "Bishop Pin",
+      "description": "White pins the bishop on f6 to the queen with Bg5, then captures to damage Black's pawn structure and target the kingside.",
+      "fen": "r1bqk2r/ppp1nppp/3p1b2/3P4/2B1R3/5N2/PP3PPP/R1BQ2K1 w kq - 0 12",
+      "solutionMoves": ["Bg5", "Bxf6"],
+      "opponentResponse": "h6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Bg5 pins the bishop on f6 to the queen. Even after h6, White takes anyway — the structural damage is worth it.",
+      "explanation": "Bg5 pins the Bf6 to the queen on d8. Even if Black tries h6 to drive the bishop away, Bxf6 is played regardless — the bishop pair is surrendered in exchange for wrecking Black's kingside pawn structure. White follows with Qh5 and Re1, targeting h7 and f7 for a decisive kingside attack. The advanced d5-pawn and active rook combine for overwhelming pressure."
+    }
+  ]
+}

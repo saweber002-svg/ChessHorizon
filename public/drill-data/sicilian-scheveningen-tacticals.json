@@ -1,0 +1,52 @@
+{
+  "id": "sicilian-scheveningen-tacticals",
+  "name": "Sicilian Scheveningen — White Tactics",
+  "description": "4 strategic challenges for White in the Scheveningen. Find the right attacking plan!",
+  "arena": "sicilian-open",
+  "drills": [
+    {
+      "drillId": "sicilian-scheveningen-t1",
+      "name": "Keres Attack: g4-g5 Storm",
+      "description": "White has launched the Keres Attack with g4. Find the key move to continue the kingside storm and force Black's knight to a passive square.",
+      "fen": "r1bqkb1r/pp3ppp/2nppn2/8/3NP1P1/2N1B3/PPP2P1P/R2QKB1R w KQkq - 0 8",
+      "solution": [
+        "g5"
+      ],
+      "hint": "Push the pawn to gain space and attack the Nf6.",
+      "explanation": "g5 forces the Nf6 to move, gaining space and beginning the kingside attack. The knight must retreat to h5 or d7, giving White a free hand on the kingside."
+    },
+    {
+      "drillId": "sicilian-scheveningen-t2",
+      "name": "English Attack: Queenside Castle",
+      "description": "White has set up the English Attack with Be3, f3, Qd2. Find the correct move to complete the setup and launch the attack.",
+      "fen": "r1bqk2r/1b1nbppp/p2ppn2/1p6/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQkq - 0 9",
+      "solution": [
+        "O-O-O"
+      ],
+      "hint": "Castle to connect the rooks and prepare the g4 advance.",
+      "explanation": "O-O-O is the signature move of the English Attack. White castles queenside, connects the rooks, and prepares g4-g5 to storm Black's kingside while the kings are on opposite wings."
+    },
+    {
+      "drillId": "sicilian-scheveningen-t3",
+      "name": "Classical: f4-f5 Break",
+      "description": "White has built up with Be2, f4, and Be3. Find the thematic pawn break to open lines against Black's king.",
+      "fen": "r1bq1rk1/1b1nbppp/p2pp3/1p4n1/3NPP2/2N1B1P1/PPP1B2P/R2Q1RK1 w - - 0 12",
+      "solution": [
+        "f5"
+      ],
+      "hint": "Break open the center with the f-pawn.",
+      "explanation": "f5 is the thematic break in the Scheveningen. White opens lines against Black's king, creates a passed pawn possibility, and gains space. After exf5, White recaptures with the e-pawn or the g-pawn depending on the position."
+    },
+    {
+      "drillId": "sicilian-scheveningen-t4",
+      "name": "Nd5 Outpost",
+      "description": "White has a strong knight on d4. Find the best move to exploit the d5 outpost and create a decisive advantage.",
+      "fen": "r1bq1rk1/pb1nbppp/1p1pp3/8/2BNP3/2N1B3/PPP2PPP/R2Q1RK1 w - - 0 10",
+      "solution": [
+        "Nd5"
+      ],
+      "hint": "Jump the knight to the dominant d5 outpost.",
+      "explanation": "Nd5 is the thematic knight leap in the Scheveningen. The knight on d5 dominates the center, attacks the Be7 and Nb6, and is very difficult to dislodge. This is the signature positional idea for White in many Sicilian structures."
+    }
+  ]
+}

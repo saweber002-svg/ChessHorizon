@@ -1,0 +1,72 @@
+{
+  "id": "scandinavian-qd6-tacticals",
+  "name": "Scandinavian Qd6 — White Tactics",
+  "description": "4 strategic challenges for White in the Scandinavian Qd6 Variation. Find the right plan from move 9 onwards!",
+  "arena": "scandinavian-qd6",
+  "drills": [
+    {
+      "drillId": "scandinavian-qd6-t1",
+      "name": "O-O + Bg5 Pin",
+      "theme": "King Safety + Pin",
+      "description": "White castles kingside for king safety. After Black also castles, White immediately pins the Nf6 with Bg5 — one of White's most powerful weapons in the Qd6 structure.",
+      "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R w KQkq - 2 9",
+      "solutionMoves": ["O-O", "Bg5"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles kingside for safety. After Black also castles, White plays Bg5 — pinning the Nf6 against the Be7 and creating long-term pressure on Black's kingside.",
+      "explanation": "O-O is White's most principled response: castle first, activate the rooks, then squeeze. After Black mirrors with O-O (securing the king), White plays Bg5 — the c1 dark bishop slides to g5, pinning the Nf6 against the Be7. The pin is positionally devastating in the Qd6 structure: the Nf6 is Black's main defender, and tying it to the e7 bishop means it can never freely move to attack or defend. The Bg5 pin also sets up long-term threats like Bxf6 (doubling Black's pawns) or Nd5 (the central knight outpost). From g5, the bishop also eyes d8, keeping the queen passive. White's Qf3 and Bd3 pair with Bg5 to create a three-piece battery of pressure targeting d5 and e6. The pin + queen pressure + central bishop is White's complete attacking setup in the Qd6 Scandinavian."
+    },
+    {
+      "drillId": "scandinavian-qd6-t2",
+      "name": "Nd5 Central Outpost",
+      "theme": "Central Outpost",
+      "description": "White leaps the knight to the dominant central square d5. After Black's Nf6 captures, White recaptures Bxd5 — a centralized bishop controlling both diagonals from d5.",
+      "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R w KQkq - 2 9",
+      "solutionMoves": ["Nd5", "Bxd5"],
+      "opponentResponse": "Nxd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White jumps Nd5, seizing the central outpost. Black must take Nxd5. White recaptures Bxd5 — a powerfully centralized bishop that controls the a2-g8 diagonal and targets e6.",
+      "explanation": "Nd5 is White's most forcing plan in the Qd6 structure. The Nc3 leaps to d5 — the most dominant central square — attacking the Black queen on d6 and pressuring e7. Black must capture: leaving the Nd5 would be positionally catastrophic, as it controls b4, c7, e7, and f6 simultaneously. After Black plays Nxd5 (the Nf6 captures from f6: a (2 left, 1 down) knight move ✓), White recaptures Bxd5 — the Bd3 moves to d5. The resulting Bxd5 is a monster: it sits on the most central square, controls the a8-e4 diagonal (restraining Black's queenside), and eyes e6 (the key pawn in Black's structure). The Bxd5 bishop also indirectly supports the Qf3, creating a queen-bishop battery. White's resulting position after Bxd5 gives long-term pressure against Black's e6 weakness, and Black's queen on d6 — now menaced by the bishop — must retreat or accept permanent passivity. Nd5 followed by Bxd5 is White's most concrete attacking sequence in any Qd6 Scandinavian setup."
+    },
+    {
+      "drillId": "scandinavian-qd6-t3",
+      "name": "O-O-O Queenside Castle",
+      "theme": "Aggressive Castling",
+      "description": "White castles queenside for an aggressive setup — the king reaches c1, the rooks connect on the d-file, and White launches a kingside pawn storm against Black's castled king.",
+      "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R w KQkq - 2 9",
+      "solutionMoves": ["O-O-O", "Kb1"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles queenside — king to c1, rooks connect on d-file. After Black castles kingside, White tucks the king further with Kb1 before launching the kingside attack.",
+      "explanation": "O-O-O is White's most aggressive plan in the Qd6 structure. By castling queenside, White places the king on c1 and activates the Ra1 rook on the d-file — the most important open file in the position. The Rd1 immediately presses on the d5-d8 axis, supporting the Bd3 and Qf3 central battery. After Black castles kingside with O-O (the natural response), White plays Kb1 — tucking the king off the c-file and preparing the queenside rook to advance. Kb1 is a standard refinement that removes the king from potential pawn-break counter-attacks (c5-c4 by Black). From this setup, White's plan is a full kingside pawn storm: g4, h4, g5 — tearing open lines against Black's king. The Qf3, Bd3, and Bg5 (or Bg5 already played) all point toward Black's kingside. When White castles long and Black castles short, the race is on — and White's preparation with Kb1 and Rd1 gives a one-move head start on the attack."
+    },
+    {
+      "drillId": "scandinavian-qd6-t4",
+      "name": "Bg5 Pin + Bh4 Retreat",
+      "theme": "Pin Maintenance",
+      "description": "White pins the Nf6 immediately with Bg5. When Black plays h6 to challenge the bishop, White retreats to Bh4 — maintaining the pin and keeping the pressure.",
+      "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R w KQkq - 2 9",
+      "solutionMoves": ["Bg5", "Bh4"],
+      "opponentResponse": "h6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays Bg5, pinning the Nf6 against the Be7. Black challenges with h6. White retreats Bh4 — maintaining the pin on the f6 knight from a safer square.",
+      "explanation": "Bg5 is White's immediate pin move — the c1 dark bishop travels to g5, pinning the Nf6 against the Be7. Black's most natural response is h6, challenging the bishop and threatening to kick it with g5. But White retreats to Bh4 instead of trading on f6 — the pin is maintained from h4, a safer square out of pawn range. From h4, the bishop still pins the Nf6 (any Nf6 move allows Bxe7, winning the bishop pair). The Bh4 retreat is a key Qd6 technique: don't give up the bishop pair prematurely. After Bg5-Bh4, White keeps the pressure alive. Black is now stuck: playing g5 would weaken the kingside pawn chain and allow f4-f5 advances. The h6 pawn becomes a long-term weakness. Meanwhile, White prepares O-O, Rfe1, and the central push d5 or e4 (if the Bd3-Qf3 battery is in place). Patience is the key: maintain the pin, improve all pieces, then strike."
+    }
+  ]
+}

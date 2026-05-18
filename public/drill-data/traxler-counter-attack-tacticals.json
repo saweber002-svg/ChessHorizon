@@ -1,0 +1,56 @@
+{
+  "id": "traxler-counter-attack-tacticals",
+  "name": "Traxler Counter-Attack — White Tactics",
+  "description": "4 tactical challenges for White in the Traxler Counter-Attack. Find the winning 2-move sequence to consolidate and win material against Black's sacrificial attack.",
+  "arena": "two-knights",
+  "drills": [
+    {
+      "drillId": "traxler-t1",
+      "name": "King Escape to d3",
+      "theme": "King Escape",
+      "description": "White runs the king to safety.",
+      "fen": "r1bqk2r/pppp1Npp/2n5/4p3/2B1n3/8/PPPP1KPP/RNBQ3R w kq - 0 7",
+      "solutionMoves": ["Ke3", "d3"],
+      "opponentResponse": "Qh4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White runs the king to safety.",
+      "explanation": "d3 attacks the knight. White continues with 9.Kd3 and 10.Qf3, consolidating and winning material."
+    },
+    {
+      "drillId": "traxler-t2",
+      "name": "Queen Check on f3",
+      "theme": "Queen Check",
+      "description": "White attacks the knight and checks.",
+      "fen": "r1b1k2r/pppp1Npp/2n5/4p3/2B1n2q/4K3/PPPP2PP/RNBQ3R w kq - 2 8",
+      "solutionMoves": ["Qf3", "Qxe4"],
+      "opponentResponse": "Qg4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White attacks the knight and checks.",
+      "explanation": "Qxe4 wins the knight. White follows with 10.Qf3, keeping the attack alive."
+    },
+    {
+      "drillId": "traxler-t3",
+      "name": "d4 Central Push",
+      "theme": "Central Push",
+      "description": "White opens the center.",
+      "fen": "r1b1k2r/pppp1Npp/2n5/4p3/2B1n2q/4K3/PPPP2PP/RNBQ3R w kq - 2 8",
+      "solutionMoves": ["d4", "dxc5"],
+      "opponentResponse": "c5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White opens the center.",
+      "explanation": "dxc5 opens lines. White continues with 10.Qf3, winning material."
+    },
+    {
+      "drillId": "traxler-t4",
+      "name": "Bg5 Pin",
+      "theme": "Bishop Pin",
+      "description": "White pins the queen.",
+      "fen": "r1b1k2N/ppp3pp/2n2q2/3p4/4n3/3K2P1/PPPB3P/RN1Q3R w q - 1 11",
+      "solutionMoves": ["Bg5", "Bxf6"],
+      "opponentResponse": "h6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White pins the queen.",
+      "explanation": "Bxf6 damages Black's structure. White follows with 11.Qf3, winning decisive material."
+    }
+  ]
+}

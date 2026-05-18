@@ -1,0 +1,16 @@
+{
+  "id": "two-knights-main",
+  "name": "Two Knights Defense — Main Line (Na5)",
+  "description": "Black plays the aggressive 3...Nf6 and after 4.Ng5 d5, sidesteps with Na5 — a dynamic counter that fights for the initiative from the very first moves.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "two-knights",
+      "name": "Two Knights Defense — Na5 Line",
+      "description": "After 4.Ng5 d5 5.exd5 Na5, Black chases the bishop with check and recaptures. White retreats the bishop to e2, Black plays h6 to kick the knight, and after central exchanges both sides castle in a sharp, complex middlegame.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Nf6", "Ng5", "d5", "exd5", "Na5", "Bb5+", "c6", "dxc6", "bxc6", "Be2", "h6", "Nf3", "e4", "Ne5", "Bd6", "d4", "exd3", "Nxd3", "O-O", "O-O"],
+      "moveCount": 25,
+      "difficulty": "Advanced"
+    }
+  ]
+}

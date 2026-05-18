@@ -1,0 +1,16 @@
+{
+  "id": "sicilian-classical-main",
+  "name": "Sicilian Classical — Richter-Rauzer Main Line",
+  "description": "The Richter-Rauzer Attack — one of the oldest and most respected anti-Sicilian weapons. After 5...Nc6, White plays 6.Bg5, pinning the Nf6 and building with Qd2 and O-O-O. Black develops naturally with ...e6, ...a6, and ...Bd7, preparing queenside counterplay with ...b5. White attacks on the kingside with pawn storms; Black races on the queenside. Opposite-side castling leads to sharp, tactical play at the highest levels.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "sicilian-classical",
+      "name": "Classical Variation — Richter-Rauzer Main Line",
+      "description": "After 5...Nc6, White plays 6.Bg5 — the Richter-Rauzer Attack. The bishop pins the Nf6, pressures f6, and prepares opposite-side castling. After 7.Qd2 a6 8.O-O-O Bd7, both sides have declared their intentions: White will storm the kingside with f4-f5 and h4-h5; Black will race on the queenside with ...b5-b4. One of the oldest and most respected Sicilian systems — played from club level to world championship.",
+      "moves": ["e4", "c5", "Nf3", "d6", "d4", "cxd4", "Nxd4", "Nf6", "Nc3", "Nc6", "Bg5", "e6", "Qd2", "a6", "O-O-O", "Bd7"],
+      "moveCount": 16,
+      "difficulty": "Advanced"
+    }
+  ]
+}

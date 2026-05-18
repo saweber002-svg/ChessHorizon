@@ -1,0 +1,76 @@
+{
+  "id": "sicilian-kan-black-tacticals",
+  "name": "Sicilian Kan — Black Tactics",
+  "description": "4 strategic challenges for Black in the Sicilian Kan Maroczy Bind. Find the right counter-plan after White's move!",
+  "arena": "sicilian-kan",
+  "drills": [
+    {
+      "drillId": "sicilian-kan-bt1",
+      "name": "b5 Queenside Expansion",
+      "theme": "Queenside Expansion",
+      "description": "When White develops with Nc3, Black strikes immediately with ...b5 — the classic Kan pawn break that challenges the Maroczy Bind. After White captures cxb5, Black recaptures axb5 and gains queenside space.",
+      "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 b kq - 0 9",
+      "whitePromptMove": "Nc3",
+      "solutionMoves": ["b5", "axb5"],
+      "opponentResponse": "cxb5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays ...b5, the thematic Kan break against the Maroczy Bind. When White captures cxb5, Black recaptures with axb5 — gaining queenside space and threatening ...b4.",
+      "explanation": "After White plays Nc3 (developing and reinforcing the bind), Black must challenge White's c4+e4 structure immediately. The move ...b5 is the Kan's signature queenside break — the b7-pawn advances to b5, directly attacking White's c4-pawn. This is the critical challenge to the Maroczy Bind: if Black cannot play ...b5, the bind suffocates Black indefinitely. After White captures cxb5, Black recaptures with axb5 — not bxc5, which would leave the queenside pawns disconnected. The axb5 recapture gains queenside space, creates the threat of ...b4 to attack White's Nc3, and opens the a-file for the Ra8. Black's position becomes active and dynamic. The b5 break is the Kan's most important resource — delay it too long and White consolidates with f3, Be3, and a queenside attack."
+    },
+    {
+      "drillId": "sicilian-kan-bt2",
+      "name": "Bg7 Fianchetto",
+      "theme": "Development",
+      "description": "When White plays Be3, Black completes the kingside fianchetto with ...Bg7. After White develops Nc3, Black castles safely with O-O.",
+      "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 b kq - 0 9",
+      "whitePromptMove": "Be3",
+      "solutionMoves": ["Bg7", "O-O"],
+      "opponentResponse": "Nc3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays ...Bg7, completing the kingside fianchetto. After White develops with Nc3, Black castles kingside with O-O — king safety secured and the Dragon bishop active.",
+      "explanation": "After White plays Be3 (setting up the English Attack), Black's most principled plan is the fianchetto: ...Bg7 completes what ...g6 prepared. The bishop on g7 is Black's most important piece in the Kan — it dominates the long h8-a1 diagonal, provides kingside defense, and fires at White's queenside. After White plays Nc3 (continuing development), Black castles with O-O. The king is now safe on g8, protected by the fianchetto bishop, and all of Black's pieces are developed and coordinated. From this setup, Black will pursue the classic Kan plan: ...b5 queenside expansion when the timing is right, and piece play on the queenside with ...Bb7, ...Nbd7, and rooks to c8 and d8. The fianchetto is the spine of Black's position — build it first, castle second, counter-attack third."
+    },
+    {
+      "drillId": "sicilian-kan-bt3",
+      "name": "Bb7 Long Diagonal",
+      "theme": "Active Bishop",
+      "description": "When White develops with Nc3, Black develops the bishop to b7 — controlling the long diagonal. After White pushes f4, Black develops the knight to d7 to complete coordination.",
+      "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 b kq - 0 9",
+      "whitePromptMove": "Nc3",
+      "solutionMoves": ["Bb7", "Nbd7"],
+      "opponentResponse": "f4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays ...Bb7, developing the bishop to the long diagonal alongside ...g6 preparation. After White pushes f4, Black plays ...Nbd7 — the knight supports e5 and prepares ...Nc5 to challenge the Bd3.",
+      "explanation": "After White plays Nc3, Black can develop the Bc8 immediately to b7 — the Bb7 plan is the Kan's most ambitious bishop development. The bishop on b7 fires down the g8-a1 long diagonal, immediately challenging White's queenside and supporting Black's eventual ...b5 break. When White plays f4 (starting the kingside expansion), Black plays Nbd7 — the knight develops to d7, where it supports e5 (a potential central counter), prepares ...Nc5 (challenging the Bd3), and keeps the queen on c7 protected. The Bb7 + Nbd7 combination is a harmonious setup: the bishop controls the long diagonal, the Nbd7 provides flexible piece play, and Black is ready to castle either side depending on White's plan. The Kan's power is this flexibility — pieces go to their best squares without committing early."
+    },
+    {
+      "drillId": "sicilian-kan-bt4",
+      "name": "Nc6 Knight Development",
+      "theme": "Central Exchange",
+      "description": "When White plays Be3, Black develops the knight to c6 — challenging White's dominant Nd4. After White captures Nxc6, Black recaptures bxc6, opening the b-file for queenside counterplay.",
+      "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 b kq - 0 9",
+      "whitePromptMove": "Be3",
+      "solutionMoves": ["Nc6", "bxc6"],
+      "opponentResponse": "Nxc6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays ...Nc6, directly challenging White's powerful Nd4. After White captures Nxc6, Black recaptures with bxc6 — opening the b-file for queenside pressure and gaining the bishop pair.",
+      "explanation": "After White plays Be3, Black has an important decision: delay committing the knight (Kan style) or challenge the Nd4 directly. Playing ...Nc6 is the direct approach — the knight develops and immediately contests White's best-placed piece. White's Nd4 is the anchor of the Maroczy Bind, controlling d5 and e6. By challenging it with ...Nc6, Black forces White's hand. When White captures Nxc6 (eliminating the challenge to the bind), Black recaptures bxc6 — not dxc6. The bxc6 recapture is key: it opens the b-file for Black's queenside pressure, gives Black the bishop pair (Bc8 is no longer blocked by the knight), and creates the ...c5 advance possibility. The half-open b-file becomes Black's primary attacking avenue, with Rb8 and Bb7 applying long-term pressure against White's queenside. This is the Kan's practical magic — even when White takes on c6, Black gets excellent compensation."
+    }
+  ]
+}

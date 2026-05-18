@@ -1,0 +1,76 @@
+{
+  "id": "english-main-black-tacticals",
+  "name": "English Opening — Black Tactics",
+  "description": "4 strategic challenges for Black in the Symmetrical English. Learn when to complete the fianchetto, how to expand on the queenside, and how to seize the d4 square.",
+  "arena": "english-main",
+  "drills": [
+    {
+      "drillId": "em-bt1",
+      "name": "Fianchetto Completion",
+      "theme": "Diagonal Pressure",
+      "description": "Complete the fianchetto with Bg7 to activate the powerful dark-squared bishop. After White plays d3, castle to secure the king and connect the rooks.",
+      "fen": "r1bqkb1r/pp2pp1p/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 b kq - 1 8",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["Bg7", "O-O"],
+      "opponentResponse": "d3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Bg7 completes the fianchetto. After d3, O-O secures the king and connects the rooks.",
+      "explanation": "...Bg7 is the logical completion of Black's fianchetto plan — the bishop lands on g7 where it fires down the entire h8-a1 diagonal, mirroring White's own Bg2 bishop. The two fianchetto bishops face each other across the board in one of the most balanced and strategically rich structures in all of chess. After White plays d3 (building the solid King's Indian Attack formation), Black castles with O-O, securing the king and connecting the rooks. After O-O, Black's position is fully harmonious: the Bg7 dragon bishop controls the dark squares, the Nc6 is ready for ...Nd4, and the queenside expansion with ...b5 is the main plan. Black has achieved everything they need from the opening."
+    },
+    {
+      "drillId": "em-bt2",
+      "name": "Queenside Expansion",
+      "theme": "Queenside Expansion",
+      "description": "Launch the thematic b5 queenside break. After White challenges with a4, advance b4 to keep the queenside initiative and lock out White's rook.",
+      "fen": "r1bqkb1r/pp2pp1p/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 b kq - 1 8",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["b5", "b4"],
+      "opponentResponse": "a4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "b5 starts queenside expansion. After a4 challenges, b4 keeps the initiative and shuts out White's rook.",
+      "explanation": "...b5 is Black's most ambitious queenside expansion in the Symmetrical English — advancing the b-pawn to attack White's position and establish queenside space. This move gains space, prepares ...b4 to kick the c3 knight (if it were there) or fix White's pawns, and opens lines for Black's queenside pieces. White's natural challenge is a4, trying to undermine b5. But Black responds with b4 — pressing forward, closing the b-file on White's terms, and preparing ...a5 to further restrict White's queenside. After b4, Black has a significant space advantage on the queenside and the long-term plan of ...a5-a4 to build a passed pawn. The b5-b4 advance is the defining Black plan in the Symmetrical English."
+    },
+    {
+      "drillId": "em-bt3",
+      "name": "Central Counter",
+      "theme": "Central Counter",
+      "description": "Stake a claim in the center with e5. After White plays d3, plant the knight on d4 to seize Black's most powerful central outpost.",
+      "fen": "r1bqkb1r/pp2pp1p/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 b kq - 1 8",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["e5", "Nd4"],
+      "opponentResponse": "d3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "e5 grabs central space. After d3, Nd4 plants the knight on the dominant central outpost.",
+      "explanation": "...e5 is Black's most direct central thrust — advancing the e-pawn to stake a claim in the center and gain space. After White plays d3 (building the slow King's Indian Attack structure), Black plays Nd4 — the dream move in the Symmetrical English. The knight on d4 is completely dominant: it attacks c2, e2, b3, and f3, it cannot be easily removed (f3 has a knight on it already, and c3 has a pawn), and it sits on the most important central square on the board. With ...e5+...Nd4, Black has transformed the symmetrical position into a clear Black advantage: the d4 knight is worth more than any of White's pieces. This central domination is what the Symmetrical English is really about from Black's perspective."
+    },
+    {
+      "drillId": "em-bt4",
+      "name": "Knight Jump",
+      "theme": "Central Coordination",
+      "description": "Leap the knight directly to d4. After White recaptures Nxd4, take back with the c-pawn to establish a strong central pawn and open the c-file for the rook.",
+      "fen": "r1bqkb1r/pp2pp1p/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 b kq - 1 8",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["Nd4", "cxd4"],
+      "opponentResponse": "Nxd4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Nd4 seizes the dominant outpost immediately. After Nxd4, cxd4 gives Black a passed d-pawn and opens the c-file.",
+      "explanation": "...Nd4 is the most forcing central move available to Black — the knight jumps directly from c6 to d4, occupying the most important square in the position. White must deal with this immediately: the Nd4 attacks e2, f3 (where White's other knight sits), and the b3 square. White's best response is Nxd4 (exchanging the knights), after which Black plays cxd4 — recapturing with the c5 pawn. After cxd4, Black has achieved a central pawn majority (d4+e7) and opened the c-file for the rook to enter. The d4 pawn is a potential passed pawn and a long-term strategic asset. Black has transformed a symmetrical position into a clear advantage through this knight-and-pawn sacrifice exchange sequence."
+    }
+  ]
+}

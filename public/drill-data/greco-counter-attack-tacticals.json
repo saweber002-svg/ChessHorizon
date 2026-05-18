@@ -1,0 +1,56 @@
+{
+  "id": "greco-counter-attack-tacticals",
+  "name": "Greco Counter-Attack — White Tactics",
+  "description": "4 tactical challenges for White in the Greco Counter-Attack. Exploit your active pieces and the weak c6-pawn!",
+  "arena": "giuoco-piano",
+  "drills": [
+    {
+      "drillId": "greco-t1",
+      "name": "The d7 Knight Fork",
+      "theme": "Pin / Overload",
+      "description": "White's knight leaps to d7, simultaneously attacking the Black knight on f6 and the rook on f8.",
+      "fen": "r1bq1rk1/p4pp1/2pb1n1p/n3N3/4p3/8/PPPPBPPP/RNBQ1RK1 w - - 4 12",
+      "solutionMoves": ["Nd7", "Nxf8"],
+      "opponentResponse": "Ne8",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White's knight leaps to d7, forking the Black knight on f6 and the rook on f8 simultaneously.",
+      "explanation": "Nd7 creates a deadly fork. It attacks both the knight on f6 and the rook on f8 at once. If Black retreats the knight to e8 to escape, White simply takes the rook with Nxf8, winning the exchange. Black cannot save both pieces."
+    },
+    {
+      "drillId": "greco-t2",
+      "name": "Central Strike + f7 Invasion",
+      "theme": "f7 Weakness",
+      "description": "White strikes with d4, and after Black recaptures en passant, the Ne5 invades f7.",
+      "fen": "r1bq1rk1/p4pp1/2pb1n1p/n3N3/4p3/8/PPPPBPPP/RNBQ1RK1 w - - 4 12",
+      "solutionMoves": ["d4", "Nxf7"],
+      "opponentResponse": "exd3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White opens the center with d4, and when Black takes en passant, the knight strikes f7.",
+      "explanation": "d4 challenges Black's advanced e-pawn. After Black captures en passant with exd3, White pounces with Nxf7! The knight invades f7 with tempo, attacking the rook on f8 and winning material. This is the classic punishment for an overextended Black center."
+    },
+    {
+      "drillId": "greco-t3",
+      "name": "Bishop Battery + Knight Fork",
+      "theme": "Diagonal Pressure",
+      "description": "White repositions the bishop to c4 to reload the f7 battery, then launches the knight to d7.",
+      "fen": "r1bq1rk1/p4pp1/2pb1n1p/n3N3/4p3/8/PPPPBPPP/RNBQ1RK1 w - - 4 12",
+      "solutionMoves": ["Bc4", "Nd7"],
+      "opponentResponse": "Qe7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White re-activates the bishop on c4, restoring the deadly a2-g8 battery. When Black defends with the queen, Nd7 forks again.",
+      "explanation": "Bc4 reloads the diagonal, pointing at f7 and e6. If Black plays Qe7 to consolidate, White strikes with Nd7, forking the knight on f6 and the rook on f8 again. The bishop and knight work in concert to overwhelm Black's defenses."
+    },
+    {
+      "drillId": "greco-t4",
+      "name": "The c6 Harvest",
+      "theme": "Knight Outpost",
+      "description": "White captures the weak c6-pawn with the knight, creating a fork that wins the misplaced knight on a5.",
+      "fen": "r1bq1rk1/p4pp1/2pb1n1p/n3N3/4p3/8/PPPPBPPP/RNBQ1RK1 w - - 4 12",
+      "solutionMoves": ["Nxc6", "Nxa5"],
+      "opponentResponse": "Qe8",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White's knight takes the c6-pawn, simultaneously attacking both the Black queen on d8 and the misplaced knight on a5.",
+      "explanation": "Nxc6 is a powerful fork! The knight on c6 attacks both the queen on d8 and the knight on a5 at the same time. If Black moves the queen to e8 to escape, White captures the knight on a5 with Nxa5, winning a full piece. The misplaced Na5 is finally punished."
+    }
+  ]
+}

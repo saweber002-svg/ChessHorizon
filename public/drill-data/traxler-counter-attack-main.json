@@ -1,0 +1,30 @@
+{
+  "id": "traxler-counter-attack-main",
+  "name": "Two Knights Defense — Traxler Counter-Attack",
+  "description": "Black sacrifices the bishop with 5...Bxf2+, forcing White's king into the open. The king runs to e3, where it faces a barrage of threats from Black's queen and knights. A wildly unbalanced, tactical masterpiece.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "traxler-counter-attack",
+      "name": "Traxler Counter-Attack",
+      "description": "After 4.Ng5 Bc5 5.Nxf7 Bxf2+, Black sacrifices the bishop to drag White's king out. After 6.Kxf2 Nxe4+, the king runs to e3. Black plays 7...Qh4 threatening immediate mate ideas. White pushes 8.g3 Qf6, and after 9.Nxh8 d5, the position is wildly complex with the knight trapped on h8.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Nf6", "Ng5", "Bc5", "Nxf7", "Bxf2+", "Kxf2", "Nxe4+", "Ke3", "Qh4", "g3", "Qf6", "Nxh8", "d5"],
+      "moveCount": 18,
+      "difficulty": "Advanced"
+    }
+  ],
+  "noteCards": {
+    "white": {
+      "typicalPawnStructure": "Open center",
+      "mostValuableBishop": "Light-squared bishop",
+      "keySquares": ["e4", "f2", "d5"],
+      "quickTip": "Consolidate the king and use your extra material."
+    },
+    "black": {
+      "typicalPawnStructure": "Up a piece but king in center",
+      "mostValuableBishop": "Dark-squared bishop on c5",
+      "keySquares": ["f2", "e3", "d4"],
+      "quickTip": "Attack the exposed king relentlessly."
+    }
+  }
+}

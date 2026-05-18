@@ -1,0 +1,16 @@
+{
+  "id": "fried-liver-attack-main",
+  "name": "Two Knights Defense — Fried Liver Attack",
+  "description": "White sacrifices the knight on f7 with 6.Nxf7, forcing Black's king into the center. Black must navigate with the king exposed while White launches an all-out attack on e6.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "fried-liver-attack",
+      "name": "Fried Liver Attack",
+      "description": "After 4.Ng5 d5 5.exd5 Nxd5 6.Nxf7, White sacrifices the knight to drag Black's king to f7. After 7.Qf3+ Ke6, the king is stranded in the center. White follows with 8.Nc3 and 9.d4, blasting open the center to attack the exposed king.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Nf6", "Ng5", "d5", "exd5", "Nxd5", "Nxf7", "Kxf7", "Qf3+", "Ke6", "Nc3", "Nce7", "d4"],
+      "moveCount": 17,
+      "difficulty": "Advanced"
+    }
+  ]
+}

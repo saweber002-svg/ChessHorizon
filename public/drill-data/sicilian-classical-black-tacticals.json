@@ -1,0 +1,76 @@
+{
+  "id": "sicilian-classical-black-tacticals",
+  "name": "Sicilian Classical — Black Tactics",
+  "description": "4 strategic challenges for Black in the Richter-Rauzer main line. Race on the queenside and fight for dynamic counterplay after White's attacking setup!",
+  "arena": "sicilian-classical",
+  "drills": [
+    {
+      "drillId": "sicilian-classical-bt1",
+      "name": "b5 Queenside Expansion",
+      "theme": "Queenside Expansion",
+      "description": "Black launches the classic Sicilian queenside break with b5. When White trades Bxf6 to damage Black's structure, Black recaptures gxf6 — accepting the doubled pawns but keeping the initiative.",
+      "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 9",
+      "whitePromptMove": "f4",
+      "solutionMoves": ["b5", "gxf6"],
+      "opponentResponse": "Bxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays b5 — the classic Sicilian queenside race. When White responds with Bxf6, Black recaptures gxf6, keeping the queenside attack alive.",
+      "explanation": "After White plays f4 (signaling the kingside attack), Black responds immediately with b5 — the Sicilian queenside race. The b5-b4-b3 advance is Black's most potent weapon: it attacks the queenside pawn structure, opens lines toward White's king on c1, and is often more dangerous than White's kingside pawn storm. When White plays Bxf6 (trying to weaken Black's kingside before the queenside counterplay becomes decisive), Black recaptures with gxf6. Yes, this gives Black doubled f-pawns — but the g-file is now semi-open, the queenside attack continues at full speed, and Black's piece activity compensates for the structural concession. The player who lands the decisive blow first wins the Richter-Rauzer — and b5 is the first salvo."
+    },
+    {
+      "drillId": "sicilian-classical-bt2",
+      "name": "Be7 Development",
+      "theme": "Development",
+      "description": "Black develops the bishop to e7, preparing to castle kingside. After White plays f4 to begin the kingside attack, Black castles immediately — placing the king in safety before the storm.",
+      "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 9",
+      "whitePromptMove": "Kb1",
+      "solutionMoves": ["Be7", "O-O"],
+      "opponentResponse": "f4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black develops Be7, preparing to castle. When White launches f4, Black castles immediately — king safety before counterplay.",
+      "explanation": "After White plays Kb1 (tucking the king to safety), Black responds with Be7 — developing the light-squared bishop to a solid square and preparing to castle kingside. In the Richter-Rauzer, getting the king to safety before launching queenside counterplay is critical: a king stuck in the center is the most common way Black loses. After White plays f4 (the kingside storm begins), Black immediately castles with O-O. The king is now tucked away on g8, away from the opening files on the queenside. With the king safe, Black can now consider launching ...b5-b4 counterplay or activating pieces with ...Rc8 and ...Qc7. Development and king safety first — attack second."
+    },
+    {
+      "drillId": "sicilian-classical-bt3",
+      "name": "h6 Bishop Challenge",
+      "theme": "Bishop Challenge",
+      "description": "Black kicks the Bg5 with h6, forcing White to make a decision. When White retreats to Bh4, Black grabs the central knight with Nxd4 — winning material and simplifying.",
+      "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 9",
+      "whitePromptMove": "f4",
+      "solutionMoves": ["h6", "Nxd4"],
+      "opponentResponse": "Bh4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays h6 to kick the Bg5. When White retreats to Bh4, Black grabs the Nd4 with Nxd4 — winning material.",
+      "explanation": "After White plays f4, Black responds with h6 — challenging the Bg5 immediately. The h6 advance forces White to make a decision about the bishop: exchange it for the Nf6 (doubling Black's pawns), retreat to h4 (maintaining the pin but losing tempo), or retreat to e3 (passive). When White retreats to Bh4 (maintaining the bishop but conceding the pin), Black seizes the opportunity with Nxd4 — capturing the Nd4 with the Nc6. After Qxd4 (White must recapture), Black has traded the powerful Nd4 off the board and simplified the position. The Bg5 pin on f6 is now also less meaningful since the Nd4 is gone. Black has neutralized a key White piece while keeping queenside counterplay fully intact. Piece activity and simplification are Black's tools."
+    },
+    {
+      "drillId": "sicilian-classical-bt4",
+      "name": "Qc7 Queen Centralization",
+      "theme": "Queen Centralization",
+      "description": "Black centralizes the queen to c7 — supporting the ...b5 break and preparing ...Rc8. When White plays f4, Black immediately launches b5 to begin the queenside race.",
+      "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 9",
+      "whitePromptMove": "Kb1",
+      "solutionMoves": ["Qc7", "b5"],
+      "opponentResponse": "f4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black centralizes with Qc7 — supporting the queenside break. When White plays f4, Black immediately strikes with b5.",
+      "explanation": "After White plays Kb1 (tucking the king to safety), Black plays Qc7 — a multipurpose queen move. The Qc7 does several things at once: it vacates d8 for the rook, supports the ...b5 advance directly (the queen on c7 will be well-placed after ...b5), prepares ...Rc8 to double rooks on the c-file, and keeps tactical options with ...Nd4 forks in some lines. When White plays f4 (launching the kingside storm), Black immediately responds with b5 — the queenside race begins before White can set up a full storm. The Qc7 + ...b5 combination is one of Black's most popular systems in the Richter-Rauzer: active queen centralization supporting a rapid queenside break is the cleanest way to create pressure against White's castled king."
+    }
+  ]
+}

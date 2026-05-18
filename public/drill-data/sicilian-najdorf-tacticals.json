@@ -1,0 +1,72 @@
+{
+  "id": "sicilian-najdorf-tacticals",
+  "name": "Sicilian Najdorf — White Tactics",
+  "description": "4 strategic challenges for White in the Najdorf 6.Bg5 line. Find the right plan after 8...Qc7!",
+  "arena": "sicilian-najdorf",
+  "drills": [
+    {
+      "drillId": "sicilian-najdorf-t1",
+      "name": "Castle and Develop",
+      "theme": "King Safety",
+      "description": "White gets the king to safety with O-O, then develops the critical c1 bishop to e3.",
+      "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R w KQkq - 3 9",
+      "solutionMoves": ["O-O", "Be3"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles kingside for safety, then brings Bc1 to the critical e3 square.",
+      "explanation": "O-O is the natural first step — the king belongs behind the pawn shelter on g1. After Black mirrors with O-O, White plays Be3, finally developing the c1 bishop to its ideal square. From e3, the bishop supports the Nd4, controls the d4-h7 diagonal, and clears the way for eventual O-O-O in future positions. In the Najdorf 6.Bg5 structure, Be3 is the cornerstone of the 'English Attack' setup — it activates the passive Bc1 and connects the rooks."
+    },
+    {
+      "drillId": "sicilian-najdorf-t2",
+      "name": "The f5 Pawn Break",
+      "theme": "Kingside Attack",
+      "description": "White launches the critical f4-f5 advance to rip open the kingside, then removes Black's key defender.",
+      "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R w KQkq - 3 9",
+      "solutionMoves": ["f5", "Bxf6"],
+      "opponentResponse": "exf5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White smashes open the kingside with f5. After exf5, Bxf6 eliminates Black's key defender.",
+      "explanation": "f5 is the signature Najdorf attacking break. The pawn on f5 jabs into Black's pawn chain, forcing exf5 (otherwise White plays fxe6 with a dangerous passed pawn). After exf5, White plays Bxf6 — trading the Bg5 for the Nf6. This removes Black's most active defensive piece, doubles or weakens the kingside pawns, and leaves Black's king exposed after ...gxf6 or ...Bxf6. The f-file can be opened later with fxe5 or e5 breaks. This is the most direct attacking approach — White commits to a full-scale kingside storm."
+    },
+    {
+      "drillId": "sicilian-najdorf-t3",
+      "name": "Central Pawn Advance",
+      "theme": "Central Break",
+      "description": "White strikes in the center with e5, and after the recapture reclaims with fxe5 — a powerful pawn wedge.",
+      "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R w KQkq - 3 9",
+      "solutionMoves": ["e5", "fxe5"],
+      "opponentResponse": "dxe5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays e5 to challenge the center. After dxe5, White recaptures with fxe5 — creating a powerful advanced pawn.",
+      "explanation": "e5 immediately challenges Black's d6 pawn — the anchor of the Najdorf structure. After dxe5 (forced, or the d6 pawn hangs), White plays fxe5, establishing a dominant e5-pawn that attacks the Nf6 directly. The Nf6 is now under threat — it must retreat or be lost. The open f-file becomes a rook highway for White's kingside attack. With the e5-pawn cramps Black's entire position, restricting the Ne7 and Be7. This is White's most space-grabbing approach."
+    },
+    {
+      "drillId": "sicilian-najdorf-t4",
+      "name": "The English Attack Setup",
+      "theme": "Queenside Castle",
+      "description": "White plays Be3 to activate the bishop, then castles queenside to launch a full-board assault.",
+      "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R w KQkq - 3 9",
+      "solutionMoves": ["Be3", "O-O-O"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Be3 develops the bishop and clears the queenside. After Black castles, White castles queenside — the classic opposite-sides-castling Najdorf war.",
+      "explanation": "Be3 is the key preparatory move. It develops the passive Bc1 to an active square, controls the a7-g1 diagonal, and — critically — clears the c1 square so White can castle queenside. After Black plays O-O (castling into safety), White plays O-O-O, the defining move of the English Attack (Be3 + f3 + g4-g5 system). Now both kings are on opposite wings, and the race begins: White storms the kingside, Black attacks the queenside. This opposite-castling structure is the heart of Najdorf complexity — whoever attacks faster wins."
+    }
+  ]
+}

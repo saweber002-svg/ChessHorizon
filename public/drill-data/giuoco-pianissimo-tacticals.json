@@ -1,0 +1,56 @@
+{
+  "id": "giuoco-pianissimo-tacticals",
+  "name": "Giuoco Pianissimo — White Tactics",
+  "description": "4 tactical challenges for White in the Giuoco Pianissimo. Find the winning 2-move sequence from the Quiet Game positions!",
+  "arena": "giuoco-piano",
+  "drills": [
+    {
+      "drillId": "pianissimo-t1",
+      "name": "The d4 Central Pawn Break",
+      "theme": "Central Pawn Break",
+      "description": "White strikes in the center with d4, recapturing to gain a strong central pawn after Black takes.",
+      "fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/2B1P3/2PP1N2/PP1N1PPP/R1BQR1K1 w - - 4 9",
+      "solutionMoves": ["d4", "cxd4"],
+      "opponentResponse": "exd4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White breaks in the center — the signature plan in the Giuoco Pianissimo.",
+      "explanation": "After d4 exd4 cxd4, White establishes a strong pawn on d4 and opens diagonals for all the pieces. The bishop on c4 now eyes d5 and b3 ideas become available. White's central majority gives long-term pressure and sets up Ng5 or Ne5 threats. This break is the cornerstone of White's strategy in the Pianissimo."
+    },
+    {
+      "drillId": "pianissimo-t2",
+      "name": "Ng5 — The f7 Knife",
+      "theme": "f7 Weakness",
+      "description": "White leaps to g5, threatening the vulnerable f7-pawn, and follows with a knight sacrifice to expose Black's king.",
+      "fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/2B1P3/2PP1N2/PP1N1PPP/R1BQR1K1 w - - 4 9",
+      "solutionMoves": ["Ng5", "Nxf7"],
+      "opponentResponse": "h6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White exploits the eternal f7 weakness with the bishop on c4 and rook on e1 pointing down the e-file.",
+      "explanation": "Even if Black defends with h6 trying to kick the knight, Nxf7 is a powerful sacrifice. The knight on f7 attacks the queen on d8 and the rook on h8. After Rxf7, White plays Re7 with a crushing attack. The bishop on c4 and rook on e1 create overwhelming pressure on the kingside, and Black's king is left dangerously exposed."
+    },
+    {
+      "drillId": "pianissimo-t3",
+      "name": "Nxe5 — The Central Swipe",
+      "theme": "Knight Fork",
+      "description": "White snatches the central pawn with the knight, and after Black recaptures, uses the rook on e1 to win the knight back with material gain.",
+      "fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/2B1P3/2PP1N2/PP1N1PPP/R1BQR1K1 w - - 4 9",
+      "solutionMoves": ["Nxe5", "Rxe5"],
+      "opponentResponse": "Nxe5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "The rook on e1 is already pointing at the e5 pawn — White wins it for free.",
+      "explanation": "Nxe5 wins a pawn immediately. If Black recaptures with Nxe5, the rook on e1 takes back with Rxe5, netting a whole pawn. White then has a clear material advantage with an active rook on the 5th rank. The bishop on c4 supports further pressure and White can continue with d4 to dominate the center completely."
+    },
+    {
+      "drillId": "pianissimo-t4",
+      "name": "Nf1 — Knight Regrouping",
+      "theme": "Knight Regrouping",
+      "description": "White begins the signature Pianissimo knight maneuver: Nf1 followed by Ng3, heading for the powerful f5 outpost.",
+      "fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/2B1P3/2PP1N2/PP1N1PPP/R1BQR1K1 w - - 4 9",
+      "solutionMoves": ["Nf1", "Ng3"],
+      "opponentResponse": "Be6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White reroutes the knight from d2 to f1 to g3, a hallmark maneuver in the Giuoco Pianissimo.",
+      "explanation": "After Nf1–Ng3, the knight is ideally placed. It eyes h5 and f5, threatening to jump to f5 where it becomes a dominant piece that Black cannot easily dislodge. Meanwhile White's other knight on f3 can join with Ne5 or Nh4. This quiet regrouping is exactly the 'pianissimo' (very quiet) character of the variation — patient maneuvering before striking."
+    }
+  ]
+}

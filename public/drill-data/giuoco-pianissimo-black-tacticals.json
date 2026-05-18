@@ -1,0 +1,60 @@
+{
+  "id": "giuoco-pianissimo-black-tacticals",
+  "name": "Giuoco Pianissimo — Black Tactics",
+  "description": "4 tactical challenges for Black in the Giuoco Pianissimo. Find the best counter-play after White's quiet preparation!",
+  "arena": "giuoco-piano",
+  "drills": [
+    {
+      "drillId": "pianissimo-bt1",
+      "name": "Queenside Expansion",
+      "theme": "Queenside Play",
+      "description": "Black launches queenside play with b5, gains space, and when White retreats the bishop, pushes b4 to constrict White's pawns.",
+      "fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/2B1P3/2PP1N1P/PP1N1PP1/R1BQR1K1 b - - 0 9",
+      "whitePromptMove": "h3",
+      "solutionMoves": ["b5", "b4"],
+      "opponentResponse": "Bb3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black uses the a6 pawn preparation to launch queenside space with b5-b4.",
+      "explanation": "After b5 White usually retreats the bishop with Bb3 to avoid being traded, and then b4 continues the queenside push. Black follows with a5 and eventually Ba6 to trade off White's important bishop. This queenside counterplay is Black's signature plan in the Pianissimo — while White maneuvers slowly on the kingside, Black grabs space on the other wing."
+    },
+    {
+      "drillId": "pianissimo-bt2",
+      "name": "Knight Regrouping to g6",
+      "theme": "Knight Reorganization",
+      "description": "Black reroutes the knight from c6 to e7 to g6, mirroring White's own knight maneuver and targeting the h4-f4 squares.",
+      "fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/2B1P3/2PP1N1P/PP1N1PP1/R1BQR1K1 b - - 0 9",
+      "whitePromptMove": "h3",
+      "solutionMoves": ["Ne7", "Ng6"],
+      "opponentResponse": "d4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black mirrors White's patient knight maneuvers, heading for the strong g6 outpost.",
+      "explanation": "After Ne7 White often plays d4 to seize the center, and Black completes the maneuver with Ng6. The knight on g6 controls h4 and f4, preventing White's Ng5 ideas and supporting Black's own kingside activity. The position remains balanced and Black has excellent long-term counterplay. This regrouping is a hallmark of solid Pianissimo defense."
+    },
+    {
+      "drillId": "pianissimo-bt3",
+      "name": "Be6 — Bishop Activation",
+      "theme": "Diagonal Pressure",
+      "description": "Black develops the c8 bishop to e6, challenging White's prized bishop on c4, and captures it when White advances with d4.",
+      "fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/2B1P3/2PP1N1P/PP1N1PP1/R1BQR1K1 b - - 0 9",
+      "whitePromptMove": "h3",
+      "solutionMoves": ["Be6", "Bxc4"],
+      "opponentResponse": "d4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black activates the dark-squared bishop and eliminates White's dangerous c4 bishop at the right moment.",
+      "explanation": "After Be6, if White plays d4 to expand the center, Black strikes with Bxc4 — trading off White's powerful bishop on c4. After dxc4 Black can play Nxe4, winning the e4 pawn and equalizing. Eliminating the bishop on c4 is often Black's most effective way to neutralize White's long-term pressure and seize the initiative in the Pianissimo."
+    },
+    {
+      "drillId": "pianissimo-bt4",
+      "name": "d5 — Central Counter",
+      "theme": "Central Counter",
+      "description": "Black challenges White's center with d5. After White takes, the knight lands powerfully on d5 with a dominant central outpost.",
+      "fen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/2B1P3/2PP1N1P/PP1N1PP1/R1BQR1K1 b - - 0 9",
+      "whitePromptMove": "h3",
+      "solutionMoves": ["d5", "Nxd5"],
+      "opponentResponse": "exd5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black's d5 break frees the position and installs the knight on a dominant central square.",
+      "explanation": "After d5 exd5 Nxd5, Black's knight lands on d5 — a powerful central outpost that White cannot easily challenge. The knight on d5 controls key squares and can maneuver to c3 or f4 later. Black's bishop on a7 now has an open diagonal with long-term pressure, and the position is dynamically balanced with Black's active piece play compensating for White's central pawn."
+    }
+  ]
+}

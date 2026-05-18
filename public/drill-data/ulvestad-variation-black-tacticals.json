@@ -1,0 +1,60 @@
+{
+  "id": "ulvestad-variation-black-tacticals",
+  "name": "Ulvestad Variation — Black Tactics",
+  "description": "4 tactical challenges for Black in the Ulvestad Variation. Find the precise counter-attacking sequences to press Black's initiative, keep the knights active, and fight for compensation against White's central control.",
+  "arena": "two-knights",
+  "drills": [
+    {
+      "drillId": "ulvestad-bt1",
+      "name": "Nd4 Central Outpost",
+      "theme": "Knight Centralization",
+      "description": "Black keeps the knight active.",
+      "fen": "r1bqkb1r/p1p2ppp/2n2n2/1p1Pp1N1/2B5/8/PPPP1PPP/RNBQK2R w KQkq - 0 6",
+      "whitePromptMove": "Bf1",
+      "solutionMoves": ["Nd4", "Nxd5"],
+      "opponentResponse": "c3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black places the knight on the powerful d4 square. After c3 attacks it, Nxd5 recaptures the pawn.",
+      "explanation": "Nxd5 recaptures the pawn. Black continues with 8...c6, solidifying. The Nd4 disrupts White's plans before recapturing on d5 — Black maintains material equality while keeping the initiative with active piece play in the open center."
+    },
+    {
+      "drillId": "ulvestad-bt2",
+      "name": "c6 Solidification",
+      "theme": "Center Solidification",
+      "description": "Black solidifies the center.",
+      "fen": "r1bqkb1r/p1p2ppp/8/1p1npN1/3n4/2P5/PP1P1PPP/RNBQKB1R w KQkq - 0 8",
+      "whitePromptMove": "Ne4",
+      "solutionMoves": ["Qh4", "c6"],
+      "opponentResponse": "d3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black plays Qh4 to create counter-threats, and after d3, c6 supports the d5 knight.",
+      "explanation": "c6 supports d5. Black follows with 10...Be7, developing and preparing castling. The queen on h4 creates immediate pressure on White's kingside while c6 gives the d5 knight a solid base — Black fights for the initiative in the sharp Ulvestad position."
+    },
+    {
+      "drillId": "ulvestad-bt3",
+      "name": "Be7 Development",
+      "theme": "Piece Development",
+      "description": "Black develops and prepares castling.",
+      "fen": "r1bqkb1r/p4ppp/2p5/1p1np3/3nN3/2P5/PP1P1PPP/RNBQKB1R w KQkq - 0 9",
+      "whitePromptMove": "d3",
+      "solutionMoves": ["Nf6", "Be7"],
+      "opponentResponse": "Bg5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black retreats the d5 knight to f6 and after Bg5 pins it, plays Be7 to develop and prepare castling.",
+      "explanation": "Be7 prepares castling. Black continues with 11...0-0, bringing the king to safety. By playing Nf6 and then Be7, Black develops smoothly and prepares to castle, completing development while maintaining the material imbalance in the dynamic Ulvestad position."
+    },
+    {
+      "drillId": "ulvestad-bt4",
+      "name": "Qb6 Counter-attack",
+      "theme": "Counter-attack",
+      "description": "Black creates counter-threats.",
+      "fen": "r1bqkb1r/p4ppp/2p2n2/1p2p3/3nN3/2PP4/PP3PPP/RNBQKB1R w KQkq - 0 10",
+      "whitePromptMove": "Bg5",
+      "solutionMoves": ["h6", "Qb6"],
+      "opponentResponse": "Bh4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black challenges the bishop with h6, and after Bh4 retreats, Qb6 creates counter-threats.",
+      "explanation": "Qb6 attacks b2 and supports the center. Black follows with 12...0-0, completing development. The queen on b6 attacks White's b-pawn while eyeing the center — Black generates real counter-play and keeps the compensation alive in the unbalanced Ulvestad position."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "sicilian-dragon-black-tacticals",
+  "name": "Sicilian Dragon — Black Tactics",
+  "description": "4 strategic challenges for Black in the Dragon Yugoslav Attack. Find the right counter-plan after White's move!",
+  "arena": "sicilian-dragon",
+  "drills": [
+    {
+      "drillId": "sicilian-dragon-bt1",
+      "name": "The Central Break",
+      "theme": "Central Break",
+      "description": "After White castles queenside, Black strikes in the center with d5. When White captures exd5, Black recaptures with the knight — gaining a powerful centralized piece.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 3 9",
+      "whitePromptMove": "O-O-O",
+      "solutionMoves": ["d5", "Nxd5"],
+      "opponentResponse": "exd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black counters White's queenside castle with d5 — the thematic central break. After exd5, Black recaptures with Nxd5, gaining a dominating central knight.",
+      "explanation": "After White plays O-O-O (committing the king to the queenside), Black fires d5 — the most principled central counter in the Dragon. The d6-d5 advance hits White's e4-pawn and opens the position before White's kingside attack fully develops. When White responds with exd5 (taking the offered pawn to open the e-file), Black recaptures with Nxd5 — the Nf6 jumps to d5, a dominant outpost in the center. The Nd5 is a monster: it can't easily be driven away, it eyes c3 and f4, and it supports Black's eventual queenside counterplay. The d5 break is Black's most important thematic idea: strike in the center before White's attack arrives."
+    },
+    {
+      "drillId": "sicilian-dragon-bt2",
+      "name": "Queenside Pressure",
+      "theme": "Queenside Pressure",
+      "description": "When White starts the kingside pawn storm with g4, Black activates the queen on the queenside with Qa5. After White castles queenside, Black's knight leaps to b4 — attacking the queen and threatening to invade.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 3 9",
+      "whitePromptMove": "g4",
+      "solutionMoves": ["Qa5", "Nb4"],
+      "opponentResponse": "O-O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays Qa5, activating the queen on the queenside. After White castles queenside, Black plays Nb4 — attacking the Qd2 and creating immediate threats.",
+      "explanation": "When White advances g4 (the start of the kingside pawn storm), Black must begin queenside counterplay immediately — waiting is fatal. Qa5 is the move: the queen sallies to a5, putting immediate pressure on the c3 knight and preparing future ...Qa5-a4 or ...Bd7 + ...Rfc8 queenside play. After White plays O-O-O (committing to the queenside), Black plays Nb4 — the Nc6 leaps to b4, directly attacking the Qd2. The Nb4 is a powerful piece: it threatens Nc2 (forking the Ra1), pressures d3, and creates immediate tactical problems for White. This is the Dragon race in pure form: White goes for the king, Black goes for the queen."
+    },
+    {
+      "drillId": "sicilian-dragon-bt3",
+      "name": "Queenside Expansion",
+      "theme": "Queenside Expansion",
+      "description": "When White attacks the Dragon bishop with Bh6, Black ignores the threat and pushes a5 — starting the queenside race. After White develops with Bc4, Black continues with a4.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 3 9",
+      "whitePromptMove": "Bh6",
+      "solutionMoves": ["a5", "a4"],
+      "opponentResponse": "Bc4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black ignores Bh6 and plays a5, starting the queenside pawn march. When White plays Bc4, Black continues with a4 — the queenside counterattack is in full swing.",
+      "explanation": "After White plays Bh6 (attacking the Dragon bishop on g7), Black's most ambitious response is a5 — ignoring the bishop threat and immediately starting the queenside counter-attack. This is pure Dragon philosophy: when White attacks, Black counter-attacks. The a5-pawn prepares a4-a3 (assaulting White's queenside before the king can consolidate), and the threat of ...a4-a3 will force White to react. After White plays Bc4 (developing and targeting f7), Black continues with a4 — the pawn storms forward with tempo. The a4-a3 push will eventually crack open the queenside, and with the Bg7 still alive, Black has all the counterplay needed. In the Dragon, every tempo on the queenside matters."
+    },
+    {
+      "drillId": "sicilian-dragon-bt4",
+      "name": "Bishop Development",
+      "theme": "Development",
+      "description": "After White castles queenside, Black develops actively with Be6 — challenging White's central knight. When White plays Nxe6, Black recaptures fxe6, opening the f-file for counter-play.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 3 9",
+      "whitePromptMove": "O-O-O",
+      "solutionMoves": ["Be6", "fxe6"],
+      "opponentResponse": "Nxe6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black develops the bishop to Be6, challenging White's powerful Nd4. After Nxe6, Black recaptures with fxe6 — opening the f-file and gaining central pawn presence.",
+      "explanation": "After White plays O-O-O, Black plays Be6 — the Bc8 finally develops, and it immediately challenges the Nd4 by attacking e6 as a potential outpost. More importantly, Be6 prepares to trade off White's powerful Nd4 (which controls d5, b5, f5, and c6). When White captures Nxe6 (the knight grabs the bishop), Black recaptures with fxe6 — not dxe6, which would close the center. The fxe6 recapture is key: it opens the f-file for Black's Rf8 to become active, places a pawn on e6 that controls the important d5 and f5 squares, and gives Black a solid central pawn chain (d6-e6). Black is fully developed, and the Rf8 is ready to swing into action via f-file or e-file. Accurate piece development beats the clock."
+    }
+  ]
+}

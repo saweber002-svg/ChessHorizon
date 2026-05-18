@@ -1,0 +1,56 @@
+{
+  "id": "two-knights-tacticals",
+  "name": "Two Knights Defense — White Tactics",
+  "description": "4 tactical challenges for White in the Two Knights Defense. Find the winning 2-move sequence from the critical positions after both sides have castled.",
+  "arena": "two-knights",
+  "drills": [
+    {
+      "drillId": "two-knights-t1",
+      "name": "e-file Pin & Overload",
+      "theme": "e-File Pressure",
+      "description": "White doubles on the e-file and pins the knight on e7.",
+      "fen": "r1bq1rk1/ppp1nppp/3p4/3P2N1/2B1R3/8/PP3PPP/R2Q2K1 w - - 0 14",
+      "solutionMoves": ["Re1", "Qe2"],
+      "opponentResponse": "Nf5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Re1 reloads the rook on the open e-file. When Black centralises the knight, Qe2 adds overwhelming pressure.",
+      "explanation": "Qe2 adds decisive pressure. White continues with 16.Bg5 (pinning) and 17.Bxe7, winning the knight or forcing Black to ruin their pawn structure. The e-file battery — rook on e1, queen on e2 — becomes an unstoppable force targeting the pinned Ne7."
+    },
+    {
+      "drillId": "two-knights-t2",
+      "name": "f7 Sacrifice",
+      "theme": "Knight Sacrifice",
+      "description": "White sacrifices the knight to destroy Black's king cover.",
+      "fen": "r1bq1rk1/ppp1nppp/3p4/3P2N1/2B1R3/8/PP3PPP/R2Q2K1 w - - 0 14",
+      "solutionMoves": ["Nxf7", "Rxe7"],
+      "opponentResponse": "Rxf7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Nxf7 tears apart Black's kingside. After Rxf7, White crashes through on e7 with the rook.",
+      "explanation": "Rxe7 wins the exchange. White follows with 16.Qh5 and 17.Re1, targeting the exposed king and winning decisive material. The f7 sacrifice is a classic in all Italian Game positions — the knight forks queen and rook, and even after recapture White has devastating compensation."
+    },
+    {
+      "drillId": "two-knights-t3",
+      "name": "d6 Breakthrough",
+      "theme": "Pawn Breakthrough",
+      "description": "White pushes the d-pawn to cramp Black and open lines.",
+      "fen": "r1bqk2r/pppp1ppp/2n2b2/3P4/2B1n3/5N2/PP3PPP/R1BQ1RK1 w kq - 0 10",
+      "solutionMoves": ["d6", "Re1"],
+      "opponentResponse": "Nxd6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "d6 wedges deep into Black's position. After Nxd6, Re1 seizes the e-file and attacks the exposed knight.",
+      "explanation": "Re1 supports the pawn and attacks the Nd6 immediately. White continues with 16.Bf4 and 17.Qd2, creating a powerful passed pawn and attacking the e7-knight. The d6-pawn disrupts Black's coordination and gives White a lasting initiative."
+    },
+    {
+      "drillId": "two-knights-t4",
+      "name": "Bg5 Pin Exploitation",
+      "theme": "Bishop Pin",
+      "description": "White pins the knight on f6 and prepares to destroy Black's kingside.",
+      "fen": "r1bqk2r/ppp1nppp/3p1b2/3P4/2B1R3/5N2/PP3PPP/R1BQ2K1 w kq - 0 12",
+      "solutionMoves": ["Bg5", "Bxf6"],
+      "opponentResponse": "h6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Bg5 pins the bishop on f6 to the queen. Even after h6, White takes anyway — the structural damage is worth it.",
+      "explanation": "Bxf6 damages Black's pawn structure. White follows with 16.Qh5 and 17.Re1, targeting h7 and f7 for a decisive kingside attack. The bishop pair is surrendered in exchange for wrecking Black's kingside — a classic exchange in all Italian Game attacking positions."
+    }
+  ]
+}

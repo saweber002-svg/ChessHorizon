@@ -1,0 +1,16 @@
+{
+  "id": "london-vs-kings-indian",
+  "name": "King's Indian Defense — Classical Variation",
+  "description": "Black's most aggressive reply to 1.d4. Instead of contesting the center immediately, Black fianchettoes the bishop on g7 and allows White to build a broad pawn center — then counterattacks with ...e5 and ...f5. Fischer and Kasparov's weapon. White controls the board early; Black ignites the kingside later.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "london-vs-kings-indian",
+      "name": "King's Indian Defense — Classical Variation",
+      "description": "After 1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7, both sides have staked out their plans. White holds a classical center with d5, c4, e4 and will push on the queenside. Black's fianchettoed bishop on g7 eyes the long diagonal, and ...f5-f4 is coming. Whoever breaks through first wins.",
+      "moves": ["d4", "Nf6", "c4", "g6", "Nc3", "Bg7", "e4", "d6", "Nf3", "O-O", "Be2", "e5", "O-O", "Nc6", "d5", "Ne7"],
+      "moveCount": 16,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

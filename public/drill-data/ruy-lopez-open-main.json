@@ -1,0 +1,16 @@
+{
+  "id": "ruy-lopez-open-main",
+  "name": "Ruy López — Open Defense",
+  "description": "The Open Defense — the sharpest and most theoretically demanding Ruy López line. Black captures on e4 immediately with 5...Nxe4, refusing to allow White an easy positional edge. After 6.d4 b5 7.Bb3 d5 8.dxe5 Be6, the position is rich with tactical possibilities for both sides.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "ruy-lopez-open",
+      "name": "Open Defense — Main Line",
+      "description": "Black plays 5...Nxe4 — the most combative answer to the Ruy López. After 6.d4 b5 7.Bb3, Black plays 7...d5 to support the knight on e4. After 8.dxe5 Be6, the position requires precise handling from both sides. White has the e5-pawn wedge and active pieces; Black has a strong knight on e4 and the bishop pair. Theory runs very deep.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bb5", "a6", "Ba4", "Nf6", "O-O", "Nxe4", "d4", "b5", "Bb3", "d5", "dxe5", "Be6"],
+      "moveCount": 16,
+      "difficulty": "Advanced"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "london-vs-qgd",
+  "name": "London vs Queen's Gambit Setup",
+  "description": "Black plays the classical 1...d5 against the London — the most common club-level response. After the solid ...d5+...Nf6+...e6 setup, Black challenges with ...Bd6 to fight the dark-squared bishop, then breaks with ...c5. The key tension: will White trade on d6 or retreat to g3? How Black times the ...c5 break defines the position.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "london-vs-qgd",
+      "name": "London vs Queen's Gambit Setup",
+      "description": "After 1.d4 d5 2.Bf4 Nf6 3.e3 e6 4.Nf3 Bd6 5.Bg3 O-O 6.Bd3 c5 7.c3 Nc6 8.Nbd2 Qe7, both sides have committed their plans. White holds the solid d4-e3-c3 pawn triangle, has harmoniously developed all pieces, and has options on both wings. Black has broken with ...c5, placing the bishop aggressively on d6, and is ready to challenge the center. Whether White trades on d6 (opening the e-file for Black) or retreats, and how the c5 break resolves, defines the resulting middlegame.",
+      "moves": ["d4", "d5", "Bf4", "Nf6", "e3", "e6", "Nf3", "Bd6", "Bg3", "O-O", "Bd3", "c5", "c3", "Nc6", "Nbd2", "Qe7"],
+      "moveCount": 16,
+      "difficulty": "Beginner"
+    }
+  ]
+}

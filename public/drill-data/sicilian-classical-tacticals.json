@@ -1,0 +1,72 @@
+{
+  "id": "sicilian-classical-tacticals",
+  "name": "Sicilian Classical — White Tactics",
+  "description": "4 strategic challenges for White in the Richter-Rauzer main line. Launch the kingside attack and dominate the center after Black's ...Bd7!",
+  "arena": "sicilian-classical",
+  "drills": [
+    {
+      "drillId": "sicilian-classical-t1",
+      "name": "f4 Kingside Expansion",
+      "theme": "Kingside Expansion",
+      "description": "White pushes f4 — the first step in the kingside pawn storm. After Black develops the bishop to e7, White repositions the knight to f3 to support the advance.",
+      "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9",
+      "solutionMoves": ["f4", "Nf3"],
+      "opponentResponse": "Be7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White pushes f4 to fuel the kingside storm. After Black's Be7, White repositions with Nf3 to support f4-f5.",
+      "explanation": "f4 is White's thematic kingside expansion in the Richter-Rauzer. With the king safely castled queenside on c1, the f4 pawn becomes a weapon rather than a liability. The plan is simple and devastating: f4-f5, opening lines on the kingside and attacking Black's king if it castles short. After Black plays Be7 (preparing to castle kingside), White plays Nf3 — repositioning the Nd4 to f3 to support the f4-f5 advance and control the e5 square. Every tempo spent on kingside expansion before Black can launch ...b5-b4 is a tempo gained in the race. White's pawn storm on the kingside mirrors Black's queenside counterplay — whoever lands first wins."
+    },
+    {
+      "drillId": "sicilian-classical-t2",
+      "name": "Bxf6 Bishop Exchange",
+      "theme": "Bishop Exchange",
+      "description": "White trades the Bg5 for Black's Nf6, doubling Black's f-pawns and ruining the kingside pawn structure. After gxf6, White completes development with Be2.",
+      "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9",
+      "solutionMoves": ["Bxf6", "Be2"],
+      "opponentResponse": "gxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White trades Bxf6, doubling Black's f-pawns. After gxf6 damages the kingside, White completes development with Be2.",
+      "explanation": "Bxf6 is one of White's most principled plans in the Richter-Rauzer. The Bg5 gladly trades itself for the Nf6 — Black's key defensive knight. After gxf6, Black is left with doubled f-pawns: f6 and f7. These pawns are immediately problematic: f6 blocks natural piece development, g8 can no longer shelter the king safely, and the weakened g-file gives White long-term attacking chances. Black cannot castle kingside comfortably with this structure. White follows with Be2 — completing development and preparing to double on the d- or e-file. The doubled f-pawns are a structural liability that Black carries for the rest of the game: every endgame, every pawn race, every king position is compromised by gxf6."
+    },
+    {
+      "drillId": "sicilian-classical-t3",
+      "name": "Kb1 King Safety",
+      "theme": "King Safety",
+      "description": "White tucks the king to b1 — safely away from the queenside before launching the attack. After Black develops Be7, White fires f4 to begin the kingside storm.",
+      "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9",
+      "solutionMoves": ["Kb1", "f4"],
+      "opponentResponse": "Be7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays Kb1 — tucking the king away before launching. After Black's Be7, White fires f4 to begin the attack.",
+      "explanation": "Kb1 is a key preparatory move in the Richter-Rauzer. After O-O-O, the king on c1 can be exposed by Black's ...b5-b4-b3 queenside attack. By stepping to b1, White removes the king from the c-file, reduces the danger from potential ...b4-b3 pawn storms, and connects the rooks more safely. This is the patient Richter-Rauzer plan: set the house in order before attacking. With the king on b1, White can fire f4-f5 without worrying that Black's queenside counterplay will crash through immediately. After Black plays Be7 (developing and preparing to castle), White launches f4 — the kingside storm officially begins. Kb1 is the move that says: I'm ready for the race."
+    },
+    {
+      "drillId": "sicilian-classical-t4",
+      "name": "Nd5 Central Outpost",
+      "theme": "Central Outpost",
+      "description": "White plants the knight on the dominant d5 square. After Black captures exd5, White recaptures with exd5 — establishing a powerful passed pawn wedge in the center.",
+      "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9",
+      "solutionMoves": ["Nd5", "exd5"],
+      "opponentResponse": "exd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White jumps to d5 — the dominant central outpost. After exd5, White recaptures with exd5, creating a passed pawn wedge.",
+      "explanation": "Nd5 is the dream square in the Sicilian — planting a knight on d5 gives White a dominant central presence that is nearly impossible to dislodge. From d5, the knight attacks f6 (Black's key defensive piece), e7 (threatening forks), and c7 (forking queen and rook if Black is not careful). After Black plays exd5 (forced — allowing Nd5 to stay permanently is even worse), White recaptures with exd5. The passed pawn on d5 cramps Black's entire position: the Nc6 is restricted, the d6 pawn is attacked, and the long central diagonal is opened for White's pieces. In the Richter-Rauzer, the player who establishes a knight on d5 and converts it into a structural advantage is usually winning."
+    }
+  ]
+}

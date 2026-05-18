@@ -1,0 +1,56 @@
+{
+  "id": "ruy-lopez-morphy-tacticals",
+  "name": "Ruy López Morphy Closed — White Tactics",
+  "description": "4 strategic challenges for White in the Morphy Defense Closed. Find the right plan after 8...O-O!",
+  "arena": "ruy-lopez-morphy",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-morphy-t1",
+      "name": "Prepare the Central Break",
+      "theme": "Central Control",
+      "description": "White prevents Bg4 with h3, then strikes in the center with d4.",
+      "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9",
+      "solutionMoves": ["h3", "d4"],
+      "opponentResponse": null,
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays h3 to stop Bg4, then strikes with d4 to open the center.",
+      "explanation": "h3 is the critical preparatory move — it prevents Black's Nf6-g4 or Bc8-g4 pin on the f3-knight, which would otherwise undermine the d4 push. After h3, White follows with d4, immediately challenging Black's e5-pawn. The central tension is the hallmark of the Ruy López — whoever wins the fight for d4 often controls the middlegame."
+    },
+    {
+      "drillId": "ruy-lopez-morphy-t2",
+      "name": "Queenside Probe with a4",
+      "theme": "Queenside Attack",
+      "description": "White targets Black's b5-pawn with a4 and wins space or material.",
+      "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9",
+      "solutionMoves": ["a4", "axb5"],
+      "opponentResponse": null,
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White probes with a4, targeting the b5-pawn and opening the a-file for the rook.",
+      "explanation": "a4 is a classic queenside probe in the Ruy López. If Black does not defend with b4, White plays axb5 winning a pawn or opening the a-file with axb5 axb5 and Ra7. If Black plays b4, White has a3 or d3 plans. Either way, White gains space and keeps Black's queenside under permanent pressure."
+    },
+    {
+      "drillId": "ruy-lopez-morphy-t3",
+      "name": "The Chigorin Knight Maneuver",
+      "theme": "Knight Maneuver",
+      "description": "White reroutes the b1-knight via a3-c2 to head for the e3-d5 outpost.",
+      "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9",
+      "solutionMoves": ["Na3", "Nc2"],
+      "opponentResponse": null,
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White launches the Chigorin maneuver — rerouting Nb1 via a3 and c2 toward the dominant d5 outpost.",
+      "explanation": "The Chigorin plan (Na3-c2-e3-d5) is one of White's most powerful strategic ideas in the Closed Ruy López. The knight on d5 — later cemented by pawns — becomes an immovable outpost that dominates the board. Once established, the knight on d5 attacks c7 and restricts Black's pieces. After Na3 and Nc2, White follows with Ne3 and either Nd5 or Nf5, creating lasting pressure."
+    },
+    {
+      "drillId": "ruy-lopez-morphy-t4",
+      "name": "The Immediate d4 Break",
+      "theme": "Central Break",
+      "description": "White plays d4 immediately, accepts the recapture, and maintains central control with cxd4.",
+      "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9",
+      "solutionMoves": ["d4", "cxd4"],
+      "opponentResponse": "exd4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays d4 at once. After exd4, White recaptures with cxd4, maintaining a strong central pawn.",
+      "explanation": "After 9.d4 exd4, White recaptures with 10.cxd4, giving White a strong pawn center with pawns on d4 and e4. Black's counter-play with Nb4 (attacking the b3-bishop) is met by a3 or Bc2. White's d4-pawn gives permanent central control, and the open d-file becomes a staging ground for White's heavy pieces. This is the most combative approach."
+    }
+  ]
+}

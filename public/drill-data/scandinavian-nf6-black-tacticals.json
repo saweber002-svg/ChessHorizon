@@ -1,0 +1,76 @@
+{
+  "id": "scandinavian-nf6-black-tacticals",
+  "name": "Scandinavian Nf6 — Black Tactics",
+  "description": "4 strategic challenges for Black in the Scandinavian Nf6 (Icelandic Gambit). Use your piece activity and the e4 wedge to generate maximum compensation for the gambited pawn!",
+  "arena": "scandinavian-nf6",
+  "drills": [
+    {
+      "drillId": "scandinavian-nf6-bt1",
+      "name": "exd3 + Ne5 Central Knight",
+      "theme": "Central Domination",
+      "description": "White challenges with d3. Black captures exd3, then plants the Nc6 on the dominant e5 square — the knight outpost that ties down White's position and eyes d3 for follow-up pressure.",
+      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R b KQkq - 8 9",
+      "whitePromptMove": "d3",
+      "solutionMoves": ["exd3", "Ne5"],
+      "opponentResponse": "Bxd3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays d3 to challenge the e4 pawn. Black captures exd3, forcing White to spend a move recapturing with Bxd3. Black then plays Ne5 — centralizing the Nc6 to the dominant e5 outpost, building on the newly opened position.",
+      "explanation": "When White plays d3, Black should capture immediately: exd3. The e4 pawn takes on d3 (diagonal capture ✓), forcing White to recapture. After White plays Bxd3 (the f1 bishop develops to d3), Black plays Ne5 — the Nc6 leaps to e5 (a (2 right, 1 down) move ✓), landing on the most powerful square in the position. From e5, the knight:  attacks d3 (the freshly developed White bishop), eyes f3 (if White tries to develop), and controls the c4 square (blocking White's c4 pawn advance). The Ne5 on e5 is Black's dream — it dominates the center while Black has all the active pieces. After Ne5, Black threatens Nxd3 (winning the bishop) or Nd4 (further central domination). White is forced to play passively to defend the Bd3. This is the Icelandic Gambit's core lesson: the pawn deficit is compensated by dominant piece placement. The e4-d3 exchange opens lines and Ne5 immediately exploits them."
+    },
+    {
+      "drillId": "scandinavian-nf6-bt2",
+      "name": "Nxe4 + O-O Safety",
+      "theme": "Tactical Recapture + King Safety",
+      "description": "White recaptures the e4 pawn with Nxe4. Black immediately takes back Nxe4. After White plays d3 attacking the knight, Black castles O-O — securing the king and maintaining the piece coordination.",
+      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R b KQkq - 8 9",
+      "whitePromptMove": "Nxe4",
+      "solutionMoves": ["Nxe4", "O-O"],
+      "opponentResponse": "d3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White recaptures with Nxe4. Black counter-captures Nxe4 immediately. After White plays d3 to kick the knight, Black castles O-O — king safety first, then fight with the active pieces from a solid base.",
+      "explanation": "When White plays Nxe4 (recapturing the gambited pawn), Black must recapture immediately: Nxe4! The Nf6 captures the White Nxe4 knight (a (1 left, 2 down) move ✓), re-establishing material equality and centralizing Black's piece. White's natural response is d3 — attacking the Ne4 and trying to kick it out of the center. At this moment, Black should NOT move the knight hastily — instead, castle: O-O. Castling defends the king, connects the rooks, and activates Black's h8 rook for future use. The king safety move is more important than defending the Ne4 — after O-O, the Ne4 has multiple retreat squares and Black's position is solid. The key principle: in sharp gambit positions, castle early when given the chance. Black has sacrificed two pawns for activity; throwing away that activity by losing the king before completing development would waste the entire gambit. Castle first, then consolidate the piece activity."
+    },
+    {
+      "drillId": "scandinavian-nf6-bt3",
+      "name": "O-O + Re8 Rook Activation",
+      "theme": "Rook Activation",
+      "description": "White develops Be2 for king safety. Black castles immediately. After White pushes d4 to challenge the center, Black plays Re8 — activating the rook on the open e-file and maximizing piece pressure.",
+      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R b KQkq - 8 9",
+      "whitePromptMove": "Be2",
+      "solutionMoves": ["O-O", "Re8"],
+      "opponentResponse": "d4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays Be2 preparing to castle. Black castles O-O immediately to bring the king to safety. After White pushes d4, Black plays Re8 — activating the rook on the semi-open e-file and maintaining compensation.",
+      "explanation": "When White plays Be2 (preparing to castle), Black should mirror: O-O immediately. The king must reach safety before White completes development and neutralizes the piece activity. After Black O-O, White plays d4 — trying to challenge Black's e4 pawn and open lines for the Bd3 (if played). But Black plays Re8! This is the Icelandic Gambit's key rook move: the f8 rook slides to e8, occupying the open e-file. From e8, the rook:  directly supports the e4 pawn (preventing White from capturing it), eyes the e2 bishop (pin threat), and controls the entire e-file for future pressure. After Re8, Black is fully mobilized: Nf6, Nc6, Bb6, and Re8 all coordinating around the e4 pawn and the active e-file. White's extra pawns are meaningless while Black's pieces dominate. Re8 is the culminating move of the Icelandic Gambit setup — it's the rook move that makes the gambit work."
+    },
+    {
+      "drillId": "scandinavian-nf6-bt4",
+      "name": "Nxd5 + Qf6 Queen Activity",
+      "theme": "Queen Activation",
+      "description": "White jumps Nd5 to the central outpost. Black captures Nxd5 to eliminate the threat. After White recaptures cxd5, Black activates the queen with Qf6 — targeting f2 and the White kingside.",
+      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R b KQkq - 8 9",
+      "whitePromptMove": "Nd5",
+      "solutionMoves": ["Nxd5", "Qf6"],
+      "opponentResponse": "cxd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White leaps Nd5 to the central outpost. Black captures Nxd5 to remove the threat. After White recaptures cxd5 (gaining a passed pawn), Black plays Qf6 — the queen activates with threats against f2 and pressure on the center.",
+      "explanation": "When White plays Nd5, Black must eliminate the threat: Nxd5! The Nf6 captures the knight on d5 (a (2 left, 1 down) move ✓). After White plays cxd5 (the c4 pawn captures, gaining a dangerous passed pawn), Black must find active counterplay — and the key move is Qf6! The queen moves from d8 to f6 (a (2 right, 2 down) diagonal ✓), landing on f6 with multiple threats: Qxf2+ (a kingside attack if White's king is still on e1), pressure on the d4 square, and support for potential ...e4 advances. The Qf6 queen is suddenly very active — it eyes both flanks and ties down White's pieces to defensive tasks. This is the Icelandic Gambit's compensation philosophy: Black may have fewer pawns, but the queen's activity and piece coordination create practical problems White must solve immediately. After Qf6, Black has Nc6, Bb6, Nf6 (captured), and a threatening queen — real compensation for the material deficit. The threat of Qxf2+ forces White to castle or defend f2 first."
+    }
+  ]
+}

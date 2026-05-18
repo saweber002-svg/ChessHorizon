@@ -1,0 +1,72 @@
+{
+  "id": "sicilian-kan-tacticals",
+  "name": "Sicilian Kan — White Tactics",
+  "description": "4 strategic challenges for White in the Sicilian Kan Maroczy Bind. Find the right plan after 8...g6!",
+  "arena": "sicilian-kan",
+  "drills": [
+    {
+      "drillId": "sicilian-kan-t1",
+      "name": "f4 Kingside Expansion",
+      "theme": "Kingside Attack",
+      "description": "White gains kingside space by pushing f4, then follows up with f5 to crack open lines against Black's king.",
+      "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 w kq - 0 9",
+      "solutionMoves": ["f4", "f5"],
+      "opponentResponse": "Bg7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White pushes f4, gaining kingside space. After Black fianchettoes with Bg7, White continues with f5 — cracking open the kingside before Black can consolidate.",
+      "explanation": "f4 is White's most direct kingside plan in the Maroczy Bind structures. The pawn advance stakes space on the kingside and prepares f5 — the break that tears open Black's position. When Black plays Bg7 (completing the fianchetto), White strikes immediately with f5. The f5 advance attacks the g6-pawn and opens lines for the Bd3 and the rooks. Black's fianchetto bishop on g7 becomes passive as the center closes. The Maroczy Bind (c4+e4) keeps Black cramped in the center, so White's kingside space advantage is the deciding factor. f4-f5 is the signature plan: control the bind, then storm the kingside before Black's queenside counterplay with ...b5 materializes."
+    },
+    {
+      "drillId": "sicilian-kan-t2",
+      "name": "Nc3 Development",
+      "theme": "Development",
+      "description": "White develops the knight to c3, controlling the key d5 outpost. After Black fianchettoes, White activates the bishop with Be3.",
+      "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 w kq - 0 9",
+      "solutionMoves": ["Nc3", "Be3"],
+      "opponentResponse": "Bg7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays Nc3, completing development and reinforcing the d5 square. After Black plays Bg7, White develops the bishop to Be3 — the ideal square for queenside castling plans.",
+      "explanation": "Nc3 is natural and strong: the knight develops, supports the Nd4, and controls the vital d5-square. In the Maroczy Bind, d5 is the key outpost — if White's knight or pieces dominate d5, Black is permanently cramped. After Black plays Bg7 (the most principled response, starting the fianchetto plan), White develops with Be3. The bishop on e3 performs multiple roles: it supports the Nd4, prepares queenside castling (O-O-O with f3 and Qd2), and controls the important diagonal. The Be3 is often followed by f3, Qd2, and O-O-O — setting up the full English Attack pattern that dominated opening theory for decades. Get the pieces to their ideal squares before starting the kingside attack."
+    },
+    {
+      "drillId": "sicilian-kan-t3",
+      "name": "b3 Fianchetto Preparation",
+      "theme": "Active Bishop",
+      "description": "White prepares to fianchetto the c1 bishop with b3 then Bb2 — controlling the long diagonal and reinforcing the Maroczy Bind.",
+      "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 w kq - 0 9",
+      "solutionMoves": ["b3", "Bb2"],
+      "opponentResponse": "Bg7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays b3, preparing to fianchetto the c1 bishop. After Black plays Bg7, White completes the plan with Bb2 — a bishop that fires down the long diagonal and reinforces the Maroczy Bind.",
+      "explanation": "b3 prepares Bb2 — the fianchetto plan for White's dark-squared bishop. Once developed to b2, the bishop becomes a dominant force on the a1-h8 diagonal, firing directly at Black's kingside through g7 (the Dragon bishop square). The irony is beautiful: Black wants to fianchetto the Bg7 on the same diagonal, but White's Bb2 actively contests it. After Black plays Bg7 (committing to the fianchetto), White plays Bb2 — both sides now have bishops on the same long diagonal, fighting for control. White's position is reinforced: the Maroczy Bind (c4+e4) cramps Black, the Bd3 eyes the kingside, and the Bb2 controls the queenside diagonal. The bishop fianchetto gives White long-term positional pressure without immediate tactical risk."
+    },
+    {
+      "drillId": "sicilian-kan-t4",
+      "name": "Nf5 Knight Sacrifice Threat",
+      "theme": "Knight Sacrifice",
+      "description": "White jumps the knight to f5, targeting e7 and g7. After Black captures gxf5, White recaptures exf5 — opening the e-file and gaining a pawn.",
+      "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 w kq - 0 9",
+      "solutionMoves": ["Nf5", "exf5"],
+      "opponentResponse": "gxf5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White leaps Nf5 — the knight attacks e7 and g7 simultaneously. After Black captures gxf5, White recaptures exf5, opening the e-file and winning a pawn.",
+      "explanation": "Nf5 is the most aggressive move in the position: the knight jumps from d4 to f5, a powerful outpost attacking e7 and g7. Black cannot ignore the knight — it threatens to take on e7 or g7. When Black captures gxf5 (taking the attacking knight), White recaptures with exf5. This is a significant structural concession for Black: the g6 pawn chain is broken, the e-file is opened for White's rooks, and the f5-pawn becomes a dangerous advanced pawn pointing at Black's position. Black's intended fianchetto (Bg7) is also disrupted because the g6-pawn is gone. The e-file opening is White's key gain — the rooks will double on e1 and e2, pressing down the open file against Black's uncastled king. Nf5 is a forcing, concrete plan that wins material and opens the game in White's favor."
+    }
+  ]
+}

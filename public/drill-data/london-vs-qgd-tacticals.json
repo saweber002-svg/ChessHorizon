@@ -1,0 +1,72 @@
+{
+  "id": "london-vs-qgd-tacticals",
+  "name": "London vs QGD — White Tactics",
+  "description": "4 strategic challenges for White in the London System vs Queen's Gambit Setup. Find the best plan after 8...Qe7 as Black completes development.",
+  "arena": "london-vs-qgd",
+  "drills": [
+    {
+      "drillId": "qgd-t1",
+      "name": "Bishop Trade",
+      "theme": "Bishop Exchange",
+      "description": "Exchange the dark-squared bishops with Bxd6 to simplify and gain structural clarity. After Black recaptures, use Qb3 to pressure b7 and d5 simultaneously.",
+      "fen": "r1b2rk1/pp2qppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 4 9",
+      "solutionMoves": ["Bxd6", "Qb3"],
+      "opponentResponse": "Qxd6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Bxd6 trades the dark-squared bishops. After Qxd6, Qb3 forks pressure on b7 and d5.",
+      "explanation": "Bxd6 is White's most principled response to Black's ...Bd6 challenge. By trading the dark-squared bishops, White eliminates Black's active piece and opens the e-file for Black's queen — but gains a long-term structural edge. After Black recaptures with Qxd6, White plays Qb3 — a powerful move that simultaneously eyes b7 (a potential weakness after ...c5) and d5 (the central tension point). The Qb3 move forces Black to be accurate: ...Qd8 loses a tempo while ...c4 cedes the center. This bishop trade + Qb3 battery is one of the London's most direct winning plans."
+    },
+    {
+      "drillId": "qgd-t2",
+      "name": "Central Knight",
+      "theme": "Knight Outpost",
+      "description": "Plant the knight on the powerful e5 outpost. After Black retreats Nd7, advance f4 to support the e5 knight and prepare a kingside expansion.",
+      "fen": "r1b2rk1/pp2qppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 4 9",
+      "solutionMoves": ["Ne5", "f4"],
+      "opponentResponse": "Nd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Ne5 seizes the central outpost. After Nd7, f4 cements the knight and starts a kingside build.",
+      "explanation": "Ne5 is the London's most aggressive central plan — planting the knight on e5 where it controls d3, f3, d7, f7 and cannot easily be dislodged. Black's natural response Nd7 aims to exchange the strong knight with ...Nxe5, but White plays f4 first — supporting the e5 knight with the pawn and beginning kingside expansion. After f4, the knight is protected and White has a mobile pawn center (d4+e3+f4). From this formation, White can expand with g4-g5 or Ndf3 to support e5 permanently. The Ne5+f4 battery is a classic London kingside attacking setup."
+    },
+    {
+      "drillId": "qgd-t3",
+      "name": "Queen Development",
+      "theme": "Queen Centralization",
+      "description": "Develop the queen to e2, supporting the e4 central break. After Black plays Rd8, push e4 to open the center and seize space.",
+      "fen": "r1b2rk1/pp2qppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 4 9",
+      "solutionMoves": ["Qe2", "e4"],
+      "opponentResponse": "Rd8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Qe2 prepares e4. After Rd8, e4 breaks open the center and tests Black's setup.",
+      "explanation": "Qe2 is the flexible queen development move in the London — it connects the rooks, steps out of any back-rank issues, and prepares the e4 central break. Black responds with Rd8 (pressuring the d4 pawn and preventing Qxd5 tricks), but White strikes with e4, opening the center. After e4, the tension on d5 forces Black to take on e4 or advance to d4. Either way, White gains dynamic central control. The Qe2+e4 plan is particularly effective when Black has already committed to ...c5: the center opens favorably for White's better-placed pieces."
+    },
+    {
+      "drillId": "qgd-t4",
+      "name": "Kingside Castle",
+      "theme": "King Safety",
+      "description": "Castle kingside to complete development and connect the rooks. After Black plays b6, centralize with Re1 to support the e3 pawn and prepare future e4.",
+      "fen": "r1b2rk1/pp2qppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 4 9",
+      "solutionMoves": ["O-O", "Re1"],
+      "opponentResponse": "b6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "O-O completes development. After b6, Re1 centralizes the rook and prepares e4.",
+      "explanation": "O-O is the natural completion of White's London setup — king safety achieved, rooks connected, all pieces on their best squares. Black responds with b6, preparing to fianchetto the queen's bishop to b7 to fight for the long diagonal. White plays Re1, centralizing the rook to support the e3 pawn and prepare the e4 break. Re1 is a universal good move in the London: it keeps the e-file under control and creates threats of e4-e5 after dxc5. The London's strength is that after O-O and Re1, White is fully coordinated and can choose queenside, central, or kingside plans based on Black's response."
+    }
+  ]
+}

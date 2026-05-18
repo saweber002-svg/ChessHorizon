@@ -1,0 +1,56 @@
+{
+  "id": "fried-liver-attack-tacticals",
+  "name": "Fried Liver Attack — White Tactics",
+  "description": "4 tactical challenges for White in the Fried Liver Attack. Find the winning 2-move sequence to press the attack on Black's exposed king.",
+  "arena": "two-knights",
+  "drills": [
+    {
+      "drillId": "fried-liver-t1",
+      "name": "Queen + Knight Attack on e6",
+      "theme": "King Attack",
+      "description": "White opens the center to attack the exposed king.",
+      "fen": "r1bq1b1r/ppp1n1pp/4k3/3n4/2B5/2N2Q2/PPPP1PPP/R1B1K2R w KQ - 2 9",
+      "solutionMoves": ["d4", "Bg5"],
+      "opponentResponse": "c6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "d4 opens the center immediately. When Black plays c6, Bg5 pins the knight on e7 and creates overwhelming pressure on e6.",
+      "explanation": "Bg5 pins the knight on e7. White continues with 11.O-O-O and 12.Rhe1, creating overwhelming pressure on the e6-king. The pin on e7 is devastating — Black cannot unpin without losing material, and the rooks rushing to the e-file seal the king's fate."
+    },
+    {
+      "drillId": "fried-liver-t2",
+      "name": "d5 Pawn Push",
+      "theme": "Pawn Breakthrough",
+      "description": "White blasts open the center.",
+      "fen": "r1bq1b1r/ppp1n1pp/4k3/3n4/2B5/2N2Q2/PPPP1PPP/R1B1K2R w KQ - 2 9",
+      "solutionMoves": ["d4", "d5+"],
+      "opponentResponse": "Nb6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "d4 prepares the pawn break. After Nb6, d5+ forces the king further out.",
+      "explanation": "d5+ forces the king further out. White follows with 11.Bb5+ and 12.Qe4, winning material or delivering mate. The king on e6 has nowhere to hide once the center is blown open with the d5 advance."
+    },
+    {
+      "drillId": "fried-liver-t3",
+      "name": "Rook Lift to e1",
+      "theme": "Rook Lift",
+      "description": "White brings the rook into the attack.",
+      "fen": "r1bq1b1r/ppp1n1pp/4k3/3n4/2B5/2N2Q2/PPPP1PPP/R1B1K2R w KQ - 2 9",
+      "solutionMoves": ["O-O", "Re1"],
+      "opponentResponse": "c6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "O-O connects the rooks. After c6, Re1 pins the knight on e7 directly.",
+      "explanation": "Re1 pins the knight on e7. White continues with 11.Qe4 and 12.Bg5, winning the knight or the game. The rook on e1 fires down the half-open e-file directly at the pinned Ne7 and the exposed king behind it."
+    },
+    {
+      "drillId": "fried-liver-t4",
+      "name": "Bishop Check on b5",
+      "theme": "Bishop Pin",
+      "description": "White checks the king and pins pieces.",
+      "fen": "r1bq1b1r/pp2n1pp/2p1k3/3n4/2BP4/2N2Q2/PPP2PPP/R1B1K2R w KQ - 0 10",
+      "solutionMoves": ["Bb5+", "Qe4"],
+      "opponentResponse": "Kd6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Bb5+ checks the king and pins pieces near it. When the king moves, Qe4 attacks the pinned knight.",
+      "explanation": "Qe4 attacks the pinned knight on d5. White follows with 12.Bg5, winning decisive material. The bishop check forces the king to expose itself further, and the queen on e4 creates unstoppable threats against both the knight and the king position."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "id": "sicilian-sveshnikov-tacticals",
+  "name": "Sicilian Sveshnikov — White Tactics",
+  "description": "4 strategic challenges for White in the Sveshnikov main line. Dominate the d5 outpost and convert your structural advantage after 8...b5!",
+  "arena": "sicilian-sveshnikov",
+  "drills": [
+    {
+      "drillId": "sicilian-sveshnikov-t1",
+      "name": "Nd5 Knight Outpost",
+      "theme": "Knight Outpost",
+      "description": "White plants the knight on the dominant d5 square — the most important square in the Sveshnikov. After Nd5, Black recaptures, and White reinforces with the e-pawn.",
+      "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 9",
+      "solutionMoves": ["Nd5", "exd5"],
+      "opponentResponse": "Nxd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White jumps to d5 — the dream outpost. After Nxd5, White recaptures with exd5, building a passed pawn wedge.",
+      "explanation": "Nd5 is the signature Sveshnikov move for White — the knight on d5 is a monster. It sits in the heart of Black's position, cannot be easily kicked, and dominates the entire board. After Black captures Nxd5 (forced, or the knight terrorizes c7 and f6 permanently), White plays exd5, establishing a powerful passed pawn on d5. This pawn cramps Black's queenside, restricts the Nc6, and gives White long-term pressure on the d6-pawn. Every Sveshnikov game for White starts with the question: when and how do I plant the knight on d5?"
+    },
+    {
+      "drillId": "sicilian-sveshnikov-t2",
+      "name": "Bxf6 Bishop Exchange",
+      "theme": "Bishop Exchange",
+      "description": "White trades the Bg5 for the Nf6, damaging Black's pawn structure. After gxf6, White immediately occupies d5 with the knight.",
+      "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 9",
+      "solutionMoves": ["Bxf6", "Nd5"],
+      "opponentResponse": "gxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White trades off Black's key Nf6 defender. After gxf6 damages the kingside, White immediately seizes d5.",
+      "explanation": "Bxf6 is one of White's most principled plans in the Sveshnikov. The Bg5 trades itself for the Nf6 — Black's most active defensive piece. After gxf6, Black is left with doubled f-pawns: f6 and f7. These pawns are awkward, block piece development, and weaken the kingside g-file. Black's king can no longer castle kingside safely. White follows immediately with Nd5, parking the knight on the dominant outpost while Black struggles to reorganize. The doubled f-pawns give White long-term attacking chances on the kingside — a classic Sveshnikov structure."
+    },
+    {
+      "drillId": "sicilian-sveshnikov-t3",
+      "name": "Nc4 Knight Reposition",
+      "theme": "Knight Regrouping",
+      "description": "White reroutes the Na3 to the active c4 square, targeting d6 and e5. Black develops with Be7, and White follows with Be2 to complete development.",
+      "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 9",
+      "solutionMoves": ["Nc4", "Be2"],
+      "opponentResponse": "Be7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White reroutes the Na3 to c4, a far more active square. After Black develops Be7, White completes development with Be2.",
+      "explanation": "Nc4 is the first step of the Na3's journey back into the game. The Na3 is passive on the rim — the knight needs to reach a central or attacking square. Nc4 is ideal: from c4, the knight attacks b6, d6, and e5, all key Sveshnikov pressure points. The Nc4 also clears the a3 square and threatens to penetrate further via d6 or e3. After Black plays Be7 (preparing to castle), White plays Be2, developing the kingside bishop to a solid square and clearing the way for short castling. This is the patient Sveshnikov plan: improve the pieces step by step while maintaining structural pressure on d6 and the d5 outpost."
+    },
+    {
+      "drillId": "sicilian-sveshnikov-t4",
+      "name": "Bxb5 Pawn Grab",
+      "theme": "Pawn Grab",
+      "description": "White captures the b5 pawn with the light-squared bishop, winning a pawn with tempo. After axb5, the Nc3 jumps to b5 with threats.",
+      "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 9",
+      "solutionMoves": ["Bxb5", "Nxb5"],
+      "opponentResponse": "axb5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White grabs the b5 pawn with Bxb5. After axb5, the Nc3 lands on b5 with strong pressure on d6.",
+      "explanation": "Bxb5 is an opportunistic pawn grab. The Bf1 can travel along the f1-b5 diagonal (f1-e2-d3-c4-b5) and snatch the advanced b5 pawn. After axb5, White plays Nxb5 — landing the knight on b5 where it immediately pressures the d6 pawn. The Nb5-d6 fork threat is powerful: if Black is not careful, the knight captures d6 with decisive material gain. Black must find a way to deal with the pressure while being a pawn down. White has won material and gained a powerful centralized knight in one sequence — a serious opening advantage."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "id": "scandinavian-nf6-tacticals",
+  "name": "Scandinavian Nf6 — White Tactics",
+  "description": "4 strategic challenges for White in the Scandinavian Nf6 (Icelandic Gambit). Find the best way to consolidate White's material advantage against Black's active piece play!",
+  "arena": "scandinavian-nf6",
+  "drills": [
+    {
+      "drillId": "scandinavian-nf6-t1",
+      "name": "Nxe4 Material Recapture",
+      "theme": "Material Recovery",
+      "description": "White recaptures the gambited e4 pawn with Nxe4. After Black's Nxe4 counter-captures, White plays d3 — attacking the knight and beginning to consolidate the extra material.",
+      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R w KQkq - 8 9",
+      "solutionMoves": ["Nxe4", "d3"],
+      "opponentResponse": "Nxe4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays Nxe4 — recapturing the gambited pawn and restoring material balance. After Black's Nxe4 counter-captures, White plays d3 to kick the knight out and begin consolidating.",
+      "explanation": "Nxe4 is White's most direct response to the Icelandic Gambit — recover the extra pawn immediately. The Nc3 captures the Black e4 pawn (a (2 right, 1 up) knight move ✓), restoring White's material advantage. Black's sharpest counter is Nxe4 in return — the Nf6 captures the White Nxe4 (a (1 left, 2 down) move ✓). But White plays d3 immediately: the d2 pawn advances to d3, directly attacking the Black Ne4. Black's knight must move or White gains a tempo. After d3, the Ne4 is forced to retreat or be won. This is the critical moment in the Icelandic Gambit consolidation: White has recaptured the pawn, hit the Ne4, and now opens lines to develop the c1 bishop (which was hemmed in). The d3 advance is multi-purpose: kicks the knight, prepares Bxd3 development, and starts to organize the center. White's two extra pawns (after the gambit) give a clear endgame advantage — the task is to consolidate without giving Black a devastating attack."
+    },
+    {
+      "drillId": "scandinavian-nf6-t2",
+      "name": "d3 Central Challenge",
+      "theme": "Central Pawn Play",
+      "description": "White plays d3 to directly challenge Black's advanced e4 pawn. After Black captures exd3, White recaptures Bxd3 — developing the bishop and opening the center simultaneously.",
+      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R w KQkq - 8 9",
+      "solutionMoves": ["d3", "Bxd3"],
+      "opponentResponse": "exd3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays d3 to challenge Black's cramping e4 pawn. Black captures exd3. White recaptures Bxd3 — developing the f1 bishop and opening lines while eliminating the pawn that was restricting White's position.",
+      "explanation": "d3 is White's most natural structural response to the Icelandic Gambit pawn on e4. The d2 pawn advances to d3, directly challenging Black's e4 wedge. Black's best response is exd3 — the e4 pawn captures on d3 (one square diagonal ✓), eliminating the threat but giving White a developing move. White recaptures Bxd3: the f1 bishop (on the light-square diagonal) travels via e2 to d3, actively developing while recapturing. After Bxd3, White now has:  the f1 bishop developed to an active central square, the d and e files opening for rook activity, and the cramping e4 pawn eliminated. The Bxd3 bishop points toward Black's kingside and supports the Nc3's future jumps. White's position is now free: the c1 bishop can be developed (via d2 or b2), and both knights are active. The key insight: d3 is not a passive pawn push — it's a direct exchange that frees White's game while eliminating the most annoying feature of Black's position (the e4 wedge)."
+    },
+    {
+      "drillId": "scandinavian-nf6-t3",
+      "name": "Nd5 Knight Outpost",
+      "theme": "Central Outpost",
+      "description": "White leaps the Nc3 to the dominant central square d5. After Black's knight captures Nxd5, White recaptures cxd5 — a passed pawn in the center that cramps Black's counterplay.",
+      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R w KQkq - 8 9",
+      "solutionMoves": ["Nd5", "cxd5"],
+      "opponentResponse": "Nxd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White jumps Nd5, seizing the powerful central outpost. After Black's Nxd5 captures, White plays cxd5 — a passed pawn in the center that cramps Black and limits the Bb6 bishop's scope.",
+      "explanation": "Nd5 is White's most aggressive central option in the Icelandic position. The Nc3 leaps to d5 (a (1 right, 2 up) knight move ✓), placing the knight on the most dominant central square available. From d5, the knight attacks the Bb6 (via c7), threatens to fork Black's pieces, and controls key squares. Black must capture: Nxd5 — the Nf6 takes the knight on d5 (a (2 left, 1 down) move ✓). White recaptures cxd5: the c4 pawn captures diagonally on d5 (one square diagonal ✓). The resulting passed pawn on d5 is a major strategic asset: it cramps Black's pieces, the Bb6 bishop is now blocked from advancing, and White can use the pawn as a battering ram. The d5 pawn also supports future Nd4 (from Nb3) jumps. While Black has piece activity as compensation for the two missing pawns, White's d5 passer + Nb3 + Nc3 (before jumping) gives long-term winning chances. Nd5 converts the piece activity back into a material + pawn structure advantage."
+    },
+    {
+      "drillId": "scandinavian-nf6-t4",
+      "name": "Be2 + Nd4 Development",
+      "theme": "Piece Development",
+      "description": "White develops the f1 bishop to e2 for king safety. After Black castles, White jumps the knight to d4 — centralizing both pieces and preparing to castle safely.",
+      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R w KQkq - 8 9",
+      "solutionMoves": ["Be2", "Nd4"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays Be2, developing the bishop and preparing to castle. After Black castles safely, White plays Nd4 — centralizing the Nb3 to the powerful d4 outpost, controlling the center.",
+      "explanation": "Be2 is White's most solid developing move in the Icelandic Gambit: the f1 light bishop moves to e2 (a (1 left, 1 up) diagonal move ✓), opening the path to kingside castling. The Be2 bishop is a key piece — from e2 it supports d3 (the central challenge), can swing to f3 later to add pressure, and most importantly: it clears f1 for the king to castle. After Black castles O-O (the natural response to consolidate), White plays Nd4 — the Nb3 jumps to d4 (a (2 right, 1 up) move ✓). From d4, the knight is centralized on an excellent outpost: it cannot be challenged by Black's c5-pawn (the c7 pawn would have to come to c5, but c7-c6 was already captured), and it supports future e4 advances. The Nd4 also eyes e6 (if Black plays e6) and c6 (if the Nc6 moves). After Be2 and Nd4, White is ready to castle and neutralize Black's piece play. The two extra pawns become the long-term winning asset once piece activity is equalized."
+    }
+  ]
+}

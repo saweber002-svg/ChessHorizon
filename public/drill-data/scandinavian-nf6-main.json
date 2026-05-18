@@ -1,0 +1,16 @@
+{
+  "id": "scandinavian-nf6-main",
+  "name": "Scandinavian — Nf6 Modern (Icelandic Gambit)",
+  "description": "Black plays 2...Nf6, avoiding the early queen sortie entirely. After 3.c4, Black gambits a pawn with 3...c6 4.dxc6 Nxc6 — the Icelandic Gambit. Black sacrifices material for rapid development, an advanced e4 pawn, and active piece play. White must be precise: the e4 pawn cramps the position and Black's Nc6+Nf6+Bb6 battery creates immediate pressure. A sharp, forcing line that rewards tactical play.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "scandinavian-nf6",
+      "name": "Scandinavian — Nf6 Modern (Icelandic Gambit)",
+      "description": "After 2...Nf6 3.c4 c6, Black offers the c6 pawn as a gambit. White captures 4.dxc6 and Black recaptures Nxc6. Black then plays the powerful 5...e5 — claiming the center. When White plays 6.Nf3, Black advances 6...e4 to gain space and cramp the knight. White's Nf3 retreats to d4, Black attacks it with Bc5, and White retreats again to b3. Black's Bb6 anchors the light squares. Black has two fewer pawns but dominates the center with the e4 wedge.",
+      "moves": ["e4", "d5", "exd5", "Nf6", "c4", "c6", "dxc6", "Nxc6", "Nc3", "e5", "Nf3", "e4", "Nd4", "Bc5", "Nb3", "Bb6"],
+      "moveCount": 16,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

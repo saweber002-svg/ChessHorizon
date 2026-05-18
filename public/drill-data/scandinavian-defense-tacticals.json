@@ -1,0 +1,72 @@
+{
+  "id": "scandinavian-defense-tacticals",
+  "name": "Scandinavian Defense — White Tactics",
+  "description": "4 strategic challenges for White in the Scandinavian Defense Qa5 Main Line. Find the right plan after 8...Bb4!",
+  "arena": "scandinavian-defense",
+  "drills": [
+    {
+      "drillId": "scandinavian-defense-t1",
+      "name": "a3 Bishop Challenge",
+      "theme": "Bishop Challenge",
+      "description": "Black's Bb4 pins the Nc3. White plays a3 to force the bishop to commit — if it takes on c3, White recaptures with the Bd2.",
+      "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R w KQkq - 2 9",
+      "solutionMoves": ["a3", "Bxc3"],
+      "opponentResponse": "Bxc3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays a3, challenging the Bb4 pin. Black accepts with Bxc3, and White recaptures with Bxc3 — gaining the bishop pair and freeing the Nc3.",
+      "explanation": "a3 is White's sharpest reply to the Bb4 pin. The pawn move directly challenges Black's bishop and forces an immediate decision: trade on c3 or retreat. When Black plays Bxc3 (accepting the challenge), White recaptures with Bxc3 — the Bd2 captures, giving White the bishop pair and eliminating the pin on the Nc3. The resulting pawn structure favors White: the c3 pawn is a central support, and White's two bishops dominate the open diagonals in the ensuing middlegame. The a3 move also gains a tempo — Black's bishop made two moves to be captured on c3, while White's Bxc3 recapture develops the piece and opens the d-file. In the Scandinavian, tempo is everything: every White piece development is a direct challenge to Black's exposed queen on a5."
+    },
+    {
+      "drillId": "scandinavian-defense-t2",
+      "name": "O-O-O Queenside Castle",
+      "theme": "Queenside Castle",
+      "description": "White castles long for an aggressive setup — the king reaches c1, the rook activates on d1, and White can storm the kingside with f3, g4, and h4.",
+      "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R w KQkq - 2 9",
+      "solutionMoves": ["O-O-O", "Kb1"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles queenside — king to c1, rook to d1. After Black castles kingside with O-O, White tucks the king further with Kb1 — securing the queenside before launching a kingside pawn storm.",
+      "explanation": "O-O-O is the most aggressive king placement in the Scandinavian against Black's solid setup. By castling queenside, White places the king on c1 (or Kc1→Kb1 for extra safety) and activates the Ra1-d1 rook on the half-open d-file. The Rd1 immediately presses on Black's d5 weakness and eyes the d7/d8 squares. After Black castles kingside with O-O (the natural response to secure the king), White plays Kb1 — a standard 'improve the king' move that removes it from the c-file and prepares the queenside rook to join the attack. From this setup, White's plan is a kingside pawn storm: f3, g4, h4-h5, tearing open lines against Black's castled king. The contrast in king positions (White queenside, Black kingside) creates the classic attacking imbalance that defines this variation. Every tempo counts — the player who launches their attack first typically wins."
+    },
+    {
+      "drillId": "scandinavian-defense-t3",
+      "name": "Nd5 Central Outpost",
+      "theme": "Central Outpost",
+      "description": "White strikes the key central square with Nd5 — the knight leaps to the dominant central outpost, attacking e7 and c7. When Black captures exd5, White recaptures Bxd5 with a powerfully centralized bishop.",
+      "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R w KQkq - 2 9",
+      "solutionMoves": ["Nd5", "Bxd5"],
+      "opponentResponse": "exd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White jumps Nd5, seizing the central outpost. Black captures exd5, but White recaptures Bxd5 — a powerfully centralized bishop controlling both diagonals from the heart of the board.",
+      "explanation": "Nd5 is a thematic central leap: the Nc3 jumps to d5, the most dominant square in the position. From d5, the knight attacks e7 (next to the king) and c7 (queen's knight pawn), putting immediate pressure on Black's uncastled position. Black must capture — allowing the knight to remain on d5 indefinitely is positionally catastrophic. When Black plays exd5 (the only way to eliminate the knight), White recaptures with Bxd5. The Bc4 moves to d5, and the bishop becomes a monster: it controls the a2-g8 diagonal (pointing at Black's kingside) and the b3-f7 diagonal (eyeing f7 near the uncastled king). The Bxd5 bishop also controls key squares like c6 and e6, restraining Black's pawn advances. The recapture opens the e-file for White's rooks, and Black's d5 pawn itself becomes a target. Nd5 followed by Bxd5 is White's most concrete attacking plan — centralize first, then cash in the material advantage."
+    },
+    {
+      "drillId": "scandinavian-defense-t4",
+      "name": "O-O Kingside Castle",
+      "theme": "Development",
+      "description": "White castles kingside for a solid approach — king safety first, then build with Rfe1 to support the center and control the e-file.",
+      "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R w KQkq - 2 9",
+      "solutionMoves": ["O-O", "Rfe1"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles kingside, securing the king. After Black also castles, White plays Rfe1 — the rook eyes the e-file and supports the center, preparing e5 or Nd5 follow-up plans.",
+      "explanation": "O-O is White's most principled approach: castle first, then play chess. The king is safe on g1 behind the pawns, and the Rh1 rook activates to f1. After Black mirrors with O-O (also castling kingside), White plays Rfe1 — the rook moves to the e-file, the most important open file in the position. From e1, the rook supports a future e5 pawn advance (if White can push e2-e4-e5 after d4), presses on Black's e6 pawn, and prepares for the endgame. The Rfe1 also frees the f1 square for the king to march to the queenside if needed (Kf2-Ke3). The calm O-O and Rfe1 approach gives White long-term pressure: the Bc4 eyes f7, the Nd5 threat is always lurking, and Black must constantly watch both flanks. Sometimes the best plan is the most natural one: develop, castle, centralize, and let the position's advantages speak for themselves."
+    }
+  ]
+}

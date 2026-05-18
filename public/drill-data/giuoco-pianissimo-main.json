@@ -1,0 +1,16 @@
+{
+  "id": "giuoco-pianissimo-main",
+  "name": "Giuoco Pianissimo — Main Line",
+  "description": "The Quiet/Slow Variation of the Italian Game with 4.d3 — a patient, positional setup where both sides castle early and fight for long-term advantages.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "pianissimo",
+      "name": "Giuoco Pianissimo (4.d3)",
+      "description": "White plays 4.d3 to build a solid center without committing to d4 immediately. Both sides castle by move 8, keeping the position flexible and strategic.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Bc5", "d3", "Nf6", "O-O", "d6", "c3", "a6", "Re1", "Ba7", "Nbd2", "O-O"],
+      "moveCount": 16,
+      "difficulty": "Beginner"
+    }
+  ]
+}

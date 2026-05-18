@@ -1,0 +1,16 @@
+{
+  "id": "scandinavian-defense-main",
+  "name": "Scandinavian Defense — Qa5 Main Line",
+  "description": "The Scandinavian Defense is one of the oldest recorded openings — played in the first documented chess game (1475). After 1.e4 d5, Black immediately challenges the center. Following 2.exd5 Qxd5 3.Nc3 Qa5, the queen retreats to a5 — safe, active, and eyeing the queenside. Black develops with purpose: ...Bf5 before ...e6 (the light bishop must come out first or it's locked in forever), ...c6 for central support, and ...Bb4 pinning the Nc3. White builds with d4, Nf3, Bc4, and Qe2 — rapid development targeting Black's exposed queen.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "scandinavian-defense",
+      "name": "Scandinavian Defense — Qa5 Main Line",
+      "description": "The classical main line with Qa5. After 3...Qa5, Black's queen is active but needs support. White plays 4.d4 to reclaim the center, then develops both knights and the f1 bishop to c4. Black responds with 4...Nf6 (developing with tempo), 5...Bf5 (the critical light bishop), 6...e6, 7...c6 (solid pawn chain), and 8...Bb4 (pinning the Nc3). Both sides race to complete development. White's Qe2 prepares O-O-O or O-O and maintains central tension.",
+      "moves": ["e4", "d5", "exd5", "Qxd5", "Nc3", "Qa5", "d4", "Nf6", "Nf3", "Bf5", "Bc4", "e6", "Bd2", "c6", "Qe2", "Bb4"],
+      "moveCount": 16,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

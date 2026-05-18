@@ -1,0 +1,16 @@
+{
+  "id": "sicilian-najdorf-main",
+  "name": "Sicilian Najdorf — English Attack",
+  "description": "The most deeply analyzed opening in chess. After 5...a6, Black keeps all options open and prevents Nb5. White responds with the classical 6.Bg5 line — pinning the Nf6 and building pressure before Black can equalize. After 8.Qf3 Qc7, the battle lines are drawn for a full-board war.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "sicilian-najdorf",
+      "name": "Najdorf Variation — 6.Bg5 Main Line",
+      "description": "White pins the Nf6 with Bg5 and builds a powerful center with f4. After 7.f4 Be7 8.Qf3 Qc7, both sides have declared their intentions — White attacks on the kingside, Black seeks counterplay on the queenside. This is the sharpest and most theoretically rich battleground in all of chess.",
+      "moves": ["e4", "c5", "Nf3", "d6", "d4", "cxd4", "Nxd4", "Nf6", "Nc3", "a6", "Bg5", "e6", "f4", "Be7", "Qf3", "Qc7"],
+      "moveCount": 16,
+      "difficulty": "Advanced"
+    }
+  ]
+}

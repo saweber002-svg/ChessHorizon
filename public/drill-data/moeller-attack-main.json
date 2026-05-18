@@ -1,0 +1,16 @@
+{
+  "id": "moeller-attack-main",
+  "name": "Moeller Attack — Main Line",
+  "description": "White sacrifices a piece with 7.Nc3 and launches a ferocious attack. The sharpest line in the Giuoco Piano — high-stakes chess where precise play decides everything.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "moeller",
+      "name": "Moeller Attack (7.Nc3)",
+      "description": "White plays 7.Nc3 to block the check and invite Nxe4, then castles and sacrifices the knight with d5. The d5-pawn cramps Black while White doubles on the e-file, winning back material with interest.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Bc5", "c3", "Nf6", "d4", "exd4", "cxd4", "Bb4+", "Nc3", "Nxe4", "O-O", "Bxc3", "d5", "Bf6", "Re1", "Ne7", "Rxe4", "d6", "Bg5", "Bxg5", "Nxg5", "O-O"],
+      "moveCount": 26,
+      "difficulty": "Advanced"
+    }
+  ]
+}

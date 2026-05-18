@@ -1,0 +1,60 @@
+{
+  "id": "ruy-lopez-exchange-black-tacticals",
+  "name": "Ruy López Exchange Variation — Black Tactics",
+  "description": "4 strategic challenges for Black in the Exchange Variation. Fight for activity and compensation against White's structural edge.",
+  "arena": "ruy-lopez-exchange",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-exchange-bt1",
+      "name": "Activate the Bishop Pair",
+      "theme": "Diagonal Pressure",
+      "description": "After White retreats Ne2, Black develops the c8-bishop to d7 and then to c6 — activating the bishop pair and fighting for the central squares.",
+      "fen": "r1bqkbnr/1p4pp/p1p2p2/2p5/4P3/8/PPP1NPPP/RNBQ1RK1 b kq - 1 8",
+      "whitePromptMove": "Ne2",
+      "solutionMoves": ["Bd7", "Bc6"],
+      "opponentResponse": "Nc3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black develops Bd7 and then Bc6 — activating the bishop pair and fighting for d5 and e4.",
+      "explanation": "The bishop pair is Black's main compensation in the Exchange Variation. After 8.Ne2, Black plays Bd7 — a multi-purpose move that develops the bishop, prepares Bc6, and keeps options open for queenside castling. After 9.Nc3 (White develops), Black plays Bc6 — the bishop lands on c6 where it fights for d5 and e4, and pressures the e4-pawn directly. The bishop pair (Bc6 + Bf8 or Bg7) gives Black long-term pressure on the light squares that White cannot easily neutralize."
+    },
+    {
+      "drillId": "ruy-lopez-exchange-bt2",
+      "name": "Contest the Center with Ne7-d5",
+      "theme": "Central Counter",
+      "description": "After White plays Be3, Black responds with Ne7 — preparing to route the knight to the dominant d5 outpost.",
+      "fen": "r1bqkbnr/1p4pp/p1p2p2/2p5/4P3/4B3/PPP1NPPP/RN1Q1RK1 b kq - 2 8",
+      "whitePromptMove": "Be3",
+      "solutionMoves": ["Ne7", "Nd5"],
+      "opponentResponse": "Nc3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black plays Ne7 to route the knight to d5, contesting the central outpost before White can occupy it.",
+      "explanation": "Ne7 is Black's most active response — the knight heads directly for d5, the most important central square in the Exchange Variation. After 9.Nc3, Black plays Nd5 — landing on d5 with a powerful centralized knight. From d5, the knight attacks the e3-bishop, the c3-knight, and prevents White from playing d4-d5 in the future. This knight is Black's most powerful piece in this structure and is very difficult to dislodge without a concession from White."
+    },
+    {
+      "drillId": "ruy-lopez-exchange-bt3",
+      "name": "Expand on the Queenside",
+      "theme": "Queenside Play",
+      "description": "After White plays f4, Black counters with Be6 and then b5-b4 — generating queenside counter-play before White's kingside attack gains momentum.",
+      "fen": "r1bqkbnr/1p4pp/p1p2p2/2p5/3NP1P1/8/PPP2P1P/RNBQ1RK1 b kq - 0 7",
+      "whitePromptMove": "f4",
+      "solutionMoves": ["Be6", "b5"],
+      "opponentResponse": "Nc3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black plays Be6 to develop and challenge the d5 square, then expands with b5 on the queenside.",
+      "explanation": "Be6 is a key developing move — it activates the c8-bishop, contests the d5-square, and challenges White's control of the center. After White plays Nc3 (developing), Black plays b5 — a thematic queenside expansion that gains space and prepares b4, pushing back White's queenside pieces. The b5 advance also opens the possibility of b4-a4 or b4-c3 to create queenside pawn breaks. Black must act quickly on the queenside before White launches f4-f5 on the kingside."
+    },
+    {
+      "drillId": "ruy-lopez-exchange-bt4",
+      "name": "Develop and Castle Queenside",
+      "theme": "Queenside Play",
+      "description": "After White plays Nb3, Black develops with Bd6 and then castles queenside — putting the king on the safe side and connecting the rooks.",
+      "fen": "r1bqkbnr/1p4pp/p1p2p2/2p5/4P3/1N6/PPP2PPP/RNBQ1RK1 b kq - 1 8",
+      "whitePromptMove": "Nb3",
+      "solutionMoves": ["Bd6", "Ne7"],
+      "opponentResponse": "c4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black develops Bd6 and then Ne7 — preparing to castle queenside and activate the pieces rapidly.",
+      "explanation": "Bd6 is the natural developing square for this bishop — it aims at h2 and supports future ...Ne7-g6-f4 maneuvers. After 9.c4 (White attacks the c-pawn), Black plays Ne7 — preparing O-O-O (queenside castling) and the knight route to d5 or g6. The plan of Bd6 + Ne7 + O-O-O gives Black a solid position with active pieces. Queenside castling is often optimal in this structure because the kingside is more exposed after f7-f6 and the c8-bishop has left c8, so the queenside is safer."
+    }
+  ]
+}

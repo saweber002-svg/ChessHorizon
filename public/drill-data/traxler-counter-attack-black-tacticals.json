@@ -1,0 +1,60 @@
+{
+  "id": "traxler-counter-attack-black-tacticals",
+  "name": "Traxler Counter-Attack — Black Tactics",
+  "description": "4 tactical challenges for Black in the Traxler Counter-Attack. Find the precise counter-attacking sequences to press Black's initiative and exploit the exposed White king!",
+  "arena": "two-knights",
+  "drills": [
+    {
+      "drillId": "traxler-bt1",
+      "name": "Queen Check on h4",
+      "theme": "Queen Initiative",
+      "description": "Black creates immediate threats.",
+      "fen": "r1bqk2r/pppp1Npp/2n5/4p3/2B1n3/8/PPPP1KPP/RNBQ3R w kq - 0 7",
+      "whitePromptMove": "Ke3",
+      "solutionMoves": ["Qh4", "Qf6"],
+      "opponentResponse": "g3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black creates immediate threats.",
+      "explanation": "Qh4 threatens mate on f2. Black continues with 9...Qf6, keeping the attack alive."
+    },
+    {
+      "drillId": "traxler-bt2",
+      "name": "d5 Central Break",
+      "theme": "Central Break",
+      "description": "Black opens the center.",
+      "fen": "r1b1k2r/pppp1Npp/2n5/4p3/2B1n2q/4K3/PPPP2PP/RNBQ3R w kq - 2 8",
+      "whitePromptMove": "d3",
+      "solutionMoves": ["d5", "Bg4"],
+      "opponentResponse": "Bb3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black opens the center.",
+      "explanation": "d5 attacks the bishop. Black follows with 10...Bg4, pinning and attacking."
+    },
+    {
+      "drillId": "traxler-bt3",
+      "name": "Bg4 Pin",
+      "theme": "Bishop Pin",
+      "description": "Black pins the queen.",
+      "fen": "r1b1k2r/ppp2Npp/2n5/3pp3/2B1n2q/3PK3/PPP3PP/RNBQ3R w kq - 0 9",
+      "whitePromptMove": "Qf3",
+      "solutionMoves": ["Nd6", "Bg4"],
+      "opponentResponse": "Kd2",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black pins the queen.",
+      "explanation": "Bg4 pins the queen. Black continues with 11...Qf6, creating unstoppable threats."
+    },
+    {
+      "drillId": "traxler-bt4",
+      "name": "Castling Long",
+      "theme": "Queenside Castle",
+      "description": "Black castles queenside for safety.",
+      "fen": "r1b1k2N/ppp3pp/2n2q2/3pp3/2B1n3/4K1P1/PPPP3P/RNBQ3R w q - 0 10",
+      "whitePromptMove": "Kd3",
+      "solutionMoves": ["Bg4", "O-O-O"],
+      "opponentResponse": "Nc3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black castles queenside for safety.",
+      "explanation": "0-0-0 brings the rook into the attack. Black follows with 12...Rhe8, creating overwhelming pressure."
+    }
+  ]
+}

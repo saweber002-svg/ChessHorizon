@@ -1,0 +1,56 @@
+{
+  "id": "ruy-lopez-open-tacticals",
+  "name": "Ruy López Open Defense — White Tactics",
+  "description": "4 strategic challenges for White in the Open Defense. Navigate the sharp complications after 8.dxe5 Be6 and fight for the initiative.",
+  "arena": "ruy-lopez-open",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-open-t1",
+      "name": "Knight to d4 — Central Domination",
+      "theme": "Knight Outpost",
+      "description": "White plays Nd4 — jumping the knight to the dominant central outpost, attacking both the Nc6 and Be6 simultaneously.",
+      "fen": "r2qkb1r/2p2ppp/p1n1b3/1p1pP3/4n3/1B3N2/PPP2PPP/RNBQ1RK1 w kq - 1 9",
+      "solutionMoves": ["Nd4", "Nxc6"],
+      "opponentResponse": "Qd7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays Nd4 to fork the Nc6 and Be6, then captures on c6 to disrupt Black's structure.",
+      "explanation": "Nd4 is a powerful move — the knight lands on the central outpost and simultaneously attacks the Nc6 and Be6. Black cannot defend both pieces optimally. After 9...Qd7 (defending c6), White plays 10.Nxc6 — exchanging the knight for the c6-knight and disrupting Black's development. After bxc6 or Qxc6, Black's structure is weakened and White has a strong e5-pawn wedge. The Nd4-Nxc6 idea is the most forcing continuation and forces Black to make concessions."
+    },
+    {
+      "drillId": "ruy-lopez-open-t2",
+      "name": "c3 — Prepare the Center",
+      "theme": "Central Pawn Break",
+      "description": "White plays c3 to prepare Nbd2, support the center, and challenge the Ne4 with a future Nf1-e3 or Nbd2 plan.",
+      "fen": "r2qkb1r/2p2ppp/p1n1b3/1p1pP3/4n3/1B3N2/PPP2PPP/RNBQ1RK1 w kq - 1 9",
+      "solutionMoves": ["c3", "Nbd2"],
+      "opponentResponse": "Bc5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays c3 to prepare Nbd2, then develops the knight to challenge the Ne4.",
+      "explanation": "c3 is a solid positional move — it prepares Nbd2 which will directly challenge the Ne4. After 9...Bc5 (Black activates the bishop), White plays 10.Nbd2 — the knight develops to d2 where it can go to f1-e3 to attack Ne4, or push f4 to support the e5-pawn. The c3 pawn also solidifies White's center and prevents ...d4 pawn pushes. White's plan is Nbd2-Nf1-e3 with pressure on e4 (Black's knight) and d5 (a target)."
+    },
+    {
+      "drillId": "ruy-lopez-open-t3",
+      "name": "Qe2 — Challenge the Outpost",
+      "theme": "e-File Pressure",
+      "description": "White plays Qe2 to challenge the Ne4 directly and prepare Rfe1 to back up the central pawn structure.",
+      "fen": "r2qkb1r/2p2ppp/p1n1b3/1p1pP3/4n3/1B3N2/PPP2PPP/RNBQ1RK1 w kq - 1 9",
+      "solutionMoves": ["Qe2", "Rfe1"],
+      "opponentResponse": "Nc5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays Qe2 to attack Ne4, then places the rook on e1 to double the pressure.",
+      "explanation": "Qe2 directly threatens to win the Ne4 after f3 (if the knight retreats) or via Nc3 attacking it. After 9...Nc5 (the knight retreats to c5 before it is attacked again), White plays Rfe1 — the rook seizes the e-file and supports the e5-pawn. The rook on e1 + Qe2 battery creates pressure along the e-file. White can continue with Nc3 and Bf4 to increase the pressure. This plan is solid and keeps the initiative by forcing Black to constantly react."
+    },
+    {
+      "drillId": "ruy-lopez-open-t4",
+      "name": "Nbd2 — Fight for e4",
+      "theme": "Knight Outpost",
+      "description": "White develops Nbd2 immediately to challenge the Ne4 — the knight can go to f1-e3 to attack the central outpost.",
+      "fen": "r2qkb1r/2p2ppp/p1n1b3/1p1pP3/4n3/1B3N2/PPP2PPP/RNBQ1RK1 w kq - 1 9",
+      "solutionMoves": ["Nbd2", "Nf1"],
+      "opponentResponse": "Nc5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays Nbd2 to prepare Nf1-e3, routing the knight to attack the Ne4 directly.",
+      "explanation": "Nbd2 is the most direct approach — the knight comes to d2 and immediately plans Nf1-e3, landing on the outpost next to the Black Ne4. After 9...Nc5 (Black moves the knight away from the threat), White plays Nf1 — heading toward e3. From e3, the knight pressures both d5 and f5, and if Black retreats the Nc5 to e6, White can play Nd5 for powerful centralization. The knight route Nbd2-Nf1-e3 is a standard plan in the Open Defense."
+    }
+  ]
+}

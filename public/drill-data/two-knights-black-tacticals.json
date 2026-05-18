@@ -1,0 +1,60 @@
+{
+  "id": "two-knights-black-tacticals",
+  "name": "Two Knights Defense — Black Tactics",
+  "description": "4 tactical challenges for Black in the Two Knights Defense. Find the precise counter-attacking and defensive sequences after White's most dangerous continuations!",
+  "arena": "two-knights",
+  "drills": [
+    {
+      "drillId": "two-knights-bt1",
+      "name": "Central Counter-break",
+      "theme": "Central Counter",
+      "description": "Black strikes back in the center, centralising the knight to challenge White's initiative.",
+      "fen": "r1bq1rk1/ppp1nppp/3p4/3P2N1/2B1R3/8/PP3PPP/R2Q2K1 b - - 0 14",
+      "whitePromptMove": "Re1",
+      "solutionMoves": ["Nf5", "Nd4"],
+      "opponentResponse": "Qe2",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Nf5 centralises with tempo. When White plays Qe2, Nd4 takes the dominant central square.",
+      "explanation": "d5 opens lines and attacks the e-file. Black continues with Qd6 and Bf5, activating pieces and regaining central control. After Re1 Nf5!, Black finds an active posting that attacks e3 and eyes the d4 central outpost. When White plays Qe2, Nd4 occupies the dominant square — forking e2 and c2, creating real counter-play."
+    },
+    {
+      "drillId": "two-knights-bt2",
+      "name": "Re8 Pressure",
+      "theme": "e-File Domination",
+      "description": "Black contests the open e-file.",
+      "fen": "r1bq1rk1/ppp1nppp/3p4/3P2N1/2B1R3/8/PP3PPP/R2Q2K1 b - - 0 14",
+      "whitePromptMove": "Re1",
+      "solutionMoves": ["Re8", "Qd7"],
+      "opponentResponse": "Ne4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Re8 immediately contests the e-file. After Ne4, Qd7 connects the rooks and prepares Rad8.",
+      "explanation": "Re8 doubles on the file. Black continues with Qc7 and Rad8, creating strong pressure on White's center. Re8 challenges White's rook on the e-file directly. If White repositions with Ne4, Qd7 is the key follow-up — it connects the rooks, prepares Rad8, and eyes the d5-pawn. Black now has real counter-play."
+    },
+    {
+      "drillId": "two-knights-bt3",
+      "name": "Queenside Counter-play",
+      "theme": "Queenside Play",
+      "description": "Black gains space.",
+      "fen": "r1bqk2r/pppp1ppp/2n2b2/3P4/2B1n3/5N2/PP3PPP/R1BQ1RK1 b kq - 0 10",
+      "whitePromptMove": "d6",
+      "solutionMoves": ["b5", "a5"],
+      "opponentResponse": "Bb3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "b5 attacks the bishop immediately, gaining a tempo. After Bb3, a5 continues the queenside expansion with force.",
+      "explanation": "b5 kicks the bishop. Black continues with a5 and Ba6, developing with tempo. After d6, b5 attacks the bishop on c4 immediately, forcing it to retreat with Bb3. Then a5 continues the queenside advance with tempo, preparing Ba6 to trade off White's important light-squared bishop. This queenside counter-play is the antidote to White's central breakthrough."
+    },
+    {
+      "drillId": "two-knights-bt4",
+      "name": "Defensive Resource vs Ng5",
+      "theme": "Tactical Defense",
+      "description": "Black neutralizes the knight.",
+      "fen": "r1bqk2r/ppp1nppp/3p1b2/3P4/2B1R3/5N2/PP3PPP/R1BQ2K1 b kq - 0 12",
+      "whitePromptMove": "Ng5",
+      "solutionMoves": ["h6", "O-O"],
+      "opponentResponse": "Nf3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "h6 kicks the knight away from g5. Once White retreats, Black immediately castles to safety.",
+      "explanation": "h6 kicks the knight. Black follows with Rxf7 and Qd6, maintaining material and consolidating safely. After Ng5, h6 forces the knight to retreat with Nf3. Now Black castles immediately — O-O! — placing the king behind the f7-g7-h6 pawn wall. Once safely castled, Black can follow with Qd6 and Rad8 to centralise and consolidate."
+    }
+  ]
+}

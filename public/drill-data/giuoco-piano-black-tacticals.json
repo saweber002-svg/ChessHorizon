@@ -1,0 +1,60 @@
+{
+  "id": "giuoco-piano-black-tacticals",
+  "name": "Giuoco Piano — Black Tactics",
+  "description": "4 tactical challenges for Black in the Italian Game. Find the counter-move after White's most common 12th moves!",
+  "arena": "giuoco-piano",
+  "drills": [
+    {
+      "drillId": "giuoco-piano-bt1",
+      "name": "Solidify the Center",
+      "theme": "Central Coordination",
+      "description": "Black reinforces the knight on d5 with c6 and prepares counter-play against White's center.",
+      "fen": "r1bq1rk1/ppp1nppp/8/3n4/2BP4/1Q3N2/PP1N1PPP/R4RK1 b - - 4 12",
+      "whitePromptMove": "Rfe1",
+      "solutionMoves": ["c6", "Re8"],
+      "opponentResponse": "Ne4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black reinforces the knight on d5 and prepares counter-play against White's center.",
+      "explanation": "Re8 puts immediate pressure down the e-file. Black continues with 14...Qc7 and 15...Rad8, fully coordinating the rooks against the d4-pawn. This neutralizes White's pressure on d5 and sets up long-term central counter-play while keeping the position solid."
+    },
+    {
+      "drillId": "giuoco-piano-bt2",
+      "name": "Knight Outpost on f5",
+      "theme": "Knight Outpost",
+      "description": "Black plants the knight on a strong central outpost, immediately attacking the d4-pawn and eyeing e3.",
+      "fen": "r1bq1rk1/ppp1nppp/8/3n4/2BP4/1Q3N2/PP1N1PPP/R4RK1 b - - 4 12",
+      "whitePromptMove": "Rfe1",
+      "solutionMoves": ["Nf5", "Nxd4"],
+      "opponentResponse": "Nf1",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black plants the knight on a strong central outpost, immediately attacking the d4-pawn and eyeing e3.",
+      "explanation": "Nxd4 captures the central pawn. If White recaptures 14.Nxd4, Black follows with 15...Ne3, forking the queen and rook or creating powerful pressure on White's position. This often wins material or forces awkward concessions from White."
+    },
+    {
+      "drillId": "giuoco-piano-bt3",
+      "name": "Queenside Expansion",
+      "theme": "Queenside Play",
+      "description": "Black gains space on the queenside and kicks the bishop on c4, then expands with a5.",
+      "fen": "r1bq1rk1/ppp1nppp/8/3n4/2BP4/1Q3N2/PP1N1PPP/R4RK1 b - - 4 12",
+      "whitePromptMove": "Rfe1",
+      "solutionMoves": ["b5", "a5"],
+      "opponentResponse": "Bd3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black gains space on the queenside and kicks the bishop on c4.",
+      "explanation": "a5 prepares further expansion. Black continues with 14...a4 and 15...Ba6, developing the bishop with tempo and restricting White's pieces while controlling key queenside squares."
+    },
+    {
+      "drillId": "giuoco-piano-bt5",
+      "name": "Defensive Resource vs Ng5",
+      "theme": "Tactical Defense",
+      "description": "Black kicks White's attacking knight on g5 to defend the weak f7-pawn, then recaptures the sacrifice.",
+      "fen": "r1bq1rk1/ppp1nppp/8/3n4/2BP4/1Q3N2/PP1N1PPP/R4RK1 b - - 4 12",
+      "whitePromptMove": "Ng5",
+      "solutionMoves": ["h6", "Rxf7"],
+      "opponentResponse": "Nxf7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black kicks the attacking knight on g5 to defend the weak f7-pawn.",
+      "explanation": "If White sacrifices 13.Nxf7, Black recaptures with the rook. Black then plays 14...Qxf7 (if needed) or 14...Rf8, maintaining material equality while neutralizing White's attack and keeping the position safe."
+    }
+  ]
+}

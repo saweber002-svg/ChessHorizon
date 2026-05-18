@@ -1,0 +1,72 @@
+{
+  "id": "english-reversed-sicilian-tacticals",
+  "name": "Reversed Sicilian — White Tactics",
+  "description": "4 strategic challenges for White in the English Reversed Sicilian. Find the best plan after 8...O-O as Black completes development.",
+  "arena": "english-reversed-sicilian",
+  "drills": [
+    {
+      "drillId": "ers-t1",
+      "name": "Queenside Expansion",
+      "theme": "Queenside Expansion",
+      "description": "Push a4 to gain queenside space and restrict Black's knight on b6. After Black develops the bishop to e6, play Be3 to complete development and prepare Rc1.",
+      "fen": "r1bq1rk1/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 w - - 1 9",
+      "solutionMoves": ["a4", "Be3"],
+      "opponentResponse": "Be6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "a4 gains queenside space and restricts Nb6. After Be6, Be3 completes development and prepares Rc1.",
+      "explanation": "a4 is a powerful positional move that grabs queenside space and restricts Black's knight on b6 — the knight now has fewer retreat squares and can no longer easily reach c4 or a4. Black responds with Be6, developing the last minor piece and preparing to contest the d5 square. White follows with Be3, completing development harmoniously: the bishop on e3 supports d4, prepares Rc1 for the open c-file, and connects with the a4 pawn to create a bind on the queenside. After a4+Be3, White's position is fully coordinated: the Bg2 controls the long diagonal, Be3 supports the center, and Rc1 will claim the half-open c-file. This is the Reversed Sicilian advantage in action — White achieves this setup a full tempo ahead of the normal Sicilian."
+    },
+    {
+      "drillId": "ers-t2",
+      "name": "Bishop Development",
+      "theme": "Piece Coordination",
+      "description": "Develop the bishop to e3 to support the d4 break and control the dark squares. After Black solidifies with f6, seize the c-file with Rc1.",
+      "fen": "r1bq1rk1/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 w - - 1 9",
+      "solutionMoves": ["Be3", "Rc1"],
+      "opponentResponse": "f6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Be3 develops actively and supports d4. After f6, Rc1 seizes the half-open c-file.",
+      "explanation": "Be3 is the most natural developing move in the Reversed Sicilian — the bishop lands on e3 where it supports the central d4 break, controls the dark squares (especially c5 and d4), and can later retreat to d2 or swing to f2 if needed. Black responds with f6, a committal but solid move that reinforces the e5 pawn and prevents Ng5 or Ne5 ideas. However, f6 weakens the light squares around Black's king (g6, e6) and blocks the natural Nf6 return path. White exploits this with Rc1, claiming the half-open c-file immediately. The rook on c1 pressures c7, supports a future Nc3-d5 jump, and prepares doubling with Qc2. After Be3+Rc1, White has the classic Reversed Sicilian dream: full development, dark-square control, and the c-file initiative."
+    },
+    {
+      "drillId": "ers-t3",
+      "name": "Central Strike",
+      "theme": "Central Pawn Break",
+      "description": "Seize the center immediately with e4. After Black plays f6 to bolster e5, advance d4 to crack open the position for the Bg2 bishop.",
+      "fen": "r1bq1rk1/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 w - - 1 9",
+      "solutionMoves": ["e4", "d4"],
+      "opponentResponse": "f6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "e4 stakes a massive central claim. After f6, d4 breaks through and unleashes the Bg2 bishop.",
+      "explanation": "e4 is the most ambitious central plan — White stakes out a huge pawn center with d3+e4, seizing space and activating the Bg2 bishop which now has open lines toward d5 and the queenside. Black responds with f6, the most resilient defense of the e5 pawn, but this is a significant concession: f6 blocks the natural Nf6 post, weakens the light squares (especially e6 and g6), and makes Black's position static. White punches through with d4, the decisive central break. After d4, White threatens to open the center completely — if Black captures exd4, Nxd4 centralizes the knight with a dominating position. If Black doesn't capture, White plays dxe5 fxe5 and Black's e5 pawn becomes a target. The e4+d4 center combined with the Bg2 bishop is the Reversed Sicilian's ultimate strategic achievement."
+    },
+    {
+      "drillId": "ers-t4",
+      "name": "Knight Reroute",
+      "theme": "Knight Maneuver",
+      "description": "Retreat the knight to d2 to begin the powerful Nd2-c4 maneuver. After Black pushes f5, jump the knight to c4 targeting the weak b6 and d6 squares.",
+      "fen": "r1bq1rk1/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 w - - 1 9",
+      "solutionMoves": ["Nd2", "Nc4"],
+      "opponentResponse": "f5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Nd2 begins the knight reroute to c4. After f5, Nc4 lands on a dominant square attacking b6 and d6.",
+      "explanation": "Nd2 is the patient positional plan — the knight retreats from f3 (where it was doing little) to d2, beginning the powerful Nd2-c4 maneuver. The knight on c4 will be a monster: it attacks the Nb6 directly, targets the d6 and e5 squares, and cannot easily be kicked out by Black's pawns. Black responds with f5, an aggressive but committal attempt to seize kingside space and prevent White from playing e4. However, f5 weakens the e5 pawn (the f-pawn no longer supports it) and creates light-square holes on e6 and d5. White exploits this immediately with Nc4 — the knight lands on c4 with devastating effect: it attacks Nb6 (forcing a trade or awkward retreat), eyes d6 (a permanent outpost if the knight reaches it), and pressures e5 from the flank. After Nd2-c4, White has achieved the ideal Reversed Sicilian knight placement — one of the most powerful positional ideas in this entire opening system."
+    }
+  ]
+}

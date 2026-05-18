@@ -1,0 +1,16 @@
+{
+  "id": "sicilian-sveshnikov-main",
+  "name": "Sicilian Sveshnikov — Main Line",
+  "description": "The most ambitious Sicilian. After 5...e5, Black accepts a permanent weakness on d5 in exchange for space and activity. White retreats the knight to b5 and posts the bishop on g5. After 8.Na3 b5, Black has staked out the queenside and the middlegame becomes a complex battle over the d5 outpost. Made famous by Kasparov — this is the Sicilian for players who want to fight.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "sicilian-sveshnikov",
+      "name": "Sveshnikov Variation — Main Line",
+      "description": "After 5...e5, Black kicks the Nd4 and claims the center. White maneuvers the knight to b5 (6.Ndb5) applying pressure on d6, then adds the pin 7.Bg5. After 7...a6 8.Na3 b5, the classic Sveshnikov structure is set: White owns the d5 outpost, Black has queenside space and the e5 stronghold. The tension between White's structural pressure and Black's dynamic counterplay defines the next 30 moves of theory.",
+      "moves": ["e4", "c5", "Nf3", "Nc6", "d4", "cxd4", "Nxd4", "Nf6", "Nc3", "e5", "Ndb5", "d6", "Bg5", "a6", "Na3", "b5"],
+      "moveCount": 16,
+      "difficulty": "Advanced"
+    }
+  ]
+}

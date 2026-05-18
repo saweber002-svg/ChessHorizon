@@ -1,0 +1,56 @@
+{
+  "id": "evans-gambit-tacticals",
+  "name": "Evans Gambit — White Tactics",
+  "description": "4 tactical challenges for White in the Evans Gambit. Find the winning 2-move sequence from the critical position after 8...Bb6!",
+  "arena": "evans-gambit",
+  "drills": [
+    {
+      "drillId": "evans-gambit-t1",
+      "name": "The f7 Fork",
+      "theme": "Knight Fork",
+      "description": "White launches the knight at f7, forking the queen and rook in one swoop.",
+      "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/2BPP3/5N2/P4PPP/RNBQ1RK1 w kq - 1 9",
+      "solutionMoves": ["Ng5", "Nxf7"],
+      "opponentResponse": "h6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White leaps to g5 threatening the devastating Nxf7 fork.",
+      "explanation": "After h6, Nxf7! is a royal fork — the knight simultaneously attacks the queen on d8 and the rook on h8. Black cannot save both pieces. If Qxf7, Bxf7+ wins a piece. If Rxf7 instead, the queen is still lost. White wins decisive material and maintains a powerful attack."
+    },
+    {
+      "drillId": "evans-gambit-t2",
+      "name": "Rook Activation + Pin",
+      "theme": "Diagonal Pressure",
+      "description": "White activates the rook on the e-file and immediately pins Black's developing knight.",
+      "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/2BPP3/5N2/P4PPP/RNBQ1RK1 w kq - 1 9",
+      "solutionMoves": ["Re1", "Bg5"],
+      "opponentResponse": "Nge7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Re1 loads the rook onto the e-file. When Black develops the knight to e7, Bg5 pins it immediately.",
+      "explanation": "Bg5 pins the Ne7 to the queen on d8. Black cannot move the knight without losing the queen. White combines the e-file pressure from Re1 with the powerful pin from Bg5, threatening Bxe7 and Nd5. Black is forced into a very passive position to untangle."
+    },
+    {
+      "drillId": "evans-gambit-t3",
+      "name": "Knight to the Outpost",
+      "theme": "Knight Outpost",
+      "description": "White develops the knight to c3 then immediately plants it on the dominant d5 square, attacking the bishop on b6.",
+      "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/2BPP3/5N2/P4PPP/RNBQ1RK1 w kq - 1 9",
+      "solutionMoves": ["Nc3", "Nd5"],
+      "opponentResponse": "Nge7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Nc3 develops the knight, and when Black plays Nge7, Nd5 occupies the dominant outpost attacking the bishop on b6.",
+      "explanation": "The knight on d5 attacks the bishop on b6 directly. Black must either retreat the bishop (giving White a tempo) or accept that the knight dominates the entire center from d5. The d5 outpost is permanent — Black has no pawn that can challenge it. White follows with Bg5 or Re1, increasing the pressure."
+    },
+    {
+      "drillId": "evans-gambit-t4",
+      "name": "Bishop Sacrifice on f7",
+      "theme": "f7 Weakness",
+      "description": "White sacrifices the bishop on f7 to drag the Black king into the open, then delivers check with the knight.",
+      "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/2BPP3/5N2/P4PPP/RNBQ1RK1 w kq - 1 9",
+      "solutionMoves": ["Bxf7+", "Ng5+"],
+      "opponentResponse": "Kxf7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Bxf7+ forces the king to capture, then Ng5+ puts it under immediate attack.",
+      "explanation": "After Kxf7, Ng5+ puts the king in check on f7. The king has no good square — Ke6 walks into Qd5+ with a decisive attack, Kg6 allows Qd3 threatening Qd5# and h4-h5, and Kf6 allows Qf3+ Ke7 Qf7#. White has sacrificed the bishop but unleashes a powerful attacking wave that Black cannot survive."
+    }
+  ]
+}

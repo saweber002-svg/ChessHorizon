@@ -1,0 +1,16 @@
+{
+  "id": "greco-counter-attack-main",
+  "name": "Greco Counter-Attack — Main Line",
+  "description": "The sharp counter-gambit in the Two Knights Defense. Black strikes at White's knight on g5 with 4...d5, sacrificing the d-pawn for fierce counter-play.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "greco",
+      "name": "Greco Counter-Attack",
+      "description": "Black sacrifices the d-pawn with 4...d5 to disrupt White's attacking knight on g5 and seize counter-play. White grabs the pawn and concedes the center; Black obtains the bishop pair and active pieces. Both sides castle kingside by move 11.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Nf6", "Ng5", "d5", "exd5", "Na5", "Bb5+", "c6", "dxc6", "bxc6", "Be2", "h6", "Nf3", "e4", "Ne5", "Bd6", "O-O", "O-O"],
+      "moveCount": 22,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

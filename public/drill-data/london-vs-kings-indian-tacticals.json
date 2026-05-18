@@ -1,0 +1,72 @@
+{
+  "id": "london-vs-kings-indian-tacticals",
+  "name": "King's Indian Defense — White Tactics",
+  "description": "4 strategic challenges for White in the King's Indian Defense Classical Variation. Find the best plan after 8...Ne7 as Black prepares ...f5.",
+  "arena": "london-vs-kings-indian",
+  "drills": [
+    {
+      "drillId": "kid-t1",
+      "name": "Knight Reposition",
+      "theme": "Knight Reposition",
+      "description": "Reroute the f3 knight to d2, clearing f3 for a pawn break and setting up queenside coordination.",
+      "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9",
+      "solutionMoves": ["Nd2", "f3"],
+      "opponentResponse": "Nd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Nd2 reroutes the knight and prepares f3 to support e4 and launch g4.",
+      "explanation": "Nd2 is the signature White plan in the Classical KID. The f3 knight has no future after the center is closed — it heads to d2, then potentially to c4 (pressuring b6 and d6) or f1 (heading to g3 or h2 to support kingside expansion). After Black's Nd7 (also regrouping for ...c6 or ...f5), White plays f3 to cement the pawn on e4 and prevent ...Nf4. The stage is set for g4-g5 or c5 depending on the position."
+    },
+    {
+      "drillId": "kid-t2",
+      "name": "Bayonet Attack",
+      "theme": "Queenside Expansion",
+      "description": "Launch the Bayonet Attack with b4, the most ambitious queenside plan in the KID. Strike before Black's kingside storm arrives.",
+      "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9",
+      "solutionMoves": ["b4", "Re1"],
+      "opponentResponse": "Nh5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "b4 launches the Bayonet — White races queenside before Black attacks kingside.",
+      "explanation": "9.b4 is the Bayonet Attack — White stakes queenside space immediately, aiming for b5 to attack the c6 break and eventually c5 to fix the queenside. Black responds with Nh5, heading for f4 to create kingside complications. White plays Re1 (centralizing the rook, supporting e4 and preparing f3). The race is on — White will push b5-c5 while Black tries to launch ...f5-f4. Timing is everything: Re1 ensures White's center holds while the queenside machine rolls forward."
+    },
+    {
+      "drillId": "kid-t3",
+      "name": "Bishop Development",
+      "theme": "Development",
+      "description": "Develop the dark-squared bishop to e3, supporting d4 and preparing the Qd2 battery for a queenside attack.",
+      "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9",
+      "solutionMoves": ["Be3", "Qd2"],
+      "opponentResponse": "f5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Be3 develops the bishop and prepares Qd2 — the standard queenside attack formation.",
+      "explanation": "Be3 is the most flexible developing move in the Classical KID. The dark-squared bishop protects d4 and eyes b6, while preparing Qd2 to create a battery aimed at Black's kingside via h6. After Black's natural ...f5 (launching the kingside attack), White responds with Qd2, connecting the rooks and targeting h6. The Qd2-Bh6 battery is one of the most dangerous KID plans — it threatens to exchange Black's prized g7 bishop, killing the fianchetto's long-term prospects."
+    },
+    {
+      "drillId": "kid-t4",
+      "name": "Queenside Space Grab",
+      "theme": "Space Grab",
+      "description": "Fix the queenside with c5, gaining permanent space and restricting Black's knight from reaching d7.",
+      "fen": "r1bq1rk1/pppNnpbp/3p2p1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9",
+      "solutionMoves": ["c5", "cxd6"],
+      "opponentResponse": "Nf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "c5 claims queenside space. After Nf6, cxd6 eliminates the d6 pawn and opens the c-file.",
+      "explanation": "9.c5 is White's most direct space-gaining plan — the c-pawn stakes queenside territory and takes the d6 break option away from Black. After Black reactivates the knight with Nf6 (heading back to the kingside), White strikes with cxd6, eliminating the key d6 pawn. This leaves Black with a structural weakness on the d-file and White with a strong queenside majority. The open c-file and the passed d5 pawn give White long-term pressure that Black's kingside attack may not be fast enough to counter."
+    }
+  ]
+}

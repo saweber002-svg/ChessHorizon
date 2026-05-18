@@ -1,0 +1,16 @@
+{
+  "id": "ulvestad-variation-main",
+  "name": "Two Knights Defense — Ulvestad Variation",
+  "description": "After 4.Ng5 d5 5.exd5, Black plays the bold 5...b5 — the Ulvestad Variation — offering a pawn to keep White's bishop busy. After 6.Bf1 Nd4 7.c3 Nxd5 8.Ne4, White plants a powerful knight in the center while Black battles for piece activity and compensation for the sacrificed material.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "ulvestad-variation",
+      "name": "Two Knights Defense — Ulvestad Variation",
+      "description": "After 5...b5, Black offers a pawn to deflect White's bishop back to f1. Black plays the aggressive 6...Nd4, centralizing a knight on an outpost. After 7.c3 Nxd5 8.Ne4, the position is sharp with White establishing a powerful central knight and Black fighting for compensation with active piece play.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Nf6", "Ng5", "d5", "exd5", "b5", "Bf1", "Nd4", "c3", "Nxd5", "Ne4", "Qh4"],
+      "moveCount": 16,
+      "difficulty": "Advanced"
+    }
+  ]
+}

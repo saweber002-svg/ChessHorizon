@@ -1,0 +1,76 @@
+{
+  "id": "london-vs-qgd-black-tacticals",
+  "name": "London vs QGD — Black Tactics",
+  "description": "4 strategic challenges for Black in the London System vs Queen's Gambit Setup. Learn when to break with ...c5, how to challenge the London bishop, and how to seize the initiative.",
+  "arena": "london-vs-qgd",
+  "drills": [
+    {
+      "drillId": "qgd-bt1",
+      "name": "Central Break",
+      "theme": "Central Break",
+      "description": "Strike the center with the thematic ...c5 break. After White captures dxc5, recapture with the bishop to gain an active piece and open the c-file.",
+      "fen": "rnbq1rk1/ppp2ppp/3bpn2/3p4/3P4/3BPNB1/PPP2PPP/RN1QK2R b KQ - 3 6",
+      "whitePromptMove": "Bd3",
+      "solutionMoves": ["c5", "Bxc5"],
+      "opponentResponse": "dxc5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "c5 is the thematic QGD break — strike before White consolidates. Bxc5 recaptures actively.",
+      "explanation": "...c5 is the defining move of the QGD setup — Black strikes at the center when White has just completed development with Bd3. The timing is key: if Black delays, White plays c3 and c5 becomes harder to execute profitably. After White captures dxc5 (accepting the pawn), Black plays Bxc5 — the bishop recaptures on c5 with fantastic activity, targeting f2 and eyeing the long diagonal. The bishop on c5 is a monster piece. Black has transformed a quiet classical setup into an active, piece-oriented game. This c5 break is the main idea behind the entire ...Bd6 setup."
+    },
+    {
+      "drillId": "qgd-bt2",
+      "name": "Bishop Challenge",
+      "theme": "Bishop Challenge",
+      "description": "Challenge the London bishop on f4 with Nh5. White retreats to g3, then capture with Nxg3 to force hxg3 and give White a damaged pawn structure.",
+      "fen": "rnbqkb1r/ppp2ppp/4pn2/3p4/3P1B2/4PN2/PPP2PPP/RN1QKB1R b KQkq - 1 4",
+      "whitePromptMove": "Nf3",
+      "solutionMoves": ["Nh5", "Nxg3"],
+      "opponentResponse": "Bg3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Nh5 attacks Bf4. After Bg3, Nxg3 forces hxg3 — White's h-file opens and pawn structure is weakened.",
+      "explanation": "...Nh5 is the direct challenge to White's defining London bishop on f4. The knight attacks f4 from h5, forcing White to retreat. If White plays Bg3, Black plays Nxg3, forcing White to recapture with hxg3 — doubling and weakening White's kingside pawns. After hxg3, White has an open h-file but a structurally compromised kingside. Black can then develop normally (...Nf6, ...Be7, ...O-O) while keeping the positional concession White just made in mind. This exchange is the quickest way to eliminate White's most important piece and gain a structural advantage in a solid, equal position."
+    },
+    {
+      "drillId": "qgd-bt3",
+      "name": "Fianchetto Prep",
+      "theme": "Queenside Expansion",
+      "description": "Prepare queenside development with b6. After White castles, develop the bishop to b7 to control the long diagonal and counter White's central pressure.",
+      "fen": "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R b KQ - 3 8",
+      "whitePromptMove": "Nbd2",
+      "solutionMoves": ["b6", "Bb7"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "b6 prepares Bb7. After White castles, Bb7 activates the bishop on the long diagonal.",
+      "explanation": "...b6 is Black's most elegant development plan in the QGD against the London — preparing to fianchetto the dark-squared bishop to b7, where it fires down the long a8-h1 diagonal and challenges White's central control. After White castles with O-O (completing development), Black plays Bb7, placing the bishop on its ideal square. The Bb7 bishop becomes a long-term strategic asset: it pressures d5 (the tension point), controls the long diagonal into White's position, and supports ...c4 breaks. The b6+Bb7 setup gives Black a harmonious queenside and is one of the most principled responses to the London's solid structure."
+    },
+    {
+      "drillId": "qgd-bt4",
+      "name": "Central Push",
+      "theme": "Central Push",
+      "description": "Seize central space with e5. After White captures dxe5, recapture with the knight to establish a strong central presence and active piece play.",
+      "fen": "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R b KQ - 3 8",
+      "whitePromptMove": "Nbd2",
+      "solutionMoves": ["e5", "Nxe5"],
+      "opponentResponse": "dxe5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "e5 grabs central space. After dxe5, Nxe5 gives Black an active centralized knight.",
+      "explanation": "...e5 is the most ambitious central thrust in Black's arsenal — pushing the e6 pawn to e5 to contest the center directly and give the c6 knight a powerful e5 outpost. After White captures with dxe5, Black plays Nxe5 (Nc6×e5), establishing the knight on the ideal central square where it cannot easily be challenged. A knight on e5 in this structure is excellent: it attacks d3, g4, c4, f3, and d7, and requires White to deal with it immediately. Black achieves an active, open game that suits piece play rather than slow maneuvering. This e5 break transforms the position from a quiet London structure into a dynamic battle for central control."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "sicilian-kan-main",
+  "name": "Sicilian Kan — Paulsen System",
+  "description": "The Kan (Paulsen) is the most flexible Sicilian. By delaying ...Nc6, Black keeps maximum options — the dark-squared bishop can fianchetto to g7, the b-pawn can expand with ...b5, and the queen finds an active home on c7. White builds the Maroczy Bind with c4+e4, but Black's elasticity makes it hard to crack. Anand and Svidler have both wielded the Kan at the highest level.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "sicilian-kan",
+      "name": "Sicilian Kan — Maroczy Bind",
+      "description": "After 4...a6, Black signals the Kan — no knight committed to c6 yet. White plays 5.Bd3 (Haag Variation), developing actively and preparing O-O. After Nf6, Qc7, and d6, White establishes the Maroczy Bind with c4. Black responds with 8...g6 — the fianchetto plan is underway, and the position is primed for both sides to fight for the d5 and b5 outposts.",
+      "moves": ["e4", "c5", "Nf3", "e6", "d4", "cxd4", "Nxd4", "a6", "Bd3", "Nf6", "O-O", "Qc7", "Qe2", "d6", "c4", "g6"],
+      "moveCount": 16,
+      "difficulty": "Advanced"
+    }
+  ]
+}

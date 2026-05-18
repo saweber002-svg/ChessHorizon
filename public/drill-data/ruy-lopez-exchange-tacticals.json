@@ -1,0 +1,56 @@
+{
+  "id": "ruy-lopez-exchange-tacticals",
+  "name": "Ruy López Exchange Variation — White Tactics",
+  "description": "4 strategic challenges for White in the Exchange Variation. Exploit the mobile majority and active pieces to press the structural edge.",
+  "arena": "ruy-lopez-exchange",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-exchange-t1",
+      "name": "Retreat and Avoid the Queen Trade",
+      "theme": "Knight Outpost",
+      "description": "White retreats the knight from d4 to e2 — avoiding the Qxd1 trade — then centralizes it on c3 for a flexible setup.",
+      "fen": "r1bqkbnr/1p4pp/p1p2p2/2p5/3NP3/8/PPP2PPP/RNBQ1RK1 w kq - 0 8",
+      "solutionMoves": ["Ne2", "Nc3"],
+      "opponentResponse": "Qd7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays Ne2 to prevent Qxd1, then brings the knight to c3 for central control.",
+      "explanation": "8.Ne2 is the key move — the knight retreats from d4 to sidestep the queen exchange after 8...Qxd1 Rxd1. By staying in the middlegame, White retains more winning chances with the active pieces and kingside pawn majority. After 8.Ne2 Qd7, White develops with 9.Nc3 — the knight heads for d5 or supports c3 plans. White's strategy is to activate both knights, play f4-f5, and use the pawn majority on the kingside to create a passed pawn."
+    },
+    {
+      "drillId": "ruy-lopez-exchange-t2",
+      "name": "Central Expansion with f4",
+      "theme": "Central Pawn Break",
+      "description": "White launches f4 to expand in the center and kingside, then follows up with Nc3 for maximum pressure.",
+      "fen": "r1bqkbnr/1p4pp/p1p2p2/2p5/3NP3/8/PPP2PPP/RNBQ1RK1 w kq - 0 8",
+      "solutionMoves": ["f4", "Nc3"],
+      "opponentResponse": "Bd6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays f4 to expand on the kingside, then develops Nc3 to reinforce the center.",
+      "explanation": "f4 is a thematic White move in the Exchange Variation — it prepares f5 to cramp Black's position and adds support to the e4-pawn. The pawn advance prevents Black from playing ...f5 themselves and opens the f-file for future rook use. After 8...Bd6 (a natural developing move), White plays 9.Nc3 — developing the knight to its ideal square while supporting d5 outpost ideas. The plan of f4-f5 combined with Nd5 or Ne3-d5 gives White a very active game."
+    },
+    {
+      "drillId": "ruy-lopez-exchange-t3",
+      "name": "Develop and Pressure c5",
+      "theme": "Diagonal Pressure",
+      "description": "White develops the bishop to e3, directly attacking Black's weak c5-pawn and tying Black down to its defense.",
+      "fen": "r1bqkbnr/1p4pp/p1p2p2/2p5/3NP3/8/PPP2PPP/RNBQ1RK1 w kq - 0 8",
+      "solutionMoves": ["Be3", "Nc3"],
+      "opponentResponse": "Qe7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White develops Be3 to attack the c5-pawn immediately, then plays Nc3 for active piece play.",
+      "explanation": "Be3 is an excellent developing move — the bishop comes to its natural diagonal and immediately threatens the c5-pawn, forcing Black to react. After 8...Qe7, defending c5, White plays 9.Nc3 — developing with tempo while targeting c5 again. If Black cannot hold c5, White can win the pawn with Nxc6 followed by recapturing on c6. The c5-pawn is a permanent target in this structure; the bishop on e3 and knight on d4 both aim at it."
+    },
+    {
+      "drillId": "ruy-lopez-exchange-t4",
+      "name": "Knight to b3 — Pressure the Weak Pawn",
+      "theme": "Knight Outpost",
+      "description": "White retreats the knight from d4 to b3, targeting the c5-pawn and preparing c4 to attack the doubled c-pawns.",
+      "fen": "r1bqkbnr/1p4pp/p1p2p2/2p5/3NP3/8/PPP2PPP/RNBQ1RK1 w kq - 0 8",
+      "solutionMoves": ["Nb3", "c4"],
+      "opponentResponse": "Bd6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plays Nb3 to target c5, then follows with c4 to assault Black's doubled c-pawns.",
+      "explanation": "8.Nb3 is a reliable plan — the knight retreats to b3 where it eyes the c5-pawn and prepares c4. After 8...Bd6, White plays 9.c4 — a space-gaining pawn advance that threatens to open the c-file and attack the c6-pawn. The combination of Nb3 + c4 creates long-term pressure on the doubled c-pawns. Black must carefully defend both c5 and c6, making active counter-play difficult. This is a slow, grinding approach that suits players who prefer structural advantages over immediate tactical complications."
+    }
+  ]
+}

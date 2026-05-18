@@ -1,0 +1,76 @@
+{
+  "id": "scandinavian-qd6-black-tacticals",
+  "name": "Scandinavian Qd6 — Black Tactics",
+  "description": "4 strategic challenges for Black in the Scandinavian Qd6 Variation. Find the best counter-plan after White's move!",
+  "arena": "scandinavian-qd6",
+  "drills": [
+    {
+      "drillId": "scandinavian-qd6-bt1",
+      "name": "O-O + c5 Central Strike",
+      "theme": "Development + Central Break",
+      "description": "White castles kingside. Black castles for safety, then immediately plays c5 — the thematic central break that challenges White's d4 pawn and activates the queenside.",
+      "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R b KQkq - 2 9",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["O-O", "c5"],
+      "opponentResponse": "Re1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles. Black castles for king safety, then plays c5 — the key central break that challenges White's d4 and fights for queenside space. After White plays Re1, Black has active counterplay.",
+      "explanation": "When White castles kingside, Black's correct response is O-O — king safety first. The king is exposed on e8 and must reach safety before launching counterplay. After Black O-O and White plays Re1 (centralizing the rook to the open e-file), Black strikes with c5 — the most important pawn break in the Qd6 structure. The c5 advance directly challenges White's d4 pawn: either White captures (opening the d-file for Black's rooks) or White allows the c4 advance (gaining queenside space). The c5 break is Black's main strategic asset in the Qd6 Scandinavian — it disrupts White's central control and activates the Qd6, which can now come to c6 or b4. Unlike the Qa5 Scandinavian where Black pushes ...b5, the Qd6 player targets the center directly with ...c5. The key timing: castle first, then c5. Never push c5 with the king uncastled — White's Nd5 or Bg5 can punish an exposed king immediately."
+    },
+    {
+      "drillId": "scandinavian-qd6-bt2",
+      "name": "Nbd7 + O-O Development",
+      "theme": "Harmonious Development",
+      "description": "White castles kingside. Black develops the queenside knight to d7 — the flexible square supporting c5 and e5 breaks. After White plays Re1, Black castles to complete development.",
+      "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R b KQkq - 2 9",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["Nbd7", "O-O"],
+      "opponentResponse": "Re1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles. Black develops Nbd7 to the best square — it supports c5, e5, and guards the Nf6. After White plays Re1, Black castles to complete the opening with a solid, flexible position.",
+      "explanation": "When White castles, Black's most flexible response is Nbd7 — the queenside knight develops to its ideal square. From d7, the knight supports the ...c5 central break (Nd7-b6 or Nd7-f8-e6), covers the Nf6 from Bg5 attacks (the Nd7 can recapture on f6), and prepares ...e5 as a future central push. Unlike Nc6, which blocks the c7 pawn, Nd7 keeps all options open. After White plays Re1 (preparing the central counterplay), Black castles with O-O — king reaches safety and all pieces are now developed. The resulting position is solid and flexible: Black has Nbd7, Nf6, Be7, and queen on d6, all ready to coordinate around a future ...c5 break. This is the Qd6 Scandinavian's positional ideal — develop harmoniously, castle quickly, and then fight for the center with ...c5 or ...e5. Black's structure is durable, and the Nd7 gives extra piece coverage that the Qa5 variation often lacks."
+    },
+    {
+      "drillId": "scandinavian-qd6-bt3",
+      "name": "b5 Queenside Expansion",
+      "theme": "Queenside Expansion",
+      "description": "White castles queenside aggressively. Black immediately strikes with b5 — the thematic queenside pawn advance. After White's knight moves to e4, Black pushes b4 to continue the queenside pressure.",
+      "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R b KQkq - 2 9",
+      "whitePromptMove": "O-O-O",
+      "solutionMoves": ["b5", "b4"],
+      "opponentResponse": "Ne4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White goes queenside with O-O-O. Black immediately plays b5 — the aggressive queenside counter-punch. When White centralizes with Ne4, Black pushes b4 to attack the Nc3 and maintain queenside momentum.",
+      "explanation": "When White castles queenside aggressively with O-O-O, Black's correct counter is immediate queenside action: b5! This is the Scandinavian's fundamental lesson — when White commits to one side, attack on the other. The b5 pawn advance directly threatens to march to b4, hitting the Nc3 and opening the queenside lines toward White's king on c1. White's natural response is Ne4 — centralizing the knight to e4 (from c3, a (2 right, 1 up) move ✓), threatening to use the knight aggressively. But Black plays b4 immediately: the b4 advance attacks the Nc3, which must now retreat or jump. After b4, Black has:  an attack on White's king at c1 (b4-b3 threat), disruption of White's queenside pawn structure, and pressure on the c3 knight. The race is on: White wants to storm the kingside while Black hammers the queenside. Black's b5-b4 advance is faster than White's pawn storm because it starts with tempo. Strike on the opposite side immediately — don't wait for White to develop a full attack."
+    },
+    {
+      "drillId": "scandinavian-qd6-bt4",
+      "name": "Nxd5 + Qxd5 Recapture",
+      "theme": "Central Counter",
+      "description": "White leaps the knight to the central outpost d5. Black captures Nxd5 to eliminate the threat. After White recaptures Bxd5, Black takes back with the queen Qxd5 — reclaiming the center and activating the queen.",
+      "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R b KQkq - 2 9",
+      "whitePromptMove": "Nd5",
+      "solutionMoves": ["Nxd5", "Qxd5"],
+      "opponentResponse": "Bxd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays Nd5 jumping to the central outpost. Black captures Nxd5. After White recaptures Bxd5, Black takes back with Qxd5 — centralizing the queen on d5 and contesting the center.",
+      "explanation": "When White plays Nd5 (jumping to the powerful central square), Black must not panic — the correct response is the precise Nxd5. Black's Nf6 captures the knight on d5 (a (2 left, 1 down) knight move ✓), eliminating the threat immediately. White recaptures Bxd5 (the light bishop moves from d3 to d5). Now Black plays Qxd5 — the queen on d6 captures the bishop on d5, one square straight down. This is the key recapture: Black now has the queen on d5, the most powerful central square in the position. From d5, the queen attacks both a2 (threatening a potential queenside pawn grab) and g2, and controls the vital d-file. White's response is typically Qe3 (to challenge the queen) or O-O (to develop). The lesson: when White leaps a knight to d5, don't be afraid to trade it off — and then activate the queen on that recaptured central square. The Qd5 queen is far more active than the passive Qd6 it replaced. Black has equalized and created real counterplay from what appeared to be a threatening central knight invasion."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "ruy-lopez-morphy-black-tacticals",
+  "name": "Ruy López Morphy Closed — Black Tactics",
+  "description": "4 strategic challenges for Black in the Morphy Defense Closed. Find the right counter-plan after White's 9th move!",
+  "arena": "ruy-lopez-morphy",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-morphy-bt1",
+      "name": "The Chigorin Counter-Plan",
+      "theme": "Piece Relocation",
+      "description": "Black launches the Chigorin plan — rerouting the c6-knight to a5 and advancing c5 to fight for the center.",
+      "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 1 9",
+      "whitePromptMove": "h3",
+      "solutionMoves": ["Na5", "c5"],
+      "opponentResponse": "Bc2",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black reroutes the c6-knight to a5, targets the b3-bishop, then plays c5 to stake out central space.",
+      "explanation": "Na5 attacks the b3-bishop, forcing it to retreat (Bc2). Black then plays c5, staking a claim on the center and preparing Nc6-or-Nc4 ideas. This is Black's most popular counter-plan in the Closed Ruy López. The knight on a5 is temporarily offside but will reactivate via c4 or c6. Black gains central space and queenside pressure in return."
+    },
+    {
+      "drillId": "ruy-lopez-morphy-bt2",
+      "name": "Knight Redeployment to c5",
+      "theme": "Knight Maneuver",
+      "description": "Black reroutes the f6-knight to d7, freeing it to later land on c5 or f8 for a better post.",
+      "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 1 9",
+      "whitePromptMove": "d3",
+      "solutionMoves": ["Nd7", "Nc5"],
+      "opponentResponse": "Nbd2",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black retreats the knight to d7, preparing to reroute it to the strong c5-outpost.",
+      "explanation": "Nd7 temporarily takes the knight off f6 but prepares a strong redeployment. After White plays Nbd2 (developing toward e3 or f1), Black plays Nc5 — landing on a powerful outpost that targets the b3-bishop. From c5, the knight also eyes d3 and e4. This creates long-term pressure on White's queenside structure and contests control of key central squares."
+    },
+    {
+      "drillId": "ruy-lopez-morphy-bt3",
+      "name": "Defend the Queenside",
+      "theme": "Queenside Defense",
+      "description": "Black defends the b5-pawn with Rb8 and prepares to expand with b4.",
+      "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 1 9",
+      "whitePromptMove": "a4",
+      "solutionMoves": ["Rb8", "b4"],
+      "opponentResponse": "d3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black defends the b5-pawn with Rb8 and locks the queenside with b4, stopping White's a4-a5 expansion.",
+      "explanation": "Rb8 supports the b5-pawn and prepares counterplay on the b-file. After White plays d3 (consolidating), Black plays b4, shutting the queenside and stopping White's a4-a5 advance. With the queenside locked, the game shifts to the center and kingside. Black can now focus on ...d5 breaks or use the a5 square for the knight. A locked queenside also limits White's Chigorin knight maneuver to d5."
+    },
+    {
+      "drillId": "ruy-lopez-morphy-bt4",
+      "name": "Central Counter-Strike",
+      "theme": "Central Counter",
+      "description": "After White's d4, Black captures and then activates the knight with Nb4 to attack the b3-bishop.",
+      "fen": "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 1 9",
+      "whitePromptMove": "d4",
+      "solutionMoves": ["exd4", "Nb4"],
+      "opponentResponse": "cxd4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "After 9.d4, Black exchanges in the center and attacks the b3-bishop with Nb4, seizing the initiative.",
+      "explanation": "After 9.d4 exd4, White recaptures 10.cxd4. Black responds with Nb4, attacking the b3-bishop with tempo. White must move the bishop (Bc2 or Ba2), allowing Black to complete development. Black follows with d5 or c5 ideas, contesting White's center. The knight on b4 is a key piece — from there it eyes d3 and can later activate via c6 or d5. This is Black's most direct counter-play against the d4 break."
+    }
+  ]
+}

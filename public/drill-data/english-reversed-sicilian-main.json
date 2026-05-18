@@ -1,0 +1,16 @@
+{
+  "id": "english-reversed-sicilian",
+  "name": "English — Reversed Sicilian (1...e5)",
+  "description": "Black plays 1...e5 against the English, giving White a Sicilian Defense structure with an extra tempo. The Four Knights variation leads to a strategic battle where White fianchettoes, exchanges on d5, and builds a flexible center with d3. Both sides compete for the d4/d5 squares and the long diagonal.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "english-reversed-sicilian",
+      "name": "English — Reversed Sicilian (1...e5)",
+      "description": "After 1.c4 e5 2.Nc3 Nf6 3.Nf3 Nc6 4.g3 d5 5.cxd5 Nxd5 6.Bg2 Nb6 7.O-O Be7 8.d3 O-O, White has the Reversed Sicilian structure: fianchettoed Bg2, flexible d3+e2 center, and an extra tempo compared to Black's Sicilian. White aims for e4 or a4+Be3 to seize space; Black holds e5 and targets d4 as a knight outpost. The position is rich in long-term strategic ideas.",
+      "moves": ["c4", "e5", "Nc3", "Nf6", "Nf3", "Nc6", "g3", "d5", "cxd5", "Nxd5", "Bg2", "Nb6", "O-O", "Be7", "d3", "O-O"],
+      "moveCount": 16,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

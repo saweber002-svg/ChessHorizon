@@ -1,0 +1,76 @@
+{
+  "id": "scandinavian-defense-black-tacticals",
+  "name": "Scandinavian Defense — Black Tactics",
+  "description": "4 strategic challenges for Black in the Scandinavian Defense Qa5 Main Line. Find the right counter-plan after White's move!",
+  "arena": "scandinavian-defense",
+  "drills": [
+    {
+      "drillId": "scandinavian-defense-bt1",
+      "name": "O-O Kingside Castle",
+      "theme": "King Safety",
+      "description": "White challenges with a3. Black ignores it and castles kingside to secure the king. After White castles queenside with O-O-O, Black immediately strikes with ...b5 — the thematic queenside expansion.",
+      "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R b KQkq - 2 9",
+      "whitePromptMove": "a3",
+      "solutionMoves": ["O-O", "b5"],
+      "opponentResponse": "O-O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "After White plays a3, Black castles kingside rather than moving the bishop. When White goes queenside with O-O-O, Black immediately plays ...b5 — the queenside counter-punch that challenges White's bishop and opens lines.",
+      "explanation": "When White plays a3 challenging the Bb4, Black has a powerful resource: castle! Instead of retreating the bishop or accepting the trade, Black plays O-O — king safety first. This is the Scandinavian's most practical lesson: don't react to every pawn prod; complete development first. After Black castles and White responds with O-O-O (the aggressive queenside castle to mirror the pawn storm plan), Black immediately counters with ...b5. The b5 pawn advance attacks White's Bc4, gains queenside space, and threatens ...b4 to displace the Nc3. This is the Scandinavian's signature counter: when White commits to queenside castling, Black's queenside pawns advance to meet them head-on. The b5 advance comes with tempo (attacking Bc4), forcing White to deal with Black's queenside activity before launching the kingside storm. Timing is everything — the player who gets their attack in first usually wins."
+    },
+    {
+      "drillId": "scandinavian-defense-bt2",
+      "name": "Nbd7 Development",
+      "theme": "Development",
+      "description": "White plays a3 challenging the bishop. Black develops the queenside knight to d7, supporting ...c5 and ...e5 central breaks. After White castles, Black also castles safely.",
+      "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R b KQkq - 2 9",
+      "whitePromptMove": "a3",
+      "solutionMoves": ["Nbd7", "O-O"],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "After White plays a3, Black develops the Nb8 to d7 — a flexible square that supports ...c5 and ...e5. After White castles, Black castles safely to complete the opening.",
+      "explanation": "After White plays a3, Black's calmest and most flexible response is Nbd7 — developing the queenside knight to its ideal square. From d7, the knight supports both the ...c5 central break and the ...e5 advance, and it protects the Nf6 from future Ng5 attacks. Crucially, Nbd7 doesn't react to a3 with the expected Bxc3 or Ba5 — Black simply completes development. After White castles with O-O (the natural response), Black also castles with O-O — king safety secured, all pieces developed, and Black is ready for the middlegame. From this solid setup, Black's plans are ...c5 (central strike), ...b5 (queenside expansion), or ...Be7 (improving the bishop and preparing ...c5). The Nbd7 development makes Black's position extremely flexible: no pawns committed prematurely, queen on a5 active, and all pieces coordinated for whatever White attempts. This is the Scandinavian's positional ideal: develop harmoniously, castle safely, and then unleash the queenside counterplay."
+    },
+    {
+      "drillId": "scandinavian-defense-bt3",
+      "name": "b5 Queenside Expansion",
+      "theme": "Queenside Expansion",
+      "description": "After White castles kingside, Black immediately pushes ...b5 to challenge the Bc4. When White retreats to Bb3, Black develops the knight to d7 — maintaining queenside pressure.",
+      "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R b KQkq - 2 9",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["b5", "Nbd7"],
+      "opponentResponse": "Bb3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "After White castles with O-O, Black plays ...b5 — directly attacking the Bc4. When White retreats to Bb3, Black develops with ...Nbd7 to maintain queenside space and support the b5-b4 advance.",
+      "explanation": "When White castles kingside with O-O, Black's most forcing response is ...b5 — the queenside pawn advance that immediately attacks the Bc4. The b5 move is Black's most important counter in the Scandinavian: it gains queenside space, threatens ...b4 to displace the Nc3, and forces White's bishop to move again (losing a tempo). When White plays Bb3 (retreating the bishop to safety on b3), Black develops with Nbd7 — the knight goes to d7, supporting the b5-b4 advance and providing piece coverage for the upcoming queenside play. The Nbd7 development makes ...c5 and ...b4 future possibilities. Black's strategy is clear: expand on the queenside while White is committed to the kingside. The b5 pawn chain (...b5+...c6) is Black's main weapon — it restricts White's Bc4 and creates long-term queenside pressure. Don't wait for White to attack; strike first on the queenside."
+    },
+    {
+      "drillId": "scandinavian-defense-bt4",
+      "name": "Nd5 Central Knight",
+      "theme": "Central Outpost",
+      "description": "White challenges with a3. Black ignores the bishop threat and plants the Nf6 on the dominant central square d5. After White captures Bxd5, Black recaptures exd5 — reclaiming the center with the classical Scandinavian pawn structure.",
+      "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R b KQkq - 2 9",
+      "whitePromptMove": "a3",
+      "solutionMoves": ["Nd5", "exd5"],
+      "opponentResponse": "Bxd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "When White plays a3 challenging the bishop, Black responds with ...Nd5 — planting the knight on the dominant central square. After White captures Bxd5, Black recaptures exd5, claiming the center and restoring the classical Scandinavian pawn structure.",
+      "explanation": "When White plays a3, Black has a powerful aggressive option: Nd5! Instead of reacting to the bishop challenge, Black seizes the initiative with a central knight leap. From d5, the knight is centralized on the most powerful square in the position — it controls c3, e3, f4, f6 (indirectly), b4, and b6. White cannot ignore the knight: if left on d5, it dominates the entire board. After White captures Bxd5 (taking the outpost knight with the Bc4), Black recaptures exd5 — the e6 pawn takes on d5, giving Black the classical Scandinavian pawn chain: c6+d5+e6 (recaptured). This structure is excellent for Black: the d5 pawn is supported by c6, and the e6 pawn will be recaptured. The Nd5 plan demonstrates the Scandinavian's flexibility — Black doesn't just defend, Black actively fights for the center. The resulting position with ...d5 center is what the Scandinavian aims for from the first move. Nd5 converts the pin on Nc3 into an active central counter."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "sicilian-sveshnikov-black-tacticals",
+  "name": "Sicilian Sveshnikov — Black Tactics",
+  "description": "4 strategic challenges for Black in the Sveshnikov main line. Fight for activity and queenside space after White's developing move!",
+  "arena": "sicilian-sveshnikov",
+  "drills": [
+    {
+      "drillId": "sicilian-sveshnikov-bt1",
+      "name": "b4 Pawn Push",
+      "theme": "Pawn Push",
+      "description": "After White develops the bishop, Black advances b4 to kick the Na3 and gain queenside space. When White seizes d5 with the knight, Black recaptures to clear the outpost.",
+      "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq - 0 9",
+      "whitePromptMove": "Be2",
+      "solutionMoves": ["b4", "Nxd5"],
+      "opponentResponse": "Nd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays b4, kicking the Na3 and seizing queenside space. When White counters with Nd5, Black recaptures with Nxd5 to contest the outpost.",
+      "explanation": "After White plays Be2 (a developing move), Black fires b4 — one of the most important plans in the Sveshnikov. The b4 pawn advance kicks the Na3 (threatening to drive it further back with b3), gains valuable queenside space, and prepares the ...Nb8-d7-c5 knight maneuver. When White responds with Nd5 (seizing the key outpost before Black can organize), Black immediately recaptures with Nxd5. After exd5, Black has traded the knight but now has a passed pawn on d5 to work with — and the queenside initiative is maintained. In the Sveshnikov, whoever controls the tempo on the queenside dictates the game's character."
+    },
+    {
+      "drillId": "sicilian-sveshnikov-bt2",
+      "name": "Be7 Development",
+      "theme": "Development",
+      "description": "After White occupies d5, Black develops the bishop to e7, preparing to castle. When White tries to trade the bishop for the knight, Black recaptures with the bishop to preserve the pawn structure.",
+      "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq - 0 9",
+      "whitePromptMove": "Nd5",
+      "solutionMoves": ["Be7", "Bxf6"],
+      "opponentResponse": "Bxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black develops the bishop to e7, preparing to castle. When White trades Bxf6, Black recaptures with the bishop — preserving pawn structure and keeping two bishops.",
+      "explanation": "After White plays Nd5 (seizing the key outpost), Black responds with Be7 — the bishop develops to a safe, solid square and prepares O-O. The Be7 also gains an important option: if White plays Bxf6, Black can recapture with Bxf6 instead of gxf6. After White takes Bxf6 (trying to trade the bishop for the Nf6 and damage Black's structure), Black plays Bxf6 — the Be7 slides to f6, keeping the kingside pawns intact and retaining the bishop pair. The Bf6 is actually very active: it eyes the b2-pawn and the long a7-g1 diagonal. Black has neutralized White's main plan while completing development in stride."
+    },
+    {
+      "drillId": "sicilian-sveshnikov-bt3",
+      "name": "Be6 Active Bishop",
+      "theme": "Active Bishop",
+      "description": "After White occupies d5, Black develops the bishop to e6, directly contesting the dominant outpost. When White's knight retreats to c4, Black activates the rook with Rb8.",
+      "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq - 0 9",
+      "whitePromptMove": "Nd5",
+      "solutionMoves": ["Be6", "Rb8"],
+      "opponentResponse": "Nc4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays Be6 to challenge White's dominant Nd5. When White's knight repositions to c4, Black activates the rook with Rb8 — preparing queenside counterplay.",
+      "explanation": "After White plays Nd5, Black challenges the outpost immediately with Be6. The Be6 does multiple things at once: it develops the passive Bc8, contests the d5 square by threatening to trade (Be6xNd5, which White must consider), and prepares the queenside counterplay. When White responds with Nc4 (the Na3 repositions to an active square, eyeing b6 and d6), Black plays Rb8 — activating the rook on the b-file. The Rb8 is a powerful move: it supports the ...b5-b4 advance, prepares ...b4-b3, and creates pressure against White's queenside structure. Black is developing all pieces while maintaining dynamic tension across the board."
+    },
+    {
+      "drillId": "sicilian-sveshnikov-bt4",
+      "name": "f5 Kingside Counter",
+      "theme": "Kingside Counter",
+      "description": "After White occupies d5, Black launches the kingside pawn break with f5. When White captures exf5, Black recaptures with the bishop — gaining an active piece and counter-play.",
+      "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq - 0 9",
+      "whitePromptMove": "Nd5",
+      "solutionMoves": ["f5", "Bxf5"],
+      "opponentResponse": "exf5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black launches f5 — a sharp pawn break that challenges the e4 pawn and opens lines. After exf5, Black recaptures with Bxf5, gaining an active piece in the center.",
+      "explanation": "After White plays Nd5, Black responds with f5 — a sharp and committal pawn break. The f5 advance attacks the e4 pawn directly, opens lines on the kingside and center, and gives Black active piece play to compensate for the structural pressure on d6. When White captures exf5 (accepting the trade to open the e-file), Black plays Bxf5 — the Bc8 travels via d7 and e6 to f5, arriving on an excellent diagonal. The Bf5 is a monster: it controls the e6-square, eyes the b1-e4 diagonal, and pressures White's queenside. The f5 break transforms the character of the position from defensive maneuvering to active piece play — exactly what Black wants in the Sveshnikov."
+    }
+  ]
+}

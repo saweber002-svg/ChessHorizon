@@ -1,0 +1,60 @@
+{
+  "id": "moeller-attack-black-tacticals",
+  "name": "Moeller Attack — Black Tactics",
+  "description": "4 tactical challenges for Black in the Moeller Attack. Find the precise defensive and counter-attacking sequences after White's most dangerous continuations!",
+  "arena": "giuoco-piano",
+  "drills": [
+    {
+      "drillId": "moeller-bt1",
+      "name": "Central Counter-break",
+      "theme": "Central Counter",
+      "description": "After White doubles on the e-file with Re1, Black activates the knight and drives it to the powerful d4 outpost to challenge White's initiative.",
+      "fen": "r1bq1rk1/ppp1nppp/3p4/3P2N1/2B1R3/8/PP3PPP/R2Q2K1 w - - 0 14",
+      "whitePromptMove": "Re1",
+      "solutionMoves": ["Nf5", "Nd4"],
+      "opponentResponse": "Qe2",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Nf5 centralises with tempo. When White plays Qe2, Black drives the knight to d4 — an outpost White cannot easily dislodge.",
+      "explanation": "After Re1 Nf5!, Black finds an active posting for the knight that attacks e3 and eyes the d4 central outpost. When White plays Qe2 to maintain control, Nd4 takes the dominant central square. The knight on d4 forks e2 and c2, creates counter-pressure, and gives Black real counter-play. This is the antidote to White's e-file pressure — meet it with your own activity."
+    },
+    {
+      "drillId": "moeller-bt2",
+      "name": "e-File Counter",
+      "theme": "e-File Domination",
+      "description": "Black contests White's e-file dominance by seizing it with the rook, then centralises the queen to coordinate a full defensive formation.",
+      "fen": "r1bq1rk1/ppp1nppp/3p4/3P2N1/2B1R3/8/PP3PPP/R2Q2K1 w - - 0 14",
+      "whitePromptMove": "Re1",
+      "solutionMoves": ["Re8", "Qd7"],
+      "opponentResponse": "Ne4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Re8 immediately contests the e-file. After Ne4, Qd7 connects rooks and prepares Rad8 to create unbearable pressure.",
+      "explanation": "Re8 challenges White's rook on the e-file directly. If White retreats or repositions with Ne4, Qd7 is the key follow-up — it connects the rooks, prepares Rad8, and eyes the d5-pawn. Black now has real counter-play on the e-file and can generate queenside activity. Contesting the open file is the correct strategic response to White's initiative."
+    },
+    {
+      "drillId": "moeller-bt3",
+      "name": "Queenside Counter-play",
+      "theme": "Queenside Play",
+      "description": "When White advances the d-pawn to d6, Black immediately kicks the bishop with b5 and follows with a5, seizing queenside space.",
+      "fen": "r1bqk2r/pppp1ppp/2n2b2/3P4/2B1n3/5N2/PP3PPP/R1BQ1RK1 w kq - 0 10",
+      "whitePromptMove": "d6",
+      "solutionMoves": ["b5", "a5"],
+      "opponentResponse": "Bb3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "b5 attacks the bishop immediately, gaining a tempo. After Bb3, a5 continues the queenside expansion with force.",
+      "explanation": "After d6, b5 attacks the bishop on c4 immediately, forcing it to retreat with Bb3. Then a5 continues the queenside advance with tempo, preparing Ba6 to trade off White's important light-squared bishop. This queenside counter-play is the antidote to White's central breakthrough — Black gains space and activates the light-squared bishop while restricting White's pieces. The a5-b5 advance can become a dangerous passed pawn threat."
+    },
+    {
+      "drillId": "moeller-bt4",
+      "name": "Defensive Resource vs Ng5",
+      "theme": "Tactical Defense",
+      "description": "When White leaps to g5 threatening f7, Black calmly kicks the knight with h6, then castles to safety before White can create further threats.",
+      "fen": "r1bqk2r/ppp1nppp/3p1b2/3P4/2B1R3/5N2/PP3PPP/R1BQ2K1 w kq - 0 12",
+      "whitePromptMove": "Ng5",
+      "solutionMoves": ["h6", "O-O"],
+      "opponentResponse": "Nf3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "h6 kicks the knight away from g5. Once White retreats, Black immediately castles to safety before new threats can develop.",
+      "explanation": "After Ng5, h6 forces the knight to retreat with Nf3. Now Black has a critical tempo window — O-O! Black castles immediately, connecting the rooks and placing the king in safety behind the f7-g7-h6 pawn wall. Black's position is now solid and defensible. The h6-pawn, often seen as a weakness, actually supports the king here by preventing future Ng5 incursions. Once safely castled, Black can follow with Qd6 and Rad8 to centralise and consolidate."
+    }
+  ]
+}

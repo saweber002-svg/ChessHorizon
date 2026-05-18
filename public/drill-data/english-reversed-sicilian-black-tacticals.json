@@ -1,0 +1,76 @@
+{
+  "id": "english-reversed-sicilian-black-tacticals",
+  "name": "Reversed Sicilian — Black Tactics",
+  "description": "4 strategic challenges for Black in the English Reversed Sicilian. Learn when to castle, how to counter White's center, and where to create counterplay.",
+  "arena": "english-reversed-sicilian",
+  "drills": [
+    {
+      "drillId": "ers-bt1",
+      "name": "Solid Castle",
+      "theme": "King Safety",
+      "description": "Castle kingside to secure the king and connect the rooks. After White plays a3, develop the bishop to e6 to contest the d5 square and complete development.",
+      "fen": "r1bqk2r/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8",
+      "whitePromptMove": "d3",
+      "solutionMoves": ["O-O", "Be6"],
+      "opponentResponse": "a3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "O-O secures the king. After a3, Be6 completes development and contests d5.",
+      "explanation": "Castling kingside is Black's top priority in the Reversed Sicilian — the king reaches safety, the rooks connect, and Black's entire position harmonizes. After O-O, White plays a3, a useful waiting move that prepares b4 queenside expansion and takes the b4 square away from Black's knights. Black responds with Be6 — the best square for the light-squared bishop. On e6, the bishop contests the critical d5 square (preventing Nd5), develops the last minor piece, and prepares ...Qd7 to potentially double on the d-file or swing the queen to the kingside. After O-O and Be6, Black's position is solid and well-coordinated: the e5 pawn is secure, the knights on b6 and c6 have flexible futures, and Black can choose between ...f5 (kingside expansion), ...Nd4 (central outpost), or ...a5 (queenside counter). This is the foundation of all Black's plans."
+    },
+    {
+      "drillId": "ers-bt2",
+      "name": "Central Counter",
+      "theme": "Central Counter",
+      "description": "Push f5 to seize kingside space and challenge White's center. After White jumps to Nd5, capture the knight to eliminate the outpost and open the f-file.",
+      "fen": "r1bqk2r/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8",
+      "whitePromptMove": "d3",
+      "solutionMoves": ["f5", "Nxd5"],
+      "opponentResponse": "Nd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "f5 grabs kingside space aggressively. After Nd5, Nxd5 eliminates the outpost and opens the f-file.",
+      "explanation": "f5 is Black's most aggressive central idea in the Reversed Sicilian — the pawn advance seizes kingside space, threatens ...f4 to crack open White's kingside, and prepares ...e4 to challenge White's d3 pawn. This is the Sicilian player's dream: fighting for the initiative despite being a tempo behind. White's best response is Nd5, jumping the knight to the powerful outpost where it attacks e7, c7, and b6. However, Black is prepared: Nxd5 (capturing with the c6 knight) eliminates White's strongest piece and opens the f-file for the rook. After Nxd5, Black has traded White's best-placed piece, maintained the f5 pawn's space advantage, and can follow up with ...Rf6 (rook lift), ...Be6 (development), or ...Nd4 to seize the other central outpost. The f5+Nxd5 sequence is Black's signature counterattacking resource in this line."
+    },
+    {
+      "drillId": "ers-bt3",
+      "name": "Queen Maneuver",
+      "theme": "Piece Activity",
+      "description": "Develop the queen to d7, preparing to swing to the kingside or connect with Be6. After White plays Be3, slide the queen to h3 to pressure White's light squares.",
+      "fen": "r1bqk2r/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8",
+      "whitePromptMove": "d3",
+      "solutionMoves": ["Qd7", "Qh3"],
+      "opponentResponse": "Be3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Qd7 develops the queen flexibly. After Be3, Qh3 invades the light squares near White's king.",
+      "explanation": "Qd7 is a sophisticated queen development — it connects the rooks, prepares ...Be6 or ...Bh3 ideas, and keeps the option of ...Qf5 or ...Qh3 to target White's light squares around the fianchettoed king. White responds with Be3, a natural developing move that supports d4 and controls the dark squares. But this allows Black's key idea: Qh3 — the queen slides to h3, landing right next to White's king on g1. On h3, the queen pressures g2 (threatening to trade off White's powerful fianchetto bishop), eyes the f1 square, and creates a persistent nuisance near White's king. After Qd7-Qh3, Black has created real attacking chances on the light squares — a counterintuitive but highly effective plan. White must be careful: if the Bg2 is traded, the light-square weaknesses around the king become permanent."
+    },
+    {
+      "drillId": "ers-bt4",
+      "name": "Queenside Anchor",
+      "theme": "Queenside Control",
+      "description": "Play a5 to anchor the queenside and prevent White's b4 expansion. After White develops with Be3, complete development with Be6 to contest the d5 square.",
+      "fen": "r1bqk2r/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8",
+      "whitePromptMove": "d3",
+      "solutionMoves": ["a5", "Be6"],
+      "opponentResponse": "Be3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "a5 stops White's b4 expansion and anchors the queenside. After Be3, Be6 completes development.",
+      "explanation": "a5 is a prophylactic masterpiece — it stops White's b4 expansion dead in its tracks, secures the b6 knight's position (no more a4-a5 kicking it), and stakes out queenside space. In the Reversed Sicilian, White often wants to play b4-b5 to gain queenside space and push back Black's pieces. With ...a5, Black prevents this entire plan and stabilizes the queenside permanently. White responds with Be3, developing naturally and preparing Rc1 for the c-file. Black follows with Be6 — the ideal square for the light-squared bishop, where it contests d5 (the most important square in the position), develops the last minor piece, and prepares ...Nd4 or ...Qd7. After a5+Be6, Black's position is rock-solid: the queenside is locked down, development is complete, and Black can choose the right moment to castle or play ...f5 for central counterplay."
+    }
+  ]
+}

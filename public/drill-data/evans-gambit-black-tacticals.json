@@ -1,0 +1,60 @@
+{
+  "id": "evans-gambit-black-tacticals",
+  "name": "Evans Gambit — Black Tactics",
+  "description": "4 tactical challenges for Black in the Evans Gambit. Find the precise response after White's most dangerous continuations!",
+  "arena": "evans-gambit",
+  "drills": [
+    {
+      "drillId": "evans-gambit-bt1",
+      "name": "Kick the Knight, Centralize",
+      "theme": "Knight Outpost",
+      "description": "Black kicks the aggressive knight on g5, then centralizes with Ne5 to attack the bishop on c4.",
+      "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/2BPP3/5N2/P4PPP/RNBQ1RK1 b kq - 1 9",
+      "whitePromptMove": "Ng5",
+      "solutionMoves": ["h6", "Ne5"],
+      "opponentResponse": "Nh3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "h6 drives the knight away. Once the threat is neutralized, Ne5 seizes the center and attacks White's bishop.",
+      "explanation": "After Nh3, Ne5! jumps to the powerful central outpost. The knight on e5 attacks the bishop on c4 and controls key central squares. Black is not passive — by returning a tempo with Ne5, Black seizes the initiative back from White. White must either retreat the bishop or trade it, giving Black counterplay."
+    },
+    {
+      "drillId": "evans-gambit-bt2",
+      "name": "Develop and Challenge the Pin",
+      "theme": "Tactical Defense",
+      "description": "Black develops the knight to f7, then challenges White's pin with h6 to free the pieces.",
+      "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/2BPP3/5N2/P4PPP/RNBQ1RK1 b kq - 1 9",
+      "whitePromptMove": "Nc3",
+      "solutionMoves": ["Nf6", "h6"],
+      "opponentResponse": "Bg5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Nf6 develops and attacks e4. When White pins with Bg5, h6 immediately challenges the bishop.",
+      "explanation": "After Nf6, when White plays Bg5 to pin the knight, h6 challenges the bishop immediately. White must commit — Bh4 retreats and Black gains a tempo, Bxf6 gives Black the bishop pair (gxf6 recapture keeps the center intact). Either way, Black neutralizes the pin and emerges with solid development."
+    },
+    {
+      "drillId": "evans-gambit-bt3",
+      "name": "Counter the d5 Advance",
+      "theme": "Central Counter",
+      "description": "When White pushes d5, Black retreats the knight to attack the bishop, then challenges the pawn with c6.",
+      "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/2BPP3/5N2/P4PPP/RNBQ1RK1 b kq - 1 9",
+      "whitePromptMove": "d5",
+      "solutionMoves": ["Na5", "c6"],
+      "opponentResponse": "Bb3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Na5 attacks the bishop with tempo. After Bb3, c6 directly challenges White's advanced d5 pawn.",
+      "explanation": "Na5 forces White to retreat the bishop (Bb3), gaining a tempo. Then c6! strikes at the heart of White's advanced d5 pawn. After dxc6 bxc6, Black opens the b-file and gets active counterplay. If White maintains the d5 pawn, it becomes a target. Black has successfully countered the space-grabbing advance with concrete piece activity."
+    },
+    {
+      "drillId": "evans-gambit-bt4",
+      "name": "Regroup and Challenge",
+      "theme": "Knight Reorganization",
+      "description": "Black reroutes the knight to e7 to control key squares, then strikes at White's center with c6.",
+      "fen": "r1bqk1nr/ppp2ppp/1bnp4/8/2BPP3/5N2/P4PPP/RNBQ1RK1 b kq - 1 9",
+      "whitePromptMove": "Nc3",
+      "solutionMoves": ["Nge7", "c6"],
+      "opponentResponse": "Be3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Nge7 reroutes the knight to a flexible square. After Be3, c6 challenges White's center immediately.",
+      "explanation": "Nge7 is the ideal regrouping move — it defends d5, prepares to support c6, and keeps the position flexible for castling. After White plays Be3, c6 challenges White's pawn center directly. This forces White to either exchange on c6 (opening the b-file for Black) or allow Black to claim central space. The knight on e7 is perfectly placed to support the c6 advance."
+    }
+  ]
+}

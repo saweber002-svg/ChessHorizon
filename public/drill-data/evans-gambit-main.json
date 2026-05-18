@@ -1,0 +1,16 @@
+{
+  "id": "evans-gambit-main",
+  "name": "Evans Gambit — Main Line",
+  "description": "White sacrifices a pawn on b4 for rapid development and central dominance — the most aggressive Italian continuation.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "evans-gambit",
+      "name": "Evans Gambit (4.b4)",
+      "description": "White offers the b4 pawn for rapid development. Black accepts with Bxb4, White pushes c3 to chase the bishop, then d4 to claim the center. White castles on move 7 before recapturing with cxd4.",
+      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Bc5", "b4", "Bxb4", "c3", "Ba5", "d4", "exd4", "O-O", "d6", "cxd4", "Bb6"],
+      "moveCount": 16,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

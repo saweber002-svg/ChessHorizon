@@ -1,0 +1,76 @@
+{
+  "id": "london-vs-kings-indian-black-tacticals",
+  "name": "King's Indian Defense — Black Tactics",
+  "description": "4 strategic challenges for Black in the King's Indian Defense. Ignite the kingside attack and outrace White's queenside pressure!",
+  "arena": "london-vs-kings-indian",
+  "drills": [
+    {
+      "drillId": "kid-bt1",
+      "name": "Kingside Pawn Break",
+      "theme": "Kingside Break",
+      "description": "Launch the classic KID pawn break with ...f5. After White responds with Nd2, continue with ...f4 to close the center and fix the attack.",
+      "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N1BN2/PP2BPPP/R2Q1RK1 b - - 2 9",
+      "whitePromptMove": "Be3",
+      "solutionMoves": ["f5", "f4"],
+      "opponentResponse": "Nd2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "f5 is Black's main weapon — follow with f4 to close the center and fix the kingside attack.",
+      "explanation": "...f5 is the defining move of the King's Indian — Black launches the kingside storm that this opening is built around. The f-pawn marches forward to f4, closing the center and giving Black a cramped but fierce attacking formation. After White responds with Nd2 (heading to f1 to defend), Black plays f4, fixing the pawn structure and creating a mobile kingside pawn mass. The plan is clear: ...g5-g4-g3 or ...Ng6-f4, building pressure toward White's king. Whoever breaks through first wins the KID race."
+    },
+    {
+      "drillId": "kid-bt2",
+      "name": "Knight to f4 Outpost",
+      "theme": "Knight Maneuver",
+      "description": "Reroute the f6 knight to h5 and then to the dream f4 outpost. After White plays g3, the knight secures f4 permanently.",
+      "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N1BN2/PP2BPPP/R2Q1RK1 b - - 2 9",
+      "whitePromptMove": "Be3",
+      "solutionMoves": ["Nh5", "Nf4"],
+      "opponentResponse": "g3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Nh5 heads for f4 — the dream square for Black's knight in the KID.",
+      "explanation": "...Nh5 is the move that sets up one of the most powerful knight maneuvers in chess. The knight retreats temporarily from f6 to h5, threatening to land on f4 — the ideal outpost deep in White's position. White plays g3 to try to prevent Nf4, but Black plays Nf4 anyway, establishing the knight on the perfect square. A knight on f4 in the KID is a monster: it attacks e2, controls h5 and h3, and often cannot be dislodged without structural damage to White's kingside. This maneuver complements the ...f5-f4 storm perfectly."
+    },
+    {
+      "drillId": "kid-bt3",
+      "name": "Queenside Counter",
+      "theme": "Queenside Counter",
+      "description": "Prevent White's b4 expansion with ...a5. After White plays a3, reroute the knight with ...Nd7 to support ...c6 and queenside play.",
+      "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/1PP1P3/2N2N2/P3BPPP/R1BQ1RK1 b - b3 0 9",
+      "whitePromptMove": "b4",
+      "solutionMoves": ["a5", "Nd7"],
+      "opponentResponse": "a3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "a5 stops b5 and stakes queenside space — follow with Nd7 to support ...c6.",
+      "explanation": "When White launches the Bayonet Attack with b4, Black's best response is ...a5 — stopping the b5 push in its tracks and claiming queenside space. After White plays a3 (preparing a future b5-c5 advance anyway), Black plays ...Nd7, rerouting the f6 knight toward a more useful position. From d7, the knight can go to c5 (pressuring b3 and d3), or support ...c6 to break up White's d5-c4-b4 pawn chain. Preventing White's queenside expansion is often the most practical way to neutralize the KID's most dangerous white plan."
+    },
+    {
+      "drillId": "kid-bt4",
+      "name": "Kingside Storm",
+      "theme": "Kingside Storm",
+      "description": "Advance g5 to support the f5-f4 pawn storm. After White responds with Nd2, activate the e7 knight with ...Ng6 heading for f4.",
+      "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N1BN2/PP2BPPP/R2Q1RK1 b - - 2 9",
+      "whitePromptMove": "Be3",
+      "solutionMoves": ["g5", "Ng6"],
+      "opponentResponse": "Nd2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "g5 supports the f5-f4 storm — follow with Ng6 to swing the knight toward f4.",
+      "explanation": "...g5 is Black's aggressive pawn advance supporting the f5-f4 kingside storm. The g-pawn advances to support ...f5 and later ...f4-f3, creating a dangerous attacking pawn mass. After White plays Nd2 (beginning the knight reposition plan), Black activates the e7 knight with ...Ng6 — heading toward the powerful f4 square. From g6, the knight also supports ...h5-h4 if Black decides to open lines on the h-file. The combination of g5-f5-f4 with a knight on f4 is one of the most feared attacking formations in chess — the KID kingside machine at full power."
+    }
+  ]
+}

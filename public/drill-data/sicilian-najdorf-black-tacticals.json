@@ -1,0 +1,76 @@
+{
+  "id": "sicilian-najdorf-black-tacticals",
+  "name": "Sicilian Najdorf — Black Tactics",
+  "description": "4 strategic challenges for Black in the Najdorf 6.Bg5 line. Find the right counter-plan after White's 9th move!",
+  "arena": "sicilian-najdorf",
+  "drills": [
+    {
+      "drillId": "sicilian-najdorf-bt1",
+      "name": "The Central Counter-Punch",
+      "theme": "Central Counter",
+      "description": "After White castles, Black develops the knight to d7, and when White plays Be3, strikes in the center with e5.",
+      "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R b KQkq - 3 9",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["Nbd7", "e5"],
+      "opponentResponse": "Be3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black develops Nbd7 to support the center, then counters with e5 to challenge White's Nd4.",
+      "explanation": "After White's O-O, Black plays Nbd7 — a flexible developing move that supports both the d6-pawn and future ...e5 or ...Nc5 ideas. When White plays Be3, Black responds with the thematic e5, challenging the powerful Nd4 and fighting for central space. The Nd4 is forced to retreat (likely to b3 or f3), giving Black improved piece activity. The knight on d7 now gains access to the c5 outpost. This is Black's most principled counter-plan: fight for the center rather than let White build up unchallenged."
+    },
+    {
+      "drillId": "sicilian-najdorf-bt2",
+      "name": "Queenside Counterplay",
+      "theme": "Queenside Counter",
+      "description": "After White plays f5, Black retreats the knight safely and immediately launches queenside counterplay with b5.",
+      "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R b KQkq - 3 9",
+      "whitePromptMove": "f5",
+      "solutionMoves": ["Nd7", "b5"],
+      "opponentResponse": "fxe6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black retreats the knight to safety, then launches b5 to start the queenside race.",
+      "explanation": "When White plays f5 (the kingside pawn break), Black must react. Nd7 is the key retreat — it removes the knight from the f5-f6 danger zone and keeps the center under control. After White captures fxe6 (to open lines), Black plays b5 immediately, starting the queenside counterattack. This is the heart of Najdorf strategy: when White attacks on the kingside, Black counters on the queenside. The b5 pawn will be followed by Bb7 and eventually b4-b3, cracking open the queenside before White's attack reaches home."
+    },
+    {
+      "drillId": "sicilian-najdorf-bt3",
+      "name": "Provoke and Recapture",
+      "theme": "Bishop Exchange",
+      "description": "After White plays Be3, Black kicks the Bg5 with h6 and then recaptures with the bishop after Bxf6.",
+      "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R b KQkq - 3 9",
+      "whitePromptMove": "Be3",
+      "solutionMoves": ["h6", "Bxf6"],
+      "opponentResponse": "Bxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black plays h6 to attack the Bg5, provoking Bxf6. Black then recaptures with the bishop, keeping the pawn structure intact.",
+      "explanation": "h6 is a critical probing move — it attacks the Bg5 and forces White to make a decision. When White plays Bxf6 (taking the knight rather than retreating), Black recaptures with Bxf6. This recapture is preferred over gxf6: the Be7 (now on f6) is extremely powerful, controlling the long diagonal and fighting for e5. The g-pawn structure remains intact, keeping Black's kingside solid. By provoking the exchange and recapturing with the bishop, Black gains the bishop pair while White's attacking resources are diminished."
+    },
+    {
+      "drillId": "sicilian-najdorf-bt4",
+      "name": "Castle and Develop",
+      "theme": "King Safety",
+      "description": "Black castles to safety, then develops the b8-knight to d7 after White activates a rook on the e-file.",
+      "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R b KQkq - 3 9",
+      "whitePromptMove": "O-O",
+      "solutionMoves": ["O-O", "Nbd7"],
+      "opponentResponse": "Re1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black castles kingside to safety, then completes development with Nbd7 against White's Re1.",
+      "explanation": "After White's O-O, Black should castle immediately — the king is not safe on e8 with White's f4-f5 threats brewing. O-O brings the king to safety and connects the rooks. When White plays Re1 (centralizing and eyeing a future e5 advance), Black responds with Nbd7, completing kingside development. The Nd7 supports e5, prepares Nc5 (attacking the b3 bishop if it ever retreats), and keeps the queenside fluid. Black is now fully developed and ready to begin counterplay — the Najdorf endgame is a marathon, not a sprint."
+    }
+  ]
+}

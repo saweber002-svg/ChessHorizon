@@ -1,0 +1,72 @@
+{
+  "id": "london-system-tacticals",
+  "name": "London System — White Tactics",
+  "description": "4 strategic challenges for White in the London System Classical Setup. Find the best plan after 8...b6!",
+  "arena": "london-main",
+  "drills": [
+    {
+      "drillId": "london-system-t1",
+      "name": "Dark-Bishop Trade",
+      "theme": "Bishop Exchange",
+      "description": "White trades the dark-squared bishops with Bxd6, then immediately advances e4 to challenge the center.",
+      "fen": "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
+      "solutionMoves": ["Bxd6", "e4"],
+      "opponentResponse": "Qxd6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White trades the dark-squared bishops, then breaks the center with e4.",
+      "explanation": "Bxd6 (the g3 bishop captures d6) is the signature London Exchange. After Black recaptures Qxd6, White immediately plays e4 — the central break that punishes Black for surrendering the dark-squared bishop. With the Bd6 gone, Black no longer has a defender on the dark squares, and e4-e5 becomes a long-term threat. The e4 advance also opens lines for the Bd3 and creates space for the knight on d2 to reroute. This bishop exchange is the cornerstone of White's active play in the London — trade the defender and strike the center."
+    },
+    {
+      "drillId": "london-system-t2",
+      "name": "Central Pawn Break",
+      "theme": "Central Break",
+      "description": "White plays e4 to challenge Black's d5-c5 pawn center. After dxe4, White recaptures with the knight — gaining a dominant central outpost.",
+      "fen": "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
+      "solutionMoves": ["e4", "Nxe4"],
+      "opponentResponse": "dxe4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White plays e4. After dxe4, Nd2xe4 lands the knight on a dominant central square.",
+      "explanation": "e4 is the pawn break White has been preparing since move 1. The d4-e3-c3 structure was always pointing toward this moment — e3-e4 shatters Black's d5-c5 pawn chain. After Black plays dxe4 (forced, or the d5 pawn hangs), White recaptures with Nxe4 (Nd2 moves to e4), placing a powerful knight in the heart of the board. The Ne4 on e4 is a monster: it attacks f6, controls the center, and cannot be dislodged without conceding structural damage. This is the London's most direct central plan — prepare, then strike with e4."
+    },
+    {
+      "drillId": "london-system-t3",
+      "name": "Ne5 Knight Outpost",
+      "theme": "Knight Outpost",
+      "description": "White plants the knight on the powerful e5 outpost, then follows with f4 to reinforce the knight and launch kingside pressure.",
+      "fen": "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
+      "solutionMoves": ["Ne5", "f4"],
+      "opponentResponse": "Nd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White jumps Ne5 to the ideal outpost. After Nd7, f4 reinforces the knight and starts kingside pressure.",
+      "explanation": "Ne5 is the most aggressive London plan. The knight on e5 is a positional monster: it sits in the heart of Black's camp, controls f7 and d7, and cannot be kicked without serious concessions. After Black plays Nd7 (challenging the knight with the natural retreat from f6), White plays f4 — a powerful pawn advance that reinforces the Ne5 and threatens f4-f5 to crack open the kingside. The f4 pawn also supports a future e4 break. With Ne5, f4, and the Bd3 all pointing at Black's kingside, White has a long-term spatial advantage. Ne5 + f4 is the most aggressive way to play the London."
+    },
+    {
+      "drillId": "london-system-t4",
+      "name": "Castle and Strike",
+      "theme": "King Safety",
+      "description": "White castles to connect the rooks and bring the king to safety, then immediately launches the e4 central break.",
+      "fen": "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
+      "solutionMoves": ["O-O", "e4"],
+      "opponentResponse": "Nd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "White castles to safety, then drives e4 — the London's central break.",
+      "explanation": "O-O brings the king to safety and connects the rooks — a standard London housekeeping move. With the king tucked on g1 and the rook on f1, White is ready for action. After Black plays Nd7 (the natural regrouping), White plays e4, the critical central pawn break. The e4 advance challenges Black's d5-pawn head-on and opens lines for the Bd3 and the newly activated rook on f1. The e4-e5 push is now a permanent threat, giving White a space advantage and kingside attacking chances. Castle first, then break — this sequence is one of the cleanest London plans."
+    }
+  ]
+}

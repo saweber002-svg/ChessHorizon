@@ -1,0 +1,60 @@
+{
+  "id": "ruy-lopez-berlin-black-tacticals",
+  "name": "Ruy López Berlin Defense — Black Tactics",
+  "description": "4 strategic challenges for Black in the Berlin Endgame. Find the best response after White's 9th move!",
+  "arena": "ruy-lopez-berlin",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-berlin-bt1",
+      "name": "Contest the Center with Nd4",
+      "theme": "Central Counter",
+      "description": "After White plays Nc3, Black immediately contests the center by placing the knight on d4, attacking White's f3-knight.",
+      "fen": "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 b - - 0 9",
+      "whitePromptMove": "Nc3",
+      "solutionMoves": ["Nd4", "Ke8"],
+      "opponentResponse": "Ne2",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black plays Nd4 to attack White's f3-knight, then activates the king with Ke8.",
+      "explanation": "Nd4 is Black's most active move — the knight forks the f3-knight and eyes the c2-pawn, forcing White to react (Ne2 or Nd4-retreat). After White plays Ne2, Black plays Ke8 — in the Berlin Endgame the king is a fighting piece. The king heads for d7-c6-d5, where it becomes a dominant force in the endgame. Centralizing the king early is the hallmark of correct Berlin Defense play."
+    },
+    {
+      "drillId": "ruy-lopez-berlin-bt2",
+      "name": "Develop and Challenge the e5 Pawn",
+      "theme": "Piece Activity",
+      "description": "After White plays Re1, Black develops the bishop to e7 and contests the e-file with the rook.",
+      "fen": "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 b - - 0 9",
+      "whitePromptMove": "Re1",
+      "solutionMoves": ["Be7", "Re8"],
+      "opponentResponse": "Nc3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black develops Be7 and then plays Re8, immediately challenging White's powerful e5-pawn.",
+      "explanation": "Be7 is a key developing move — it prepares to castle (if needed), activates the bishop, and prepares Re8. After White plays Nc3, Black plays Re8, directly targeting the e5-pawn. If White doesn't defend it, Black can win the pawn with Nxe3 or create tactical complications. The Re8 pressure forces White to spend tempo defending e5, slowing White's plan of centralizing the knight to d4."
+    },
+    {
+      "drillId": "ruy-lopez-berlin-bt3",
+      "name": "Retreat and Centralize the King",
+      "theme": "King Activity",
+      "description": "When White plays g4 to kick the f5-knight, Black retreats to h6 and then centralizes the king.",
+      "fen": "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 b - - 0 9",
+      "whitePromptMove": "g4",
+      "solutionMoves": ["Nh6", "Ke7"],
+      "opponentResponse": "Nc3",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black retreats the knight to h6 and then centralizes the king to e7, heading for d6 or c5.",
+      "explanation": "Nh6 is the cleanest retreat — the knight heads to f7 or g8-f6 to eventually reach a better square. After White plays Nc3 (developing), Black plays Ke7, starting the famous Berlin king march. From e7, the king heads to d6 and then c5, where it becomes a powerful attacking piece pressing on White's queenside pawns. This king activity is Black's main compensation for the doubled c-pawns."
+    },
+    {
+      "drillId": "ruy-lopez-berlin-bt4",
+      "name": "Defend the King and Activate the Bishop",
+      "theme": "King Safety + Development",
+      "description": "After Rfd1+, Black retreats the king to e8 and then develops the bishop to e6 to contest d5.",
+      "fen": "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 b - - 0 9",
+      "whitePromptMove": "Rfd1+",
+      "solutionMoves": ["Ke8", "Be6"],
+      "opponentResponse": "Nd4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black retreats Ke8 after the check, then plays Be6 to contest White's dominant Nd4.",
+      "explanation": "After the forced Ke8, White plays Nd4 — landing on the powerful central outpost. Black's best response is Be6, directly challenging the knight on d4. The bishop from c8 to e6 attacks d5 and prevents the knight from being easily supported by pawns. If White retreats the knight, Black has equalized. If White plays Nxe6, fxe6 opens the f-file for Black's rook and gives Black the bishop pair — valuable long-term compensation."
+    }
+  ]
+}
