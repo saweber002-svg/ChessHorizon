@@ -10,7 +10,7 @@
       "theme": "Knight Reposition",
       "description": "Reroute the f3 knight to d2, clearing f3 for a pawn break and setting up queenside coordination.",
       "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9",
-      "solutionMoves": ["Nd2", "f3"],
+      "solutionMoves": ["Nd2", "Nd7", "f3", "f5", "b4"],
       "opponentResponse": "Nd7",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Queenside Expansion",
       "description": "Launch the Bayonet Attack with b4, the most ambitious queenside plan in the KID. Strike before Black's kingside storm arrives.",
       "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9",
-      "solutionMoves": ["b4", "Re1"],
+      "solutionMoves": ["b4", "Nh5", "Re1", "f5", "Bf1"],
       "opponentResponse": "Nh5",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Development",
       "description": "Develop the dark-squared bishop to e3, supporting d4 and preparing the Qd2 battery for a queenside attack.",
       "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9",
-      "solutionMoves": ["Be3", "Qd2"],
+      "solutionMoves": ["Be3", "f5", "Qd2", "f4", "Bf2"],
       "opponentResponse": "f5",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Space Grab",
       "description": "Fix the queenside with c5, gaining permanent space and restricting Black's knight from reaching d7.",
       "fen": "r1bq1rk1/pppNnpbp/3p2p1/3Pp3/2P1P3/2N2N2/PP2BPPP/R1BQ1RK1 w - - 1 9",
-      "solutionMoves": ["c5", "cxd6"],
+      "solutionMoves": ["c5", "Nf6", "cxd6", "cxd6", "Nb5"],
       "opponentResponse": "Nf6",
       "stars": {
         "3": "First move correct",

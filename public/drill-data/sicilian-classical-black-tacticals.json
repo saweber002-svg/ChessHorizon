@@ -11,7 +11,7 @@
       "description": "Black launches the classic Sicilian queenside break with b5. When White trades Bxf6 to damage Black's structure, Black recaptures gxf6 — accepting the doubled pawns but keeping the initiative.",
       "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 9",
       "whitePromptMove": "f4",
-      "solutionMoves": ["b5", "gxf6"],
+      "solutionMoves": ["b5", "Bxf6", "gxf6", "Be2", "Be7"],
       "opponentResponse": "Bxf6",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "Black develops the bishop to e7, preparing to castle kingside. After White plays f4 to begin the kingside attack, Black castles immediately — placing the king in safety before the storm.",
       "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 9",
       "whitePromptMove": "Kb1",
-      "solutionMoves": ["Be7", "O-O"],
+      "solutionMoves": ["Be7", "f4", "O-O", "Kb1", "b5"],
       "opponentResponse": "f4",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "Black kicks the Bg5 with h6, forcing White to make a decision. When White retreats to Bh4, Black grabs the central knight with Nxd4 — winning material and simplifying.",
       "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 9",
       "whitePromptMove": "f4",
-      "solutionMoves": ["h6", "Nxd4"],
+      "solutionMoves": ["h6", "Bh4", "Nxd4", "Qxd4", "Be7"],
       "opponentResponse": "Bh4",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "Black centralizes the queen to c7 — supporting the ...b5 break and preparing ...Rc8. When White plays f4, Black immediately launches b5 to begin the queenside race.",
       "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 9",
       "whitePromptMove": "Kb1",
-      "solutionMoves": ["Qc7", "b5"],
+      "solutionMoves": ["Qc7", "f4", "b5", "Bxf6", "gxf6"],
       "opponentResponse": "f4",
       "stars": {
         "3": "First move correct",

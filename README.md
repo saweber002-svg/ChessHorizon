@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# Chess Horizon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Immersive Gamified Chess Opening Trainer Web App
 
-Currently, two official plugins are available:
+Chess Horizon is an immersive, story-driven web application designed to help players learn and practice chess openings through a gamified experience. Players navigate a 3D world map, unlock and practice openings tied to historical chess locations, and engage with a prestige system. The vision is to combine serious opening study with gamification and beautiful 3D visuals, making it feel premium and stream-friendly.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+*   **Frontend Framework:** React.js (with Vite)
+*   **Language:** TypeScript
+*   **Styling:** Tailwind CSS (with Shadcn UI components)
+*   **3D Graphics:** Three.js, React Three Fiber, `@react-three/drei`
+*   **Routing:** Wouter
+*   **State Management:** React Context API
+*   **Chess Logic:** `chess.js`
+*   **Animations:** Framer Motion
+*   **Optional Backend:** Supabase (for authentication and progress synchronization)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Quick Start
 
-## Expanding the ESLint configuration
+To get the Chess Horizon app up and running locally, follow these steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd chess-horizon
+    ```
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2.  **Install Dependencies:**
+    ```bash
+    npm install
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+3.  **Environment Variables (Optional):**
+    If you plan to use Supabase for authentication and progress synchronization, create a `.env` file in the project root and add your Supabase credentials:
+    ```
+    VITE_SUPABASE_URL="YOUR_SUPABASE_URL"
+    VITE_SUPABASE_ANON_KEY="YOUR_SUPABASE_ANON_KEY"
+    ```
+    *Note: The application is designed to function without Supabase credentials, disabling auth and progress sync gracefully.*
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4.  **Run in Development Mode:**
+    ```bash
+    npm run dev
+    ```
+    The application will be accessible at `http://localhost:3000` (or another port if 3000 is in use).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+5.  **Build for Production:**
+    ```bash
+    npm run build
+    ```
+    This will create a `dist` directory containing the optimized production build of the application.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Documentation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+*   [ARCHITECTURE.md](./ARCHITECTURE.md) - High-level architecture, data flow, and key components.
+*   [FEATURES.md](./FEATURES.md) - Current implemented features versus planned features.
+*   [DEPLOYMENT.md](./DEPLOYMENT.md) - Exact steps to build and deploy (local + production).
+*   [PROJECT_STATUS.md](./PROJECT_STATUS.md) - Snapshot of current state, recent content overhaul (3-4 move tactics), and next priorities.
+*   [REVISION_WORKFLOW.md](./REVISION_WORKFLOW.md) - Documenting how to handle future changes.

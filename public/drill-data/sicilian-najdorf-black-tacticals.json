@@ -11,7 +11,7 @@
       "description": "After White castles, Black develops the knight to d7, and when White plays Be3, strikes in the center with e5.",
       "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R b KQkq - 3 9",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["Nbd7", "e5"],
+      "solutionMoves": ["Nbd7", "Be3", "e5", "Nf3", "O-O"],
       "opponentResponse": "Be3",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "After White plays f5, Black retreats the knight safely and immediately launches queenside counterplay with b5.",
       "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R b KQkq - 3 9",
       "whitePromptMove": "f5",
-      "solutionMoves": ["Nd7", "b5"],
+      "solutionMoves": ["Nd7", "fxe6", "b5", "a3", "Bb7"],
       "opponentResponse": "fxe6",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "After White plays Be3, Black kicks the Bg5 with h6 and then recaptures with the bishop after Bxf6.",
       "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R b KQkq - 3 9",
       "whitePromptMove": "Be3",
-      "solutionMoves": ["h6", "Bxf6"],
+      "solutionMoves": ["h6", "Bxf6", "Bxf6", "O-O", "O-O"],
       "opponentResponse": "Bxf6",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "Black castles to safety, then develops the b8-knight to d7 after White activates a rook on the e-file.",
       "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R b KQkq - 3 9",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["O-O", "Nbd7"],
+      "solutionMoves": ["O-O", "Re1", "Nbd7", "Be3", "b5"],
       "opponentResponse": "Re1",
       "stars": {
         "3": "First move correct",

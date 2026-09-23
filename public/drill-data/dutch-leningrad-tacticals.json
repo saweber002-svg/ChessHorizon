@@ -1,0 +1,62 @@
+{
+  "id": "dutch-leningrad-tacticals",
+  "name": "Dutch Leningrad — Tactics",
+  "description": "Tactical ideas in the Leningrad Dutch.",
+  "drills": [
+    {
+      "drillId": "dutch-leningrad-t1",
+      "name": "The f5 Lever",
+      "theme": "Tactics",
+      "description": "White has played g3 and Bg2. How does Black generate play on the kingside?",
+      "fen": "rnbqkb1r/pppp2pp/4pn2/5p2/2PP4/6P1/PP2PPBP/RNBQK1NR b KQkq - 0 4",
+      "solutionMoves": ["d6", "Nc3", "g6", "Nf3", "Bg7"],
+      "opponentResponse": "Nc3",
+      "stars": {
+        "3": "Correct first try",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Black follows the Leningrad setup, developing harmoniously while maintaining the f5 control.",
+      "explanation": "In the Leningrad Dutch, Black aims for a kingside fianchetto while keeping the f5 pawn to control space. After White develops Nc3, Black continues with ...g6. White develops Nf3, and Black completes the fianchetto with ...Bg7. This setup provides Black with long-term attacking prospects on the kingside and a solid central presence. The key is to coordinate the pieces while preparing the ...e5 break."
+    },
+    {
+      "drillId": "dutch-leningrad-t2",
+      "name": "The e5 Central Break",
+      "theme": "Central Break",
+      "description": "Black strikes in the center with e5. After White captures dxe5, Black recaptures with the knight to gain central activity.",
+      "fen": "r1bq1rk1/ppp3bp/2np1np1/4pp2/2PP4/2N2NP1/PP2PPBP/R1BQ1RK1 w - - 0 8",
+      "whitePromptMove": "d5",
+      "solutionMoves": ["Ne7", "e4", "f4", "gxf4", "exf4"],
+      "opponentResponse": "e4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black repositions the knight to e7 and launches the f4 break to open the kingside.",
+      "explanation": "When White pushes d5, Black's knight is kicked from c6. Black responds with ...Ne7, a flexible retreat. After White plays e4 (challenging the f5 pawn), Black strikes with ...f4! This is the thematic kingside attack in the Leningrad. If White captures gxf4, Black recaptures ...exf4. The kingside lines are opened, and Black's pieces (especially the Bg7 and Ne7-g6) are ready to swarm White's king."
+    },
+    {
+      "drillId": "dutch-leningrad-t3",
+      "name": "Kingside Fianchetto Pressure",
+      "theme": "Diagonal Pressure",
+      "description": "Black uses the powerful Bg7 to pressure White's center. After White develops, Black plays ...c6 to solidify the structure and prepare ...Qc7.",
+      "fen": "rnbq1rk1/ppp3bp/3p1np1/5p2/2PP4/2N2NP1/PP2PPBP/R1BQ1RK1 b - - 0 7",
+      "whitePromptMove": "Re1",
+      "solutionMoves": ["c6", "a4", "Qc7", "e4", "fxe4"],
+      "opponentResponse": "a4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black solidifies with c6 and develops the queen to c7 to prepare for the central battle.",
+      "explanation": "Against White's Re1 (preparing e4), Black plays ...c6. This solidifies the d5 square and prepares ...Qc7. After White plays a4 (gaining queenside space), Black develops ...Qc7. When White finally pushes e4, Black captures ...fxe4. The position becomes dynamically balanced, with Black's Bg7 exerting long-term pressure on the long diagonal and the queen on c7 coordinating the defense and future counter-attacks."
+    },
+    {
+      "drillId": "dutch-leningrad-t4",
+      "name": "The Nh5 Maneuver",
+      "theme": "Knight Maneuver",
+      "description": "Black reroutes the knight to h5 to prepare the ...f4 break and attack the kingside.",
+      "fen": "r1bq1rk1/ppp3bp/3p1np1/4pp2/2PP4/2N2NP1/PP2PPBP/R1BQ1RK1 b - - 0 8",
+      "whitePromptMove": "e4",
+      "solutionMoves": ["Nh5", "exf5", "gxf5", "d5", "Ne7"],
+      "opponentResponse": "exf5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "Black maneuvers the knight to h5 to support the f-pawn and prepare a kingside storm.",
+      "explanation": "When White plays e4, Black can respond with the aggressive ...Nh5. This maneuver prepares the ...f4 break and puts pressure on White's kingside. If White captures exf5, Black recaptures ...gxf5. The resulting pawn structure (f5, e5) gives Black a powerful central presence and open lines for an attack. If White then pushes d5, Black retreats the knight to e7, ready to rejoin the battle from g6. The Nh5 maneuver is a key attacking tool in the Leningrad Dutch."
+    }
+  ]
+}

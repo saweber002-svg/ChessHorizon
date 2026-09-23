@@ -12,10 +12,9 @@ import {
   LogOut,
   User,
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'wouter';
-import { debugLog } from '@/debugLog';
 import { useAuth } from '@/contexts/AuthContext';
 import AuthModal from '@/components/AuthModal';
 
@@ -30,7 +29,7 @@ const FEATURES = [
     icon: Target,
     title: 'Precision Drills',
     description:
-      'Practice specific moves from 26 variations across 6 kingdoms. Get immediate feedback with our neon-lit interactive board.',
+      'Practice specific moves from the active opening repertoire. Get immediate feedback with the interactive chess board.',
   },
   {
     icon: Trophy,
@@ -49,31 +48,31 @@ const FEATURES = [
 const BENEFITS = [
   {
     icon: Brain,
-    stat: '40%',
-    label: 'Better Pattern Recognition',
+    stat: 'FOCUS',
+    label: 'Pattern Recognition',
     description:
-      'Research shows that deliberate practice of specific positions significantly improves pattern recognition in chess.',
+      'Return to specific positions and opening ideas to build focused pattern-recognition practice.',
   },
   {
     icon: Swords,
-    stat: '60%',
-    label: 'Faster Opening Recall',
+    stat: 'LINES',
+    label: 'Opening Recall',
     description:
-      'Players who drill openings regularly recall their lines 60% faster in tournament conditions.',
+      'Use active recall and immediate move feedback to rehearse the opening lines you choose.',
   },
   {
     icon: Sparkles,
-    stat: '10x',
-    label: 'More Engaging',
+    stat: 'PLAY',
+    label: 'Engaged Practice',
     description:
-      'Gamified learning with progression systems increases engagement and retention compared to traditional study.',
+      'A narrative map, progress milestones, and trophies keep practice organized and visible.',
   },
   {
     icon: Globe,
-    stat: '26',
-    label: 'Variations to Master',
+    stat: 'ATLAS',
+    label: 'Kingdom Repertoire',
     description:
-      'From the Italian Game to the Sicilian Defense, build a comprehensive opening repertoire step by step.',
+      'Explore opening variations through the Atlas and progress through the available kingdoms step by step.',
   },
 ];
 
@@ -81,12 +80,6 @@ export default function Home() {
   const [, setLocation] = useLocation();
   const { user, signOut } = useAuth();
   const [showAuthModal, setShowAuthModal] = useState(false);
-
-  useEffect(() => {
-    // #region agent log
-    debugLog('H4', 'Home.tsx:mount', 'Home page mounted', {});
-    // #endregion
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#0a0a1f]">
@@ -181,7 +174,7 @@ export default function Home() {
           >
             <div className="relative w-64 h-40 mx-auto rounded-2xl overflow-hidden border border-[#00f5d4]/20 shadow-2xl">
               <img
-                src="/images/hero.jpg"
+                src={`${import.meta.env.BASE_URL}images/hero.jpg`}
                 alt="Chess Horizon"
                 className="w-full h-full object-cover"
               />
@@ -198,7 +191,7 @@ export default function Home() {
           >
             <Sparkles size={16} className="text-[#00f5d4]" />
             <span className="text-sm text-[#00f5d4]">
-              26 Variations Across 6 Kingdoms
+              Active Opening Repertoire Across the Atlas
             </span>
           </motion.div>
 
@@ -333,7 +326,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Science-Backed Benefits */}
+      {/* Practice design */}
       <section className="py-24 bg-[#0c0c24]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -343,12 +336,12 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Backed by{' '}
-              <span className="neon-text-teal">Science</span>
+              Built for{' '}
+              <span className="neon-text-teal">Focused Practice</span>
             </h2>
             <p className="text-white/50 max-w-2xl mx-auto">
               Our approach combines spaced repetition, deliberate practice, and
-              gamification — techniques proven to accelerate learning.
+              gamification into a structured opening-training loop.
             </p>
           </motion.div>
 

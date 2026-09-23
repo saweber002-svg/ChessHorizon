@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { ArrowLeft, Play, Pause, RotateCcw, FastForward } from 'lucide-react';
-import { useLocation, useParams, useSearch } from 'wouter';
+import { useLocation, useParams } from 'wouter';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
 import { useProgress } from '@/contexts/ProgressContext';
@@ -11,19 +11,16 @@ import {
   type DrillPack,
   type DrillLine,
 } from '@/lib/drillLoader';
-import { getTierColor, getTierLabel, TIER_THRESHOLDS } from '@/types';
+import { TIER_THRESHOLDS } from '@/types';
 
 const MOVE_DELAY = 1200; // ms between moves
 
 export default function WatchMode() {
   const params = useParams<{ drillFileId: string }>();
-  const search = useSearch();
   const [, setLocation] = useLocation();
   const { state } = useProgress();
 
   const drillFileId = params.drillFileId ?? 'giuoco-piano-main';
-  const openingId = new URLSearchParams(search).get('opening') ?? 'italian';
-  const variationId = new URLSearchParams(search).get('variation') ?? 'giuoco-piano';
 
   // Check prestige gate
   const totalStars = state.totalStars;
@@ -40,8 +37,8 @@ export default function WatchMode() {
   const [playbackSpeed, setPlaybackSpeed] = useState(1); // 0.5x, 1x, 2x
   const playRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const moves = line?.moves ?? [];
-  const startFen = pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+  const moves = useMemo(() => line?.moves ?? [], [line]);
+  const startFen = line?.startFen ?? pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
   useEffect(() => {
     loadDrillPack(drillFileId)
@@ -65,7 +62,6 @@ export default function WatchMode() {
       const curr = buildFenFromMoves(startFen, moves, moveIndex + 1);
 
       const prevChess = new Chess(prev);
-      const currChess = new Chess(curr);
 
       const allMoves = prevChess.moves({ verbose: true });
       for (const m of allMoves) {

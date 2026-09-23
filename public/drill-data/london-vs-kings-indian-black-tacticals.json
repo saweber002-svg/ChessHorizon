@@ -11,7 +11,7 @@
       "description": "Launch the classic KID pawn break with ...f5. After White responds with Nd2, continue with ...f4 to close the center and fix the attack.",
       "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N1BN2/PP2BPPP/R2Q1RK1 b - - 2 9",
       "whitePromptMove": "Be3",
-      "solutionMoves": ["f5", "f4"],
+      "solutionMoves": ["f5", "Nd2", "f4", "f3", "g5"],
       "opponentResponse": "Nd2",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "Reroute the f6 knight to h5 and then to the dream f4 outpost. After White plays g3, the knight secures f4 permanently.",
       "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N1BN2/PP2BPPP/R2Q1RK1 b - - 2 9",
       "whitePromptMove": "Be3",
-      "solutionMoves": ["Nh5", "Nf4"],
+      "solutionMoves": ["Nh5", "g3", "Nf4", "gxf4", "exf4"],
       "opponentResponse": "g3",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "Prevent White's b4 expansion with ...a5. After White plays a3, reroute the knight with ...Nd7 to support ...c6 and queenside play.",
       "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/1PP1P3/2N2N2/P3BPPP/R1BQ1RK1 b - b3 0 9",
       "whitePromptMove": "b4",
-      "solutionMoves": ["a5", "Nd7"],
+      "solutionMoves": ["a5", "a3", "Nd7", "Be3", "Nc5"],
       "opponentResponse": "a3",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "Advance g5 to support the f5-f4 pawn storm. After White responds with Nd2, activate the e7 knight with ...Ng6 heading for f4.",
       "fen": "r1bq1rk1/ppp1npbp/3p1np1/3Pp3/2P1P3/2N1BN2/PP2BPPP/R2Q1RK1 b - - 2 9",
       "whitePromptMove": "Be3",
-      "solutionMoves": ["g5", "Ng6"],
+      "solutionMoves": ["g5", "Nd2", "Ng6", "f3", "Nf4"],
       "opponentResponse": "Nd2",
       "stars": {
         "3": "First move correct",

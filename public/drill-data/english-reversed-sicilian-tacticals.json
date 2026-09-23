@@ -10,7 +10,7 @@
       "theme": "Queenside Expansion",
       "description": "Push a4 to gain queenside space and restrict Black's knight on b6. After Black develops the bishop to e6, play Be3 to complete development and prepare Rc1.",
       "fen": "r1bq1rk1/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 w - - 1 9",
-      "solutionMoves": ["a4", "Be3"],
+      "solutionMoves": ["a4", "Be6", "Be3", "f6", "Rc1"],
       "opponentResponse": "Be6",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Piece Coordination",
       "description": "Develop the bishop to e3 to support the d4 break and control the dark squares. After Black solidifies with f6, seize the c-file with Rc1.",
       "fen": "r1bq1rk1/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 w - - 1 9",
-      "solutionMoves": ["Be3", "Rc1"],
+      "solutionMoves": ["Be3", "f6", "Rc1", "Qd7", "Qc2"],
       "opponentResponse": "f6",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Central Pawn Break",
       "description": "Seize the center immediately with e4. After Black plays f6 to bolster e5, advance d4 to crack open the position for the Bg2 bishop.",
       "fen": "r1bq1rk1/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 w - - 1 9",
-      "solutionMoves": ["e4", "d4"],
+      "solutionMoves": ["e4", "f6", "d4", "exd4", "Nxd4"],
       "opponentResponse": "f6",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Knight Maneuver",
       "description": "Retreat the knight to d2 to begin the powerful Nd2-c4 maneuver. After Black pushes f5, jump the knight to c4 targeting the weak b6 and d6 squares.",
       "fen": "r1bq1rk1/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 w - - 1 9",
-      "solutionMoves": ["Nd2", "Nc4"],
+      "solutionMoves": ["Nd2", "f5", "Nc4", "Bf6", "a4"],
       "opponentResponse": "f5",
       "stars": {
         "3": "First move correct",

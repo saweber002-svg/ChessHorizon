@@ -1,0 +1,16 @@
+{
+  "id": "caro-kann-classical-main",
+  "name": "Caro-Kann Classical — Main Line",
+  "description": "The solid Classical Caro-Kann. Black develops the light-squared bishop outside the pawn chain before playing ...e6. Famous for its rock-solid reputation and endgame strength.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "caro-kann-classical",
+      "name": "Classical Caro-Kann — Main Line",
+      "description": "After 3.Nc3 dxe4 4.Nxe4 Bf5, White usually plays Ng3. Black retreats the bishop to g6. The position is balanced but full of subtle maneuvering. Black often castles queenside in the main lines.",
+      "moves": ["e4", "c6", "d4", "d5", "Nc3", "dxe4", "Nxe4", "Bf5", "Ng3", "Bg6", "h4", "h6", "Nf3", "Nd7"],
+      "moveCount": 14,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

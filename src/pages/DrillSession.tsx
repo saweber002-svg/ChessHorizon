@@ -13,6 +13,8 @@ import {
   type DrillPack,
   type DrillLine,
 } from '@/lib/drillLoader';
+import { hasTacticalDrills, TACTICAL_FILE_IDS } from '@/data/drillRegistry';
+import { isQuarantinedTacticalFileId } from '@/data/quarantinedTacticalRegistry';
 
 type PlayerColor = 'w' | 'b';
 type DrillMode = 'in-order' | 'random';
@@ -56,14 +58,53 @@ export default function DrillSession() {
   const [hintSquares, setHintSquares] = useState<Square[]>([]);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const moves = line?.moves ?? [];
-  const startFen = pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+  const isTacticalPack = drillFileId.includes('-tacticals');
+
+  const selectTactic = useCallback((tactic: DrillLine) => {
+    setLine(tactic);
+    setPlayerColor(null);
+    setSessionComplete(false);
+    setMoveIndex(0);
+    setAttempts(0);
+    setMoveResults([]);
+    setHintUsed(false);
+    setHintSquares([]);
+    setLastMove(null);
+    setGlowColor('idle');
+    setShowStars(false);
+  }, []);
+
+  const moves = useMemo(() => line?.moves ?? [], [line]);
+  const startFen = line?.startFen ?? pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
   useEffect(() => {
+    // Reset session state when drillFileId changes
+    setPack(null);
+    setLine(null);
+    setLoadError(null);
+    setPlayerColor(null);
+    setMoveIndex(0);
+    setFen('');
+    setAttempts(0);
+    setGlowColor('idle');
+    setShowStars(false);
+    setEarnedStars(0);
+    setSessionComplete(false);
+    setWaitingOpponent(false);
+    setLastMove(null);
+    setMoveResults([]);
+    setHintUsed(false);
+    setHintSquares([]);
+
     loadDrillPack(drillFileId)
       .then((data) => {
         setPack(data);
-        setLine(data.lines[0] ?? null);
+        // For tactical packs (-tacticals), do NOT auto-start the first one.
+        // Let the user choose from the list below.
+        const isTacticalPack = drillFileId.includes('-tacticals');
+        if (!isTacticalPack) {
+          setLine(data.lines[0] ?? null);
+        }
       })
       .catch((e) => setLoadError(e instanceof Error ? e.message : 'Failed to load drill'));
   }, [drillFileId]);
@@ -260,13 +301,88 @@ export default function DrillSession() {
   );
 
   if (loadError) {
+    const isTactical = drillFileId.includes('-tacticals');
+    const isQuarantined = isQuarantinedTacticalFileId(drillFileId);
     return (
-      <motion.div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center gap-4">
-        <p className="text-red-400">{loadError}</p>
-        <button onClick={() => setLocation('/atlas')} className="text-[#00f5d4]">
-          Back to Atlas
+      <motion.div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center gap-4 p-6 text-center">
+        {isQuarantined ? (
+          <>
+            <p className="text-amber-300 text-lg">This tactical pack is temporarily unavailable.</p>
+            <p className="text-white/50 text-sm max-w-md">
+              The source material is preserved for repair but is not exposed until every position and solution passes validation.
+            </p>
+          </>
+        ) : isTactical ? (
+          <>
+            <p className="text-white/70 text-lg">Tactical drills for this variation are not available yet.</p>
+            <p className="text-white/50 text-sm max-w-md">
+              The opening drill is complete. More tactical puzzles will be added for this line soon.
+            </p>
+          </>
+        ) : (
+          <p className="text-red-400">{loadError}</p>
+        )}
+        <button
+          onClick={() => setLocation('/atlas')}
+          className="mt-2 px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
+        >
+          Return to Atlas
         </button>
       </motion.div>
+    );
+  }
+
+  // Tactical selector takes priority for -tacticals packs (show list before color choice)
+  if (isTacticalPack && !line && pack) {
+    const hasDrills = pack.lines && pack.lines.length > 0;
+    return (
+      <div className="min-h-screen bg-[#0a0a1f] flex items-center justify-center p-6">
+        <div className="max-w-2xl w-full">
+          <button
+            onClick={() => setLocation('/atlas')}
+            className="mb-6 flex items-center gap-2 text-white/50 hover:text-white"
+          >
+            <ArrowLeft size={18} /> Back to Atlas
+          </button>
+
+          <h2 className="text-2xl font-bold text-white mb-2 text-center">Tactical Drills</h2>
+          <p className="text-center text-white/60 mb-8">
+            {hasDrills
+              ? 'Choose a tactic to practice for this variation'
+              : 'Tactical puzzles for this line are being prepared.'}
+          </p>
+
+          {hasDrills ? (
+            <div className="grid gap-3">
+              {pack.lines.map((tactic) => (
+                <button
+                  key={tactic.id}
+                  onClick={() => selectTactic(tactic)}
+                  className="w-full text-left p-4 rounded-xl bg-[#141422] border border-[#2a2a3e] hover:border-[#00f5d4]/40 transition-colors group"
+                >
+                  <div className="font-semibold text-white group-hover:text-[#00f5d4]">
+                    {tactic.name}
+                  </div>
+                  {tactic.description && (
+                    <div className="text-sm text-white/60 mt-1 line-clamp-2">
+                      {tactic.description}
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center">
+              <button
+                onClick={() => setLocation('/atlas')}
+                className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
+              >
+                Return to Atlas
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
     );
   }
 
@@ -274,6 +390,20 @@ export default function DrillSession() {
     return (
       <motion.div className="min-h-screen bg-[#0a0a1f] flex items-center justify-center">
         <p className="text-[#00f5d4] animate-pulse tracking-widest uppercase text-sm">Loading drill…</p>
+      </motion.div>
+    );
+  }
+
+  if (line.moves.length === 0) {
+    return (
+      <motion.div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center gap-4 p-6 text-center">
+        <p className="text-red-400">This drill does not contain any playable moves.</p>
+        <button
+          onClick={() => setLocation('/atlas')}
+          className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
+        >
+          Return to Atlas
+        </button>
       </motion.div>
     );
   }
@@ -367,12 +497,71 @@ export default function DrillSession() {
                 />
               ))}
             </div>
-            <button
-              onClick={() => setLocation('/atlas')}
-              className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
-            >
-              Return to Atlas
-            </button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <button
+                onClick={() => setLocation('/atlas')}
+                className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
+              >
+                Return to Atlas
+              </button>
+
+              {/* Only show "Drill tactics" when we actually have tactical content registered
+                  for this variation. This prevents the button appearing and then landing on
+                  a "not available yet" screen with only Return. */}
+              {drillFileId.endsWith('-main') && hasTacticalDrills(variationId) && (
+                <button
+                  onClick={() => {
+                    // Try to find the most appropriate tactical pack (prefer white/standard, fallback to black)
+                    const t1 = `${variationId}-tacticals`;
+                    const t2 = `${variationId}-black-tacticals`;
+                    const tacticalDrillId = TACTICAL_FILE_IDS.includes(t1) ? t1 : t2;
+                    
+                    setLocation(
+                      `/drill-session/${tacticalDrillId}?opening=${openingId}&variation=${variationId}`
+                    );
+                  }}
+                  className="px-6 py-3 rounded-xl bg-[#f5a623] text-[#0a0a1f] font-bold hover:bg-[#e5941a] transition-colors"
+                >
+                  Drill tactics for this variation
+                </button>
+              )}
+            </div>
+
+            {/* If we are in a tactical pack, show the other tactics to practice next */}
+            {isTacticalPack && pack && pack.lines.length > 0 && (
+              <div className="mt-12 w-full max-w-md mx-auto text-left">
+                <p className="text-xs uppercase tracking-[0.2em] text-white/30 mb-4 text-center">Practice another tactic</p>
+                <div className="grid gap-3">
+                  {pack.lines.map((tactic) => (
+                    <button
+                      key={tactic.id}
+                      onClick={() => selectTactic(tactic)}
+                      className={`w-full text-left p-4 rounded-xl border transition-all group ${
+                        line?.id === tactic.id
+                          ? 'bg-[#00f5d4]/5 border-[#00f5d4]/30 cursor-default'
+                          : 'bg-[#141422] border-[#2a2a3e] hover:border-[#00f5d4]/40 hover:bg-[#1a1a2e]'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className={`font-semibold ${line?.id === tactic.id ? 'text-[#00f5d4]' : 'text-white group-hover:text-[#00f5d4]'}`}>
+                          {tactic.name}
+                        </div>
+                        {line?.id === tactic.id && (
+                          <span className="text-[10px] font-bold bg-[#00f5d4]/20 text-[#00f5d4] px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            Just Completed
+                          </span>
+                        )}
+                      </div>
+                      {tactic.description && (
+                        <div className="text-sm text-white/50 mt-1 line-clamp-1 group-hover:text-white/70">
+                          {tactic.description}
+                        </div>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </motion.div>
         ) : (
           <>

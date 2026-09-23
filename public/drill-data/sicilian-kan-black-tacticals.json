@@ -11,7 +11,7 @@
       "description": "When White develops with Nc3, Black strikes immediately with ...b5 — the classic Kan pawn break that challenges the Maroczy Bind. After White captures cxb5, Black recaptures axb5 and gains queenside space.",
       "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 b kq - 0 9",
       "whitePromptMove": "Nc3",
-      "solutionMoves": ["b5", "axb5"],
+      "solutionMoves": ["b5", "cxb5", "axb5", "Nc3", "b4"],
       "opponentResponse": "cxb5",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "When White plays Be3, Black completes the kingside fianchetto with ...Bg7. After White develops Nc3, Black castles safely with O-O.",
       "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 b kq - 0 9",
       "whitePromptMove": "Be3",
-      "solutionMoves": ["Bg7", "O-O"],
+      "solutionMoves": ["Bg7", "Nc3", "O-O", "f4", "Nbd7"],
       "opponentResponse": "Nc3",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "When White develops with Nc3, Black develops the bishop to b7 — controlling the long diagonal. After White pushes f4, Black develops the knight to d7 to complete coordination.",
       "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 b kq - 0 9",
       "whitePromptMove": "Nc3",
-      "solutionMoves": ["Bb7", "Nbd7"],
+      "solutionMoves": ["Bb7", "f4", "Nbd7", "Nc3", "O-O"],
       "opponentResponse": "f4",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "When White plays Be3, Black develops the knight to c6 — challenging White's dominant Nd4. After White captures Nxc6, Black recaptures bxc6, opening the b-file for queenside counterplay.",
       "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 b kq - 0 9",
       "whitePromptMove": "Be3",
-      "solutionMoves": ["Nc6", "bxc6"],
+      "solutionMoves": ["Nc6", "Nxc6", "bxc6", "f4", "Bg7"],
       "opponentResponse": "Nxc6",
       "stars": {
         "3": "First move correct",

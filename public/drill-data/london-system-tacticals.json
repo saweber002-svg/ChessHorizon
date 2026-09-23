@@ -10,7 +10,7 @@
       "theme": "Bishop Exchange",
       "description": "White trades the dark-squared bishops with Bxd6, then immediately advances e4 to challenge the center.",
       "fen": "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
-      "solutionMoves": ["Bxd6", "e4"],
+      "solutionMoves": ["Bxd6", "Qxd6", "e4", "dxe4", "Nxe4"],
       "opponentResponse": "Qxd6",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Central Break",
       "description": "White plays e4 to challenge Black's d5-c5 pawn center. After dxe4, White recaptures with the knight — gaining a dominant central outpost.",
       "fen": "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
-      "solutionMoves": ["e4", "Nxe4"],
+      "solutionMoves": ["e4", "dxe4", "Nxe4", "Be7", "O-O"],
       "opponentResponse": "dxe4",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Knight Outpost",
       "description": "White plants the knight on the powerful e5 outpost, then follows with f4 to reinforce the knight and launch kingside pressure.",
       "fen": "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
-      "solutionMoves": ["Ne5", "f4"],
+      "solutionMoves": ["Ne5", "Nd7", "f4", "O-O", "O-O"],
       "opponentResponse": "Nd7",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "King Safety",
       "description": "White castles to connect the rooks and bring the king to safety, then immediately launches the e4 central break.",
       "fen": "r1bq1rk1/p4ppp/1pnbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 0 9",
-      "solutionMoves": ["O-O", "e4"],
+      "solutionMoves": ["O-O", "Nd7", "e4", "dxe4", "Nxe4"],
       "opponentResponse": "Nd7",
       "stars": {
         "3": "First move correct",

@@ -1,5 +1,5 @@
 {
-  "id": "english-reversed-sicilian",
+  "id": "english-reversed-sicilian-main",
   "name": "English — Reversed Sicilian (1...e5)",
   "description": "Black plays 1...e5 against the English, giving White a Sicilian Defense structure with an extra tempo. The Four Knights variation leads to a strategic battle where White fianchettoes, exchanges on d5, and builds a flexible center with d3. Both sides compete for the d4/d5 squares and the long diagonal.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",

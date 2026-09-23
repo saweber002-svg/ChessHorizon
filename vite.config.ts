@@ -1,22 +1,26 @@
-import path from 'path';
+import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import { inspectAttr } from 'kimi-plugin-inspect-react';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
-  plugins: [inspectAttr(), react()],
-  assetsInclude: ['**/*.obj', '**/*.mtl'],
+  // GitHub Pages serves this repository at /ChessHorizon/; local and Vercel
+  // builds remain rooted at /. The workflow sets GITHUB_ACTIONS automatically.
+  base: process.env.GITHUB_ACTIONS ? '/ChessHorizon/' : '/',
+  plugins: [react()],
+  assetsInclude: ['**/*.glb'],
   optimizeDeps: {
     include: ['framer-motion', 'three', '@react-three/fiber', '@react-three/drei'],
   },
   server: {
     port: 3000,
   },
+  preview: {
+    allowedHosts: ['.manus.computer'],
+  },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(import.meta.dirname, './src'),
     },
   },
 });

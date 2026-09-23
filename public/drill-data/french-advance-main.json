@@ -1,0 +1,16 @@
+{
+  "id": "french-advance-main",
+  "name": "French Advance — Main Line",
+  "description": "The Advance Variation locks the center early. White gains space and attacking prospects on the kingside; Black must generate counterplay against the d4 base or on the queenside.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "french-advance",
+      "name": "Advance Variation — Main Line",
+      "description": "White pushes e5 immediately, gaining a space advantage. Black typically develops the knight to c6 and pressures d4 with ...c5 and ...Qb6.",
+      "moves": ["e4", "e6", "d4", "d5", "e5", "c5", "c3", "Nc6", "Nf3", "Qb6", "a3", "Bd7", "b4", "cxd4"],
+      "moveCount": 14,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

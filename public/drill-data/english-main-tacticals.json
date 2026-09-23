@@ -8,64 +8,64 @@
       "drillId": "em-t1",
       "name": "Central Strike",
       "theme": "Central Pawn Break",
-      "description": "Launch the critical d4 break to seize central space. After Black captures cxd4, recapture with the knight to centralize and dominate the d4 square.",
+      "description": "Launch the critical d4 break to seize central space. After Black captures cxd4, recapture with the knight and challenge the c6 knight.",
       "fen": "r1bqk2r/pp2ppbp/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 w kq - 0 9",
-      "solutionMoves": ["d4", "Nxd4"],
+      "solutionMoves": ["d4", "cxd4", "Nxd4", "d6", "Nxc6"],
       "opponentResponse": "cxd4",
       "stars": {
         "3": "First move correct",
         "2": "Second attempt",
         "1": "Third attempt"
       },
-      "briefExplanation": "d4 is the defining central break. After cxd4, Nxd4 centralizes the knight on White's best square.",
+      "briefExplanation": "d4 is the defining central break. Recapturing on d4 and then exchanging on c6 opens the b-file and strengthens White's control.",
       "explanation": "d4 is the most important move in White's English Opening repertoire — the central break that transforms the closed symmetrical structure into an open, dynamic battle. After Black captures cxd4 (accepting the pawn offer), White plays Nxd4, centralizing the knight on d4 — the most powerful square on the board. The Nd4 knight attacks c6, f5, b5, and e6, while the Bg2 bishop now fires down the open diagonal toward a8. After Nxd4, White's position is excellent: fully coordinated pieces, central control, and the long-term advantage of the fianchetto bishop. Black must play accurately to avoid being overrun from the center."
     },
     {
       "drillId": "em-t2",
       "name": "Knight Outpost",
       "theme": "Knight Outpost",
-      "description": "Plant the knight on the powerful e5 outpost. After Black castles, advance d4 to cement the central knight and build a dominant pawn center.",
+      "description": "Plant the knight on the powerful e5 outpost. After Black castles, advance d4 and prepare to challenge c6.",
       "fen": "r1bqk2r/pp2ppbp/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 w kq - 0 9",
-      "solutionMoves": ["Ne5", "d4"],
+      "solutionMoves": ["Ne5", "O-O", "d4", "d6", "Nxc6"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",
         "2": "Second attempt",
         "1": "Third attempt"
       },
-      "briefExplanation": "Ne5 seizes the central outpost. After Black castles, d4 cements the knight and expands the center.",
+      "briefExplanation": "Ne5 seizes the central outpost. d4 cements the center, and Nxc6 simplifies the position to White's advantage.",
       "explanation": "Ne5 immediately claims the most important central square in the position — the e5 outpost from where the knight attacks d7, f7, c6, and g4. Black's natural response O-O (completing development and safeguarding the king) allows White to play d4, advancing the d-pawn to build a massive central pawn center. After d4, White has an e5-knight supported by a d4+c3 pawn center — a dream English formation. The Bg2 bishop now exerts pressure down the long diagonal while the Ne5 ties down Black's pieces. From this setup, White can choose between a kingside expansion (f4-f5) or queenside pressure (a4-a5), depending on Black's setup."
     },
     {
       "drillId": "em-t3",
       "name": "Rook Pressure",
       "theme": "Queenside Pressure",
-      "description": "Activate the rook on the open b-file with Rb1. After Black centralizes the queen, jump the knight to e5 to seize the central outpost and combine the threats.",
+      "description": "Activate the rook on the open b-file with Rb1. After Black centralizes the queen, jump the knight to e5 and prepare the d4 break.",
       "fen": "r1bqk2r/pp2ppbp/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 w kq - 0 9",
-      "solutionMoves": ["Rb1", "Ne5"],
+      "solutionMoves": ["Rb1", "Qc7", "Ne5", "O-O", "d4"],
       "opponentResponse": "Qc7",
       "stars": {
         "3": "First move correct",
         "2": "Second attempt",
         "1": "Third attempt"
       },
-      "briefExplanation": "Rb1 activates the rook on the b-file. After Qc7, Ne5 combines queenside and central pressure.",
+      "briefExplanation": "Rb1 activates the rook on the b-file. Ne5 and d4 create a powerful central and queenside bind.",
       "explanation": "Rb1 is a powerful positional move that activates the rook on the open b-file — a direct result of White's 7.bxc3 recapture. The rook on b1 immediately pressures b7 and prepares Rxb7 if Black is not careful. Black's natural response Qc7 (defending b7 and centralizing the queen) is met by Ne5 — a knight leap to the powerful e5 square, combining the b-file rook threat with the central outpost. After Rb1 and Ne5, White has coordinated rook, knight, and bishop to create multiple threats: Rxb7, Nxc6, and d4. This type of multi-piece coordination is the hallmark of White's best English Opening plans."
     },
     {
       "drillId": "em-t4",
       "name": "Solid Build",
       "theme": "Knight Maneuver",
-      "description": "Play d3 to build a solid pawn structure and prepare the Nd2-c4 knight maneuver. After Black castles, reposition the knight to d2 to target the c4 outpost.",
+      "description": "Play d3 to build a solid pawn structure and prepare the Nd2-c4 knight maneuver. After Black castles, reposition the knight to d2 and then to c4.",
       "fen": "r1bqk2r/pp2ppbp/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 w kq - 0 9",
-      "solutionMoves": ["d3", "Nd2"],
+      "solutionMoves": ["d3", "O-O", "Nd2", "d6", "Nc4"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",
         "2": "Second attempt",
         "1": "Third attempt"
       },
-      "briefExplanation": "d3 builds the King's Indian Attack structure. After Black castles, Nd2 reroutes the knight to c4.",
+      "briefExplanation": "d3 builds the structure. Nd2 and Nc4 complete the rerouting maneuver to the powerful c4 outpost.",
       "explanation": "d3 is the flexible, patient plan in the English — White builds the 'King's Indian Attack' pawn structure (d3+e4) rather than committing to the immediate d4 break. After Black castles (the natural development move), White plays Nd2, rerouting the knight from f3 toward c4 via the d2 square. The Nd2-c4 maneuver is one of White's strongest ideas in the English: the knight on c4 attacks b6 and d6, supports a central e4 advance, and cannot easily be kicked out. Meanwhile, the Bg2 bishop's power is preserved for when the center opens. This slower buildup often leads to long-term pressure that Black finds difficult to solve."
     }
   ]

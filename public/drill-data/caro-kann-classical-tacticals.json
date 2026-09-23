@@ -1,0 +1,22 @@
+{
+  "id": "caro-kann-classical-tacticals",
+  "name": "Caro-Kann Classical — Tactics",
+  "description": "Tactical patterns and key motifs from the Classical Caro-Kann.",
+  "drills": [
+    {
+      "drillId": "caro-kann-classical-t1",
+      "name": "The Bishop Retreat",
+      "theme": "Tactics",
+      "description": "White has played h4-h5. How should Black respond with the bishop and continue development?",
+      "fen": "r2qkbnr/pp1n1ppp/2p1p3/3pPb2/3P3P/2N2N2/PPP1BPP1/R1BQK2R b KQkq h3 0 8",
+      "solutionMoves": ["Bh7", "h5", "e6", "Bd3", "Bd6"],
+      "opponentResponse": "h5",
+      "stars": {
+        "3": "Correct first try",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Retreating to h7 preserves the bishop, while e6 and Bd6 complete the solid structure and challenge White's control of the light squares."
+    }
+  ]
+}

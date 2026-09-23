@@ -1,0 +1,22 @@
+{
+  "id": "caro-kann-advance-tacticals",
+  "name": "Caro-Kann Advance — Tactics",
+  "description": "Tactical motifs in the Caro-Kann Advance Variation.",
+  "drills": [
+    {
+      "drillId": "caro-kann-advance-t1",
+      "name": "Challenging the Pawn Chain",
+      "theme": "Tactics",
+      "description": "Black to move. Find the thematic way to pressure White's advanced center and develop the kingside.",
+      "fen": "r1bqkbnr/pp3ppp/2n1p3/2ppP3/3P4/2P2N2/PP3PPP/RNBQKB1R b KQkq - 0 5",
+      "solutionMoves": ["cxd4", "cxd4", "Nge7", "Be2", "Nf5"],
+      "opponentResponse": "cxd4",
+      "stars": {
+        "3": "Correct first try",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Undermining the base with cxd4, then developing the knight to f5 via e7, is a thematic way to pressure d4."
+    }
+  ]
+}

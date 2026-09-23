@@ -1,0 +1,59 @@
+{
+  "id": "queen-gambit-accepted-tacticals",
+  "name": "Queen's Gambit Accepted Tacticals",
+  "description": "Tactical puzzles related to the Queen's Gambit Accepted.",
+  "drills": [
+    {
+      "drillId": "qga-t1",
+      "name": "The e4 Central Strike",
+      "theme": "Central Domination",
+      "description": "White plays e4 to seize the center immediately after Black accepts the gambit. When Black challenges with e5, White develops the knight to f3 to maintain the pressure.",
+      "fen": "rnbqkbnr/ppp1pppp/8/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 1",
+      "whitePromptMove": "dxc5",
+      "solutionMoves": ["e4", "e5", "Nf3", "exd4", "Bxc4"],
+      "opponentResponse": "e5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White seizes the center with e4 and develops Nf3 to maintain control.",
+      "explanation": "After Black accepts the gambit with dxc4, White's most aggressive response is e4 — immediately seizing the full center. When Black counters with e5 (the most principled break), White plays Nf3, developing a piece and defending the center. After the trade exd4, White recaptures with Bxc4, regaining the gambit pawn while maintaining a powerful central presence. This is the main line of the QGA, where White trades the c-pawn for central space and development."
+    },
+    {
+      "drillId": "qga-t2",
+      "name": "Defending the c4 Pawn Trap",
+      "theme": "Tactical Trap",
+      "description": "Black tries to hold the c4 pawn with b5. White strikes with a4 to undermine the structure, and after c6, White plays axb5 to exploit the pin.",
+      "fen": "rnbqkbnr/pp2pppp/8/1p6/2pP4/4P3/PP3PPP/RNBQKBNR w KQkq - 0 4",
+      "whitePromptMove": "a4",
+      "solutionMoves": ["a4", "c6", "axb5", "cxb5", "Qf3"],
+      "opponentResponse": "c6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White undermines the b5 pawn with a4, then exploits the weak long diagonal with Qf3.",
+      "explanation": "If Black tries to hold the c4 pawn with ...b5, White immediately plays a4. This is a classic theme in the QGA: undermining the overextended pawn. After Black plays c6 to support b5, White captures axb5. When Black recaptures cxb5, White plays the crushing Qf3! The queen attacks the Ra8 along the now-open long diagonal. Black is forced to lose material (the knight on c6 or the rook on a8) because the b5-c6 structure has been dismantled. Never try to hold the c4 pawn with ...b5!"
+    },
+    {
+      "drillId": "qga-t3",
+      "name": "The Nf3 Development",
+      "theme": "Solid Development",
+      "description": "White develops Nf3 to control the center and prepare e3. After Black develops Nf6, White plays e3 to prepare the recapture of the c4 pawn.",
+      "fen": "rnbqkbnr/ppp1pppp/8/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 1",
+      "whitePromptMove": "dxc4",
+      "solutionMoves": ["Nf3", "Nf6", "e3", "e6", "Bxc4"],
+      "opponentResponse": "Nf6",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White develops harmoniously with Nf3 and e3 to regain the pawn safely.",
+      "explanation": "Nf3 is the most solid way to play against the QGA, preventing ...e5 and preparing development. After Black responds with Nf6, White plays e3. This move prepares the recapture of the c4 pawn with the bishop while keeping the center solid. After Black plays e6 (the standard response), White completes the maneuver with Bxc4. White has regained the pawn, has a solid center, and is ready to castle. This is the 'classical' approach to the QGA."
+    },
+    {
+      "drillId": "qga-t4",
+      "name": "Isolani Transformation",
+      "theme": "Structural Change",
+      "description": "Black strikes with c5 to challenge the center. White captures dxc5, and after Black recaptures with the bishop, White develops Nc3 to pressure the isolated pawn.",
+      "fen": "rnbqkb1r/pp3ppp/4pn2/2p5/2pP4/4PN2/PP3PPP/RNBQKB1R w KQkq - 0 6",
+      "whitePromptMove": "dxc5",
+      "solutionMoves": ["dxc5", "Bxc5", "a3", "O-O", "b4"],
+      "opponentResponse": "Bxc5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White trades in the center and uses the a3-b4 maneuver to gain queenside space.",
+      "explanation": "When Black plays ...c5, they are challenging White's center directly. White captures dxc5, allowing Black to recapture with Bxc5. Now White plays a3, a clever prophylactic move that prepares b4. After Black castles O-O, White pushes b4! This gains space on the queenside, kicks the bishop from c5, and prepares Bb2 development. White often ends up with a slight space advantage and better piece coordination in these 'isolated queen pawn' or 'hanging pawn' structures."
+    }
+  ]
+}

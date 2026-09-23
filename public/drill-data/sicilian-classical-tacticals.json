@@ -10,7 +10,7 @@
       "theme": "Kingside Expansion",
       "description": "White pushes f4 — the first step in the kingside pawn storm. After Black develops the bishop to e7, White repositions the knight to f3 to support the advance.",
       "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9",
-      "solutionMoves": ["f4", "Nf3"],
+      "solutionMoves": ["f4", "Be7", "Nf3", "O-O", "g4"],
       "opponentResponse": "Be7",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Bishop Exchange",
       "description": "White trades the Bg5 for Black's Nf6, doubling Black's f-pawns and ruining the kingside pawn structure. After gxf6, White completes development with Be2.",
       "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9",
-      "solutionMoves": ["Bxf6", "Be2"],
+      "solutionMoves": ["Bxf6", "gxf6", "Be2", "Be7", "f4"],
       "opponentResponse": "gxf6",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "King Safety",
       "description": "White tucks the king to b1 — safely away from the queenside before launching the attack. After Black develops Be7, White fires f4 to begin the kingside storm.",
       "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9",
-      "solutionMoves": ["Kb1", "f4"],
+      "solutionMoves": ["Kb1", "Be7", "f4", "O-O", "g4"],
       "opponentResponse": "Be7",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Central Outpost",
       "description": "White plants the knight on the dominant d5 square. After Black captures exd5, White recaptures with exd5 — establishing a powerful passed pawn wedge in the center.",
       "fen": "r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9",
-      "solutionMoves": ["Nd5", "exd5"],
+      "solutionMoves": ["Nd5", "exd5", "exd5", "Be7", "Bd3"],
       "opponentResponse": "exd5",
       "stars": {
         "3": "First move correct",

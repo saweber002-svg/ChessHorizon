@@ -12,6 +12,7 @@ import {
 import { useLocation, useParams } from 'wouter';
 import { useProgress } from '@/contexts/ProgressContext';
 import { useWilderness } from '@/contexts/WildernessContext';
+import PrestigeBadge from '@/components/PrestigeBadge';
 import { getTierColor, getTierLabel, type Tier } from '@/types';
 import openingsData from '@/data/openings.json';
 
@@ -249,7 +250,11 @@ export default function TrophyBoard3D() {
 
   const moveCount = variation.moves.length;
   const masteredCount = getMasteredCount(openingId, variationId, moveCount);
-  const masteryPercent = Math.round((masteredCount / moveCount) * 100);
+  const masteryPercent = moveCount > 0 ? Math.round((masteredCount / moveCount) * 100) : 0;
+  const openingTier = variation.moves.reduce<Tier>((highest, _, index) => {
+    const tier = getMoveProgress(`${openingId}:${variationId}:${index}`).tier;
+    return tier > highest ? tier : highest;
+  }, 0);
 
   return (
     <div className="min-h-screen bg-[#0a0a1f]">
@@ -296,8 +301,35 @@ export default function TrophyBoard3D() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-6">
-        {/* Stats */}
-        <div className="mb-8 p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]">
+        {/* Stats & Prestige Header */}
+        <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="md:col-span-2 p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] flex flex-col justify-center">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-sm font-medium text-white/60 uppercase tracking-widest">Variation Mastery</span>
+              <span className="text-3xl font-black text-[#00f5d4]">{masteryPercent}%</span>
+            </div>
+            <div className="w-full h-4 bg-[#0a0a1f] rounded-full overflow-hidden p-1 border border-[#2a2a3e]">
+              <motion.div
+                className="h-full bg-gradient-to-r from-[#14b8a6] to-[#00f5d4] rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: `${masteryPercent}%` }}
+                transition={{ duration: 1.5, ease: 'circOut' }}
+              />
+            </div>
+            <p className="text-xs text-white/30 mt-4">
+              Complete {moveCount} moves at Master tier to reach 100% prestige.
+            </p>
+          </div>
+          
+          <div className="p-6 rounded-2xl bg-[#1a1a2e] border border-[#00f5d4]/20 flex flex-col items-center justify-center text-center">
+            <PrestigeBadge tier={openingTier as Tier} size="lg" showLabel />
+            <p className="text-[10px] text-white/40 mt-2 max-w-[120px]">
+              Overall prestige for {variation.name}
+            </p>
+          </div>
+        </div>
+        {/* Hidden old stats div */}
+        <div className="hidden">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-4">
               <div>
@@ -367,7 +399,7 @@ export default function TrophyBoard3D() {
         {/* Legend */}
         <div className="mt-8 flex flex-wrap items-center gap-4 p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]">
           <span className="text-sm text-white/40">Tier Legend:</span>
-          {([0, 1, 2, 3] as Tier[]).map((tier) => (
+          {([0, 1, 2, 3, 4] as Tier[]).map((tier) => (
             <div key={tier} className="flex items-center gap-1.5">
               <div
                 className="w-2.5 h-2.5 rounded-full"

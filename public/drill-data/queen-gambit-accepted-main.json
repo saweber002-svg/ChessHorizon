@@ -1,0 +1,29 @@
+{
+  "id": "queen-gambit-accepted-main",
+  "name": "Queen's Gambit Accepted",
+  "description": "Main line for the Queen's Gambit Accepted.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "queen-gambit-accepted-l1",
+      "name": "Queen's Gambit Accepted",
+      "description": "Master the standard moves of the Queen's Gambit Accepted.",
+      "moves": [
+        "d4",
+        "d5",
+        "c4",
+        "dxc4",
+        "Nf3",
+        "Nf6",
+        "e3",
+        "e6",
+        "Bxc4",
+        "c5",
+        "O-O",
+        "a6"
+      ],
+      "moveCount": 12,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

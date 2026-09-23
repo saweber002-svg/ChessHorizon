@@ -1,0 +1,22 @@
+{
+  "id": "french-winawer-tacticals",
+  "name": "French Winawer — Tactics",
+  "description": "Tactical motifs in the Winawer Variation of the French Defense.",
+  "drills": [
+    {
+      "drillId": "french-winawer-t1",
+      "name": "The Poisoned Bishop",
+      "theme": "Tactics",
+      "description": "Black has just played ...Bxc3+. Find the best response for White.",
+      "fen": "r1b1k1nr/pp3ppp/2n1p3/2p1P3/4P3/P1P2N2/1P3PPP/R1BQKB1R w KQkq - 0 8",
+      "solutionMoves": ["bxc3", "Ne7", "Qg4", "O-O", "Bd3"],
+      "opponentResponse": "Ne7",
+      "stars": {
+        "3": "Correct first try",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Recapturing with the pawn opens the b-file and prepares Qg4 or other attacks."
+    }
+  ]
+}

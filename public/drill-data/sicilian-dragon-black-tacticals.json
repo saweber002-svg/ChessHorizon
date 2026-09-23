@@ -11,7 +11,7 @@
       "description": "After White castles queenside, Black strikes in the center with d5. When White captures exd5, Black recaptures with the knight — gaining a powerful centralized piece.",
       "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 3 9",
       "whitePromptMove": "O-O-O",
-      "solutionMoves": ["d5", "Nxd5"],
+      "solutionMoves": ["d5", "exd5", "Nxd5", "Nxd5", "Qxd5"],
       "opponentResponse": "exd5",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "When White starts the kingside pawn storm with g4, Black activates the queen on the queenside with Qa5. After White castles queenside, Black's knight leaps to b4 — attacking the queen and threatening to invade.",
       "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 3 9",
       "whitePromptMove": "g4",
-      "solutionMoves": ["Qa5", "Nb4"],
+      "solutionMoves": ["Qa5", "O-O-O", "Nb4", "Kb1", "Bd7"],
       "opponentResponse": "O-O-O",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "When White attacks the Dragon bishop with Bh6, Black ignores the threat and pushes a5 — starting the queenside race. After White develops with Bc4, Black continues with a4.",
       "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 3 9",
       "whitePromptMove": "Bh6",
-      "solutionMoves": ["a5", "a4"],
+      "solutionMoves": ["a5", "Bc4", "a4", "O-O-O", "a3"],
       "opponentResponse": "Bc4",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "After White castles queenside, Black develops actively with Be6 — challenging White's central knight. When White plays Nxe6, Black recaptures fxe6, opening the f-file for counter-play.",
       "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R b KQ - 3 9",
       "whitePromptMove": "O-O-O",
-      "solutionMoves": ["Be6", "fxe6"],
+      "solutionMoves": ["Be6", "Nxe6", "fxe6", "Kb1", "Rc8"],
       "opponentResponse": "Nxe6",
       "stars": {
         "3": "First move correct",

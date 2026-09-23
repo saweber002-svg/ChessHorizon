@@ -1,0 +1,16 @@
+{
+  "id": "dutch-leningrad-main",
+  "name": "Dutch Leningrad — Main Line",
+  "description": "The aggressive Leningrad Dutch. Black plays an early ...g6 and fianchettos the bishop, aiming for a kingside attack and dynamic imbalance.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "dutch-leningrad",
+      "name": "Leningrad Variation — Main Line",
+      "description": "After 1.d4 f5 2.c4 Nf6 3.g3 g6, Black develops the bishop to g7. White usually plays Bg2 and Nf3. The position is sharp — Black seeks kingside play while White plays in the center and queenside.",
+      "moves": ["d4", "f5", "c4", "Nf6", "g3", "g6", "Bg2", "Bg7", "Nf3", "O-O", "O-O", "d6", "Nc3", "Qe8"],
+      "moveCount": 14,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

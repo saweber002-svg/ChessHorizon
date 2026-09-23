@@ -11,7 +11,7 @@
       "description": "Castle kingside to secure the king and connect the rooks. After White plays a3, develop the bishop to e6 to contest the d5 square and complete development.",
       "fen": "r1bqk2r/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8",
       "whitePromptMove": "d3",
-      "solutionMoves": ["O-O", "Be6"],
+      "solutionMoves": ["O-O", "a3", "Be6", "b4", "d6"],
       "opponentResponse": "a3",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "Push f5 to seize kingside space and challenge White's center. After White jumps to Nd5, capture the knight to eliminate the outpost and open the f-file.",
       "fen": "r1bqk2r/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8",
       "whitePromptMove": "d3",
-      "solutionMoves": ["f5", "Nxd5"],
+      "solutionMoves": ["f5", "Nd5", "Nxd5", "exd5", "Bf6"],
       "opponentResponse": "Nd5",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "Develop the queen to d7, preparing to swing to the kingside or connect with Be6. After White plays Be3, slide the queen to h3 to pressure White's light squares.",
       "fen": "r1bqk2r/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8",
       "whitePromptMove": "d3",
-      "solutionMoves": ["Qd7", "Qh3"],
+      "solutionMoves": ["Qd7", "Be3", "Qh3", "a3", "Be6"],
       "opponentResponse": "Be3",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "Play a5 to anchor the queenside and prevent White's b4 expansion. After White develops with Be3, complete development with Be6 to contest the d5 square.",
       "fen": "r1bqk2r/ppp1bppp/1nn5/4p3/8/2NP1NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8",
       "whitePromptMove": "d3",
-      "solutionMoves": ["a5", "Be6"],
+      "solutionMoves": ["a5", "Be3", "Be6", "a3", "O-O"],
       "opponentResponse": "Be3",
       "stars": {
         "3": "First move correct",

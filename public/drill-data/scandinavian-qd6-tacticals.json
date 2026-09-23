@@ -10,7 +10,7 @@
       "theme": "King Safety + Pin",
       "description": "White castles kingside for king safety. After Black also castles, White immediately pins the Nf6 with Bg5 — one of White's most powerful weapons in the Qd6 structure.",
       "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R w KQkq - 2 9",
-      "solutionMoves": ["O-O", "Bg5"],
+      "solutionMoves": ["O-O", "O-O", "Bg5", "h6", "Bh4"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Central Outpost",
       "description": "White leaps the knight to the dominant central square d5. After Black's Nf6 captures, White recaptures Bxd5 — a centralized bishop controlling both diagonals from d5.",
       "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R w KQkq - 2 9",
-      "solutionMoves": ["Nd5", "Bxd5"],
+      "solutionMoves": ["Nd5", "Nxd5", "Bxd5", "O-O", "O-O"],
       "opponentResponse": "Nxd5",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Aggressive Castling",
       "description": "White castles queenside for an aggressive setup — the king reaches c1, the rooks connect on the d-file, and White launches a kingside pawn storm against Black's castled king.",
       "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R w KQkq - 2 9",
-      "solutionMoves": ["O-O-O", "Kb1"],
+      "solutionMoves": ["O-O-O", "O-O", "Kb1", "Nd7", "g4"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Pin Maintenance",
       "description": "White pins the Nf6 immediately with Bg5. When Black plays h6 to challenge the bishop, White retreats to Bh4 — maintaining the pin and keeping the pressure.",
       "fen": "rn2k2r/ppp1bppp/3qpn2/8/3P4/2NB1Q1P/PPP2PP1/R1B1K2R w KQkq - 2 9",
-      "solutionMoves": ["Bg5", "Bh4"],
+      "solutionMoves": ["Bg5", "h6", "Bh4", "O-O", "O-O"],
       "opponentResponse": "h6",
       "stars": {
         "3": "First move correct",

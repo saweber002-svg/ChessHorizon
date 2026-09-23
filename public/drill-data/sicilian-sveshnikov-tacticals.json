@@ -10,7 +10,7 @@
       "theme": "Knight Outpost",
       "description": "White plants the knight on the dominant d5 square — the most important square in the Sveshnikov. After Nd5, Black recaptures, and White reinforces with the e-pawn.",
       "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 9",
-      "solutionMoves": ["Nd5", "exd5"],
+      "solutionMoves": ["Nd5", "Nxd5", "exd5", "Ne7", "c4"],
       "opponentResponse": "Nxd5",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Bishop Exchange",
       "description": "White trades the Bg5 for the Nf6, damaging Black's pawn structure. After gxf6, White immediately occupies d5 with the knight.",
       "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 9",
-      "solutionMoves": ["Bxf6", "Nd5"],
+      "solutionMoves": ["Bxf6", "gxf6", "Nd5", "f5", "Bd3"],
       "opponentResponse": "gxf6",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Knight Regrouping",
       "description": "White reroutes the Na3 to the active c4 square, targeting d6 and e5. Black develops with Be7, and White follows with Be2 to complete development.",
       "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 9",
-      "solutionMoves": ["Nc4", "Be2"],
+      "solutionMoves": ["Nc4", "Be7", "Be2", "O-O", "O-O"],
       "opponentResponse": "Be7",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Pawn Grab",
       "description": "White captures the b5 pawn with the light-squared bishop, winning a pawn with tempo. After axb5, the Nc3 jumps to b5 with threats.",
       "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq - 0 9",
-      "solutionMoves": ["Bxb5", "Nxb5"],
+      "solutionMoves": ["Bxb5", "axb5", "Nxb5", "Bb7", "Bxf6"],
       "opponentResponse": "axb5",
       "stars": {
         "3": "First move correct",

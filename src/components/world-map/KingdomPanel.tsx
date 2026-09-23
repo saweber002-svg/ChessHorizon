@@ -4,8 +4,10 @@ import { Button } from '@/components/ui/button';
 import { useLocation } from 'wouter';
 import type { MapLocation } from '@/data/mapLocations';
 import { ITALIAN_DRILL_VARIATIONS } from '@/data/mapLocations';
+import DRILLS from '@/data/drillRegistry';
+import openingsData from '@/data/openings.json';
 import { useProgress } from '@/contexts/ProgressContext';
-import { KINGDOM_UNLOCK_STARS } from '@/types';
+import { KINGDOM_UNLOCK_STARS, KINGDOM_UNLOCK_ORDER } from '@/types';
 
 interface KingdomPanelProps {
   location: MapLocation;
@@ -16,12 +18,13 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
   const [, setLocation] = useLocation();
   const { state } = useProgress();
 
-  const threshold = KINGDOM_UNLOCK_STARS[location.kingdom] ?? location.starThreshold;
-  const isUnlocked =
-    location.kingdom === 'wilderness' ||
-    location.kingdom === 'clearing' ||
-    state.totalStars >= threshold;
-
+  // Check if this kingdom is unlocked
+  const isUnlocked = state.unlockedRegions.includes(location.kingdom);
+  
+  // Get unlock info for this kingdom
+  const unlockDef = KINGDOM_UNLOCK_ORDER.find(u => u.kingdom === location.kingdom);
+  const threshold = unlockDef?.starThreshold ?? KINGDOM_UNLOCK_STARS[location.kingdom] ?? location.starThreshold;
+  
   const completionPct = Math.min(100, Math.round((state.totalStars / Math.max(threshold + 10, 1)) * 100));
 
   const startDrill = (drillFileId: string, openingId: string, variationId: string) => {
@@ -40,6 +43,11 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
     setLocation(`/drill/${location.openingId}/${vid}/0`);
   };
 
+  const startLegacyVariation = (variationId: string) => {
+    onClose();
+    setLocation(`/drill/${location.openingId}/${variationId}/0`);
+  };
+
   const goWilderness = () => {
     onClose();
     setLocation('/wilderness');
@@ -50,7 +58,12 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
     setLocation('/clearing');
   };
 
-  const isItaly = location.kingdom === 'italian' || location.drillFileId === 'giuoco-piano-main';
+  const goCoaching = () => {
+    onClose();
+    setLocation('/coaching');
+  };
+
+  const isItaly = location.kingdom === 'italian';
 
   return (
     <motion.aside
@@ -92,11 +105,17 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
         <p className="text-sm text-white/50 leading-relaxed mb-6">{location.description}</p>
 
         {!isUnlocked ? (
-          <div className="flex items-center gap-2 p-4 rounded-xl bg-[#141422] border border-[#2a2a3e] mb-6">
-            <Lock size={18} className="text-white/40" />
-            <p className="text-sm text-white/50">
-              Earn <span className="text-yellow-400 font-semibold">{threshold} stars</span> to unlock this realm.
-            </p>
+          <div className="flex flex-col gap-3 p-4 rounded-xl bg-[#141422] border border-[#2a2a3e] mb-6">
+            <div className="flex items-center gap-2">
+              <Lock size={18} className="text-white/40" />
+              <p className="text-sm text-white/50">
+                This realm is locked.
+              </p>
+            </div>
+            <div className="text-xs text-white/40 space-y-1">
+              <p>Requires: <span className="text-yellow-400 font-semibold">{threshold} total stars</span></p>
+              <p>Current: <span className="text-yellow-400 font-semibold">{state.totalStars} stars</span></p>
+            </div>
           </div>
         ) : (
           <div className="mb-6">
@@ -129,6 +148,12 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
         {location.kingdom === 'clearing' && isUnlocked && (
           <Button onClick={goClearing} className="w-full mb-3 bg-amber-600 hover:bg-amber-500">
             Enter The Clearing
+          </Button>
+        )}
+
+        {location.kingdom === 'coaching' && isUnlocked && (
+          <Button onClick={goCoaching} className="w-full mb-3 bg-purple-600 hover:bg-purple-500">
+            Enter Coaching Pavilion
           </Button>
         )}
 
@@ -189,17 +214,53 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
         )}
 
         {isUnlocked && !location.drillFileId && location.kingdom !== 'wilderness' && location.kingdom !== 'clearing' && !isItaly && (
-          <Button
-            onClick={() => {
-              onClose();
-              setLocation(`/board/${location.openingId}/${location.variationId ?? 'main'}`);
-            }}
-            className="w-full gap-2"
-            variant="outline"
-          >
-            View opening board
-            <ChevronRight size={16} />
-          </Button>
+          <div className="space-y-2">
+            <p className="text-xs uppercase tracking-wider text-white/30 mb-3">Available drills</p>
+
+            {/* Spain & Germany: Show all variations from openings.json (legacy single-move practice) */}
+            {(location.kingdom === 'spanish' || location.kingdom === 'germany') ? (
+              ((openingsData as any)[location.openingId]?.variations || []).map((v: any) => (
+                <button
+                  key={v.id}
+                  onClick={() => startLegacyVariation(v.id)}
+                  className="w-full flex items-center justify-between p-3 rounded-xl bg-[#141422]/80 border border-[#2a2a3e] hover:border-[#00f5d4]/40 transition-colors text-left group"
+                >
+                  <span className="text-sm text-white/80 group-hover:text-white">{v.name}</span>
+                  <ChevronRight size={16} className="text-[#00f5d4]/50 group-hover:text-[#00f5d4]" />
+                </button>
+              ))
+            ) : (
+              /* Other kingdoms: use registered drill JSON files */
+              DRILLS.filter((d) => {
+                if (!d.id.endsWith('-main')) return false;
+
+                if (location.kingdom === 'queendom') {
+                  return (
+                    d.id.startsWith('queen-') ||
+                    d.id.startsWith('slav-') ||
+                    d.id.startsWith('budapest-') ||
+                    d.id.startsWith('blackmar-') ||
+                    d.id.startsWith('london-')
+                  );
+                }
+                if (location.kingdom === 'french') return d.id.startsWith('french-');
+                if (location.kingdom === 'dutch') return d.id.startsWith('dutch-');
+                return d.id.startsWith(`${location.openingId}-`);
+              }).map((d) => {
+                const variationId = d.id.replace(/-main$|-(tacticals|black-tacticals)$/i, '');
+                return (
+                  <button
+                    key={d.id}
+                    onClick={() => startDrill(d.id, location.openingId, variationId)}
+                    className="w-full flex items-center justify-between p-3 rounded-xl bg-[#141422]/80 border border-[#2a2a3e] hover:border-[#00f5d4]/40 transition-colors text-left group"
+                  >
+                    <span className="text-sm text-white/80 group-hover:text-white">{d.label}</span>
+                    <Swords size={16} className="text-[#00f5d4]/50 group-hover:text-[#00f5d4]" />
+                  </button>
+                );
+              })
+            )}
+          </div>
         )}
       </motion.div>
     </motion.aside>

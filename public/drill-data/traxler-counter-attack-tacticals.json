@@ -6,51 +6,51 @@
   "drills": [
     {
       "drillId": "traxler-t1",
-      "name": "King Escape to d3",
-      "theme": "King Escape",
-      "description": "White runs the king to safety.",
-      "fen": "r1bqk2r/pppp1Npp/2n5/4p3/2B1n3/8/PPPP1KPP/RNBQ3R w kq - 0 7",
-      "solutionMoves": ["Ke3", "d3"],
+      "name": "King to d3, Attack the Knight",
+      "theme": "King Safety + Counterattack",
+      "description": "After 6...Nxe4+, White's king is on f2. Find the best way to step out of check and consolidate the center.",
+      "fen": "r1bq1b1r/pppp1Npp/2n5/4p3/2B1n3/8/PPPP1KPP/RNBQ3R w kq - 0 7",
+      "solutionMoves": ["Ke3", "Qh4", "d3", "Nf6", "Qf3"],
       "opponentResponse": "Qh4",
       "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "White runs the king to safety.",
-      "explanation": "d3 attacks the knight. White continues with 9.Kd3 and 10.Qf3, consolidating and winning material."
+      "briefExplanation": "King steps up to e3 to attack the knight, followed by d3 and Qf3 to consolidate White's extra material.",
+      "explanation": "7.Ke3! d3 attacks the e4-knight. This is a key defensive resource in the Traxler. Follow up with Qf3 to consolidate the extra material."
     },
     {
       "drillId": "traxler-t2",
-      "name": "Queen Check on f3",
-      "theme": "Queen Check",
-      "description": "White attacks the knight and checks.",
+      "name": "Defensive Queen Check",
+      "theme": "Defensive Resource",
+      "description": "Black's queen is on h4. White needs to defend the king and capture the loose knight on e4.",
       "fen": "r1b1k2r/pppp1Npp/2n5/4p3/2B1n2q/4K3/PPPP2PP/RNBQ3R w kq - 2 8",
-      "solutionMoves": ["Qf3", "Qxe4"],
+      "solutionMoves": ["Qf3", "Qg4", "Qxe4", "d6", "c3"],
       "opponentResponse": "Qg4",
       "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "White attacks the knight and checks.",
-      "explanation": "Qxe4 wins the knight. White follows with 10.Qf3, keeping the attack alive."
+      "briefExplanation": "Qf3 defends the king and attacks e4. After capturing on e4, c3 prepares to drive away the knight and solidify.",
+      "explanation": "8.Qf3! defends the king and attacks the e4 knight. If Black takes on e4, White has gained time and material while the king finds safety."
     },
     {
       "drillId": "traxler-t3",
-      "name": "d4 Central Push",
-      "theme": "Central Push",
-      "description": "White opens the center.",
+      "name": "Strike in the Center",
+      "theme": "Central Counterstrike",
+      "description": "White is under pressure. Use a central pawn break to open lines and activate pieces.",
       "fen": "r1b1k2r/pppp1Npp/2n5/4p3/2B1n2q/4K3/PPPP2PP/RNBQ3R w kq - 2 8",
-      "solutionMoves": ["d4", "dxc5"],
+      "solutionMoves": ["d4", "c5", "dxc5", "d6", "Qf3"],
       "opponentResponse": "c5",
       "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "White opens the center.",
-      "explanation": "dxc5 opens lines. White continues with 10.Qf3, winning material."
+      "briefExplanation": "d4 opens the center. After dxc5, Qf3 defends the king and prepares to consolidate the material advantage.",
+      "explanation": "8.d4! challenges the center and opens the d-file and diagonals. This is a classic way for White to fight back in the Traxler chaos."
     },
     {
       "drillId": "traxler-t4",
-      "name": "Bg5 Pin",
-      "theme": "Bishop Pin",
-      "description": "White pins the queen.",
+      "name": "Pin the Queen",
+      "theme": "Tactical Pin",
+      "description": "Black's queen is active on f6. Find the strong pin that wins the queen and simplifies the game.",
       "fen": "r1b1k2N/ppp3pp/2n2q2/3p4/4n3/3K2P1/PPPB3P/RN1Q3R w q - 1 11",
-      "solutionMoves": ["Bg5", "Bxf6"],
+      "solutionMoves": ["Bg5", "h6", "Bxf6", "Qxf6", "Nc3"],
       "opponentResponse": "h6",
       "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "White pins the queen.",
-      "explanation": "Bxf6 damages Black's structure. White follows with 11.Qf3, winning decisive material."
+      "briefExplanation": "Bg5 pins and wins the queen. After Bxf6, Nc3 develops the last piece to finalize the win.",
+      "explanation": "11.Bg5! pins the queen to the king (or creates devastating threats). Black is forced to give up the queen or suffer decisive material loss after Bxf6."
     }
   ]
 }

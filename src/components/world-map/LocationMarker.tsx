@@ -8,9 +8,20 @@ interface LocationMarkerProps {
   location: MapLocation;
   selected: boolean;
   onSelect: (location: MapLocation) => void;
+  /** Optional override for marker sphere radius (from ATLAS_CONFIG) */
+  radius?: number;
+  ringInner?: number;
+  ringOuter?: number;
 }
 
-export function LocationMarker({ location, selected, onSelect }: LocationMarkerProps) {
+export function LocationMarker({
+  location,
+  selected,
+  onSelect,
+  radius = 4.5,
+  ringInner = 6,
+  ringOuter = 7.5,
+}: LocationMarkerProps) {
   const ringRef = useRef<Mesh>(null);
   const [hovered, setHovered] = useState(false);
 
@@ -42,7 +53,7 @@ export function LocationMarker({ location, selected, onSelect }: LocationMarkerP
             document.body.style.cursor = 'default';
           }}
         >
-          <sphereGeometry args={[4.5, 16, 16]} />
+          <sphereGeometry args={[radius, 16, 16]} />
           <meshStandardMaterial
             color={location.color}
             emissive={location.color}
@@ -53,12 +64,16 @@ export function LocationMarker({ location, selected, onSelect }: LocationMarkerP
         </mesh>
 
         <mesh ref={ringRef} rotation={[-Math.PI / 2, 0, 0]}>
-          <ringGeometry args={[6, 7.5, 32]} />
+          <ringGeometry args={[ringInner, ringOuter, 32]} />
           <meshBasicMaterial color={location.color} transparent opacity={active ? 0.7 : 0.35} />
         </mesh>
 
         {active && (
-          <Html distanceFactor={120} center style={{ pointerEvents: 'none' }}>
+          <Html 
+            distanceFactor={120} 
+            center 
+            style={{ pointerEvents: 'none' }}
+          >
             <MarkerLabel name={location.name} color={location.color} />
           </Html>
         )}

@@ -1,5 +1,5 @@
 {
-  "id": "london-vs-qgd",
+  "id": "london-vs-qgd-main",
   "name": "London vs Queen's Gambit Setup",
   "description": "Black plays the classical 1...d5 against the London — the most common club-level response. After the solid ...d5+...Nf6+...e6 setup, Black challenges with ...Bd6 to fight the dark-squared bishop, then breaks with ...c5. The key tension: will White trade on d6 or retreat to g3? How Black times the ...c5 break defines the position.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",

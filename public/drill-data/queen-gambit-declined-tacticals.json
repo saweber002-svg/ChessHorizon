@@ -1,0 +1,59 @@
+{
+  "id": "queen-gambit-declined-tacticals",
+  "name": "Queen's Gambit Declined \u2014 Orthodox Tacticals",
+  "description": "Tactical puzzles related to the Queen's Gambit Declined \u2014 Orthodox.",
+  "drills": [
+    {
+      "drillId": "qgd-orthodox-t1",
+      "name": "The Exchange Variation Trap",
+      "theme": "Positional Trap",
+      "description": "In the Exchange Variation, White plays Bg5 to pin the Nf6. When Black tries to break the pin with Be7, White plays e3 and prepares the minority attack.",
+      "fen": "rnbqkb1r/pp3ppp/2p1pn2/3p2B1/2PP4/2N5/PP2PPPP/R2QKBNR w KQkq - 0 5",
+      "whitePromptMove": "cxd5",
+      "solutionMoves": ["cxd5", "exd5", "Bg5", "Be7", "e3"],
+      "opponentResponse": "exd5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White exchanges on d5 to clarify the center and sets up the Bg5 pin.",
+      "explanation": "The Exchange Variation (cxd5 exd5) is one of White's most powerful weapons against the QGD. By clarifying the center, White prepares a clear plan: the minority attack on the queenside. After Bg5 pins the Nf6, Black usually responds with Be7 to break the pin. White then plays e3, solidifying the center and preparing to develop the light-squared bishop. This structure gives White a very clear strategic goal: push the a and b pawns to create weaknesses in Black's queenside structure."
+    },
+    {
+      "drillId": "qgd-orthodox-t2",
+      "name": "The Lasker Defense Maneuver",
+      "theme": "Simplification",
+      "description": "Black uses the Lasker maneuver Ne4 to simplify the position. White captures the knight, and after Black recaptures, White develops the bishop to e2.",
+      "fen": "rn1qkb1r/pp3ppp/2p1pn2/3p1b2/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 2 7",
+      "whitePromptMove": "Ne4",
+      "solutionMoves": ["Nxe4", "dxe4", "Nd2", "Bxd3", "Qxd3"],
+      "opponentResponse": "dxe4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White handles the Lasker maneuver by trading and then pressuring the e4 pawn.",
+      "explanation": "The Lasker Defense involves Black playing ...Ne4 to trade off pieces and ease the pressure. White's best response is often to capture Nxe4. After Black recaptures dxe4, the pawn on e4 is advanced but can become a target. White plays Nd2, immediately attacking the pawn. If Black tries to defend with ...f5, it creates other weaknesses. White's goal is to prove that the advanced e4 pawn is a liability rather than an asset, eventually pressuring it and winning it back or using the central majority to win."
+    },
+    {
+      "drillId": "qgd-orthodox-t3",
+      "name": "The Tartakower Defense Break",
+      "theme": "Pawn Break",
+      "description": "Black prepares the ...c5 break in the Tartakower. White develops the bishop to d3, and when Black pushes c5, White captures dxc5 to open the center.",
+      "fen": "rn1q1rk1/pb2bppp/1p2pn2/2pp4/2PP4/2NBPN2/PP3PPP/R1BQ1RK1 w - - 0 9",
+      "whitePromptMove": "dxc5",
+      "solutionMoves": ["dxc5", "bxc5", "b3", "Nbd7", "Bb2"],
+      "opponentResponse": "bxc5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White trades on c5 and develops the queenside bishop to b2 to control the long diagonal.",
+      "explanation": "In the Tartakower (where Black plays ...b6 and ...Bb7), the ...c5 break is essential for Black's counterplay. White responds by capturing dxc5. After Black recaptures bxc5 (creating hanging pawns), White plays b3. This prepares Bb2, which will fire down the long diagonal directly at Black's king and contest the center. White's strategy is to pressure the hanging pawns on c5 and d5 while maintaining superior piece coordination."
+    },
+    {
+      "drillId": "qgd-orthodox-t4",
+      "name": "The Pillsbury Attack",
+      "theme": "Kingside Attack",
+      "description": "White uses the Ne5 outpost to launch an attack. After Black develops, White pushes f4 to support the knight and prepare a kingside storm.",
+      "fen": "rnbq1rk1/pp2bppp/2p1pn2/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQ - 3 7",
+      "whitePromptMove": "Ne5",
+      "solutionMoves": ["Ne5", "Nbd7", "f4", "c5", "Bd3"],
+      "opponentResponse": "Nbd7",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White plants the knight on e5 and supports it with f4 to start a kingside attack.",
+      "explanation": "The Pillsbury Attack is a classic QGD theme where White plants a knight on the e5 outpost. After Black develops Nbd7, White plays f4 — the 'Stonewall' setup within the QGD. This solidifies the knight and prepares a kingside attack with Bd3, Qf3, and eventually a pawn storm. Black must react quickly (often with ...c5) to generate counterplay before White's kingside pressure becomes overwhelming."
+    }
+  ]
+}

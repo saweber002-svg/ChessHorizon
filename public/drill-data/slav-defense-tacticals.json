@@ -1,0 +1,59 @@
+{
+  "id": "slav-defense-tacticals",
+  "name": "Slav Defense Tacticals",
+  "description": "Tactical puzzles related to the Slav Defense.",
+  "drills": [
+    {
+      "drillId": "slav-t1",
+      "name": "The Exchange Slav Trap",
+      "theme": "Symmetry Break",
+      "description": "In the Exchange Slav, White tries to break the symmetry with Bf4. After Black mirrors with Bf5, White plays e3 and develops the knight to f3 to prepare the central squeeze.",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+      "whitePromptMove": "cxd5",
+      "solutionMoves": ["cxd5", "cxd5", "Bf4", "Bf5", "Nc3"],
+      "opponentResponse": "cxd5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White exchanges to create an open c-file and develops the Bf4 to control the center.",
+      "explanation": "The Exchange Slav (cxd5 cxd5) creates a symmetrical structure. White's goal is to break this symmetry and use the first-move advantage. By playing Bf4, White develops a piece and controls the d6 square. After Black mirrors with Bf5, White plays Nc3. This develops a knight and pressures d5. White's plan is to develop harmoniously and use the open c-file for rook activity. The Exchange Slav is often seen as a drawish line, but White can create significant pressure if Black doesn't respond accurately."
+    },
+    {
+      "drillId": "slav-t2",
+      "name": "The Botvinnik System Chaos",
+      "theme": "Sharp Tactics",
+      "description": "White plays the sharp Bg5 in the Semi-Slav. After Black plays h6, White retreats to Bh4, and when Black plays g5, White sacrifices the knight on g5 for a crushing attack.",
+      "fen": "rn1qkb1r/pp3pp1/2p1pn1p/3p2B1/2PP4/2N1PN2/PP3PPP/R2QKB1R w KQkq - 0 8",
+      "whitePromptMove": "Bh4",
+      "solutionMoves": ["Bh4", "g5", "Nxg5", "hxg5", "Bxg5"],
+      "opponentResponse": "g5",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White sacrifices a knight on g5 to shatter Black's kingside and launch a devastating attack.",
+      "explanation": "The Botvinnik System is one of the sharpest lines in chess. After White plays Bg5 and Black challenges with ...h6, White retreats to Bh4. If Black continues with the aggressive ...g5, White plays the stunning Nxg5! White sacrifices a piece to open the kingside and expose Black's king. After ...hxg5 Bxg5, White has two pawns for the piece, a pin on the Nf6, and a massive attack. This is a high-risk, high-reward line where both sides must know the theory perfectly."
+    },
+    {
+      "drillId": "slav-t3",
+      "name": "The Meran Variation Break",
+      "theme": "Pawn Break",
+      "description": "White develops in the Meran. After Black plays dxc4 and b5, White plays e4 to seize the center and prepare the e5 advance.",
+      "fen": "r1bqkb1r/pp1n1ppp/2p1pn2/1p1p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq - 0 7",
+      "whitePromptMove": "e4",
+      "solutionMoves": ["e4", "b4", "e5", "bxc3", "exf6"],
+      "opponentResponse": "b4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White seizes the center with e4 and pushes e5 to create tactical chaos in the Meran.",
+      "explanation": "In the Meran, Black accepts the gambit and tries to expand on the queenside with ...b5. White responds with the aggressive e4. When Black pushes ...b4 to attack the Nc3, White ignores the knight and pushes e5! This is a thematic counter-attack. If Black takes the knight (bxc3), White takes the knight (exf6). The resulting positions are incredibly sharp and tactical. White's goal is to use the central space and the weakened kingside to create winning chances."
+    },
+    {
+      "drillId": "slav-t4",
+      "name": "The Geller Gambit",
+      "theme": "Gambit Play",
+      "description": "White plays e4 in the Slav, offering a pawn for rapid development. After Black captures the pawn, White develops the knight to f3 and prepares the center storm.",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3",
+      "whitePromptMove": "e4",
+      "solutionMoves": ["e4", "dxe4", "Nf3", "Nf6", "Nc3"],
+      "opponentResponse": "dxe4",
+      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "briefExplanation": "White offers the e4 pawn for a lead in development and central control.",
+      "explanation": "The Geller Gambit (e4) is a very aggressive way to meet the Slav. White offers a pawn to gain immediate control of the center and a lead in development. After ...dxe4, White plays Nf3. Black usually responds with ...Nf6, and White follows with Nc3. White has excellent compensation for the pawn in the form of a powerful center and active pieces. Black must defend very carefully to hold the extra material, while White has clear attacking plans."
+    }
+  ]
+}

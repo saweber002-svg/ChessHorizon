@@ -9,8 +9,8 @@
       "name": "Nxe4 Material Recapture",
       "theme": "Material Recovery",
       "description": "White recaptures the gambited e4 pawn with Nxe4. After Black's Nxe4 counter-captures, White plays d3 — attacking the knight and beginning to consolidate the extra material.",
-      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R w KQkq - 8 9",
-      "solutionMoves": ["Nxe4", "d3"],
+      "fen": "rn1qkb1r/ppp2ppp/4bn2/8/2P1p3/2N5/PP1P1PPP/R1BQKB1R w KQkq - 0 6",
+      "solutionMoves": ["Nxe4", "Nxe4", "d3", "Nf6", "Be2"],
       "opponentResponse": "Nxe4",
       "stars": {
         "3": "First move correct",
@@ -25,8 +25,8 @@
       "name": "d3 Central Challenge",
       "theme": "Central Pawn Play",
       "description": "White plays d3 to directly challenge Black's advanced e4 pawn. After Black captures exd3, White recaptures Bxd3 — developing the bishop and opening the center simultaneously.",
-      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R w KQkq - 8 9",
-      "solutionMoves": ["d3", "Bxd3"],
+      "fen": "rn1qkb1r/ppp2ppp/4bn2/8/2P1p3/2N5/PP1P1PPP/R1BQKB1R w KQkq - 0 6",
+      "solutionMoves": ["d3", "exd3", "Bxd3", "Nc6", "Nf3"],
       "opponentResponse": "exd3",
       "stars": {
         "3": "First move correct",
@@ -41,8 +41,8 @@
       "name": "Nd5 Knight Outpost",
       "theme": "Central Outpost",
       "description": "White leaps the Nc3 to the dominant central square d5. After Black's knight captures Nxd5, White recaptures cxd5 — a passed pawn in the center that cramps Black's counterplay.",
-      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R w KQkq - 8 9",
-      "solutionMoves": ["Nd5", "cxd5"],
+      "fen": "rn1qkb1r/ppp2ppp/4bn2/3N4/2P1p3/8/PP1P1PPP/R1BQKB1R w KQkq - 0 7",
+      "solutionMoves": ["Nd5", "Nxd5", "cxd5", "Bd6", "d3"],
       "opponentResponse": "Nxd5",
       "stars": {
         "3": "First move correct",
@@ -57,8 +57,8 @@
       "name": "Be2 + Nd4 Development",
       "theme": "Piece Development",
       "description": "White develops the f1 bishop to e2 for king safety. After Black castles, White jumps the knight to d4 — centralizing both pieces and preparing to castle safely.",
-      "fen": "r1bqk2r/pp3ppp/1bn2n2/8/2Pp4/1NN5/PP1P1PPP/R1BQKB1R w KQkq - 8 9",
-      "solutionMoves": ["Be2", "Nd4"],
+      "fen": "rn1qkb1r/ppp2ppp/4bn2/8/2P1p3/2N5/PP1PBPPP/R1BQK1NR w KQkq - 2 7",
+      "solutionMoves": ["Be2", "O-O", "d3", "exd3", "Bxd3"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",

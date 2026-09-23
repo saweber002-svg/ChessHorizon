@@ -11,7 +11,7 @@
       "description": "Black challenges White's d4 pawn with c5. After White plays c3, Black develops Nc6 — contesting the center and gaining queenside space.",
       "fen": "rnbq1rk1/ppp1bppp/4pn2/3p4/3P1B2/3BPN2/PPPN1PPP/R2QK2R b KQ - 1 6",
       "whitePromptMove": "Bd3",
-      "solutionMoves": ["c5", "Nc6"],
+      "solutionMoves": ["c5", "c3", "Nc6", "O-O", "e6"],
       "opponentResponse": "c3",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "Black targets the b2 pawn with Qb6. When White defends with Qb3, Black plays c4 — attacking the London bishop and gaining queenside space.",
       "fen": "r1bq1rk1/pp2bppp/2n1pn2/2pp4/3P1B2/2PBPN2/PP1N1PPP/R2Q1RK1 b - - 1 8",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["Qb6", "c4"],
+      "solutionMoves": ["Qb6", "Qb3", "c4", "Qxb6", "axb6"],
       "opponentResponse": "Qb3",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "Black attacks the London bishop directly with Nh5. When White retreats Bg3, Black captures Nxg3 — winning the bishop pair.",
       "fen": "r1bq1rk1/pp2bppp/2n1pn2/2pp4/3P1B2/2PBPN2/PP1N1PPP/R2Q1RK1 b - - 1 8",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["Nh5", "Nxg3"],
+      "solutionMoves": ["Nh5", "Bg3", "Nxg3", "hxg3", "O-O"],
       "opponentResponse": "Bg3",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "Black pushes e5 to fight for central space. After dxe5, Nd7 reorganizes the knight to challenge White's advanced pawn.",
       "fen": "r1bq1rk1/pp2bppp/2n1pn2/2pp4/3P1B2/2PBPN2/PP1N1PPP/R2Q1RK1 b - - 1 8",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["e5", "Nd7"],
+      "solutionMoves": ["e5", "dxe5", "Nd7", "Bf4", "Ncxe5"],
       "opponentResponse": "dxe5",
       "stars": {
         "3": "First move correct",

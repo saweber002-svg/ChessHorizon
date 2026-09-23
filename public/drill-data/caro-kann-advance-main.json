@@ -1,0 +1,16 @@
+{
+  "id": "caro-kann-advance-main",
+  "name": "Caro-Kann Advance — Main Line",
+  "description": "The Advance Variation of the Caro-Kann. White gains space; Black must find active counterplay against the d4-e5 chain, often with ...c5 and piece pressure.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "caro-kann-advance",
+      "name": "Advance Variation — Main Line",
+      "description": "White pushes e5 early. Black develops the bishop to f5 and strikes at the base of the pawn chain with ...c5. A popular modern choice at all levels.",
+      "moves": ["e4", "c6", "d4", "d5", "e5", "Bf5", "Nf3", "e6", "Be2", "c5", "O-O", "Nc6", "c3", "cxd4"],
+      "moveCount": 14,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

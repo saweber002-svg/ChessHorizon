@@ -1,6 +1,18 @@
-export type Tier = 0 | 1 | 2 | 3;
+export type Tier = 0 | 1 | 2 | 3 | 4;
 
-export type KingdomId = 'italian' | 'spanish' | 'sicilian' | 'english' | 'scandinavian' | 'queendom' | 'wilderness' | 'clearing';
+export type KingdomId =
+  | 'italian'
+  | 'spanish'
+  | 'sicilian'
+  | 'english'
+  | 'scandinavian'
+  | 'queendom'
+  | 'french'
+  | 'dutch'
+  | 'germany'
+  | 'wilderness'
+  | 'clearing'
+  | 'coaching';
 
 export interface Variation {
   id: string;
@@ -38,6 +50,7 @@ export interface MoveProgress {
   tier: Tier;
   lastDrilled: number;
   attempts: number;
+  streak: number;
 }
 
 export interface ProgressState {
@@ -80,32 +93,58 @@ export interface PVPGameState {
 }
 
 export const TIER_NAMES: Record<Tier, string> = {
-  0: 'Novice',
-  1: 'Apprentice',
-  2: 'Journeyman',
-  3: 'Master',
+  0: 'Locked',
+  1: 'Novice',
+  2: 'Apprentice',
+  3: 'Journeyman',
+  4: 'Master',
 };
 
 export const TIER_COLORS: Record<Tier, string> = {
-  0: '#9ca3af',
-  1: '#14b8a6',
-  2: '#06b6d4',
-  3: '#00f5d4',
+  0: '#3f3f46', // Zinc-700
+  1: '#9ca3af', // Gray-400
+  2: '#14b8a6', // Teal-500
+  3: '#06b6d4', // Cyan-500
+  4: '#00f5d4', // Aquamarine
 };
 
+/** Requirements in consecutive 3-star completions */
 export const TIER_THRESHOLDS: Record<Tier, number> = {
   0: 0,
-  1: 3,
-  2: 6,
-  3: 9,
+  1: 1,
+  2: 3,
+  3: 5,
+  4: 10,
 };
 
 export const KINGDOM_UNLOCK_STARS: Partial<Record<KingdomId, number>> = {
-  sicilian: 5,
-  spanish: 10,
-  english: 15,
-  scandinavian: 20,
+  sicilian: 15,
+  spanish: 8,
+  english: 12,
+  scandinavian: 18,
+  french: 10,
+  dutch: 14,
+  germany: 12,
+  queendom: 20,
+  coaching: 0,
 };
+
+export const KINGDOM_UNLOCK_ORDER: Array<{
+  kingdom: KingdomId;
+  previousKingdom?: KingdomId;
+  prerequisiteVariation?: string;
+  starThreshold: number;
+}> = [
+  { kingdom: 'italian', starThreshold: 0 },
+  { kingdom: 'spanish', previousKingdom: 'italian', prerequisiteVariation: 'italian', starThreshold: 8 },
+  { kingdom: 'french', previousKingdom: 'spanish', prerequisiteVariation: 'spanish', starThreshold: 10 },
+  { kingdom: 'germany', previousKingdom: 'french', prerequisiteVariation: 'french', starThreshold: 12 },
+  { kingdom: 'sicilian', previousKingdom: 'germany', prerequisiteVariation: 'german', starThreshold: 15 },
+  { kingdom: 'english', previousKingdom: 'sicilian', prerequisiteVariation: 'sicilian', starThreshold: 12 },
+  { kingdom: 'dutch', previousKingdom: 'english', prerequisiteVariation: 'english', starThreshold: 14 },
+  { kingdom: 'queendom', previousKingdom: 'dutch', prerequisiteVariation: 'dutch', starThreshold: 20 },
+  { kingdom: 'coaching', starThreshold: 0 }, // Always accessible for live coaching
+];
 
 export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
   italian: { x: 35, y: 65 },
@@ -114,8 +153,12 @@ export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
   english: { x: 42, y: 22 },
   scandinavian: { x: 65, y: 12 },
   queendom: { x: 78, y: 40 },
+  french: { x: 28, y: 38 },
+  dutch: { x: 52, y: 28 },
+  germany: { x: 48, y: 42 },
   wilderness: { x: 82, y: 75 },
   clearing: { x: 15, y: 15 },
+  coaching: { x: 50, y: 50 },
 };
 
 export function getTierColor(tier: Tier): string {
@@ -126,10 +169,11 @@ export function getTierLabel(tier: Tier): string {
   return TIER_NAMES[tier];
 }
 
-export function calculateTier(cumulativeStars: number): Tier {
-  if (cumulativeStars >= TIER_THRESHOLDS[3]) return 3;
-  if (cumulativeStars >= TIER_THRESHOLDS[2]) return 2;
-  if (cumulativeStars >= TIER_THRESHOLDS[1]) return 1;
+export function calculateTier(streak: number): Tier {
+  if (streak >= TIER_THRESHOLDS[4]) return 4;
+  if (streak >= TIER_THRESHOLDS[3]) return 3;
+  if (streak >= TIER_THRESHOLDS[2]) return 2;
+  if (streak >= TIER_THRESHOLDS[1]) return 1;
   return 0;
 }
 

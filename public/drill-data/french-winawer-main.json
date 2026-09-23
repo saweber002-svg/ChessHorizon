@@ -1,0 +1,16 @@
+{
+  "id": "french-winawer-main",
+  "name": "French Winawer — Main Line",
+  "description": "The sharp Winawer Variation of the French Defense. Black gives up the bishop pair early for dynamic counterplay and pressure against White's center.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "french-winawer",
+      "name": "Winawer Variation — Main Line",
+      "description": "After 3.Nc3 Bb4, White plays e5 and a3. Black captures on c3, creating doubled pawns for White but gaining time and dark-square control. The position is unbalanced and full of tactics.",
+      "moves": ["e4", "e6", "d4", "d5", "Nc3", "Bb4", "e5", "c5", "a3", "Bxc3+", "bxc3", "Ne7", "Nf3", "Nbc6"],
+      "moveCount": 14,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

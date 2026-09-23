@@ -1,0 +1,31 @@
+{
+  "id": "slav-defense-main",
+  "name": "Slav Defense",
+  "description": "Main line for the Slav Defense.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "slav-defense-l1",
+      "name": "Slav Defense",
+      "description": "Master the standard moves of the Slav Defense.",
+      "moves": [
+        "d4",
+        "d5",
+        "c4",
+        "c6",
+        "Nf3",
+        "Nf6",
+        "Nc3",
+        "e6",
+        "e3",
+        "Nbd7",
+        "Bd3",
+        "dxc4",
+        "Bxc4",
+        "Bd6"
+      ],
+      "moveCount": 14,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

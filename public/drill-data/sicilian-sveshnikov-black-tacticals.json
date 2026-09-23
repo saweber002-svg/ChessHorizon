@@ -11,7 +11,7 @@
       "description": "After White develops the bishop, Black advances b4 to kick the Na3 and gain queenside space. When White seizes d5 with the knight, Black recaptures to clear the outpost.",
       "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq - 0 9",
       "whitePromptMove": "Be2",
-      "solutionMoves": ["b4", "Nxd5"],
+      "solutionMoves": ["b4", "Nd5", "Nxd5", "exd5", "Ne7"],
       "opponentResponse": "Nd5",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "After White occupies d5, Black develops the bishop to e7, preparing to castle. When White tries to trade the bishop for the knight, Black recaptures with the bishop to preserve the pawn structure.",
       "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq - 0 9",
       "whitePromptMove": "Nd5",
-      "solutionMoves": ["Be7", "Bxf6"],
+      "solutionMoves": ["Be7", "Bxf6", "Bxf6", "Nd5", "O-O"],
       "opponentResponse": "Bxf6",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "After White occupies d5, Black develops the bishop to e6, directly contesting the dominant outpost. When White's knight retreats to c4, Black activates the rook with Rb8.",
       "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq - 0 9",
       "whitePromptMove": "Nd5",
-      "solutionMoves": ["Be6", "Rb8"],
+      "solutionMoves": ["Be6", "Nc4", "Rb8", "Be2", "Be7"],
       "opponentResponse": "Nc4",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "After White occupies d5, Black launches the kingside pawn break with f5. When White captures exf5, Black recaptures with the bishop — gaining an active piece and counter-play.",
       "fen": "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R b KQkq - 0 9",
       "whitePromptMove": "Nd5",
-      "solutionMoves": ["f5", "Bxf5"],
+      "solutionMoves": ["f5", "exf5", "Bxf5", "Bd3", "Bxd3"],
       "opponentResponse": "exf5",
       "stars": {
         "3": "First move correct",

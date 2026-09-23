@@ -1,9 +1,10 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Trophy, ChevronRight } from 'lucide-react';
+import { X, Trophy, ChevronRight, Zap } from 'lucide-react';
 import { useProgress } from '@/contexts/ProgressContext';
 import { useWilderness } from '@/contexts/WildernessContext';
 import { getTierColor, getTierLabel } from '@/types';
-import type { KingdomId } from '@/types';
+import type { KingdomId, Tier } from '@/types';
+import PrestigeBadge from './PrestigeBadge';
 import openingsData from '@/data/openings.json';
 import { useLocation } from 'wouter';
 
@@ -83,23 +84,32 @@ export default function TrophyBoard({ openingId, variationId, isOpen, onClose }:
               </button>
             </div>
 
-            {/* Stats */}
-            <div className="p-6 border-b border-[#2a2a3e]">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-sm text-white/60">Mastery</span>
-                <span className="text-lg font-bold text-[#00f5d4]">{masteryPercent}%</span>
+            {/* Stats & Prestige */}
+            <div className="p-6 border-b border-[#2a2a3e] bg-[#1a1a2e]/50">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-medium text-white/70">Variation Mastery</span>
+                    <span className="text-lg font-bold text-[#00f5d4]">{masteryPercent}%</span>
+                  </div>
+                  <div className="w-full h-2.5 bg-[#2a2a3e] rounded-full overflow-hidden shadow-inner">
+                    <motion.div
+                      className="h-full bg-gradient-to-r from-[#14b8a6] to-[#00f5d4]"
+                      initial={{ width: 0 }}
+                      animate={{ width: `${masteryPercent}%` }}
+                      transition={{ duration: 1, ease: 'backOut' }}
+                    />
+                  </div>
+                </div>
               </div>
-              <div className="w-full h-2 bg-[#2a2a3e] rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-[#14b8a6] to-[#00f5d4] rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${masteryPercent}%` }}
-                  transition={{ duration: 0.8, ease: 'easeOut' }}
-                />
+              
+              <div className="grid grid-cols-4 gap-4">
+                {[1, 2, 3, 4].map((t) => (
+                  <div key={t} className="opacity-80 scale-90">
+                    <PrestigeBadge tier={t as Tier} size="sm" showLabel />
+                  </div>
+                ))}
               </div>
-              <p className="text-xs text-white/40 mt-2">
-                {masteredCount} of {moveCount} moves at Master tier
-              </p>
             </div>
 
             {/* 3D View Button */}
@@ -129,23 +139,41 @@ export default function TrophyBoard({ openingId, variationId, isOpen, onClose }:
                   return (
                     <motion.div
                       key={key}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.03 }}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-[#1a1a2e] border border-[#2a2a3e]"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.02 }}
+                      className={`flex items-center gap-3 p-3 rounded-xl border transition-all ${
+                        tier > 0 ? 'bg-[#1e1e38] border-[#3a3a5e]' : 'bg-[#141422] border-[#2a2a3e] opacity-60'
+                      }`}
                     >
-                      <span className="text-xs font-mono text-white/30 w-6">
-                        {Math.floor(index / 2) + 1}{index % 2 === 0 ? '.' : '...'}
-                      </span>
-                      <span className="font-mono text-sm text-white/80 flex-1">{move}</span>
-                      <div className="flex items-center gap-1.5">
-                        <div
-                          className="w-2.5 h-2.5 rounded-full"
-                          style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}50` }}
-                        />
-                        <span className="text-[10px] font-medium" style={{ color }}>
-                          {label}
+                      <div className="relative">
+                        <span className="text-[10px] font-mono text-white/20 absolute -top-4 left-0">
+                          {Math.floor(index / 2) + 1}{index % 2 === 0 ? '.' : '...'}
                         </span>
+                        <span className="font-mono text-sm font-bold text-white/90">{move}</span>
+                      </div>
+                      
+                      <div className="flex-1 flex justify-end items-center gap-2">
+                        {progress.streak > 0 && (
+                          <div className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-orange-500/10 text-orange-400 border border-orange-500/20">
+                            <Zap size={10} className="fill-current" />
+                            <span className="text-[9px] font-bold">{progress.streak}</span>
+                          </div>
+                        )}
+                        <div className="flex flex-col items-end">
+                          <span className="text-[9px] font-bold uppercase tracking-tighter" style={{ color }}>
+                            {label}
+                          </span>
+                          <div className="flex gap-0.5 mt-0.5">
+                            {[1, 2, 3, 4].map((t) => (
+                              <div 
+                                key={t} 
+                                className={`w-1.5 h-1 rounded-full ${t <= tier ? '' : 'bg-white/5'}`}
+                                style={{ backgroundColor: t <= tier ? color : undefined }}
+                              />
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </motion.div>
                   );

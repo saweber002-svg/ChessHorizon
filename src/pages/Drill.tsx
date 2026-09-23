@@ -403,7 +403,7 @@ export default function Drill() {
             <div className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]">
               <h3 className="text-sm font-medium text-white/60 mb-3">Your Progress</h3>
               <div className="flex items-center gap-3">
-                <PrestigeBadge tier={moveProgress.tier} stars={moveProgress.stars} size="md" />
+                <PrestigeBadge tier={moveProgress.tier} size="md" />
                 <div>
                   <p className="text-sm font-medium text-white">{moveProgress.stars} stars earned</p>
                   <p className="text-xs text-white/40">{moveProgress.attempts} attempts total</p>

@@ -10,7 +10,7 @@
       "theme": "Kingside Attack",
       "description": "White gains kingside space by pushing f4, then follows up with f5 to crack open lines against Black's king.",
       "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 w kq - 0 9",
-      "solutionMoves": ["f4", "f5"],
+      "solutionMoves": ["f4", "Bg7", "f5", "O-O", "Nc3"],
       "opponentResponse": "Bg7",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Development",
       "description": "White develops the knight to c3, controlling the key d5 outpost. After Black fianchettoes, White activates the bishop with Be3.",
       "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 w kq - 0 9",
-      "solutionMoves": ["Nc3", "Be3"],
+      "solutionMoves": ["Nc3", "Bg7", "Be3", "O-O", "f3"],
       "opponentResponse": "Bg7",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Active Bishop",
       "description": "White prepares to fianchetto the c1 bishop with b3 then Bb2 — controlling the long diagonal and reinforcing the Maroczy Bind.",
       "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 w kq - 0 9",
-      "solutionMoves": ["b3", "Bb2"],
+      "solutionMoves": ["b3", "Bg7", "Bb2", "O-O", "Nc3"],
       "opponentResponse": "Bg7",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Knight Sacrifice",
       "description": "White jumps the knight to f5, targeting e7 and g7. After Black captures gxf5, White recaptures exf5 — opening the e-file and gaining a pawn.",
       "fen": "rnb1kb1r/1pq2p1p/p2ppnp1/8/2PNP3/3B4/PP2QPPP/RNB2RK1 w kq - 0 9",
-      "solutionMoves": ["Nf5", "exf5"],
+      "solutionMoves": ["Nf5", "gxf5", "exf5", "O-O", "Nc3"],
       "opponentResponse": "gxf5",
       "stars": {
         "3": "First move correct",

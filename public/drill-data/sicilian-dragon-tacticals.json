@@ -10,7 +10,7 @@
       "theme": "Bishop Exchange",
       "description": "White trades the critical dark-squared bishops by sending the Be3 to h6, targeting the Dragon's most powerful piece.",
       "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
-      "solutionMoves": ["Bh6", "Qxh6"],
+      "solutionMoves": ["Bh6", "Bxh6", "Qxh6", "Qa5", "O-O-O"],
       "opponentResponse": "Bxh6",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Queenside Castle",
       "description": "White castles queenside to launch a full opposite-sides-castling race — the defining motif of the Yugoslav Attack.",
       "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
-      "solutionMoves": ["O-O-O", "exd5"],
+      "solutionMoves": ["O-O-O", "d5", "exd5", "Nxd5", "Nxc6"],
       "opponentResponse": "d5",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Kingside Attack",
       "description": "White launches the g4-g5 pawn storm to rip open the kingside, then uses Nxe6 to remove Black's defensive resource.",
       "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
-      "solutionMoves": ["g4", "Nxe6"],
+      "solutionMoves": ["g4", "Be6", "Nxe6", "fxe6", "h4"],
       "opponentResponse": "Be6",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Diagonal Pressure",
       "description": "White develops the Bf1 to c4, targeting the f7 weakness. After Black defends with Bd7, White retreats to Bb3 — a safe, powerful square.",
       "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
-      "solutionMoves": ["Bc4", "Bb3"],
+      "solutionMoves": ["Bc4", "Bd7", "Bb3", "Qa5", "O-O-O"],
       "opponentResponse": "Bd7",
       "stars": {
         "3": "First move correct",

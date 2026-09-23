@@ -1,0 +1,22 @@
+{
+  "id": "french-classical-tacticals",
+  "name": "French Classical — Tactics",
+  "description": "Tactical themes in the Classical French Defense.",
+  "drills": [
+    {
+      "drillId": "french-classical-t1",
+      "name": "The Greek Gift",
+      "theme": "Tactics",
+      "description": "Classic sacrifice on h7 in French structures.",
+      "fen": "r1b1k2r/pp2qppp/2n1p3/3pP3/3P4/2NB1N2/PP3PPP/R2QK2R w KQkq - 0 12",
+      "solutionMoves": ["Bxh7+", "Kxh7", "Ng5+", "Kg8", "Qh5"],
+      "opponentResponse": "Kxh7",
+      "stars": {
+        "3": "Correct first try",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "Standard Greek Gift sacrifice. White follows up with Ng5+ and Qh5."
+    }
+  ]
+}

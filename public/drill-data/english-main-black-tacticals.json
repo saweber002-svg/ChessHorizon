@@ -11,7 +11,7 @@
       "description": "Complete the fianchetto with Bg7 to activate the powerful dark-squared bishop. After White plays d3, castle to secure the king and connect the rooks.",
       "fen": "r1bqkb1r/pp2pp1p/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 b kq - 1 8",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["Bg7", "O-O"],
+      "solutionMoves": ["Bg7", "d3", "O-O", "Be3", "d6"],
       "opponentResponse": "d3",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "Launch the thematic b5 queenside break. After White challenges with a4, advance b4 to keep the queenside initiative and lock out White's rook.",
       "fen": "r1bqkb1r/pp2pp1p/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 b kq - 1 8",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["b5", "b4"],
+      "solutionMoves": ["b5", "a4", "b4", "Nb1", "a5"],
       "opponentResponse": "a4",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "Stake a claim in the center with e5. After White plays d3, plant the knight on d4 to seize Black's most powerful central outpost.",
       "fen": "r1bqkb1r/pp2pp1p/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 b kq - 1 8",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["e5", "Nd4"],
+      "solutionMoves": ["e5", "d3", "Nd4", "Nxd4", "cxd4"],
       "opponentResponse": "d3",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "Leap the knight directly to d4. After White recaptures Nxd4, take back with the c-pawn to establish a strong central pawn and open the c-file for the rook.",
       "fen": "r1bqkb1r/pp2pp1p/2n3p1/2p5/8/2P2NP1/P2PPPBP/R1BQ1RK1 b kq - 1 8",
       "whitePromptMove": "O-O",
-      "solutionMoves": ["Nd4", "cxd4"],
+      "solutionMoves": ["Nd4", "Nxd4", "cxd4", "d3", "e5"],
       "opponentResponse": "Nxd4",
       "stars": {
         "3": "First move correct",

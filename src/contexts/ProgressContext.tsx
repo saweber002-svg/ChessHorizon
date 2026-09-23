@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useReducer, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, useCallback, useEffect, useRef } from 'react';
 import type { MoveProgress, ProgressState, KingdomId, Tier } from '@/types';
-import { calculateTier, KINGDOM_UNLOCK_STARS } from '@/types';
+import { calculateTier, KINGDOM_UNLOCK_ORDER } from '@/types';
 import { syncProgressToSupabase, fetchProgressFromSupabase } from '@/lib/supabaseSync';
 import { useAuth } from './AuthContext';
 
@@ -10,7 +10,7 @@ const defaultState: ProgressState = {
   totalStars: 0,
   moveProgress: {},
   prestigeStreak: 0,
-  unlockedRegions: ['italian', 'wilderness', 'clearing'],
+  unlockedRegions: ['italian', 'wilderness', 'clearing', 'coaching'],
   drillMode: 'random',
   sideMode: 'both',
 };
@@ -20,7 +20,17 @@ function loadState(): ProgressState {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
-      return { ...defaultState, ...parsed };
+      const state = { ...defaultState, ...parsed };
+      
+      // Migration: Ensure default regions are always present
+      const defaults: KingdomId[] = ['italian', 'wilderness', 'clearing', 'coaching'];
+      defaults.forEach(region => {
+        if (!state.unlockedRegions.includes(region)) {
+          state.unlockedRegions.push(region);
+        }
+      });
+      
+      return state;
     }
   } catch {
     // ignore
@@ -36,28 +46,38 @@ function saveState(state: ProgressState) {
   }
 }
 
-type Action =
+export type ProgressAction =
   | { type: 'RECORD_DRILL'; key: string; stars: number }
   | { type: 'SET_DRILL_MODE'; mode: 'random' | 'in-order' }
   | { type: 'SET_SIDE_MODE'; mode: 'white' | 'black' | 'both' }
   | { type: 'RESET_PROGRESS' }
   | { type: 'LOAD_STATE'; state: ProgressState };
 
-function reducer(state: ProgressState, action: Action): ProgressState {
+export function progressReducer(state: ProgressState, action: ProgressAction): ProgressState {
   let newState: ProgressState;
 
   switch (action.type) {
     case 'RECORD_DRILL': {
       const existing = state.moveProgress[action.key] || {
         stars: 0,
-        tier: 0,
+        tier: 0 as Tier,
         lastDrilled: 0,
         attempts: 0,
+        streak: 0,
       };
 
+      // Streak logic from tech spec: 
+      // - Increments on 3-star result
+      // - Resets to 0 on < 3-star result
+      let newStreak = existing.streak || 0;
+      if (action.stars === 3) {
+        newStreak += 1;
+      } else {
+        newStreak = 0;
+      }
+
       const newStars = Math.max(existing.stars, action.stars);
-      const cumulativeStars = newStars;
-      const tier = calculateTier(cumulativeStars);
+      const tier = calculateTier(newStreak);
       const attempts = existing.attempts + 1;
 
       const moveProgress: Record<string, MoveProgress> = {
@@ -67,6 +87,7 @@ function reducer(state: ProgressState, action: Action): ProgressState {
           tier,
           lastDrilled: Date.now(),
           attempts,
+          streak: newStreak,
         },
       };
 
@@ -76,19 +97,26 @@ function reducer(state: ProgressState, action: Action): ProgressState {
         0
       );
 
-      // Check kingdom unlocks
+      // Check kingdom unlocks based on KINGDOM_UNLOCK_ORDER
       const unlockedRegions = [...state.unlockedRegions];
-      const kingdomEntries = Object.entries(KINGDOM_UNLOCK_STARS) as [
-        KingdomId,
-        number,
-      ][];
-      for (const [kingdom, threshold] of kingdomEntries) {
-        if (
-          !unlockedRegions.includes(kingdom) &&
-          totalStars >= threshold
-        ) {
-          unlockedRegions.push(kingdom);
+      for (const unlockDef of KINGDOM_UNLOCK_ORDER) {
+        // Skip if already unlocked
+        if (unlockedRegions.includes(unlockDef.kingdom)) {
+          continue;
         }
+        
+        // Check if total stars threshold is met
+        if (totalStars < unlockDef.starThreshold) {
+          continue;
+        }
+        
+        // If there's a previous kingdom requirement, check if it's unlocked
+        if (unlockDef.previousKingdom && !unlockedRegions.includes(unlockDef.previousKingdom)) {
+          continue;
+        }
+        
+        // All conditions met, unlock this kingdom
+        unlockedRegions.push(unlockDef.kingdom);
       }
 
       // Update streak
@@ -145,8 +173,13 @@ interface ProgressContextValue {
 const ProgressContext = createContext<ProgressContextValue | null>(null);
 
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(reducer, null, loadState);
+  const [state, dispatch] = useReducer(progressReducer, null, loadState);
   const { user, isLoading: authLoading } = useAuth();
+  const latestState = useRef(state);
+
+  useEffect(() => {
+    latestState.current = state;
+  }, [state]);
 
   // Load remote progress when user logs in
   useEffect(() => {
@@ -157,7 +190,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         if (remoteProgress) {
           // Merge remote progress with local, preferring remote
           const merged: ProgressState = {
-            ...state,
+            ...latestState.current,
             ...remoteProgress,
           };
           dispatch({
@@ -208,6 +241,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
           tier: 0 as Tier,
           lastDrilled: 0,
           attempts: 0,
+          streak: 0,
         }
       );
     },
@@ -220,7 +254,8 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       for (let i = 0; i < moveCount; i++) {
         const key = `${openingId}:${variationId}:${i}`;
         const progress = state.moveProgress[key];
-        if (progress && progress.tier === 3) {
+        // Mastered now means Tier 4 (Master) according to the new spec
+        if (progress && progress.tier === 4) {
           mastered++;
         }
       }

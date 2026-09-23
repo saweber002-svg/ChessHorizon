@@ -1,0 +1,16 @@
+{
+  "id": "french-classical-main",
+  "name": "French Classical — Main Line",
+  "description": "The classical French Defense with 3.Nc3 Nf6. Leads to rich maneuvering battles where Black often strikes with ...c5 or ...f6.",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  "lines": [
+    {
+      "id": "french-classical",
+      "name": "Classical Variation — Main Line",
+      "description": "White develops the knight to c3 and pins with Bg5. Black develops solidly with Be7. The e5 pawn gives White space, but Black has a solid structure and counter-attacking chances on the queenside.",
+      "moves": ["e4", "e6", "d4", "d5", "Nc3", "Nf6", "Bg5", "Be7", "e5", "Nfd7", "Bxe7", "Qxe7", "f4", "O-O"],
+      "moveCount": 14,
+      "difficulty": "Intermediate"
+    }
+  ]
+}

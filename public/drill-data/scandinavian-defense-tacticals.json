@@ -10,7 +10,7 @@
       "theme": "Bishop Challenge",
       "description": "Black's Bb4 pins the Nc3. White plays a3 to force the bishop to commit — if it takes on c3, White recaptures with the Bd2.",
       "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R w KQkq - 2 9",
-      "solutionMoves": ["a3", "Bxc3"],
+      "solutionMoves": ["a3", "Bxc3", "Bxc3", "O-O", "O-O-O"],
       "opponentResponse": "Bxc3",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Queenside Castle",
       "description": "White castles long for an aggressive setup — the king reaches c1, the rook activates on d1, and White can storm the kingside with f3, g4, and h4.",
       "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R w KQkq - 2 9",
-      "solutionMoves": ["O-O-O", "Kb1"],
+      "solutionMoves": ["O-O-O", "O-O", "Kb1", "Nd7", "g4"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Central Outpost",
       "description": "White strikes the key central square with Nd5 — the knight leaps to the dominant central outpost, attacking e7 and c7. When Black captures exd5, White recaptures Bxd5 with a powerfully centralized bishop.",
       "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R w KQkq - 2 9",
-      "solutionMoves": ["Nd5", "Bxd5"],
+      "solutionMoves": ["Nd5", "exd5", "Bxd5", "O-O", "O-O-O"],
       "opponentResponse": "exd5",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Development",
       "description": "White castles kingside for a solid approach — king safety first, then build with Rfe1 to support the center and control the e-file.",
       "fen": "r1b1k2r/pp3ppp/2p1pn2/q4b2/1bBP4/2N2N2/PPPBQPPP/R3K2R w KQkq - 2 9",
-      "solutionMoves": ["O-O", "Rfe1"],
+      "solutionMoves": ["O-O", "O-O", "Rfe1", "Nd7", "a3"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",

@@ -10,7 +10,7 @@
       "theme": "Bishop Exchange",
       "description": "Exchange the dark-squared bishops with Bxd6 to simplify and gain structural clarity. After Black recaptures, use Qb3 to pressure b7 and d5 simultaneously.",
       "fen": "r1b2rk1/pp2qppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 4 9",
-      "solutionMoves": ["Bxd6", "Qb3"],
+      "solutionMoves": ["Bxd6", "Qxd6", "Qb3", "c4", "Qc2"],
       "opponentResponse": "Qxd6",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Knight Outpost",
       "description": "Plant the knight on the powerful e5 outpost. After Black retreats Nd7, advance f4 to support the e5 knight and prepare a kingside expansion.",
       "fen": "r1b2rk1/pp2qppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 4 9",
-      "solutionMoves": ["Ne5", "f4"],
+      "solutionMoves": ["Ne5", "Nd7", "f4", "f6", "Ndf3"],
       "opponentResponse": "Nd7",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Queen Centralization",
       "description": "Develop the queen to e2, supporting the e4 central break. After Black plays Rd8, push e4 to open the center and seize space.",
       "fen": "r1b2rk1/pp2qppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 4 9",
-      "solutionMoves": ["Qe2", "e4"],
+      "solutionMoves": ["Qe2", "Rd8", "e4", "dxe4", "Nxe4"],
       "opponentResponse": "Rd8",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "King Safety",
       "description": "Castle kingside to complete development and connect the rooks. After Black plays b6, centralize with Re1 to support the e3 pawn and prepare future e4.",
       "fen": "r1b2rk1/pp2qppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R w KQ - 4 9",
-      "solutionMoves": ["O-O", "Re1"],
+      "solutionMoves": ["O-O", "b6", "Re1", "Bb7", "e4"],
       "opponentResponse": "b6",
       "stars": {
         "3": "First move correct",

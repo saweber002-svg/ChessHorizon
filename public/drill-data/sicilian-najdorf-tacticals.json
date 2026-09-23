@@ -10,7 +10,7 @@
       "theme": "King Safety",
       "description": "White gets the king to safety with O-O, then develops the critical c1 bishop to e3.",
       "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R w KQkq - 3 9",
-      "solutionMoves": ["O-O", "Be3"],
+      "solutionMoves": ["O-O", "O-O", "Be3", "Be7", "f5"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",
@@ -26,7 +26,7 @@
       "theme": "Kingside Attack",
       "description": "White launches the critical f4-f5 advance to rip open the kingside, then removes Black's key defender.",
       "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R w KQkq - 3 9",
-      "solutionMoves": ["f5", "Bxf6"],
+      "solutionMoves": ["f5", "exf5", "Bxf6", "Bxf6", "Nd5"],
       "opponentResponse": "exf5",
       "stars": {
         "3": "First move correct",
@@ -42,7 +42,7 @@
       "theme": "Central Break",
       "description": "White strikes in the center with e5, and after the recapture reclaims with fxe5 — a powerful pawn wedge.",
       "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R w KQkq - 3 9",
-      "solutionMoves": ["e5", "fxe5"],
+      "solutionMoves": ["e5", "dxe5", "fxe5", "Nd5", "Bxf6"],
       "opponentResponse": "dxe5",
       "stars": {
         "3": "First move correct",
@@ -58,7 +58,7 @@
       "theme": "Queenside Castle",
       "description": "White plays Be3 to activate the bishop, then castles queenside to launch a full-board assault.",
       "fen": "rn1bk2r/1pq1bppp/p2ppn2/6B1/3NPP2/2N2Q2/PPP3PP/R1B1K2R w KQkq - 3 9",
-      "solutionMoves": ["Be3", "O-O-O"],
+      "solutionMoves": ["Be3", "O-O", "O-O-O", "Be7", "f5"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",

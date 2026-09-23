@@ -11,7 +11,7 @@
       "description": "Strike the center with the thematic ...c5 break. After White captures dxc5, recapture with the bishop to gain an active piece and open the c-file.",
       "fen": "rnbq1rk1/ppp2ppp/3bpn2/3p4/3P4/3BPNB1/PPP2PPP/RN1QK2R b KQ - 3 6",
       "whitePromptMove": "Bd3",
-      "solutionMoves": ["c5", "Bxc5"],
+      "solutionMoves": ["c5", "dxc5", "Bxc5", "O-O", "O-O"],
       "opponentResponse": "dxc5",
       "stars": {
         "3": "First move correct",
@@ -28,7 +28,7 @@
       "description": "Challenge the London bishop on f4 with Nh5. White retreats to g3, then capture with Nxg3 to force hxg3 and give White a damaged pawn structure.",
       "fen": "rnbqkb1r/ppp2ppp/4pn2/3p4/3P1B2/4PN2/PPP2PPP/RN1QKB1R b KQkq - 1 4",
       "whitePromptMove": "Nf3",
-      "solutionMoves": ["Nh5", "Nxg3"],
+      "solutionMoves": ["Nh5", "Bg3", "Nxg3", "hxg3", "Nf6"],
       "opponentResponse": "Bg3",
       "stars": {
         "3": "First move correct",
@@ -45,7 +45,7 @@
       "description": "Prepare queenside development with b6. After White castles, develop the bishop to b7 to control the long diagonal and counter White's central pressure.",
       "fen": "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R b KQ - 3 8",
       "whitePromptMove": "Nbd2",
-      "solutionMoves": ["b6", "Bb7"],
+      "solutionMoves": ["b6", "O-O", "Bb7", "Re1", "O-O"],
       "opponentResponse": "O-O",
       "stars": {
         "3": "First move correct",
@@ -62,7 +62,7 @@
       "description": "Seize central space with e5. After White captures dxe5, recapture with the knight to establish a strong central presence and active piece play.",
       "fen": "r1bq1rk1/pp3ppp/2nbpn2/2pp4/3P4/2PBPNB1/PP1N1PPP/R2QK2R b KQ - 3 8",
       "whitePromptMove": "Nbd2",
-      "solutionMoves": ["e5", "Nxe5"],
+      "solutionMoves": ["e5", "dxe5", "Nxe5", "Nxe5", "Bxe5"],
       "opponentResponse": "dxe5",
       "stars": {
         "3": "First move correct",
