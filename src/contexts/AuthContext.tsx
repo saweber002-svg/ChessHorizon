@@ -1,10 +1,18 @@
-import { createContext, useContext, useEffect, useState, useCallback, type ReactNode } from 'react';
-import type { Session, User } from '@supabase/supabase-js';
-import { supabase } from '@/lib/supabaseClient';
+import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { trpc } from "@/lib/trpc";
+import { getLoginUrl } from "@/const";
+
+type ServerUser = {
+  id: number;
+  openId: string;
+  name: string | null;
+  email: string | null;
+  role: "user" | "admin";
+};
 
 interface AuthContextType {
-  session: Session | null;
-  user: User | null;
+  session: null;
+  user: ServerUser | null;
   isLoading: boolean;
   signUp: (email: string, password: string, username: string) => Promise<void>;
   signIn: (email: string, password: string) => Promise<void>;
@@ -15,117 +23,41 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [session, setSession] = useState<Session | null>(null);
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const meQuery = trpc.auth.me.useQuery(undefined, {
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+  const utils = trpc.useUtils();
+  const logoutMutation = trpc.auth.logout.useMutation({
+    onSuccess: () => utils.auth.me.setData(undefined, null),
+  });
 
-  useEffect(() => {
-    let mounted = true;
+  const signIn = async (_email: string, _password: string) => {
+    window.location.href = getLoginUrl();
+  };
+  const signUp = async (_email: string, _password: string, _username: string) => {
+    window.location.href = getLoginUrl();
+  };
+  const signOut = async () => {
+    await logoutMutation.mutateAsync();
+    await utils.auth.me.invalidate();
+  };
 
-    const getSession = async () => {
-      try {
-        const { data } = await supabase.auth.getSession();
-        if (mounted) {
-          setSession(data.session);
-          setUser(data.session?.user ?? null);
-        }
-      } catch (error) {
-        console.error('Failed to get session:', error);
-      } finally {
-        if (mounted) setIsLoading(false);
-      }
-    };
+  const value = useMemo<AuthContextType>(() => ({
+    session: null,
+    user: (meQuery.data as ServerUser | null | undefined) ?? null,
+    isLoading: meQuery.isLoading || logoutMutation.isPending,
+    signUp,
+    signIn,
+    signOut,
+    isAuthenticated: Boolean(meQuery.data),
+  }), [meQuery.data, meQuery.isLoading, logoutMutation.isPending, utils]);
 
-    getSession();
-
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      async (event, newSession) => {
-        if (mounted) {
-          setSession(newSession);
-          setUser(newSession?.user ?? null);
-
-          if (event === 'SIGNED_IN' && newSession?.user) {
-            // Create profile on signup
-            const { error } = await supabase.from('profiles').upsert(
-              {
-                id: newSession.user.id,
-                email: newSession.user.email || '',
-                username: newSession.user.user_metadata?.username || newSession.user.email?.split('@')[0] || 'User',
-              },
-              { onConflict: 'id' }
-            );
-            if (error) console.error('Failed to create profile:', error);
-          }
-        }
-      }
-    );
-
-    return () => {
-      mounted = false;
-      authListener?.subscription.unsubscribe();
-    };
-  }, []);
-
-  const signUp = useCallback(
-    async (email: string, password: string, username: string) => {
-      try {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            data: { username },
-          },
-        });
-        if (error) throw error;
-      } catch (error) {
-        throw error;
-      }
-    },
-    []
-  );
-
-  const signIn = useCallback(async (email: string, password: string) => {
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      if (error) throw error;
-    } catch (error) {
-      throw error;
-    }
-  }, []);
-
-  const signOut = useCallback(async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-    } catch (error) {
-      throw error;
-    }
-  }, []);
-
-  return (
-    <AuthContext.Provider
-      value={{
-        session,
-        user,
-        isLoading,
-        signUp,
-        signIn,
-        signOut,
-        isAuthenticated: !!session,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth() {
   const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error('useAuth must be used within AuthProvider');
-  }
+  if (!context) throw new Error("useAuth must be used within AuthProvider");
   return context;
 }

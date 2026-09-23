@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useReducer, useCallback, useEffect, useRef } from 'react';
 import type { MoveProgress, ProgressState, KingdomId, Tier } from '@/types';
 import { calculateTier, KINGDOM_UNLOCK_ORDER } from '@/types';
-import { syncProgressToSupabase, fetchProgressFromSupabase } from '@/lib/supabaseSync';
 import { useAuth } from './AuthContext';
+import { trpc } from '@/lib/trpc';
 
 const STORAGE_KEY = 'chess_horizon_progress';
 
@@ -159,6 +159,12 @@ export function progressReducer(state: ProgressState, action: ProgressAction): P
 interface ProgressContextValue {
   state: ProgressState;
   recordDrillResult: (key: string, stars: number) => void;
+  recordOpeningCompletion: (input: {
+    openingId: string;
+    variationId: string;
+    side: 'white' | 'black';
+    moveResults: Array<{ moveIndex: number; stars: 0 | 1 | 2 | 3 }>;
+  }) => Promise<void>;
   setDrillMode: (mode: 'random' | 'in-order') => void;
   setSideMode: (mode: 'white' | 'black' | 'both') => void;
   resetProgress: () => void;
@@ -175,45 +181,34 @@ const ProgressContext = createContext<ProgressContextValue | null>(null);
 export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(progressReducer, null, loadState);
   const { user, isLoading: authLoading } = useAuth();
+  const recordCompletionMutation = trpc.progress.recordDrillCompletion.useMutation();
   const latestState = useRef(state);
 
   useEffect(() => {
     latestState.current = state;
   }, [state]);
 
-  // Load remote progress when user logs in
+  // Server-authoritative progress is submitted through the tRPC progress API.
+  // Local state remains an anonymous/offline cache until completion mutations
+  // are wired into each drill surface.
   useEffect(() => {
-    if (authLoading) return;
-
-    if (user) {
-      fetchProgressFromSupabase(user.id).then((remoteProgress) => {
-        if (remoteProgress) {
-          // Merge remote progress with local, preferring remote
-          const merged: ProgressState = {
-            ...latestState.current,
-            ...remoteProgress,
-          };
-          dispatch({
-            type: 'LOAD_STATE',
-            state: merged,
-          });
-        }
-      });
-    }
-  }, [user, authLoading]);
-
-  // Sync progress to Supabase whenever it changes
-  useEffect(() => {
-    if (user && !authLoading) {
-      syncProgressToSupabase(user.id, state).catch((error) => {
-        console.error('Failed to sync progress:', error);
-      });
-    }
-  }, [state, user, authLoading]);
+    if (!authLoading && user) latestState.current = state;
+  }, [user, authLoading, state]);
 
   const recordDrillResult = useCallback((key: string, stars: number) => {
     dispatch({ type: 'RECORD_DRILL', key, stars });
   }, []);
+
+  const recordOpeningCompletion = useCallback(async (input: {
+    openingId: string;
+    variationId: string;
+    side: 'white' | 'black';
+    moveResults: Array<{ moveIndex: number; stars: 0 | 1 | 2 | 3 }>;
+  }) => {
+    if (!user) return;
+    const idempotencyKey = globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
+    await recordCompletionMutation.mutateAsync({ ...input, idempotencyKey });
+  }, [recordCompletionMutation, user]);
 
   const setDrillMode = useCallback((mode: 'random' | 'in-order') => {
     dispatch({ type: 'SET_DRILL_MODE', mode });
@@ -269,6 +264,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
       value={{
         state,
         recordDrillResult,
+        recordOpeningCompletion,
         setDrillMode,
         setSideMode,
         resetProgress,
