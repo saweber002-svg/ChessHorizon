@@ -32,7 +32,7 @@ export default function DrillSession() {
   const params = useParams<{ drillFileId: string }>();
   const search = useSearch();
   const [, setLocation] = useLocation();
-  const { recordDrillResult } = useProgress();
+  const { recordDrillResult, recordOpeningCompletion } = useProgress();
 
   const drillFileId = params.drillFileId ?? 'giuoco-piano-main';
   const openingId = new URLSearchParams(search).get('opening') ?? 'italian';
@@ -205,6 +205,15 @@ export default function DrillSession() {
         setHintSquares([]);
         const nextMoveIndex = moveIndex + 1;
         if (nextMoveIndex >= playerMoveIndices.length) {
+          void recordOpeningCompletion({
+            openingId,
+            variationId,
+            side: playerColor === 'w' ? 'white' : 'black',
+            moveResults: [
+              ...moveResults.map((value, index) => ({ moveIndex: playerMoveIndices[index] ?? index, stars: Math.max(0, Math.min(3, value)) as 0 | 1 | 2 | 3 })),
+              { moveIndex: currentPlayerMoveIdx, stars: Math.max(0, Math.min(3, stars)) as 0 | 1 | 2 | 3 },
+            ],
+          });
           setSessionComplete(true);
           return;
         }
@@ -220,6 +229,8 @@ export default function DrillSession() {
       openingId,
       variationId,
       recordDrillResult,
+      recordOpeningCompletion,
+      moveResults,
       playOpponentMoves,
     ]
   );
@@ -261,6 +272,15 @@ export default function DrillSession() {
               setTimeout(() => {
                 const nextMoveIndex = moveIndex + 1;
                 if (nextMoveIndex >= playerMoveIndices.length) {
+                  void recordOpeningCompletion({
+                    openingId,
+                    variationId,
+                    side: playerColor === 'w' ? 'white' : 'black',
+                    moveResults: [
+                      ...moveResults.map((value, index) => ({ moveIndex: playerMoveIndices[index] ?? index, stars: Math.max(0, Math.min(3, value)) as 0 | 1 | 2 | 3 })),
+                      { moveIndex: currentPlayerMoveIdx, stars: 0 },
+                    ],
+                  });
                   setSessionComplete(true);
                   return;
                 }
@@ -296,6 +316,8 @@ export default function DrillSession() {
       openingId,
       variationId,
       recordDrillResult,
+      recordOpeningCompletion,
+      moveResults,
       playOpponentMoves,
     ]
   );
