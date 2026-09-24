@@ -134,9 +134,13 @@ export default function DrillSession() {
   );
 
   const playOpponentMoves = useCallback(
-    (fromIndex: number) => {
-      if (!playerColor) return;
-      if (sideMode === 'both') {
+    (fromIndex: number, colorOverride?: PlayerColor, sideOverride?: DrillSideMode) => {
+      // beginSession updates playerColor asynchronously. Accept the selected
+      // color explicitly so Black mode can start its opening reply immediately.
+      const activeColor = colorOverride ?? playerColor;
+      const activeSide = sideOverride ?? sideMode;
+      if (!activeColor) return;
+      if (activeSide === 'both') {
         setWaitingOpponent(false);
         applyMovesUpTo(fromIndex);
         return;
@@ -148,7 +152,7 @@ export default function DrillSession() {
           return;
         }
         const fenBefore = buildFenFromMoves(startFen, moves, i);
-        if (isPlayerTurn(fenBefore, playerColor)) {
+        if (isPlayerTurn(fenBefore, activeColor)) {
           setWaitingOpponent(false);
           applyMovesUpTo(i);
           return;
@@ -175,7 +179,7 @@ export default function DrillSession() {
       setHintUsed(false);
       setHintSquares([]);
       applyMovesUpTo(0);
-      setTimeout(() => playOpponentMoves(0), 300);
+      setTimeout(() => playOpponentMoves(0, mode === 'both' ? 'w' : mode, mode), 300);
     },
     [applyMovesUpTo, playOpponentMoves]
   );
