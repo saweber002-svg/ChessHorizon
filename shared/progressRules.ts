@@ -1,5 +1,5 @@
 export type PrestigeTier = 0 | 1 | 2 | 3 | 4;
-export type DrillSide = "white" | "black";
+export type DrillSide = "white" | "black" | "both";
 
 export const PRESTIGE_THRESHOLDS: Record<PrestigeTier, number> = {
   0: 0,

@@ -162,7 +162,7 @@ interface ProgressContextValue {
   recordOpeningCompletion: (input: {
     openingId: string;
     variationId: string;
-    side: 'white' | 'black';
+    side: 'white' | 'black' | 'both';
     moveResults: Array<{ moveIndex: number; stars: 0 | 1 | 2 | 3 }>;
   }) => Promise<void>;
   setDrillMode: (mode: 'random' | 'in-order') => void;
@@ -202,7 +202,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
   const recordOpeningCompletion = useCallback(async (input: {
     openingId: string;
     variationId: string;
-    side: 'white' | 'black';
+    side: 'white' | 'black' | 'both';
     moveResults: Array<{ moveIndex: number; stars: 0 | 1 | 2 | 3 }>;
   }) => {
     if (!user) return;

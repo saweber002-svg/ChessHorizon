@@ -17,6 +17,7 @@ import { hasTacticalDrills, TACTICAL_FILE_IDS } from '@/data/drillRegistry';
 import { isQuarantinedTacticalFileId } from '@/data/quarantinedTacticalRegistry';
 
 type PlayerColor = 'w' | 'b';
+type DrillSideMode = PlayerColor | 'both';
 type DrillMode = 'in-order' | 'random';
 
 const MAX_ATTEMPTS = 3;
@@ -43,6 +44,7 @@ export default function DrillSession() {
   const [loadError, setLoadError] = useState<string | null>(null);
 
   const [playerColor, setPlayerColor] = useState<PlayerColor | null>(null);
+  const [sideMode, setSideMode] = useState<DrillSideMode>('both');
   const [drillMode, setDrillMode] = useState<DrillMode>('in-order');
   const [moveIndex, setMoveIndex] = useState(0);
   const [fen, setFen] = useState<string>('');
@@ -110,14 +112,16 @@ export default function DrillSession() {
   }, [drillFileId]);
 
   const playerMoveIndices = useMemo(() => {
-    if (!playerColor || moves.length === 0) return [];
+    if (moves.length === 0) return [];
+    if (sideMode === 'both') return moves.map((_, index) => index);
+    if (!playerColor) return [];
     const indices: number[] = [];
     for (let i = 0; i < moves.length; i++) {
       const fenBefore = buildFenFromMoves(startFen, moves, i);
       if (isPlayerTurn(fenBefore, playerColor)) indices.push(i);
     }
     return indices;
-  }, [moves, playerColor, startFen]);
+  }, [moves, playerColor, sideMode, startFen]);
 
   const currentPlayerMoveIdx = playerMoveIndices[moveIndex] ?? -1;
   const correctMove = currentPlayerMoveIdx >= 0 ? moves[currentPlayerMoveIdx] : undefined;
@@ -132,6 +136,11 @@ export default function DrillSession() {
   const playOpponentMoves = useCallback(
     (fromIndex: number) => {
       if (!playerColor) return;
+      if (sideMode === 'both') {
+        setWaitingOpponent(false);
+        applyMovesUpTo(fromIndex);
+        return;
+      }
       let i = fromIndex;
       const step = () => {
         if (i >= moves.length) {
@@ -151,12 +160,13 @@ export default function DrillSession() {
       };
       step();
     },
-    [moves, playerColor, startFen, applyMovesUpTo]
+    [moves, playerColor, sideMode, startFen, applyMovesUpTo]
   );
 
   const beginSession = useCallback(
-    (color: PlayerColor) => {
-      setPlayerColor(color);
+    (mode: DrillSideMode) => {
+      setSideMode(mode);
+      setPlayerColor(mode === 'both' ? 'w' : mode);
       setMoveIndex(0);
       setAttempts(0);
       setMoveResults([]);
@@ -208,7 +218,7 @@ export default function DrillSession() {
           void recordOpeningCompletion({
             openingId,
             variationId,
-            side: playerColor === 'w' ? 'white' : 'black',
+            side: sideMode === 'both' ? 'both' : playerColor === 'w' ? 'white' : 'black',
             moveResults: [
               ...moveResults.map((value, index) => ({ moveIndex: playerMoveIndices[index] ?? index, stars: Math.max(0, Math.min(3, value)) as 0 | 1 | 2 | 3 })),
               { moveIndex: currentPlayerMoveIdx, stars: Math.max(0, Math.min(3, stars)) as 0 | 1 | 2 | 3 },
@@ -231,6 +241,7 @@ export default function DrillSession() {
       recordDrillResult,
       recordOpeningCompletion,
       moveResults,
+      sideMode,
       playOpponentMoves,
     ]
   );
@@ -275,7 +286,7 @@ export default function DrillSession() {
                   void recordOpeningCompletion({
                     openingId,
                     variationId,
-                    side: playerColor === 'w' ? 'white' : 'black',
+                    side: sideMode === 'both' ? 'both' : playerColor === 'w' ? 'white' : 'black',
                     moveResults: [
                       ...moveResults.map((value, index) => ({ moveIndex: playerMoveIndices[index] ?? index, stars: Math.max(0, Math.min(3, value)) as 0 | 1 | 2 | 3 })),
                       { moveIndex: currentPlayerMoveIdx, stars: 0 },
@@ -318,6 +329,7 @@ export default function DrillSession() {
       recordDrillResult,
       recordOpeningCompletion,
       moveResults,
+      sideMode,
       playOpponentMoves,
     ]
   );
@@ -447,14 +459,21 @@ export default function DrillSession() {
           <p className="text-[#00f5d4] text-xs uppercase tracking-[0.3em] mb-2">Choose your banner</p>
           <h1 className="text-2xl font-bold text-white mb-2">{pack.name}</h1>
           <p className="text-white/45 text-sm mb-8">{line.description}</p>
-          <p className="text-white/60 text-sm mb-6">Lock in your color for this session:</p>
-          <div className="flex gap-4 justify-center">
+          <p className="text-white/60 text-sm mb-6">Choose which side you want to control:</p>
+          <div className="flex gap-3 justify-center">
             <button
               onClick={() => beginSession('w')}
               className="flex-1 max-w-[140px] py-4 rounded-xl border-2 border-cyan-400/50 bg-cyan-400/10 hover:bg-cyan-400/20 transition-all"
             >
               <span className="text-3xl">♔</span>
               <p className="text-sm font-semibold text-cyan-300 mt-2">White</p>
+            </button>
+            <button
+              onClick={() => beginSession('both')}
+              className="flex-1 max-w-[140px] py-4 rounded-xl border-2 border-white/30 bg-white/5 hover:bg-white/10 transition-all"
+            >
+              <span className="text-3xl">♔♚</span>
+              <p className="text-sm font-semibold text-white mt-2">Both</p>
             </button>
             <button
               onClick={() => beginSession('b')}
@@ -474,6 +493,10 @@ export default function DrillSession() {
       ? Math.round((moveIndex / playerMoveIndices.length) * 100)
       : 0;
 
+  const boardOrientation = sideMode === 'both'
+    ? (currentPlayerMoveIdx % 2 === 0 ? 'w' : 'b')
+    : playerColor;
+
   return (
     <motion.div className="min-h-screen bg-[#0a0a1f]">
       <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
@@ -490,7 +513,7 @@ export default function DrillSession() {
           </motion.div>
           <div className="flex items-center gap-2 text-xs text-white/40">
             <span className={playerColor === 'w' ? 'text-cyan-400' : 'text-red-400'}>
-              {playerColor === 'w' ? '♔ White' : '♚ Black'}
+              {sideMode === 'both' ? '♔♚ Both' : playerColor === 'w' ? '♔ White' : '♚ Black'}
             </span>
           </div>
         </div>
@@ -613,6 +636,7 @@ export default function DrillSession() {
                 glowColor={glowColor}
                 hintSquares={hintSquares}
                 lastMove={lastMove}
+                orientation={boardOrientation ?? 'w'}
                 interactive={!waitingOpponent && !showStars}
               />
             </div>

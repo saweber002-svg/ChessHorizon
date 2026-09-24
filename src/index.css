@@ -67,11 +67,28 @@
   }
 
   .chess-board-light {
-    background-color: #2a2a3e;
+    background: linear-gradient(135deg, #2a2a3e 0%, #20283a 100%);
   }
 
   .chess-board-dark {
-    background-color: #141422;
+    background: linear-gradient(135deg, #141422 0%, #0e1020 100%);
+  }
+
+  .board-shell {
+    background: #080912;
+    box-shadow: 0 0 0 1px rgba(0, 245, 212, 0.08),
+      0 0 24px rgba(0, 245, 212, 0.16),
+      0 0 70px rgba(0, 245, 212, 0.08),
+      inset 0 0 24px rgba(0, 0, 0, 0.45);
+  }
+
+  .board-shell [class*='chess-board-'] {
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+    transition: filter 160ms ease, background 160ms ease;
+  }
+
+  .board-shell [class*='chess-board-']:hover {
+    filter: brightness(1.12);
   }
 
   .neon-piece-white svg {

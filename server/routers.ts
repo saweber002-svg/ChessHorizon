@@ -314,7 +314,7 @@ export const appRouter = router({
         openingId: z.string().min(1),
         variationId: z.string().min(1),
         moveIndex: z.number().int().min(0),
-        side: z.enum(["white", "black"]),
+        side: z.enum(["white", "black", "both"]),
       }))
       .query(({ ctx, input }) => getMoveProgressForUser(ctx.user.id, input.openingId, input.variationId, input.moveIndex, input.side)),
 
@@ -322,7 +322,7 @@ export const appRouter = router({
       .input(z.object({
         openingId: z.string().min(1),
         variationId: z.string().min(1),
-        side: z.enum(["white", "black"]),
+        side: z.enum(["white", "black", "both"]),
       }))
       .query(({ ctx, input }) => getOpeningProgressForUser(ctx.user.id, input.openingId, input.variationId, input.side)),
 
@@ -330,7 +330,7 @@ export const appRouter = router({
       .input(z.object({
         openingId: z.string().min(1),
         variationId: z.string().min(1),
-        side: z.enum(["white", "black"]),
+        side: z.enum(["white", "black", "both"]),
         moveResults: z.array(z.object({
           moveIndex: z.number().int().min(0),
           stars: z.union([z.literal(0), z.literal(1), z.literal(2), z.literal(3)]),
@@ -345,7 +345,7 @@ export const appRouter = router({
       .input(z.object({
         openingId: z.string().min(1),
         variationId: z.string().min(1),
-        side: z.enum(["white", "black"]),
+        side: z.enum(["white", "black", "both"]),
       }))
       .query(({ ctx, input }) => getWatchStatusForUser(ctx.user.id, input.openingId, input.variationId, input.side)),
 
@@ -353,7 +353,7 @@ export const appRouter = router({
       .input(z.object({
         openingId: z.string().min(1),
         variationId: z.string().min(1),
-        side: z.enum(["white", "black"]),
+        side: z.enum(["white", "black", "both"]),
         idempotencyKey: z.string().min(8).max(128),
       }))
       .mutation(({ ctx, input }) => consumeWatchForUser({ ...input, userId: ctx.user.id })),
