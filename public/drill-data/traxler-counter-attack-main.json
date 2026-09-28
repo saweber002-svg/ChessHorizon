@@ -1,15 +1,37 @@
 {
   "id": "traxler-counter-attack-main",
-  "name": "Two Knights Defense — Traxler Counter-Attack",
+  "name": "Two Knights Defense \u2014 Traxler Counter-Attack",
   "description": "Black ignores the threat to f7 and plays 4...Bc5 (Traxler Counter-Attack / Wilkes-Barre). After 5.Nxf7 Bxf2+!, Black sacs the bishop to drag the white king into the open. Popular surprise weapon on Lichess in club-level games (especially blitz/bullet). Wildly tactical and double-edged.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   "lines": [
     {
       "id": "traxler-counter-attack",
       "name": "Traxler Counter-Attack",
-      "description": "The signature Traxler chaos: 4.Ng5 Bc5 5.Nxf7 Bxf2+ 6.Kxf2 Nxe4+ 7.Ke3 Qh4. White's king is marched into the center while Black brings queen and knights into the attack with tempo. A favorite chaotic line among Lichess players looking for quick wins against unprepared opponents.",
-      "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Nf6", "Ng5", "Bc5", "Nxf7", "Bxf2+", "Kxf2", "Nxe4+", "Ke3", "Qh4", "g3", "Qf6", "Nxh8", "d5"],
-      "moveCount": 18,
+      "description": "The signature Traxler chaos: 4...Bc5 5.Nxf7 Bxf2+! 6.Kxf2 Nxe4+ 7.Ke3 Qh4. White tries 8.g3, but Black has the star shot 8...Nxg3! \u2014 the h-pawn is pinned to the rook, so White must recapture 9.hxg3. After 9...Qd4+ 10.Kf3, Black strikes in the center with 10...d5, and White's 11.Rh4 both blocks and counterattacks. Black's initiative rages on.",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Nf6",
+        "Ng5",
+        "Bc5",
+        "Nxf7",
+        "Bxf2+",
+        "Kxf2",
+        "Nxe4+",
+        "Ke3",
+        "Qh4",
+        "g3",
+        "Nxg3",
+        "hxg3",
+        "Qd4+",
+        "Kf3",
+        "d5",
+        "Rh4"
+      ],
+      "moveCount": 21,
       "difficulty": "Advanced"
     }
   ],
@@ -17,14 +39,24 @@
     "white": {
       "typicalPawnStructure": "Open center, extra material",
       "mostValuableBishop": "Light-squared bishop (often traded or active)",
-      "keySquares": ["e3", "f2", "d5", "e4"],
-      "quickTip": "Survive the initial checks, consolidate the extra piece (the trapped knight on h8 can be lost), and counterattack."
+      "keySquares": [
+        "e3",
+        "f2",
+        "d5",
+        "e4"
+      ],
+      "quickTip": "Survive the checks and do not grab material \u2014 consolidate the exposed king, untangle, and make Black prove the attack."
     },
     "black": {
       "typicalPawnStructure": "Open center",
       "mostValuableBishop": "Dark-squared bishop sacrificed on f2",
-      "keySquares": ["e3", "f2", "e4", "h4"],
-      "quickTip": "Keep checking and creating threats. Do not let White stabilize — use the lead in development and exposed king."
+      "keySquares": [
+        "e3",
+        "f2",
+        "e4",
+        "h4"
+      ],
+      "quickTip": "Keep checking and creating threats. Do not let White stabilize \u2014 use the lead in development and exposed king."
     }
   }
 }

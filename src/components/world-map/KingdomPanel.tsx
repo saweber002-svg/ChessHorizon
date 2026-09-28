@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
-import { X, Swords, Eye, Star, Lock, ChevronRight } from 'lucide-react';
+import { X, Swords, Eye, Star, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'wouter';
 import type { MapLocation } from '@/data/mapLocations';
 import { ITALIAN_DRILL_VARIATIONS } from '@/data/mapLocations';
 import DRILLS from '@/data/drillRegistry';
-import openingsData from '@/data/openings.json';
 import { useProgress } from '@/contexts/ProgressContext';
 import { KINGDOM_UNLOCK_STARS, KINGDOM_UNLOCK_ORDER } from '@/types';
 
@@ -35,17 +34,6 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
   const startWatchMode = (drillFileId: string, openingId: string, variationId: string) => {
     onClose();
     setLocation(`/watch-mode/${drillFileId}?opening=${openingId}&variation=${variationId}`);
-  };
-
-  const startLegacyDrill = () => {
-    onClose();
-    const vid = location.variationId ?? 'giuoco-piano';
-    setLocation(`/drill/${location.openingId}/${vid}/0`);
-  };
-
-  const startLegacyVariation = (variationId: string) => {
-    onClose();
-    setLocation(`/drill/${location.openingId}/${variationId}/0`);
   };
 
   const goWilderness = () => {
@@ -170,15 +158,7 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
               className="w-full gap-2 bg-gradient-to-r from-[#00f5d4] to-[#00c4aa] text-[#0a0a1f] font-bold hover:opacity-90"
             >
               <Swords size={18} />
-              Start Drill (JSON)
-            </Button>
-            <Button
-              variant="outline"
-              onClick={startLegacyDrill}
-              className="w-full gap-2 border-[#2a2a3e] text-white/70"
-            >
-              Single-move practice
-              <ChevronRight size={16} />
+              Start Drill
             </Button>
             <Button
               onClick={() =>
@@ -217,49 +197,39 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-wider text-white/30 mb-3">Available drills</p>
 
-            {/* Spain & Germany: Show all variations from openings.json (legacy single-move practice) */}
-            {(location.kingdom === 'spanish' || location.kingdom === 'germany') ? (
-              ((openingsData as any)[location.openingId]?.variations || []).map((v: any) => (
+            {/* Kingdoms: use registered drill JSON files */}
+            {DRILLS.filter((d) => {
+              if (!d.id.endsWith('-main')) return false;
+
+              if (location.kingdom === 'queendom') {
+                return (
+                  d.id.startsWith('queen-') ||
+                  d.id.startsWith('slav-') ||
+                  d.id.startsWith('budapest-') ||
+                  d.id.startsWith('blackmar-') ||
+                  d.id.startsWith('london-')
+                );
+              }
+              if (location.kingdom === 'french') return d.id.startsWith('french-');
+              if (location.kingdom === 'dutch') return d.id.startsWith('dutch-');
+              // Drill file ids don't always match the kingdom's opening id:
+              // Spain's packs are filed under ruy-lopez-*, Germany's Caro-Kann packs under caro-*.
+              if (location.kingdom === 'spanish') return d.id.startsWith('ruy-lopez-');
+              if (location.kingdom === 'germany') return d.id.startsWith('caro-');
+              return d.id.startsWith(`${location.openingId}-`);
+            }).map((d) => {
+              const variationId = d.id.replace(/-main$|-(tacticals|black-tacticals)$/i, '');
+              return (
                 <button
-                  key={v.id}
-                  onClick={() => startLegacyVariation(v.id)}
+                  key={d.id}
+                  onClick={() => startDrill(d.id, location.openingId, variationId)}
                   className="w-full flex items-center justify-between p-3 rounded-xl bg-[#141422]/80 border border-[#2a2a3e] hover:border-[#00f5d4]/40 transition-colors text-left group"
                 >
-                  <span className="text-sm text-white/80 group-hover:text-white">{v.name}</span>
-                  <ChevronRight size={16} className="text-[#00f5d4]/50 group-hover:text-[#00f5d4]" />
+                  <span className="text-sm text-white/80 group-hover:text-white">{d.label}</span>
+                  <Swords size={16} className="text-[#00f5d4]/50 group-hover:text-[#00f5d4]" />
                 </button>
-              ))
-            ) : (
-              /* Other kingdoms: use registered drill JSON files */
-              DRILLS.filter((d) => {
-                if (!d.id.endsWith('-main')) return false;
-
-                if (location.kingdom === 'queendom') {
-                  return (
-                    d.id.startsWith('queen-') ||
-                    d.id.startsWith('slav-') ||
-                    d.id.startsWith('budapest-') ||
-                    d.id.startsWith('blackmar-') ||
-                    d.id.startsWith('london-')
-                  );
-                }
-                if (location.kingdom === 'french') return d.id.startsWith('french-');
-                if (location.kingdom === 'dutch') return d.id.startsWith('dutch-');
-                return d.id.startsWith(`${location.openingId}-`);
-              }).map((d) => {
-                const variationId = d.id.replace(/-main$|-(tacticals|black-tacticals)$/i, '');
-                return (
-                  <button
-                    key={d.id}
-                    onClick={() => startDrill(d.id, location.openingId, variationId)}
-                    className="w-full flex items-center justify-between p-3 rounded-xl bg-[#141422]/80 border border-[#2a2a3e] hover:border-[#00f5d4]/40 transition-colors text-left group"
-                  >
-                    <span className="text-sm text-white/80 group-hover:text-white">{d.label}</span>
-                    <Swords size={16} className="text-[#00f5d4]/50 group-hover:text-[#00f5d4]" />
-                  </button>
-                );
-              })
-            )}
+              );
+            })}
           </div>
         )}
       </motion.div>

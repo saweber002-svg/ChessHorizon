@@ -8,6 +8,8 @@ interface ChessBoardProps {
   interactive?: boolean;
   hintSquares?: Square[];
   lastMove?: { from: Square; to: Square } | null;
+  /** Which side sits at the bottom of the board. Defaults to 'white'. */
+  orientation?: 'white' | 'black';
 }
 
 const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as const;
@@ -67,6 +69,7 @@ export default function ChessBoard({
   interactive = true,
   hintSquares = [],
   lastMove,
+  orientation = 'white',
 }: ChessBoardProps) {
   const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
   const [legalMoves, setLegalMoves] = useState<Square[]>([]);
@@ -101,11 +104,22 @@ export default function ChessBoard({
     return b;
   }, [chess]);
 
+  // Display order of ranks/files. For 'black' orientation the board is flipped
+  // so the player's own side sits at the bottom.
+  const rankOrder = useMemo(
+    () => (orientation === 'black' ? [...RANKS].reverse() : RANKS),
+    [orientation]
+  );
+  const fileOrder = useMemo(
+    () => (orientation === 'black' ? [...FILES].reverse() : FILES),
+    [orientation]
+  );
+
   const getSquareFromRC = useCallback(
     (r: number, c: number): Square => {
-      return `${FILES[c]}${RANKS[r]}` as Square;
+      return `${fileOrder[c]}${rankOrder[r]}` as Square;
     },
-    []
+    [fileOrder, rankOrder]
   );
 
   const handleSquareClick = useCallback(
@@ -200,10 +214,13 @@ export default function ChessBoard({
       className={`relative rounded-lg overflow-hidden border-2 border-[#2a2a3e] transition-all duration-300 ${getGlowClass()}`}
     >
       <div className="grid grid-cols-8 grid-rows-8 aspect-square">
-        {RANKS.map((_, r) =>
-          FILES.map((_, c) => {
+        {rankOrder.map((_, r) =>
+          fileOrder.map((_, c) => {
+            // `board` is indexed rank 8..1 / file a..h; flip indices for black orientation.
+            const br = orientation === 'black' ? 7 - r : r;
+            const bc = orientation === 'black' ? 7 - c : c;
             const square = getSquareFromRC(r, c);
-            const piece = board[r][c];
+            const piece = board[br][bc];
             const isLight = (r + c) % 2 === 0;
             const isSelected = selectedSquare === square;
             const isLegalMove = legalMoves.includes(square);
@@ -252,12 +269,12 @@ export default function ChessBoard({
                 )}
                 {c === 0 && (
                   <span className="absolute top-0.5 left-1 text-[10px] font-mono text-white/40 select-none">
-                    {RANKS[r]}
+                    {rankOrder[r]}
                   </span>
                 )}
                 {r === 7 && (
                   <span className="absolute bottom-0.5 right-1 text-[10px] font-mono text-white/40 select-none">
-                    {FILES[c]}
+                    {fileOrder[c]}
                   </span>
                 )}
               </div>

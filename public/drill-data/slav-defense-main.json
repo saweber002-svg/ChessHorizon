@@ -1,13 +1,13 @@
 {
   "id": "slav-defense-main",
   "name": "Slav Defense",
-  "description": "Main line for the Slav Defense.",
+  "description": "The true Slav main line: Black meets 2.c4 with 2...c6 and captures 4...dxc4, developing the light-squared bishop to f5 before locking the center with ...e6 \u2014 the defining idea of the Slav.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   "lines": [
     {
       "id": "slav-defense-l1",
-      "name": "Slav Defense",
-      "description": "Master the standard moves of the Slav Defense.",
+      "name": "Slav Defense \u2014 Main Line",
+      "description": "The main line Slav: 4...dxc4 5.a4 Bf5 \u2014 Black develops the c8-bishop outside the pawn chain before playing ...e6, the whole point of the Slav. After 6.e3 e6 7.Bxc4 Bb4, both sides castle into a rich positional struggle.",
       "moves": [
         "d4",
         "d5",
@@ -16,15 +16,17 @@
         "Nf3",
         "Nf6",
         "Nc3",
-        "e6",
-        "e3",
-        "Nbd7",
-        "Bd3",
         "dxc4",
+        "a4",
+        "Bf5",
+        "e3",
+        "e6",
         "Bxc4",
-        "Bd6"
+        "Bb4",
+        "O-O",
+        "O-O"
       ],
-      "moveCount": 14,
+      "moveCount": 16,
       "difficulty": "Intermediate"
     }
   ]

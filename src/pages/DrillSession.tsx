@@ -15,6 +15,12 @@ import {
 } from '@/lib/drillLoader';
 import { hasTacticalDrills, TACTICAL_FILE_IDS } from '@/data/drillRegistry';
 import { isQuarantinedTacticalFileId } from '@/data/quarantinedTacticalRegistry';
+import {
+  analyzeDeviation,
+  deviationCopy,
+  type DeviationAnalysis,
+} from '@/lib/coachingAnalysis';
+import { getEngine } from '@/engine/stockfish';
 
 type PlayerColor = 'w' | 'b';
 type DrillMode = 'in-order' | 'random';
@@ -56,9 +62,41 @@ export default function DrillSession() {
   const [moveResults, setMoveResults] = useState<number[]>([]);
   const [hintUsed, setHintUsed] = useState(false);
   const [hintSquares, setHintSquares] = useState<Square[]>([]);
+  const [deviation, setDeviation] = useState<DeviationAnalysis | null>(null);
+  const [deviationLoading, setDeviationLoading] = useState(false);
+  /** Bumped whenever the position changes so stale engine replies are discarded. */
+  const deviationSeq = useRef(0);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isTacticalPack = drillFileId.includes('-tacticals');
+
+  const clearDeviation = useCallback(() => {
+    deviationSeq.current += 1;
+    setDeviation(null);
+    setDeviationLoading(false);
+  }, []);
+
+  /**
+   * Ask the engine why a wrong drill move was bad, without blocking the
+   * retry flow. Stale replies (user already moved on) are discarded.
+   */
+  const checkDeviation = useCallback(
+    (moveSan: string, fenBefore: string, bookMove: string) => {
+      const seq = ++deviationSeq.current;
+      setDeviationLoading(true);
+      analyzeDeviation(moveSan, fenBefore, bookMove).then(
+        (d) => {
+          if (deviationSeq.current === seq) setDeviation(d);
+        },
+        () => {
+          /* engine unavailable: the drill plays on exactly as before */
+        },
+      ).finally(() => {
+        if (deviationSeq.current === seq) setDeviationLoading(false);
+      });
+    },
+    []
+  );
 
   const selectTactic = useCallback((tactic: DrillLine) => {
     setLine(tactic);
@@ -72,7 +110,8 @@ export default function DrillSession() {
     setLastMove(null);
     setGlowColor('idle');
     setShowStars(false);
-  }, []);
+    clearDeviation();
+  }, [clearDeviation]);
 
   const moves = useMemo(() => line?.moves ?? [], [line]);
   const startFen = line?.startFen ?? pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
@@ -95,6 +134,7 @@ export default function DrillSession() {
     setMoveResults([]);
     setHintUsed(false);
     setHintSquares([]);
+    clearDeviation();
 
     loadDrillPack(drillFileId)
       .then((data) => {
@@ -107,7 +147,7 @@ export default function DrillSession() {
         }
       })
       .catch((e) => setLoadError(e instanceof Error ? e.message : 'Failed to load drill'));
-  }, [drillFileId]);
+  }, [drillFileId, clearDeviation]);
 
   const playerMoveIndices = useMemo(() => {
     if (!playerColor || moves.length === 0) return [];
@@ -128,6 +168,8 @@ export default function DrillSession() {
     },
     [startFen, moves]
   );
+
+
 
   const playOpponentMoves = useCallback(
     (fromIndex: number) => {
@@ -164,10 +206,13 @@ export default function DrillSession() {
       setShowStars(false);
       setHintUsed(false);
       setHintSquares([]);
+      clearDeviation();
+      // Pre-warm the engine so the first deviation check doesn't pay the WASM download.
+      getEngine().ensureReady().catch(() => {});
       applyMovesUpTo(0);
       setTimeout(() => playOpponentMoves(0), 300);
     },
-    [applyMovesUpTo, playOpponentMoves]
+    [applyMovesUpTo, playOpponentMoves, clearDeviation]
   );
 
   useEffect(() => {
@@ -203,6 +248,7 @@ export default function DrillSession() {
         setAttempts(0);
         setHintUsed(false);
         setHintSquares([]);
+        clearDeviation();
         const nextMoveIndex = moveIndex + 1;
         if (nextMoveIndex >= playerMoveIndices.length) {
           void recordOpeningCompletion({
@@ -232,6 +278,7 @@ export default function DrillSession() {
       recordOpeningCompletion,
       moveResults,
       playOpponentMoves,
+      clearDeviation,
     ]
   );
 
@@ -257,6 +304,8 @@ export default function DrillSession() {
           setAttempts(nextAttempts);
           setGlowColor('incorrect');
           applyMovesUpTo(currentPlayerMoveIdx);
+          // Ask the engine why this was bad — non-blocking, the user can retry immediately.
+          checkDeviation(result.san, fen, correctMove);
 
           if (nextAttempts >= MAX_ATTEMPTS) {
             setMoveResults((prev) => [...prev, 0]);
@@ -289,6 +338,7 @@ export default function DrillSession() {
                 setHintUsed(false);
                 setHintSquares([]);
                 setGlowColor('idle');
+                clearDeviation();
                 playOpponentMoves(playerMoveIndices[nextMoveIndex]);
               }, 800);
             }, 600);
@@ -319,6 +369,8 @@ export default function DrillSession() {
       recordOpeningCompletion,
       moveResults,
       playOpponentMoves,
+      checkDeviation,
+      clearDeviation,
     ]
   );
 
@@ -474,6 +526,8 @@ export default function DrillSession() {
       ? Math.round((moveIndex / playerMoveIndices.length) * 100)
       : 0;
 
+  const deviationInfo = deviation ? deviationCopy(deviation) : null;
+
   return (
     <motion.div className="min-h-screen bg-[#0a0a1f]">
       <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
@@ -614,8 +668,71 @@ export default function DrillSession() {
                 hintSquares={hintSquares}
                 lastMove={lastMove}
                 interactive={!waitingOpponent && !showStars}
+                orientation={playerColor === 'b' ? 'black' : 'white'}
               />
             </div>
+
+            {/* Engine refutation: why the wrong move was bad (or wasn't) */}
+            <AnimatePresence>
+              {deviationLoading && !deviationInfo && (
+                <motion.div
+                  key="deviation-loading"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="mt-4 flex items-center justify-center gap-3 text-xs uppercase tracking-widest text-white/30"
+                >
+                  <span className="w-3 h-3 border-2 border-[#00f5d4] border-t-transparent rounded-full animate-spin" />
+                  Engine checking your move…
+                </motion.div>
+              )}
+              {deviationInfo && (
+                <motion.div
+                  key="deviation"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  className={`mt-4 p-4 rounded-2xl border text-left ${
+                    deviationInfo.mild
+                      ? 'bg-amber-500/10 border-amber-500/25'
+                      : 'bg-red-500/10 border-red-500/25'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p
+                        className={`font-bold text-xs uppercase tracking-wider ${
+                          deviationInfo.mild ? 'text-amber-400' : 'text-red-400'
+                        }`}
+                      >
+                        {deviationInfo.title}
+                      </p>
+                      <p className="text-white/75 text-sm mt-1">{deviationInfo.detail}</p>
+                      {deviationInfo.refutationLine && (
+                        <p className="text-white/60 text-sm mt-2">
+                          <span className="text-white/35">One reply: </span>
+                          <span className="font-mono text-white/80">{deviationInfo.refutationLine}</span>
+                        </p>
+                      )}
+                      {deviationLoading && (
+                        <p className="text-white/30 text-xs mt-1 animate-pulse">Rechecking…</p>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => {
+                        deviationSeq.current += 1;
+                        setDeviation(null);
+                        setDeviationLoading(false);
+                      }}
+                      aria-label="Dismiss engine note"
+                      className="text-white/30 hover:text-white/70 text-xl leading-none px-1"
+                    >
+                      ×
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <motion.div className="flex justify-center gap-3 mt-6">
               <button
@@ -623,8 +740,7 @@ export default function DrillSession() {
                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm"
               >
                 <RotateCcw size={16} /> Restart
-              </button>
-              <button
+              </button>              <button
                 onClick={handleHint}
                 disabled={hintUsed || sessionComplete || showStars}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-sm transition-colors ${
