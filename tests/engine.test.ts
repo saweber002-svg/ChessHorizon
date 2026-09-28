@@ -5,7 +5,7 @@ import {
   scoreToCp,
   computeCpLoss,
 } from '@/engine/stockfish';
-import { uciToSan, classifyMove } from '@/lib/coachingAnalysis';
+import { uciToSan, classifyMove, pvToSan, formatEval, deviationCopy, type DeviationAnalysis } from '@/lib/coachingAnalysis';
 
 describe('parseInfoLine', () => {
   it('parses a centipawn info line', () => {
@@ -104,5 +104,73 @@ describe('uciToSan', () => {
     expect(uciToSan(start, 'e2e4')).toBe('e4');
     expect(uciToSan(start, 'g1f3')).toBe('Nf3');
     expect(uciToSan('7k/5P2/8/8/8/8/6K1/8 w - - 0 1', 'f7f8q')).toBe('f8=Q+');
+  });
+});
+
+describe('pvToSan', () => {
+  const start = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+  it('walks a principal variation into SAN', () => {
+    expect(pvToSan(start, ['e2e4', 'e7e5', 'g1f3'])).toEqual(['e4', 'e5', 'Nf3']);
+  });
+
+  it('stops at the first illegal move', () => {
+    expect(pvToSan(start, ['e2e4', 'e2e5'])).toEqual(['e4']);
+  });
+
+  it('handles promotions in the line', () => {
+    expect(pvToSan('7k/5P2/8/8/8/8/6K1/8 w - - 0 1', ['f7f8q'])).toEqual(['f8=Q+']);
+  });
+});
+
+describe('formatEval', () => {
+  it('formats centipawns as signed pawn units', () => {
+    expect(formatEval(34)).toBe('+0.3');
+    expect(formatEval(-150)).toBe('-1.5');
+    expect(formatEval(0)).toBe('0.0');
+  });
+
+  it('shows # for mate scores', () => {
+    expect(formatEval(10000)).toBe('#');
+    expect(formatEval(-9970)).toBe('#');
+  });
+});
+
+describe('deviationCopy', () => {
+  const base: DeviationAnalysis = {
+    move: 'Nf3',
+    classification: 'Mistake',
+    cpLoss: 230,
+    evalBefore: 40,
+    evalAfter: -190,
+    engineBest: 'd4',
+    refutation: ['e5', 'Nxe5', 'd4'],
+    bookMove: 'd4',
+  };
+
+  it('explains a real mistake with the eval swing and refutation', () => {
+    const copy = deviationCopy(base);
+    expect(copy.mild).toBe(false);
+    expect(copy.title).toContain('Mistake');
+    expect(copy.title).toContain('+0.4 → -1.9');
+    expect(copy.detail).toContain('Book plays d4');
+    expect(copy.refutationLine).toBe('e5 Nxe5 d4');
+  });
+
+  it('notes when the engine agrees with the book move', () => {
+    const copy = deviationCopy({ ...base, engineBest: 'd4', bookMove: 'd4' });
+    expect(copy.detail).not.toContain("engine's top choice");
+  });
+
+  it('flags when the engine prefers something else', () => {
+    const copy = deviationCopy({ ...base, engineBest: 'c4', bookMove: 'd4' });
+    expect(copy.detail).toContain("The engine's top choice is c4");
+  });
+
+  it('is gentle when the off-book move loses nothing', () => {
+    const copy = deviationCopy({ ...base, cpLoss: 12, classification: 'Excellent', evalAfter: 35 });
+    expect(copy.mild).toBe(true);
+    expect(copy.title).toContain('no damage');
+    expect(copy.detail).toContain('d4');
+    expect(copy.refutationLine).toBeNull();
   });
 });

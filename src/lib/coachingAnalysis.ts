@@ -164,3 +164,131 @@ export async function getTopMoves(fen: string, count: number = 3): Promise<Array
     eval: scoreToCp(line.score),
   }));
 }
+
+// ---------------------------------------------------------------------------
+// Drill deviation analysis: "I played a bad move in a drill — why was it bad?"
+// ---------------------------------------------------------------------------
+
+/** Depth for deviation checks: a little shallower than coaching for speed. */
+const DEVIATION_DEPTH = 12;
+
+export interface DeviationAnalysis {
+  /** The user's move, SAN */
+  move: string;
+  classification: MoveClassification;
+  cpLoss: number;
+  /** Eval before/after from the mover's perspective, centipawns (mate ~ +/-10000) */
+  evalBefore: number;
+  evalAfter: number;
+  /** The engine's top move in the position, SAN */
+  engineBest: string;
+  /** The punishing reply: engine PV after the user's move, SAN, opponent to move first */
+  refutation: string[];
+  /** The drill's book move, SAN */
+  bookMove: string;
+}
+
+/** Convert a UCI PV into SAN by walking forward from fen. Stops at the first illegal move. */
+export function pvToSan(fen: string, pv: string[]): string[] {
+  const game = new Chess(fen);
+  const sans: string[] = [];
+  for (const uci of pv) {
+    try {
+      const m = game.move({
+        from: uci.slice(0, 2),
+        to: uci.slice(2, 4),
+        promotion: uci.length > 4 ? uci[4] : undefined,
+      });
+      sans.push(m.san);
+    } catch {
+      break;
+    }
+  }
+  return sans;
+}
+
+/** Format a centipawn eval for display: "+1.2", "-0.8", or "#" for mate. */
+export function formatEval(cp: number): string {
+  if (Math.abs(cp) >= 9000) return '#';
+  const pawns = cp / 100;
+  return (pawns > 0 ? '+' : '') + pawns.toFixed(1);
+}
+
+/**
+ * Analyze a move that deviated from the drill's book line.
+ *
+ * @param moveSan the move just played, in SAN
+ * @param fenBefore the position before the move
+ * @param bookMove the drill's expected move, in SAN
+ */
+export async function analyzeDeviation(
+  moveSan: string,
+  fenBefore: string,
+  bookMove: string,
+): Promise<DeviationAnalysis> {
+  const engine = getEngine();
+  const game = new Chess(fenBefore);
+  game.move(moveSan);
+  const fenAfter = game.fen();
+
+  if (game.isGameOver()) {
+    // Mating (or stalemating) when the book wanted something else: reuse the
+    // game-over handling from analyzeMove; there is no refutation to show.
+    const a = await analyzeMove(moveSan, fenBefore);
+    return {
+      move: a.move,
+      classification: a.classification,
+      cpLoss: a.cpLoss,
+      evalBefore: a.evalBefore,
+      evalAfter: a.evalAfter,
+      engineBest: a.bestMove,
+      refutation: [],
+      bookMove,
+    };
+  }
+
+  const [before] = await engine.analyze(fenBefore, { depth: DEVIATION_DEPTH });
+  const [after] = await engine.analyze(fenAfter, { depth: DEVIATION_DEPTH });
+
+  const afterMoverPerspective = flipScore(after.score);
+  const cpLoss = computeCpLoss(before.score, afterMoverPerspective);
+
+  return {
+    move: moveSan,
+    classification: classifyMove(cpLoss),
+    cpLoss,
+    evalBefore: scoreToCp(before.score),
+    evalAfter: scoreToCp(afterMoverPerspective),
+    engineBest: uciToSan(fenBefore, before.pv[0]),
+    refutation: pvToSan(fenAfter, after.pv).slice(0, 4),
+    bookMove,
+  };
+}
+
+export interface DeviationCopy {
+  mild: boolean;
+  title: string;
+  detail: string;
+  refutationLine: string | null;
+}
+
+/** Human copy for the drill deviation panel. */
+export function deviationCopy(d: DeviationAnalysis): DeviationCopy {
+  if (d.cpLoss < 50) {
+    return {
+      mild: true,
+      title: 'Not the book move — but no damage',
+      detail: `${d.move} holds the position (${formatEval(d.evalAfter)}). This drill is teaching ${d.bookMove} here.`,
+      refutationLine: null,
+    };
+  }
+  const swing = `${formatEval(d.evalBefore)} → ${formatEval(d.evalAfter)}`;
+  return {
+    mild: false,
+    title: `${d.classification} — ${d.move} (${swing})`,
+    detail:
+      `Book plays ${d.bookMove}.` +
+      (d.engineBest !== d.bookMove ? ` The engine's top choice is ${d.engineBest}.` : ''),
+    refutationLine: d.refutation.length > 0 ? d.refutation.join(' ') : null,
+  };
+}
