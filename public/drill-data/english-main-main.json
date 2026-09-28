@@ -1,14 +1,31 @@
 {
   "id": "english-main-main",
-  "name": "English Opening — Symmetrical",
-  "description": "After 1.c4 c5, both sides mirror each other in the Symmetrical English. White fianchettoes the king's bishop, builds a broad development, and exchanges on d5 to simplify the center. Black mirrors with ...g6 and ...Bg7. The game revolves around White's d4 central break and the battle for the d4 square.",
+  "name": "English Opening \u2014 Symmetrical",
+  "description": "After 1.c4 c5, both sides develop symmetrically in the Symmetrical English. White fianchettoes the king's bishop and exchanges on d5; Black answers with the modern 6...Nc7 retreat and the central 7...e5. The game revolves around White's d4 break and the battle for the d4 square.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   "lines": [
     {
       "id": "english-main",
-      "name": "English Opening — Symmetrical",
-      "description": "After 1.c4 c5 2.Nf3 Nf6 3.Nc3 Nc6 4.g3 d5 5.cxd5 Nxd5 6.Bg2 Nxc3 7.bxc3 g6 8.O-O Bg7, the Symmetrical English structure is complete. White has the powerful fianchetto bishop on g2 controlling the long dark diagonal and is ready to break with d4. Black mirrors the fianchetto and will contest the d4 square with ...Nd4 or expand with ...b5. The battle for d4 defines the middlegame.",
-      "moves": ["c4", "c5", "Nf3", "Nf6", "Nc3", "Nc6", "g3", "d5", "cxd5", "Nxd5", "Bg2", "Nxc3", "bxc3", "g6", "O-O", "Bg7"],
+      "name": "English Opening \u2014 Symmetrical",
+      "description": "After 1.c4 c5 2.Nf3 Nf6 3.Nc3 Nc6 4.g3 d5 5.cxd5 Nxd5 6.Bg2, Black retreats 6...Nc7 \u2014 the modern main line \u2014 and claims the center with 7...e5. White restrains with 8.d3 and Black develops 8...Be7. The battle for d4 defines the middlegame.",
+      "moves": [
+        "c4",
+        "c5",
+        "Nf3",
+        "Nf6",
+        "Nc3",
+        "Nc6",
+        "g3",
+        "d5",
+        "cxd5",
+        "Nxd5",
+        "Bg2",
+        "Nc7",
+        "O-O",
+        "e5",
+        "d3",
+        "Be7"
+      ],
       "moveCount": 16,
       "difficulty": "Intermediate"
     }

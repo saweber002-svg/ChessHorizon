@@ -1,15 +1,34 @@
 {
   "id": "ruy-lopez-exchange-main",
-  "name": "Ruy López — Exchange Variation",
-  "description": "The Exchange Variation — White gives up the bishop pair with 4.Bxc6, saddling Black with doubled c-pawns. After 5.O-O f6 6.d4 exd4 7.Nxd4 c5, the position is structurally imbalanced: White has a mobile pawn center; Black has the bishop pair and fighting chances. A positional endgame battle.",
+  "name": "Ruy L\u00f3pez \u2014 Exchange Variation",
+  "description": "The Exchange Variation \u2014 White gives up the bishop pair with 4.Bxc6, saddling Black with doubled c-pawns. After 5.O-O f6 6.d4 exd4 7.Nxd4 c5, the position is structurally imbalanced: White has a mobile pawn center; Black has the bishop pair and fighting chances. A positional endgame battle.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   "lines": [
     {
       "id": "ruy-lopez-exchange",
-      "name": "Exchange Variation — Main Line",
-      "description": "White plays 4.Bxc6 immediately, doubling Black's c-pawns. After 5.O-O f6 6.d4 exd4, both sides enter an endgame-like structure. White plays 7.Nxd4 c5 8.Ne2 — retreating the knight to avoid the queen trade — and then pursues a mobile kingside majority. Black uses the bishop pair and semi-open d-file to generate counter-play.",
-      "moves": ["e4", "e5", "Nf3", "Nc6", "Bb5", "a6", "Bxc6", "dxc6", "O-O", "f6", "d4", "exd4", "Nxd4", "c5", "Ne2", "Qxd1"],
-      "moveCount": 16,
+      "name": "Exchange Variation \u2014 Main Line",
+      "description": "White plays 4.Bxc6 immediately, doubling Black's c-pawns. After 5.O-O f6 6.d4 exd4, White recaptures 7.Nxd4 and Black gains space with 7...c5, attacking the knight. White retreats 8.Nb3 \u2014 the natural square \u2014 and Black forces the queen trade with 8...Qxd1. White recaptures 9.Rxd1, reaching the famous Exchange endgame, and Black develops 9...Bd6 with the bishop pair as compensation.",
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bb5",
+        "a6",
+        "Bxc6",
+        "dxc6",
+        "O-O",
+        "f6",
+        "d4",
+        "exd4",
+        "Nxd4",
+        "c5",
+        "Nb3",
+        "Qxd1",
+        "Rxd1",
+        "Bd6"
+      ],
+      "moveCount": 18,
       "difficulty": "Intermediate"
     }
   ]
