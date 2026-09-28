@@ -374,8 +374,8 @@ export default function Coaching() {
       <style dangerouslySetInnerHTML={{ __html: `
         .custom-scrollbar::-webkit-scrollbar { width: 4px; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
-        .chess-board-light { background-color: #1a1a2e; }
-        .chess-board-dark { background-color: #0f0f1f; }
+        .chess-board-light { background-color: #7c8aa5; }
+        .chess-board-dark { background-color: #1b2340; }
       `}} />
     </div>
   );
