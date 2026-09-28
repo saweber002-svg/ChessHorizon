@@ -9,7 +9,6 @@ import {
   createPuzzle, getApprovedPuzzles, getPuzzleById, recordPuzzleAttempt,
   joinMatchmakingQueue, leaveMatchmakingQueue, findMatchInQueue, createPvpGame, getPvpGameById, updatePvpGame, getUserPvpGames,
   updateUserChessCom,
-  incrementDrillAttempt, recordWatchUsed, getDrillAttemptCount, getDrillAttemptCountsForOpening,
 } from "./db";
 import {
   consumeWatchForUser,
@@ -225,86 +224,6 @@ export const appRouter = router({
       }),
 
      myGames: protectedProcedure.query(async ({ ctx }) => getUserPvpGames(ctx.user.id)),
-  }),
-
-  // ── Drill attempt persistence ────────────────────────────────────────────────
-  drillAttempts: router({
-    increment: protectedProcedure
-      .input(z.object({
-        openingId: z.string(),
-        variationId: z.string(),
-        moveIndex: z.number().int().min(0),
-        side: z.enum(["white", "black"]),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        const newTotal = await incrementDrillAttempt(
-          ctx.user.id, input.openingId, input.variationId, input.moveIndex, input.side
-        );
-        return { totalAttempts: newTotal };
-      }),
-
-    recordWatch: protectedProcedure
-      .input(z.object({
-        openingId: z.string(),
-        variationId: z.string(),
-        moveIndex: z.number().int().min(0),
-        side: z.enum(["white", "black"]),
-        currentTotal: z.number().int().min(0),
-      }))
-      .mutation(async ({ ctx, input }) => {
-        await recordWatchUsed(
-          ctx.user.id, input.openingId, input.variationId, input.moveIndex, input.side, input.currentTotal
-        );
-        return { success: true };
-      }),
-
-    getCount: protectedProcedure
-      .input(z.object({
-        openingId: z.string(),
-        variationId: z.string(),
-        moveIndex: z.number().int().min(0),
-        side: z.enum(["white", "black"]),
-      }))
-      .query(async ({ ctx, input }) => {
-        return await getDrillAttemptCount(
-          ctx.user.id, input.openingId, input.variationId, input.moveIndex, input.side
-        );
-      }),
-
-    getForOpening: protectedProcedure
-      .input(z.object({ openingId: z.string() }))
-      .query(async ({ ctx, input }) => {
-        return await getDrillAttemptCountsForOpening(ctx.user.id, input.openingId);
-      }),
-
-    getMoveExplanation: publicProcedure
-      .input(z.object({
-        openingName: z.string(),
-        variationName: z.string(),
-        moveSan: z.string(),
-        fen: z.string(),
-        moveIndex: z.number().int().min(0),
-      }))
-      .query(async ({ input }) => {
-        try {
-          const result = await invokeLLM({
-            messages: [
-              {
-                role: "system",
-                content: `You are a chess coach explaining opening moves to students. Give a concise, insightful explanation (2-3 sentences) of why a specific move is the correct choice in a chess opening. Focus on the strategic idea, not just the name. Be encouraging and educational.`,
-              },
-              {
-                role: "user",
-                content: `Opening: ${input.openingName} \u2014 ${input.variationName}. Move ${Math.floor(input.moveIndex / 2) + 1} (${input.moveIndex % 2 === 0 ? "White" : "Black"}): ${input.moveSan}. FEN before move: ${input.fen}. Why is ${input.moveSan} the correct move here? Keep it to 2-3 sentences.`,
-              },
-            ],
-          });
-          const explanation = result.choices?.[0]?.message?.content as string | undefined;
-          return { explanation: explanation ?? "This move follows the main line of this opening, establishing key positional principles." };
-        } catch {
-          return { explanation: "This move follows the main line of this opening, establishing key positional principles." };
-        }
-    }),
   }),
 
   // ── Server-authoritative prestige and Watch Mode ───────────────────────────

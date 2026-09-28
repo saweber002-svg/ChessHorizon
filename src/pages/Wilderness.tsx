@@ -7,13 +7,11 @@ import {
   Pencil,
   Swords,
   TreePine,
-  ChevronRight,
   BookOpen,
   Clock,
   Save,
   X,
   GripVertical,
-  Play,
 } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useWilderness } from '@/contexts/WildernessContext';
@@ -162,13 +160,6 @@ export default function Wilderness() {
                       >
                         <Trash2 size={16} />
                       </button>
-                      <button
-                        onClick={() => setLocation(`/drill/${opening.id}/main/0`)}
-                        className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500/20 transition-colors"
-                        title="Drill"
-                      >
-                        <Play size={16} />
-                      </button>
                     </div>
                   </div>
 
@@ -177,15 +168,13 @@ export default function Wilderness() {
                     {opening.variations.map((variation) => (
                       <div
                         key={variation.id}
-                        className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#1a1a2e] border border-[#2a2a3e] cursor-pointer hover:border-[#00f5d4]/20 transition-colors"
-                        onClick={() => setLocation(`/drill/${opening.id}/${variation.id}/0`)}
+                        className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#1a1a2e] border border-[#2a2a3e]"
                       >
                         <div className="flex items-center gap-2">
                           <GripVertical size={14} className="text-white/20" />
                           <span className="text-sm text-white/70">{variation.name}</span>
                           <span className="text-xs text-white/30">{variation.moves.length} moves</span>
                         </div>
-                        <ChevronRight size={14} className="text-white/20" />
                       </div>
                     ))}
                   </div>
