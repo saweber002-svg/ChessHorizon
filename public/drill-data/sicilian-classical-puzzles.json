@@ -1,0 +1,193 @@
+{
+  "id": "sicilian-classical-puzzles",
+  "name": "Sicilian Classical Puzzles",
+  "description": "Real tactical puzzles from Sicilian Classical games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "sicilian-classical",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "sicilian-classical-pz1",
+      "name": "Advantage (1576)",
+      "theme": "Advantage",
+      "description": "White to play. A real Sicilian Classical tactic rated 1576 — finding the strongest continuation.",
+      "fen": "r1b2rk1/1p2ppbp/pqNp2p1/5P2/8/2N1B3/PPPnB1PP/R4RK1 w - - 0 13",
+      "solutionMoves": [
+        "Nxe7+",
+        "Kh8",
+        "Bxb6"
+      ],
+      "opponentResponse": "Kh8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxe7+: finding the strongest continuation. Solution: 1. Nxe7+ Kh8 2. Bxb6.",
+      "explanation": "White to move in this Sicilian Classical position. The solution begins with Nxe7+ — finding the strongest continuation. Full line: 1. Nxe7+ Kh8 2. Bxb6. Source: Lichess puzzle iD6Fp (CC0), https://lichess.org/QoFHPet6/black#24.",
+      "lichessPuzzleId": "iD6Fp",
+      "lichessUrl": "https://lichess.org/QoFHPet6/black#24"
+    },
+    {
+      "drillId": "sicilian-classical-pz2",
+      "name": "Advantage (1368)",
+      "theme": "Advantage",
+      "description": "White to play. A real Sicilian Classical tactic rated 1368 — finding the strongest continuation.",
+      "fen": "r1b2r2/p1k2pb1/1n4p1/1p1Bp2p/4P2P/4BP2/PPP3P1/2KR3R w - - 2 17",
+      "solutionMoves": [
+        "Bxb6+",
+        "Kxb6",
+        "Bxa8"
+      ],
+      "opponentResponse": "Kxb6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxb6+: finding the strongest continuation. Solution: 1. Bxb6+ Kxb6 2. Bxa8.",
+      "explanation": "White to move in this Sicilian Classical position. The solution begins with Bxb6+ — finding the strongest continuation. Full line: 1. Bxb6+ Kxb6 2. Bxa8. Source: Lichess puzzle Gi6El (CC0), https://lichess.org/TbdobZZc/black#32.",
+      "lichessPuzzleId": "Gi6El",
+      "lichessUrl": "https://lichess.org/TbdobZZc/black#32"
+    },
+    {
+      "drillId": "sicilian-classical-pz3",
+      "name": "Fork (1486)",
+      "theme": "Fork",
+      "description": "Black to play. A real Sicilian Classical tactic rated 1486 — forking two targets with one move.",
+      "fen": "1rb3k1/2q2pp1/2R4p/p1bpr3/P1P5/2NB3P/1P2Q1P1/R1B4K b - - 0 18",
+      "solutionMoves": [
+        "Rxe2",
+        "Rxc7",
+        "Re1+",
+        "Kh2",
+        "Bd6+",
+        "g3",
+        "Bxc7"
+      ],
+      "opponentResponse": "Rxc7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rxe2: forking two targets with one move. Solution: 1. Rxe2 Rxc7 2. Re1+ Kh2 3. Bd6+ g3 4. Bxc7.",
+      "explanation": "Black to move in this Sicilian Classical position. The solution begins with Rxe2 — forking two targets with one move. Full line: 1. Rxe2 Rxc7 2. Re1+ Kh2 3. Bd6+ g3 4. Bxc7. Source: Lichess puzzle EcOX1 (CC0), https://lichess.org/NYBrskLx#35.",
+      "lichessPuzzleId": "EcOX1",
+      "lichessUrl": "https://lichess.org/NYBrskLx#35"
+    },
+    {
+      "drillId": "sicilian-classical-pz4",
+      "name": "Capturing Defender (1498)",
+      "theme": "Capturing Defender",
+      "description": "Black to play. A real Sicilian Classical tactic rated 1498 — finding the strongest continuation.",
+      "fen": "2r2rk1/pp2bppp/1q1p1n2/3BnP2/8/2N5/PP3PPP/1RBQ1RK1 b - - 4 14",
+      "solutionMoves": [
+        "Rxc3",
+        "bxc3",
+        "Qxb1"
+      ],
+      "opponentResponse": "bxc3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rxc3: finding the strongest continuation. Solution: 1. Rxc3 bxc3 2. Qxb1.",
+      "explanation": "Black to move in this Sicilian Classical position. The solution begins with Rxc3 — finding the strongest continuation. Full line: 1. Rxc3 bxc3 2. Qxb1. Source: Lichess puzzle gGiul (CC0), https://lichess.org/5egpWf0D#27.",
+      "lichessPuzzleId": "gGiul",
+      "lichessUrl": "https://lichess.org/5egpWf0D#27"
+    },
+    {
+      "drillId": "sicilian-classical-pz5",
+      "name": "Attraction (1454)",
+      "theme": "Attraction",
+      "description": "White to play. A real Sicilian Classical tactic rated 1454 — attracting a piece to its doom.",
+      "fen": "2rq1rk1/1p2ppbp/p2p2p1/3N3n/2Q1P3/8/PP1B1PPP/3R1RK1 w - - 1 19",
+      "solutionMoves": [
+        "Qxc8",
+        "Qxc8",
+        "Nxe7+",
+        "Kh8",
+        "Nxc8"
+      ],
+      "opponentResponse": "Qxc8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxc8: attracting a piece to its doom. Solution: 1. Qxc8 Qxc8 2. Nxe7+ Kh8 3. Nxc8.",
+      "explanation": "White to move in this Sicilian Classical position. The solution begins with Qxc8 — attracting a piece to its doom. Full line: 1. Qxc8 Qxc8 2. Nxe7+ Kh8 3. Nxc8. Source: Lichess puzzle qiOfS (CC0), https://lichess.org/1alERwTf/black#36.",
+      "lichessPuzzleId": "qiOfS",
+      "lichessUrl": "https://lichess.org/1alERwTf/black#36"
+    },
+    {
+      "drillId": "sicilian-classical-pz6",
+      "name": "Discovered Attack (1214)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Sicilian Classical tactic rated 1214 — unleashing a discovered attack.",
+      "fen": "r4rk1/ppq1ppbp/6p1/1b2p1Bn/2B1P3/P6P/1PQ2PP1/3RR1K1 w - - 0 17",
+      "solutionMoves": [
+        "Bxf7+",
+        "Kxf7",
+        "Qxc7"
+      ],
+      "opponentResponse": "Kxf7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxf7+: unleashing a discovered attack. Solution: 1. Bxf7+ Kxf7 2. Qxc7.",
+      "explanation": "White to move in this Sicilian Classical position. The solution begins with Bxf7+ — unleashing a discovered attack. Full line: 1. Bxf7+ Kxf7 2. Qxc7. Source: Lichess puzzle NfHc6 (CC0), https://lichess.org/ZhQFkDnF/black#32.",
+      "lichessPuzzleId": "NfHc6",
+      "lichessUrl": "https://lichess.org/ZhQFkDnF/black#32"
+    },
+    {
+      "drillId": "sicilian-classical-pz7",
+      "name": "Attraction (1296)",
+      "theme": "Attraction",
+      "description": "White to play. A real Sicilian Classical tactic rated 1296 — attracting a piece to its doom.",
+      "fen": "r1bq1r1k/4bpR1/p1np3B/4p1Qp/4n2P/1Np5/PPP1BPP1/R3K3 w Q - 0 16",
+      "solutionMoves": [
+        "Rh7+",
+        "Kxh7",
+        "Qg7#"
+      ],
+      "opponentResponse": "Kxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rh7+: attracting a piece to its doom. Solution: 1. Rh7+ Kxh7 2. Qg7#.",
+      "explanation": "White to move in this Sicilian Classical position. The solution begins with Rh7+ — attracting a piece to its doom. Full line: 1. Rh7+ Kxh7 2. Qg7#. Source: Lichess puzzle Q2hqc (CC0), https://lichess.org/P9GETaGY/black#30.",
+      "lichessPuzzleId": "Q2hqc",
+      "lichessUrl": "https://lichess.org/P9GETaGY/black#30"
+    },
+    {
+      "drillId": "sicilian-classical-pz8",
+      "name": "Skewer (1552)",
+      "theme": "Skewer",
+      "description": "Black to play. A real Sicilian Classical tactic rated 1552 — skewering two pieces on a line.",
+      "fen": "r1b1kr2/ppqpbpQ1/8/4n2p/3BP2P/1P1B4/P1P2PP1/RN2K2R b KQq - 0 15",
+      "solutionMoves": [
+        "Nxd3+",
+        "cxd3",
+        "Qc1+",
+        "Ke2",
+        "Qxh1"
+      ],
+      "opponentResponse": "cxd3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxd3+: skewering two pieces on a line. Solution: 1. Nxd3+ cxd3 2. Qc1+ Ke2 3. Qxh1.",
+      "explanation": "Black to move in this Sicilian Classical position. The solution begins with Nxd3+ — skewering two pieces on a line. Full line: 1. Nxd3+ cxd3 2. Qc1+ Ke2 3. Qxh1. Source: Lichess puzzle qrF9W (CC0), https://lichess.org/StwMSfx3#29.",
+      "lichessPuzzleId": "qrF9W",
+      "lichessUrl": "https://lichess.org/StwMSfx3#29"
+    }
+  ]
+}

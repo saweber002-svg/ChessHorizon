@@ -1,0 +1,191 @@
+{
+  "id": "london-system-puzzles",
+  "name": "London System Puzzles",
+  "description": "Real tactical puzzles from London System games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "london-system",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "london-system-pz1",
+      "name": "Crushing (1214)",
+      "theme": "Crushing",
+      "description": "White to play. A real London System tactic rated 1214 — finding the strongest continuation.",
+      "fen": "r1b2bnr/ppN2kpp/2n5/3p4/2pP1B2/4P3/PqP2PPP/R2QKB1R w KQ - 0 10",
+      "solutionMoves": [
+        "Qh5+",
+        "g6",
+        "Qxd5+"
+      ],
+      "opponentResponse": "g6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh5+: finding the strongest continuation. Solution: 1. Qh5+ g6 2. Qxd5+.",
+      "explanation": "White to move in this London System position. The solution begins with Qh5+ — finding the strongest continuation. Full line: 1. Qh5+ g6 2. Qxd5+. Source: Lichess puzzle 0wahK (CC0), https://lichess.org/INZlXQAb/black#18.",
+      "lichessPuzzleId": "0wahK",
+      "lichessUrl": "https://lichess.org/INZlXQAb/black#18"
+    },
+    {
+      "drillId": "london-system-pz2",
+      "name": "Fork (1523)",
+      "theme": "Fork",
+      "description": "White to play. A real London System tactic rated 1523 — forking two targets with one move.",
+      "fen": "1r1k1b1r/2p1pppp/p1Q5/3pNb2/3PnB2/2P1P3/P4qPP/RN1K3R w - - 2 16",
+      "solutionMoves": [
+        "Nxf7+",
+        "Kc8",
+        "Qxc7#"
+      ],
+      "opponentResponse": "Kc8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxf7+: forking two targets with one move. Solution: 1. Nxf7+ Kc8 2. Qxc7#.",
+      "explanation": "White to move in this London System position. The solution begins with Nxf7+ — forking two targets with one move. Full line: 1. Nxf7+ Kc8 2. Qxc7#. Source: Lichess puzzle Bi6y0 (CC0), https://lichess.org/I55DPr12/black#30.",
+      "lichessPuzzleId": "Bi6y0",
+      "lichessUrl": "https://lichess.org/I55DPr12/black#30"
+    },
+    {
+      "drillId": "london-system-pz3",
+      "name": "Clearance (1438)",
+      "theme": "Clearance",
+      "description": "White to play. A real London System tactic rated 1438 — clearing a square or line with tempo.",
+      "fen": "r1b2rk1/pp3pp1/2n3q1/3p3R/3Pp3/2P1P1b1/PP1KB1P1/RN1Q4 w - - 2 19",
+      "solutionMoves": [
+        "Qh1",
+        "f6",
+        "Rh8+",
+        "Kf7",
+        "Bh5"
+      ],
+      "opponentResponse": "f6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh1: clearing a square or line with tempo. Solution: 1. Qh1 f6 2. Rh8+ Kf7 3. Bh5.",
+      "explanation": "White to move in this London System position. The solution begins with Qh1 — clearing a square or line with tempo. Full line: 1. Qh1 f6 2. Rh8+ Kf7 3. Bh5. Source: Lichess puzzle ZdTqx (CC0), https://lichess.org/zqH0yZXS/black#36.",
+      "lichessPuzzleId": "ZdTqx",
+      "lichessUrl": "https://lichess.org/zqH0yZXS/black#36"
+    },
+    {
+      "drillId": "london-system-pz4",
+      "name": "Advantage (1409)",
+      "theme": "Advantage",
+      "description": "White to play. A real London System tactic rated 1409 — finding the strongest continuation.",
+      "fen": "r2qk2r/ppp1p3/7b/3p1bBp/3P4/3PP3/PP1Q1PPP/R4RK1 w kq - 1 14",
+      "solutionMoves": [
+        "Bxh6",
+        "Rxh6",
+        "e4",
+        "Rf6",
+        "exf5"
+      ],
+      "opponentResponse": "Rxh6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxh6: finding the strongest continuation. Solution: 1. Bxh6 Rxh6 2. e4 Rf6 3. exf5.",
+      "explanation": "White to move in this London System position. The solution begins with Bxh6 — finding the strongest continuation. Full line: 1. Bxh6 Rxh6 2. e4 Rf6 3. exf5. Source: Lichess puzzle GDika (CC0), https://lichess.org/XK8VUFR0/black#26.",
+      "lichessPuzzleId": "GDika",
+      "lichessUrl": "https://lichess.org/XK8VUFR0/black#26"
+    },
+    {
+      "drillId": "london-system-pz5",
+      "name": "Fork (1307)",
+      "theme": "Fork",
+      "description": "Black to play. A real London System tactic rated 1307 — forking two targets with one move.",
+      "fen": "r3kb1r/ppp1qpp1/2n4p/3pPp1P/5B2/5P1B/PPP1P3/RN1QK2R b KQkq - 2 11",
+      "solutionMoves": [
+        "Qh4+",
+        "Kf1",
+        "Qxf4"
+      ],
+      "opponentResponse": "Kf1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh4+: forking two targets with one move. Solution: 1. Qh4+ Kf1 2. Qxf4.",
+      "explanation": "Black to move in this London System position. The solution begins with Qh4+ — forking two targets with one move. Full line: 1. Qh4+ Kf1 2. Qxf4. Source: Lichess puzzle SIWHO (CC0), https://lichess.org/NJ2Zmi88#21.",
+      "lichessPuzzleId": "SIWHO",
+      "lichessUrl": "https://lichess.org/NJ2Zmi88#21"
+    },
+    {
+      "drillId": "london-system-pz6",
+      "name": "Mate In 2 (1157)",
+      "theme": "Mate In 2",
+      "description": "White to play. A real London System tactic rated 1157 — forcing checkmate in two.",
+      "fen": "2r1kb1r/ppQ1pppp/8/3p4/4nBb1/8/PP3qPP/RNK2B1R w k - 4 13",
+      "solutionMoves": [
+        "Bb5+",
+        "Bd7",
+        "Qxc8#"
+      ],
+      "opponentResponse": "Bd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bb5+: forcing checkmate in two. Solution: 1. Bb5+ Bd7 2. Qxc8#.",
+      "explanation": "White to move in this London System position. The solution begins with Bb5+ — forcing checkmate in two. Full line: 1. Bb5+ Bd7 2. Qxc8#. Source: Lichess puzzle ASVdI (CC0), https://lichess.org/HTNaTUey/black#24.",
+      "lichessPuzzleId": "ASVdI",
+      "lichessUrl": "https://lichess.org/HTNaTUey/black#24"
+    },
+    {
+      "drillId": "london-system-pz7",
+      "name": "Discovered Attack (1177)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real London System tactic rated 1177 — unleashing a discovered attack.",
+      "fen": "r2q3k/pb2b1pB/1p2pr2/2pp2pQ/3P4/2P1P2P/PP3PP1/R4RK1 w - - 2 18",
+      "solutionMoves": [
+        "Bg6+",
+        "Kg8",
+        "Qh7+",
+        "Kf8",
+        "Qh8#"
+      ],
+      "opponentResponse": "Kg8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bg6+: unleashing a discovered attack. Solution: 1. Bg6+ Kg8 2. Qh7+ Kf8 3. Qh8#.",
+      "explanation": "White to move in this London System position. The solution begins with Bg6+ — unleashing a discovered attack. Full line: 1. Bg6+ Kg8 2. Qh7+ Kf8 3. Qh8#. Source: Lichess puzzle 49Nft (CC0), https://lichess.org/eSuTeYbB/black#34.",
+      "lichessPuzzleId": "49Nft",
+      "lichessUrl": "https://lichess.org/eSuTeYbB/black#34"
+    },
+    {
+      "drillId": "london-system-pz8",
+      "name": "Master (1212)",
+      "theme": "Master",
+      "description": "White to play. A real London System tactic rated 1212 — finding the strongest continuation.",
+      "fen": "r2q1r2/pp2n1p1/5p1k/2nppbN1/5PQ1/8/PPP2PPP/R3K2R w KQ - 0 16",
+      "solutionMoves": [
+        "Qh4+",
+        "Kg6",
+        "Qh7#"
+      ],
+      "opponentResponse": "Kg6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh4+: finding the strongest continuation. Solution: 1. Qh4+ Kg6 2. Qh7#.",
+      "explanation": "White to move in this London System position. The solution begins with Qh4+ — finding the strongest continuation. Full line: 1. Qh4+ Kg6 2. Qh7#. Source: Lichess puzzle SLFLZ (CC0), https://lichess.org/ZsNVnFNH/black#30.",
+      "lichessPuzzleId": "SLFLZ",
+      "lichessUrl": "https://lichess.org/ZsNVnFNH/black#30"
+    }
+  ]
+}

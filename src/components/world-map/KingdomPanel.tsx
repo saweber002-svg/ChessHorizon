@@ -218,7 +218,7 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
               if (location.kingdom === 'germany') return d.id.startsWith('caro-');
               return d.id.startsWith(`${location.openingId}-`);
             }).map((d) => {
-              const variationId = d.id.replace(/-main$|-(tacticals|black-tacticals)$/i, '');
+              const variationId = d.id.replace(/-main$|-(tacticals|black-tacticals|puzzles)$/i, '');
               return (
                 <button
                   key={d.id}

@@ -13,7 +13,7 @@ import {
   type DrillPack,
   type DrillLine,
 } from '@/lib/drillLoader';
-import { hasTacticalDrills, TACTICAL_FILE_IDS } from '@/data/drillRegistry';
+import { hasTacticalDrills, hasPuzzleDrills, isTacticalPackId, TACTICAL_FILE_IDS } from '@/data/drillRegistry';
 import { isQuarantinedTacticalFileId } from '@/data/quarantinedTacticalRegistry';
 import {
   analyzeDeviation,
@@ -68,7 +68,7 @@ export default function DrillSession() {
   const deviationSeq = useRef(0);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const isTacticalPack = drillFileId.includes('-tacticals');
+  const isTacticalPack = isTacticalPackId(drillFileId);
 
   const clearDeviation = useCallback(() => {
     deviationSeq.current += 1;
@@ -141,7 +141,7 @@ export default function DrillSession() {
         setPack(data);
         // For tactical packs (-tacticals), do NOT auto-start the first one.
         // Let the user choose from the list below.
-        const isTacticalPack = drillFileId.includes('-tacticals');
+        const isTacticalPack = isTacticalPackId(drillFileId);
         if (!isTacticalPack) {
           setLine(data.lines[0] ?? null);
         }
@@ -375,7 +375,7 @@ export default function DrillSession() {
   );
 
   if (loadError) {
-    const isTactical = drillFileId.includes('-tacticals');
+    const isTactical = isTacticalPackId(drillFileId);
     const isQuarantined = isQuarantinedTacticalFileId(drillFileId);
     return (
       <motion.div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center gap-4 p-6 text-center">
@@ -599,6 +599,18 @@ export default function DrillSession() {
                   className="px-6 py-3 rounded-xl bg-[#f5a623] text-[#0a0a1f] font-bold hover:bg-[#e5941a] transition-colors"
                 >
                   Drill tactics for this variation
+                </button>
+              )}
+              {drillFileId.endsWith('-main') && hasPuzzleDrills(variationId) && (
+                <button
+                  onClick={() => {
+                    setLocation(
+                      `/drill-session/${variationId}-puzzles?opening=${openingId}&variation=${variationId}`
+                    );
+                  }}
+                  className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-[#00e0c0] transition-colors"
+                >
+                  Practice real puzzles
                 </button>
               )}
             </div>

@@ -1,0 +1,189 @@
+{
+  "id": "fried-liver-attack-puzzles",
+  "name": "Fried Liver Attack Puzzles",
+  "description": "Real tactical puzzles from Fried Liver Attack games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "fried-liver-attack",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "fried-liver-attack-pz1",
+      "name": "Discovered Attack (1406)",
+      "theme": "Discovered Attack",
+      "description": "Black to play. A real Fried Liver Attack tactic rated 1406 — unleashing a discovered attack.",
+      "fen": "r3k2r/ppp1b1pp/3q1pb1/8/2B2nP1/3P1Q1P/PPP2P1K/RNB1R3 b kq - 0 14",
+      "solutionMoves": [
+        "Nxd3+",
+        "Kg1",
+        "Nxe1"
+      ],
+      "opponentResponse": "Kg1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxd3+: unleashing a discovered attack. Solution: 1. Nxd3+ Kg1 2. Nxe1.",
+      "explanation": "Black to move in this Fried Liver Attack position. The solution begins with Nxd3+ — unleashing a discovered attack. Full line: 1. Nxd3+ Kg1 2. Nxe1. Source: Lichess puzzle CqM8g (CC0), https://lichess.org/WOPzZ5vM#27.",
+      "lichessPuzzleId": "CqM8g",
+      "lichessUrl": "https://lichess.org/WOPzZ5vM#27"
+    },
+    {
+      "drillId": "fried-liver-attack-pz2",
+      "name": "Capturing Defender (1229)",
+      "theme": "Capturing Defender",
+      "description": "White to play. A real Fried Liver Attack tactic rated 1229 — finding the strongest continuation.",
+      "fen": "r1b1k2r/p3bpp1/2p2n1p/n7/B1q1p3/8/PPPPQPPP/RNB1K2R w KQkq - 0 13",
+      "solutionMoves": [
+        "Qxc4",
+        "Nxc4",
+        "Bxc6+",
+        "Bd7",
+        "Bxa8"
+      ],
+      "opponentResponse": "Nxc4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxc4: finding the strongest continuation. Solution: 1. Qxc4 Nxc4 2. Bxc6+ Bd7 3. Bxa8.",
+      "explanation": "White to move in this Fried Liver Attack position. The solution begins with Qxc4 — finding the strongest continuation. Full line: 1. Qxc4 Nxc4 2. Bxc6+ Bd7 3. Bxa8. Source: Lichess puzzle Rq5o6 (CC0), https://lichess.org/hD0Dk1Mg/black#24.",
+      "lichessPuzzleId": "Rq5o6",
+      "lichessUrl": "https://lichess.org/hD0Dk1Mg/black#24"
+    },
+    {
+      "drillId": "fried-liver-attack-pz3",
+      "name": "Attraction (1272)",
+      "theme": "Attraction",
+      "description": "Black to play. A real Fried Liver Attack tactic rated 1272 — attracting a piece to its doom.",
+      "fen": "r2q3r/p1p1k3/2Qp1p2/8/4P1n1/2N5/PP3PP1/R4RK1 b - - 2 18",
+      "solutionMoves": [
+        "Rh1+",
+        "Kxh1",
+        "Qh8+",
+        "Kg1",
+        "Qh2#"
+      ],
+      "opponentResponse": "Kxh1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rh1+: attracting a piece to its doom. Solution: 1. Rh1+ Kxh1 2. Qh8+ Kg1 3. Qh2#.",
+      "explanation": "Black to move in this Fried Liver Attack position. The solution begins with Rh1+ — attracting a piece to its doom. Full line: 1. Rh1+ Kxh1 2. Qh8+ Kg1 3. Qh2#. Source: Lichess puzzle AwKsV (CC0), https://lichess.org/8SYhYPzv#35.",
+      "lichessPuzzleId": "AwKsV",
+      "lichessUrl": "https://lichess.org/8SYhYPzv#35"
+    },
+    {
+      "drillId": "fried-liver-attack-pz4",
+      "name": "Skewer (1533)",
+      "theme": "Skewer",
+      "description": "White to play. A real Fried Liver Attack tactic rated 1533 — skewering two pieces on a line.",
+      "fen": "r2q1b1r/ppp1k1pp/8/1b2p2B/8/P2P1Q2/1P2KPPP/n1B4R w - - 0 17",
+      "solutionMoves": [
+        "Bg5+",
+        "Kd6",
+        "Bxd8"
+      ],
+      "opponentResponse": "Kd6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bg5+: skewering two pieces on a line. Solution: 1. Bg5+ Kd6 2. Bxd8.",
+      "explanation": "White to move in this Fried Liver Attack position. The solution begins with Bg5+ — skewering two pieces on a line. Full line: 1. Bg5+ Kd6 2. Bxd8. Source: Lichess puzzle n8nMS (CC0), https://lichess.org/ZYzhnkxz/black#32.",
+      "lichessPuzzleId": "n8nMS",
+      "lichessUrl": "https://lichess.org/ZYzhnkxz/black#32"
+    },
+    {
+      "drillId": "fried-liver-attack-pz5",
+      "name": "Discovered Attack (1211)",
+      "theme": "Discovered Attack",
+      "description": "Black to play. A real Fried Liver Attack tactic rated 1211 — unleashing a discovered attack.",
+      "fen": "3rr1k1/p1q2pp1/2pb3p/n4B2/8/6P1/PPP3PP/RNBQ1RK1 b - - 0 18",
+      "solutionMoves": [
+        "Bc5+",
+        "Kh1",
+        "Rxd1"
+      ],
+      "opponentResponse": "Kh1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bc5+: unleashing a discovered attack. Solution: 1. Bc5+ Kh1 2. Rxd1.",
+      "explanation": "Black to move in this Fried Liver Attack position. The solution begins with Bc5+ — unleashing a discovered attack. Full line: 1. Bc5+ Kh1 2. Rxd1. Source: Lichess puzzle 0cBpZ (CC0), https://lichess.org/WzktQ2xv#35.",
+      "lichessPuzzleId": "0cBpZ",
+      "lichessUrl": "https://lichess.org/WzktQ2xv#35"
+    },
+    {
+      "drillId": "fried-liver-attack-pz6",
+      "name": "Kingside Attack (1700)",
+      "theme": "Kingside Attack",
+      "description": "Black to play. A real Fried Liver Attack tactic rated 1700 — a direct kingside attack.",
+      "fen": "3rk2N/pQ4pp/2p2q2/2b1p3/8/2P5/PP3PPP/R1B2RK1 b - - 2 15",
+      "solutionMoves": [
+        "Qxf2+",
+        "Rxf2",
+        "Rd1#"
+      ],
+      "opponentResponse": "Rxf2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxf2+: a direct kingside attack. Solution: 1. Qxf2+ Rxf2 2. Rd1#.",
+      "explanation": "Black to move in this Fried Liver Attack position. The solution begins with Qxf2+ — a direct kingside attack. Full line: 1. Qxf2+ Rxf2 2. Rd1#. Source: Lichess puzzle 2aPiZ (CC0), https://lichess.org/lv7vNwzc#29.",
+      "lichessPuzzleId": "2aPiZ",
+      "lichessUrl": "https://lichess.org/lv7vNwzc#29"
+    },
+    {
+      "drillId": "fried-liver-attack-pz7",
+      "name": "Kingside Attack (1343)",
+      "theme": "Kingside Attack",
+      "description": "Black to play. A real Fried Liver Attack tactic rated 1343 — a direct kingside attack.",
+      "fen": "r1b1kr2/pp1p1Npp/2p5/2b1p2q/2BnQ3/2P3P1/PP1P1P1P/RNB2RK1 b q - 0 11",
+      "solutionMoves": [
+        "Nf3+",
+        "Qxf3",
+        "Qxf3"
+      ],
+      "opponentResponse": "Qxf3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nf3+: a direct kingside attack. Solution: 1. Nf3+ Qxf3 2. Qxf3.",
+      "explanation": "Black to move in this Fried Liver Attack position. The solution begins with Nf3+ — a direct kingside attack. Full line: 1. Nf3+ Qxf3 2. Qxf3. Source: Lichess puzzle vMjmy (CC0), https://lichess.org/kmHFqcTB#21.",
+      "lichessPuzzleId": "vMjmy",
+      "lichessUrl": "https://lichess.org/kmHFqcTB#21"
+    },
+    {
+      "drillId": "fried-liver-attack-pz8",
+      "name": "Skewer (1300)",
+      "theme": "Skewer",
+      "description": "Black to play. A real Fried Liver Attack tactic rated 1300 — skewering two pieces on a line.",
+      "fen": "r4k1r/ppp3pp/8/3P4/2B2p1q/3P1P1b/PPP1K2P/RN2Q1R1 b - - 1 16",
+      "solutionMoves": [
+        "Re8+",
+        "Kd2",
+        "Rxe1"
+      ],
+      "opponentResponse": "Kd2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Re8+: skewering two pieces on a line. Solution: 1. Re8+ Kd2 2. Rxe1.",
+      "explanation": "Black to move in this Fried Liver Attack position. The solution begins with Re8+ — skewering two pieces on a line. Full line: 1. Re8+ Kd2 2. Rxe1. Source: Lichess puzzle BqYbw (CC0), https://lichess.org/Dx3Gp2dA#31.",
+      "lichessPuzzleId": "BqYbw",
+      "lichessUrl": "https://lichess.org/Dx3Gp2dA#31"
+    }
+  ]
+}

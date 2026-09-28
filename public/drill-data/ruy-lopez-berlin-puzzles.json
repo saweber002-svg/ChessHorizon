@@ -1,0 +1,193 @@
+{
+  "id": "ruy-lopez-berlin-puzzles",
+  "name": "Ruy Lopez, Berlin Defense Puzzles",
+  "description": "Real tactical puzzles from Ruy Lopez, Berlin Defense games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "ruy-lopez-berlin",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-berlin-pz1",
+      "name": "Capturing Defender (1468)",
+      "theme": "Capturing Defender",
+      "description": "Black to play. A real Ruy Lopez, Berlin Defense tactic rated 1468 — finding the strongest continuation.",
+      "fen": "2kr3r/pppqb1pp/3p4/4p1N1/4P1nn/1BPPB3/PP3PPP/R2Q1RK1 b - - 12 16",
+      "solutionMoves": [
+        "Nxe3",
+        "fxe3",
+        "Bxg5"
+      ],
+      "opponentResponse": "fxe3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxe3: finding the strongest continuation. Solution: 1. Nxe3 fxe3 2. Bxg5.",
+      "explanation": "Black to move in this Ruy Lopez, Berlin Defense position. The solution begins with Nxe3 — finding the strongest continuation. Full line: 1. Nxe3 fxe3 2. Bxg5. Source: Lichess puzzle CcRwr (CC0), https://lichess.org/uMIDgEED#31.",
+      "lichessPuzzleId": "CcRwr",
+      "lichessUrl": "https://lichess.org/uMIDgEED#31"
+    },
+    {
+      "drillId": "ruy-lopez-berlin-pz2",
+      "name": "Discovered Attack (1188)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Ruy Lopez, Berlin Defense tactic rated 1188 — unleashing a discovered attack.",
+      "fen": "r3kb1r/ppp2ppp/2p5/4Pb2/2q5/3R3P/PPP1QPP1/RNB3K1 w kq - 5 13",
+      "solutionMoves": [
+        "Rd8+",
+        "Rxd8",
+        "Qxc4",
+        "Rd1+",
+        "Kh2"
+      ],
+      "opponentResponse": "Rxd8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rd8+: unleashing a discovered attack. Solution: 1. Rd8+ Rxd8 2. Qxc4 Rd1+ 3. Kh2.",
+      "explanation": "White to move in this Ruy Lopez, Berlin Defense position. The solution begins with Rd8+ — unleashing a discovered attack. Full line: 1. Rd8+ Rxd8 2. Qxc4 Rd1+ 3. Kh2. Source: Lichess puzzle 5PjTx (CC0), https://lichess.org/hoaxT31O/black#24.",
+      "lichessPuzzleId": "5PjTx",
+      "lichessUrl": "https://lichess.org/hoaxT31O/black#24"
+    },
+    {
+      "drillId": "ruy-lopez-berlin-pz3",
+      "name": "Capturing Defender (1268)",
+      "theme": "Capturing Defender",
+      "description": "Black to play. A real Ruy Lopez, Berlin Defense tactic rated 1268 — finding the strongest continuation.",
+      "fen": "r2q1rk1/p1p1bppp/2p5/4p3/4P1b1/2P2N2/PP3P2/R1BQRNK1 b - - 1 14",
+      "solutionMoves": [
+        "Qxd1",
+        "Rxd1",
+        "Bxf3"
+      ],
+      "opponentResponse": "Rxd1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxd1: finding the strongest continuation. Solution: 1. Qxd1 Rxd1 2. Bxf3.",
+      "explanation": "Black to move in this Ruy Lopez, Berlin Defense position. The solution begins with Qxd1 — finding the strongest continuation. Full line: 1. Qxd1 Rxd1 2. Bxf3. Source: Lichess puzzle WXFBJ (CC0), https://lichess.org/dsnFWKdn#27.",
+      "lichessPuzzleId": "WXFBJ",
+      "lichessUrl": "https://lichess.org/dsnFWKdn#27"
+    },
+    {
+      "drillId": "ruy-lopez-berlin-pz4",
+      "name": "Kingside Attack (1200)",
+      "theme": "Kingside Attack",
+      "description": "Black to play. A real Ruy Lopez, Berlin Defense tactic rated 1200 — a direct kingside attack.",
+      "fen": "r1b2k2/pppp2pp/8/2b5/6q1/3P1P2/PPP1n1PP/R1BQ1R1K b - - 0 14",
+      "solutionMoves": [
+        "Ng3+",
+        "hxg3",
+        "Qh5#"
+      ],
+      "opponentResponse": "hxg3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ng3+: a direct kingside attack. Solution: 1. Ng3+ hxg3 2. Qh5#.",
+      "explanation": "Black to move in this Ruy Lopez, Berlin Defense position. The solution begins with Ng3+ — a direct kingside attack. Full line: 1. Ng3+ hxg3 2. Qh5#. Source: Lichess puzzle MEnSr (CC0), https://lichess.org/tePH1u2O#27.",
+      "lichessPuzzleId": "MEnSr",
+      "lichessUrl": "https://lichess.org/tePH1u2O#27"
+    },
+    {
+      "drillId": "ruy-lopez-berlin-pz5",
+      "name": "Deflection (1221)",
+      "theme": "Deflection",
+      "description": "Black to play. A real Ruy Lopez, Berlin Defense tactic rated 1221 — deflecting a key defender away.",
+      "fen": "r1b1k2r/3p1pp1/p2P4/1pp4p/3p1Pnq/1BPP1R2/PP4PP/RNBQ2K1 b kq - 2 13",
+      "solutionMoves": [
+        "Qxh2+",
+        "Kf1",
+        "Qh1+",
+        "Ke2",
+        "Qxg2+"
+      ],
+      "opponentResponse": "Kf1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxh2+: deflecting a key defender away. Solution: 1. Qxh2+ Kf1 2. Qh1+ Ke2 3. Qxg2+.",
+      "explanation": "Black to move in this Ruy Lopez, Berlin Defense position. The solution begins with Qxh2+ — deflecting a key defender away. Full line: 1. Qxh2+ Kf1 2. Qh1+ Ke2 3. Qxg2+. Source: Lichess puzzle H6gRe (CC0), https://lichess.org/7TBxVwi6#25.",
+      "lichessPuzzleId": "H6gRe",
+      "lichessUrl": "https://lichess.org/7TBxVwi6#25"
+    },
+    {
+      "drillId": "ruy-lopez-berlin-pz6",
+      "name": "Mate In 2 (1204)",
+      "theme": "Mate In 2",
+      "description": "White to play. A real Ruy Lopez, Berlin Defense tactic rated 1204 — forcing checkmate in two.",
+      "fen": "r1bqk2r/p1p1b2p/2p2p2/3pN3/1nPP4/8/PP2QPPP/RN2R1K1 w kq - 0 13",
+      "solutionMoves": [
+        "Qh5+",
+        "Kf8",
+        "Qf7#"
+      ],
+      "opponentResponse": "Kf8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh5+: forcing checkmate in two. Solution: 1. Qh5+ Kf8 2. Qf7#.",
+      "explanation": "White to move in this Ruy Lopez, Berlin Defense position. The solution begins with Qh5+ — forcing checkmate in two. Full line: 1. Qh5+ Kf8 2. Qf7#. Source: Lichess puzzle hqdPV (CC0), https://lichess.org/A8RwpgKC/black#24.",
+      "lichessPuzzleId": "hqdPV",
+      "lichessUrl": "https://lichess.org/A8RwpgKC/black#24"
+    },
+    {
+      "drillId": "ruy-lopez-berlin-pz7",
+      "name": "Fork (1299)",
+      "theme": "Fork",
+      "description": "Black to play. A real Ruy Lopez, Berlin Defense tactic rated 1299 — forking two targets with one move.",
+      "fen": "r5k1/ppp2pB1/2p1q1pp/4p3/4Pn2/2QP1N1P/PPP2PP1/3R1RK1 b - - 0 17",
+      "solutionMoves": [
+        "Ne2+",
+        "Kh2",
+        "Nxc3",
+        "bxc3",
+        "Kxg7"
+      ],
+      "opponentResponse": "Kh2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ne2+: forking two targets with one move. Solution: 1. Ne2+ Kh2 2. Nxc3 bxc3 3. Kxg7.",
+      "explanation": "Black to move in this Ruy Lopez, Berlin Defense position. The solution begins with Ne2+ — forking two targets with one move. Full line: 1. Ne2+ Kh2 2. Nxc3 bxc3 3. Kxg7. Source: Lichess puzzle tZshE (CC0), https://lichess.org/Qt4ImQau#33.",
+      "lichessPuzzleId": "tZshE",
+      "lichessUrl": "https://lichess.org/Qt4ImQau#33"
+    },
+    {
+      "drillId": "ruy-lopez-berlin-pz8",
+      "name": "Fork (1256)",
+      "theme": "Fork",
+      "description": "Black to play. A real Ruy Lopez, Berlin Defense tactic rated 1256 — forking two targets with one move.",
+      "fen": "r3kbr1/pp3p1p/5p2/3pp3/5Pb1/1B1P1NRq/PPP2P1P/RN1Q3K b q - 4 15",
+      "solutionMoves": [
+        "Bxf3+",
+        "Qxf3",
+        "Qf1+",
+        "Rg1",
+        "Rxg1#"
+      ],
+      "opponentResponse": "Qxf3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxf3+: forking two targets with one move. Solution: 1. Bxf3+ Qxf3 2. Qf1+ Rg1 3. Rxg1#.",
+      "explanation": "Black to move in this Ruy Lopez, Berlin Defense position. The solution begins with Bxf3+ — forking two targets with one move. Full line: 1. Bxf3+ Qxf3 2. Qf1+ Rg1 3. Rxg1#. Source: Lichess puzzle 4v2hm (CC0), https://lichess.org/t1A62bFL#29.",
+      "lichessPuzzleId": "4v2hm",
+      "lichessUrl": "https://lichess.org/t1A62bFL#29"
+    }
+  ]
+}

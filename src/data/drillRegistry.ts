@@ -8,49 +8,104 @@ export const ALL_DRILL_FILE_IDS = [
   'caro-kann-advance-main',
   'caro-kann-advance-tacticals',
   'caro-kann-classical-main',
+  'caro-kann-classical-puzzles',
   'dutch-leningrad-main',
+  'dutch-leningrad-puzzles',
+  'dutch-leningrad-tacticals',
+  'english-main-black-tacticals',
   'english-main-main',
+  'english-main-puzzles',
   'english-reversed-sicilian-main',
   'english-reversed-sicilian-tacticals',
   'evans-gambit-main',
+  'evans-gambit-puzzles',
+  'evans-gambit-tacticals',
   'french-advance-main',
+  'french-advance-puzzles',
   'french-classical-main',
+  'french-classical-puzzles',
   'french-winawer-main',
+  'french-winawer-puzzles',
+  'fried-liver-attack-black-tacticals',
   'fried-liver-attack-main',
+  'fried-liver-attack-puzzles',
+  'fried-liver-attack-tacticals',
   'german-berlin-tacticals',
   'giuoco-pianissimo-main',
+  'giuoco-pianissimo-puzzles',
   'giuoco-piano-main',
+  'giuoco-piano-puzzles',
+  'greco-counter-attack-black-tacticals',
   'greco-counter-attack-main',
+  'greco-counter-attack-tacticals',
   'london-system-main',
+  'london-system-puzzles',
+  'london-system-tacticals',
   'london-vs-kings-indian-main',
   'london-vs-qgd-main',
   'london-vs-qgd-tacticals',
+  'moeller-attack-black-tacticals',
   'moeller-attack-main',
+  'moeller-attack-tacticals',
   'queen-gambit-accepted-main',
+  'queen-gambit-accepted-puzzles',
+  'queen-gambit-accepted-tacticals',
   'queen-gambit-declined-main',
+  'queen-gambit-declined-puzzles',
+  'ruy-lopez-berlin-black-tacticals',
   'ruy-lopez-berlin-main',
+  'ruy-lopez-berlin-puzzles',
   'ruy-lopez-berlin-tacticals',
   'ruy-lopez-exchange-main',
+  'ruy-lopez-exchange-puzzles',
   'ruy-lopez-morphy-main',
+  'ruy-lopez-morphy-puzzles',
   'ruy-lopez-morphy-tacticals',
+  'ruy-lopez-open-black-tacticals',
   'ruy-lopez-open-main',
   'scandinavian-defense-main',
+  'scandinavian-defense-tacticals',
+  'scandinavian-nf6-black-tacticals',
   'scandinavian-nf6-main',
+  'scandinavian-nf6-tacticals',
+  'scandinavian-qd6-black-tacticals',
   'scandinavian-qd6-main',
+  'scandinavian-qd6-puzzles',
+  'scandinavian-qd6-tacticals',
   'sicilian-classical-black-tacticals',
   'sicilian-classical-main',
+  'sicilian-classical-puzzles',
   'sicilian-classical-tacticals',
+  'sicilian-dragon-black-tacticals',
   'sicilian-dragon-main',
+  'sicilian-dragon-puzzles',
   'sicilian-dragon-tacticals',
   'sicilian-kan-main',
+  'sicilian-kan-puzzles',
+  'sicilian-najdorf-black-tacticals',
   'sicilian-najdorf-main',
+  'sicilian-scheveningen-black-tacticals',
   'sicilian-scheveningen-main',
+  'sicilian-scheveningen-puzzles',
+  'sicilian-scheveningen-tacticals',
+  'sicilian-sveshnikov-black-tacticals',
   'sicilian-sveshnikov-main',
+  'sicilian-sveshnikov-puzzles',
+  'sicilian-sveshnikov-tacticals',
   'slav-defense-main',
+  'slav-defense-puzzles',
   'slav-defense-tacticals',
+  'traxler-counter-attack-black-tacticals',
   'traxler-counter-attack-main',
+  'traxler-counter-attack-puzzles',
+  'traxler-counter-attack-tacticals',
+  'two-knights-black-tacticals',
   'two-knights-main',
+  'two-knights-puzzles',
+  'two-knights-tacticals',
+  'ulvestad-variation-black-tacticals',
   'ulvestad-variation-main',
+  'ulvestad-variation-tacticals',
 ] as const;
 
 function prettify(id: string) {
@@ -66,13 +121,22 @@ export const MAIN_DRILLS = DRILLS.filter((d) => /-main$/.test(d.id));
 
 /** Tactical variants that are safe to expose in the active product. */
 export const TACTICAL_FILE_IDS: string[] = ALL_DRILL_FILE_IDS.filter(
-  (id) => id.includes('-tacticals') && !isQuarantinedTacticalFileId(id)
+  (id) => (id.includes('-tacticals') || id.includes('-puzzles')) && !isQuarantinedTacticalFileId(id)
 );
 
 export function hasTacticalDrills(variationId: string): boolean {
   const t1 = `${variationId}-tacticals`;
   const t2 = `${variationId}-black-tacticals`;
   return TACTICAL_FILE_IDS.includes(t1) || TACTICAL_FILE_IDS.includes(t2);
+}
+
+export function hasPuzzleDrills(variationId: string): boolean {
+  return TACTICAL_FILE_IDS.includes(`${variationId}-puzzles`);
+}
+
+/** True for tactical packs of either kind: key ideas (-tacticals) or real puzzles (-puzzles). */
+export function isTacticalPackId(id: string): boolean {
+  return id.includes('-tacticals') || id.includes('-puzzles');
 }
 
 export default DRILLS;

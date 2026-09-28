@@ -1,0 +1,193 @@
+{
+  "id": "giuoco-pianissimo-puzzles",
+  "name": "Giuoco Pianissimo Puzzles",
+  "description": "Real tactical puzzles from Giuoco Pianissimo games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "giuoco-pianissimo",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "giuoco-pianissimo-pz1",
+      "name": "Attraction (1198)",
+      "theme": "Attraction",
+      "description": "Black to play. A real Giuoco Pianissimo tactic rated 1198 — attracting a piece to its doom.",
+      "fen": "r4rk1/ppp3pp/2npp1q1/4p2n/1P2P2N/PQ1P2PP/1B1N1P1K/R4R2 b - - 2 17",
+      "solutionMoves": [
+        "Rxf2+",
+        "Rxf2",
+        "Qxg3+",
+        "Kh1",
+        "Qxf2"
+      ],
+      "opponentResponse": "Rxf2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rxf2+: attracting a piece to its doom. Solution: 1. Rxf2+ Rxf2 2. Qxg3+ Kh1 3. Qxf2.",
+      "explanation": "Black to move in this Giuoco Pianissimo position. The solution begins with Rxf2+ — attracting a piece to its doom. Full line: 1. Rxf2+ Rxf2 2. Qxg3+ Kh1 3. Qxf2. Source: Lichess puzzle iJAz6 (CC0), https://lichess.org/vfCOIWNQ#33.",
+      "lichessPuzzleId": "iJAz6",
+      "lichessUrl": "https://lichess.org/vfCOIWNQ#33"
+    },
+    {
+      "drillId": "giuoco-pianissimo-pz2",
+      "name": "Advantage (1594)",
+      "theme": "Advantage",
+      "description": "White to play. A real Giuoco Pianissimo tactic rated 1594 — finding the strongest continuation.",
+      "fen": "r4rk1/ppp3pp/3p4/8/2P1N1b1/4P3/PqP3PP/1R1Q2K1 w - - 0 15",
+      "solutionMoves": [
+        "Qd5+",
+        "Rf7",
+        "Rxb2"
+      ],
+      "opponentResponse": "Rf7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qd5+: finding the strongest continuation. Solution: 1. Qd5+ Rf7 2. Rxb2.",
+      "explanation": "White to move in this Giuoco Pianissimo position. The solution begins with Qd5+ — finding the strongest continuation. Full line: 1. Qd5+ Rf7 2. Rxb2. Source: Lichess puzzle 8cFiy (CC0), https://lichess.org/q0p5uycZ/black#28.",
+      "lichessPuzzleId": "8cFiy",
+      "lichessUrl": "https://lichess.org/q0p5uycZ/black#28"
+    },
+    {
+      "drillId": "giuoco-pianissimo-pz3",
+      "name": "Advantage (1491)",
+      "theme": "Advantage",
+      "description": "White to play. A real Giuoco Pianissimo tactic rated 1491 — finding the strongest continuation.",
+      "fen": "r2q2rk/1ppn1p2/3pbn2/p3p1B1/P3P3/1BPP2QP/2P2PP1/R4RK1 w - - 7 18",
+      "solutionMoves": [
+        "Qh4+",
+        "Nh7",
+        "Bxd8"
+      ],
+      "opponentResponse": "Nh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh4+: finding the strongest continuation. Solution: 1. Qh4+ Nh7 2. Bxd8.",
+      "explanation": "White to move in this Giuoco Pianissimo position. The solution begins with Qh4+ — finding the strongest continuation. Full line: 1. Qh4+ Nh7 2. Bxd8. Source: Lichess puzzle Mwss8 (CC0), https://lichess.org/WLsModHf/black#34.",
+      "lichessPuzzleId": "Mwss8",
+      "lichessUrl": "https://lichess.org/WLsModHf/black#34"
+    },
+    {
+      "drillId": "giuoco-pianissimo-pz4",
+      "name": "Kingside Attack (1542)",
+      "theme": "Kingside Attack",
+      "description": "Black to play. A real Giuoco Pianissimo tactic rated 1542 — a direct kingside attack.",
+      "fen": "r4rk1/ppp2pp1/1b4Np/8/2BnNpPq/P2P3P/1PP2P2/R2Q1RK1 b - - 0 17",
+      "solutionMoves": [
+        "Qxh3",
+        "Nxf4",
+        "Nf3+",
+        "Qxf3",
+        "Qxf3"
+      ],
+      "opponentResponse": "Nxf4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxh3: a direct kingside attack. Solution: 1. Qxh3 Nxf4 2. Nf3+ Qxf3 3. Qxf3.",
+      "explanation": "Black to move in this Giuoco Pianissimo position. The solution begins with Qxh3 — a direct kingside attack. Full line: 1. Qxh3 Nxf4 2. Nf3+ Qxf3 3. Qxf3. Source: Lichess puzzle 7rdyp (CC0), https://lichess.org/8rx0fyz9#33.",
+      "lichessPuzzleId": "7rdyp",
+      "lichessUrl": "https://lichess.org/8rx0fyz9#33"
+    },
+    {
+      "drillId": "giuoco-pianissimo-pz5",
+      "name": "Kingside Attack (1276)",
+      "theme": "Kingside Attack",
+      "description": "Black to play. A real Giuoco Pianissimo tactic rated 1276 — a direct kingside attack.",
+      "fen": "r4rk1/5pp1/1ppp3p/p3pPq1/4Pn2/1P1P4/1PP1NQPP/R4RK1 b - - 2 18",
+      "solutionMoves": [
+        "Nh3+",
+        "Kh1",
+        "Nxf2+"
+      ],
+      "opponentResponse": "Kh1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nh3+: a direct kingside attack. Solution: 1. Nh3+ Kh1 2. Nxf2+.",
+      "explanation": "Black to move in this Giuoco Pianissimo position. The solution begins with Nh3+ — a direct kingside attack. Full line: 1. Nh3+ Kh1 2. Nxf2+. Source: Lichess puzzle rSfRE (CC0), https://lichess.org/tOZGDP2s#35.",
+      "lichessPuzzleId": "rSfRE",
+      "lichessUrl": "https://lichess.org/tOZGDP2s#35"
+    },
+    {
+      "drillId": "giuoco-pianissimo-pz6",
+      "name": "Attraction (1242)",
+      "theme": "Attraction",
+      "description": "White to play. A real Giuoco Pianissimo tactic rated 1242 — attracting a piece to its doom.",
+      "fen": "r1bq4/ppp1k3/3p1r2/2b1p1B1/P1P1PpQ1/3P4/2P2PPP/R4RK1 w - - 5 18",
+      "solutionMoves": [
+        "Bxf6+",
+        "Kxf6",
+        "Qh4+",
+        "Kf7",
+        "Qxd8"
+      ],
+      "opponentResponse": "Kxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxf6+: attracting a piece to its doom. Solution: 1. Bxf6+ Kxf6 2. Qh4+ Kf7 3. Qxd8.",
+      "explanation": "White to move in this Giuoco Pianissimo position. The solution begins with Bxf6+ — attracting a piece to its doom. Full line: 1. Bxf6+ Kxf6 2. Qh4+ Kf7 3. Qxd8. Source: Lichess puzzle u27iR (CC0), https://lichess.org/wFEEIeps/black#34.",
+      "lichessPuzzleId": "u27iR",
+      "lichessUrl": "https://lichess.org/wFEEIeps/black#34"
+    },
+    {
+      "drillId": "giuoco-pianissimo-pz7",
+      "name": "Fork (1535)",
+      "theme": "Fork",
+      "description": "White to play. A real Giuoco Pianissimo tactic rated 1535 — forking two targets with one move.",
+      "fen": "r2q1rk1/ppp2p2/1b1p3p/3P1N2/1Pn5/P6P/5PP1/R2Q1RK1 w - - 0 18",
+      "solutionMoves": [
+        "Qg4+",
+        "Qg5",
+        "Nxh6+",
+        "Kh7",
+        "Qxg5"
+      ],
+      "opponentResponse": "Qg5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qg4+: forking two targets with one move. Solution: 1. Qg4+ Qg5 2. Nxh6+ Kh7 3. Qxg5.",
+      "explanation": "White to move in this Giuoco Pianissimo position. The solution begins with Qg4+ — forking two targets with one move. Full line: 1. Qg4+ Qg5 2. Nxh6+ Kh7 3. Qxg5. Source: Lichess puzzle 781n2 (CC0), https://lichess.org/lYzdNfgc/black#34.",
+      "lichessPuzzleId": "781n2",
+      "lichessUrl": "https://lichess.org/lYzdNfgc/black#34"
+    },
+    {
+      "drillId": "giuoco-pianissimo-pz8",
+      "name": "Mate In 2 (1295)",
+      "theme": "Mate In 2",
+      "description": "Black to play. A real Giuoco Pianissimo tactic rated 1295 — forcing checkmate in two.",
+      "fen": "N1br2k1/pp3ppp/8/2b5/2P5/P3pPqP/1PP1Q1P1/R1B2K1R b - - 0 16",
+      "solutionMoves": [
+        "Rd1+",
+        "Qxd1",
+        "Qf2#"
+      ],
+      "opponentResponse": "Qxd1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rd1+: forcing checkmate in two. Solution: 1. Rd1+ Qxd1 2. Qf2#.",
+      "explanation": "Black to move in this Giuoco Pianissimo position. The solution begins with Rd1+ — forcing checkmate in two. Full line: 1. Rd1+ Qxd1 2. Qf2#. Source: Lichess puzzle RtFtv (CC0), https://lichess.org/zcw1CzQy#31.",
+      "lichessPuzzleId": "RtFtv",
+      "lichessUrl": "https://lichess.org/zcw1CzQy#31"
+    }
+  ]
+}

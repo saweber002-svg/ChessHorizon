@@ -1,0 +1,187 @@
+{
+  "id": "ruy-lopez-morphy-puzzles",
+  "name": "Ruy Lopez, Morphy Defense Puzzles",
+  "description": "Real tactical puzzles from Ruy Lopez, Morphy Defense games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "ruy-lopez-morphy",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "ruy-lopez-morphy-pz1",
+      "name": "Discovered Attack (1189)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Ruy Lopez, Morphy Defense tactic rated 1189 — unleashing a discovered attack.",
+      "fen": "r4b1r/1bqp1kpp/p4n2/np2P3/2p2Q2/1B6/PPPP1PPP/RNB2RK1 w - - 3 12",
+      "solutionMoves": [
+        "e6+",
+        "dxe6",
+        "Qxc7+"
+      ],
+      "opponentResponse": "dxe6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is e6+: unleashing a discovered attack. Solution: 1. e6+ dxe6 2. Qxc7+.",
+      "explanation": "White to move in this Ruy Lopez, Morphy Defense position. The solution begins with e6+ — unleashing a discovered attack. Full line: 1. e6+ dxe6 2. Qxc7+. Source: Lichess puzzle 0BYn1 (CC0), https://lichess.org/tAPMwJtZ/black#22.",
+      "lichessPuzzleId": "0BYn1",
+      "lichessUrl": "https://lichess.org/tAPMwJtZ/black#22"
+    },
+    {
+      "drillId": "ruy-lopez-morphy-pz2",
+      "name": "Discovered Attack (1295)",
+      "theme": "Discovered Attack",
+      "description": "Black to play. A real Ruy Lopez, Morphy Defense tactic rated 1295 — unleashing a discovered attack.",
+      "fen": "1rb1k2r/2p1qp2/1bn3pp/1Q2P2n/8/1B3N1P/1P3PP1/RNBR2K1 b k - 0 17",
+      "solutionMoves": [
+        "Bxf2+",
+        "Kxf2",
+        "Rxb5"
+      ],
+      "opponentResponse": "Kxf2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxf2+: unleashing a discovered attack. Solution: 1. Bxf2+ Kxf2 2. Rxb5.",
+      "explanation": "Black to move in this Ruy Lopez, Morphy Defense position. The solution begins with Bxf2+ — unleashing a discovered attack. Full line: 1. Bxf2+ Kxf2 2. Rxb5. Source: Lichess puzzle NYBz5 (CC0), https://lichess.org/OTWvgoGq#33.",
+      "lichessPuzzleId": "NYBz5",
+      "lichessUrl": "https://lichess.org/OTWvgoGq#33"
+    },
+    {
+      "drillId": "ruy-lopez-morphy-pz3",
+      "name": "Kingside Attack (1259)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real Ruy Lopez, Morphy Defense tactic rated 1259 — a direct kingside attack.",
+      "fen": "r2r1qk1/1b2bp2/p1np1n1Q/1pp1p1NN/4P3/2PP3P/PPB2PP1/R3K2R w KQ - 5 19",
+      "solutionMoves": [
+        "Nxf6+",
+        "Bxf6",
+        "Qh7#"
+      ],
+      "opponentResponse": "Bxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxf6+: a direct kingside attack. Solution: 1. Nxf6+ Bxf6 2. Qh7#.",
+      "explanation": "White to move in this Ruy Lopez, Morphy Defense position. The solution begins with Nxf6+ — a direct kingside attack. Full line: 1. Nxf6+ Bxf6 2. Qh7#. Source: Lichess puzzle OBhmj (CC0), https://lichess.org/Yt0SBVm1/black#36.",
+      "lichessPuzzleId": "OBhmj",
+      "lichessUrl": "https://lichess.org/Yt0SBVm1/black#36"
+    },
+    {
+      "drillId": "ruy-lopez-morphy-pz4",
+      "name": "Fork (1443)",
+      "theme": "Fork",
+      "description": "White to play. A real Ruy Lopez, Morphy Defense tactic rated 1443 — forking two targets with one move.",
+      "fen": "r3k2r/bbp2ppp/p1n5/1p1Bp1q1/3P4/2P5/PP3PPP/RN1QR1K1 w kq - 1 13",
+      "solutionMoves": [
+        "Bxc6+",
+        "Bxc6",
+        "Rxe5+",
+        "Qxe5",
+        "dxe5"
+      ],
+      "opponentResponse": "Bxc6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxc6+: forking two targets with one move. Solution: 1. Bxc6+ Bxc6 2. Rxe5+ Qxe5 3. dxe5.",
+      "explanation": "White to move in this Ruy Lopez, Morphy Defense position. The solution begins with Bxc6+ — forking two targets with one move. Full line: 1. Bxc6+ Bxc6 2. Rxe5+ Qxe5 3. dxe5. Source: Lichess puzzle gMyBE (CC0), https://lichess.org/cqLpXASJ/black#24.",
+      "lichessPuzzleId": "gMyBE",
+      "lichessUrl": "https://lichess.org/cqLpXASJ/black#24"
+    },
+    {
+      "drillId": "ruy-lopez-morphy-pz5",
+      "name": "Fork (1455)",
+      "theme": "Fork",
+      "description": "White to play. A real Ruy Lopez, Morphy Defense tactic rated 1455 — forking two targets with one move.",
+      "fen": "r3k2r/2p2pp1/p4q1p/1pn2b2/4p3/1BP4P/PP3PP1/RN1Q1RK1 w kq - 0 15",
+      "solutionMoves": [
+        "Qd5",
+        "O-O",
+        "Qxc5"
+      ],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qd5: forking two targets with one move. Solution: 1. Qd5 O-O 2. Qxc5.",
+      "explanation": "White to move in this Ruy Lopez, Morphy Defense position. The solution begins with Qd5 — forking two targets with one move. Full line: 1. Qd5 O-O 2. Qxc5. Source: Lichess puzzle wtfbn (CC0), https://lichess.org/oqa9Gti1/black#28.",
+      "lichessPuzzleId": "wtfbn",
+      "lichessUrl": "https://lichess.org/oqa9Gti1/black#28"
+    },
+    {
+      "drillId": "ruy-lopez-morphy-pz6",
+      "name": "Advantage (1589)",
+      "theme": "Advantage",
+      "description": "Black to play. A real Ruy Lopez, Morphy Defense tactic rated 1589 — finding the strongest continuation.",
+      "fen": "r2q1r1k/2p3pp/p3Q3/1p6/8/3P4/PPP2PPP/RNB3K1 b - - 0 16",
+      "solutionMoves": [
+        "Re8",
+        "Qe3",
+        "Rxe3"
+      ],
+      "opponentResponse": "Qe3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Re8: finding the strongest continuation. Solution: 1. Re8 Qe3 2. Rxe3.",
+      "explanation": "Black to move in this Ruy Lopez, Morphy Defense position. The solution begins with Re8 — finding the strongest continuation. Full line: 1. Re8 Qe3 2. Rxe3. Source: Lichess puzzle Pp1ta (CC0), https://lichess.org/PqkjN1my#31.",
+      "lichessPuzzleId": "Pp1ta",
+      "lichessUrl": "https://lichess.org/PqkjN1my#31"
+    },
+    {
+      "drillId": "ruy-lopez-morphy-pz7",
+      "name": "Advantage (1288)",
+      "theme": "Advantage",
+      "description": "White to play. A real Ruy Lopez, Morphy Defense tactic rated 1288 — finding the strongest continuation.",
+      "fen": "r4rk1/2p1bppp/p1qp4/1p6/4n3/2N1B2P/PPQ2PP1/R2R2K1 w - - 0 17",
+      "solutionMoves": [
+        "Qxe4",
+        "Qxe4",
+        "Nxe4"
+      ],
+      "opponentResponse": "Qxe4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxe4: finding the strongest continuation. Solution: 1. Qxe4 Qxe4 2. Nxe4.",
+      "explanation": "White to move in this Ruy Lopez, Morphy Defense position. The solution begins with Qxe4 — finding the strongest continuation. Full line: 1. Qxe4 Qxe4 2. Nxe4. Source: Lichess puzzle Eov2H (CC0), https://lichess.org/1aEcLqah/black#32.",
+      "lichessPuzzleId": "Eov2H",
+      "lichessUrl": "https://lichess.org/1aEcLqah/black#32"
+    },
+    {
+      "drillId": "ruy-lopez-morphy-pz8",
+      "name": "Double Check (1680)",
+      "theme": "Double Check",
+      "description": "White to play. A real Ruy Lopez, Morphy Defense tactic rated 1680 — giving a crushing double check.",
+      "fen": "1rbq1rk1/3p2pn/pbnp2pB/1p1NP3/8/1B3N2/PP3PPP/R4RK1 w - - 0 19",
+      "solutionMoves": [
+        "Ne7+",
+        "Kh8",
+        "Nxg6#"
+      ],
+      "opponentResponse": "Kh8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ne7+: giving a crushing double check. Solution: 1. Ne7+ Kh8 2. Nxg6#.",
+      "explanation": "White to move in this Ruy Lopez, Morphy Defense position. The solution begins with Ne7+ — giving a crushing double check. Full line: 1. Ne7+ Kh8 2. Nxg6#. Source: Lichess puzzle DXfTp (CC0), https://lichess.org/YOEpHywK/black#36.",
+      "lichessPuzzleId": "DXfTp",
+      "lichessUrl": "https://lichess.org/YOEpHywK/black#36"
+    }
+  ]
+}

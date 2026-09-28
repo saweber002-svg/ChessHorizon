@@ -1,0 +1,195 @@
+{
+  "id": "caro-kann-classical-puzzles",
+  "name": "Caro-Kann, Classical Puzzles",
+  "description": "Real tactical puzzles from Caro-Kann, Classical games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "caro-kann-classical",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "caro-kann-classical-pz1",
+      "name": "Attacking F 2 F 7 (1584)",
+      "theme": "Attacking F 2 F 7",
+      "description": "White to play. A real Caro-Kann, Classical tactic rated 1584 — finding the strongest continuation.",
+      "fen": "rn1qkb1r/pp2pbp1/2p2n1p/6N1/5P2/3B4/PPP3PP/R1BQK2R w KQkq - 0 11",
+      "solutionMoves": [
+        "Nxf7",
+        "Kxf7",
+        "Bg6+"
+      ],
+      "opponentResponse": "Kxf7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxf7: finding the strongest continuation. Solution: 1. Nxf7 Kxf7 2. Bg6+.",
+      "explanation": "White to move in this Caro-Kann, Classical position. The solution begins with Nxf7 — finding the strongest continuation. Full line: 1. Nxf7 Kxf7 2. Bg6+. Source: Lichess puzzle nULlw (CC0), https://lichess.org/BaeZt4TJ/black#20.",
+      "lichessPuzzleId": "nULlw",
+      "lichessUrl": "https://lichess.org/BaeZt4TJ/black#20"
+    },
+    {
+      "drillId": "caro-kann-classical-pz2",
+      "name": "Exposed King (1599)",
+      "theme": "Exposed King",
+      "description": "White to play. A real Caro-Kann, Classical tactic rated 1599 — finding the strongest continuation.",
+      "fen": "r2qk2r/1p1nb1p1/2p1pn2/p6p/3P3P/3Q1NN1/PPPB1PP1/2K4R w kq - 0 14",
+      "solutionMoves": [
+        "Qg6+",
+        "Kf8",
+        "Ng5",
+        "Qe8",
+        "Nxe6+",
+        "Kg8",
+        "Qxg7#"
+      ],
+      "opponentResponse": "Kf8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qg6+: finding the strongest continuation. Solution: 1. Qg6+ Kf8 2. Ng5 Qe8 3. Nxe6+ Kg8 4. Qxg7#.",
+      "explanation": "White to move in this Caro-Kann, Classical position. The solution begins with Qg6+ — finding the strongest continuation. Full line: 1. Qg6+ Kf8 2. Ng5 Qe8 3. Nxe6+ Kg8 4. Qxg7#. Source: Lichess puzzle oXm2t (CC0), https://lichess.org/N0cgN8S0/black#26.",
+      "lichessPuzzleId": "oXm2t",
+      "lichessUrl": "https://lichess.org/N0cgN8S0/black#26"
+    },
+    {
+      "drillId": "caro-kann-classical-pz3",
+      "name": "Fork (1462)",
+      "theme": "Fork",
+      "description": "White to play. A real Caro-Kann, Classical tactic rated 1462 — forking two targets with one move.",
+      "fen": "r4k1r/ppqn2p1/2pbRnbp/6N1/3P4/2P3N1/PP3PPP/R1BQ2K1 w - - 0 14",
+      "solutionMoves": [
+        "Rxf6+",
+        "Nxf6",
+        "Ne6+",
+        "Kg8",
+        "Nxc7"
+      ],
+      "opponentResponse": "Nxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rxf6+: forking two targets with one move. Solution: 1. Rxf6+ Nxf6 2. Ne6+ Kg8 3. Nxc7.",
+      "explanation": "White to move in this Caro-Kann, Classical position. The solution begins with Rxf6+ — forking two targets with one move. Full line: 1. Rxf6+ Nxf6 2. Ne6+ Kg8 3. Nxc7. Source: Lichess puzzle ABez7 (CC0), https://lichess.org/sy66S0oO/black#26.",
+      "lichessPuzzleId": "ABez7",
+      "lichessUrl": "https://lichess.org/sy66S0oO/black#26"
+    },
+    {
+      "drillId": "caro-kann-classical-pz4",
+      "name": "Defensive Move (1563)",
+      "theme": "Defensive Move",
+      "description": "White to play. A real Caro-Kann, Classical tactic rated 1563 — finding the only defensive resource.",
+      "fen": "r3k2r/pp1n1pp1/2p1pnp1/6B1/3P4/2PB2q1/PP1Q2PP/R3K2R w KQkq - 0 14",
+      "solutionMoves": [
+        "hxg3",
+        "Rxh1+",
+        "Bf1"
+      ],
+      "opponentResponse": "Rxh1+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is hxg3: finding the only defensive resource. Solution: 1. hxg3 Rxh1+ 2. Bf1.",
+      "explanation": "White to move in this Caro-Kann, Classical position. The solution begins with hxg3 — finding the only defensive resource. Full line: 1. hxg3 Rxh1+ 2. Bf1. Source: Lichess puzzle Ktr78 (CC0), https://lichess.org/t3nvI9Kd/black#26.",
+      "lichessPuzzleId": "Ktr78",
+      "lichessUrl": "https://lichess.org/t3nvI9Kd/black#26"
+    },
+    {
+      "drillId": "caro-kann-classical-pz5",
+      "name": "Mate In 2 (1356)",
+      "theme": "Mate In 2",
+      "description": "White to play. A real Caro-Kann, Classical tactic rated 1356 — forcing checkmate in two.",
+      "fen": "r2q1b2/pp1n1k2/1np1p2p/7P/3P4/3Q4/PPP2PP1/2K1R2R w - - 0 19",
+      "solutionMoves": [
+        "Qg6+",
+        "Ke7",
+        "Qxe6#"
+      ],
+      "opponentResponse": "Ke7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qg6+: forcing checkmate in two. Solution: 1. Qg6+ Ke7 2. Qxe6#.",
+      "explanation": "White to move in this Caro-Kann, Classical position. The solution begins with Qg6+ — forcing checkmate in two. Full line: 1. Qg6+ Ke7 2. Qxe6#. Source: Lichess puzzle sV5r1 (CC0), https://lichess.org/11X66vVF/black#36.",
+      "lichessPuzzleId": "sV5r1",
+      "lichessUrl": "https://lichess.org/11X66vVF/black#36"
+    },
+    {
+      "drillId": "caro-kann-classical-pz6",
+      "name": "Exposed King (1535)",
+      "theme": "Exposed King",
+      "description": "White to play. A real Caro-Kann, Classical tactic rated 1535 — finding the strongest continuation.",
+      "fen": "r2qk2r/pp1nb1p1/2p1pn2/6p1/3P4/3Q1NN1/PPP2PPP/R4RK1 w kq - 0 14",
+      "solutionMoves": [
+        "Qg6+",
+        "Kf8",
+        "Nxg5",
+        "Qe8",
+        "Nxe6+",
+        "Kg8",
+        "Qxg7#"
+      ],
+      "opponentResponse": "Kf8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qg6+: finding the strongest continuation. Solution: 1. Qg6+ Kf8 2. Nxg5 Qe8 3. Nxe6+ Kg8 4. Qxg7#.",
+      "explanation": "White to move in this Caro-Kann, Classical position. The solution begins with Qg6+ — finding the strongest continuation. Full line: 1. Qg6+ Kf8 2. Nxg5 Qe8 3. Nxe6+ Kg8 4. Qxg7#. Source: Lichess puzzle pPBfp (CC0), https://lichess.org/EosS6uN5/black#26.",
+      "lichessPuzzleId": "pPBfp",
+      "lichessUrl": "https://lichess.org/EosS6uN5/black#26"
+    },
+    {
+      "drillId": "caro-kann-classical-pz7",
+      "name": "Kingside Attack (1375)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real Caro-Kann, Classical tactic rated 1375 — a direct kingside attack.",
+      "fen": "rn3rk1/pp2qpp1/2p1pn1p/6N1/6N1/3Q4/PPP2PPP/R4RK1 w - - 0 14",
+      "solutionMoves": [
+        "Nxf6+",
+        "gxf6",
+        "Qh7#"
+      ],
+      "opponentResponse": "gxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxf6+: a direct kingside attack. Solution: 1. Nxf6+ gxf6 2. Qh7#.",
+      "explanation": "White to move in this Caro-Kann, Classical position. The solution begins with Nxf6+ — a direct kingside attack. Full line: 1. Nxf6+ gxf6 2. Qh7#. Source: Lichess puzzle qVKTI (CC0), https://lichess.org/VfLRPJek/black#26.",
+      "lichessPuzzleId": "qVKTI",
+      "lichessUrl": "https://lichess.org/VfLRPJek/black#26"
+    },
+    {
+      "drillId": "caro-kann-classical-pz8",
+      "name": "Fork (1363)",
+      "theme": "Fork",
+      "description": "Black to play. A real Caro-Kann, Classical tactic rated 1363 — forking two targets with one move.",
+      "fen": "rn1qk2r/pp3pB1/2pbp2p/3n3P/3P4/3Q2N1/PPP2PP1/2KR2NR b kq - 0 13",
+      "solutionMoves": [
+        "Qg5+",
+        "Kb1",
+        "Qxg7"
+      ],
+      "opponentResponse": "Kb1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qg5+: forking two targets with one move. Solution: 1. Qg5+ Kb1 2. Qxg7.",
+      "explanation": "Black to move in this Caro-Kann, Classical position. The solution begins with Qg5+ — forking two targets with one move. Full line: 1. Qg5+ Kb1 2. Qxg7. Source: Lichess puzzle suGZy (CC0), https://lichess.org/wFGb9rEO#25.",
+      "lichessPuzzleId": "suGZy",
+      "lichessUrl": "https://lichess.org/wFGb9rEO#25"
+    }
+  ]
+}

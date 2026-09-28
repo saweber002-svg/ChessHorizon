@@ -1,0 +1,189 @@
+{
+  "id": "queen-gambit-declined-puzzles",
+  "name": "Queen's Gambit Declined Puzzles",
+  "description": "Real tactical puzzles from Queen's Gambit Declined games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "queen-gambit-declined",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "queen-gambit-declined-pz1",
+      "name": "Discovered Attack (1339)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Queen's Gambit Declined tactic rated 1339 — unleashing a discovered attack.",
+      "fen": "r4rk1/pbp2ppp/1p2p3/3nP3/3q4/P1NB4/1P3PPP/R2Q1RK1 w - - 1 14",
+      "solutionMoves": [
+        "Bxh7+",
+        "Kxh7",
+        "Qxd4"
+      ],
+      "opponentResponse": "Kxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxh7+: unleashing a discovered attack. Solution: 1. Bxh7+ Kxh7 2. Qxd4.",
+      "explanation": "White to move in this Queen's Gambit Declined position. The solution begins with Bxh7+ — unleashing a discovered attack. Full line: 1. Bxh7+ Kxh7 2. Qxd4. Source: Lichess puzzle UbR11 (CC0), https://lichess.org/SL80xxkC/black#26.",
+      "lichessPuzzleId": "UbR11",
+      "lichessUrl": "https://lichess.org/SL80xxkC/black#26"
+    },
+    {
+      "drillId": "queen-gambit-declined-pz2",
+      "name": "Discovered Attack (1523)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Queen's Gambit Declined tactic rated 1523 — unleashing a discovered attack.",
+      "fen": "r3k2r/pp1bb1pp/4pn2/6B1/N2q4/3B4/P4PPP/1R1Q1K1R w kq - 0 15",
+      "solutionMoves": [
+        "Bg6+",
+        "hxg6",
+        "Qxd4"
+      ],
+      "opponentResponse": "hxg6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bg6+: unleashing a discovered attack. Solution: 1. Bg6+ hxg6 2. Qxd4.",
+      "explanation": "White to move in this Queen's Gambit Declined position. The solution begins with Bg6+ — unleashing a discovered attack. Full line: 1. Bg6+ hxg6 2. Qxd4. Source: Lichess puzzle uKw1p (CC0), https://lichess.org/Dm7QKaZ9/black#28.",
+      "lichessPuzzleId": "uKw1p",
+      "lichessUrl": "https://lichess.org/Dm7QKaZ9/black#28"
+    },
+    {
+      "drillId": "queen-gambit-declined-pz3",
+      "name": "Trapped Piece (1286)",
+      "theme": "Trapped Piece",
+      "description": "White to play. A real Queen's Gambit Declined tactic rated 1286 — trapping an enemy piece.",
+      "fen": "rnbr3k/ppp3pp/8/3BPp2/2N2P2/6P1/PP2Pq1P/R1BQ3K w - - 3 16",
+      "solutionMoves": [
+        "Be3",
+        "Qf1+",
+        "Qxf1"
+      ],
+      "opponentResponse": "Qf1+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Be3: trapping an enemy piece. Solution: 1. Be3 Qf1+ 2. Qxf1.",
+      "explanation": "White to move in this Queen's Gambit Declined position. The solution begins with Be3 — trapping an enemy piece. Full line: 1. Be3 Qf1+ 2. Qxf1. Source: Lichess puzzle Znpmb (CC0), https://lichess.org/uW88usmU/black#30.",
+      "lichessPuzzleId": "Znpmb",
+      "lichessUrl": "https://lichess.org/uW88usmU/black#30"
+    },
+    {
+      "drillId": "queen-gambit-declined-pz4",
+      "name": "Interference (1543)",
+      "theme": "Interference",
+      "description": "White to play. A real Queen's Gambit Declined tactic rated 1543 — interfering with a defensive line.",
+      "fen": "r4rk1/pp1b1ppp/4p3/q2pP3/3P4/b4N2/2R2PPP/2BQ1RK1 w - - 0 18",
+      "solutionMoves": [
+        "Ra2",
+        "Ba4",
+        "Rxa3",
+        "Bxd1",
+        "Rxa5"
+      ],
+      "opponentResponse": "Ba4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ra2: interfering with a defensive line. Solution: 1. Ra2 Ba4 2. Rxa3 Bxd1 3. Rxa5.",
+      "explanation": "White to move in this Queen's Gambit Declined position. The solution begins with Ra2 — interfering with a defensive line. Full line: 1. Ra2 Ba4 2. Rxa3 Bxd1 3. Rxa5. Source: Lichess puzzle NcDfo (CC0), https://lichess.org/DO2EgSaE/black#34.",
+      "lichessPuzzleId": "NcDfo",
+      "lichessUrl": "https://lichess.org/DO2EgSaE/black#34"
+    },
+    {
+      "drillId": "queen-gambit-declined-pz5",
+      "name": "Advantage (1210)",
+      "theme": "Advantage",
+      "description": "White to play. A real Queen's Gambit Declined tactic rated 1210 — finding the strongest continuation.",
+      "fen": "rn3rk1/pp1q1pp1/2p2b1p/3p1b2/3P4/2N1PN2/PPQ2PPP/1BR1K2R w K - 8 13",
+      "solutionMoves": [
+        "Qxf5",
+        "Qxf5",
+        "Bxf5"
+      ],
+      "opponentResponse": "Qxf5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxf5: finding the strongest continuation. Solution: 1. Qxf5 Qxf5 2. Bxf5.",
+      "explanation": "White to move in this Queen's Gambit Declined position. The solution begins with Qxf5 — finding the strongest continuation. Full line: 1. Qxf5 Qxf5 2. Bxf5. Source: Lichess puzzle PwBEL (CC0), https://lichess.org/5eQTw8AW/black#24.",
+      "lichessPuzzleId": "PwBEL",
+      "lichessUrl": "https://lichess.org/5eQTw8AW/black#24"
+    },
+    {
+      "drillId": "queen-gambit-declined-pz6",
+      "name": "Kingside Attack (1394)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real Queen's Gambit Declined tactic rated 1394 — a direct kingside attack.",
+      "fen": "r4rk1/pp1nq1p1/2pn1p1p/3pN3/P2P1P2/3BP3/1PQ3PP/R4RK1 w - - 0 19",
+      "solutionMoves": [
+        "Bh7+",
+        "Kh8",
+        "Ng6+"
+      ],
+      "opponentResponse": "Kh8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bh7+: a direct kingside attack. Solution: 1. Bh7+ Kh8 2. Ng6+.",
+      "explanation": "White to move in this Queen's Gambit Declined position. The solution begins with Bh7+ — a direct kingside attack. Full line: 1. Bh7+ Kh8 2. Ng6+. Source: Lichess puzzle AlCa9 (CC0), https://lichess.org/CogyeTis/black#36.",
+      "lichessPuzzleId": "AlCa9",
+      "lichessUrl": "https://lichess.org/CogyeTis/black#36"
+    },
+    {
+      "drillId": "queen-gambit-declined-pz7",
+      "name": "Capturing Defender (1271)",
+      "theme": "Capturing Defender",
+      "description": "Black to play. A real Queen's Gambit Declined tactic rated 1271 — finding the strongest continuation.",
+      "fen": "3qk2r/p1bb1ppp/1p3n2/4p3/4N2Q/1PB1PB2/P1r2PPP/R4RK1 b k - 3 17",
+      "solutionMoves": [
+        "Nxe4",
+        "Qxe4",
+        "Rxc3"
+      ],
+      "opponentResponse": "Qxe4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxe4: finding the strongest continuation. Solution: 1. Nxe4 Qxe4 2. Rxc3.",
+      "explanation": "Black to move in this Queen's Gambit Declined position. The solution begins with Nxe4 — finding the strongest continuation. Full line: 1. Nxe4 Qxe4 2. Rxc3. Source: Lichess puzzle HVF9B (CC0), https://lichess.org/e6afF0qF#33.",
+      "lichessPuzzleId": "HVF9B",
+      "lichessUrl": "https://lichess.org/e6afF0qF#33"
+    },
+    {
+      "drillId": "queen-gambit-declined-pz8",
+      "name": "Kingside Attack (1206)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real Queen's Gambit Declined tactic rated 1206 — a direct kingside attack.",
+      "fen": "r2qr1k1/pp3pp1/1np4p/3b4/1b1PQ3/5NP1/PP1B1PBP/R3R1K1 w - - 3 17",
+      "solutionMoves": [
+        "Qxe8+",
+        "Qxe8",
+        "Rxe8+",
+        "Rxe8",
+        "Bxb4"
+      ],
+      "opponentResponse": "Qxe8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxe8+: a direct kingside attack. Solution: 1. Qxe8+ Qxe8 2. Rxe8+ Rxe8 3. Bxb4.",
+      "explanation": "White to move in this Queen's Gambit Declined position. The solution begins with Qxe8+ — a direct kingside attack. Full line: 1. Qxe8+ Qxe8 2. Rxe8+ Rxe8 3. Bxb4. Source: Lichess puzzle tbYYx (CC0), https://lichess.org/iolXn5va/black#32.",
+      "lichessPuzzleId": "tbYYx",
+      "lichessUrl": "https://lichess.org/iolXn5va/black#32"
+    }
+  ]
+}

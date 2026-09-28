@@ -1,0 +1,191 @@
+{
+  "id": "english-main-puzzles",
+  "name": "English Opening Puzzles",
+  "description": "Real tactical puzzles from English Opening games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "english-main",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "english-main-pz1",
+      "name": "Advanced Pawn (1252)",
+      "theme": "Advanced Pawn",
+      "description": "Black to play. A real English Opening tactic rated 1252 — pushing a dangerous passer.",
+      "fen": "r1q1k2r/ppp2p2/3p1b2/4n1p1/2P5/4P1Np/PP3P2/R1BQ1RKB b kq - 3 18",
+      "solutionMoves": [
+        "h2+",
+        "Kg2",
+        "Qh3#"
+      ],
+      "opponentResponse": "Kg2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is h2+: pushing a dangerous passer. Solution: 1. h2+ Kg2 2. Qh3#.",
+      "explanation": "Black to move in this English Opening position. The solution begins with h2+ — pushing a dangerous passer. Full line: 1. h2+ Kg2 2. Qh3#. Source: Lichess puzzle vW6Y7 (CC0), https://lichess.org/raR5RJbS#35.",
+      "lichessPuzzleId": "vW6Y7",
+      "lichessUrl": "https://lichess.org/raR5RJbS#35"
+    },
+    {
+      "drillId": "english-main-pz2",
+      "name": "Master (1522)",
+      "theme": "Master",
+      "description": "White to play. A real English Opening tactic rated 1522 — finding the strongest continuation.",
+      "fen": "r1b1k2r/p1pp1pp1/2p5/7p/1bPQ2q1/2N1P1P1/PP3P2/R3KB1R w KQkq - 4 13",
+      "solutionMoves": [
+        "Qxg4",
+        "hxg4",
+        "Rxh8+"
+      ],
+      "opponentResponse": "hxg4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxg4: finding the strongest continuation. Solution: 1. Qxg4 hxg4 2. Rxh8+.",
+      "explanation": "White to move in this English Opening position. The solution begins with Qxg4 — finding the strongest continuation. Full line: 1. Qxg4 hxg4 2. Rxh8+. Source: Lichess puzzle qIawy (CC0), https://lichess.org/0abWc4YZ/black#24.",
+      "lichessPuzzleId": "qIawy",
+      "lichessUrl": "https://lichess.org/0abWc4YZ/black#24"
+    },
+    {
+      "drillId": "english-main-pz3",
+      "name": "Kingside Attack (1558)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real English Opening tactic rated 1558 — a direct kingside attack.",
+      "fen": "r1bqrbk1/ppppnpp1/7p/3PpB2/8/P3PN2/1PQP1P1P/R1B1K1R1 w Q - 1 13",
+      "solutionMoves": [
+        "Bh7+",
+        "Kh8",
+        "Nxe5"
+      ],
+      "opponentResponse": "Kh8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bh7+: a direct kingside attack. Solution: 1. Bh7+ Kh8 2. Nxe5.",
+      "explanation": "White to move in this English Opening position. The solution begins with Bh7+ — a direct kingside attack. Full line: 1. Bh7+ Kh8 2. Nxe5. Source: Lichess puzzle xXdWc (CC0), https://lichess.org/EaXbTsOD/black#24.",
+      "lichessPuzzleId": "xXdWc",
+      "lichessUrl": "https://lichess.org/EaXbTsOD/black#24"
+    },
+    {
+      "drillId": "english-main-pz4",
+      "name": "Discovered Attack (1316)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real English Opening tactic rated 1316 — unleashing a discovered attack.",
+      "fen": "r1b2rk1/ppN2ppp/2nq1n2/8/2p5/P2BP3/1P3PPP/R1BQ1RK1 w - - 2 15",
+      "solutionMoves": [
+        "Bxh7+",
+        "Kxh7",
+        "Qxd6"
+      ],
+      "opponentResponse": "Kxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxh7+: unleashing a discovered attack. Solution: 1. Bxh7+ Kxh7 2. Qxd6.",
+      "explanation": "White to move in this English Opening position. The solution begins with Bxh7+ — unleashing a discovered attack. Full line: 1. Bxh7+ Kxh7 2. Qxd6. Source: Lichess puzzle Vr9L8 (CC0), https://lichess.org/EzJa7BLX/black#28.",
+      "lichessPuzzleId": "Vr9L8",
+      "lichessUrl": "https://lichess.org/EzJa7BLX/black#28"
+    },
+    {
+      "drillId": "english-main-pz5",
+      "name": "Pin (1326)",
+      "theme": "Pin",
+      "description": "Black to play. A real English Opening tactic rated 1326 — exploiting an absolute or relative pin.",
+      "fen": "r1b1kb1r/ppp1qpp1/3p3p/3Pn3/2PQ1Bn1/2N3PN/PP2PP1P/R3KB1R b KQkq - 1 11",
+      "solutionMoves": [
+        "Nf3+",
+        "Kd1",
+        "Nxd4"
+      ],
+      "opponentResponse": "Kd1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nf3+: exploiting an absolute or relative pin. Solution: 1. Nf3+ Kd1 2. Nxd4.",
+      "explanation": "Black to move in this English Opening position. The solution begins with Nf3+ — exploiting an absolute or relative pin. Full line: 1. Nf3+ Kd1 2. Nxd4. Source: Lichess puzzle YAkaH (CC0), https://lichess.org/HRQD4nEn#21.",
+      "lichessPuzzleId": "YAkaH",
+      "lichessUrl": "https://lichess.org/HRQD4nEn#21"
+    },
+    {
+      "drillId": "english-main-pz6",
+      "name": "Mate In 4 (1394)",
+      "theme": "Mate In 4",
+      "description": "Black to play. A real English Opening tactic rated 1394 — forcing checkmate in four.",
+      "fen": "3rkr2/pp3p1p/4bQ2/2pq4/8/PP3BP1/3PPP1P/1R2K2R b K - 0 18",
+      "solutionMoves": [
+        "Qxd2+",
+        "Kf1",
+        "Bh3+",
+        "Bg2",
+        "Qd1+",
+        "Rxd1",
+        "Rxd1#"
+      ],
+      "opponentResponse": "Kf1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxd2+: forcing checkmate in four. Solution: 1. Qxd2+ Kf1 2. Bh3+ Bg2 3. Qd1+ Rxd1 4. Rxd1#.",
+      "explanation": "Black to move in this English Opening position. The solution begins with Qxd2+ — forcing checkmate in four. Full line: 1. Qxd2+ Kf1 2. Bh3+ Bg2 3. Qd1+ Rxd1 4. Rxd1#. Source: Lichess puzzle aTE6p (CC0), https://lichess.org/OFxKRqpR#35.",
+      "lichessPuzzleId": "aTE6p",
+      "lichessUrl": "https://lichess.org/OFxKRqpR#35"
+    },
+    {
+      "drillId": "english-main-pz7",
+      "name": "Advantage (1290)",
+      "theme": "Advantage",
+      "description": "White to play. A real English Opening tactic rated 1290 — finding the strongest continuation.",
+      "fen": "1r1qkb1r/Q4ppp/4b3/1np5/4B3/4P1P1/PP1P1P1P/R1B1K2R w KQk - 1 14",
+      "solutionMoves": [
+        "Bc6+",
+        "Bd7",
+        "Bxd7+",
+        "Qxd7",
+        "Qxb8+"
+      ],
+      "opponentResponse": "Bd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bc6+: finding the strongest continuation. Solution: 1. Bc6+ Bd7 2. Bxd7+ Qxd7 3. Qxb8+.",
+      "explanation": "White to move in this English Opening position. The solution begins with Bc6+ — finding the strongest continuation. Full line: 1. Bc6+ Bd7 2. Bxd7+ Qxd7 3. Qxb8+. Source: Lichess puzzle HF1z7 (CC0), https://lichess.org/THCOBdfQ/black#26.",
+      "lichessPuzzleId": "HF1z7",
+      "lichessUrl": "https://lichess.org/THCOBdfQ/black#26"
+    },
+    {
+      "drillId": "english-main-pz8",
+      "name": "Capturing Defender (1377)",
+      "theme": "Capturing Defender",
+      "description": "Black to play. A real English Opening tactic rated 1377 — finding the strongest continuation.",
+      "fen": "rn1q1rk1/pppbb1pp/3p1n2/3N4/2PNPB2/5P2/PP2B1PP/R2QK2R b KQ - 4 11",
+      "solutionMoves": [
+        "Nxd5",
+        "cxd5",
+        "Rxf4"
+      ],
+      "opponentResponse": "cxd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxd5: finding the strongest continuation. Solution: 1. Nxd5 cxd5 2. Rxf4.",
+      "explanation": "Black to move in this English Opening position. The solution begins with Nxd5 — finding the strongest continuation. Full line: 1. Nxd5 cxd5 2. Rxf4. Source: Lichess puzzle O9ADl (CC0), https://lichess.org/f6RZXNsU#21.",
+      "lichessPuzzleId": "O9ADl",
+      "lichessUrl": "https://lichess.org/f6RZXNsU#21"
+    }
+  ]
+}

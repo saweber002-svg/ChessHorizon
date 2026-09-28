@@ -1,0 +1,189 @@
+{
+  "id": "sicilian-dragon-puzzles",
+  "name": "Sicilian Dragon Puzzles",
+  "description": "Real tactical puzzles from Sicilian Dragon games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "sicilian-dragon",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "sicilian-dragon-pz1",
+      "name": "Hanging Piece (1231)",
+      "theme": "Hanging Piece",
+      "description": "Black to play. A real Sicilian Dragon tactic rated 1231 — punishing a loose, undefended piece.",
+      "fen": "2rq1rk1/pp3pRp/2bp4/4p3/4n3/1BN1B2P/PPP3P1/R2Q2K1 b - - 0 17",
+      "solutionMoves": [
+        "Kxg7",
+        "Nxe4",
+        "Bxe4",
+        "Qg4+",
+        "Bg6"
+      ],
+      "opponentResponse": "Nxe4",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Kxg7: punishing a loose, undefended piece. Solution: 1. Kxg7 Nxe4 2. Bxe4 Qg4+ 3. Bg6.",
+      "explanation": "Black to move in this Sicilian Dragon position. The solution begins with Kxg7 — punishing a loose, undefended piece. Full line: 1. Kxg7 Nxe4 2. Bxe4 Qg4+ 3. Bg6. Source: Lichess puzzle LqM5O (CC0), https://lichess.org/pFEhAvl9#33.",
+      "lichessPuzzleId": "LqM5O",
+      "lichessUrl": "https://lichess.org/pFEhAvl9#33"
+    },
+    {
+      "drillId": "sicilian-dragon-pz2",
+      "name": "Kingside Attack (1287)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real Sicilian Dragon tactic rated 1287 — a direct kingside attack.",
+      "fen": "3r1rk1/1p1b1p1p/p2pp1pQ/q2N2Pn/4P3/1P3P2/1PP4P/2KR3R w - - 0 18",
+      "solutionMoves": [
+        "Nf6+",
+        "Nxf6",
+        "gxf6",
+        "Qg5+",
+        "Qxg5"
+      ],
+      "opponentResponse": "Nxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nf6+: a direct kingside attack. Solution: 1. Nf6+ Nxf6 2. gxf6 Qg5+ 3. Qxg5.",
+      "explanation": "White to move in this Sicilian Dragon position. The solution begins with Nf6+ — a direct kingside attack. Full line: 1. Nf6+ Nxf6 2. gxf6 Qg5+ 3. Qxg5. Source: Lichess puzzle F80BP (CC0), https://lichess.org/f7S19pte/black#34.",
+      "lichessPuzzleId": "F80BP",
+      "lichessUrl": "https://lichess.org/f7S19pte/black#34"
+    },
+    {
+      "drillId": "sicilian-dragon-pz3",
+      "name": "Discovered Attack (1694)",
+      "theme": "Discovered Attack",
+      "description": "Black to play. A real Sicilian Dragon tactic rated 1694 — unleashing a discovered attack.",
+      "fen": "2r2r2/pp2p1k1/3pp1p1/q3n1Q1/4P1P1/2N2P2/PPP5/2KR3R b - - 1 18",
+      "solutionMoves": [
+        "Nd3+",
+        "Rxd3",
+        "Qxg5+"
+      ],
+      "opponentResponse": "Rxd3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nd3+: unleashing a discovered attack. Solution: 1. Nd3+ Rxd3 2. Qxg5+.",
+      "explanation": "Black to move in this Sicilian Dragon position. The solution begins with Nd3+ — unleashing a discovered attack. Full line: 1. Nd3+ Rxd3 2. Qxg5+. Source: Lichess puzzle hiOsa (CC0), https://lichess.org/nsbmMEMm#35.",
+      "lichessPuzzleId": "hiOsa",
+      "lichessUrl": "https://lichess.org/nsbmMEMm#35"
+    },
+    {
+      "drillId": "sicilian-dragon-pz4",
+      "name": "Fork (1247)",
+      "theme": "Fork",
+      "description": "White to play. A real Sicilian Dragon tactic rated 1247 — forking two targets with one move.",
+      "fen": "r3qk1r/1p3pbp/p3p1p1/3N4/3pP3/1P3Q1P/1PP3P1/R4RK1 w - - 0 19",
+      "solutionMoves": [
+        "Nc7",
+        "Qe7",
+        "Nxa8"
+      ],
+      "opponentResponse": "Qe7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nc7: forking two targets with one move. Solution: 1. Nc7 Qe7 2. Nxa8.",
+      "explanation": "White to move in this Sicilian Dragon position. The solution begins with Nc7 — forking two targets with one move. Full line: 1. Nc7 Qe7 2. Nxa8. Source: Lichess puzzle m6bFg (CC0), https://lichess.org/Y2viCiIm/black#36.",
+      "lichessPuzzleId": "m6bFg",
+      "lichessUrl": "https://lichess.org/Y2viCiIm/black#36"
+    },
+    {
+      "drillId": "sicilian-dragon-pz5",
+      "name": "Mate In 2 (1232)",
+      "theme": "Mate In 2",
+      "description": "White to play. A real Sicilian Dragon tactic rated 1232 — forcing checkmate in two.",
+      "fen": "r1b1r2b/p3ppk1/3p1np1/2p5/4P1P1/2q2P2/P1P4Q/R1BK1B1R w - - 2 18",
+      "solutionMoves": [
+        "Qh6+",
+        "Kg8",
+        "Qxh8#"
+      ],
+      "opponentResponse": "Kg8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh6+: forcing checkmate in two. Solution: 1. Qh6+ Kg8 2. Qxh8#.",
+      "explanation": "White to move in this Sicilian Dragon position. The solution begins with Qh6+ — forcing checkmate in two. Full line: 1. Qh6+ Kg8 2. Qxh8#. Source: Lichess puzzle 16TtF (CC0), https://lichess.org/HMC1n4B3/black#34.",
+      "lichessPuzzleId": "16TtF",
+      "lichessUrl": "https://lichess.org/HMC1n4B3/black#34"
+    },
+    {
+      "drillId": "sicilian-dragon-pz6",
+      "name": "Deflection (1293)",
+      "theme": "Deflection",
+      "description": "White to play. A real Sicilian Dragon tactic rated 1293 — deflecting a key defender away.",
+      "fen": "r2qkb1r/1Q2pp1p/pp4p1/4P3/3N4/1PN4P/1P1K2P1/n6R w kq - 0 17",
+      "solutionMoves": [
+        "Qc6+",
+        "Qd7",
+        "Qxa8+"
+      ],
+      "opponentResponse": "Qd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qc6+: deflecting a key defender away. Solution: 1. Qc6+ Qd7 2. Qxa8+.",
+      "explanation": "White to move in this Sicilian Dragon position. The solution begins with Qc6+ — deflecting a key defender away. Full line: 1. Qc6+ Qd7 2. Qxa8+. Source: Lichess puzzle so5yJ (CC0), https://lichess.org/27ijrONm/black#32.",
+      "lichessPuzzleId": "so5yJ",
+      "lichessUrl": "https://lichess.org/27ijrONm/black#32"
+    },
+    {
+      "drillId": "sicilian-dragon-pz7",
+      "name": "Mate In 2 (1189)",
+      "theme": "Mate In 2",
+      "description": "Black to play. A real Sicilian Dragon tactic rated 1189 — forcing checkmate in two.",
+      "fen": "1rb2rk1/p3ppbp/2pp2p1/7P/1q2N3/1P2B3/P1PQBPP1/2KR3R b - - 0 14",
+      "solutionMoves": [
+        "Qa3+",
+        "Kb1",
+        "Qb2#"
+      ],
+      "opponentResponse": "Kb1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa3+: forcing checkmate in two. Solution: 1. Qa3+ Kb1 2. Qb2#.",
+      "explanation": "Black to move in this Sicilian Dragon position. The solution begins with Qa3+ — forcing checkmate in two. Full line: 1. Qa3+ Kb1 2. Qb2#. Source: Lichess puzzle EJEzy (CC0), https://lichess.org/lUjR6jnp#27.",
+      "lichessPuzzleId": "EJEzy",
+      "lichessUrl": "https://lichess.org/lUjR6jnp#27"
+    },
+    {
+      "drillId": "sicilian-dragon-pz8",
+      "name": "Crushing (1274)",
+      "theme": "Crushing",
+      "description": "White to play. A real Sicilian Dragon tactic rated 1274 — finding the strongest continuation.",
+      "fen": "r2q1rk1/3b1pb1/p2p4/1p5Q/3pP1p1/1BN2P2/PPP5/2KR4 w - - 0 19",
+      "solutionMoves": [
+        "Rh1",
+        "Qg5+",
+        "Qxg5"
+      ],
+      "opponentResponse": "Qg5+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rh1: finding the strongest continuation. Solution: 1. Rh1 Qg5+ 2. Qxg5.",
+      "explanation": "White to move in this Sicilian Dragon position. The solution begins with Rh1 — finding the strongest continuation. Full line: 1. Rh1 Qg5+ 2. Qxg5. Source: Lichess puzzle bwnmq (CC0), https://lichess.org/BZoy2AYN/black#36.",
+      "lichessPuzzleId": "bwnmq",
+      "lichessUrl": "https://lichess.org/BZoy2AYN/black#36"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "id": "two-knights-puzzles",
+  "name": "Two Knights Defense Puzzles",
+  "description": "Real tactical puzzles from Two Knights Defense games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "two-knights",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "two-knights-pz1",
+      "name": "Pin (1498)",
+      "theme": "Pin",
+      "description": "Black to play. A real Two Knights Defense tactic rated 1498 — exploiting an absolute or relative pin.",
+      "fen": "r5k1/p1p2ppp/2pr4/8/2B2bQq/2NP3P/PPP2P2/R3R1K1 b - - 6 17",
+      "solutionMoves": [
+        "Rg6",
+        "Qxg6",
+        "hxg6"
+      ],
+      "opponentResponse": "Qxg6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rg6: exploiting an absolute or relative pin. Solution: 1. Rg6 Qxg6 2. hxg6.",
+      "explanation": "Black to move in this Two Knights Defense position. The solution begins with Rg6 — exploiting an absolute or relative pin. Full line: 1. Rg6 Qxg6 2. hxg6. Source: Lichess puzzle pBU6h (CC0), https://lichess.org/qD0ztVl0#33.",
+      "lichessPuzzleId": "pBU6h",
+      "lichessUrl": "https://lichess.org/qD0ztVl0#33"
+    },
+    {
+      "drillId": "two-knights-pz2",
+      "name": "Anastasia Mate (1465)",
+      "theme": "Anastasia Mate",
+      "description": "Black to play. A real Two Knights Defense tactic rated 1465 — an Anastasia's mate pattern.",
+      "fen": "r2q3r/ppp5/1b2kpQ1/4p3/3nN3/N2P4/PPP2PPP/R4RK1 b - - 2 18",
+      "solutionMoves": [
+        "Ne2+",
+        "Kh1",
+        "Rxh2+",
+        "Kxh2",
+        "Qh8+",
+        "Qh5",
+        "Qxh5#"
+      ],
+      "opponentResponse": "Kh1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ne2+: an Anastasia's mate pattern. Solution: 1. Ne2+ Kh1 2. Rxh2+ Kxh2 3. Qh8+ Qh5 4. Qxh5#.",
+      "explanation": "Black to move in this Two Knights Defense position. The solution begins with Ne2+ — an Anastasia's mate pattern. Full line: 1. Ne2+ Kh1 2. Rxh2+ Kxh2 3. Qh8+ Qh5 4. Qxh5#. Source: Lichess puzzle s83FK (CC0), https://lichess.org/IK6QqzfQ#35.",
+      "lichessPuzzleId": "s83FK",
+      "lichessUrl": "https://lichess.org/IK6QqzfQ#35"
+    },
+    {
+      "drillId": "two-knights-pz3",
+      "name": "Mate In 2 (1329)",
+      "theme": "Mate In 2",
+      "description": "White to play. A real Two Knights Defense tactic rated 1329 — forcing checkmate in two.",
+      "fen": "r2q1rn1/1pp1b1p1/p2pp1k1/4n3/P3P2p/2PPB1NP/1P3P2/R2QK2R w KQ - 0 17",
+      "solutionMoves": [
+        "Qh5+",
+        "Kf6",
+        "Bg5#"
+      ],
+      "opponentResponse": "Kf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh5+: forcing checkmate in two. Solution: 1. Qh5+ Kf6 2. Bg5#.",
+      "explanation": "White to move in this Two Knights Defense position. The solution begins with Qh5+ — forcing checkmate in two. Full line: 1. Qh5+ Kf6 2. Bg5#. Source: Lichess puzzle XglG7 (CC0), https://lichess.org/fQ64smjo/black#32.",
+      "lichessPuzzleId": "XglG7",
+      "lichessUrl": "https://lichess.org/fQ64smjo/black#32"
+    },
+    {
+      "drillId": "two-knights-pz4",
+      "name": "Crushing (1206)",
+      "theme": "Crushing",
+      "description": "Black to play. A real Two Knights Defense tactic rated 1206 — finding the strongest continuation.",
+      "fen": "r3k2N/ppp3pp/2n5/2b1pb2/4B3/6Pq/PPPP1P1P/RNBQ1RK1 b q - 0 10",
+      "solutionMoves": [
+        "Bxe4",
+        "Qh5+",
+        "Qxh5"
+      ],
+      "opponentResponse": "Qh5+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxe4: finding the strongest continuation. Solution: 1. Bxe4 Qh5+ 2. Qxh5.",
+      "explanation": "Black to move in this Two Knights Defense position. The solution begins with Bxe4 — finding the strongest continuation. Full line: 1. Bxe4 Qh5+ 2. Qxh5. Source: Lichess puzzle Q69uS (CC0), https://lichess.org/ckcGYwj8#19.",
+      "lichessPuzzleId": "Q69uS",
+      "lichessUrl": "https://lichess.org/ckcGYwj8#19"
+    },
+    {
+      "drillId": "two-knights-pz5",
+      "name": "Advantage (1437)",
+      "theme": "Advantage",
+      "description": "White to play. A real Two Knights Defense tactic rated 1437 — finding the strongest continuation.",
+      "fen": "1r2kb1r/pQ1n2pp/8/4ppq1/3P2b1/2N5/PPP2PPP/R1B1K2R w KQk - 2 15",
+      "solutionMoves": [
+        "Qxb8+",
+        "Nxb8",
+        "Bxg5"
+      ],
+      "opponentResponse": "Nxb8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxb8+: finding the strongest continuation. Solution: 1. Qxb8+ Nxb8 2. Bxg5.",
+      "explanation": "White to move in this Two Knights Defense position. The solution begins with Qxb8+ — finding the strongest continuation. Full line: 1. Qxb8+ Nxb8 2. Bxg5. Source: Lichess puzzle VcjJp (CC0), https://lichess.org/zCR7AoTd/black#28.",
+      "lichessPuzzleId": "VcjJp",
+      "lichessUrl": "https://lichess.org/zCR7AoTd/black#28"
+    },
+    {
+      "drillId": "two-knights-pz6",
+      "name": "Pin (1475)",
+      "theme": "Pin",
+      "description": "Black to play. A real Two Knights Defense tactic rated 1475 — exploiting an absolute or relative pin.",
+      "fen": "2k2r1N/ppp3pp/5n2/2qPp1B1/3n4/2PP4/PP3QPP/RN3K1R b - - 0 14",
+      "solutionMoves": [
+        "Ng4",
+        "Nf7",
+        "Nxf2"
+      ],
+      "opponentResponse": "Nf7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ng4: exploiting an absolute or relative pin. Solution: 1. Ng4 Nf7 2. Nxf2.",
+      "explanation": "Black to move in this Two Knights Defense position. The solution begins with Ng4 — exploiting an absolute or relative pin. Full line: 1. Ng4 Nf7 2. Nxf2. Source: Lichess puzzle IUgN1 (CC0), https://lichess.org/9Kfdg5jl#27.",
+      "lichessPuzzleId": "IUgN1",
+      "lichessUrl": "https://lichess.org/9Kfdg5jl#27"
+    },
+    {
+      "drillId": "two-knights-pz7",
+      "name": "Hook Mate (1368)",
+      "theme": "Hook Mate",
+      "description": "White to play. A real Two Knights Defense tactic rated 1368 — a hook mate finish.",
+      "fen": "r1b2rk1/ppp2p2/3pn1pR/3Np1P1/2P1P3/P7/1PP3P1/2KR4 w - - 3 19",
+      "solutionMoves": [
+        "Nf6+",
+        "Kg7",
+        "Rh7#"
+      ],
+      "opponentResponse": "Kg7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nf6+: a hook mate finish. Solution: 1. Nf6+ Kg7 2. Rh7#.",
+      "explanation": "White to move in this Two Knights Defense position. The solution begins with Nf6+ — a hook mate finish. Full line: 1. Nf6+ Kg7 2. Rh7#. Source: Lichess puzzle alnxY (CC0), https://lichess.org/dH6fQDj4/black#36.",
+      "lichessPuzzleId": "alnxY",
+      "lichessUrl": "https://lichess.org/dH6fQDj4/black#36"
+    },
+    {
+      "drillId": "two-knights-pz8",
+      "name": "Discovered Attack (1430)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Two Knights Defense tactic rated 1430 — unleashing a discovered attack.",
+      "fen": "r1bq1b1r/ppp3pp/8/8/3pkB2/PQ6/1P3PPP/5K1R w - - 0 18",
+      "solutionMoves": [
+        "Qf3+",
+        "Kf5",
+        "Bxc7+",
+        "Kg6",
+        "Bxd8"
+      ],
+      "opponentResponse": "Kf5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qf3+: unleashing a discovered attack. Solution: 1. Qf3+ Kf5 2. Bxc7+ Kg6 3. Bxd8.",
+      "explanation": "White to move in this Two Knights Defense position. The solution begins with Qf3+ — unleashing a discovered attack. Full line: 1. Qf3+ Kf5 2. Bxc7+ Kg6 3. Bxd8. Source: Lichess puzzle bXkUU (CC0), https://lichess.org/BnEd2Sld/black#34.",
+      "lichessPuzzleId": "bXkUU",
+      "lichessUrl": "https://lichess.org/BnEd2Sld/black#34"
+    }
+  ]
+}

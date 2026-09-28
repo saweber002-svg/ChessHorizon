@@ -1,0 +1,193 @@
+{
+  "id": "dutch-leningrad-puzzles",
+  "name": "Dutch Leningrad Puzzles",
+  "description": "Real tactical puzzles from Dutch Leningrad games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "dutch-leningrad",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "dutch-leningrad-pz1",
+      "name": "Attraction (1651)",
+      "theme": "Attraction",
+      "description": "Black to play. A real Dutch Leningrad tactic rated 1651 — attracting a piece to its doom.",
+      "fen": "rnbq2k1/ppp3pp/4p3/3p2PQ/3Pnr2/1P6/PBP5/RN2KBNR b KQ - 1 11",
+      "solutionMoves": [
+        "Rxf1+",
+        "Kxf1",
+        "Ng3+",
+        "Kf2",
+        "Nxh5"
+      ],
+      "opponentResponse": "Kxf1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rxf1+: attracting a piece to its doom. Solution: 1. Rxf1+ Kxf1 2. Ng3+ Kf2 3. Nxh5.",
+      "explanation": "Black to move in this Dutch Leningrad position. The solution begins with Rxf1+ — attracting a piece to its doom. Full line: 1. Rxf1+ Kxf1 2. Ng3+ Kf2 3. Nxh5. Source: Lichess puzzle jmLTj (CC0), https://lichess.org/CAbA1AIC#21.",
+      "lichessPuzzleId": "jmLTj",
+      "lichessUrl": "https://lichess.org/CAbA1AIC#21"
+    },
+    {
+      "drillId": "dutch-leningrad-pz2",
+      "name": "Clearance (1653)",
+      "theme": "Clearance",
+      "description": "White to play. A real Dutch Leningrad tactic rated 1653 — clearing a square or line with tempo.",
+      "fen": "rn2q1k1/pbp1b3/1p1pp2B/8/2PP2p1/3QPp2/PP3P1P/R4R1K w - - 0 18",
+      "solutionMoves": [
+        "Rg1",
+        "Qh5",
+        "Rxg4+",
+        "Qxg4",
+        "Rg1"
+      ],
+      "opponentResponse": "Qh5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rg1: clearing a square or line with tempo. Solution: 1. Rg1 Qh5 2. Rxg4+ Qxg4 3. Rg1.",
+      "explanation": "White to move in this Dutch Leningrad position. The solution begins with Rg1 — clearing a square or line with tempo. Full line: 1. Rg1 Qh5 2. Rxg4+ Qxg4 3. Rg1. Source: Lichess puzzle rgTEN (CC0), https://lichess.org/UbBKd5hd/black#34.",
+      "lichessPuzzleId": "rgTEN",
+      "lichessUrl": "https://lichess.org/UbBKd5hd/black#34"
+    },
+    {
+      "drillId": "dutch-leningrad-pz3",
+      "name": "Mate In 2 (1316)",
+      "theme": "Mate In 2",
+      "description": "White to play. A real Dutch Leningrad tactic rated 1316 — forcing checkmate in two.",
+      "fen": "rn4rk/pb1p2p1/1p1pp3/6P1/3P2q1/2P1PP2/PP1N1KP1/R3R3 w - - 0 18",
+      "solutionMoves": [
+        "Rh1+",
+        "Qh3",
+        "Rxh3#"
+      ],
+      "opponentResponse": "Qh3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rh1+: forcing checkmate in two. Solution: 1. Rh1+ Qh3 2. Rxh3#.",
+      "explanation": "White to move in this Dutch Leningrad position. The solution begins with Rh1+ — forcing checkmate in two. Full line: 1. Rh1+ Qh3 2. Rxh3#. Source: Lichess puzzle fefH8 (CC0), https://lichess.org/ReVSUfyX/black#34.",
+      "lichessPuzzleId": "fefH8",
+      "lichessUrl": "https://lichess.org/ReVSUfyX/black#34"
+    },
+    {
+      "drillId": "dutch-leningrad-pz4",
+      "name": "Mate In 2 (1406)",
+      "theme": "Mate In 2",
+      "description": "White to play. A real Dutch Leningrad tactic rated 1406 — forcing checkmate in two.",
+      "fen": "rnbqk2r/ppp3bp/3pp3/4Np1p/3P1B2/2P1P3/PP1N1PP1/R2QKB2 w Qkq - 0 11",
+      "solutionMoves": [
+        "Qxh5+",
+        "Kf8",
+        "Qf7#"
+      ],
+      "opponentResponse": "Kf8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxh5+: forcing checkmate in two. Solution: 1. Qxh5+ Kf8 2. Qf7#.",
+      "explanation": "White to move in this Dutch Leningrad position. The solution begins with Qxh5+ — forcing checkmate in two. Full line: 1. Qxh5+ Kf8 2. Qf7#. Source: Lichess puzzle hMrus (CC0), https://lichess.org/lWUouPIu/black#20.",
+      "lichessPuzzleId": "hMrus",
+      "lichessUrl": "https://lichess.org/lWUouPIu/black#20"
+    },
+    {
+      "drillId": "dutch-leningrad-pz5",
+      "name": "Deflection (1286)",
+      "theme": "Deflection",
+      "description": "Black to play. A real Dutch Leningrad tactic rated 1286 — deflecting a key defender away.",
+      "fen": "3r2k1/p1p4p/b1p3p1/5p2/8/PPN1PK2/2Pr1PPP/2RR4 b - - 9 18",
+      "solutionMoves": [
+        "Be2+",
+        "Nxe2",
+        "Rxd1",
+        "Rxd1",
+        "Rxd1"
+      ],
+      "opponentResponse": "Nxe2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Be2+: deflecting a key defender away. Solution: 1. Be2+ Nxe2 2. Rxd1 Rxd1 3. Rxd1.",
+      "explanation": "Black to move in this Dutch Leningrad position. The solution begins with Be2+ — deflecting a key defender away. Full line: 1. Be2+ Nxe2 2. Rxd1 Rxd1 3. Rxd1. Source: Lichess puzzle 2lY0a (CC0), https://lichess.org/vDyQiBPp#35.",
+      "lichessPuzzleId": "2lY0a",
+      "lichessUrl": "https://lichess.org/vDyQiBPp#35"
+    },
+    {
+      "drillId": "dutch-leningrad-pz6",
+      "name": "Fork (1255)",
+      "theme": "Fork",
+      "description": "Black to play. A real Dutch Leningrad tactic rated 1255 — forking two targets with one move.",
+      "fen": "2rqk2r/pb1n2pp/8/1BppN3/4p3/4P1P1/PPQ2PP1/2R1K2R b Kk - 1 17",
+      "solutionMoves": [
+        "Qa5+",
+        "Qd2",
+        "Qxb5"
+      ],
+      "opponentResponse": "Qd2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa5+: forking two targets with one move. Solution: 1. Qa5+ Qd2 2. Qxb5.",
+      "explanation": "Black to move in this Dutch Leningrad position. The solution begins with Qa5+ — forking two targets with one move. Full line: 1. Qa5+ Qd2 2. Qxb5. Source: Lichess puzzle CppNL (CC0), https://lichess.org/kpjiKVfJ#33.",
+      "lichessPuzzleId": "CppNL",
+      "lichessUrl": "https://lichess.org/kpjiKVfJ#33"
+    },
+    {
+      "drillId": "dutch-leningrad-pz7",
+      "name": "Fork (1453)",
+      "theme": "Fork",
+      "description": "White to play. A real Dutch Leningrad tactic rated 1453 — forking two targets with one move.",
+      "fen": "rn1q1rk1/pbp3pp/1p6/3pN3/5bQ1/4pP2/PPP2NPP/1K1R1B1R w - - 0 18",
+      "solutionMoves": [
+        "Qe6+",
+        "Kh8",
+        "Nf7+",
+        "Rxf7",
+        "Qxf7"
+      ],
+      "opponentResponse": "Kh8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qe6+: forking two targets with one move. Solution: 1. Qe6+ Kh8 2. Nf7+ Rxf7 3. Qxf7.",
+      "explanation": "White to move in this Dutch Leningrad position. The solution begins with Qe6+ — forking two targets with one move. Full line: 1. Qe6+ Kh8 2. Nf7+ Rxf7 3. Qxf7. Source: Lichess puzzle PAUMi (CC0), https://lichess.org/KATW43ni/black#34.",
+      "lichessPuzzleId": "PAUMi",
+      "lichessUrl": "https://lichess.org/KATW43ni/black#34"
+    },
+    {
+      "drillId": "dutch-leningrad-pz8",
+      "name": "Kingside Attack (1229)",
+      "theme": "Kingside Attack",
+      "description": "Black to play. A real Dutch Leningrad tactic rated 1229 — a direct kingside attack.",
+      "fen": "rn2brk1/p5pp/2p1p2q/2Pp1p2/3P1P2/4PNn1/P3B1P1/RNB1QRK1 b - - 4 17",
+      "solutionMoves": [
+        "Qh1+",
+        "Kf2",
+        "Ne4#"
+      ],
+      "opponentResponse": "Kf2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh1+: a direct kingside attack. Solution: 1. Qh1+ Kf2 2. Ne4#.",
+      "explanation": "Black to move in this Dutch Leningrad position. The solution begins with Qh1+ — a direct kingside attack. Full line: 1. Qh1+ Kf2 2. Ne4#. Source: Lichess puzzle N9NGN (CC0), https://lichess.org/YWrkmDRE#33.",
+      "lichessPuzzleId": "N9NGN",
+      "lichessUrl": "https://lichess.org/YWrkmDRE#33"
+    }
+  ]
+}

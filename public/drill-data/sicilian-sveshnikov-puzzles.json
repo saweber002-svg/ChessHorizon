@@ -1,0 +1,187 @@
+{
+  "id": "sicilian-sveshnikov-puzzles",
+  "name": "Sicilian Sveshnikov Puzzles",
+  "description": "Real tactical puzzles from Sicilian Sveshnikov games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "sicilian-sveshnikov",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "sicilian-sveshnikov-pz1",
+      "name": "Advantage (1561)",
+      "theme": "Advantage",
+      "description": "Black to play. A real Sicilian Sveshnikov tactic rated 1561 — finding the strongest continuation.",
+      "fen": "r4rk1/p2P1p1p/B1p3pB/3pb3/8/2N5/PPP2qPP/R2Q3K b - - 1 18",
+      "solutionMoves": [
+        "Qh4",
+        "g3",
+        "Qxh6"
+      ],
+      "opponentResponse": "g3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh4: finding the strongest continuation. Solution: 1. Qh4 g3 2. Qxh6.",
+      "explanation": "Black to move in this Sicilian Sveshnikov position. The solution begins with Qh4 — finding the strongest continuation. Full line: 1. Qh4 g3 2. Qxh6. Source: Lichess puzzle 29Nl4 (CC0), https://lichess.org/bcFkhp8p#35.",
+      "lichessPuzzleId": "29Nl4",
+      "lichessUrl": "https://lichess.org/bcFkhp8p#35"
+    },
+    {
+      "drillId": "sicilian-sveshnikov-pz2",
+      "name": "Advantage (1417)",
+      "theme": "Advantage",
+      "description": "Black to play. A real Sicilian Sveshnikov tactic rated 1417 — finding the strongest continuation.",
+      "fen": "r4k2/pR1b1prp/3Np3/8/8/8/P1P2PPP/5RK1 b - - 0 18",
+      "solutionMoves": [
+        "Bc6",
+        "Rxf7+",
+        "Rxf7"
+      ],
+      "opponentResponse": "Rxf7+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bc6: finding the strongest continuation. Solution: 1. Bc6 Rxf7+ 2. Rxf7.",
+      "explanation": "Black to move in this Sicilian Sveshnikov position. The solution begins with Bc6 — finding the strongest continuation. Full line: 1. Bc6 Rxf7+ 2. Rxf7. Source: Lichess puzzle uu0oW (CC0), https://lichess.org/1xPEbfIC#35.",
+      "lichessPuzzleId": "uu0oW",
+      "lichessUrl": "https://lichess.org/1xPEbfIC#35"
+    },
+    {
+      "drillId": "sicilian-sveshnikov-pz3",
+      "name": "Fork (1243)",
+      "theme": "Fork",
+      "description": "Black to play. A real Sicilian Sveshnikov tactic rated 1243 — forking two targets with one move.",
+      "fen": "r1b2rk1/p4pp1/1p5p/6q1/2B1PQ2/8/PPP3PP/3R1RK1 b - - 0 17",
+      "solutionMoves": [
+        "Qc5+",
+        "Rf2",
+        "Qxc4"
+      ],
+      "opponentResponse": "Rf2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qc5+: forking two targets with one move. Solution: 1. Qc5+ Rf2 2. Qxc4.",
+      "explanation": "Black to move in this Sicilian Sveshnikov position. The solution begins with Qc5+ — forking two targets with one move. Full line: 1. Qc5+ Rf2 2. Qxc4. Source: Lichess puzzle hr6Xh (CC0), https://lichess.org/niX2pMqW#33.",
+      "lichessPuzzleId": "hr6Xh",
+      "lichessUrl": "https://lichess.org/niX2pMqW#33"
+    },
+    {
+      "drillId": "sicilian-sveshnikov-pz4",
+      "name": "Fork (1294)",
+      "theme": "Fork",
+      "description": "Black to play. A real Sicilian Sveshnikov tactic rated 1294 — forking two targets with one move.",
+      "fen": "1rbqk2r/3n1ppp/p2Qpb2/8/N3P3/4BP2/PPP3PP/R3KB1R b KQk - 0 13",
+      "solutionMoves": [
+        "Qa5+",
+        "Bd2",
+        "Qxa4"
+      ],
+      "opponentResponse": "Bd2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa5+: forking two targets with one move. Solution: 1. Qa5+ Bd2 2. Qxa4.",
+      "explanation": "Black to move in this Sicilian Sveshnikov position. The solution begins with Qa5+ — forking two targets with one move. Full line: 1. Qa5+ Bd2 2. Qxa4. Source: Lichess puzzle F1nxy (CC0), https://lichess.org/F8hoAkLj#25.",
+      "lichessPuzzleId": "F1nxy",
+      "lichessUrl": "https://lichess.org/F8hoAkLj#25"
+    },
+    {
+      "drillId": "sicilian-sveshnikov-pz5",
+      "name": "Discovered Attack (1357)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Sicilian Sveshnikov tactic rated 1357 — unleashing a discovered attack.",
+      "fen": "2rqkb1r/1b1p1ppp/p5n1/1p1p4/4P3/1B4Q1/PPP2PPP/R1B1R1K1 w k - 0 15",
+      "solutionMoves": [
+        "exd5+",
+        "Be7",
+        "d6"
+      ],
+      "opponentResponse": "Be7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is exd5+: unleashing a discovered attack. Solution: 1. exd5+ Be7 2. d6.",
+      "explanation": "White to move in this Sicilian Sveshnikov position. The solution begins with exd5+ — unleashing a discovered attack. Full line: 1. exd5+ Be7 2. d6. Source: Lichess puzzle 6LMj8 (CC0), https://lichess.org/DJt7LmwF/black#28.",
+      "lichessPuzzleId": "6LMj8",
+      "lichessUrl": "https://lichess.org/DJt7LmwF/black#28"
+    },
+    {
+      "drillId": "sicilian-sveshnikov-pz6",
+      "name": "Kingside Attack (1251)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real Sicilian Sveshnikov tactic rated 1251 — a direct kingside attack.",
+      "fen": "r4rk1/1b3p1p/p5p1/2p5/4q3/1BP2Q2/P1P3PP/R4RK1 w - - 0 18",
+      "solutionMoves": [
+        "Bxf7+",
+        "Rxf7",
+        "Qxf7+"
+      ],
+      "opponentResponse": "Rxf7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxf7+: a direct kingside attack. Solution: 1. Bxf7+ Rxf7 2. Qxf7+.",
+      "explanation": "White to move in this Sicilian Sveshnikov position. The solution begins with Bxf7+ — a direct kingside attack. Full line: 1. Bxf7+ Rxf7 2. Qxf7+. Source: Lichess puzzle ar4ic (CC0), https://lichess.org/zbVEfsLA/black#34.",
+      "lichessPuzzleId": "ar4ic",
+      "lichessUrl": "https://lichess.org/zbVEfsLA/black#34"
+    },
+    {
+      "drillId": "sicilian-sveshnikov-pz7",
+      "name": "Discovered Attack (1547)",
+      "theme": "Discovered Attack",
+      "description": "Black to play. A real Sicilian Sveshnikov tactic rated 1547 — unleashing a discovered attack.",
+      "fen": "r1b1kb1r/ppqppppp/8/4n3/4P1n1/1N1BB3/PPP1QPPP/RN3RK1 b kq - 12 10",
+      "solutionMoves": [
+        "Nf3+",
+        "gxf3",
+        "Qxh2#"
+      ],
+      "opponentResponse": "gxf3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nf3+: unleashing a discovered attack. Solution: 1. Nf3+ gxf3 2. Qxh2#.",
+      "explanation": "Black to move in this Sicilian Sveshnikov position. The solution begins with Nf3+ — unleashing a discovered attack. Full line: 1. Nf3+ gxf3 2. Qxh2#. Source: Lichess puzzle Fdutc (CC0), https://lichess.org/DAsd2ZTM#19.",
+      "lichessPuzzleId": "Fdutc",
+      "lichessUrl": "https://lichess.org/DAsd2ZTM#19"
+    },
+    {
+      "drillId": "sicilian-sveshnikov-pz8",
+      "name": "Pin (1268)",
+      "theme": "Pin",
+      "description": "White to play. A real Sicilian Sveshnikov tactic rated 1268 — exploiting an absolute or relative pin.",
+      "fen": "4k2r/2qpbppp/p3p3/4P3/2p1Q3/4B3/P4PPP/1R4K1 w k - 1 18",
+      "solutionMoves": [
+        "Qa8+",
+        "Qd8",
+        "Rb8",
+        "O-O",
+        "Rxd8"
+      ],
+      "opponentResponse": "Qd8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa8+: exploiting an absolute or relative pin. Solution: 1. Qa8+ Qd8 2. Rb8 O-O 3. Rxd8.",
+      "explanation": "White to move in this Sicilian Sveshnikov position. The solution begins with Qa8+ — exploiting an absolute or relative pin. Full line: 1. Qa8+ Qd8 2. Rb8 O-O 3. Rxd8. Source: Lichess puzzle UvT5O (CC0), https://lichess.org/zDLIkukS/black#34.",
+      "lichessPuzzleId": "UvT5O",
+      "lichessUrl": "https://lichess.org/zDLIkukS/black#34"
+    }
+  ]
+}

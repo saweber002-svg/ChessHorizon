@@ -1,0 +1,191 @@
+{
+  "id": "evans-gambit-puzzles",
+  "name": "Evans Gambit Puzzles",
+  "description": "Real tactical puzzles from Evans Gambit games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "evans-gambit",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "evans-gambit-pz1",
+      "name": "Attraction (1640)",
+      "theme": "Attraction",
+      "description": "White to play. A real Evans Gambit tactic rated 1640 — attracting a piece to its doom.",
+      "fen": "r1b2rk1/ppppnpp1/2n5/4q1N1/7R/2Q5/P4PPP/R1B3K1 w - - 0 19",
+      "solutionMoves": [
+        "Rh8+",
+        "Kxh8",
+        "Qh3+",
+        "Kg8",
+        "Qh7#"
+      ],
+      "opponentResponse": "Kxh8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rh8+: attracting a piece to its doom. Solution: 1. Rh8+ Kxh8 2. Qh3+ Kg8 3. Qh7#.",
+      "explanation": "White to move in this Evans Gambit position. The solution begins with Rh8+ — attracting a piece to its doom. Full line: 1. Rh8+ Kxh8 2. Qh3+ Kg8 3. Qh7#. Source: Lichess puzzle XEWKR (CC0), https://lichess.org/nGAt5EXn/black#36.",
+      "lichessPuzzleId": "XEWKR",
+      "lichessUrl": "https://lichess.org/nGAt5EXn/black#36"
+    },
+    {
+      "drillId": "evans-gambit-pz2",
+      "name": "Deflection (1527)",
+      "theme": "Deflection",
+      "description": "White to play. A real Evans Gambit tactic rated 1527 — deflecting a key defender away.",
+      "fen": "r6r/ppp1k1pp/2n1bp1n/b3p3/2B1P3/2P2N2/P4PPP/RNBR2K1 w - - 4 13",
+      "solutionMoves": [
+        "Ba3+",
+        "Kf7",
+        "Rd7+",
+        "Ke8",
+        "Bxe6"
+      ],
+      "opponentResponse": "Kf7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ba3+: deflecting a key defender away. Solution: 1. Ba3+ Kf7 2. Rd7+ Ke8 3. Bxe6.",
+      "explanation": "White to move in this Evans Gambit position. The solution begins with Ba3+ — deflecting a key defender away. Full line: 1. Ba3+ Kf7 2. Rd7+ Ke8 3. Bxe6. Source: Lichess puzzle l25BO (CC0), https://lichess.org/NWhc6Fan/black#24.",
+      "lichessPuzzleId": "l25BO",
+      "lichessUrl": "https://lichess.org/NWhc6Fan/black#24"
+    },
+    {
+      "drillId": "evans-gambit-pz3",
+      "name": "Kingside Attack (1200)",
+      "theme": "Kingside Attack",
+      "description": "Black to play. A real Evans Gambit tactic rated 1200 — a direct kingside attack.",
+      "fen": "r3k1nr/pp3ppp/1b1Pb3/3Q4/8/N4N2/P1q2PPP/R1B1R1K1 b kq - 2 17",
+      "solutionMoves": [
+        "Qxf2+",
+        "Kh1",
+        "Qxe1+",
+        "Nxe1",
+        "Bxd5"
+      ],
+      "opponentResponse": "Kh1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxf2+: a direct kingside attack. Solution: 1. Qxf2+ Kh1 2. Qxe1+ Nxe1 3. Bxd5.",
+      "explanation": "Black to move in this Evans Gambit position. The solution begins with Qxf2+ — a direct kingside attack. Full line: 1. Qxf2+ Kh1 2. Qxe1+ Nxe1 3. Bxd5. Source: Lichess puzzle BynF5 (CC0), https://lichess.org/e6gCBDLK#33.",
+      "lichessPuzzleId": "BynF5",
+      "lichessUrl": "https://lichess.org/e6gCBDLK#33"
+    },
+    {
+      "drillId": "evans-gambit-pz4",
+      "name": "Pin (1331)",
+      "theme": "Pin",
+      "description": "White to play. A real Evans Gambit tactic rated 1331 — exploiting an absolute or relative pin.",
+      "fen": "r1b1k2r/pp1q1ppp/3p1n2/4p3/2B1P3/1QP5/P4PPP/RN3RK1 w kq - 0 13",
+      "solutionMoves": [
+        "Bb5",
+        "O-O",
+        "Bxd7"
+      ],
+      "opponentResponse": "O-O",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bb5: exploiting an absolute or relative pin. Solution: 1. Bb5 O-O 2. Bxd7.",
+      "explanation": "White to move in this Evans Gambit position. The solution begins with Bb5 — exploiting an absolute or relative pin. Full line: 1. Bb5 O-O 2. Bxd7. Source: Lichess puzzle YGdts (CC0), https://lichess.org/937zXMEd/black#24.",
+      "lichessPuzzleId": "YGdts",
+      "lichessUrl": "https://lichess.org/937zXMEd/black#24"
+    },
+    {
+      "drillId": "evans-gambit-pz5",
+      "name": "Deflection (1527)",
+      "theme": "Deflection",
+      "description": "White to play. A real Evans Gambit tactic rated 1527 — deflecting a key defender away.",
+      "fen": "r1b1qkr1/ppp1b2p/2np1n2/4p1NP/4P3/1QP5/P2P1P1P/RNB1K1R1 w Q - 5 13",
+      "solutionMoves": [
+        "Nxh7+",
+        "Nxh7",
+        "Rxg8#"
+      ],
+      "opponentResponse": "Nxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxh7+: deflecting a key defender away. Solution: 1. Nxh7+ Nxh7 2. Rxg8#.",
+      "explanation": "White to move in this Evans Gambit position. The solution begins with Nxh7+ — deflecting a key defender away. Full line: 1. Nxh7+ Nxh7 2. Rxg8#. Source: Lichess puzzle YADbp (CC0), https://lichess.org/mFOTWhMg/black#24.",
+      "lichessPuzzleId": "YADbp",
+      "lichessUrl": "https://lichess.org/mFOTWhMg/black#24"
+    },
+    {
+      "drillId": "evans-gambit-pz6",
+      "name": "Mate In 2 (1485)",
+      "theme": "Mate In 2",
+      "description": "White to play. A real Evans Gambit tactic rated 1485 — forcing checkmate in two.",
+      "fen": "r1bk4/ppppn1pp/8/6qB/8/1QN5/PB3rPP/4R2K w - - 0 19",
+      "solutionMoves": [
+        "Qg8+",
+        "Nxg8",
+        "Re8#"
+      ],
+      "opponentResponse": "Nxg8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qg8+: forcing checkmate in two. Solution: 1. Qg8+ Nxg8 2. Re8#.",
+      "explanation": "White to move in this Evans Gambit position. The solution begins with Qg8+ — forcing checkmate in two. Full line: 1. Qg8+ Nxg8 2. Re8#. Source: Lichess puzzle GEJbq (CC0), https://lichess.org/P40kkdNl/black#36.",
+      "lichessPuzzleId": "GEJbq",
+      "lichessUrl": "https://lichess.org/P40kkdNl/black#36"
+    },
+    {
+      "drillId": "evans-gambit-pz7",
+      "name": "Fork (1503)",
+      "theme": "Fork",
+      "description": "White to play. A real Evans Gambit tactic rated 1503 — forking two targets with one move.",
+      "fen": "r3k1r1/pp3pPp/4bB2/b1p2q2/2p5/2Pp4/P4PPP/RN1QR1K1 w q - 4 17",
+      "solutionMoves": [
+        "Qa4+",
+        "b5",
+        "Qxb5#"
+      ],
+      "opponentResponse": "b5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa4+: forking two targets with one move. Solution: 1. Qa4+ b5 2. Qxb5#.",
+      "explanation": "White to move in this Evans Gambit position. The solution begins with Qa4+ — forking two targets with one move. Full line: 1. Qa4+ b5 2. Qxb5#. Source: Lichess puzzle UtPrs (CC0), https://lichess.org/5HUQMkMF/black#32.",
+      "lichessPuzzleId": "UtPrs",
+      "lichessUrl": "https://lichess.org/5HUQMkMF/black#32"
+    },
+    {
+      "drillId": "evans-gambit-pz8",
+      "name": "Pin (1286)",
+      "theme": "Pin",
+      "description": "White to play. A real Evans Gambit tactic rated 1286 — exploiting an absolute or relative pin.",
+      "fen": "r1b2k1r/ppp3pp/3q1n2/4Q3/8/8/P4PPP/RNB2RK1 w - - 1 16",
+      "solutionMoves": [
+        "Ba3",
+        "Kf7",
+        "Bxd6"
+      ],
+      "opponentResponse": "Kf7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ba3: exploiting an absolute or relative pin. Solution: 1. Ba3 Kf7 2. Bxd6.",
+      "explanation": "White to move in this Evans Gambit position. The solution begins with Ba3 — exploiting an absolute or relative pin. Full line: 1. Ba3 Kf7 2. Bxd6. Source: Lichess puzzle Iwulg (CC0), https://lichess.org/4iHLSvtk/black#30.",
+      "lichessPuzzleId": "Iwulg",
+      "lichessUrl": "https://lichess.org/4iHLSvtk/black#30"
+    }
+  ]
+}
