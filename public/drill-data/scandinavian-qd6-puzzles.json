@@ -1,0 +1,191 @@
+{
+  "id": "scandinavian-qd6-puzzles",
+  "name": "Scandinavian, Qd6 Puzzles",
+  "description": "Real tactical puzzles from Scandinavian, Qd6 games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "scandinavian-qd6",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "scandinavian-qd6-pz1",
+      "name": "Defensive Move (1365)",
+      "theme": "Defensive Move",
+      "description": "White to play. A real Scandinavian, Qd6 tactic rated 1365 — finding the only defensive resource.",
+      "fen": "2kr1b1r/ppp2ppp/5p2/5q2/3n4/3P4/PPPBBPPP/R2QK2R w KQ - 2 12",
+      "solutionMoves": [
+        "Bg4",
+        "Nxc2+",
+        "Kf1",
+        "Qxg4",
+        "Qxg4+"
+      ],
+      "opponentResponse": "Nxc2+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bg4: finding the only defensive resource. Solution: 1. Bg4 Nxc2+ 2. Kf1 Qxg4 3. Qxg4+.",
+      "explanation": "White to move in this Scandinavian, Qd6 position. The solution begins with Bg4 — finding the only defensive resource. Full line: 1. Bg4 Nxc2+ 2. Kf1 Qxg4 3. Qxg4+. Source: Lichess puzzle zYnxl (CC0), https://lichess.org/1WTDpkbZ/black#22.",
+      "lichessPuzzleId": "zYnxl",
+      "lichessUrl": "https://lichess.org/1WTDpkbZ/black#22"
+    },
+    {
+      "drillId": "scandinavian-qd6-pz2",
+      "name": "Discovered Attack (1355)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Scandinavian, Qd6 tactic rated 1355 — unleashing a discovered attack.",
+      "fen": "r3k2r/ppp2ppp/5n2/q3p3/3n4/P1PP2P1/2PBbPBP/R2Q1RK1 w kq - 0 12",
+      "solutionMoves": [
+        "cxd4",
+        "Bxd1",
+        "Bxa5"
+      ],
+      "opponentResponse": "Bxd1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is cxd4: unleashing a discovered attack. Solution: 1. cxd4 Bxd1 2. Bxa5.",
+      "explanation": "White to move in this Scandinavian, Qd6 position. The solution begins with cxd4 — unleashing a discovered attack. Full line: 1. cxd4 Bxd1 2. Bxa5. Source: Lichess puzzle biFcN (CC0), https://lichess.org/FiK1A6iI/black#22.",
+      "lichessPuzzleId": "biFcN",
+      "lichessUrl": "https://lichess.org/FiK1A6iI/black#22"
+    },
+    {
+      "drillId": "scandinavian-qd6-pz3",
+      "name": "Advantage (1191)",
+      "theme": "Advantage",
+      "description": "White to play. A real Scandinavian, Qd6 tactic rated 1191 — finding the strongest continuation.",
+      "fen": "rn2r1k1/1pp2ppp/p3pn2/4N2q/PBBP4/2PQ4/2P1bPPP/R4RK1 w - - 7 14",
+      "solutionMoves": [
+        "Qxe2",
+        "Qxe2",
+        "Bxe2"
+      ],
+      "opponentResponse": "Qxe2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxe2: finding the strongest continuation. Solution: 1. Qxe2 Qxe2 2. Bxe2.",
+      "explanation": "White to move in this Scandinavian, Qd6 position. The solution begins with Qxe2 — finding the strongest continuation. Full line: 1. Qxe2 Qxe2 2. Bxe2. Source: Lichess puzzle g4h2f (CC0), https://lichess.org/RQy5lBHo/black#26.",
+      "lichessPuzzleId": "g4h2f",
+      "lichessUrl": "https://lichess.org/RQy5lBHo/black#26"
+    },
+    {
+      "drillId": "scandinavian-qd6-pz4",
+      "name": "Discovered Attack (1504)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Scandinavian, Qd6 tactic rated 1504 — unleashing a discovered attack.",
+      "fen": "rn2kb1r/pp2ppp1/2p2n2/4RNq1/8/2N4p/PPPP1PP1/R1BQ2K1 w kq - 0 13",
+      "solutionMoves": [
+        "Nd6+",
+        "Kd7",
+        "Rxg5"
+      ],
+      "opponentResponse": "Kd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nd6+: unleashing a discovered attack. Solution: 1. Nd6+ Kd7 2. Rxg5.",
+      "explanation": "White to move in this Scandinavian, Qd6 position. The solution begins with Nd6+ — unleashing a discovered attack. Full line: 1. Nd6+ Kd7 2. Rxg5. Source: Lichess puzzle nLIX7 (CC0), https://lichess.org/YFhsQkLJ/black#24.",
+      "lichessPuzzleId": "nLIX7",
+      "lichessUrl": "https://lichess.org/YFhsQkLJ/black#24"
+    },
+    {
+      "drillId": "scandinavian-qd6-pz5",
+      "name": "Capturing Defender (1327)",
+      "theme": "Capturing Defender",
+      "description": "Black to play. A real Scandinavian, Qd6 tactic rated 1327 — finding the strongest continuation.",
+      "fen": "r3kb1r/ppp2ppp/2n1pn2/6Bq/6b1/2NP1N1P/PPP1BPP1/R2QK2R b KQkq - 1 9",
+      "solutionMoves": [
+        "Bxf3",
+        "Bxf3",
+        "Qxg5"
+      ],
+      "opponentResponse": "Bxf3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxf3: finding the strongest continuation. Solution: 1. Bxf3 Bxf3 2. Qxg5.",
+      "explanation": "Black to move in this Scandinavian, Qd6 position. The solution begins with Bxf3 — finding the strongest continuation. Full line: 1. Bxf3 Bxf3 2. Qxg5. Source: Lichess puzzle PGsky (CC0), https://lichess.org/Q2XRsVFZ#17.",
+      "lichessPuzzleId": "PGsky",
+      "lichessUrl": "https://lichess.org/Q2XRsVFZ#17"
+    },
+    {
+      "drillId": "scandinavian-qd6-pz6",
+      "name": "Fork (1248)",
+      "theme": "Fork",
+      "description": "Black to play. A real Scandinavian, Qd6 tactic rated 1248 — forking two targets with one move.",
+      "fen": "r2k2nr/ppp4p/2nbR1p1/7q/8/1BNP1Q2/PPP2PPP/R1B3K1 b - - 0 12",
+      "solutionMoves": [
+        "Qxh2+",
+        "Kf1",
+        "Qh1+",
+        "Ke2",
+        "Nd4+",
+        "Ke3",
+        "Nxf3"
+      ],
+      "opponentResponse": "Kf1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxh2+: forking two targets with one move. Solution: 1. Qxh2+ Kf1 2. Qh1+ Ke2 3. Nd4+ Ke3 4. Nxf3.",
+      "explanation": "Black to move in this Scandinavian, Qd6 position. The solution begins with Qxh2+ — forking two targets with one move. Full line: 1. Qxh2+ Kf1 2. Qh1+ Ke2 3. Nd4+ Ke3 4. Nxf3. Source: Lichess puzzle keyFH (CC0), https://lichess.org/Ji5t1BA9#23.",
+      "lichessPuzzleId": "keyFH",
+      "lichessUrl": "https://lichess.org/Ji5t1BA9#23"
+    },
+    {
+      "drillId": "scandinavian-qd6-pz7",
+      "name": "Advantage (1179)",
+      "theme": "Advantage",
+      "description": "White to play. A real Scandinavian, Qd6 tactic rated 1179 — finding the strongest continuation.",
+      "fen": "r3kb1r/pp1n1ppp/4p3/3p4/1qBP2PP/8/PPbBQP2/R3K2R w KQkq - 0 15",
+      "solutionMoves": [
+        "Bxb4",
+        "Bxb4+",
+        "Kf1"
+      ],
+      "opponentResponse": "Bxb4+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxb4: finding the strongest continuation. Solution: 1. Bxb4 Bxb4+ 2. Kf1.",
+      "explanation": "White to move in this Scandinavian, Qd6 position. The solution begins with Bxb4 — finding the strongest continuation. Full line: 1. Bxb4 Bxb4+ 2. Kf1. Source: Lichess puzzle THNLX (CC0), https://lichess.org/BgB0gTFG/black#28.",
+      "lichessPuzzleId": "THNLX",
+      "lichessUrl": "https://lichess.org/BgB0gTFG/black#28"
+    },
+    {
+      "drillId": "scandinavian-qd6-pz8",
+      "name": "Crushing (1207)",
+      "theme": "Crushing",
+      "description": "Black to play. A real Scandinavian, Qd6 tactic rated 1207 — finding the strongest continuation.",
+      "fen": "rn2k2r/ppp2p1p/3Pp3/8/6p1/5N1q/PPPBBP2/R2Q1RK1 b kq - 0 14",
+      "solutionMoves": [
+        "gxf3",
+        "Bxf3",
+        "Rg8+"
+      ],
+      "opponentResponse": "Bxf3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is gxf3: finding the strongest continuation. Solution: 1. gxf3 Bxf3 2. Rg8+.",
+      "explanation": "Black to move in this Scandinavian, Qd6 position. The solution begins with gxf3 — finding the strongest continuation. Full line: 1. gxf3 Bxf3 2. Rg8+. Source: Lichess puzzle dzhmm (CC0), https://lichess.org/FNpG6zBY#27.",
+      "lichessPuzzleId": "dzhmm",
+      "lichessUrl": "https://lichess.org/FNpG6zBY#27"
+    }
+  ]
+}

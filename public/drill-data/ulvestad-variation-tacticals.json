@@ -6,51 +6,69 @@
   "drills": [
     {
       "drillId": "ulvestad-t1",
-      "name": "c3 Attack on Nd4",
-      "theme": "Knight Attack",
-      "description": "White attacks the knight on d4.",
+      "name": "Black plays c3",
+      "theme": "Key idea",
+      "description": "Black to play. The engine's choice in this position: c3 (+0.39).",
       "fen": "r1bqkb1r/p1p2ppp/5n2/1p1Pp1N1/3n4/8/PPPP1PPP/RNBQKB1R w KQkq - 0 7",
-      "solutionMoves": ["c3", "Qe7", "cxd4", "exd4", "Qa4+"],
-      "opponentResponse": "Qe7",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "c3 attacks the knight on d4. If Black doesn't recapture the pawn immediately, White wins the knight.",
-      "explanation": "cxd4 wins the knight. White continues with 9.Qa4+ and 10.Qxd4, winning material. The c3 advance threatens the centralized knight immediately — Black must act or lose material on d4."
-    },
-    {
-      "drillId": "ulvestad-t2",
-      "name": "Ne4 Central Outpost",
-      "theme": "Knight Outpost",
-      "description": "White plants the knight in the center.",
-      "fen": "r1bqkb1r/p1p2ppp/8/1p1npN1/3n4/2P5/PP1P1PPP/RNBQKB1R w KQkq - 0 8",
-      "solutionMoves": ["Ne4", "c6", "d3", "d5", "Bg5"],
-      "opponentResponse": "c6",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "Ne4 plants the knight in the center. After c6, d3 supports the knight and prepares Bg5.",
-      "explanation": "d3 supports the knight. White follows with 10.Bg5, pinning and attacking. The Ne4 outpost combined with the d3 support gives White a stable center and the initiative to press forward with Bg5 and a lasting bind."
+      "solutionMoves": [
+        "c3",
+        "Nxd5",
+        "cxd4",
+        "Qxg5",
+        "Bxb5+"
+      ],
+      "opponentResponse": "Nxd5",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "The strongest move is c3 (pawn to c3). 1. c3 Nxd5 2. cxd4 Qxg5 3. Bxb5+.",
+      "explanation": "Black to move. No forced tactic exists here, but c3 is clearly the strongest continuation. Line: 1. c3 Nxd5 2. cxd4 Qxg5 3. Bxb5+. Stockfish 18 (depth 16) evaluates the result at +0.39 for Black, 1.11 pawns better than the next-best alternative."
     },
     {
       "drillId": "ulvestad-t3",
       "name": "Qa4+ Check",
       "theme": "Queen Check",
-      "description": "White checks the king and wins the knight.",
+      "description": "Black to play. The engine's choice in this position: cxd4 (-0.44).",
       "fen": "r1bqkb1r/p1p2ppp/8/3np3/3n4/2P5/PP1P1PPP/RNBQKB1R w KQkq - 0 8",
-      "solutionMoves": ["Qa4+", "Ke7", "Qxd4", "c6", "d3"],
-      "opponentResponse": "Ke7",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "Qa4+ checks the king immediately. When the king moves, White wins the knight on d4.",
-      "explanation": "Qxd4 wins the knight. White continues with 10.d3, consolidating. The queen check forces the king into the open — with the king misplaced on e7, White wins material while maintaining the initiative in the sharp Ulvestad position."
+      "solutionMoves": [
+        "cxd4",
+        "exd4",
+        "Bb5+",
+        "Bd7",
+        "Bxd7+"
+      ],
+      "opponentResponse": "exd4",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "The strongest move is cxd4 (pawn to cxd4). 1. cxd4 exd4 2. Bb5+ Bd7 3. Bxd7+.",
+      "explanation": "Black to move. No forced tactic exists here, but cxd4 is clearly the strongest continuation. Line: 1. cxd4 exd4 2. Bb5+ Bd7 3. Bxd7+. Stockfish 18 (depth 16) evaluates the result at -0.44 for Black, 2.98 pawns better than the next-best alternative."
     },
     {
       "drillId": "ulvestad-t4",
-      "name": "Bg5 Pin",
-      "theme": "Bishop Pin",
-      "description": "White pins the knight on f6.",
+      "name": "Nxf6+: Blowing Open the Center",
+      "theme": "Tactic",
+      "description": "White to play. Sacrifice the knight on f6 to shatter Black’s center, then strike with Bb5+.",
       "fen": "r1bqkb1r/p1p2ppp/5n2/1p2p3/3nN3/2P5/PP1P1PPP/RNBQKB1R w KQkq - 0 9",
-      "solutionMoves": ["Bg5", "h6", "Bxf6", "gxf6", "Qa4+"],
-      "opponentResponse": "h6",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "Bg5 pins the knight on f6 against the queen. Even after h6, White takes the knight anyway.",
-      "explanation": "Bxf6 damages Black's structure. White follows with 11.Qa4+, winning material. The bishop sacrifice is worth it — after Bxf6 gxf6, Black's kingside pawns are wrecked and White has a powerful initiative in the open position."
+      "solutionMoves": [
+        "Nxf6+",
+        "Qxf6",
+        "cxd4",
+        "exd4",
+        "Bxb5+"
+      ],
+      "opponentResponse": "Qxf6",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "Nxf6+! wrecks Black’s pawn shield; cxd4 opens the center and Bb5+ picks up the piece.",
+      "explanation": "Black to move. There is a real tactic here: Nxf6+ winning material. Line: 1. Nxf6+ Qxf6 2. cxd4 exd4 3. Bxb5+. Stockfish 18 (depth 16) evaluates the result at +2.81 for Black, 1.63 pawns better than the next-best alternative."
     }
   ]
 }

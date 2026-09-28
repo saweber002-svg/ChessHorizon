@@ -6,47 +6,47 @@
   "drills": [
     {
       "drillId": "sicilian-scheveningen-t1",
-      "name": "Keres Attack: g4-g5 Storm",
-      "description": "White has launched the Keres Attack with g4. Find the key move to continue the kingside storm and force Black's knight to a passive square.",
+      "name": "Black plays g5",
+      "theme": "Key idea",
+      "description": "Black to play. The engine's choice in this position: g5 (+1.48).",
       "fen": "r1bqkb1r/pp3ppp/2nppn2/8/3NP1P1/2N1B3/PPP2P1P/R2QKB1R w KQkq - 0 8",
-      "solutionMoves": ["g5", "Nd7", "h4", "a6", "h5"],
+      "solutionMoves": [
+        "g5",
+        "Nd7",
+        "Qd2",
+        "Nxd4",
+        "Qxd4"
+      ],
       "opponentResponse": "Nd7",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "g5 forces the Nf6 to move, gaining space and beginning the kingside attack.",
-      "explanation": "g5 is the engine of the Keres Attack. The knight must retreat to h5 or d7, giving White a free hand on the kingside. White follows with h4 and h5 to rip open the g-file and create a decisive kingside storm."
-    },
-    {
-      "drillId": "sicilian-scheveningen-t2",
-      "name": "English Attack: Queenside Castle",
-      "description": "White has set up the English Attack with Be3, f3, Qd2. Find the correct move to complete the setup and launch the attack.",
-      "fen": "r1bqk2r/1b1nbppp/p2ppn2/1p6/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQkq - 0 9",
-      "solutionMoves": ["O-O-O", "O-O", "g4", "b5", "g5"],
-      "opponentResponse": "O-O",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "O-O-O completes the English Attack setup and prepares the kingside storm.",
-      "explanation": "O-O-O is the signature move of the English Attack. White castles queenside, connects the rooks, and prepares g4-g5 to storm Black's kingside while the kings are on opposite wings. This creates a classic opposite-sides-castling race."
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "The strongest move is g5 (pawn to g5). 1. g5 Nd7 2. Qd2 Nxd4 3. Qxd4.",
+      "explanation": "Black to move. No forced tactic exists here, but g5 is clearly the strongest continuation. Line: 1. g5 Nd7 2. Qd2 Nxd4 3. Qxd4. Stockfish 18 (depth 16) evaluates the result at +1.48 for Black, 0.22 pawns better than the next-best alternative."
     },
     {
       "drillId": "sicilian-scheveningen-t3",
-      "name": "Classical: f4-f5 Break",
-      "description": "White has built up with Be2, f4, and Be3. Find the thematic pawn break to open lines against Black's king.",
+      "name": "Black plays fxg5",
+      "theme": "Key idea",
+      "description": "Black to play. The engine's choice in this position: fxg5 (-2.53).",
       "fen": "r1bq1rk1/1b1nbppp/p2pp3/1p4n1/3NPP2/2N1B1P1/PPP1B2P/R2Q1RK1 w - - 0 12",
-      "solutionMoves": ["f5", "exf5", "exf5", "O-O", "Bd3"],
-      "opponentResponse": "exf5",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "f5 breaks open the center and unleashes White's pieces.",
-      "explanation": "f5 is the thematic break in the Scheveningen. White opens lines against Black's king, creates a passed pawn possibility, and gains space. Recapturing with exf5 creates a powerful pawn wedge that cramps Black's position."
-    },
-    {
-      "drillId": "sicilian-scheveningen-t4",
-      "name": "Nd5 Outpost",
-      "description": "White has a strong knight on d4. Find the best move to exploit the d5 outpost and create a decisive advantage.",
-      "fen": "r1bq1rk1/pb1nbppp/1p1pp3/8/2BNP3/2N1B3/PPP2PPP/R2Q1RK1 w - - 0 10",
-      "solutionMoves": ["Nd5", "exd5", "exd5", "O-O", "Bd3"],
-      "opponentResponse": "exd5",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "Nd5 seizes the central outpost and forces a structural concession.",
-      "explanation": "Nd5 is the thematic knight leap in the Scheveningen. The knight on d5 dominates the center and is very difficult to dislodge. After exd5, White's exd5 recapture creates a passed pawn that cramps Black's pieces and opens diagonals for White's bishops."
+      "solutionMoves": [
+        "fxg5",
+        "Bxg5",
+        "Bxg5",
+        "Qxg5",
+        "a3"
+      ],
+      "opponentResponse": "Bxg5",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "The strongest move is fxg5 (pawn to fxg5). 1. fxg5 Bxg5 2. Bxg5 Qxg5 3. a3.",
+      "explanation": "Black to move. No forced tactic exists here, but fxg5 is clearly the strongest continuation. Line: 1. fxg5 Bxg5 2. Bxg5 Qxg5 3. a3. Stockfish 18 (depth 16) evaluates the result at -2.53 for Black, 1.17 pawns better than the next-best alternative."
     }
   ]
 }

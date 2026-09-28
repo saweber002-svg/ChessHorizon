@@ -1,0 +1,191 @@
+{
+  "id": "french-winawer-puzzles",
+  "name": "French Defense, Winawer Puzzles",
+  "description": "Real tactical puzzles from French Defense, Winawer games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "french-winawer",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "french-winawer-pz1",
+      "name": "Discovered Attack (1287)",
+      "theme": "Discovered Attack",
+      "description": "Black to play. A real French Defense, Winawer tactic rated 1287 — unleashing a discovered attack.",
+      "fen": "r1b1k2r/pp3pp1/2n1p3/2qpPn2/P4P1p/2P2N2/2PQB1PP/R1B2R1K b kq - 1 14",
+      "solutionMoves": [
+        "Ng3+",
+        "hxg3",
+        "hxg3+",
+        "Nh2",
+        "Rxh2#"
+      ],
+      "opponentResponse": "hxg3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Ng3+: unleashing a discovered attack. Solution: 1. Ng3+ hxg3 2. hxg3+ Nh2 3. Rxh2#.",
+      "explanation": "Black to move in this French Defense, Winawer position. The solution begins with Ng3+ — unleashing a discovered attack. Full line: 1. Ng3+ hxg3 2. hxg3+ Nh2 3. Rxh2#. Source: Lichess puzzle XGuOA (CC0), https://lichess.org/UWYE0Vdd#27.",
+      "lichessPuzzleId": "XGuOA",
+      "lichessUrl": "https://lichess.org/UWYE0Vdd#27"
+    },
+    {
+      "drillId": "french-winawer-pz2",
+      "name": "Advantage (1337)",
+      "theme": "Advantage",
+      "description": "Black to play. A real French Defense, Winawer tactic rated 1337 — finding the strongest continuation.",
+      "fen": "rnbq2k1/pp2n1pp/6P1/2ppp1B1/3P2Q1/P1P5/2P2PP1/R3KBNR b KQ - 0 12",
+      "solutionMoves": [
+        "Bxg4",
+        "gxh7+",
+        "Kh8"
+      ],
+      "opponentResponse": "gxh7+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxg4: finding the strongest continuation. Solution: 1. Bxg4 gxh7+ 2. Kh8.",
+      "explanation": "Black to move in this French Defense, Winawer position. The solution begins with Bxg4 — finding the strongest continuation. Full line: 1. Bxg4 gxh7+ 2. Kh8. Source: Lichess puzzle ZU2BU (CC0), https://lichess.org/BQR35h7d#23.",
+      "lichessPuzzleId": "ZU2BU",
+      "lichessUrl": "https://lichess.org/BQR35h7d#23"
+    },
+    {
+      "drillId": "french-winawer-pz3",
+      "name": "Advantage (1394)",
+      "theme": "Advantage",
+      "description": "Black to play. A real French Defense, Winawer tactic rated 1394 — finding the strongest continuation.",
+      "fen": "rnb4r/pp4kp/3Npq2/3pQn2/3p4/5N2/PPP2PPP/R3KB1R b KQ - 3 13",
+      "solutionMoves": [
+        "Qxe5+",
+        "Nxe5",
+        "Nxd6"
+      ],
+      "opponentResponse": "Nxe5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxe5+: finding the strongest continuation. Solution: 1. Qxe5+ Nxe5 2. Nxd6.",
+      "explanation": "Black to move in this French Defense, Winawer position. The solution begins with Qxe5+ — finding the strongest continuation. Full line: 1. Qxe5+ Nxe5 2. Nxd6. Source: Lichess puzzle SgKNV (CC0), https://lichess.org/vhCrmTcv#25.",
+      "lichessPuzzleId": "SgKNV",
+      "lichessUrl": "https://lichess.org/vhCrmTcv#25"
+    },
+    {
+      "drillId": "french-winawer-pz4",
+      "name": "Kingside Attack (1299)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real French Defense, Winawer tactic rated 1299 — a direct kingside attack.",
+      "fen": "r2qrbk1/pbpn1p2/1p2pn1Q/6N1/3P4/2NB4/PPP3PP/3R1RK1 w - - 3 16",
+      "solutionMoves": [
+        "Bh7+",
+        "Nxh7",
+        "Qxh7#"
+      ],
+      "opponentResponse": "Nxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bh7+: a direct kingside attack. Solution: 1. Bh7+ Nxh7 2. Qxh7#.",
+      "explanation": "White to move in this French Defense, Winawer position. The solution begins with Bh7+ — a direct kingside attack. Full line: 1. Bh7+ Nxh7 2. Qxh7#. Source: Lichess puzzle hQVUL (CC0), https://lichess.org/6sfAcD5a/black#30.",
+      "lichessPuzzleId": "hQVUL",
+      "lichessUrl": "https://lichess.org/6sfAcD5a/black#30"
+    },
+    {
+      "drillId": "french-winawer-pz5",
+      "name": "Deflection (1516)",
+      "theme": "Deflection",
+      "description": "White to play. A real French Defense, Winawer tactic rated 1516 — deflecting a key defender away.",
+      "fen": "r1b2k2/pp1n1p1Q/2p5/3p2p1/1b1q4/2NB4/PPP2PPP/4R1K1 w - - 0 18",
+      "solutionMoves": [
+        "Qh6+",
+        "Qg7",
+        "Re8+",
+        "Kxe8",
+        "Qxg7"
+      ],
+      "opponentResponse": "Qg7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh6+: deflecting a key defender away. Solution: 1. Qh6+ Qg7 2. Re8+ Kxe8 3. Qxg7.",
+      "explanation": "White to move in this French Defense, Winawer position. The solution begins with Qh6+ — deflecting a key defender away. Full line: 1. Qh6+ Qg7 2. Re8+ Kxe8 3. Qxg7. Source: Lichess puzzle PBKp9 (CC0), https://lichess.org/aNi6rIra/black#34.",
+      "lichessPuzzleId": "PBKp9",
+      "lichessUrl": "https://lichess.org/aNi6rIra/black#34"
+    },
+    {
+      "drillId": "french-winawer-pz6",
+      "name": "Intermezzo (1520)",
+      "theme": "Intermezzo",
+      "description": "White to play. A real French Defense, Winawer tactic rated 1520 — finding the strongest continuation.",
+      "fen": "3q1rk1/pp3p1p/4pnpQ/3p4/3rNP2/2P5/P1P3PP/R4RK1 w - - 0 19",
+      "solutionMoves": [
+        "Nxf6+",
+        "Qxf6",
+        "cxd4",
+        "Qxd4+",
+        "Kh1"
+      ],
+      "opponentResponse": "Qxf6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxf6+: finding the strongest continuation. Solution: 1. Nxf6+ Qxf6 2. cxd4 Qxd4+ 3. Kh1.",
+      "explanation": "White to move in this French Defense, Winawer position. The solution begins with Nxf6+ — finding the strongest continuation. Full line: 1. Nxf6+ Qxf6 2. cxd4 Qxd4+ 3. Kh1. Source: Lichess puzzle 9OHVm (CC0), https://lichess.org/mqfv76Rs/black#36.",
+      "lichessPuzzleId": "9OHVm",
+      "lichessUrl": "https://lichess.org/mqfv76Rs/black#36"
+    },
+    {
+      "drillId": "french-winawer-pz7",
+      "name": "Defensive Move (1444)",
+      "theme": "Defensive Move",
+      "description": "Black to play. A real French Defense, Winawer tactic rated 1444 — finding the only defensive resource.",
+      "fen": "r1bq1rk1/pp1nnppB/2p5/3p4/1b1P4/2N2N1P/PPP2PP1/R1BQ1RK1 b - - 0 9",
+      "solutionMoves": [
+        "Kxh7",
+        "Ng5+",
+        "Kg8"
+      ],
+      "opponentResponse": "Ng5+",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Kxh7: finding the only defensive resource. Solution: 1. Kxh7 Ng5+ 2. Kg8.",
+      "explanation": "Black to move in this French Defense, Winawer position. The solution begins with Kxh7 — finding the only defensive resource. Full line: 1. Kxh7 Ng5+ 2. Kg8. Source: Lichess puzzle ZmwSe (CC0), https://lichess.org/kgTYj1nd#17.",
+      "lichessPuzzleId": "ZmwSe",
+      "lichessUrl": "https://lichess.org/kgTYj1nd#17"
+    },
+    {
+      "drillId": "french-winawer-pz8",
+      "name": "Fork (1603)",
+      "theme": "Fork",
+      "description": "White to play. A real French Defense, Winawer tactic rated 1603 — forking two targets with one move.",
+      "fen": "r1b1k3/pp2np1Q/4p3/3p2q1/1P1n4/8/1pP1BPPP/1R3RK1 w q - 2 16",
+      "solutionMoves": [
+        "Qh8+",
+        "Kd7",
+        "Qxd4"
+      ],
+      "opponentResponse": "Kd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qh8+: forking two targets with one move. Solution: 1. Qh8+ Kd7 2. Qxd4.",
+      "explanation": "White to move in this French Defense, Winawer position. The solution begins with Qh8+ — forking two targets with one move. Full line: 1. Qh8+ Kd7 2. Qxd4. Source: Lichess puzzle ruoj6 (CC0), https://lichess.org/tzv3Xttz/black#30.",
+      "lichessPuzzleId": "ruoj6",
+      "lichessUrl": "https://lichess.org/tzv3Xttz/black#30"
+    }
+  ]
+}

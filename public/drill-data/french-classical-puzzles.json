@@ -1,0 +1,193 @@
+{
+  "id": "french-classical-puzzles",
+  "name": "French Defense, Classical Puzzles",
+  "description": "Real tactical puzzles from French Defense, Classical games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "french-classical",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "french-classical-pz1",
+      "name": "Queenside Attack (1394)",
+      "theme": "Queenside Attack",
+      "description": "White to play. A real French Defense, Classical tactic rated 1394 — a queenside breakthrough.",
+      "fen": "2kr3r/pp2bQ2/4q3/2nRPn1p/5B2/8/PPP2PPP/2K4R w - - 1 17",
+      "solutionMoves": [
+        "Rxc5+",
+        "Kb8",
+        "Qxe6"
+      ],
+      "opponentResponse": "Kb8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rxc5+: a queenside breakthrough. Solution: 1. Rxc5+ Kb8 2. Qxe6.",
+      "explanation": "White to move in this French Defense, Classical position. The solution begins with Rxc5+ — a queenside breakthrough. Full line: 1. Rxc5+ Kb8 2. Qxe6. Source: Lichess puzzle hqhKL (CC0), https://lichess.org/2LVVEo4w/black#32.",
+      "lichessPuzzleId": "hqhKL",
+      "lichessUrl": "https://lichess.org/2LVVEo4w/black#32"
+    },
+    {
+      "drillId": "french-classical-pz2",
+      "name": "Discovered Attack (1224)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real French Defense, Classical tactic rated 1224 — unleashing a discovered attack.",
+      "fen": "r1b2rk1/1p3ppp/pn1bpn2/3p4/3N1P2/PPqB1Q2/2P3PP/R1B2RK1 w - - 0 18",
+      "solutionMoves": [
+        "Bxh7+",
+        "Kxh7",
+        "Qxc3"
+      ],
+      "opponentResponse": "Kxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxh7+: unleashing a discovered attack. Solution: 1. Bxh7+ Kxh7 2. Qxc3.",
+      "explanation": "White to move in this French Defense, Classical position. The solution begins with Bxh7+ — unleashing a discovered attack. Full line: 1. Bxh7+ Kxh7 2. Qxc3. Source: Lichess puzzle 4sMvh (CC0), https://lichess.org/cEapqSC3/black#34.",
+      "lichessPuzzleId": "4sMvh",
+      "lichessUrl": "https://lichess.org/cEapqSC3/black#34"
+    },
+    {
+      "drillId": "french-classical-pz3",
+      "name": "Fork (1211)",
+      "theme": "Fork",
+      "description": "Black to play. A real French Defense, Classical tactic rated 1211 — forking two targets with one move.",
+      "fen": "5k1r/p4p1p/N1p2q2/8/4n3/5Q2/PPP3PP/R5KR b - - 0 18",
+      "solutionMoves": [
+        "Qd4+",
+        "Kf1",
+        "Nd2+",
+        "Ke2",
+        "Nxf3"
+      ],
+      "opponentResponse": "Kf1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qd4+: forking two targets with one move. Solution: 1. Qd4+ Kf1 2. Nd2+ Ke2 3. Nxf3.",
+      "explanation": "Black to move in this French Defense, Classical position. The solution begins with Qd4+ — forking two targets with one move. Full line: 1. Qd4+ Kf1 2. Nd2+ Ke2 3. Nxf3. Source: Lichess puzzle ZNS56 (CC0), https://lichess.org/PYiXEWWW#35.",
+      "lichessPuzzleId": "ZNS56",
+      "lichessUrl": "https://lichess.org/PYiXEWWW#35"
+    },
+    {
+      "drillId": "french-classical-pz4",
+      "name": "Trapped Piece (1388)",
+      "theme": "Trapped Piece",
+      "description": "White to play. A real French Defense, Classical tactic rated 1388 — trapping an enemy piece.",
+      "fen": "r1b2rk1/1p1n1ppp/p1n1p3/3pP3/3p1P2/1PbN1N2/q1PBB1PP/1R1QK2R w K - 0 14",
+      "solutionMoves": [
+        "Bxc3",
+        "dxc3",
+        "Ra1",
+        "Qxa1",
+        "Qxa1"
+      ],
+      "opponentResponse": "dxc3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxc3: trapping an enemy piece. Solution: 1. Bxc3 dxc3 2. Ra1 Qxa1 3. Qxa1.",
+      "explanation": "White to move in this French Defense, Classical position. The solution begins with Bxc3 — trapping an enemy piece. Full line: 1. Bxc3 dxc3 2. Ra1 Qxa1 3. Qxa1. Source: Lichess puzzle 6YGJP (CC0), https://lichess.org/X1igIriQ/black#26.",
+      "lichessPuzzleId": "6YGJP",
+      "lichessUrl": "https://lichess.org/X1igIriQ/black#26"
+    },
+    {
+      "drillId": "french-classical-pz5",
+      "name": "Trapped Piece (1590)",
+      "theme": "Trapped Piece",
+      "description": "White to play. A real French Defense, Classical tactic rated 1590 — trapping an enemy piece.",
+      "fen": "rnb1k2r/1p1n1ppp/p3p3/3pP3/8/P1NB1N2/1qP1Q1PP/R4RK1 w kq - 0 14",
+      "solutionMoves": [
+        "Na4",
+        "Qxa1",
+        "Rxa1"
+      ],
+      "opponentResponse": "Qxa1",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Na4: trapping an enemy piece. Solution: 1. Na4 Qxa1 2. Rxa1.",
+      "explanation": "White to move in this French Defense, Classical position. The solution begins with Na4 — trapping an enemy piece. Full line: 1. Na4 Qxa1 2. Rxa1. Source: Lichess puzzle ti6tz (CC0), https://lichess.org/iaH0Hkma/black#26.",
+      "lichessPuzzleId": "ti6tz",
+      "lichessUrl": "https://lichess.org/iaH0Hkma/black#26"
+    },
+    {
+      "drillId": "french-classical-pz6",
+      "name": "Advantage (1475)",
+      "theme": "Advantage",
+      "description": "White to play. A real French Defense, Classical tactic rated 1475 — finding the strongest continuation.",
+      "fen": "1r3rk1/pbq3pp/3bpp2/2pp4/8/1PN2QB1/P1P2PPP/R4R1K w - - 1 19",
+      "solutionMoves": [
+        "Nb5",
+        "Bxg3",
+        "Nxc7"
+      ],
+      "opponentResponse": "Bxg3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nb5: finding the strongest continuation. Solution: 1. Nb5 Bxg3 2. Nxc7.",
+      "explanation": "White to move in this French Defense, Classical position. The solution begins with Nb5 — finding the strongest continuation. Full line: 1. Nb5 Bxg3 2. Nxc7. Source: Lichess puzzle Y2072 (CC0), https://lichess.org/eNztkOPo/black#36.",
+      "lichessPuzzleId": "Y2072",
+      "lichessUrl": "https://lichess.org/eNztkOPo/black#36"
+    },
+    {
+      "drillId": "french-classical-pz7",
+      "name": "Deflection (1477)",
+      "theme": "Deflection",
+      "description": "White to play. A real French Defense, Classical tactic rated 1477 — deflecting a key defender away.",
+      "fen": "r1b2nk1/pp3p1n/2pb1q1Q/3p4/3P3P/2NB1N2/PPP2PP1/4R1K1 w - - 1 16",
+      "solutionMoves": [
+        "Bxh7+",
+        "Nxh7",
+        "Re8+",
+        "Bf8",
+        "Rxf8+",
+        "Nxf8",
+        "Qxf6"
+      ],
+      "opponentResponse": "Nxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxh7+: deflecting a key defender away. Solution: 1. Bxh7+ Nxh7 2. Re8+ Bf8 3. Rxf8+ Nxf8 4. Qxf6.",
+      "explanation": "White to move in this French Defense, Classical position. The solution begins with Bxh7+ — deflecting a key defender away. Full line: 1. Bxh7+ Nxh7 2. Re8+ Bf8 3. Rxf8+ Nxf8 4. Qxf6. Source: Lichess puzzle 1rdos (CC0), https://lichess.org/3YFvIXrU/black#30.",
+      "lichessPuzzleId": "1rdos",
+      "lichessUrl": "https://lichess.org/3YFvIXrU/black#30"
+    },
+    {
+      "drillId": "french-classical-pz8",
+      "name": "Kingside Attack (1229)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real French Defense, Classical tactic rated 1229 — a direct kingside attack.",
+      "fen": "r3qr1k/pp4p1/1nn1B1Qp/3pp1P1/3p4/2P3P1/PP3P2/R1B1K2R w KQ - 1 18",
+      "solutionMoves": [
+        "Rxh6+",
+        "gxh6",
+        "Qxh6#"
+      ],
+      "opponentResponse": "gxh6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rxh6+: a direct kingside attack. Solution: 1. Rxh6+ gxh6 2. Qxh6#.",
+      "explanation": "White to move in this French Defense, Classical position. The solution begins with Rxh6+ — a direct kingside attack. Full line: 1. Rxh6+ gxh6 2. Qxh6#. Source: Lichess puzzle 4S4Hw (CC0), https://lichess.org/Y2mgU5VJ/black#34.",
+      "lichessPuzzleId": "4S4Hw",
+      "lichessUrl": "https://lichess.org/Y2mgU5VJ/black#34"
+    }
+  ]
+}

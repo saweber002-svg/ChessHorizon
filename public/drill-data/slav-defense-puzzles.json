@@ -1,0 +1,191 @@
+{
+  "id": "slav-defense-puzzles",
+  "name": "Slav Defense Puzzles",
+  "description": "Real tactical puzzles from Slav Defense games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "slav-defense",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "slav-defense-pz1",
+      "name": "Advantage (1245)",
+      "theme": "Advantage",
+      "description": "Black to play. A real Slav Defense tactic rated 1245 — finding the strongest continuation.",
+      "fen": "rn2kb1r/ppqbppp1/7p/1B1Q4/3P4/4PN2/PP3PPP/R1B1K2R b KQkq - 0 10",
+      "solutionMoves": [
+        "Qa5+",
+        "Bd2",
+        "Qxb5",
+        "Qxb5",
+        "Bxb5"
+      ],
+      "opponentResponse": "Bd2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa5+: finding the strongest continuation. Solution: 1. Qa5+ Bd2 2. Qxb5 Qxb5 3. Bxb5.",
+      "explanation": "Black to move in this Slav Defense position. The solution begins with Qa5+ — finding the strongest continuation. Full line: 1. Qa5+ Bd2 2. Qxb5 Qxb5 3. Bxb5. Source: Lichess puzzle IMZZF (CC0), https://lichess.org/Q7s0hgi3#19.",
+      "lichessPuzzleId": "IMZZF",
+      "lichessUrl": "https://lichess.org/Q7s0hgi3#19"
+    },
+    {
+      "drillId": "slav-defense-pz2",
+      "name": "Capturing Defender (1410)",
+      "theme": "Capturing Defender",
+      "description": "Black to play. A real Slav Defense tactic rated 1410 — finding the strongest continuation.",
+      "fen": "r3kb1r/pp1npppp/1qp2n2/3p1b2/2PP4/1Q1BPN2/PP1N1PPP/R1B1K2R b KQkq - 8 7",
+      "solutionMoves": [
+        "Qxb3",
+        "Nxb3",
+        "Bxd3"
+      ],
+      "opponentResponse": "Nxb3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxb3: finding the strongest continuation. Solution: 1. Qxb3 Nxb3 2. Bxd3.",
+      "explanation": "Black to move in this Slav Defense position. The solution begins with Qxb3 — finding the strongest continuation. Full line: 1. Qxb3 Nxb3 2. Bxd3. Source: Lichess puzzle N1jJr (CC0), https://lichess.org/N3fIb4MI#13.",
+      "lichessPuzzleId": "N1jJr",
+      "lichessUrl": "https://lichess.org/N3fIb4MI#13"
+    },
+    {
+      "drillId": "slav-defense-pz3",
+      "name": "Discovered Attack (1525)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Slav Defense tactic rated 1525 — unleashing a discovered attack.",
+      "fen": "2kr3r/pp3p2/1q2p2p/3pn3/8/2N5/PPQ2PPP/R4RK1 w - - 3 16",
+      "solutionMoves": [
+        "Nxd5+",
+        "Qc6",
+        "Ne7+",
+        "Kb8",
+        "Nxc6+"
+      ],
+      "opponentResponse": "Qc6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxd5+: unleashing a discovered attack. Solution: 1. Nxd5+ Qc6 2. Ne7+ Kb8 3. Nxc6+.",
+      "explanation": "White to move in this Slav Defense position. The solution begins with Nxd5+ — unleashing a discovered attack. Full line: 1. Nxd5+ Qc6 2. Ne7+ Kb8 3. Nxc6+. Source: Lichess puzzle XzNS4 (CC0), https://lichess.org/6OUY8N1p/black#30.",
+      "lichessPuzzleId": "XzNS4",
+      "lichessUrl": "https://lichess.org/6OUY8N1p/black#30"
+    },
+    {
+      "drillId": "slav-defense-pz4",
+      "name": "Advantage (1280)",
+      "theme": "Advantage",
+      "description": "Black to play. A real Slav Defense tactic rated 1280 — finding the strongest continuation.",
+      "fen": "rn2kb1r/ppqbpppp/8/1B1Q4/3P4/4P3/PP3PPP/R1B1K1NR b KQkq - 0 9",
+      "solutionMoves": [
+        "Qa5+",
+        "Bd2",
+        "Qxb5",
+        "Qxb5",
+        "Bxb5"
+      ],
+      "opponentResponse": "Bd2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa5+: finding the strongest continuation. Solution: 1. Qa5+ Bd2 2. Qxb5 Qxb5 3. Bxb5.",
+      "explanation": "Black to move in this Slav Defense position. The solution begins with Qa5+ — finding the strongest continuation. Full line: 1. Qa5+ Bd2 2. Qxb5 Qxb5 3. Bxb5. Source: Lichess puzzle oRsIC (CC0), https://lichess.org/sFmHhXeN#17.",
+      "lichessPuzzleId": "oRsIC",
+      "lichessUrl": "https://lichess.org/sFmHhXeN#17"
+    },
+    {
+      "drillId": "slav-defense-pz5",
+      "name": "Deflection (1473)",
+      "theme": "Deflection",
+      "description": "Black to play. A real Slav Defense tactic rated 1473 — deflecting a key defender away.",
+      "fen": "rn4k1/pp4pp/2p1p3/3pN1P1/2PP1r1B/4K3/Pq1Q3P/R4B1R b - - 0 18",
+      "solutionMoves": [
+        "Re4+",
+        "Kf3",
+        "Qxd2"
+      ],
+      "opponentResponse": "Kf3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Re4+: deflecting a key defender away. Solution: 1. Re4+ Kf3 2. Qxd2.",
+      "explanation": "Black to move in this Slav Defense position. The solution begins with Re4+ — deflecting a key defender away. Full line: 1. Re4+ Kf3 2. Qxd2. Source: Lichess puzzle QxQLj (CC0), https://lichess.org/hx8gj3SW#35.",
+      "lichessPuzzleId": "QxQLj",
+      "lichessUrl": "https://lichess.org/hx8gj3SW#35"
+    },
+    {
+      "drillId": "slav-defense-pz6",
+      "name": "Fork (1358)",
+      "theme": "Fork",
+      "description": "White to play. A real Slav Defense tactic rated 1358 — forking two targets with one move.",
+      "fen": "1rbqk2r/pp3pp1/4pn1p/3p4/1b1P4/2N1PN2/PP3PPP/R2QKB1R w KQk - 0 9",
+      "solutionMoves": [
+        "Qa4+",
+        "Bd7",
+        "Qxb4"
+      ],
+      "opponentResponse": "Bd7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa4+: forking two targets with one move. Solution: 1. Qa4+ Bd7 2. Qxb4.",
+      "explanation": "White to move in this Slav Defense position. The solution begins with Qa4+ — forking two targets with one move. Full line: 1. Qa4+ Bd7 2. Qxb4. Source: Lichess puzzle Xnsr6 (CC0), https://lichess.org/UqMXGpwj/black#16.",
+      "lichessPuzzleId": "Xnsr6",
+      "lichessUrl": "https://lichess.org/UqMXGpwj/black#16"
+    },
+    {
+      "drillId": "slav-defense-pz7",
+      "name": "Mate In 2 (1359)",
+      "theme": "Mate In 2",
+      "description": "Black to play. A real Slav Defense tactic rated 1359 — forcing checkmate in two.",
+      "fen": "rn2k2r/pp3pPb/2p1p3/7p/2PP3P/2q5/P2B2P1/R2QKBNR b KQkq - 1 13",
+      "solutionMoves": [
+        "Qg3+",
+        "Ke2",
+        "Bd3#"
+      ],
+      "opponentResponse": "Ke2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qg3+: forcing checkmate in two. Solution: 1. Qg3+ Ke2 2. Bd3#.",
+      "explanation": "Black to move in this Slav Defense position. The solution begins with Qg3+ — forcing checkmate in two. Full line: 1. Qg3+ Ke2 2. Bd3#. Source: Lichess puzzle H7vDf (CC0), https://lichess.org/ScsPjgod#25.",
+      "lichessPuzzleId": "H7vDf",
+      "lichessUrl": "https://lichess.org/ScsPjgod#25"
+    },
+    {
+      "drillId": "slav-defense-pz8",
+      "name": "Discovered Attack (1554)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Slav Defense tactic rated 1554 — unleashing a discovered attack.",
+      "fen": "rn2k2r/p1q1np1p/1bp1p1p1/3p4/QP6/2N1PB2/PB3PPP/R4RK1 w kq - 3 14",
+      "solutionMoves": [
+        "Nxd5",
+        "exd5",
+        "Bxh8"
+      ],
+      "opponentResponse": "exd5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxd5: unleashing a discovered attack. Solution: 1. Nxd5 exd5 2. Bxh8.",
+      "explanation": "White to move in this Slav Defense position. The solution begins with Nxd5 — unleashing a discovered attack. Full line: 1. Nxd5 exd5 2. Bxh8. Source: Lichess puzzle s0JRa (CC0), https://lichess.org/YMC3APqB/black#26.",
+      "lichessPuzzleId": "s0JRa",
+      "lichessUrl": "https://lichess.org/YMC3APqB/black#26"
+    }
+  ]
+}

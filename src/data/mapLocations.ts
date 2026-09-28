@@ -70,7 +70,7 @@ export const ITALIAN_DRILL_VARIATIONS = [
   { variationId: 'giuoco-pianissimo', drillFileId: 'giuoco-pianissimo-main', label: 'Giuoco Pianissimo' },
   { variationId: 'evans-gambit', drillFileId: 'evans-gambit-main', label: 'Evans Gambit' },
   { variationId: 'two-knights', drillFileId: 'two-knights-main', label: 'Two Knights' },
-  { variationId: 'fried-liver', drillFileId: 'fried-liver-attack-main', label: 'Fried Liver Attack' },
+  { variationId: 'fried-liver-attack', drillFileId: 'fried-liver-attack-main', label: 'Fried Liver Attack' },
 ] as const;
 
 // =============================================================================

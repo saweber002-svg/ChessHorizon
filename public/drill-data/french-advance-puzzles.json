@@ -1,0 +1,187 @@
+{
+  "id": "french-advance-puzzles",
+  "name": "French Defense, Advance Puzzles",
+  "description": "Real tactical puzzles from French Defense, Advance games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "french-advance",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "french-advance-pz1",
+      "name": "Trapped Piece (1508)",
+      "theme": "Trapped Piece",
+      "description": "White to play. A real French Defense, Advance tactic rated 1508 — trapping an enemy piece.",
+      "fen": "r3k1nr/p2bbp1p/4p1p1/4q3/6Q1/2N1B3/PPP2PPP/R4RK1 w kq - 0 16",
+      "solutionMoves": [
+        "Bd4",
+        "Qf5",
+        "Qxf5",
+        "gxf5",
+        "Bxh8"
+      ],
+      "opponentResponse": "Qf5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bd4: trapping an enemy piece. Solution: 1. Bd4 Qf5 2. Qxf5 gxf5 3. Bxh8.",
+      "explanation": "White to move in this French Defense, Advance position. The solution begins with Bd4 — trapping an enemy piece. Full line: 1. Bd4 Qf5 2. Qxf5 gxf5 3. Bxh8. Source: Lichess puzzle jOx16 (CC0), https://lichess.org/FQKdMYp6/black#30.",
+      "lichessPuzzleId": "jOx16",
+      "lichessUrl": "https://lichess.org/FQKdMYp6/black#30"
+    },
+    {
+      "drillId": "french-advance-pz2",
+      "name": "Advantage (1583)",
+      "theme": "Advantage",
+      "description": "Black to play. A real French Defense, Advance tactic rated 1583 — finding the strongest continuation.",
+      "fen": "r1b2rk1/ppq2pp1/2n1p1Bp/3pP1NQ/3P4/2P5/P4PPP/R1B2RK1 b - - 0 13",
+      "solutionMoves": [
+        "fxg6",
+        "Qxg6",
+        "hxg5"
+      ],
+      "opponentResponse": "Qxg6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is fxg6: finding the strongest continuation. Solution: 1. fxg6 Qxg6 2. hxg5.",
+      "explanation": "Black to move in this French Defense, Advance position. The solution begins with fxg6 — finding the strongest continuation. Full line: 1. fxg6 Qxg6 2. hxg5. Source: Lichess puzzle zKeHy (CC0), https://lichess.org/nPp9lQWR#25.",
+      "lichessPuzzleId": "zKeHy",
+      "lichessUrl": "https://lichess.org/nPp9lQWR#25"
+    },
+    {
+      "drillId": "french-advance-pz3",
+      "name": "Kingside Attack (1228)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real French Defense, Advance tactic rated 1228 — a direct kingside attack.",
+      "fen": "r1b3k1/1pq3pN/2n1p1Qr/p2pP3/3P4/P1P5/5PPP/R3K2R w KQ - 3 18",
+      "solutionMoves": [
+        "Nf6+",
+        "Kh8",
+        "Qe8#"
+      ],
+      "opponentResponse": "Kh8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nf6+: a direct kingside attack. Solution: 1. Nf6+ Kh8 2. Qe8#.",
+      "explanation": "White to move in this French Defense, Advance position. The solution begins with Nf6+ — a direct kingside attack. Full line: 1. Nf6+ Kh8 2. Qe8#. Source: Lichess puzzle 2geXU (CC0), https://lichess.org/mQ5u2D8g/black#34.",
+      "lichessPuzzleId": "2geXU",
+      "lichessUrl": "https://lichess.org/mQ5u2D8g/black#34"
+    },
+    {
+      "drillId": "french-advance-pz4",
+      "name": "Deflection (1483)",
+      "theme": "Deflection",
+      "description": "White to play. A real French Defense, Advance tactic rated 1483 — deflecting a key defender away.",
+      "fen": "rn3rk1/1p1b1ppp/1q2p3/3pP3/p1pP4/Q1P2N2/2B2PPP/1N3RK1 w - - 0 19",
+      "solutionMoves": [
+        "Bxh7+",
+        "Kxh7",
+        "Qxf8"
+      ],
+      "opponentResponse": "Kxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxh7+: deflecting a key defender away. Solution: 1. Bxh7+ Kxh7 2. Qxf8.",
+      "explanation": "White to move in this French Defense, Advance position. The solution begins with Bxh7+ — deflecting a key defender away. Full line: 1. Bxh7+ Kxh7 2. Qxf8. Source: Lichess puzzle KDIaN (CC0), https://lichess.org/T1x4iu8a/black#36.",
+      "lichessPuzzleId": "KDIaN",
+      "lichessUrl": "https://lichess.org/T1x4iu8a/black#36"
+    },
+    {
+      "drillId": "french-advance-pz5",
+      "name": "Fork (1430)",
+      "theme": "Fork",
+      "description": "White to play. A real French Defense, Advance tactic rated 1430 — forking two targets with one move.",
+      "fen": "r4knr/pp3ppp/1q2p3/3pP3/Q2N4/3b4/PP1N1PPP/R3K2R w KQ - 2 14",
+      "solutionMoves": [
+        "Qa3+",
+        "Ne7",
+        "Qxd3"
+      ],
+      "opponentResponse": "Ne7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qa3+: forking two targets with one move. Solution: 1. Qa3+ Ne7 2. Qxd3.",
+      "explanation": "White to move in this French Defense, Advance position. The solution begins with Qa3+ — forking two targets with one move. Full line: 1. Qa3+ Ne7 2. Qxd3. Source: Lichess puzzle ZVeSr (CC0), https://lichess.org/YRUcZVFl/black#26.",
+      "lichessPuzzleId": "ZVeSr",
+      "lichessUrl": "https://lichess.org/YRUcZVFl/black#26"
+    },
+    {
+      "drillId": "french-advance-pz6",
+      "name": "Advantage (1381)",
+      "theme": "Advantage",
+      "description": "White to play. A real French Defense, Advance tactic rated 1381 — finding the strongest continuation.",
+      "fen": "2r1k1nr/pp1b1p1p/4p3/2bpP1p1/3N4/P3B2P/2B2PP1/qN1Q1RK1 w k - 0 14",
+      "solutionMoves": [
+        "Nb3",
+        "Bxe3",
+        "Nxa1"
+      ],
+      "opponentResponse": "Bxe3",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nb3: finding the strongest continuation. Solution: 1. Nb3 Bxe3 2. Nxa1.",
+      "explanation": "White to move in this French Defense, Advance position. The solution begins with Nb3 — finding the strongest continuation. Full line: 1. Nb3 Bxe3 2. Nxa1. Source: Lichess puzzle 0AiOE (CC0), https://lichess.org/Fv9UQNA1/black#26.",
+      "lichessPuzzleId": "0AiOE",
+      "lichessUrl": "https://lichess.org/Fv9UQNA1/black#26"
+    },
+    {
+      "drillId": "french-advance-pz7",
+      "name": "Discovered Attack (1331)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real French Defense, Advance tactic rated 1331 — unleashing a discovered attack.",
+      "fen": "r4rk1/pp1bnppp/3qp3/8/8/2NB4/PP3PPP/2RQR1K1 w - - 4 17",
+      "solutionMoves": [
+        "Bxh7+",
+        "Kxh7",
+        "Qxd6"
+      ],
+      "opponentResponse": "Kxh7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxh7+: unleashing a discovered attack. Solution: 1. Bxh7+ Kxh7 2. Qxd6.",
+      "explanation": "White to move in this French Defense, Advance position. The solution begins with Bxh7+ — unleashing a discovered attack. Full line: 1. Bxh7+ Kxh7 2. Qxd6. Source: Lichess puzzle Gd50x (CC0), https://lichess.org/INqxEWnu/black#32.",
+      "lichessPuzzleId": "Gd50x",
+      "lichessUrl": "https://lichess.org/INqxEWnu/black#32"
+    },
+    {
+      "drillId": "french-advance-pz8",
+      "name": "Corner Mate (1473)",
+      "theme": "Corner Mate",
+      "description": "White to play. A real French Defense, Advance tactic rated 1473 — finding the strongest continuation.",
+      "fen": "r5nr/1p2kppp/1q1Np3/p3P3/P2N4/2p1P3/1P2b1PP/R4RK1 w - - 0 18",
+      "solutionMoves": [
+        "Rxf7+",
+        "Kd8",
+        "Nxe6#"
+      ],
+      "opponentResponse": "Kd8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Rxf7+: finding the strongest continuation. Solution: 1. Rxf7+ Kd8 2. Nxe6#.",
+      "explanation": "White to move in this French Defense, Advance position. The solution begins with Rxf7+ — finding the strongest continuation. Full line: 1. Rxf7+ Kd8 2. Nxe6#. Source: Lichess puzzle YCRqG (CC0), https://lichess.org/CNkrUZxM/black#34.",
+      "lichessPuzzleId": "YCRqG",
+      "lichessUrl": "https://lichess.org/CNkrUZxM/black#34"
+    }
+  ]
+}

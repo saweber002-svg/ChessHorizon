@@ -5,56 +5,70 @@
   "arena": "two-knights",
   "drills": [
     {
-      "drillId": "traxler-bt1",
-      "name": "Queen Check on h4",
-      "theme": "Queen Initiative",
-      "description": "Black creates immediate threats.",
-      "fen": "r1bqk2r/pppp1Npp/2n5/4p3/2B1n3/8/PPPP1KPP/RNBQ3R w kq - 0 7",
-      "whitePromptMove": "Ke3",
-      "solutionMoves": ["Qh4+", "g3", "Qf6", "Ke3", "d5"],
-      "opponentResponse": "g3",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "Black creates immediate threats.",
-      "explanation": "Qh4 threatens mate on f2. Black continues with 9...Qf6, keeping the attack alive."
-    },
-    {
       "drillId": "traxler-bt2",
       "name": "d5 Central Break",
       "theme": "Central Break",
-      "description": "Black opens the center.",
+      "description": "Black to play. The engine's choice in this position: g3 (0.00).",
       "fen": "r1b1k2r/pppp1Npp/2n5/4p3/2B1n2q/4K3/PPPP2PP/RNBQ3R w kq - 2 8",
-      "whitePromptMove": "d3",
-      "solutionMoves": ["d5", "Bb3", "Bg4", "Qf1", "O-O-O"],
-      "opponentResponse": "Bb3",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "Black opens the center.",
-      "explanation": "d5 attacks the bishop. Black follows with 10...Bg4, pinning and attacking."
+      "solutionMoves": [
+        "g3",
+        "Nxg3",
+        "hxg3",
+        "Qd4+",
+        "Kf3"
+      ],
+      "opponentResponse": "Nxg3",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "The strongest move is g3 (pawn to g3). 1. g3 Nxg3 2. hxg3 Qd4+ 3. Kf3.",
+      "explanation": "Black to move. No forced tactic exists here, but g3 is clearly the strongest continuation. Line: 1. g3 Nxg3 2. hxg3 Qd4+ 3. Kf3. Stockfish 18 (depth 16) evaluates the result at 0.00 for Black, 2.18 pawns better than the next-best alternative."
     },
     {
       "drillId": "traxler-bt3",
       "name": "Bg4 Pin",
       "theme": "Bishop Pin",
-      "description": "Black pins the queen.",
+      "description": "Black to play. The engine's choice in this position: dxe4 (-1.95).",
       "fen": "r1b1k2r/ppp2Npp/2n5/3pp3/2B1n2q/3PK3/PPP3PP/RNBQ3R w kq - 0 9",
-      "whitePromptMove": "Qf3",
-      "solutionMoves": ["Nd6", "Kd2", "Bg4", "Qf1", "O-O-O"],
-      "opponentResponse": "Kd2",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "Black pins the queen.",
-      "explanation": "Bg4 pins the queen. Black continues with 11...Qf6, creating unstoppable threats."
+      "solutionMoves": [
+        "dxe4",
+        "Qf4+",
+        "Ke2",
+        "Nd4+",
+        "Qxd4"
+      ],
+      "opponentResponse": "Qf4+",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "The strongest move is dxe4 (pawn to dxe4). 1. dxe4 Qf4+ 2. Ke2 Nd4+ 3. Qxd4.",
+      "explanation": "Black to move. No forced tactic exists here, but dxe4 is clearly the strongest continuation. Line: 1. dxe4 Qf4+ 2. Ke2 Nd4+ 3. Qxd4. Stockfish 18 (depth 16) evaluates the result at -1.95 for Black, 1.85 pawns better than the next-best alternative."
     },
     {
       "drillId": "traxler-bt4",
       "name": "Castling Long",
       "theme": "Queenside Castle",
-      "description": "Black castles queenside for safety.",
+      "description": "Black to play. The engine's choice in this position: Qf1 (-0.82).",
       "fen": "r1b1k2N/ppp3pp/2n2q2/3pp3/2B1n3/4K1P1/PPPP3P/RNBQ3R w q - 0 10",
-      "whitePromptMove": "Kd3",
-      "solutionMoves": ["Bg4", "Qf1", "O-O-O", "Nxc7", "Rhe8"],
-      "opponentResponse": "Nc3",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
-      "briefExplanation": "Black castles queenside for safety.",
-      "explanation": "0-0-0 brings the rook into the attack. Black follows with 12...Rhe8, creating overwhelming pressure."
+      "solutionMoves": [
+        "Qf1",
+        "Bf5",
+        "Bxd5",
+        "Qh6+",
+        "Ke2"
+      ],
+      "opponentResponse": "Bf5",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "The strongest move is Qf1 (queen to f1). 1. Qf1 Bf5 2. Bxd5 Qh6+ 3. Ke2.",
+      "explanation": "Black to move. No forced tactic exists here, but Qf1 is clearly the strongest continuation. Line: 1. Qf1 Bf5 2. Bxd5 Qh6+ 3. Ke2. Stockfish 18 (depth 16) evaluates the result at -0.82 for Black, 0.30 pawns better than the next-best alternative."
     }
   ]
 }

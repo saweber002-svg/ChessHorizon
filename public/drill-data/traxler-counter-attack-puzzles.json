@@ -1,0 +1,189 @@
+{
+  "id": "traxler-counter-attack-puzzles",
+  "name": "Traxler Counter-Attack Puzzles",
+  "description": "Real tactical puzzles from Traxler Counter-Attack games, sourced from the Lichess open puzzle database (CC0). Solve them like a game: find the strongest continuation for the side to move.",
+  "arena": "traxler-counter-attack",
+  "source": "Lichess open puzzle database (CC0) — https://database.lichess.org/#puzzles",
+  "drills": [
+    {
+      "drillId": "traxler-counter-attack-pz1",
+      "name": "Kingside Attack (1286)",
+      "theme": "Kingside Attack",
+      "description": "White to play. A real Traxler Counter-Attack tactic rated 1286 — a direct kingside attack.",
+      "fen": "r1b2bkr/ppppq1pp/2n5/6N1/8/4pQ2/PPP2PPP/RN2K2R w KQ - 0 11",
+      "solutionMoves": [
+        "Qd5+",
+        "Qe6",
+        "Nxe6"
+      ],
+      "opponentResponse": "Qe6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qd5+: a direct kingside attack. Solution: 1. Qd5+ Qe6 2. Nxe6.",
+      "explanation": "White to move in this Traxler Counter-Attack position. The solution begins with Qd5+ — a direct kingside attack. Full line: 1. Qd5+ Qe6 2. Nxe6. Source: Lichess puzzle FZkH8 (CC0), https://lichess.org/aO04FGum/black#20.",
+      "lichessPuzzleId": "FZkH8",
+      "lichessUrl": "https://lichess.org/aO04FGum/black#20"
+    },
+    {
+      "drillId": "traxler-counter-attack-pz2",
+      "name": "Discovered Attack (1202)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Traxler Counter-Attack tactic rated 1202 — unleashing a discovered attack.",
+      "fen": "r1b1kr2/pppp1Npp/2n5/4p3/2B4q/4bQ2/PPP2RPP/RN4K1 w q - 0 11",
+      "solutionMoves": [
+        "Nd6+",
+        "cxd6",
+        "Qxf8#"
+      ],
+      "opponentResponse": "cxd6",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nd6+: unleashing a discovered attack. Solution: 1. Nd6+ cxd6 2. Qxf8#.",
+      "explanation": "White to move in this Traxler Counter-Attack position. The solution begins with Nd6+ — unleashing a discovered attack. Full line: 1. Nd6+ cxd6 2. Qxf8#. Source: Lichess puzzle uLuW7 (CC0), https://lichess.org/jFWYhkxW/black#20.",
+      "lichessPuzzleId": "uLuW7",
+      "lichessUrl": "https://lichess.org/jFWYhkxW/black#20"
+    },
+    {
+      "drillId": "traxler-counter-attack-pz3",
+      "name": "Kingside Attack (1290)",
+      "theme": "Kingside Attack",
+      "description": "Black to play. A real Traxler Counter-Attack tactic rated 1290 — a direct kingside attack.",
+      "fen": "2k2r2/ppp4p/2n1pqp1/2Q5/3r4/8/PP3PPP/RNB2RK1 b - - 1 17",
+      "solutionMoves": [
+        "Qxf2+",
+        "Rxf2",
+        "Rd1+",
+        "Rf1",
+        "Rdxf1#"
+      ],
+      "opponentResponse": "Rxf2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qxf2+: a direct kingside attack. Solution: 1. Qxf2+ Rxf2 2. Rd1+ Rf1 3. Rdxf1#.",
+      "explanation": "Black to move in this Traxler Counter-Attack position. The solution begins with Qxf2+ — a direct kingside attack. Full line: 1. Qxf2+ Rxf2 2. Rd1+ Rf1 3. Rdxf1#. Source: Lichess puzzle oxFC6 (CC0), https://lichess.org/tCriFnkk#33.",
+      "lichessPuzzleId": "oxFC6",
+      "lichessUrl": "https://lichess.org/tCriFnkk#33"
+    },
+    {
+      "drillId": "traxler-counter-attack-pz4",
+      "name": "Discovered Attack (1184)",
+      "theme": "Discovered Attack",
+      "description": "White to play. A real Traxler Counter-Attack tactic rated 1184 — unleashing a discovered attack.",
+      "fen": "r1bq1r2/p4ppk/2p4B/n2np2Q/3P4/2N5/PPP2PPP/R4RK1 w - - 0 15",
+      "solutionMoves": [
+        "Bg5+",
+        "Kg8",
+        "Bxd8"
+      ],
+      "opponentResponse": "Kg8",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bg5+: unleashing a discovered attack. Solution: 1. Bg5+ Kg8 2. Bxd8.",
+      "explanation": "White to move in this Traxler Counter-Attack position. The solution begins with Bg5+ — unleashing a discovered attack. Full line: 1. Bg5+ Kg8 2. Bxd8. Source: Lichess puzzle 7JuEM (CC0), https://lichess.org/s1UMAiQ9/black#28.",
+      "lichessPuzzleId": "7JuEM",
+      "lichessUrl": "https://lichess.org/s1UMAiQ9/black#28"
+    },
+    {
+      "drillId": "traxler-counter-attack-pz5",
+      "name": "Attacking F 2 F 7 (1342)",
+      "theme": "Attacking F 2 F 7",
+      "description": "White to play. A real Traxler Counter-Attack tactic rated 1342 — finding the strongest continuation.",
+      "fen": "r2qkb1r/pp3ppp/2pp4/3BN3/3nP3/3P4/PPP2PPP/R1Bb1RK1 w kq - 0 10",
+      "solutionMoves": [
+        "Bxf7+",
+        "Ke7",
+        "Bg5#"
+      ],
+      "opponentResponse": "Ke7",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bxf7+: finding the strongest continuation. Solution: 1. Bxf7+ Ke7 2. Bg5#.",
+      "explanation": "White to move in this Traxler Counter-Attack position. The solution begins with Bxf7+ — finding the strongest continuation. Full line: 1. Bxf7+ Ke7 2. Bg5#. Source: Lichess puzzle MUcRe (CC0), https://lichess.org/d5Vme7og/black#18.",
+      "lichessPuzzleId": "MUcRe",
+      "lichessUrl": "https://lichess.org/d5Vme7og/black#18"
+    },
+    {
+      "drillId": "traxler-counter-attack-pz6",
+      "name": "Hanging Piece (1251)",
+      "theme": "Hanging Piece",
+      "description": "Black to play. A real Traxler Counter-Attack tactic rated 1251 — punishing a loose, undefended piece.",
+      "fen": "r1b2rk1/pp3pp1/3p3p/2p1p1Q1/P1BnP3/3P3P/1PP1NPP1/R4RK1 b - - 0 14",
+      "solutionMoves": [
+        "Nxe2+",
+        "Kh2",
+        "hxg5"
+      ],
+      "opponentResponse": "Kh2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Nxe2+: punishing a loose, undefended piece. Solution: 1. Nxe2+ Kh2 2. hxg5.",
+      "explanation": "Black to move in this Traxler Counter-Attack position. The solution begins with Nxe2+ — punishing a loose, undefended piece. Full line: 1. Nxe2+ Kh2 2. hxg5. Source: Lichess puzzle n5JuQ (CC0), https://lichess.org/Gts0Q4iN#27.",
+      "lichessPuzzleId": "n5JuQ",
+      "lichessUrl": "https://lichess.org/Gts0Q4iN#27"
+    },
+    {
+      "drillId": "traxler-counter-attack-pz7",
+      "name": "Pin (1232)",
+      "theme": "Pin",
+      "description": "Black to play. A real Traxler Counter-Attack tactic rated 1232 — exploiting an absolute or relative pin.",
+      "fen": "r3k2r/2p1bppp/p1P5/3qp1Nb/5P2/3PQ2P/PP4P1/R1B2RK1 b kq - 0 15",
+      "solutionMoves": [
+        "Bc5",
+        "Qxc5",
+        "Qxc5+"
+      ],
+      "opponentResponse": "Qxc5",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Bc5: exploiting an absolute or relative pin. Solution: 1. Bc5 Qxc5 2. Qxc5+.",
+      "explanation": "Black to move in this Traxler Counter-Attack position. The solution begins with Bc5 — exploiting an absolute or relative pin. Full line: 1. Bc5 Qxc5 2. Qxc5+. Source: Lichess puzzle BCTYQ (CC0), https://lichess.org/nw2DIYQM#29.",
+      "lichessPuzzleId": "BCTYQ",
+      "lichessUrl": "https://lichess.org/nw2DIYQM#29"
+    },
+    {
+      "drillId": "traxler-counter-attack-pz8",
+      "name": "Advantage (1376)",
+      "theme": "Advantage",
+      "description": "Black to play. A real Traxler Counter-Attack tactic rated 1376 — finding the strongest continuation.",
+      "fen": "1r2kb1r/pBp2ppp/3q2b1/4p1B1/6P1/3P1Q1P/PPP2P2/R3K2R b KQk - 2 14",
+      "solutionMoves": [
+        "Qb4+",
+        "Bd2",
+        "Qxb7",
+        "Qxb7",
+        "Rxb7"
+      ],
+      "opponentResponse": "Bd2",
+      "stars": {
+        "3": "First move correct",
+        "2": "Second attempt",
+        "1": "Third attempt"
+      },
+      "briefExplanation": "The key move is Qb4+: finding the strongest continuation. Solution: 1. Qb4+ Bd2 2. Qxb7 Qxb7 3. Rxb7.",
+      "explanation": "Black to move in this Traxler Counter-Attack position. The solution begins with Qb4+ — finding the strongest continuation. Full line: 1. Qb4+ Bd2 2. Qxb7 Qxb7 3. Rxb7. Source: Lichess puzzle Xf0nD (CC0), https://lichess.org/qnRtrs9i#27.",
+      "lichessPuzzleId": "Xf0nD",
+      "lichessUrl": "https://lichess.org/qnRtrs9i#27"
+    }
+  ]
+}
