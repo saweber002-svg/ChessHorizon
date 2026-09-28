@@ -4,7 +4,11 @@ import { ChevronLeft, AlertCircle, Swords, User } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
-import { analyzeMove, type MoveAnalysis as AnalysisResult } from '@/lib/coachingAnalysis';
+import { analyzeMove, EngineUnavailableError, type MoveAnalysis as AnalysisResult } from '@/lib/coachingAnalysis';
+import { getEngine } from '@/engine/stockfish';
+
+/** Engine sparring strength (Stockfish Skill Level 0-20). 6 ≈ casual club player with human-like mistakes. */
+const ENGINE_SKILL_LEVEL = 6;
 
 type MoveAnalysis = AnalysisResult;
 
@@ -22,6 +26,8 @@ interface GameState {
 export default function Coaching() {
   const [, setLocation] = useLocation();
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [engineError, setEngineError] = useState<string | null>(null);
+  const [explorationAnalysis, setExplorationAnalysis] = useState<MoveAnalysis | null>(null);
   const [gameState, setGameState] = useState<GameState>({
     fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
     history: [],
@@ -42,6 +48,29 @@ export default function Coaching() {
     'Blunder': '#dc2626',
   };
 
+  const makeComputerMove = useCallback(async (fen: string) => {
+    try {
+      const uci = await getEngine().findBestMove(fen, ENGINE_SKILL_LEVEL);
+      const computerGame = new Chess(fen);
+      const moved = computerGame.move({
+        from: uci.slice(0, 2) as Square,
+        to: uci.slice(2, 4) as Square,
+        promotion: uci.length > 4 ? uci[4] : undefined,
+      });
+      if (!moved) return;
+      setGameState(prev => ({ ...prev, fen: computerGame.fen() }));
+    } catch {
+      // Engine hiccup mid-game: fall back to a random legal move so play continues.
+      const computerGame = new Chess(fen);
+      const moves = computerGame.moves({ verbose: true });
+      if (moves.length > 0) {
+        const randomMove = moves[Math.floor(Math.random() * moves.length)];
+        computerGame.move(randomMove);
+        setGameState(prev => ({ ...prev, fen: computerGame.fen() }));
+      }
+    }
+  }, []);
+
   const handleUserMove = useCallback(async (from: Square, to: Square) => {
     if (gameState.isPaused && !gameState.isExploring) return;
 
@@ -61,30 +90,43 @@ export default function Coaching() {
 
       if (gameState.isExploring) {
         setGameState(prev => ({ ...prev, explorationBoard: newFen }));
+        // Grade the explored move live with the engine.
+        analyzeMove(result.san, currentFen).then(
+          (a) => setExplorationAnalysis(a),
+          () => setExplorationAnalysis(null),
+        );
       } else {
         setIsAnalyzing(true);
-        const analysis = await analyzeMove(result.san, currentFen);
-        analysis.move = result.san;
-        
-        if (['Inaccuracy', 'Mistake', 'Blunder'].includes(analysis.classification)) {
+        let analysis: MoveAnalysis | null = null;
+        try {
+          analysis = await analyzeMove(result.san, currentFen);
+        } catch (e) {
+          if (e instanceof EngineUnavailableError) {
+            setEngineError('Engine unavailable — playing on without analysis.');
+          } else {
+            throw e;
+          }
+        }
+
+        if (analysis && ['Inaccuracy', 'Mistake', 'Blunder'].includes(analysis.classification)) {
           setGameState(prev => ({
             ...prev,
             fen: newFen,
-            history: [...prev.history, analysis],
+            history: [...prev.history, analysis as MoveAnalysis],
             isPaused: true,
-            pausedReason: `${analysis.classification} detected!`,
+            pausedReason: `${(analysis as MoveAnalysis).classification} detected!`,
           }));
         } else {
           setGameState(prev => ({
             ...prev,
             fen: newFen,
-            history: [...prev.history, analysis],
+            history: analysis ? [...prev.history, analysis] : prev.history,
           }));
 
           // Trigger computer move if it's not the user's turn
           if (!tempGame.isGameOver()) {
             setTimeout(() => {
-              makeComputerMove(newFen);
+              void makeComputerMove(newFen);
             }, 600);
           }
         }
@@ -94,30 +136,26 @@ export default function Coaching() {
     } finally {
       setIsAnalyzing(false);
     }
-  }, [gameState]);
+  }, [gameState, makeComputerMove]);
 
-  const makeComputerMove = (fen: string) => {
-    const computerGame = new Chess(fen);
-    const moves = computerGame.moves({ verbose: true });
-    if (moves.length > 0) {
-      const randomMove = moves[Math.floor(Math.random() * moves.length)];
-      computerGame.move(randomMove);
-      setGameState(prev => ({
-        ...prev,
-        fen: computerGame.fen(),
-      }));
-    }
-  };
+
+
+  useEffect(() => {
+    // Pre-warm the engine while the user picks a side, hiding the WASM download latency.
+    getEngine().ensureReady().catch(() => {
+      setEngineError('Engine unavailable — playing on without analysis.');
+    });
+  }, []);
 
   useEffect(() => {
     // If user chose Black, computer moves first
     if (gameState.gameStarted && gameState.userSide === 'b' && gameState.history.length === 0) {
       const game = new Chess();
       if (game.turn() === 'w') {
-        makeComputerMove(game.fen());
+        void makeComputerMove(game.fen());
       }
     }
-  }, [gameState.gameStarted, gameState.userSide, gameState.history.length]);
+  }, [gameState.gameStarted, gameState.userSide, gameState.history.length, makeComputerMove]);
 
   const startGame = (side: 'w' | 'b') => {
     setGameState(prev => ({
@@ -140,9 +178,18 @@ export default function Coaching() {
     }));
   };
 
-  const enterExploration = () => setGameState(prev => ({ ...prev, isExploring: true, explorationBoard: prev.fen }));
-  const exitExploration = () => setGameState(prev => ({ ...prev, isExploring: false }));
-  const resumeGame = () => setGameState(prev => ({ ...prev, isPaused: false, pausedReason: '', isExploring: false }));
+  const enterExploration = () => {
+    setExplorationAnalysis(null);
+    setGameState(prev => ({ ...prev, isExploring: true, explorationBoard: prev.fen }));
+  };
+  const exitExploration = () => {
+    setExplorationAnalysis(null);
+    setGameState(prev => ({ ...prev, isExploring: false }));
+  };
+  const resumeGame = () => {
+    setExplorationAnalysis(null);
+    setGameState(prev => ({ ...prev, isPaused: false, pausedReason: '', isExploring: false }));
+  };
   
   const takeBackMove = () => {
     if (gameState.history.length === 0) return;
@@ -174,7 +221,7 @@ export default function Coaching() {
             <Swords size={40} />
           </div>
           <h2 className="text-2xl font-bold text-white mb-2">Coaching Pavilion</h2>
-          <p className="text-white/50 text-sm mb-8">Select your side to begin the simulated analysis training session.</p>
+          <p className="text-white/50 text-sm mb-8">Select your side to begin — every move is analyzed live by the built-in Stockfish engine.</p>
           
           <div className="grid grid-cols-2 gap-4">
             <button
@@ -219,13 +266,18 @@ export default function Coaching() {
             <h1 className="text-xl font-bold text-white">Coaching Pavilion</h1>
             <div className="flex items-center gap-2 mt-0.5">
               <div className="w-1.5 h-1.5 rounded-full bg-[#00f5d4] animate-pulse" />
-              <span className="text-[10px] text-amber-300 uppercase tracking-[0.2em] font-bold opacity-80">Simulation Mode</span>
+              <span className="text-[10px] text-[#00f5d4] uppercase tracking-[0.2em] font-bold opacity-80">Stockfish 18 · Live Engine</span>
             </div>
           </div>
         </div>
       </header>
 
       <main className="flex-1 flex overflow-hidden p-8 gap-8">
+        {engineError && (
+          <div className="absolute top-24 left-1/2 -translate-x-1/2 z-30 bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full">
+            {engineError}
+          </div>
+        )}
         <div className="flex-[1.2] flex flex-col min-w-0">
           <div className="flex-1 flex items-center justify-center bg-[#0a0a1f] rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
             <div className="w-full max-w-[600px] aspect-square p-4 z-10">
@@ -263,7 +315,7 @@ export default function Coaching() {
 
         <div className="flex-1 flex flex-col gap-6 min-w-[380px]">
           <div className="flex-1 bg-[#0a0a1f] rounded-3xl border border-white/5 flex flex-col overflow-hidden shadow-xl p-6 space-y-6">
-            <h3 className="text-sm font-bold text-white uppercase tracking-[0.2em] border-b border-white/5 pb-4">Simulated Analysis</h3>
+            <h3 className="text-sm font-bold text-white uppercase tracking-[0.2em] border-b border-white/5 pb-4">Engine Analysis</h3>
             
             <AnimatePresence mode="wait">
               {gameState.isPaused && lastAnalysis && (
@@ -283,7 +335,18 @@ export default function Coaching() {
               {gameState.isExploring && (
                 <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="p-5 rounded-2xl bg-blue-500/10 border border-blue-500/20 space-y-4">
                   <p className="text-blue-400 font-bold text-xs uppercase">Exploration Mode</p>
-                  <p className="text-white/70 text-sm">The analysis simulator will respond to any move you make here.</p>
+                  <p className="text-white/70 text-sm">The engine grades every move you try here — hunt for the refutation.</p>
+                  {explorationAnalysis && (
+                    <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-sm">
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-white font-bold">{explorationAnalysis.move}</span>
+                        <span className="font-black uppercase text-xs px-2 py-0.5 rounded" style={{ color: classificationColors[explorationAnalysis.classification] }}>
+                          {explorationAnalysis.classification}
+                        </span>
+                      </div>
+                      <p className="text-white/60 text-xs mt-1">{explorationAnalysis.explanation}</p>
+                    </div>
+                  )}
                   <button onClick={exitExploration} className="w-full py-3 rounded-xl bg-white/5 border border-white/10 text-white font-bold text-xs uppercase hover:bg-white/10 transition-all">Return to Game</button>
                 </motion.div>
               )}
