@@ -614,6 +614,7 @@ export default function DrillSession() {
                 hintSquares={hintSquares}
                 lastMove={lastMove}
                 interactive={!waitingOpponent && !showStars}
+                orientation={playerColor === 'b' ? 'black' : 'white'}
               />
             </div>
 
