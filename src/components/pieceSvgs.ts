@@ -1,0 +1,103 @@
+import type { PieceSymbol } from 'chess.js';
+
+/**
+ * Nebula Slate piece artwork.
+ *
+ * The Staunton silhouette path data is unchanged from the original board;
+ * only the paint changes. Each builder takes a `fill` (a gradient reference
+ * like `url(#ns-white-<uid>)` or a flat color) and a `stroke`, so the board
+ * component can paint pearly gradient pieces without duplicating path data.
+ *
+ * Gradient definitions are rendered once per board instance (see
+ * `buildGradientDefsMarkup`) and referenced by id. Ids are namespaced with a
+ * per-board uid so multiple boards on one page never collide.
+ */
+
+export interface PieceTheme {
+  fill: string;
+  stroke: string;
+}
+
+/** Nebula Slate paint tokens. Treated as the baseline; tune after device review. */
+export const NEBULA_SLATE_PIECES = {
+  white: {
+    gradientFrom: '#ffffff',
+    gradientTo: '#9fe3da',
+    stroke: '#3a4663',
+  },
+  black: {
+    gradientFrom: '#ffa08a',
+    gradientTo: '#a83a4d',
+    stroke: '#5e2230',
+  },
+} as const;
+
+export function pieceGradientDefIds(boardUid: string) {
+  return {
+    white: `ns-white-${boardUid}`,
+    black: `ns-black-${boardUid}`,
+  };
+}
+
+/** Inner markup for a hidden svg's <defs>: the two piece gradients. */
+export function buildGradientDefsMarkup(boardUid: string): string {
+  const ids = pieceGradientDefIds(boardUid);
+  return `<defs>
+    <linearGradient id="${ids.white}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${NEBULA_SLATE_PIECES.white.gradientFrom}" />
+      <stop offset="100%" stop-color="${NEBULA_SLATE_PIECES.white.gradientTo}" />
+    </linearGradient>
+    <linearGradient id="${ids.black}" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="${NEBULA_SLATE_PIECES.black.gradientFrom}" />
+      <stop offset="100%" stop-color="${NEBULA_SLATE_PIECES.black.gradientTo}" />
+    </linearGradient>
+  </defs>`;
+}
+
+export const PIECE_SVG_BUILDERS: Record<
+  PieceSymbol,
+  (theme: PieceTheme) => string
+> = {
+  p: ({ fill, stroke }) => `<svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+    <path d="M22.5 9c-2.21 0-4 1.79-4 4 0 .89.29 1.71.78 2.38C17.33 16.5 16 18.59 16 21c0 2.03.94 3.84 2.41 5.03-3 1.06-7.41 5.55-7.41 13.47h23c0-7.92-4.41-12.41-7.41-13.47 1.47-1.19 2.41-3 2.41-5.03 0-2.41-1.33-4.5-3.28-5.62.49-.67.78-1.49.78-2.38 0-2.21-1.79-4-4-4z"
+    fill="${fill}" stroke="${stroke}" stroke-width="1.5" stroke-linecap="round"/>
+  </svg>`,
+  r: ({ fill, stroke }) => `<svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+    <g fill="${fill}" stroke="${stroke}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 39h27v-3H9v3zM12.5 32l1.5-2.5h17l1.5 2.5h-20zM12 36v-4h21v4H12z"/>
+      <path d="M14 29v-13h17v13H14z" fill="none" stroke-width="1"/>
+      <path d="M5 16v-3h3v-2h4v2h6v-2h4v2h6v-2h4v2h3v3H5z"/>
+    </g>
+  </svg>`,
+  n: ({ fill, stroke }) => `<svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+    <g fill="${fill}" stroke="${stroke}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 10c10.5 1 16.5 8 16 29H15c0-9 10-6.5 8-21"/>
+      <path d="M24 18c.38 2.91-5.55 7.37-8 9-3 2-2.82 4.34-5 4-1.042-.94 1.41-3.04 0-3-1 0 .19 1.23-1 2-1 0-4.003 1-4-4 0-2 6-12 6-12s1.89-1.9 2-3.5c-.73-.034-.5-2-.5-3-1.5-1-2.5.5-2.5.5s-1.13 2.25-2.5 2.25c-.24 0-.5 0-.5-.5C8.5 17 11 12 11 12s3.13-4 6.5-4c3.5 0 6.5 2 6.5 6"/>
+      <circle cx="17.5" cy="9" r="1.5" fill="none"/>
+    </g>
+  </svg>`,
+  b: ({ fill, stroke }) => `<svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+    <g fill="${fill}" stroke="${stroke}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 36c3.39-.97 10.11.43 13.5-2 3.39 2.43 10.11 1.03 13.5 2 0 0 1.65.54 3 2-.68.97-1.65.99-3 .5-3.39-.97-10.11.46-13.5-1-3.39 1.46-10.11.03-13.5 1-1.354.49-2.323.47-3-.5 1.354-1.94 3-2 3-2z"/>
+      <path d="M15 32c2.5 2.5 12.5 2.5 15 0 .5-1.5 0-2 0-2 0-2.5-2.5-4-2.5-4 5.5-1.5 6-11.5-5-15.5-11 4-10.5 14-5 15.5 0 0-2.5 1.5-2.5 4 0 0-.5.5 0 2z"/>
+      <path d="M25 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 1 1 5 0z" fill="none"/>
+    </g>
+  </svg>`,
+  q: ({ fill, stroke }) => `<svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+    <g fill="${fill}" stroke="${stroke}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M9 26c8.5-1.5 21-1.5 27 0l2.5-12.5L31 25l-.3-14.1-5.7 13.6-3-14.5-3 14.5-5.7-13.6-.3 14.1-7.5-11.5L9 26z"/>
+      <path d="M9 26c0 2 1.5 2 2.5 4 1 2.5 1 1 .5 3.5-1.5 1-1.5 2.5-1.5 2.5-1.5 1.5.5 2.5.5 2.5h24s2-1 .5-2.5c0 0-.5-1.5-1.5-2.5-.5-2.5-.5-1 .5-3.5 1-2 2.5-2 2.5-4"/>
+      <circle cx="11" cy="14" r="1.5" fill="none"/>
+      <circle cx="22.5" cy="9" r="1.5" fill="none"/>
+      <circle cx="34" cy="14" r="1.5" fill="none"/>
+    </g>
+  </svg>`,
+  k: ({ fill, stroke }) => `<svg viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg">
+    <g fill="${fill}" stroke="${stroke}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22.5 11.63V6M20 8h5"/>
+      <path d="M22.5 25s4.5-7.5 3-10.5c0 0-1-2.5-3-2.5s-3 2.5-3 2.5c-1.5 3 3 10.5 3 10.5" fill="none"/>
+      <path d="M12.5 37c5.5 3.5 14.5 3.5 20 0v-7s9-4.5 6-10.5c-4-1-5 5-8 9-3.5-3.5-2.5-9-8-9-5.5 0-4.5 5.5-8 9-3-4-4-10-8-9-3 6 6 10.5 6 10.5v7z"/>
+      <path d="M12.5 30c5.5-3 14.5-3 20 0m-20 3.5c5.5-3 14.5-3 20 0" fill="none"/>
+    </g>
+  </svg>`,
+};

@@ -66,22 +66,26 @@
     box-shadow: 0 0 10px rgba(0, 245, 212, 0.3), inset 0 0 10px rgba(0, 245, 212, 0.1);
   }
 
+  /* Nebula Slate board: pale slate light squares, deep slate-navy dark
+     squares with faint nebula wisps. */
   .chess-board-light {
-    background-color: #2a2a3e;
+    background-color: #8f9cb3;
   }
 
   .chess-board-dark {
-    background-color: #141422;
+    background-color: #232c47;
+    background-image:
+      radial-gradient(ellipse 65% 50% at 18% 28%, rgba(124, 93, 250, 0.1), transparent 70%),
+      radial-gradient(ellipse 60% 45% at 82% 74%, rgba(56, 189, 248, 0.08), transparent 70%);
   }
 
-  .neon-piece-white svg {
-    filter: drop-shadow(0 0 4px rgba(0, 245, 212, 0.6))
-      drop-shadow(0 0 8px rgba(0, 245, 212, 0.4));
+  /* Soft pearly glow replaces the old neon drop-shadows. */
+  .ns-piece-white svg {
+    filter: drop-shadow(0 0 5px rgba(0, 245, 212, 0.35));
   }
 
-  .neon-piece-black svg {
-    filter: drop-shadow(0 0 4px rgba(255, 71, 87, 0.6))
-      drop-shadow(0 0 8px rgba(255, 71, 87, 0.4));
+  .ns-piece-black svg {
+    filter: drop-shadow(0 0 5px rgba(255, 122, 95, 0.35));
   }
 
   .border-glow-teal {
