@@ -8,8 +8,9 @@ import {
   tweenViewBox,
   easeInOutCubic,
   mulberry32,
+  markerScale,
   MIN_VIEW_W,
-  MAX_VIEW_W,
+  maxViewW,
 } from '@/components/world-map/atlasCamera';
 import {
   shortRealmName,
@@ -23,27 +24,43 @@ import type { KingdomId } from '@/types';
 const ASPECT = 16 / 10;
 
 describe('atlas camera math', () => {
-  it('creates an initial viewBox that frames the whole 100x100 world with margin', () => {
+  it('starts over the Tyrrhenian Sea west of Italy, not on the full map', () => {
     const vb = createInitialViewBox(ASPECT);
-    expect(vb.x).toBe(-8);
-    expect(vb.w).toBe(116);
-    expect(vb.h).toBeCloseTo(116 / ASPECT, 10);
-    expect(vb.y).toBeCloseTo(50 - 116 / ASPECT / 2, 10);
+    expect(vb.w).toBe(36);
+    expect(vb.h).toBeCloseTo(36 / ASPECT, 10);
+    expect(vb.x + vb.w / 2).toBeCloseTo(44.5, 10);
+    expect(vb.y + vb.h / 2).toBeCloseTo(71.5, 10);
   });
 
-  it('creates a portrait initial viewBox that frames the world', () => {
+  it('initial view frames Italy, Sicily, and a sliver of France', () => {
+    // Common phone / tablet / desktop aspects.
+    for (const aspect of [0.46, 1, 4 / 3, 16 / 10, 16 / 9]) {
+      const vb = createInitialViewBox(aspect);
+      for (const kingdom of ['italian', 'sicilian', 'french'] as const) {
+        const pos = KINGDOM_POSITIONS[kingdom];
+        expect(pos.x, `${kingdom} x @ aspect ${aspect}`).toBeGreaterThanOrEqual(vb.x);
+        expect(pos.x, `${kingdom} x @ aspect ${aspect}`).toBeLessThanOrEqual(vb.x + vb.w);
+        expect(pos.y, `${kingdom} y @ aspect ${aspect}`).toBeGreaterThanOrEqual(vb.y);
+        expect(pos.y, `${kingdom} y @ aspect ${aspect}`).toBeLessThanOrEqual(vb.y + vb.h);
+      }
+    }
+  });
+
+  it('creates a portrait initial viewBox clamped inside the world', () => {
     const vb = createInitialViewBox(0.5);
-    expect(vb.h).toBe(116);
-    expect(vb.w).toBeCloseTo(58, 10);
-    expect(vb.x).toBeCloseTo(50 - 29, 10);
-    expect(vb.y).toBe(-8);
+    expect(vb.w).toBe(36);
+    expect(vb.h).toBe(72);
+    expect(vb.x).toBeCloseTo(44.5 - 18, 10);
+    // Center y (71.5) would push past the bottom edge, so it clamps.
+    expect(vb.y + vb.h / 2).toBeCloseTo(64, 10);
+    expect(vb.y).toBeCloseTo(28, 10);
   });
 
   it('pans the camera so content follows the pointer', () => {
     const vb = createInitialViewBox(ASPECT);
     // Drag right by half the viewport width -> camera moves left by half the viewBox width.
     const next = panViewBox(vb, 800, 0, 1600, 1000, ASPECT);
-    expect(next.x).toBeCloseTo(vb.x - 58, 10);
+    expect(next.x).toBeCloseTo(vb.x - 18, 10);
     expect(next.y).toBeCloseTo(vb.y, 10);
     expect(next.w).toBe(vb.w);
   });
@@ -69,17 +86,52 @@ describe('atlas camera math', () => {
     const tooFarIn = zoomViewBox(vb, 0.0001, 800, 500, 1600, 1000, ASPECT);
     expect(tooFarIn.w).toBe(MIN_VIEW_W);
     const tooFarOut = zoomViewBox(vb, 1000, 800, 500, 1600, 1000, ASPECT);
-    expect(tooFarOut.w).toBe(MAX_VIEW_W);
+    expect(tooFarOut.w).toBe(maxViewW(ASPECT));
   });
 
-  it('clamps panning so the camera cannot leave the world far behind', () => {
+  it('limits zoom-out so the map always covers the viewport', () => {
+    expect(maxViewW(16 / 10)).toBe(100);
+    expect(maxViewW(2.5)).toBe(100);
+    expect(maxViewW(0.5)).toBe(50);
+    expect(maxViewW(1)).toBe(100);
+    // Degenerate aspect never blows up the camera.
+    expect(maxViewW(0)).toBe(100);
+    expect(maxViewW(-3)).toBe(100);
+  });
+
+  it('hard-clamps panning so map edges never leave empty space in view', () => {
     const vb = createInitialViewBox(ASPECT);
+    // Dragging far up-left shoves the camera to the bottom-right world edges.
     const next = panViewBox(vb, -100000, -100000, 1600, 1000, ASPECT);
-    const cx = next.x + next.w / 2;
-    const cy = next.y + next.h / 2;
-    expect(cx).toBeLessThanOrEqual(100 + 25);
-    expect(cy).toBeLessThanOrEqual(100 + 25);
-    expect(cx).toBeGreaterThanOrEqual(-25);
+    expect(next.x + next.w).toBe(100);
+    expect(next.y + next.h).toBe(100);
+    // Dragging far down-right shoves it to the top-left edges.
+    const other = panViewBox(vb, 100000, 100000, 1600, 1000, ASPECT);
+    expect(other.x).toBe(0);
+    expect(other.y).toBe(0);
+  });
+
+  it('never shows void outside the world, whatever the gestures', () => {
+    for (const aspect of [0.5, 1, 16 / 10, 2.5]) {
+      let vb = createInitialViewBox(aspect);
+      const steps: Array<[number, number, number]> = [
+        [-3000, 1500, 0.4],
+        [2500, -2000, 2.5],
+        [-100000, -100000, 0.0001],
+        [100000, 100000, 1000],
+        [1234, -5678, 0.9],
+      ];
+      for (const [dx, dy, zf] of steps) {
+        vb = zoomViewBox(vb, zf, 800, 500, 1600, 1000, aspect);
+        vb = panViewBox(vb, dx, dy, 1600, 1000, aspect);
+        expect(vb.x).toBeGreaterThanOrEqual(-1e-9);
+        expect(vb.y).toBeGreaterThanOrEqual(-1e-9);
+        expect(vb.x + vb.w).toBeLessThanOrEqual(100 + 1e-9);
+        expect(vb.y + vb.h).toBeLessThanOrEqual(100 + 1e-9);
+        expect(vb.w).toBeGreaterThanOrEqual(MIN_VIEW_W);
+        expect(vb.w).toBeLessThanOrEqual(maxViewW(aspect) + 1e-9);
+      }
+    }
   });
 
   it('flyToTarget centers the point at the requested zoom', () => {
@@ -87,6 +139,21 @@ describe('atlas camera math', () => {
     expect(target.w).toBe(34);
     expect(target.x + target.w / 2).toBeCloseTo(35, 10);
     expect(target.y + target.h / 2).toBeCloseTo(65, 10);
+  });
+
+  it('fly-to near a world edge clamps inside instead of showing void', () => {
+    const target = flyToTarget(2, 98, 34, ASPECT);
+    expect(target.x).toBeGreaterThanOrEqual(0);
+    expect(target.y + target.h).toBeLessThanOrEqual(100);
+  });
+
+  it('markerScale keeps markers a constant on-screen size across zooms', () => {
+    expect(markerScale(100)).toBe(1);
+    expect(markerScale(36)).toBeCloseTo(0.36, 10);
+    expect(markerScale(14)).toBeCloseTo(0.14, 10);
+    // Never smaller than the floor, never larger than designed.
+    expect(markerScale(1)).toBeGreaterThanOrEqual(0.1);
+    expect(markerScale(400)).toBe(1);
   });
 
   it('tweenViewBox interpolates linearly and clamps t', () => {

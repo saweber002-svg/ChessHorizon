@@ -11,6 +11,7 @@ import {
   flyToTarget,
   tweenViewBox,
   easeInOutCubic,
+  markerScale,
 } from './atlasCamera';
 import type { ViewBox } from './atlasCamera';
 
@@ -78,11 +79,13 @@ interface MarkerProps {
   lockState: MarkerLockState;
   glowId: string;
   clipId: string;
+  /** Zoom-parented scale: keeps the marker a constant on-screen size. */
+  scale: number;
   onSelect: (location: MapLocation) => void;
   suppressClickRef: React.MutableRefObject<boolean>;
 }
 
-function Marker({ location, x, y, selected, lockState, glowId, clipId, onSelect, suppressClickRef }: MarkerProps) {
+function Marker({ location, x, y, selected, lockState, glowId, clipId, scale, onSelect, suppressClickRef }: MarkerProps) {
   const locked = lockState === 'locked';
   const threshold = getUnlockThreshold(location);
   const ariaLabel = locked
@@ -115,7 +118,7 @@ function Marker({ location, x, y, selected, lockState, glowId, clipId, onSelect,
       role="button"
       tabIndex={0}
       aria-label={ariaLabel}
-      transform={`translate(${x},${y})`}
+      transform={`translate(${x},${y}) scale(${scale})`}
       className="atlas-marker"
       data-locked={locked}
       data-selected={selected}
@@ -465,6 +468,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
               lockState={getMarkerLockState(location, state.unlockedRegions)}
               glowId={`glow-${uid}-${location.id}`}
               clipId={`iconclip-${uid}-${location.id}`}
+              scale={markerScale(viewBox.w)}
               onSelect={onSelectLocation}
               suppressClickRef={suppressClickRef}
             />

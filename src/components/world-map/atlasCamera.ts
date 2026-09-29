@@ -5,6 +5,9 @@
  * `viewBox="x y w h"` that acts as the camera: panning changes x/y, zooming
  * changes w (h follows the viewport aspect ratio so nothing ever distorts).
  *
+ * The camera has hard boundaries: the viewBox is always fully inside the
+ * 0–100 world, so empty space can never be panned or zoomed into view.
+ *
  * All functions are pure and unit-tested in tests/atlas2d.test.ts.
  */
 
@@ -18,12 +21,18 @@ export interface ViewBox {
 /** The atlas world lives in 0–100 percent space (see KINGDOM_POSITIONS). */
 export const WORLD_SIZE = 100;
 
-/** Zoom limits, expressed as viewBox width in world units. */
-export const MIN_VIEW_W = 14; // fully zoomed in
-export const MAX_VIEW_W = 160; // zoomed out past the world edges
+/** Zoomed-in limit, expressed as viewBox width in world units. */
+export const MIN_VIEW_W = 14;
 
-/** How far the camera center may drift outside the world (world units). */
-const PAN_MARGIN = 25;
+/**
+ * Zoomed-out limit: the widest viewBox that still keeps the map covering
+ * the viewport. On wide screens the full 100-unit world fits; on portrait
+ * screens the height is the binding constraint.
+ */
+export function maxViewW(aspect: number): number {
+  if (!(aspect > 0)) return WORLD_SIZE;
+  return WORLD_SIZE * Math.min(1, aspect);
+}
 
 /** Clamp a number into [min, max]. */
 function clamp(n: number, min: number, max: number): number {
@@ -32,32 +41,47 @@ function clamp(n: number, min: number, max: number): number {
 
 /**
  * Normalize a viewBox: clamp the zoom, re-derive h from the aspect ratio,
- * and keep the camera center within the world plus a small margin.
+ * and clamp the camera center so the viewBox stays fully inside the world.
+ * Panning past a map edge or zooming out past full coverage is impossible.
  */
 export function clampViewBox(vb: ViewBox, aspect: number): ViewBox {
-  const w = clamp(vb.w, MIN_VIEW_W, MAX_VIEW_W);
+  const w = clamp(vb.w, MIN_VIEW_W, maxViewW(aspect));
   const h = w / aspect;
-  const cx = clamp(vb.x + vb.w / 2, -PAN_MARGIN, WORLD_SIZE + PAN_MARGIN);
-  const cy = clamp(vb.y + vb.h / 2, -PAN_MARGIN, WORLD_SIZE + PAN_MARGIN);
+  const cx = clamp(vb.x + vb.w / 2, w / 2, WORLD_SIZE - w / 2);
+  const cy = clamp(vb.y + vb.h / 2, h / 2, WORLD_SIZE - h / 2);
   return { x: cx - w / 2, y: cy - h / 2, w, h };
 }
 
 /**
- * Initial camera: frame the whole 100x100 world with a small margin so
- * edge markers and their labels are never clipped.
+ * Initial camera: over the Tyrrhenian Sea just west of Italy, framed tight
+ * enough to show Italy, Sicily, and a sliver of France — the rest of the
+ * map is left to discover by panning and zooming.
  * `aspect` is viewportWidth / viewportHeight.
  */
+const INITIAL_CENTER = { x: 44.5, y: 71.5 };
+const INITIAL_W = 36;
+
 export function createInitialViewBox(aspect: number): ViewBox {
-  const PAD = 8;
-  const SPAN = WORLD_SIZE + PAD * 2; // 116
-  if (aspect >= 1) {
-    const w = SPAN;
-    const h = w / aspect;
-    return { x: -PAD, y: WORLD_SIZE / 2 - h / 2, w, h };
-  }
-  const h = SPAN;
-  const w = h * aspect;
-  return { x: WORLD_SIZE / 2 - w / 2, y: -PAD, w, h };
+  const w = INITIAL_W;
+  const h = w / aspect;
+  return clampViewBox(
+    { x: INITIAL_CENTER.x - w / 2, y: INITIAL_CENTER.y - h / 2, w, h },
+    aspect
+  );
+}
+
+/** ViewBox width the castle markers were designed at (full-map view). */
+export const MARKER_DESIGN_W = 100;
+/** Markers never shrink below this fraction of their designed size. */
+const MARKER_MIN_SCALE = 0.1;
+
+/**
+ * Marker scale parented to the zoom: a marker's world size tracks the
+ * viewBox width, so markers hold a constant on-screen size at any zoom
+ * instead of ballooning when you zoom in.
+ */
+export function markerScale(vbW: number): number {
+  return clamp(vbW / MARKER_DESIGN_W, MARKER_MIN_SCALE, 1);
 }
 
 /**
@@ -96,7 +120,7 @@ export function zoomViewBox(
   aspect: number
 ): ViewBox {
   if (viewportW <= 0 || viewportH <= 0 || factor <= 0) return vb;
-  const w = clamp(vb.w * factor, MIN_VIEW_W, MAX_VIEW_W);
+  const w = clamp(vb.w * factor, MIN_VIEW_W, maxViewW(aspect));
   const h = w / aspect;
   // World coords under the cursor before zooming…
   const bx = vb.x + (cxPx / viewportW) * vb.w;
@@ -110,7 +134,7 @@ export function zoomViewBox(
  * zoomed to `targetW` viewBox width.
  */
 export function flyToTarget(cx: number, cy: number, targetW: number, aspect: number): ViewBox {
-  const w = clamp(targetW, MIN_VIEW_W, MAX_VIEW_W);
+  const w = clamp(targetW, MIN_VIEW_W, maxViewW(aspect));
   const h = w / aspect;
   return clampViewBox({ x: cx - w / 2, y: cy - h / 2, w, h }, aspect);
 }
