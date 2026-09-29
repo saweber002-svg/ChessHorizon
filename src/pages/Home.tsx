@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Map,
   Target,
@@ -11,12 +11,15 @@ import {
   Globe,
   LogOut,
   User,
+  Settings,
+  X,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'wouter';
 import { useAuth } from '@/contexts/AuthContext';
 import AuthModal from '@/components/AuthModal';
+import ThemePicker from '@/components/ThemePicker';
 
 const FEATURES = [
   {
@@ -80,6 +83,7 @@ export default function Home() {
   const [, setLocation] = useLocation();
   const { user, signOut } = useAuth();
   const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0a0a1f]">
@@ -105,6 +109,15 @@ export default function Home() {
                 onClick={() => setLocation('/drill/italian/giuoco-piano/0')}
               >
                 Drill
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-white/70 hover:text-white hover:bg-white/10"
+                onClick={() => setShowSettings(true)}
+                aria-label="Settings"
+              >
+                <Settings size={18} />
               </Button>
               {user ? (
                 <>
@@ -418,6 +431,40 @@ export default function Home() {
 
       {/* Auth Modal */}
       <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+
+      {/* Settings Modal */}
+      <AnimatePresence>
+        {showSettings && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+            onClick={() => setShowSettings(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="w-full max-w-md rounded-2xl bg-[#141422] border border-[#2a2a3e] p-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-bold text-white">Settings</h2>
+                <button
+                  onClick={() => setShowSettings(false)}
+                  className="text-white/50 hover:text-white transition-colors"
+                  aria-label="Close settings"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              <h3 className="text-sm font-semibold text-white/70 mb-3">Board Theme</h3>
+              <ThemePicker />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
