@@ -5,6 +5,9 @@ import SoundPicker from '@/components/SoundPicker';
 import { useSound } from '@/contexts/SoundContext';
 import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play } from 'lucide-react';
 import { useLocation, useParams, useSearch } from 'wouter';
+import { TrophyBoard } from '@/components/TrophyBoard';
+import { kingdomHasDrills } from '@/data/kingdomDrills';
+import type { KingdomId } from '@/types';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
 import StarOverlay from '@/components/StarOverlay';
@@ -46,6 +49,7 @@ export default function DrillSession() {
   const drillFileId = params.drillFileId ?? 'giuoco-piano-main';
   const openingId = new URLSearchParams(search).get('opening') ?? 'italian';
   const variationId = new URLSearchParams(search).get('variation') ?? 'giuoco-piano';
+  const sideParam = new URLSearchParams(search).get('side');
 
   const [pack, setPack] = useState<DrillPack | null>(null);
   const [line, setLine] = useState<DrillLine | null>(null);
@@ -232,6 +236,13 @@ export default function DrillSession() {
     },
     [applyMovesUpTo, playOpponentMoves, clearDeviation]
   );
+
+  // A ?side=w|b param skips the trophy side-select (e.g. deep links).
+  useEffect(() => {
+    if (pack && !playerColor && (sideParam === 'w' || sideParam === 'b')) {
+      beginSession(sideParam);
+    }
+  }, [pack, playerColor, sideParam, beginSession]);
 
   useEffect(() => {
     return () => {
@@ -516,41 +527,20 @@ export default function DrillSession() {
   }
 
   if (!playerColor) {
+    const backTarget = kingdomHasDrills(openingId as KingdomId)
+      ? `/kingdom/${openingId}`
+      : '/atlas';
     return (
-      <motion.div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center p-6">
-        <button
-          onClick={() => setLocation('/atlas')}
-          className="absolute top-6 left-6 flex items-center gap-2 text-white/50 hover:text-white"
-        >
-          <ArrowLeft size={18} /> Atlas
-        </button>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-md w-full text-center"
-        >
-          <p className="text-[#00f5d4] text-xs uppercase tracking-[0.3em] mb-2">Choose your banner</p>
-          <h1 className="text-2xl font-bold text-white mb-2">{pack.name}</h1>
-          <p className="text-white/45 text-sm mb-8">{line.description}</p>
-          <p className="text-white/60 text-sm mb-6">Lock in your color for this session:</p>
-          <div className="flex gap-4 justify-center">
-            <button
-              onClick={() => beginSession('w')}
-              className="flex-1 max-w-[140px] py-4 rounded-xl border-2 border-cyan-400/50 bg-cyan-400/10 hover:bg-cyan-400/20 transition-all"
-            >
-              <span className="text-3xl">♔</span>
-              <p className="text-sm font-semibold text-cyan-300 mt-2">White</p>
-            </button>
-            <button
-              onClick={() => beginSession('b')}
-              className="flex-1 max-w-[140px] py-4 rounded-xl border-2 border-red-500/50 bg-red-500/10 hover:bg-red-500/20 transition-all"
-            >
-              <span className="text-3xl">♚</span>
-              <p className="text-sm font-semibold text-red-400 mt-2">Black</p>
-            </button>
-          </div>
-        </motion.div>
-      </motion.div>
+      <TrophyBoard
+        drillFileId={drillFileId}
+        openingId={openingId}
+        variationId={variationId}
+        onSelectSide={(side) => beginSession(side)}
+        onWatch={() =>
+          setLocation(`/watch-mode/${drillFileId}?opening=${openingId}&variation=${variationId}`)
+        }
+        onBack={() => setLocation(backTarget)}
+      />
     );
   }
 

@@ -5,6 +5,7 @@ import { useLocation } from 'wouter';
 import { useProgress } from '@/contexts/ProgressContext';
 import Atlas2D from '@/components/world-map/Atlas2D';
 import { KingdomPanel } from '@/components/world-map/KingdomPanel';
+import { kingdomHasDrills } from '@/data/kingdomDrills';
 import type { MapLocation } from '@/data/mapLocations';
 import { MAP_LOCATIONS } from '@/data/mapLocations';
 
@@ -20,8 +21,15 @@ export default function WorldMap() {
   }, []);
 
   const handleSelectLocation = useCallback((location: MapLocation) => {
+    const unlocked = state.unlockedRegions.includes(location.kingdom);
+    // Drill kingdoms open the interior view; locked or special kingdoms
+    // (wilderness / clearing / coaching) keep the classic panel.
+    if (unlocked && kingdomHasDrills(location.kingdom)) {
+      setLocation(`/kingdom/${location.kingdom}`);
+      return;
+    }
     setSelected(location);
-  }, []);
+  }, [state.unlockedRegions, setLocation]);
 
   const dismissIntro = () => {
     setShowIntro(false);
