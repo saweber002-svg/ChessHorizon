@@ -26,41 +26,45 @@ const ASPECT = 16 / 10;
 describe('atlas camera math', () => {
   it('starts over the Tyrrhenian Sea west of Italy, not on the full map', () => {
     const vb = createInitialViewBox(ASPECT);
-    expect(vb.w).toBe(36);
-    expect(vb.h).toBeCloseTo(36 / ASPECT, 10);
-    expect(vb.x + vb.w / 2).toBeCloseTo(44.5, 10);
-    expect(vb.y + vb.h / 2).toBeCloseTo(71.5, 10);
+    expect(vb.w).toBe(26);
+    expect(vb.h).toBeCloseTo(26 / ASPECT, 10);
+    expect(vb.x + vb.w / 2).toBeCloseTo(45, 10);
+    expect(vb.y + vb.h / 2).toBeCloseTo(72, 10);
   });
 
-  it('initial view frames Italy, Sicily, and a sliver of France', () => {
+  it('initial view frames Italy and Sicily with France a short pan away', () => {
     // Common phone / tablet / desktop aspects.
     for (const aspect of [0.46, 1, 4 / 3, 16 / 10, 16 / 9]) {
       const vb = createInitialViewBox(aspect);
-      for (const kingdom of ['italian', 'sicilian', 'french'] as const) {
+      for (const kingdom of ['italian', 'sicilian'] as const) {
         const pos = KINGDOM_POSITIONS[kingdom];
         expect(pos.x, `${kingdom} x @ aspect ${aspect}`).toBeGreaterThanOrEqual(vb.x);
         expect(pos.x, `${kingdom} x @ aspect ${aspect}`).toBeLessThanOrEqual(vb.x + vb.w);
         expect(pos.y, `${kingdom} y @ aspect ${aspect}`).toBeGreaterThanOrEqual(vb.y);
         expect(pos.y, `${kingdom} y @ aspect ${aspect}`).toBeLessThanOrEqual(vb.y + vb.h);
       }
+      // France sits just outside the frame on wide screens: one swipe away.
+      const fr = KINGDOM_POSITIONS.french;
+      expect(Math.abs(fr.x - (vb.x + vb.w / 2))).toBeLessThan(vb.w / 2 + 3);
+      expect(Math.abs(fr.y - (vb.y + vb.h / 2))).toBeLessThan(vb.h / 2 + 3);
     }
   });
 
   it('creates a portrait initial viewBox clamped inside the world', () => {
     const vb = createInitialViewBox(0.5);
-    expect(vb.w).toBe(36);
-    expect(vb.h).toBe(72);
-    expect(vb.x).toBeCloseTo(44.5 - 18, 10);
-    // Center y (71.5) would push past the bottom edge, so it clamps.
-    expect(vb.y + vb.h / 2).toBeCloseTo(64, 10);
-    expect(vb.y).toBeCloseTo(28, 10);
+    expect(vb.w).toBe(26);
+    expect(vb.h).toBe(52);
+    expect(vb.x).toBeCloseTo(45 - 13, 10);
+    // Center (45, 72) fits: h=52 -> y in [46, 98], no clamping needed.
+    expect(vb.y + vb.h / 2).toBeCloseTo(72, 10);
+    expect(vb.y).toBeCloseTo(46, 10);
   });
 
   it('pans the camera so content follows the pointer', () => {
     const vb = createInitialViewBox(ASPECT);
     // Drag right by half the viewport width -> camera moves left by half the viewBox width.
     const next = panViewBox(vb, 800, 0, 1600, 1000, ASPECT);
-    expect(next.x).toBeCloseTo(vb.x - 18, 10);
+    expect(next.x).toBeCloseTo(vb.x - 13, 10);
     expect(next.y).toBeCloseTo(vb.y, 10);
     expect(next.w).toBe(vb.w);
   });
@@ -72,8 +76,8 @@ describe('atlas camera math', () => {
     // World point under cursor before zoom:
     const bx = vb.x + (cxPx / 1600) * vb.w;
     const by = vb.y + (cyPx / 1000) * vb.h;
-    const next = zoomViewBox(vb, 0.5, cxPx, cyPx, 1600, 1000, ASPECT);
-    expect(next.w).toBeCloseTo(vb.w * 0.5, 10);
+    const next = zoomViewBox(vb, 0.7, cxPx, cyPx, 1600, 1000, ASPECT);
+    expect(next.w).toBeCloseTo(vb.w * 0.7, 10);
     // Same world point is still under the cursor:
     const ax = next.x + (cxPx / 1600) * next.w;
     const ay = next.y + (cyPx / 1000) * next.h;
@@ -148,12 +152,12 @@ describe('atlas camera math', () => {
   });
 
   it('markerScale keeps markers a constant on-screen size across zooms', () => {
-    expect(markerScale(100)).toBe(1);
-    expect(markerScale(36)).toBeCloseTo(0.36, 10);
-    expect(markerScale(14)).toBeCloseTo(0.14, 10);
-    // Never smaller than the floor, never larger than designed.
-    expect(markerScale(1)).toBeGreaterThanOrEqual(0.1);
-    expect(markerScale(400)).toBe(1);
+    expect(markerScale(100)).toBe(1.3);
+    expect(markerScale(26)).toBeCloseTo(0.338, 10);
+    expect(markerScale(14)).toBeCloseTo(0.182, 10);
+    // Never smaller than the floor, never larger than designed x boost.
+    expect(markerScale(1)).toBeGreaterThanOrEqual(0.13);
+    expect(markerScale(400)).toBe(1.3);
   });
 
   it('tweenViewBox interpolates linearly and clamps t', () => {

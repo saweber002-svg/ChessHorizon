@@ -65,6 +65,7 @@ const LABEL_PLACEMENT: Partial<Record<KingdomId, LabelPlacement>> = {
   dutch: 'above',
   coaching: 'right',
   clearing: 'above',
+  sicilian: 'above', // keeps the label inside the tighter Italy-first initial view
 };
 
 // ---------------------------------------------------------------------------
@@ -261,9 +262,13 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
     return { x: clientX - (rect?.left ?? 0), y: clientY - (rect?.top ?? 0), w: rect?.width ?? 1, h: rect?.height ?? 1 };
   }, []);
 
-  // --- Pan / pinch ---------------------------------------------------------
+  // --- Pan / pinch (mouse + pen) ---------------------------------------------
+  // Touch is driven by the native touch listeners below (iOS Safari needs a
+  // non-passive touchmove + preventDefault; pointermove alone isn't reliable
+  // there), so the pointer handlers ignore touch to avoid double-applying.
   const handlePointerDown = useCallback(
     (e: React.PointerEvent) => {
+      if (e.pointerType === 'touch') return;
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       cancelFlyTo();
       (e.target as Element).setPointerCapture?.(e.pointerId);
@@ -285,6 +290,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
 
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
+      if (e.pointerType === 'touch') return;
       const tracked = pointersRef.current.get(e.pointerId);
       if (!tracked) return;
       const p = toLocal(e.clientX, e.clientY);
@@ -322,6 +328,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
   );
 
   const handlePointerUp = useCallback((e: React.PointerEvent) => {
+    if (e.pointerType === 'touch') return;
     pointersRef.current.delete(e.pointerId);
     if (pointersRef.current.size < 2) pinchRef.current = null;
     if (pointersRef.current.size === 0) downPosRef.current = null;
@@ -350,6 +357,126 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
     },
     [cancelFlyTo, toLocal]
   );
+
+  // --- Touch gestures (native listeners) ------------------------------------
+  // iOS Safari hijacks vertical swipes for page scroll / rubber-banding even
+  // with touch-action:none, which is why vertical panning died on mobile
+  // while horizontal (nothing to scroll to) kept working through the
+  // identical pointer pipeline. So touch is driven here: a non-passive
+  // touchmove lets us preventDefault once a real drag starts, and the pan /
+  // pinch math runs directly off the touch list instead of relying on
+  // pointermove delivery. Taps never reach the preventDefault threshold, so
+  // marker taps still produce click events.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const touches = new Map<number, { x: number; y: number }>();
+    let pinch: { dist: number; mx: number; my: number } | null = null;
+    let downPos: { x: number; y: number } | null = null;
+
+    const local = (t: Touch) => {
+      const r = el.getBoundingClientRect();
+      return { x: t.clientX - r.left, y: t.clientY - r.top, w: r.width, h: r.height };
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      cancelFlyTo();
+      for (const t of Array.from(e.changedTouches)) {
+        const p = local(t);
+        touches.set(t.identifier, { x: p.x, y: p.y });
+      }
+      if (touches.size === 1) {
+        const p = [...touches.values()][0];
+        downPos = { x: p.x, y: p.y };
+        movedRef.current = false;
+      } else {
+        downPos = null;
+        if (touches.size === 2) {
+          const [a, b] = [...touches.values()];
+          pinch = {
+            dist: Math.hypot(a.x - b.x, a.y - b.y),
+            mx: (a.x + b.x) / 2,
+            my: (a.y + b.y) / 2,
+          };
+        }
+      }
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (touches.size === 0) return;
+      const ref = local(e.changedTouches[0]);
+      const aspect = aspectRef.current;
+
+      if (touches.size === 2) {
+        const prev = pinch;
+        for (const t of Array.from(e.changedTouches)) {
+          const p = local(t);
+          touches.set(t.identifier, { x: p.x, y: p.y });
+        }
+        const [a, b] = [...touches.values()];
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+        const mx = (a.x + b.x) / 2;
+        const my = (a.y + b.y) / 2;
+        if (prev && prev.dist > 0 && dist > 0) {
+          // Pinch is unambiguously a map gesture: take over immediately.
+          e.preventDefault();
+          movedRef.current = true;
+          suppressClickRef.current = true;
+          setViewBox((vb) => {
+            const zoomed = zoomViewBox(vb, prev.dist / dist, mx, my, ref.w, ref.h, aspect);
+            return panViewBox(zoomed, mx - prev.mx, my - prev.my, ref.w, ref.h, aspect);
+          });
+        }
+        pinch = { dist, mx, my };
+        return;
+      }
+
+      if (touches.size === 1) {
+        const t = e.changedTouches[0];
+        const prev = touches.get(t.identifier);
+        const p = local(t);
+        if (!prev) return;
+        const dx = p.x - prev.x;
+        const dy = p.y - prev.y;
+        touches.set(t.identifier, { x: p.x, y: p.y });
+        if (downPos) {
+          const total = Math.hypot(p.x - downPos.x, p.y - downPos.y);
+          if (total > 6) {
+            movedRef.current = true;
+            suppressClickRef.current = true;
+          }
+        }
+        if (movedRef.current) {
+          // Real drag, not a tap: block the browser's scroll/zoom takeover.
+          e.preventDefault();
+          setViewBox((vb) => panViewBox(vb, dx, dy, ref.w, ref.h, aspect));
+        }
+      }
+    };
+
+    const onTouchEnd = (e: TouchEvent) => {
+      for (const t of Array.from(e.changedTouches)) touches.delete(t.identifier);
+      if (touches.size < 2) pinch = null;
+      if (touches.size === 1) {
+        // Pinch -> pan handoff: re-anchor so the remaining finger doesn't jump.
+        const p = [...touches.values()][0];
+        downPos = { x: p.x, y: p.y };
+      } else if (touches.size === 0) {
+        downPos = null;
+      }
+    };
+
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+    el.addEventListener('touchend', onTouchEnd);
+    el.addEventListener('touchcancel', onTouchEnd);
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+      el.removeEventListener('touchend', onTouchEnd);
+      el.removeEventListener('touchcancel', onTouchEnd);
+    };
+  }, [cancelFlyTo]);
 
   // --- Fly to the selected realm --------------------------------------------
   useEffect(() => {
@@ -411,7 +538,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
     <div
       ref={containerRef}
       className="absolute inset-0 overflow-hidden bg-[#050510]"
-      style={{ touchAction: 'none' }}
+      style={{ touchAction: 'none', overscrollBehavior: 'none' }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}

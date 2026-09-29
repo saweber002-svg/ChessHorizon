@@ -58,8 +58,8 @@ export function clampViewBox(vb: ViewBox, aspect: number): ViewBox {
  * map is left to discover by panning and zooming.
  * `aspect` is viewportWidth / viewportHeight.
  */
-const INITIAL_CENTER = { x: 44.5, y: 71.5 };
-const INITIAL_W = 36;
+const INITIAL_CENTER = { x: 45, y: 72 };
+const INITIAL_W = 26;
 
 export function createInitialViewBox(aspect: number): ViewBox {
   const w = INITIAL_W;
@@ -72,6 +72,8 @@ export function createInitialViewBox(aspect: number): ViewBox {
 
 /** ViewBox width the castle markers were designed at (full-map view). */
 export const MARKER_DESIGN_W = 100;
+/** 30% size boost on top of the zoom-parented scale (icons felt small). */
+const MARKER_SIZE_BOOST = 1.3;
 /** Markers never shrink below this fraction of their designed size. */
 const MARKER_MIN_SCALE = 0.1;
 
@@ -81,7 +83,7 @@ const MARKER_MIN_SCALE = 0.1;
  * instead of ballooning when you zoom in.
  */
 export function markerScale(vbW: number): number {
-  return clamp(vbW / MARKER_DESIGN_W, MARKER_MIN_SCALE, 1);
+  return MARKER_SIZE_BOOST * clamp(vbW / MARKER_DESIGN_W, MARKER_MIN_SCALE, 1);
 }
 
 /**
