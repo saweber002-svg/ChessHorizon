@@ -3,6 +3,7 @@ import { lazy, Suspense } from 'react';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { ProgressProvider } from '@/contexts/ProgressContext';
 import { WildernessProvider } from '@/contexts/WildernessContext';
+import { ThemeProvider } from '@/contexts/ThemeContext';
 // Lazy load pages for better performance
 const Home = lazy(() => import('@/pages/Home'));
 const WorldMap = lazy(() => import('@/pages/WorldMap'));
@@ -25,6 +26,7 @@ export default function App() {
     <AuthProvider>
       <ProgressProvider>
         <WildernessProvider>
+          <ThemeProvider>
           <Suspense fallback={<Loading />}>
             <Router base={routerBase}>
               <Switch>
@@ -44,6 +46,7 @@ export default function App() {
               </Switch>
             </Router>
           </Suspense>
+          </ThemeProvider>
         </WildernessProvider>
       </ProgressProvider>
     </AuthProvider>
