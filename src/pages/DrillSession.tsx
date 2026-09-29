@@ -121,6 +121,17 @@ export default function DrillSession() {
   const moves = useMemo(() => line?.moves ?? [], [line]);
   const startFen = line?.startFen ?? pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
+  // Lock body scroll while the pause menu is open so gestures don't
+  // scroll the page behind the modal on touch devices.
+  useEffect(() => {
+    if (!showPauseMenu) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [showPauseMenu]);
+
   useEffect(() => {
     // Reset session state when drillFileId changes
     setPack(null);
@@ -812,14 +823,15 @@ export default function DrillSession() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex overflow-y-auto bg-black/70 backdrop-blur-sm p-4"
             onClick={() => setShowPauseMenu(false)}
           >
             <motion.div
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
-              className="w-full max-w-md rounded-2xl bg-[#141422] border border-[#2a2a3e] p-6"
+              className="w-full max-w-md mx-auto my-auto rounded-2xl bg-[#141422] border border-[#2a2a3e] p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain"
+              style={{ WebkitOverflowScrolling: 'touch' }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-4">
