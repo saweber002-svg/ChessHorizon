@@ -8,9 +8,8 @@ export default defineConfig({
   // builds remain rooted at /. The workflow sets GITHUB_ACTIONS automatically.
   base: process.env.GITHUB_ACTIONS ? '/ChessHorizon/' : '/',
   plugins: [react()],
-  assetsInclude: ['**/*.glb'],
   optimizeDeps: {
-    include: ['framer-motion', 'three', '@react-three/fiber', '@react-three/drei'],
+    include: ['framer-motion'],
   },
   server: {
     port: 3000,
