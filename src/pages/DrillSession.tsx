@@ -1,6 +1,9 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb } from 'lucide-react';
+import ThemePicker from '@/components/ThemePicker';
+import SoundPicker from '@/components/SoundPicker';
+import { useSound } from '@/contexts/SoundContext';
+import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play } from 'lucide-react';
 import { useLocation, useParams, useSearch } from 'wouter';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
@@ -57,7 +60,9 @@ export default function DrillSession() {
   const [showStars, setShowStars] = useState(false);
   const [earnedStars, setEarnedStars] = useState(0);
   const [sessionComplete, setSessionComplete] = useState(false);
+  const [showPauseMenu, setShowPauseMenu] = useState(false);
   const [waitingOpponent, setWaitingOpponent] = useState(false);
+  const { play: playSound } = useSound();
   const [lastMove, setLastMove] = useState<{ from: Square; to: Square } | null>(null);
   const [moveResults, setMoveResults] = useState<number[]>([]);
   const [hintUsed, setHintUsed] = useState(false);
@@ -187,12 +192,15 @@ export default function DrillSession() {
         }
         setWaitingOpponent(true);
         applyMovesUpTo(i + 1);
+        // Play move sound (capture if SAN contains 'x')
+        const san = moves[i] ?? '';
+        playSound(san.includes('x') ? 'capture' : 'move');
         i++;
         autoPlayRef.current = setTimeout(step, 450);
       };
       step();
     },
-    [moves, startFen, applyMovesUpTo]
+    [moves, startFen, applyMovesUpTo, playSound]
   );
 
   const beginSession = useCallback(
@@ -250,6 +258,16 @@ export default function DrillSession() {
         clearDeviation();
         const nextMoveIndex = moveIndex + 1;
         if (nextMoveIndex >= playerMoveIndices.length) {
+          const allResults = [...moveResults, stars];
+          const avgStars = allResults.reduce((a, b) => a + b, 0) / allResults.length;
+          // Play completion sound based on performance
+          if (avgStars >= 2.8) {
+            playSound('perfectCompletion');
+          } else if (avgStars >= 1.5) {
+            playSound('drillCompleted');
+          } else {
+            playSound('drillFailed');
+          }
           void recordOpeningCompletion({
             openingId,
             variationId,
@@ -279,6 +297,7 @@ export default function DrillSession() {
       playOpponentMoves,
       clearDeviation,
       playerColor,
+      playSound,
     ]
   );
 
@@ -295,6 +314,7 @@ export default function DrillSession() {
           setLastMove({ from, to });
           setFen(test.fen());
           setGlowColor('correct');
+          playSound('correct');
           const stars = starsFromAttempts(attempts + 1);
           setEarnedStars(stars);
           setShowStars(true);
@@ -303,6 +323,7 @@ export default function DrillSession() {
           const nextAttempts = attempts + 1;
           setAttempts(nextAttempts);
           setGlowColor('incorrect');
+          playSound('incorrect');
           applyMovesUpTo(currentPlayerMoveIdx);
           // Ask the engine why this was bad — non-blocking, the user can retry immediately.
           checkDeviation(result.san, fen, correctMove);
@@ -371,6 +392,7 @@ export default function DrillSession() {
       playOpponentMoves,
       checkDeviation,
       clearDeviation,
+      playSound,
     ]
   );
 
@@ -546,6 +568,13 @@ export default function DrillSession() {
             <span className={playerColor === 'w' ? 'text-cyan-400' : 'text-red-400'}>
               {playerColor === 'w' ? '♔ White' : '♚ Black'}
             </span>
+            <button
+              onClick={() => setShowPauseMenu(true)}
+              className="p-2 rounded-lg hover:bg-white/10 text-white/60 hover:text-white transition-colors"
+              aria-label="Pause menu"
+            >
+              <Pause size={18} />
+            </button>
           </div>
         </div>
         <div className="h-1 bg-[#141422]">
@@ -666,7 +695,7 @@ export default function DrillSession() {
               )}
             </p>
 
-            <div className="relative pt-20">
+            <div className="relative pt-14">
               <AnimatePresence>
                 {showStars && (
                   <StarOverlay stars={earnedStars} onComplete={() => setShowStars(false)} />
@@ -775,6 +804,52 @@ export default function DrillSession() {
           </>
         )}
       </div>
+
+      {/* Pause Menu */}
+      <AnimatePresence>
+        {showPauseMenu && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
+            onClick={() => setShowPauseMenu(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="w-full max-w-md rounded-2xl bg-[#141422] border border-[#2a2a3e] p-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <Pause size={20} className="text-[#00f5d4]" /> Paused
+                </h2>
+                <button
+                  onClick={() => setShowPauseMenu(false)}
+                  className="text-white/50 hover:text-white transition-colors"
+                  aria-label="Resume"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+              <h3 className="text-sm font-semibold text-white/70 mb-3">Board Theme</h3>
+              <ThemePicker />
+              <div className="mt-6 pt-6 border-t border-[#2a2a3e]">
+                <h3 className="text-sm font-semibold text-white/70 mb-3">Sound</h3>
+                <SoundPicker />
+              </div>
+              <button
+                onClick={() => setShowPauseMenu(false)}
+                className="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-semibold hover:bg-[#00f5d4]/90 transition-colors"
+              >
+                <Play size={18} /> Resume Drill
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
