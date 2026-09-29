@@ -7,6 +7,7 @@ import { ITALIAN_DRILL_VARIATIONS } from '@/data/mapLocations';
 import DRILLS from '@/data/drillRegistry';
 import { useProgress } from '@/contexts/ProgressContext';
 import { KINGDOM_UNLOCK_STARS, KINGDOM_UNLOCK_ORDER } from '@/types';
+import { REALM_TOTAL_MOVES } from '@/data/realmDrillTotals';
 
 interface KingdomPanelProps {
   location: MapLocation;
@@ -24,7 +25,17 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
   const unlockDef = KINGDOM_UNLOCK_ORDER.find(u => u.kingdom === location.kingdom);
   const threshold = unlockDef?.starThreshold ?? KINGDOM_UNLOCK_STARS[location.kingdom] ?? location.starThreshold;
   
-  const completionPct = Math.min(100, Math.round((state.totalStars / Math.max(threshold + 10, 1)) * 100));
+  const completionPct = (() => {
+    const totalMoves = REALM_TOTAL_MOVES[location.openingId] ?? 0;
+    if (totalMoves <= 0) return 0;
+    const prefix = `${location.openingId}:`;
+    let earned = 0;
+    for (const [key, p] of Object.entries(state.moveProgress)) {
+      if (key.startsWith(prefix)) earned += p.stars ?? 0;
+    }
+    return Math.min(100, Math.round((earned / (totalMoves * 3)) * 100));
+  })();
+  const hasDrillContent = (REALM_TOTAL_MOVES[location.openingId] ?? 0) > 0;
 
   const startDrill = (drillFileId: string, openingId: string, variationId: string) => {
     onClose();
@@ -105,7 +116,7 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
               <p>Current: <span className="text-yellow-400 font-semibold">{state.totalStars} stars</span></p>
             </div>
           </div>
-        ) : (
+        ) : hasDrillContent ? (
           <div className="mb-6">
             <motion.div className="flex justify-between text-xs text-white/40 mb-2">
               <span>Realm progress</span>
@@ -125,7 +136,7 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
               <span>{state.totalStars} total stars</span>
             </div>
           </div>
-        )}
+        ) : null}
 
         {location.kingdom === 'wilderness' && isUnlocked && (
           <Button onClick={goWilderness} className="w-full mb-3 bg-emerald-600 hover:bg-emerald-500">

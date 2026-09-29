@@ -172,8 +172,7 @@ export default function DrillSession() {
 
 
   const playOpponentMoves = useCallback(
-    (fromIndex: number) => {
-      if (!playerColor) return;
+    (fromIndex: number, color: PlayerColor) => {
       let i = fromIndex;
       const step = () => {
         if (i >= moves.length) {
@@ -181,7 +180,7 @@ export default function DrillSession() {
           return;
         }
         const fenBefore = buildFenFromMoves(startFen, moves, i);
-        if (isPlayerTurn(fenBefore, playerColor)) {
+        if (isPlayerTurn(fenBefore, color)) {
           setWaitingOpponent(false);
           applyMovesUpTo(i);
           return;
@@ -193,7 +192,7 @@ export default function DrillSession() {
       };
       step();
     },
-    [moves, playerColor, startFen, applyMovesUpTo]
+    [moves, startFen, applyMovesUpTo]
   );
 
   const beginSession = useCallback(
@@ -210,7 +209,7 @@ export default function DrillSession() {
       // Pre-warm the engine so the first deviation check doesn't pay the WASM download.
       getEngine().ensureReady().catch(() => {});
       applyMovesUpTo(0);
-      setTimeout(() => playOpponentMoves(0), 300);
+      setTimeout(() => playOpponentMoves(0, color), 300);
     },
     [applyMovesUpTo, playOpponentMoves, clearDeviation]
   );
@@ -265,7 +264,7 @@ export default function DrillSession() {
         }
         setMoveIndex(nextMoveIndex);
         const nextIdx = playerMoveIndices[nextMoveIndex];
-        playOpponentMoves(nextIdx);
+        if (playerColor) playOpponentMoves(nextIdx, playerColor);
       }, 1200);
     },
     [
@@ -279,6 +278,7 @@ export default function DrillSession() {
       moveResults,
       playOpponentMoves,
       clearDeviation,
+      playerColor,
     ]
   );
 
@@ -339,7 +339,7 @@ export default function DrillSession() {
                 setHintSquares([]);
                 setGlowColor('idle');
                 clearDeviation();
-                playOpponentMoves(playerMoveIndices[nextMoveIndex]);
+                if (playerColor) playOpponentMoves(playerMoveIndices[nextMoveIndex], playerColor);
               }, 800);
             }, 600);
           } else {
