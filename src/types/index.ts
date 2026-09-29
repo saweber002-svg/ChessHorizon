@@ -147,17 +147,21 @@ export const KINGDOM_UNLOCK_ORDER: Array<{
 ];
 
 export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
-  italian: { x: 35, y: 65 },
-  spanish: { x: 18, y: 50 },
-  sicilian: { x: 55, y: 80 },
-  english: { x: 42, y: 22 },
-  scandinavian: { x: 65, y: 12 },
-  queendom: { x: 78, y: 40 },
-  french: { x: 28, y: 38 },
-  dutch: { x: 52, y: 28 },
-  germany: { x: 48, y: 42 },
-  wilderness: { x: 82, y: 75 },
-  clearing: { x: 15, y: 15 },
+  // Measured from the baked top-down render of world-atlas.glb (4096px square,
+  // node bounding-box centers projected through the ortho camera), 2026-09-29.
+  // `coaching` has no node in the GLB (it never did — the 3D atlas used the
+  // legacy fallback), so it keeps the centered legacy position.
+  italian: { x: 50.18, y: 69.67 },
+  spanish: { x: 24.01, y: 75.55 },
+  sicilian: { x: 53.11, y: 79.05 },
+  english: { x: 24.38, y: 48.57 },
+  scandinavian: { x: 54.52, y: 35.64 },
+  queendom: { x: 27.96, y: 53.89 },
+  french: { x: 31.16, y: 63.52 },
+  dutch: { x: 38.24, y: 54.14 },
+  germany: { x: 46.04, y: 56.39 },
+  wilderness: { x: 61.94, y: 64.59 },
+  clearing: { x: 70.64, y: 63.79 },
   coaching: { x: 50, y: 50 },
 };
 
