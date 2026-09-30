@@ -7,14 +7,30 @@ import ChessBoard from '@/components/ChessBoard';
 import { analyzeMove, EngineUnavailableError, type MoveAnalysis as AnalysisResult } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
 
-/** Engine sparring strength (Stockfish Skill Level 0-20). 6 ≈ casual club player with human-like mistakes. */
-const ENGINE_SKILL_LEVEL = 6;
+/** Computer difficulty levels (Stockfish Skill Level 0-20). */
+const DIFFICULTY_LEVELS = [
+  { id: 'beginner', label: 'Beginner', skill: 0, hint: 'Learning the moves' },
+  { id: 'casual', label: 'Casual', skill: 5, hint: 'Relaxed games' },
+  { id: 'club', label: 'Club', skill: 10, hint: 'Solid club player' },
+  { id: 'expert', label: 'Expert', skill: 15, hint: 'Strong tournament player' },
+  { id: 'master', label: 'Master', skill: 20, hint: 'Full strength' },
+] as const;
+type DifficultyId = typeof DIFFICULTY_LEVELS[number]['id'];
+
+const START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
 type MoveAnalysis = AnalysisResult;
 
 interface GameState {
   fen: string;
   history: MoveAnalysis[];
+  /** FEN after each ply, starting with the initial position. Enables move navigation. */
+  positions: string[];
+  /** SAN for each ply, parallel to positions (positions[i+1] follows moveSans[i]). */
+  moveSans: string[];
+  /** Null = live position; number = viewing historical ply. */
+  viewPly: number | null;
+  difficulty: DifficultyId;
   isPaused: boolean;
   pausedReason: string;
   isExploring: boolean;
@@ -29,15 +45,20 @@ export default function Coaching() {
   const [engineError, setEngineError] = useState<string | null>(null);
   const [explorationAnalysis, setExplorationAnalysis] = useState<MoveAnalysis | null>(null);
   const [gameState, setGameState] = useState<GameState>({
-    fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+    fen: START_FEN,
     history: [],
+    positions: [START_FEN],
+    moveSans: [],
+    viewPly: null,
+    difficulty: 'casual',
     isPaused: false,
     pausedReason: '',
     isExploring: false,
-    explorationBoard: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+    explorationBoard: START_FEN,
     userSide: 'w',
     gameStarted: false,
   });
+  const [pendingDifficulty, setPendingDifficulty] = useState<DifficultyId>('casual');
 
   const classificationColors: Record<string, string> = {
     'Best': '#10b981',
@@ -48,9 +69,9 @@ export default function Coaching() {
     'Blunder': '#dc2626',
   };
 
-  const makeComputerMove = useCallback(async (fen: string) => {
+  const makeComputerMove = useCallback(async (fen: string, skill: number) => {
     try {
-      const uci = await getEngine().findBestMove(fen, ENGINE_SKILL_LEVEL);
+      const uci = await getEngine().findBestMove(fen, skill);
       const computerGame = new Chess(fen);
       const moved = computerGame.move({
         from: uci.slice(0, 2) as Square,
@@ -58,21 +79,36 @@ export default function Coaching() {
         promotion: uci.length > 4 ? uci[4] : undefined,
       });
       if (!moved) return;
-      setGameState(prev => ({ ...prev, fen: computerGame.fen() }));
+      const newFen = computerGame.fen();
+      setGameState(prev => ({
+        ...prev,
+        fen: newFen,
+        positions: [...prev.positions, newFen],
+        moveSans: [...prev.moveSans, moved.san],
+        viewPly: null,
+      }));
     } catch {
       // Engine hiccup mid-game: fall back to a random legal move so play continues.
       const computerGame = new Chess(fen);
       const moves = computerGame.moves({ verbose: true });
       if (moves.length > 0) {
         const randomMove = moves[Math.floor(Math.random() * moves.length)];
-        computerGame.move(randomMove);
-        setGameState(prev => ({ ...prev, fen: computerGame.fen() }));
+        const moved = computerGame.move(randomMove);
+        const newFen = computerGame.fen();
+        setGameState(prev => ({
+          ...prev,
+          fen: newFen,
+          positions: [...prev.positions, newFen],
+          moveSans: [...prev.moveSans, moved.san],
+          viewPly: null,
+        }));
       }
     }
   }, []);
 
   const handleUserMove = useCallback(async (from: Square, to: Square) => {
     if (gameState.isPaused && !gameState.isExploring) return;
+    if (gameState.viewPly !== null) return; // browsing history, not playing
 
     const currentFen = gameState.isExploring ? gameState.explorationBoard : gameState.fen;
     let tempGame: Chess;
@@ -106,7 +142,14 @@ export default function Coaching() {
 
     // Apply the move IMMEDIATELY so the board updates even if engine
     // analysis fails or hangs. Analysis runs in the background.
-    setGameState(prev => ({ ...prev, fen: newFen }));
+    const skill = DIFFICULTY_LEVELS.find(d => d.id === gameState.difficulty)?.skill ?? 5;
+    setGameState(prev => ({
+      ...prev,
+      fen: newFen,
+      positions: [...prev.positions, newFen],
+      moveSans: [...prev.moveSans, moveSan],
+      viewPly: null,
+    }));
     setIsAnalyzing(true);
 
     try {
@@ -125,7 +168,7 @@ export default function Coaching() {
         }));
         if (!isGameOver) {
           setTimeout(() => {
-            void makeComputerMove(newFen);
+            void makeComputerMove(newFen, skill);
           }, 600);
         }
       }
@@ -138,7 +181,7 @@ export default function Coaching() {
       // Move was already applied; continue the game without analysis.
       if (!isGameOver) {
         setTimeout(() => {
-          void makeComputerMove(newFen);
+          void makeComputerMove(newFen, skill);
         }, 600);
       }
     } finally {
@@ -157,21 +200,26 @@ export default function Coaching() {
 
   useEffect(() => {
     // If user chose Black, computer moves first
-    if (gameState.gameStarted && gameState.userSide === 'b' && gameState.history.length === 0) {
+    if (gameState.gameStarted && gameState.userSide === 'b' && gameState.moveSans.length === 0) {
       const game = new Chess();
       if (game.turn() === 'w') {
-        void makeComputerMove(game.fen());
+        const skill = DIFFICULTY_LEVELS.find(d => d.id === gameState.difficulty)?.skill ?? 5;
+        void makeComputerMove(game.fen(), skill);
       }
     }
-  }, [gameState.gameStarted, gameState.userSide, gameState.history.length, makeComputerMove]);
+  }, [gameState.gameStarted, gameState.userSide, gameState.moveSans.length, gameState.difficulty, makeComputerMove]);
 
   const startGame = (side: 'w' | 'b') => {
     setGameState(prev => ({
       ...prev,
       userSide: side,
       gameStarted: true,
-      fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+      difficulty: pendingDifficulty,
+      fen: START_FEN,
       history: [],
+      positions: [START_FEN],
+      moveSans: [],
+      viewPly: null,
     }));
   };
 
@@ -182,7 +230,10 @@ export default function Coaching() {
       isPaused: false,
       isExploring: false,
       history: [],
-      fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+      positions: [START_FEN],
+      moveSans: [],
+      viewPly: null,
+      fen: START_FEN,
     }));
   };
 
@@ -200,20 +251,46 @@ export default function Coaching() {
   };
   
   const takeBackMove = () => {
-    if (gameState.history.length === 0) return;
-    const tempGame = new Chess();
-    for (let i = 0; i < gameState.history.length - 1; i++) {
-      tempGame.move(gameState.history[i].move);
-    }
+    // Take back the user's last move and the computer's reply (up to 2 plies).
+    setGameState(prev => {
+      const pliesToTakeBack = Math.min(2, prev.positions.length - 1);
+      if (pliesToTakeBack <= 0) return prev;
+      const newPositions = prev.positions.slice(0, prev.positions.length - pliesToTakeBack);
+      const newMoveSans = prev.moveSans.slice(0, prev.moveSans.length - pliesToTakeBack);
+      return {
+        ...prev,
+        fen: newPositions[newPositions.length - 1],
+        positions: newPositions,
+        moveSans: newMoveSans,
+        viewPly: null,
+        isPaused: false,
+        pausedReason: '',
+        isExploring: false,
+      };
+    });
+  };
+
+  /** Viewing an earlier position; null viewPly means live. */
+  const isViewingHistory = gameState.viewPly !== null;
+  const viewedFen = isViewingHistory ? gameState.positions[gameState.viewPly!] : gameState.fen;
+  const maxPly = gameState.positions.length - 1;
+
+  const goToPly = (ply: number) => {
+    const clamped = Math.max(0, Math.min(maxPly, ply));
     setGameState(prev => ({
       ...prev,
-      fen: tempGame.fen(),
-      history: prev.history.slice(0, -1),
-      isPaused: false,
-      pausedReason: '',
-      isExploring: false,
+      viewPly: clamped >= prev.positions.length - 1 ? null : clamped,
     }));
   };
+  const stepBack = () => {
+    const current = gameState.viewPly ?? maxPly;
+    goToPly(current - 1);
+  };
+  const stepForward = () => {
+    const current = gameState.viewPly ?? maxPly;
+    goToPly(current + 1);
+  };
+  const goLive = () => setGameState(prev => ({ ...prev, viewPly: null }));
 
   const lastAnalysis = gameState.history.length > 0 ? gameState.history[gameState.history.length - 1] : null;
 
@@ -229,7 +306,30 @@ export default function Coaching() {
             <Swords size={40} />
           </div>
           <h2 className="text-2xl font-bold text-white mb-2">Coaching Pavilion</h2>
-          <p className="text-white/50 text-sm mb-8">Select your side to begin — every move is analyzed live by the built-in Stockfish engine.</p>
+          <p className="text-white/50 text-sm mb-6">Select your side to begin — every move is analyzed live by the built-in Stockfish engine.</p>
+
+          <div className="mb-6">
+            <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Computer difficulty</p>
+            <div className="grid grid-cols-5 gap-2">
+              {DIFFICULTY_LEVELS.map((d) => (
+                <button
+                  key={d.id}
+                  onClick={() => setPendingDifficulty(d.id)}
+                  title={d.hint}
+                  className={`py-2.5 px-1 rounded-xl text-xs font-bold transition-all border ${
+                    pendingDifficulty === d.id
+                      ? 'bg-[#00f5d4]/15 border-[#00f5d4]/50 text-[#00f5d4]'
+                      : 'bg-white/5 border-white/10 text-white/50 hover:border-white/25 hover:text-white/80'
+                  }`}
+                >
+                  {d.label}
+                </button>
+              ))}
+            </div>
+            <p className="text-white/30 text-xs mt-2">
+              {DIFFICULTY_LEVELS.find(d => d.id === pendingDifficulty)?.hint}
+            </p>
+          </div>
           
           <div className="grid grid-cols-2 gap-4">
             <button
@@ -290,10 +390,10 @@ export default function Coaching() {
           <div className="flex items-center justify-center bg-[#0a0a1f] rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
             <div className="w-full max-w-[600px] aspect-square p-4 z-10">
               <ChessBoard
-                fen={gameState.isExploring ? gameState.explorationBoard : gameState.fen}
+                fen={gameState.isExploring ? gameState.explorationBoard : viewedFen}
                 onMove={handleUserMove}
                 glowColor={gameState.isExploring ? 'correct' : (gameState.isPaused ? 'incorrect' : 'idle')}
-                interactive={!gameState.isPaused || gameState.isExploring}
+                interactive={(!gameState.isPaused || gameState.isExploring) && !isViewingHistory}
               />
             </div>
             <AnimatePresence>
@@ -312,6 +412,32 @@ export default function Coaching() {
             <button onClick={resetGame} className="flex-1 py-3 lg:py-4 rounded-2xl bg-white/5 border border-white/10 text-white/70 font-bold hover:bg-white/10 transition-all">
               Reset Board
             </button>
+            {maxPly > 0 && (
+              <div className="flex-[2] flex items-center gap-2">
+                <button
+                  onClick={stepBack}
+                  disabled={(gameState.viewPly ?? maxPly) <= 0}
+                  className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 text-white/70 font-bold hover:bg-white/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center"
+                  aria-label="Previous move"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={isViewingHistory ? goLive : () => goToPly(0)}
+                  className="flex-1 py-2.5 rounded-2xl bg-white/5 border border-white/10 text-white/70 text-xs font-bold uppercase tracking-widest hover:bg-white/10 transition-all"
+                >
+                  {isViewingHistory ? `Return to live` : `Move ${maxPly}`}
+                </button>
+                <button
+                  onClick={stepForward}
+                  disabled={!isViewingHistory}
+                  className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 text-white/70 font-bold hover:bg-white/10 transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center"
+                  aria-label="Next move"
+                >
+                  ›
+                </button>
+              </div>
+            )}
             {gameState.isPaused && (
               <div className="flex-[2] flex gap-4">
                 <button onClick={takeBackMove} className="flex-1 py-3 lg:py-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-500 font-bold hover:bg-amber-500/20 transition-all">Take Back</button>
