@@ -4,7 +4,7 @@ import { ChevronLeft, AlertCircle, Swords, User } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
-import { analyzeMove, EngineUnavailableError, type MoveAnalysis as AnalysisResult } from '@/lib/coachingAnalysis';
+import { analyzeMove, analyzeGame, EngineUnavailableError, type MoveAnalysis as AnalysisResult, type GameReview } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
 
 /** Computer difficulty levels (Stockfish Skill Level 0-20). */
@@ -37,6 +37,8 @@ interface GameState {
   explorationBoard: string;
   userSide: 'w' | 'b';
   gameStarted: boolean;
+  /** Set when the game ends: 'checkmate' | 'stalemate' | 'draw' | null */
+  gameOver: string | null;
 }
 
 export default function Coaching() {
@@ -44,6 +46,10 @@ export default function Coaching() {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [engineError, setEngineError] = useState<string | null>(null);
   const [explorationAnalysis, setExplorationAnalysis] = useState<MoveAnalysis | null>(null);
+  const [gameReview, setGameReview] = useState<GameReview | null>(null);
+  const [isReviewing, setIsReviewing] = useState(false);
+  const [reviewProgress, setReviewProgress] = useState({ completed: 0, total: 0 });
+  const [showReview, setShowReview] = useState(false);
   const [gameState, setGameState] = useState<GameState>({
     fen: START_FEN,
     history: [],
@@ -57,16 +63,34 @@ export default function Coaching() {
     explorationBoard: START_FEN,
     userSide: 'w',
     gameStarted: false,
+    gameOver: null,
   });
   const [pendingDifficulty, setPendingDifficulty] = useState<DifficultyId>('casual');
 
   const classificationColors: Record<string, string> = {
-    'Best': '#10b981',
+    'Brilliant': '#00f5d4',
+    'Great': '#10b981',
+    'Best': '#22c55e',
     'Excellent': '#3b82f6',
     'Good': '#8b5cf6',
+    'Book': '#a78bfa',
     'Inaccuracy': '#f59e0b',
-    'Mistake': '#ef4444',
+    'Mistake': '#f97316',
+    'Miss': '#ef4444',
     'Blunder': '#dc2626',
+  };
+
+  const classificationIcons: Record<string, string> = {
+    'Brilliant': '✦',
+    'Great': '★',
+    'Best': '✓',
+    'Excellent': '!',
+    'Good': '+',
+    'Book': '📖',
+    'Inaccuracy': '?!',
+    'Mistake': '?',
+    'Miss': '✕',
+    'Blunder': '??',
   };
 
   const makeComputerMove = useCallback(async (fen: string, skill: number) => {
@@ -80,12 +104,16 @@ export default function Coaching() {
       });
       if (!moved) return;
       const newFen = computerGame.fen();
+      const gameOverReason = computerGame.isGameOver()
+        ? computerGame.isCheckmate() ? 'checkmate' : computerGame.isStalemate() ? 'stalemate' : 'draw'
+        : null;
       setGameState(prev => ({
         ...prev,
         fen: newFen,
         positions: [...prev.positions, newFen],
         moveSans: [...prev.moveSans, moved.san],
         viewPly: null,
+        gameOver: gameOverReason,
       }));
     } catch {
       // Engine hiccup mid-game: fall back to a random legal move so play continues.
@@ -95,12 +123,16 @@ export default function Coaching() {
         const randomMove = moves[Math.floor(Math.random() * moves.length)];
         const moved = computerGame.move(randomMove);
         const newFen = computerGame.fen();
+        const gameOverReason = computerGame.isGameOver()
+          ? computerGame.isCheckmate() ? 'checkmate' : computerGame.isStalemate() ? 'stalemate' : 'draw'
+          : null;
         setGameState(prev => ({
           ...prev,
           fen: newFen,
           positions: [...prev.positions, newFen],
           moveSans: [...prev.moveSans, moved.san],
           viewPly: null,
+          gameOver: gameOverReason,
         }));
       }
     }
@@ -129,6 +161,9 @@ export default function Coaching() {
     const newFen = tempGame.fen();
     const moveSan = result.san;
     const isGameOver = tempGame.isGameOver();
+    const gameOverReason = isGameOver
+      ? tempGame.isCheckmate() ? 'checkmate' : tempGame.isStalemate() ? 'stalemate' : 'draw'
+      : null;
 
     if (gameState.isExploring) {
       setGameState(prev => ({ ...prev, explorationBoard: newFen }));
@@ -149,6 +184,7 @@ export default function Coaching() {
       positions: [...prev.positions, newFen],
       moveSans: [...prev.moveSans, moveSan],
       viewPly: null,
+      gameOver: gameOverReason,
     }));
     setIsAnalyzing(true);
 
@@ -220,7 +256,10 @@ export default function Coaching() {
       positions: [START_FEN],
       moveSans: [],
       viewPly: null,
+      gameOver: null,
     }));
+    setGameReview(null);
+    setShowReview(false);
   };
 
   const resetGame = () => {
@@ -233,8 +272,11 @@ export default function Coaching() {
       positions: [START_FEN],
       moveSans: [],
       viewPly: null,
+      gameOver: null,
       fen: START_FEN,
     }));
+    setGameReview(null);
+    setShowReview(false);
   };
 
   const enterExploration = () => {
@@ -291,6 +333,27 @@ export default function Coaching() {
     goToPly(current + 1);
   };
   const goLive = () => setGameState(prev => ({ ...prev, viewPly: null }));
+
+  const startReview = async () => {
+    if (gameState.moveSans.length === 0) return;
+    setIsReviewing(true);
+    setShowReview(true);
+    setReviewProgress({ completed: 0, total: gameState.moveSans.length });
+    try {
+      const review = await analyzeGame(
+        gameState.moveSans,
+        START_FEN,
+        (completed, total) => setReviewProgress({ completed, total })
+      );
+      setGameReview(review);
+    } catch (e) {
+      console.error('Review failed', e);
+      setEngineError('Review failed — engine unavailable.');
+      setShowReview(false);
+    } finally {
+      setIsReviewing(false);
+    }
+  };
 
   const lastAnalysis = gameState.history.length > 0 ? gameState.history[gameState.history.length - 1] : null;
 
@@ -438,6 +501,16 @@ export default function Coaching() {
                 </button>
               </div>
             )}
+            {gameState.gameOver && !showReview && (
+              <div className="flex-[2] flex gap-4">
+                <button
+                  onClick={startReview}
+                  className="flex-1 py-3 lg:py-4 rounded-2xl bg-purple-500/20 border border-purple-500/40 text-purple-300 font-bold hover:bg-purple-500/30 transition-all"
+                >
+                  Review Game
+                </button>
+              </div>
+            )}
             {gameState.isPaused && (
               <div className="flex-[2] flex gap-4">
                 <button onClick={takeBackMove} className="flex-1 py-3 lg:py-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-500 font-bold hover:bg-amber-500/20 transition-all">Take Back</button>
@@ -449,6 +522,102 @@ export default function Coaching() {
 
         <div className="flex flex-col gap-6 min-w-0 lg:min-w-[380px] lg:flex-1 w-full">
           <div className="flex-1 bg-[#0a0a1f] rounded-3xl border border-white/5 flex flex-col overflow-hidden shadow-xl p-6 space-y-6">
+            {showReview ? (
+              <>
+                <div className="flex items-center justify-between border-b border-white/5 pb-4">
+                  <h3 className="text-sm font-bold text-white uppercase tracking-[0.2em]">Game Review</h3>
+                  <button
+                    onClick={() => setShowReview(false)}
+                    className="text-white/40 hover:text-white/70 text-xs uppercase tracking-widest"
+                  >
+                    Close
+                  </button>
+                </div>
+
+                {isReviewing ? (
+                  <div className="flex-1 flex flex-col items-center justify-center gap-4 py-12">
+                    <div className="w-8 h-8 border-2 border-purple-500 border-t-transparent rounded-full animate-spin" />
+                    <p className="text-white/50 text-sm">
+                      Analyzing {reviewProgress.completed}/{reviewProgress.total} moves...
+                    </p>
+                    <div className="w-full max-w-xs h-2 bg-white/10 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-purple-500 transition-all"
+                        style={{ width: `${reviewProgress.total > 0 ? (reviewProgress.completed / reviewProgress.total) * 100 : 0}%` }}
+                      />
+                    </div>
+                  </div>
+                ) : gameReview ? (
+                  <>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                        <p className="text-white/40 text-xs uppercase tracking-widest mb-1">White</p>
+                        <p className="text-3xl font-black text-white">{gameReview.whiteAccuracy}%</p>
+                      </div>
+                      <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                        <p className="text-white/40 text-xs uppercase tracking-widest mb-1">Black</p>
+                        <p className="text-3xl font-black text-white">{gameReview.blackAccuracy}%</p>
+                      </div>
+                    </div>
+
+                    <div className="flex-1 overflow-y-auto custom-scrollbar">
+                      <div className="grid grid-cols-1 gap-1">
+                        {Array.from({ length: Math.ceil(gameReview.moves.length / 2) }).map((_, moveNum) => (
+                          <div key={moveNum} className="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-white/5">
+                            <span className="text-white/30 text-xs w-8">{moveNum + 1}.</span>
+                            {[0, 1].map((offset) => {
+                              const idx = moveNum * 2 + offset;
+                              const analysis = gameReview.moves[idx];
+                              if (!analysis) return <span key={offset} className="flex-1" />;
+                              const isViewing = gameState.viewPly === idx + 1;
+                              return (
+                                <button
+                                  key={offset}
+                                  onClick={() => goToPly(idx + 1)}
+                                  className={`flex-1 flex items-center justify-between px-3 py-1.5 rounded-lg text-sm transition-all ${
+                                    isViewing ? 'bg-[#00f5d4]/15 border border-[#00f5d4]/30' : 'bg-white/5 border border-transparent hover:border-white/15'
+                                  }`}
+                                >
+                                  <span className="text-white font-mono">{analysis.move}</span>
+                                  <span
+                                    className="text-xs font-black"
+                                    style={{ color: classificationColors[analysis.classification] }}
+                                    title={analysis.classification}
+                                  >
+                                    {classificationIcons[analysis.classification]}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {gameState.viewPly !== null && gameReview.moves[gameState.viewPly - 1] && (
+                      <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-white font-bold font-mono">
+                            {Math.ceil(gameState.viewPly / 2)}.{gameState.viewPly % 2 === 1 ? '' : '..'} {gameReview.moves[gameState.viewPly - 1].move}
+                          </span>
+                          <span
+                            className="text-xs font-black uppercase"
+                            style={{ color: classificationColors[gameReview.moves[gameState.viewPly - 1].classification] }}
+                          >
+                            {gameReview.moves[gameState.viewPly - 1].classification}
+                          </span>
+                        </div>
+                        <p className="text-white/60 text-xs">{gameReview.moves[gameState.viewPly - 1].explanation}</p>
+                        <p className="text-white/40 text-xs mt-1">
+                          Best: {gameReview.moves[gameState.viewPly - 1].bestMove} ({gameReview.moves[gameState.viewPly - 1].cpLoss} cp loss)
+                        </p>
+                      </div>
+                    )}
+                  </>
+                ) : null}
+              </>
+            ) : (
+              <>
             <h3 className="text-sm font-bold text-white uppercase tracking-[0.2em] border-b border-white/5 pb-4">Engine Analysis</h3>
             
             <AnimatePresence mode="wait">
@@ -502,6 +671,8 @@ export default function Coaching() {
                 ))
               )}
             </div>
+              </>
+            )}
           </div>
         </div>
       </main>
