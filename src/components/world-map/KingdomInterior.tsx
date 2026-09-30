@@ -168,14 +168,14 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
   // Same zoom-parented icon sizing as the atlas markers: the interior's
   // effective viewBox width is the map units visible across the screen
   // (100 / zoom), so castle icons hold a constant on-screen size at any
-  // interior zoom instead of ballooning with the map. The 30% desktop size
-  // boost is dropped on narrow screens so markers start smaller on phones.
+  // interior zoom instead of ballooning with the map. Mobile uses the same
+  // 30% boost as desktop so castle icons are comfortably tappable on phones.
   const iconPx = useMemo(
     () =>
       castleIconPx(
         MARKER_DESIGN_W / view.zoom,
         size.w,
-        size.w > 0 && size.w < 480 ? 1.0 : undefined,
+        size.w > 0 && size.w < 480 ? 1.3 : undefined,
       ),
     [view.zoom, size.w],
   );
