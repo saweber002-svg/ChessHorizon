@@ -6,8 +6,16 @@
  * the baked atlas (see latLngToMap below).
  */
 
-/** Minimum separation between castle markers, in map units (0-100 space). */
-export const CASTLE_MIN_SEPARATION = 5.0;
+/**
+ * Minimum separation between castle markers, in map units (0-100 space).
+ *
+ * Kept just above the icon footprint (~1.9 units at the fitted interior
+ * zoom) so icons never overlap at rest, but small enough that markers stay
+ * near their true castle locations. A larger value (e.g. 5.0) shoves nodes
+ * several map units away in dense kingdoms — Traxler was pushed 5+ units
+ * north into the Alps — making them look misplaced.
+ */
+export const CASTLE_MIN_SEPARATION = 2.5;
 
 /** Padding around the castle bounding box when fitting the interior camera. */
 const FIT_PADDING = 0.35;

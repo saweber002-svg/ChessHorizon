@@ -180,6 +180,63 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
     [view.zoom, size.w],
   );
 
+  // Screen-space label culling: in dense clusters (northern Italy, Sicily)
+  // the compact pills would pile up unreadably, so each label is kept only
+  // if it fits without covering another label or a neighboring icon. Tried
+  // below the icon first, then above; if neither fits the label is hidden
+  // until the user pinch-zooms and the markers spread apart. Icons always
+  // render at their (near-true) decluttered positions. Deterministic in
+  // drill order so it never flickers between renders.
+  const labelPlacement = useMemo(() => {
+    const placement = new Map<string, 'above' | 'below'>();
+    if (size.w <= 0 || size.h <= 0) return placement;
+    const placed: { x0: number; y0: number; x1: number; y1: number }[] = [];
+    const overlaps = (r: { x0: number; y0: number; x1: number; y1: number }) =>
+      placed.some(
+        (p) => r.x0 < p.x1 && r.x1 > p.x0 && r.y0 < p.y1 && r.y1 > p.y0,
+      );
+    const iconR = iconPx / 2;
+    const centers = castles.map(({ mx, my }) => ({
+      cx: ((mapOffset.left + view.zoom * mx) / 100) * size.w,
+      cy: ((mapOffset.top + view.zoom * my) / 100) * size.h,
+    }));
+    // Reserve every icon's rect so labels never cover a neighboring castle.
+    centers.forEach(({ cx, cy }) =>
+      placed.push({
+        x0: cx - iconR,
+        y0: cy - iconR,
+        x1: cx + iconR,
+        y1: cy + iconR,
+      }),
+    );
+    castles.forEach(({ drill }, i) => {
+      const { cx, cy } = centers[i];
+      // Calibrated against measured pills: 10px semibold + star + padding.
+      const w = 12 + 5.6 * (drill.label.length + 4);
+      const h = 22;
+      const below = {
+        x0: cx - w / 2 - 3,
+        y0: cy + iconR + 4 - 3,
+        x1: cx + w / 2 + 3,
+        y1: cy + iconR + 4 + h + 3,
+      };
+      const above = {
+        x0: cx - w / 2 - 3,
+        y0: cy - iconR - 4 - h - 3,
+        x1: cx + w / 2 + 3,
+        y1: cy - iconR - 4 + 3,
+      };
+      if (!overlaps(below)) {
+        placement.set(drill.drillFileId, 'below');
+        placed.push(below);
+      } else if (!overlaps(above)) {
+        placement.set(drill.drillFileId, 'above');
+        placed.push(above);
+      }
+    });
+    return placement;
+  }, [castles, view, size, mapOffset, iconPx]);
+
   // --- Pan / pinch gestures -----------------------------------------------
   // Pointer events drive mouse + pen. Touch goes through the native
   // listeners below: iOS Safari needs a non-passive touchmove +
@@ -483,25 +540,32 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
         const prog = variationProgress.get(drill.drillFileId) ?? { stars: 0, tier: 0 };
         const tierColor = getTierColor(prog.tier as 0 | 1 | 2 | 3 | 4);
         const castleName = castle ? `${castle.castle}, ${castle.place}` : drill.label;
+        // The icon itself is anchored on the castle's map position; the
+        // label floats below or above it per the screen-space culling pass.
+        const place = labelPlacement.get(drill.drillFileId);
         return (
           <div
             key={drill.drillFileId}
             className="absolute z-10"
-            style={{ left: `${pos.x}%`, top: `${pos.y}%`, transform: 'translate(-50%, -50%)' }}
+            style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
           >
             <motion.button
               initial={{ opacity: 0, scale: 0.6, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.15 + i * 0.07, type: 'spring', stiffness: 260, damping: 20 }}
               onClick={() => handleCastleClick(drill)}
-              className="flex flex-col items-center group p-2.5"
+              className="group absolute"
+              style={{
+                width: iconPx,
+                height: iconPx,
+                left: -iconPx / 2,
+                top: -iconPx / 2,
+              }}
               aria-label={`${drill.label} at ${castleName}. ${prog.stars} stars.`}
             >
               <div
-                className="relative rounded-full overflow-hidden border-2 transition-transform group-hover:scale-110 group-active:scale-95"
+                className="relative w-full h-full rounded-full overflow-hidden border-2 transition-transform group-hover:scale-110 group-active:scale-95"
                 style={{
-                  width: iconPx,
-                  height: iconPx,
                   borderColor: tierColor,
                   boxShadow: `0 0 24px ${tierColor}66, 0 4px 16px rgba(0,0,0,0.6)`,
                 }}
@@ -520,15 +584,24 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
                   }}
                 />
               </div>
-              <div className="mt-1 px-2 py-0.5 rounded-full bg-[#0a0a1f]/85 backdrop-blur border border-white/10 text-center">
-                <p className="text-[10px] font-semibold text-white whitespace-nowrap leading-tight">
-                  {drill.label}{' '}
-                  <span className="inline-flex items-center gap-0.5 font-normal text-white/50">
-                    <Star size={8} className="text-yellow-400 fill-yellow-400" />
-                    {prog.stars}
-                  </span>
-                </p>
-              </div>
+              {place && (
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-[#0a0a1f]/85 backdrop-blur border border-white/10 text-center whitespace-nowrap"
+                  style={
+                    place === 'below'
+                      ? { top: 'calc(100% + 4px)' }
+                      : { bottom: 'calc(100% + 4px)' }
+                  }
+                >
+                  <p className="text-[10px] font-semibold text-white whitespace-nowrap leading-tight">
+                    {drill.label}{' '}
+                    <span className="inline-flex items-center gap-0.5 font-normal text-white/50">
+                      <Star size={8} className="text-yellow-400 fill-yellow-400" />
+                      {prog.stars}
+                    </span>
+                  </p>
+                </div>
+              )}
             </motion.button>
           </div>
         );
