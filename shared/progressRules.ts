@@ -23,6 +23,17 @@ export interface OpeningProgressSnapshot {
   lastWatchAttempt: number;
 }
 
+/**
+ * Tactical drills prestige exactly like openings: the tier comes from the
+ * streak of perfect completions, gated at 1/3/5/10. Tactical progress has no
+ * watch quota, so there is no lastWatchAttempt.
+ */
+export interface TacticalProgressSnapshot {
+  totalAttempts: number;
+  perfectCompletionStreak: number;
+  prestigeTier: PrestigeTier;
+}
+
 export interface MoveResult {
   moveIndex: number;
   stars: 0 | 1 | 2 | 3;
@@ -61,6 +72,34 @@ export function applyOpeningCompletion(
     prestigeTier: calculatePrestigeTier(perfectCompletionStreak),
     lastWatchAttempt: previous.lastWatchAttempt,
   };
+}
+
+export function applyTacticalCompletion(
+  previous: TacticalProgressSnapshot,
+  isPerfect: boolean,
+): TacticalProgressSnapshot {
+  const totalAttempts = previous.totalAttempts + 1;
+  const perfectCompletionStreak = isPerfect ? previous.perfectCompletionStreak + 1 : 0;
+  return {
+    totalAttempts,
+    perfectCompletionStreak,
+    prestigeTier: calculatePrestigeTier(perfectCompletionStreak),
+  };
+}
+
+/**
+ * Board prestige for a trophy board: the minimum prestige tier across every
+ * tactical drill for the opening. The board never displays a level that has
+ * not been reached by every tactical drill. Empty input (no tactical drills)
+ * yields tier 0; callers fall back to the opening tier in that case.
+ */
+export function minPrestigeTier(tiers: readonly PrestigeTier[]): PrestigeTier {
+  if (tiers.length === 0) return 0;
+  let min: PrestigeTier = 4;
+  for (const t of tiers) {
+    if (t < min) min = t;
+  }
+  return min;
 }
 
 export function isPerfectCompletion(

@@ -2,11 +2,14 @@ import { describe, expect, it } from "vitest";
 import {
   applyMoveResult,
   applyOpeningCompletion,
+  applyTacticalCompletion,
   consumeWatch,
   getWatchStatus,
   isPerfectCompletion,
+  minPrestigeTier,
   type MoveProgressSnapshot,
   type OpeningProgressSnapshot,
+  type TacticalProgressSnapshot,
 } from "../shared/progressRules";
 
 const emptyMove: MoveProgressSnapshot = {
@@ -21,6 +24,12 @@ const emptyOpening: OpeningProgressSnapshot = {
   perfectCompletionStreak: 0,
   prestigeTier: 0,
   lastWatchAttempt: -999,
+};
+
+const emptyTactical: TacticalProgressSnapshot = {
+  totalAttempts: 0,
+  perfectCompletionStreak: 0,
+  prestigeTier: 0,
 };
 
 describe("exact prestige rules", () => {
@@ -55,6 +64,44 @@ describe("exact prestige rules", () => {
     progress = applyOpeningCompletion(progress, false);
     expect(progress.perfectCompletionStreak).toBe(0);
     expect(progress.prestigeTier).toBe(0);
+  });
+});
+
+describe("tactical drill prestige", () => {
+  it("gates tactical prestige identically to opening prestige (1/3/5/10)", () => {
+    let progress = emptyTactical;
+    progress = applyTacticalCompletion(progress, true);
+    expect(progress.prestigeTier).toBe(1);
+    progress = applyTacticalCompletion(progress, true);
+    progress = applyTacticalCompletion(progress, true);
+    expect(progress.prestigeTier).toBe(2);
+    progress = applyTacticalCompletion(progress, true);
+    progress = applyTacticalCompletion(progress, true);
+    expect(progress.prestigeTier).toBe(3);
+    for (let i = 5; i < 10; i++) progress = applyTacticalCompletion(progress, true);
+    expect(progress.prestigeTier).toBe(4);
+  });
+
+  it("resets the perfect streak on a non-perfect tactical completion", () => {
+    let progress = applyTacticalCompletion(emptyTactical, true);
+    progress = applyTacticalCompletion(progress, true);
+    expect(progress.perfectCompletionStreak).toBe(2);
+    progress = applyTacticalCompletion(progress, false);
+    expect(progress.perfectCompletionStreak).toBe(0);
+    expect(progress.prestigeTier).toBe(0);
+    expect(progress.totalAttempts).toBe(3);
+  });
+});
+
+describe("board prestige from tactical drills", () => {
+  it("takes the minimum tier across every tactical drill", () => {
+    expect(minPrestigeTier([4, 4, 4, 4, 4, 1])).toBe(1);
+    expect(minPrestigeTier([4, 4, 4])).toBe(4);
+    expect(minPrestigeTier([0])).toBe(0);
+  });
+
+  it("yields tier 0 when there are no tactical drills", () => {
+    expect(minPrestigeTier([])).toBe(0);
   });
 });
 

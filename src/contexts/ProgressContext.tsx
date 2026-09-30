@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer, useCallback, useEffect, useRef } from 'react';
-import type { MoveProgress, ProgressState, KingdomId, Tier } from '@/types';
+import type { MoveProgress, OpeningProgressLocal, ProgressState, KingdomId, TacticalProgressLocal, Tier } from '@/types';
 import { calculateTier, KINGDOM_UNLOCK_ORDER } from '@/types';
+import { getWatchStatus, isPerfectCompletion, type OpeningProgressSnapshot, type WatchStatus } from '../../shared/progressRules';
 import { useAuth } from './AuthContext';
 import { trpc } from '@/lib/trpc';
 
@@ -13,6 +14,8 @@ const defaultState: ProgressState = {
   unlockedRegions: ['italian', 'wilderness', 'clearing', 'coaching'],
   drillMode: 'random',
   sideMode: 'both',
+  openingProgress: {},
+  tacticalProgress: {},
 };
 
 function loadState(): ProgressState {
@@ -48,10 +51,49 @@ function saveState(state: ProgressState) {
 
 export type ProgressAction =
   | { type: 'RECORD_DRILL'; key: string; stars: number }
+  | { type: 'RECORD_OPENING_COMPLETION'; key: string; isPerfect: boolean }
+  | { type: 'RECORD_TACTICAL_COMPLETION'; key: string; isPerfect: boolean }
+  | { type: 'CONSUME_WATCH'; key: string }
   | { type: 'SET_DRILL_MODE'; mode: 'random' | 'in-order' }
   | { type: 'SET_SIDE_MODE'; mode: 'white' | 'black' | 'both' }
   | { type: 'RESET_PROGRESS' }
   | { type: 'LOAD_STATE'; state: ProgressState };
+
+function nextOpeningProgress(
+  existing: OpeningProgressLocal | undefined,
+  isPerfect: boolean,
+): OpeningProgressLocal {
+  const totalAttempts = (existing?.totalAttempts ?? 0) + 1;
+  const perfectStreak = isPerfect ? (existing?.perfectStreak ?? 0) + 1 : 0;
+  return {
+    totalAttempts,
+    perfectStreak,
+    tier: calculateTier(perfectStreak),
+    lastWatchAttempt: existing?.lastWatchAttempt ?? -1,
+  };
+}
+
+function nextTacticalProgress(
+  existing: TacticalProgressLocal | undefined,
+  isPerfect: boolean,
+): TacticalProgressLocal {
+  const totalAttempts = (existing?.totalAttempts ?? 0) + 1;
+  const perfectStreak = isPerfect ? (existing?.perfectStreak ?? 0) + 1 : 0;
+  return {
+    totalAttempts,
+    perfectStreak,
+    tier: calculateTier(perfectStreak),
+  };
+}
+
+function toOpeningSnapshot(existing: OpeningProgressLocal | undefined): OpeningProgressSnapshot {
+  return {
+    totalAttempts: existing?.totalAttempts ?? 0,
+    perfectCompletionStreak: existing?.perfectStreak ?? 0,
+    prestigeTier: (existing?.tier ?? 0) as OpeningProgressSnapshot['prestigeTier'],
+    lastWatchAttempt: existing?.lastWatchAttempt ?? -1,
+  };
+}
 
 export function progressReducer(state: ProgressState, action: ProgressAction): ProgressState {
   let newState: ProgressState;
@@ -136,6 +178,40 @@ export function progressReducer(state: ProgressState, action: ProgressAction): P
       };
       break;
     }
+    case 'RECORD_OPENING_COMPLETION': {
+      const openingProgress = {
+        ...(state.openingProgress ?? {}),
+        [action.key]: nextOpeningProgress(state.openingProgress?.[action.key], action.isPerfect),
+      };
+      newState = { ...state, openingProgress };
+      break;
+    }
+    case 'RECORD_TACTICAL_COMPLETION': {
+      const tacticalProgress = {
+        ...(state.tacticalProgress ?? {}),
+        [action.key]: nextTacticalProgress(state.tacticalProgress?.[action.key], action.isPerfect),
+      };
+      newState = { ...state, tacticalProgress };
+      break;
+    }
+    case 'CONSUME_WATCH': {
+      const existing = state.openingProgress?.[action.key];
+      const status = getWatchStatus(toOpeningSnapshot(existing));
+      if (!status.available) {
+        // Quota not earned: leave state untouched.
+        return state;
+      }
+      const openingProgress = {
+        ...(state.openingProgress ?? {}),
+        [action.key]: {
+          ...(existing ?? { perfectStreak: 0, tier: 0 as Tier, lastWatchAttempt: -1 }),
+          totalAttempts: existing?.totalAttempts ?? 0,
+          lastWatchAttempt: existing?.totalAttempts ?? 0,
+        } satisfies OpeningProgressLocal,
+      };
+      newState = { ...state, openingProgress };
+      break;
+    }
     case 'SET_DRILL_MODE':
       newState = { ...state, drillMode: action.mode };
       break;
@@ -164,6 +240,13 @@ interface ProgressContextValue {
     variationId: string;
     side: 'white' | 'black';
     moveResults: Array<{ moveIndex: number; stars: 0 | 1 | 2 | 3 }>;
+    /**
+     * When set, this completion belongs to a tactical drill (tactic line id),
+     * not the opening drill: it feeds tactical prestige instead of opening
+     * prestige. The server mutation is still sent with the variation's
+     * identity, matching historical behavior.
+     */
+    tacticKey?: string;
   }) => Promise<void>;
   setDrillMode: (mode: 'random' | 'in-order') => void;
   setSideMode: (mode: 'white' | 'black' | 'both') => void;
@@ -174,6 +257,10 @@ interface ProgressContextValue {
     variationId: string,
     moveCount: number
   ) => number;
+  /** Local watch quota for anonymous/offline drills. Signed-in drills use the server. */
+  getLocalWatchStatus: (openingId: string, variationId: string, side: 'white' | 'black') => WatchStatus;
+  /** Consumes one local watch when the quota allows; returns false when it doesn't. */
+  consumeLocalWatch: (openingId: string, variationId: string, side: 'white' | 'black') => boolean;
 }
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
@@ -204,11 +291,47 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     variationId: string;
     side: 'white' | 'black';
     moveResults: Array<{ moveIndex: number; stars: 0 | 1 | 2 | 3 }>;
+    tacticKey?: string;
   }) => {
+    const isPerfect = isPerfectCompletion(input.moveResults);
+    if (input.tacticKey) {
+      dispatch({
+        type: 'RECORD_TACTICAL_COMPLETION',
+        key: `${input.openingId}:${input.variationId}:${input.tacticKey}`,
+        isPerfect,
+      });
+    } else {
+      dispatch({
+        type: 'RECORD_OPENING_COMPLETION',
+        key: `${input.openingId}:${input.variationId}:${input.side}`,
+        isPerfect,
+      });
+    }
     if (!user) return;
     const idempotencyKey = globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
-    await recordCompletionMutation.mutateAsync({ ...input, idempotencyKey });
+    // tacticKey is local-only; the server keeps the historical variation identity.
+    const { tacticKey: _localOnly, ...serverInput } = input;
+    await recordCompletionMutation.mutateAsync({ ...serverInput, idempotencyKey });
   }, [recordCompletionMutation, user]);
+
+  const getLocalWatchStatus = useCallback(
+    (openingId: string, variationId: string, side: 'white' | 'black'): WatchStatus => {
+      const key = `${openingId}:${variationId}:${side}`;
+      return getWatchStatus(toOpeningSnapshot(latestState.current.openingProgress?.[key]));
+    },
+    []
+  );
+
+  const consumeLocalWatch = useCallback(
+    (openingId: string, variationId: string, side: 'white' | 'black'): boolean => {
+      const key = `${openingId}:${variationId}:${side}`;
+      const existing = latestState.current.openingProgress?.[key];
+      if (!getWatchStatus(toOpeningSnapshot(existing)).available) return false;
+      dispatch({ type: 'CONSUME_WATCH', key });
+      return true;
+    },
+    []
+  );
 
   const setDrillMode = useCallback((mode: 'random' | 'in-order') => {
     dispatch({ type: 'SET_DRILL_MODE', mode });
@@ -270,6 +393,8 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         resetProgress,
         getMoveProgress,
         getMasteredCount,
+        getLocalWatchStatus,
+        consumeLocalWatch,
       }}
     >
       {children}
