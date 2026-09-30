@@ -272,14 +272,14 @@ export default function Coaching() {
         </div>
       </header>
 
-      <main className="flex-1 flex overflow-hidden p-8 gap-8">
+      <main className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden p-4 lg:p-8 gap-4 lg:gap-8">
         {engineError && (
           <div className="absolute top-24 left-1/2 -translate-x-1/2 z-30 bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full">
             {engineError}
           </div>
         )}
-        <div className="flex-[1.2] flex flex-col min-w-0">
-          <div className="flex-1 flex items-center justify-center bg-[#0a0a1f] rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
+        <div className="flex flex-col min-w-0 lg:flex-[1.2] w-full">
+          <div className="flex items-center justify-center bg-[#0a0a1f] rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
             <div className="w-full max-w-[600px] aspect-square p-4 z-10">
               <ChessBoard
                 fen={gameState.isExploring ? gameState.explorationBoard : gameState.fen}
@@ -300,20 +300,20 @@ export default function Coaching() {
             </AnimatePresence>
           </div>
 
-          <div className="flex gap-4 mt-6">
-            <button onClick={resetGame} className="flex-1 py-4 rounded-2xl bg-white/5 border border-white/10 text-white/70 font-bold hover:bg-white/10 transition-all">
+          <div className="flex gap-4 mt-4 lg:mt-6">
+            <button onClick={resetGame} className="flex-1 py-3 lg:py-4 rounded-2xl bg-white/5 border border-white/10 text-white/70 font-bold hover:bg-white/10 transition-all">
               Reset Board
             </button>
             {gameState.isPaused && (
               <div className="flex-[2] flex gap-4">
-                <button onClick={takeBackMove} className="flex-1 py-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-500 font-bold hover:bg-amber-500/20 transition-all">Take Back</button>
-                <button onClick={resumeGame} className="flex-1 py-4 rounded-2xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-white transition-all">Resume Game</button>
+                <button onClick={takeBackMove} className="flex-1 py-3 lg:py-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-500 font-bold hover:bg-amber-500/20 transition-all">Take Back</button>
+                <button onClick={resumeGame} className="flex-1 py-3 lg:py-4 rounded-2xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-white transition-all">Resume Game</button>
               </div>
             )}
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col gap-6 min-w-[380px]">
+        <div className="flex flex-col gap-6 min-w-0 lg:min-w-[380px] lg:flex-1 w-full">
           <div className="flex-1 bg-[#0a0a1f] rounded-3xl border border-white/5 flex flex-col overflow-hidden shadow-xl p-6 space-y-6">
             <h3 className="text-sm font-bold text-white uppercase tracking-[0.2em] border-b border-white/5 pb-4">Engine Analysis</h3>
             
