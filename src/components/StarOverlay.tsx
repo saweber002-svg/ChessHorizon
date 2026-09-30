@@ -15,11 +15,15 @@ const LABELS: Record<number, string> = {
 export default function StarOverlay({ stars, onComplete }: StarOverlayProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -16 }}
+      // NOTE: x:'-50%' must live in framer's transform, not in a Tailwind
+      // -translate-x-1/2 class: framer-motion sets an inline `transform`
+      // that overrides Tailwind v3's translate utilities on the same element,
+      // which silently un-centered this popup.
+      initial={{ opacity: 0, y: -16, x: '-50%' }}
+      animate={{ opacity: 1, y: 0, x: '-50%' }}
+      exit={{ opacity: 0, y: -16, x: '-50%' }}
       transition={{ type: 'spring', stiffness: 240, damping: 26 }}
-      className="absolute left-1/2 top-1 z-50 flex w-auto -translate-x-1/2 justify-center"
+      className="absolute left-1/2 top-1 z-50 flex w-auto justify-center"
       onClick={onComplete}
     >
       <motion.div

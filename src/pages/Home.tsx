@@ -297,8 +297,9 @@ export default function Home() {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-          animate={{ y: [0, 8, 0] }}
+          className="absolute bottom-8 left-1/2"
+          initial={{ x: '-50%' }}
+          animate={{ y: [0, 8, 0], x: '-50%' }}
           transition={{ repeat: Infinity, duration: 1.5 }}
         >
           <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
