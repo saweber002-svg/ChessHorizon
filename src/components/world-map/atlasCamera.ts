@@ -82,8 +82,8 @@ const MARKER_MIN_SCALE = 0.1;
  * viewBox width, so markers hold a constant on-screen size at any zoom
  * instead of ballooning when you zoom in.
  */
-export function markerScale(vbW: number): number {
-  return MARKER_SIZE_BOOST * clamp(vbW / MARKER_DESIGN_W, MARKER_MIN_SCALE, 1);
+export function markerScale(vbW: number, boost: number = MARKER_SIZE_BOOST): number {
+  return boost * clamp(vbW / MARKER_DESIGN_W, MARKER_MIN_SCALE, 1);
 }
 
 /** Designed width of a castle icon in map units (matches the Atlas2D marker image). */
@@ -96,10 +96,20 @@ export const CASTLE_ICON_UNITS = 6;
  *
  * @param viewBoxWidth map units visible across the viewport width
  * @param viewportWidthPx viewport width in CSS pixels
+ * @param boost optional size multiplier override (defaults to the standard
+ * 30% boost; pass 1.0 for unboosted icons, e.g. on narrow screens)
  */
-export function castleIconPx(viewBoxWidth: number, viewportWidthPx: number): number {
+export function castleIconPx(
+  viewBoxWidth: number,
+  viewportWidthPx: number,
+  boost?: number,
+): number {
   if (viewBoxWidth <= 0 || viewportWidthPx <= 0) return 0;
-  return CASTLE_ICON_UNITS * markerScale(viewBoxWidth) * (viewportWidthPx / viewBoxWidth);
+  return (
+    CASTLE_ICON_UNITS *
+    markerScale(viewBoxWidth, boost ?? MARKER_SIZE_BOOST) *
+    (viewportWidthPx / viewBoxWidth)
+  );
 }
 
 /**

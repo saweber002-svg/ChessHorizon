@@ -7,7 +7,7 @@
  */
 
 /** Minimum separation between castle markers, in map units (0-100 space). */
-export const CASTLE_MIN_SEPARATION = 4.2;
+export const CASTLE_MIN_SEPARATION = 5.0;
 
 /** Padding around the castle bounding box when fitting the interior camera. */
 const FIT_PADDING = 0.35;
