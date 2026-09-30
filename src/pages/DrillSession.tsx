@@ -29,6 +29,7 @@ import {
   type DeviationAnalysis,
 } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
+import { tap as hapticTap, success as hapticSuccess, error as hapticError } from '@/lib/haptics';
 
 type PlayerColor = 'w' | 'b';
 type DrillMode = 'in-order' | 'random';
@@ -322,6 +323,7 @@ export default function DrillSession() {
       let i = fromIndex;
       const step = () => {
         if (i >= moves.length) {
+hapticSuccess();
           setSessionComplete(true);
           return;
         }
@@ -346,6 +348,7 @@ export default function DrillSession() {
 
   const beginSession = useCallback(
     (color: PlayerColor) => {
+      hapticTap();
       setPlayerColor(color);
       setMoveIndex(0);
       setAttempts(0);
@@ -548,6 +551,7 @@ export default function DrillSession() {
             // Tactical drills prestige on their own track, not the opening's.
             tacticKey: isTacticalPack && line ? line.id : undefined,
           });
+hapticSuccess();
           setSessionComplete(true);
           return;
         }
@@ -597,6 +601,7 @@ export default function DrillSession() {
           setAttempts(nextAttempts);
           setGlowColor('incorrect');
           playSound('incorrect');
+          hapticError();
           applyMovesUpTo(currentPlayerMoveIdx);
           // Ask the engine why this was bad — non-blocking, the user can retry immediately.
           checkDeviation(result.san, fen, correctMove);
@@ -628,7 +633,8 @@ export default function DrillSession() {
                     // Tactical drills prestige on their own track, not the opening's.
                     tacticKey: isTacticalPack && line ? line.id : undefined,
                   });
-                  setSessionComplete(true);
+                  hapticSuccess();
+          setSessionComplete(true);
                   return;
                 }
                 setMoveIndex(nextMoveIndex);

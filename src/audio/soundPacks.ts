@@ -2,6 +2,8 @@
  * Sound pack definitions for Chess Horizon.
  *
  * Materials (not digital synths):
+ * - Classic: premium default — soft, gentle piece click; warm low-mid
+ *   resonances with a tight decay, like a quality piece on a felted board
  * - Glass: bright, clear, longer ring — like crystal pieces
  * - Marble: deeper, warmer, medium ring — like stone pieces
  * - Wood: softest, most muted — like wooden pieces on felt
@@ -85,6 +87,14 @@ const WOOD: Material = {
   noiseFreq: 1500,
 };
 
+// Premium default: warm low-mid resonances (felted piece on a quality
+// board), tight decay for a click rather than a ring, soft noise thud.
+const CLASSIC: Material = {
+  resonances: [700, 1050, 1400, 1800], // warm, low-mid, inharmonic
+  decay: 0.1,
+  noiseFreq: 1800,
+};
+
 // ---------------------------------------------------------------------------
 // Shared horn motifs (same across packs — prestige is prestige)
 // ---------------------------------------------------------------------------
@@ -147,13 +157,15 @@ function materialPack(
   id: string,
   name: string,
   description: string,
-  mat: Material
+  mat: Material,
+  volumeScale = 1 // premium packs stay restrained (< 1); horns are unaffected
 ): SoundPack {
+  const v = (base: number) => base * volumeScale;
   return createPack(id, name, description, {
     // Move: light piece placement
     move: () => {
       soundEngine.impact({
-        volume: 0.4,
+        volume: v(0.4),
         resonances: mat.resonances,
         decay: mat.decay,
         noiseFilterFreq: mat.noiseFreq,
@@ -162,7 +174,7 @@ function materialPack(
     // Capture: heavier, slightly lower
     capture: () => {
       soundEngine.impact({
-        volume: 0.55,
+        volume: v(0.55),
         resonances: mat.resonances.map((f) => f * 0.9),
         decay: mat.decay * 1.2,
         noiseFilterFreq: mat.noiseFreq * 0.8,
@@ -171,7 +183,7 @@ function materialPack(
     // Check: heavy + subtle high ping behind it
     check: () => {
       soundEngine.impact({
-        volume: 0.6,
+        volume: v(0.6),
         resonances: mat.resonances.map((f) => f * 0.85),
         decay: mat.decay * 1.3,
         noiseFilterFreq: mat.noiseFreq * 0.7,
@@ -187,7 +199,7 @@ function materialPack(
     // Checkmate: heaviest + more pronounced ping
     checkmate: () => {
       soundEngine.impact({
-        volume: 0.7,
+        volume: v(0.7),
         resonances: mat.resonances.map((f) => f * 0.8),
         decay: mat.decay * 1.5,
         noiseFilterFreq: mat.noiseFreq * 0.6,
@@ -208,7 +220,7 @@ function materialPack(
     // Correct: soft, satisfying tick (lighter than move)
     correct: () => {
       soundEngine.impact({
-        volume: 0.3,
+        volume: v(0.3),
         resonances: mat.resonances.slice(0, 2),
         decay: mat.decay * 0.8,
         noiseFilterFreq: mat.noiseFreq,
@@ -217,7 +229,7 @@ function materialPack(
     // Incorrect: dull, muted thud (low, no ring)
     incorrect: () => {
       soundEngine.impact({
-        volume: 0.35,
+        volume: v(0.35),
         resonances: [200, 300],
         decay: 0.08,
         noiseFilterFreq: 800,
@@ -226,13 +238,13 @@ function materialPack(
     // Drill failed: gentle descending, muted
     drillFailed: () => {
       soundEngine.impact({
-        volume: 0.3,
+        volume: v(0.3),
         resonances: [400, 600],
         decay: 0.15,
         noiseFilterFreq: 1000,
       });
       soundEngine.impact({
-        volume: 0.25,
+        volume: v(0.25),
         resonances: [300, 450],
         decay: 0.15,
         noiseFilterFreq: 800,
@@ -242,13 +254,13 @@ function materialPack(
     // Drill completed: pleasant ascending ticks
     drillCompleted: () => {
       soundEngine.impact({
-        volume: 0.35,
+        volume: v(0.35),
         resonances: mat.resonances.slice(0, 3),
         decay: mat.decay,
         noiseFilterFreq: mat.noiseFreq,
       });
       soundEngine.impact({
-        volume: 0.4,
+        volume: v(0.4),
         resonances: mat.resonances.slice(0, 3).map((f) => f * 1.2),
         decay: mat.decay * 1.2,
         noiseFilterFreq: mat.noiseFreq,
@@ -259,7 +271,7 @@ function materialPack(
     perfectCompletion: () => {
       [1, 1.25, 1.5].forEach((mult, i) => {
         soundEngine.impact({
-          volume: 0.38,
+          volume: v(0.38),
           resonances: mat.resonances.slice(0, 3).map((f) => f * mult),
           decay: mat.decay * 1.1,
           noiseFilterFreq: mat.noiseFreq,
@@ -277,6 +289,13 @@ function materialPack(
 }
 
 export const SOUND_PACKS: SoundPack[] = [
+  materialPack(
+    'classic',
+    'Classic',
+    'Premium default — a soft, gentle piece click',
+    CLASSIC,
+    0.85 // restrained, premium volumes
+  ),
   materialPack('glass', 'Glass', 'Crystal clear — bright and resonant', GLASS),
   materialPack('marble', 'Marble', 'Warm stone — deep and solid', MARBLE),
   materialPack('wood', 'Wood', 'Soft timber — muted and gentle', WOOD),

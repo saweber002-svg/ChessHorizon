@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, AlertCircle, Swords, User } from 'lucide-react';
 import { useLocation } from 'wouter';
@@ -6,6 +6,7 @@ import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
 import { analyzeMove, analyzeGame, EngineUnavailableError, type MoveAnalysis as AnalysisResult, type GameReview } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
+import { tap as hapticTap, success as hapticSuccess, error as hapticError } from '@/lib/haptics';
 
 /** Computer difficulty levels (Stockfish Skill Level 0-20). */
 const DIFFICULTY_LEVELS = [
@@ -245,7 +246,27 @@ export default function Coaching() {
     }
   }, [gameState.gameStarted, gameState.userSide, gameState.moveSans.length, gameState.difficulty, makeComputerMove]);
 
+  // Haptic feedback when the game ends: affirming double pulse for a
+  // checkmate win, longer buzz for getting checkmated. The ref guards
+  // against re-firing on unrelated re-renders.
+  const prevGameOverRef = useRef<string | null>(null);
+  useEffect(() => {
+    const gameOver = gameState.gameOver;
+    if (gameOver === 'checkmate' && prevGameOverRef.current !== 'checkmate') {
+      // The side to move in the final position was checkmated.
+      const loser = new Chess(gameState.fen).turn();
+      const winner = loser === 'w' ? 'b' : 'w';
+      if (winner === gameState.userSide) {
+        hapticSuccess();
+      } else {
+        hapticError();
+      }
+    }
+    prevGameOverRef.current = gameOver;
+  }, [gameState.gameOver, gameState.fen, gameState.userSide]);
+
   const startGame = (side: 'w' | 'b') => {
+    hapticTap();
     setGameState(prev => ({
       ...prev,
       userSide: side,
@@ -377,7 +398,7 @@ export default function Coaching() {
               {DIFFICULTY_LEVELS.map((d) => (
                 <button
                   key={d.id}
-                  onClick={() => setPendingDifficulty(d.id)}
+                  onClick={() => { hapticTap(); setPendingDifficulty(d.id); }}
                   title={d.hint}
                   className={`py-2.5 px-1 rounded-xl text-xs font-bold transition-all border ${
                     pendingDifficulty === d.id

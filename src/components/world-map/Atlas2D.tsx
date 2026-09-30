@@ -12,6 +12,8 @@ import {
   tweenViewBox,
   easeInOutCubic,
   markerScale,
+  MOBILE_MARKER_BOOST,
+  MOBILE_ICON_BREAKPOINT,
 } from './atlasCamera';
 import type { ViewBox } from './atlasCamera';
 
@@ -210,6 +212,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
 
   const containerRef = useRef<HTMLDivElement>(null);
   const [aspect, setAspect] = useState(16 / 10);
+  const [containerW, setContainerW] = useState(0);
   const [viewBox, setViewBox] = useState<ViewBox>(() => createInitialViewBox(16 / 10));
   const aspectRef = useRef(aspect);
   useEffect(() => {
@@ -238,6 +241,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
     const update = () => {
       const rect = el.getBoundingClientRect();
       if (rect.width > 0 && rect.height > 0) {
+        setContainerW(rect.width);
         const next = rect.width / rect.height;
         setAspect((prev) => {
           if (Math.abs(prev - next) < 0.001) return prev;
@@ -595,7 +599,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
               lockState={getMarkerLockState(location, state.unlockedRegions)}
               glowId={`glow-${uid}-${location.id}`}
               clipId={`iconclip-${uid}-${location.id}`}
-              scale={markerScale(viewBox.w)}
+              scale={markerScale(viewBox.w, containerW > 0 && containerW < MOBILE_ICON_BREAKPOINT ? MOBILE_MARKER_BOOST : undefined)}
               onSelect={onSelectLocation}
               suppressClickRef={suppressClickRef}
             />
