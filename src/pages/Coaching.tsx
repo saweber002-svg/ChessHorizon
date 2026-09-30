@@ -82,57 +82,65 @@ export default function Coaching() {
       tempGame = new Chess();
     }
     
+    let result;
     try {
-      const result = tempGame.move({ from, to, promotion: 'q' });
-      if (!result) return;
+      result = tempGame.move({ from, to, promotion: 'q' });
+    } catch {
+      return;
+    }
+    if (!result) return;
 
-      const newFen = tempGame.fen();
+    const newFen = tempGame.fen();
+    const moveSan = result.san;
+    const isGameOver = tempGame.isGameOver();
 
-      if (gameState.isExploring) {
-        setGameState(prev => ({ ...prev, explorationBoard: newFen }));
-        // Grade the explored move live with the engine.
-        analyzeMove(result.san, currentFen).then(
-          (a) => setExplorationAnalysis(a),
-          () => setExplorationAnalysis(null),
-        );
+    if (gameState.isExploring) {
+      setGameState(prev => ({ ...prev, explorationBoard: newFen }));
+      // Grade the explored move live with the engine.
+      analyzeMove(moveSan, currentFen).then(
+        (a) => setExplorationAnalysis(a),
+        () => setExplorationAnalysis(null),
+      );
+      return;
+    }
+
+    // Apply the move IMMEDIATELY so the board updates even if engine
+    // analysis fails or hangs. Analysis runs in the background.
+    setGameState(prev => ({ ...prev, fen: newFen }));
+    setIsAnalyzing(true);
+
+    try {
+      const analysis = await analyzeMove(moveSan, currentFen);
+      if (['Inaccuracy', 'Mistake', 'Blunder'].includes(analysis.classification)) {
+        setGameState(prev => ({
+          ...prev,
+          history: [...prev.history, analysis],
+          isPaused: true,
+          pausedReason: `${analysis.classification} detected!`,
+        }));
       } else {
-        setIsAnalyzing(true);
-        let analysis: MoveAnalysis | null = null;
-        try {
-          analysis = await analyzeMove(result.san, currentFen);
-        } catch (e) {
-          if (e instanceof EngineUnavailableError) {
-            setEngineError('Engine unavailable — playing on without analysis.');
-          } else {
-            throw e;
-          }
-        }
-
-        if (analysis && ['Inaccuracy', 'Mistake', 'Blunder'].includes(analysis.classification)) {
-          setGameState(prev => ({
-            ...prev,
-            fen: newFen,
-            history: [...prev.history, analysis as MoveAnalysis],
-            isPaused: true,
-            pausedReason: `${(analysis as MoveAnalysis).classification} detected!`,
-          }));
-        } else {
-          setGameState(prev => ({
-            ...prev,
-            fen: newFen,
-            history: analysis ? [...prev.history, analysis] : prev.history,
-          }));
-
-          // Trigger computer move if it's not the user's turn
-          if (!tempGame.isGameOver()) {
-            setTimeout(() => {
-              void makeComputerMove(newFen);
-            }, 600);
-          }
+        setGameState(prev => ({
+          ...prev,
+          history: [...prev.history, analysis],
+        }));
+        if (!isGameOver) {
+          setTimeout(() => {
+            void makeComputerMove(newFen);
+          }, 600);
         }
       }
     } catch (e) {
-      console.error("Invalid move", e);
+      if (e instanceof EngineUnavailableError) {
+        setEngineError('Engine unavailable — playing on without analysis.');
+      } else {
+        console.error('Analysis failed', e);
+      }
+      // Move was already applied; continue the game without analysis.
+      if (!isGameOver) {
+        setTimeout(() => {
+          void makeComputerMove(newFen);
+        }, 600);
+      }
     } finally {
       setIsAnalyzing(false);
     }
