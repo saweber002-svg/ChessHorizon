@@ -53,6 +53,30 @@ export interface MoveProgress {
   streak: number;
 }
 
+/**
+ * Local opening-drill progress, keyed `${openingId}:${variationId}:${side}`.
+ * tier comes from the streak of perfect completions of the opening drill;
+ * this is what unmoved pieces on the trophy board prestige by.
+ */
+export interface OpeningProgressLocal {
+  totalAttempts: number;
+  perfectStreak: number;
+  tier: Tier;
+  /** totalAttempts value the last time a watch was consumed; -1 = never. */
+  lastWatchAttempt: number;
+}
+
+/**
+ * Local tactical-drill progress, keyed `${openingId}:${variationId}:${tacticLineId}`.
+ * tier comes from the streak of perfect completions, gated identically to
+ * opening prestige (1/3/5/10).
+ */
+export interface TacticalProgressLocal {
+  totalAttempts: number;
+  perfectStreak: number;
+  tier: Tier;
+}
+
 export interface ProgressState {
   totalStars: number;
   moveProgress: Record<string, MoveProgress>;
@@ -60,6 +84,9 @@ export interface ProgressState {
   unlockedRegions: KingdomId[];
   drillMode: 'random' | 'in-order';
   sideMode: 'white' | 'black' | 'both';
+  /** Optional so older saved states and hand-built test states keep working. */
+  openingProgress?: Record<string, OpeningProgressLocal>;
+  tacticalProgress?: Record<string, TacticalProgressLocal>;
 }
 
 export type GlowColor = 'idle' | 'correct' | 'incorrect';

@@ -3,12 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ThemePicker from '@/components/ThemePicker';
 import SoundPicker from '@/components/SoundPicker';
 import { useSound } from '@/contexts/SoundContext';
-import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play } from 'lucide-react';
+import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play, Eye } from 'lucide-react';
 import { useLocation, useParams, useSearch } from 'wouter';
+import { TrophyBoard } from '@/components/TrophyBoard';
+import { kingdomHasDrills } from '@/data/kingdomDrills';
+import type { KingdomId } from '@/types';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
 import StarOverlay from '@/components/StarOverlay';
 import { useProgress } from '@/contexts/ProgressContext';
+import { useAuth } from '@/contexts/AuthContext';
+import { trpc } from '@/lib/trpc';
 import {
   loadDrillPack,
   buildFenFromMoves,
@@ -41,11 +46,13 @@ export default function DrillSession() {
   const params = useParams<{ drillFileId: string }>();
   const search = useSearch();
   const [, setLocation] = useLocation();
-  const { recordDrillResult, recordOpeningCompletion } = useProgress();
+  const { recordDrillResult, recordOpeningCompletion, getLocalWatchStatus, consumeLocalWatch } = useProgress();
+  const { user } = useAuth();
 
   const drillFileId = params.drillFileId ?? 'giuoco-piano-main';
   const openingId = new URLSearchParams(search).get('opening') ?? 'italian';
   const variationId = new URLSearchParams(search).get('variation') ?? 'giuoco-piano';
+  const sideParam = new URLSearchParams(search).get('side');
 
   const [pack, setPack] = useState<DrillPack | null>(null);
   const [line, setLine] = useState<DrillLine | null>(null);
@@ -72,8 +79,20 @@ export default function DrillSession() {
   /** Bumped whenever the position changes so stale engine replies are discarded. */
   const deviationSeq = useRef(0);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** In-drill watch: the line plays once, non-interactively, then resets. */
+  const [watching, setWatching] = useState(false);
+  const [watchNote, setWatchNote] = useState<string | null>(null);
+  const watchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isTacticalPack = isTacticalPackId(drillFileId);
+
+  // Server-enforced watch quota for signed-in drills.
+  const watchSide = playerColor === 'b' ? 'black' : 'white';
+  const serverWatchStatus = trpc.watch.getStatus.useQuery(
+    { openingId, variationId, side: watchSide },
+    { enabled: !!user && !!playerColor, retry: 1, refetchOnWindowFocus: false }
+  );
+  const consumeWatchMutation = trpc.watch.consume.useMutation();
 
   const clearDeviation = useCallback(() => {
     deviationSeq.current += 1;
@@ -104,6 +123,9 @@ export default function DrillSession() {
   );
 
   const selectTactic = useCallback((tactic: DrillLine) => {
+    if (watchTimerRef.current) clearTimeout(watchTimerRef.current);
+    setWatching(false);
+    setWatchNote(null);
     setLine(tactic);
     setPlayerColor(null);
     setSessionComplete(false);
@@ -150,6 +172,9 @@ export default function DrillSession() {
     setMoveResults([]);
     setHintUsed(false);
     setHintSquares([]);
+    setWatching(false);
+    setWatchNote(null);
+    if (watchTimerRef.current) clearTimeout(watchTimerRef.current);
     clearDeviation();
 
     loadDrillPack(drillFileId)
@@ -233,9 +258,120 @@ export default function DrillSession() {
     [applyMovesUpTo, playOpponentMoves, clearDeviation]
   );
 
+  // A ?side=w|b param skips the trophy side-select (e.g. deep links).
+  useEffect(() => {
+    if (pack && !playerColor && (sideParam === 'w' || sideParam === 'b')) {
+      beginSession(sideParam);
+    }
+  }, [pack, playerColor, sideParam, beginSession]);
+
+  /**
+   * In-drill watch. Triggering it consumes a single play from the watch quota
+   * (one play per the attempts required by the prestige gating). The full line
+   * plays once on the drill board — non-interactive, oriented to the color
+   * being played — then the drill resets to the starting position. Per-move
+   * prestige already recorded in the progress store is retained; the fresh
+   * attempt starts with empty session results.
+   */
+  const exitWatch = useCallback(() => {
+    if (watchTimerRef.current) clearTimeout(watchTimerRef.current);
+    setWatching(false);
+    if (playerColor) beginSession(playerColor);
+  }, [beginSession, playerColor]);
+
+  const startWatch = useCallback(async () => {
+    if (!playerColor || watching || !line) return;
+    const side = playerColor === 'w' ? 'white' : 'black';
+    setWatchNote(null);
+
+    const quotaNote = (attemptsRequired: number | null, attemptsSince: number) => {
+      const remaining = Math.max(1, (attemptsRequired ?? 1) - attemptsSince);
+      setWatchNote(
+        `Watch used — complete ${remaining} more attempt${remaining === 1 ? '' : 's'} to earn another.`
+      );
+    };
+
+    if (user) {
+      const status = (await serverWatchStatus.refetch()).data;
+      if (status && !status.available) {
+        quotaNote(status.attemptsRequired, status.attemptsSinceLastWatch);
+        return;
+      }
+      try {
+        await consumeWatchMutation.mutateAsync({
+          openingId,
+          variationId,
+          side,
+          idempotencyKey: globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`,
+        });
+      } catch {
+        // Fail open: a backend hiccup
+        // shouldn't lock learning; the quota stays enforced server-side.
+      }
+      consumeLocalWatch(openingId, variationId, side);
+    } else {
+      const status = getLocalWatchStatus(openingId, variationId, side);
+      if (!status.available) {
+        quotaNote(status.attemptsRequired, status.attemptsSinceLastWatch);
+        return;
+      }
+      consumeLocalWatch(openingId, variationId, side);
+    }
+
+    if (autoPlayRef.current) clearTimeout(autoPlayRef.current);
+    clearDeviation();
+    setWaitingOpponent(false);
+    setShowStars(false);
+    setGlowColor('idle');
+    setHintSquares([]);
+    setWatching(true);
+    applyMovesUpTo(0);
+    setLastMove(null);
+
+    let i = 0;
+    const step = () => {
+      if (i >= moves.length) {
+        exitWatch();
+        return;
+      }
+      const before = buildFenFromMoves(startFen, moves, i);
+      try {
+        const c = new Chess(before);
+        const m = c.move(moves[i]);
+        if (m) setLastMove({ from: m.from as Square, to: m.to as Square });
+      } catch {
+        /* line data is validated; keep playing */
+      }
+      applyMovesUpTo(i + 1);
+      const san = moves[i] ?? '';
+      playSound(san.includes('x') ? 'capture' : 'move');
+      i += 1;
+      watchTimerRef.current = setTimeout(step, 1100);
+    };
+    watchTimerRef.current = setTimeout(step, 700);
+  }, [
+    playerColor,
+    watching,
+    line,
+    user,
+    serverWatchStatus,
+    consumeWatchMutation,
+    openingId,
+    variationId,
+    consumeLocalWatch,
+    getLocalWatchStatus,
+    clearDeviation,
+    applyMovesUpTo,
+    moves,
+    startFen,
+    playSound,
+    exitWatch,
+  ]);
+
   useEffect(() => {
     return () => {
       if (autoPlayRef.current) clearTimeout(autoPlayRef.current);
+      if (watchTimerRef.current) clearTimeout(watchTimerRef.current);
     };
   }, []);
 
@@ -258,7 +394,11 @@ export default function DrillSession() {
   const advanceAfterCorrect = useCallback(
     (stars: number) => {
       setMoveResults((prev) => [...prev, stars]);
-      const moveKey = `${openingId}:${variationId}:${currentPlayerMoveIdx}`;
+      // Tactical per-move keys live under a `tactical:` namespace so tactical
+      // results never bleed into the opening's per-move prestige tiers.
+      const moveKey = isTacticalPack
+        ? `${openingId}:${variationId}:tactical:${currentPlayerMoveIdx}`
+        : `${openingId}:${variationId}:${currentPlayerMoveIdx}`;
       recordDrillResult(moveKey, stars);
 
       setTimeout(() => {
@@ -287,6 +427,8 @@ export default function DrillSession() {
               ...moveResults.map((value, index) => ({ moveIndex: playerMoveIndices[index] ?? index, stars: Math.max(0, Math.min(3, value)) as 0 | 1 | 2 | 3 })),
               { moveIndex: currentPlayerMoveIdx, stars: Math.max(0, Math.min(3, stars)) as 0 | 1 | 2 | 3 },
             ],
+            // Tactical drills prestige on their own track, not the opening's.
+            tacticKey: isTacticalPack && line ? line.id : undefined,
           });
           setSessionComplete(true);
           return;
@@ -309,6 +451,8 @@ export default function DrillSession() {
       clearDeviation,
       playerColor,
       playSound,
+      isTacticalPack,
+      line,
     ]
   );
 
@@ -341,7 +485,9 @@ export default function DrillSession() {
 
           if (nextAttempts >= MAX_ATTEMPTS) {
             setMoveResults((prev) => [...prev, 0]);
-            const moveKey = `${openingId}:${variationId}:${currentPlayerMoveIdx}`;
+            const moveKey = isTacticalPack
+              ? `${openingId}:${variationId}:tactical:${currentPlayerMoveIdx}`
+              : `${openingId}:${variationId}:${currentPlayerMoveIdx}`;
             recordDrillResult(moveKey, 0);
             setTimeout(() => {
               const correct = new Chess(fen);
@@ -361,6 +507,8 @@ export default function DrillSession() {
                       ...moveResults.map((value, index) => ({ moveIndex: playerMoveIndices[index] ?? index, stars: Math.max(0, Math.min(3, value)) as 0 | 1 | 2 | 3 })),
                       { moveIndex: currentPlayerMoveIdx, stars: 0 },
                     ],
+                    // Tactical drills prestige on their own track, not the opening's.
+                    tacticKey: isTacticalPack && line ? line.id : undefined,
                   });
                   setSessionComplete(true);
                   return;
@@ -404,6 +552,8 @@ export default function DrillSession() {
       checkDeviation,
       clearDeviation,
       playSound,
+      isTacticalPack,
+      line,
     ]
   );
 
@@ -516,41 +666,17 @@ export default function DrillSession() {
   }
 
   if (!playerColor) {
+    const backTarget = kingdomHasDrills(openingId as KingdomId)
+      ? `/kingdom/${openingId}`
+      : '/atlas';
     return (
-      <motion.div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center p-6">
-        <button
-          onClick={() => setLocation('/atlas')}
-          className="absolute top-6 left-6 flex items-center gap-2 text-white/50 hover:text-white"
-        >
-          <ArrowLeft size={18} /> Atlas
-        </button>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-md w-full text-center"
-        >
-          <p className="text-[#00f5d4] text-xs uppercase tracking-[0.3em] mb-2">Choose your banner</p>
-          <h1 className="text-2xl font-bold text-white mb-2">{pack.name}</h1>
-          <p className="text-white/45 text-sm mb-8">{line.description}</p>
-          <p className="text-white/60 text-sm mb-6">Lock in your color for this session:</p>
-          <div className="flex gap-4 justify-center">
-            <button
-              onClick={() => beginSession('w')}
-              className="flex-1 max-w-[140px] py-4 rounded-xl border-2 border-cyan-400/50 bg-cyan-400/10 hover:bg-cyan-400/20 transition-all"
-            >
-              <span className="text-3xl">♔</span>
-              <p className="text-sm font-semibold text-cyan-300 mt-2">White</p>
-            </button>
-            <button
-              onClick={() => beginSession('b')}
-              className="flex-1 max-w-[140px] py-4 rounded-xl border-2 border-red-500/50 bg-red-500/10 hover:bg-red-500/20 transition-all"
-            >
-              <span className="text-3xl">♚</span>
-              <p className="text-sm font-semibold text-red-400 mt-2">Black</p>
-            </button>
-          </div>
-        </motion.div>
-      </motion.div>
+      <TrophyBoard
+        drillFileId={drillFileId}
+        openingId={openingId}
+        variationId={variationId}
+        onSelectSide={(side) => beginSession(side)}
+        onBack={() => setLocation(backTarget)}
+      />
     );
   }
 
@@ -694,7 +820,11 @@ export default function DrillSession() {
         ) : (
           <>
             <p className="text-center text-sm text-white/50 mb-4">
-              {waitingOpponent ? (
+              {watching ? (
+                <span className="text-[#00f5d4]/80 animate-pulse">
+                  Watching the line… single play
+                </span>
+              ) : waitingOpponent ? (
                 <span className="text-[#00f5d4]/80 animate-pulse">Opponent is moving…</span>
               ) : (
                 <>
@@ -719,7 +849,7 @@ export default function DrillSession() {
                 glowColor={glowColor}
                 hintSquares={hintSquares}
                 lastMove={lastMove}
-                interactive={!waitingOpponent && !showStars}
+                interactive={!waitingOpponent && !showStars && !watching}
                 orientation={playerColor === 'b' ? 'black' : 'white'}
               />
             </div>
@@ -787,14 +917,34 @@ export default function DrillSession() {
             </AnimatePresence>
 
             <motion.div className="flex justify-center gap-3 mt-6">
+              {watching ? (
+                <button
+                  onClick={exitWatch}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#00f5d4]/40 text-[#00f5d4] text-sm"
+                >
+                  <X size={16} /> Exit watch
+                </button>
+              ) : (
+                <>
+                  <button
+                    onClick={() => beginSession(playerColor)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm"
+                  >
+                    <RotateCcw size={16} /> Restart
+                  </button>
+                  <button
+                    onClick={startWatch}
+                    disabled={showStars || waitingOpponent}
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm hover:text-[#00f5d4] hover:border-[#00f5d4]/30 disabled:opacity-40 disabled:hover:text-white/60 disabled:hover:border-[#2a2a3e]"
+                    title="Watch the full line once"
+                  >
+                    <Eye size={16} /> Watch
+                  </button>
+                </>
+              )}
               <button
-                onClick={() => beginSession(playerColor)}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm"
-              >
-                <RotateCcw size={16} /> Restart
-              </button>              <button
                 onClick={handleHint}
-                disabled={hintUsed || sessionComplete || showStars}
+                disabled={hintUsed || sessionComplete || showStars || watching}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-sm transition-colors ${
                   hintUsed
                     ? 'bg-[#141422] border-[#2a2a3e] text-white/30 cursor-not-allowed'
@@ -812,6 +962,9 @@ export default function DrillSession() {
                 {drillMode === 'in-order' ? 'In order' : 'Random'}
               </button>
             </motion.div>
+            {watchNote && !watching && (
+              <p className="text-center text-xs text-amber-300/80 mt-3">{watchNote}</p>
+            )}
           </>
         )}
       </div>

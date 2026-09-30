@@ -6,7 +6,7 @@ export const REALM_TOTAL_MOVES: Record<string, number> = {
   "germany": 28,
   "dutch": 14,
   "english": 32,
-  "italian": 157,
+  "italian": 183,
   "french": 42,
   "queendom": 90,
   "spanish": 66,
