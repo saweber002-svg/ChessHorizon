@@ -169,6 +169,7 @@ export const KINGDOM_UNLOCK_ORDER: Array<{
   { kingdom: 'sicilian', previousKingdom: 'germany', prerequisiteVariation: 'german', starThreshold: 15 },
   { kingdom: 'english', previousKingdom: 'sicilian', prerequisiteVariation: 'sicilian', starThreshold: 12 },
   { kingdom: 'dutch', previousKingdom: 'english', prerequisiteVariation: 'english', starThreshold: 14 },
+  { kingdom: 'scandinavian', previousKingdom: 'dutch', prerequisiteVariation: 'dutch', starThreshold: 18 },
   { kingdom: 'queendom', previousKingdom: 'dutch', prerequisiteVariation: 'dutch', starThreshold: 20 },
   { kingdom: 'coaching', starThreshold: 0 }, // Always accessible for live coaching
 ];
