@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ThemePicker from '@/components/ThemePicker';
 import SoundPicker from '@/components/SoundPicker';
 import { useSound } from '@/contexts/SoundContext';
-import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play, Eye } from 'lucide-react';
+import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play, Eye, Swords } from 'lucide-react';
 import { useLocation, useParams, useSearch } from 'wouter';
 import { TrophyBoard } from '@/components/TrophyBoard';
 import { kingdomHasDrills } from '@/data/kingdomDrills';
@@ -29,6 +29,7 @@ import {
   type DeviationAnalysis,
 } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
+import { tap as hapticTap, success as hapticSuccess, error as hapticError } from '@/lib/haptics';
 
 type PlayerColor = 'w' | 'b';
 type DrillMode = 'in-order' | 'random';
@@ -69,6 +70,10 @@ export default function DrillSession() {
   const [sessionComplete, setSessionComplete] = useState(false);
   const [showPauseMenu, setShowPauseMenu] = useState(false);
   const [waitingOpponent, setWaitingOpponent] = useState(false);
+  /** Sparring: play out the final drill position against the engine. */
+  const [sparring, setSparring] = useState(false);
+  const [sparringOver, setSparringOver] = useState(false);
+  const [sparringThinking, setSparringThinking] = useState(false);
   const { play: playSound } = useSound();
   const [lastMove, setLastMove] = useState<{ from: Square; to: Square } | null>(null);
   const [moveResults, setMoveResults] = useState<number[]>([]);
@@ -129,6 +134,8 @@ export default function DrillSession() {
     setLine(tactic);
     setPlayerColor(null);
     setSessionComplete(false);
+    setSparring(false);
+    setSparringOver(false);
     setMoveIndex(0);
     setAttempts(0);
     setMoveResults([]);
@@ -139,6 +146,102 @@ export default function DrillSession() {
     setShowStars(false);
     clearDeviation();
   }, [clearDeviation]);
+
+  /** Enter sparring mode: play the final drill position against Stockfish. */
+  const startSparring = useCallback(() => {
+    setSparring(true);
+    setSparringOver(false);
+    setGlowColor('idle');
+    setLastMove(null);
+    // If it's the opponent's turn in the final position, engine moves first.
+    const game = new Chess(fen);
+    if (playerColor && game.turn() !== playerColor && !game.isGameOver()) {
+      setSparringThinking(true);
+      getEngine().findBestMove(fen, 6, 400).then(
+        (uci) => {
+          const g = new Chess(fen);
+          const moved = g.move({
+            from: uci.slice(0, 2) as Square,
+            to: uci.slice(2, 4) as Square,
+            promotion: uci.length > 4 ? uci[4] : undefined,
+          });
+          if (moved) {
+            setFen(g.fen());
+            setLastMove({ from: moved.from, to: moved.to });
+          }
+          setSparringThinking(false);
+        },
+        () => setSparringThinking(false),
+      );
+    }
+  }, [fen, playerColor]);
+
+  /** Handle a user move during sparring. Engine replies as the opponent. */
+  const handleSparringMove = useCallback((from: Square, to: Square) => {
+    if (sparringOver || sparringThinking) return;
+    const game = new Chess(fen);
+    if (playerColor && game.turn() !== playerColor) return;
+    
+    let result;
+    try {
+      result = game.move({ from, to, promotion: 'q' });
+    } catch {
+      return;
+    }
+    if (!result) return;
+
+    const newFen = game.fen();
+    setFen(newFen);
+    setLastMove({ from: result.from, to: result.to });
+
+    if (game.isGameOver()) {
+      setSparringOver(true);
+      playSound('drillCompleted');
+      return;
+    }
+
+    // Engine's turn
+    setSparringThinking(true);
+    getEngine().findBestMove(newFen, 6, 400).then(
+      (uci) => {
+        const g = new Chess(newFen);
+        const moved = g.move({
+          from: uci.slice(0, 2) as Square,
+          to: uci.slice(2, 4) as Square,
+          promotion: uci.length > 4 ? uci[4] : undefined,
+        });
+        if (moved) {
+          setFen(g.fen());
+          setLastMove({ from: moved.from, to: moved.to });
+          if (g.isGameOver()) {
+            setSparringOver(true);
+            playSound('drillCompleted');
+          }
+        }
+        setSparringThinking(false);
+      },
+      () => {
+        // Engine failed: fall back to random move so play continues
+        const g = new Chess(newFen);
+        const moves = g.moves({ verbose: true });
+        if (moves.length > 0) {
+          const m = moves[Math.floor(Math.random() * moves.length)];
+          g.move(m);
+          setFen(g.fen());
+          setLastMove({ from: m.from, to: m.to });
+          if (g.isGameOver()) setSparringOver(true);
+        }
+        setSparringThinking(false);
+      },
+    );
+  }, [fen, playerColor, sparringOver, sparringThinking, playSound]);
+
+  /** Exit sparring back to the drill-complete overlay. */
+  const exitSparring = useCallback(() => {
+    setSparring(false);
+    setSparringOver(false);
+    setSparringThinking(false);
+  }, []);
 
   const moves = useMemo(() => line?.moves ?? [], [line]);
   const startFen = line?.startFen ?? pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
@@ -167,6 +270,9 @@ export default function DrillSession() {
     setShowStars(false);
     setEarnedStars(0);
     setSessionComplete(false);
+    setSparring(false);
+    setSparringOver(false);
+    setSparringThinking(false);
     setWaitingOpponent(false);
     setLastMove(null);
     setMoveResults([]);
@@ -217,6 +323,7 @@ export default function DrillSession() {
       let i = fromIndex;
       const step = () => {
         if (i >= moves.length) {
+hapticSuccess();
           setSessionComplete(true);
           return;
         }
@@ -241,6 +348,7 @@ export default function DrillSession() {
 
   const beginSession = useCallback(
     (color: PlayerColor) => {
+      hapticTap();
       setPlayerColor(color);
       setMoveIndex(0);
       setAttempts(0);
@@ -257,6 +365,19 @@ export default function DrillSession() {
     },
     [applyMovesUpTo, playOpponentMoves, clearDeviation]
   );
+
+  /** Restart the current drill line from the beginning. */
+  const restartDrill = useCallback(() => {
+    if (watchTimerRef.current) clearTimeout(watchTimerRef.current);
+    setWatching(false);
+    setWatchNote(null);
+    setSparring(false);
+    setSparringOver(false);
+    setSparringThinking(false);
+    if (playerColor) {
+      beginSession(playerColor);
+    }
+  }, [playerColor, beginSession]);
 
   // A ?side=w|b param skips the trophy side-select (e.g. deep links).
   useEffect(() => {
@@ -430,6 +551,7 @@ export default function DrillSession() {
             // Tactical drills prestige on their own track, not the opening's.
             tacticKey: isTacticalPack && line ? line.id : undefined,
           });
+hapticSuccess();
           setSessionComplete(true);
           return;
         }
@@ -479,6 +601,7 @@ export default function DrillSession() {
           setAttempts(nextAttempts);
           setGlowColor('incorrect');
           playSound('incorrect');
+          hapticError();
           applyMovesUpTo(currentPlayerMoveIdx);
           // Ask the engine why this was bad — non-blocking, the user can retry immediately.
           checkDeviation(result.san, fen, correctMove);
@@ -510,7 +633,8 @@ export default function DrillSession() {
                     // Tactical drills prestige on their own track, not the opening's.
                     tacticKey: isTacticalPack && line ? line.id : undefined,
                   });
-                  setSessionComplete(true);
+                  hapticSuccess();
+          setSessionComplete(true);
                   return;
                 }
                 setMoveIndex(nextMoveIndex);
@@ -724,99 +848,144 @@ export default function DrillSession() {
 
       <div className="max-w-lg mx-auto px-4 py-6">
         {sessionComplete ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-12"
-          >
-            <h2 className="text-2xl font-bold text-white mb-4">Drill Complete</h2>
-            <div className="flex justify-center gap-1 mb-6">
-              {moveResults.map((s, i) => (
-                <Star
-                  key={i}
-                  size={24}
-                  className={s > 0 ? 'text-yellow-400 fill-yellow-400' : 'text-white/20'}
-                />
-              ))}
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <button
-                onClick={() => setLocation('/atlas')}
-                className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
-              >
-                Return to Atlas
-              </button>
+          <div className="relative">
+            {/* Board stays visible — final drill position, or live sparring game */}
+            <ChessBoard
+              fen={fen}
+              onMove={handleSparringMove}
+              glowColor={glowColor}
+              lastMove={lastMove}
+              interactive={sparring && !sparringOver && !sparringThinking}
+              orientation={playerColor === 'b' ? 'black' : 'white'}
+            />
 
-              {/* Only show "Drill tactics" when we actually have tactical content registered
-                  for this variation. This prevents the button appearing and then landing on
-                  a "not available yet" screen with only Return. */}
-              {drillFileId.endsWith('-main') && hasTacticalDrills(variationId) && (
-                <button
-                  onClick={() => {
-                    // Try to find the most appropriate tactical pack (prefer white/standard, fallback to black)
-                    const t1 = `${variationId}-tacticals`;
-                    const t2 = `${variationId}-black-tacticals`;
-                    const tacticalDrillId = TACTICAL_FILE_IDS.includes(t1) ? t1 : t2;
-                    
-                    setLocation(
-                      `/drill-session/${tacticalDrillId}?opening=${openingId}&variation=${variationId}`
-                    );
-                  }}
-                  className="px-6 py-3 rounded-xl bg-[#f5a623] text-[#0a0a1f] font-bold hover:bg-[#e5941a] transition-colors"
+            {/* Drill-complete options overlay (hidden while sparring) */}
+            <AnimatePresence>
+              {!sparring && (
+                <motion.div
+                  key="complete-overlay"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="absolute inset-0 z-20 flex items-center justify-center bg-[#050510]/85 backdrop-blur-sm rounded-2xl p-4 overflow-y-auto"
                 >
-                  Drill tactics for this variation
-                </button>
-              )}
-              {drillFileId.endsWith('-main') && hasPuzzleDrills(variationId) && (
-                <button
-                  onClick={() => {
-                    setLocation(
-                      `/drill-session/${variationId}-puzzles?opening=${openingId}&variation=${variationId}`
-                    );
-                  }}
-                  className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-[#00e0c0] transition-colors"
-                >
-                  Practice real puzzles
-                </button>
-              )}
-            </div>
-
-            {/* If we are in a tactical pack, show the other tactics to practice next */}
-            {isTacticalPack && pack && pack.lines.length > 0 && (
-              <div className="mt-12 w-full max-w-md mx-auto text-left">
-                <p className="text-xs uppercase tracking-[0.2em] text-white/30 mb-4 text-center">Practice another tactic</p>
-                <div className="grid gap-3">
-                  {pack.lines.map((tactic) => (
-                    <button
-                      key={tactic.id}
-                      onClick={() => selectTactic(tactic)}
-                      className={`w-full text-left p-4 rounded-xl border transition-all group ${
-                        line?.id === tactic.id
-                          ? 'bg-[#00f5d4]/5 border-[#00f5d4]/30 cursor-default'
-                          : 'bg-[#141422] border-[#2a2a3e] hover:border-[#00f5d4]/40 hover:bg-[#1a1a2e]'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className={`font-semibold ${line?.id === tactic.id ? 'text-[#00f5d4]' : 'text-white group-hover:text-[#00f5d4]'}`}>
-                          {tactic.name}
-                        </div>
-                        {line?.id === tactic.id && (
-                          <span className="text-[10px] font-bold bg-[#00f5d4]/20 text-[#00f5d4] px-2 py-0.5 rounded-full uppercase tracking-wider">
-                            Just Completed
-                          </span>
-                        )}
-                      </div>
-                      {tactic.description && (
-                        <div className="text-sm text-white/50 mt-1 line-clamp-1 group-hover:text-white/70">
-                          {tactic.description}
-                        </div>
+                  <div className="text-center max-w-md w-full py-4">
+                    <h2 className="text-2xl font-bold text-white mb-3">Drill Complete</h2>
+                    <div className="flex justify-center gap-1 mb-5">
+                      {moveResults.map((s, i) => (
+                        <Star
+                          key={i}
+                          size={24}
+                          className={s > 0 ? 'text-yellow-400 fill-yellow-400' : 'text-white/20'}
+                        />
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <button
+                        onClick={restartDrill}
+                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white font-bold hover:bg-white/20 transition-colors"
+                      >
+                        <RotateCcw size={18} /> Drill Again
+                      </button>
+                      <button
+                        onClick={startSparring}
+                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-300 font-bold hover:bg-purple-500/30 transition-colors"
+                      >
+                        <Swords size={18} /> Play vs Computer
+                      </button>
+                      {drillFileId.endsWith('-main') && hasTacticalDrills(variationId) && (
+                        <button
+                          onClick={() => {
+                            const t1 = `${variationId}-tacticals`;
+                            const t2 = `${variationId}-black-tacticals`;
+                            const tacticalDrillId = TACTICAL_FILE_IDS.includes(t1) ? t1 : t2;
+                            setLocation(
+                              `/drill-session/${tacticalDrillId}?opening=${openingId}&variation=${variationId}`
+                            );
+                          }}
+                          className="px-4 py-3 rounded-xl bg-[#f5a623] text-[#0a0a1f] font-bold hover:bg-[#e5941a] transition-colors"
+                        >
+                          Drill tactics for this variation
+                        </button>
                       )}
-                    </button>
-                  ))}
-                </div>
+                      {drillFileId.endsWith('-main') && hasPuzzleDrills(variationId) && (
+                        <button
+                          onClick={() => {
+                            setLocation(
+                              `/drill-session/${variationId}-puzzles?opening=${openingId}&variation=${variationId}`
+                            );
+                          }}
+                          className="px-4 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-[#00e0c0] transition-colors"
+                        >
+                          Practice real puzzles
+                        </button>
+                      )}
+                      <button
+                        onClick={() => setLocation('/atlas')}
+                        className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white/70 font-bold hover:bg-white/10 transition-colors sm:col-span-2"
+                      >
+                        Return to Atlas
+                      </button>
+                    </div>
+
+                    {/* If we are in a tactical pack, show the other tactics to practice next */}
+                    {isTacticalPack && pack && pack.lines.length > 0 && (
+                      <div className="mt-6 w-full text-left">
+                        <p className="text-xs uppercase tracking-[0.2em] text-white/30 mb-3 text-center">Practice another tactic</p>
+                        <div className="grid gap-2 max-h-48 overflow-y-auto">
+                          {pack.lines.map((tactic) => (
+                            <button
+                              key={tactic.id}
+                              onClick={() => selectTactic(tactic)}
+                              className={`w-full text-left p-3 rounded-xl border transition-all group ${
+                                line?.id === tactic.id
+                                  ? 'bg-[#00f5d4]/5 border-[#00f5d4]/30 cursor-default'
+                                  : 'bg-[#141422] border-[#2a2a3e] hover:border-[#00f5d4]/40 hover:bg-[#1a1a2e]'
+                              }`}
+                            >
+                              <div className="flex items-center justify-between">
+                                <div className={`font-semibold text-sm ${line?.id === tactic.id ? 'text-[#00f5d4]' : 'text-white group-hover:text-[#00f5d4]'}`}>
+                                  {tactic.name}
+                                </div>
+                                {line?.id === tactic.id && (
+                                  <span className="text-[10px] font-bold bg-[#00f5d4]/20 text-[#00f5d4] px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                    Just Completed
+                                  </span>
+                                )}
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Sparring status + exit */}
+            {sparring && (
+              <div className="mt-4 flex items-center justify-center gap-3">
+                {sparringThinking && (
+                  <span className="flex items-center gap-2 text-xs uppercase tracking-widest text-white/40">
+                    <span className="w-3 h-3 border-2 border-purple-400 border-t-transparent rounded-full animate-spin" />
+                    Engine thinking…
+                  </span>
+                )}
+                {sparringOver && (
+                  <span className="text-sm font-bold text-[#00f5d4] uppercase tracking-widest">
+                    Game over
+                  </span>
+                )}
+                <button
+                  onClick={exitSparring}
+                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white/70 text-sm font-bold hover:bg-white/10 transition-colors"
+                >
+                  {sparringOver ? 'Back to results' : 'End sparring'}
+                </button>
               </div>
             )}
-          </motion.div>
+          </div>
         ) : (
           <>
             <p className="text-center text-sm text-white/50 mb-4">

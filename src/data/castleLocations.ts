@@ -57,8 +57,14 @@ export const CASTLE_LOCATIONS: CastleLocation[] = [
   { variationId: 'french-advance', castle: 'Château de Chambord', place: 'Loire Valley, France', lat: 47.6161, lng: 1.5172 },
   { variationId: 'french-classical', castle: 'Château de Chenonceau', place: 'Loire Valley, France', lat: 47.3246, lng: 1.0704 },
   { variationId: 'french-winawer', castle: 'Cité de Carcassonne', place: 'Carcassonne, France', lat: 43.2066, lng: 2.364 },
+  { variationId: 'french-tarrasch', castle: 'Château de Villandry', place: 'Loire Valley, France', lat: 47.3408, lng: 0.5156 },
+  { variationId: 'french-exchange', castle: "Château d'Azay-le-Rideau", place: 'Loire Valley, France', lat: 47.2591, lng: 0.4659 },
+  { variationId: 'french-rubinstein', castle: 'Palace of Versailles', place: 'Versailles, France', lat: 48.8049, lng: 2.1204 },
   // -- Dutch kingdom ---------------------------------------------------------------
   { variationId: 'dutch-leningrad', castle: 'Muiderslot', place: 'Muiden, Netherlands', lat: 52.3343, lng: 5.0714 },
+  { variationId: 'dutch-classical', castle: 'De Haar Castle', place: 'Utrecht, Netherlands', lat: 52.1213, lng: 4.9172 },
+  { variationId: 'dutch-stonewall', castle: 'Doorwerth Castle', place: 'Doorwerth, Netherlands', lat: 51.9776, lng: 5.5997 },
+  { variationId: 'dutch-staunton-gambit', castle: 'Loevestein Castle', place: 'Poederoijen, Netherlands', lat: 51.8166, lng: 5.0208 },
   // -- Spanish kingdom: Ruy Lopez ---------------------------------------------------
   { variationId: 'ruy-lopez-berlin', castle: 'Alcázar of Segovia', place: 'Segovia, Spain', lat: 40.9525, lng: -4.1325 },
   { variationId: 'ruy-lopez-exchange', castle: 'Alhambra', place: 'Granada, Spain', lat: 37.176, lng: -3.5883 },
@@ -67,6 +73,9 @@ export const CASTLE_LOCATIONS: CastleLocation[] = [
   // -- German kingdom: Caro-Kann -------------------------------------------------------
   { variationId: 'caro-kann-advance', castle: 'Neuschwanstein Castle', place: 'Bavaria, Germany', lat: 47.5575, lng: 10.7494 },
   { variationId: 'caro-kann-classical', castle: 'Burg Eltz', place: 'Rhineland-Palatinate, Germany', lat: 50.2052, lng: 7.3365 },
+  { variationId: 'caro-kann-panov', castle: 'Heidelberg Castle', place: 'Heidelberg, Germany', lat: 49.4107, lng: 8.7134 },
+  { variationId: 'caro-kann-exchange', castle: 'Wartburg Castle', place: 'Eisenach, Germany', lat: 50.9662, lng: 10.3064 },
+  { variationId: 'caro-kann-fantasy', castle: 'Hohenzollern Castle', place: 'Baden-Württemberg, Germany', lat: 48.3237, lng: 8.9675 },
   // -- Sicilian kingdom -----------------------------------------------------------------
   { variationId: 'sicilian-classical', castle: 'Castello Ursino', place: 'Catania, Sicily', lat: 37.4989, lng: 15.0847 },
   { variationId: 'sicilian-dragon', castle: 'Castello di Donnafugata', place: 'Ragusa, Sicily', lat: 36.8819, lng: 14.5636 },
@@ -81,6 +90,9 @@ export const CASTLE_LOCATIONS: CastleLocation[] = [
   // -- English kingdom ----------------------------------------------------------------------
   { variationId: 'english-main', castle: 'Windsor Castle', place: 'Windsor, England', lat: 51.4839, lng: -0.6044 },
   { variationId: 'english-reversed-sicilian', castle: 'Leeds Castle', place: 'Kent, England', lat: 51.2486, lng: 0.6301 },
+  { variationId: 'english-four-knights', castle: 'Bamburgh Castle', place: 'Northumberland, England', lat: 55.6082, lng: -1.7116 },
+  { variationId: 'english-mikenas-carls', castle: 'Warwick Castle', place: 'Warwick, England', lat: 52.2793, lng: -1.5852 },
+  { variationId: 'english-bremen', castle: 'Bodiam Castle', place: 'East Sussex, England', lat: 51.0025, lng: 0.5436 },
 ];
 
 export const CASTLE_BY_VARIATION: Record<string, CastleLocation> = Object.fromEntries(

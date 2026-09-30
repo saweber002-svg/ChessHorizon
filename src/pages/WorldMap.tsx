@@ -8,6 +8,7 @@ import { KingdomPanel } from '@/components/world-map/KingdomPanel';
 import { kingdomHasDrills } from '@/data/kingdomDrills';
 import type { MapLocation } from '@/data/mapLocations';
 import { MAP_LOCATIONS } from '@/data/mapLocations';
+import { tap as hapticTap } from '@/lib/haptics';
 
 export default function WorldMap() {
   const [, setLocation] = useLocation();
@@ -21,6 +22,7 @@ export default function WorldMap() {
   }, []);
 
   const handleSelectLocation = useCallback((location: MapLocation) => {
+    hapticTap();
     const unlocked = state.unlockedRegions.includes(location.kingdom);
     // Drill kingdoms open the interior view; locked or special kingdoms
     // (wilderness / clearing / coaching) keep the classic panel.

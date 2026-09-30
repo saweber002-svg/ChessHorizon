@@ -17,6 +17,7 @@ import {
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'wouter';
+import { tap as hapticTap } from '@/lib/haptics';
 import { useAuth } from '@/contexts/AuthContext';
 import AuthModal from '@/components/AuthModal';
 import ThemePicker from '@/components/ThemePicker';
@@ -86,6 +87,12 @@ export default function Home() {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
 
+  // Navigation with a faint haptic confirmation.
+  const go = (path: string) => {
+    hapticTap();
+    setLocation(path);
+  };
+
   // Lock body scroll while the settings modal is open so gestures don't
   // scroll the page behind the modal on touch devices.
   useEffect(() => {
@@ -111,14 +118,14 @@ export default function Home() {
               <Button
                 variant="ghost"
                 className="text-white/70 hover:text-white hover:bg-white/10"
-                onClick={() => setLocation('/atlas')}
+                onClick={() => go('/atlas')}
               >
                 Atlas
               </Button>
               <Button
                 variant="ghost"
                 className="text-white/70 hover:text-white hover:bg-white/10"
-                onClick={() => setLocation('/drill/italian/giuoco-piano/0')}
+                onClick={() => go('/drill/italian/giuoco-piano/0')}
               >
                 Drill
               </Button>
@@ -126,7 +133,7 @@ export default function Home() {
                 variant="ghost"
                 size="sm"
                 className="text-white/70 hover:text-white hover:bg-white/10"
-                onClick={() => setShowSettings(true)}
+                onClick={() => { hapticTap(); setShowSettings(true); }}
                 aria-label="Settings"
               >
                 <Settings size={18} />
@@ -253,7 +260,7 @@ export default function Home() {
             <Button
               size="lg"
               className="bg-[#00f5d4] text-[#0a0a1f] hover:bg-[#00f5d4]/90 text-lg px-8 py-6 font-semibold group"
-              onClick={() => setLocation('/atlas')}
+              onClick={() => go('/atlas')}
             >
               Enter the Atlas
               <ChevronRight
@@ -265,7 +272,7 @@ export default function Home() {
               size="lg"
               variant="outline"
               className="border-[#2a2a3e] text-white hover:bg-white/5 text-lg px-8 py-6"
-              onClick={() => setLocation('/drill/italian/giuoco-piano/0')}
+              onClick={() => go('/drill/italian/giuoco-piano/0')}
             >
               Start Drilling
             </Button>
@@ -418,7 +425,7 @@ export default function Home() {
             <Button
               size="lg"
               className="bg-[#00f5d4] text-[#0a0a1f] hover:bg-[#00f5d4]/90 text-lg px-10 py-6 font-semibold"
-              onClick={() => setLocation('/atlas')}
+              onClick={() => go('/atlas')}
             >
               Explore the Atlas
               <ChevronRight size={20} />

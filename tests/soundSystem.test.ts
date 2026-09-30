@@ -33,9 +33,9 @@ const allEvents: SoundEvent[] = [
 ];
 
 describe('Sound packs', () => {
-  it('has 3 material packs', () => {
-    expect(SOUND_PACKS).toHaveLength(3);
-    expect(SOUND_PACKS.map((p) => p.id).sort()).toEqual(['glass', 'marble', 'wood']);
+  it('has 4 material packs', () => {
+    expect(SOUND_PACKS).toHaveLength(4);
+    expect(SOUND_PACKS.map((p) => p.id).sort()).toEqual(['classic', 'glass', 'marble', 'wood']);
   });
 
   it('each pack can play all events without throwing', () => {
@@ -52,8 +52,8 @@ describe('Sound packs', () => {
     expect(soundEngine.horn).toHaveBeenCalled();
   });
 
-  it('falls back to glass for unknown pack id', () => {
-    expect(getSoundPack('nonexistent').id).toBe('glass');
+  it('falls back to classic for unknown pack id', () => {
+    expect(getSoundPack('nonexistent').id).toBe('classic');
   });
 
   it('move uses physical impact (not digital tone)', () => {

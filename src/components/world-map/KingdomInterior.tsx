@@ -5,7 +5,7 @@ import type { KingdomId } from '@/types';
 import { KINGDOM_POSITIONS, getTierColor } from '@/types';
 import { MAP_LOCATIONS } from '@/data/mapLocations';
 import { getKingdomDrills, type KingdomDrill } from '@/data/kingdomDrills';
-import { castleIconPx, MARKER_DESIGN_W } from './atlasCamera';
+import { castleIconPx, MARKER_DESIGN_W, MOBILE_MARKER_BOOST, MOBILE_ICON_BREAKPOINT } from './atlasCamera';
 import {
   CASTLE_BY_VARIATION,
   CASTLE_MIN_SEPARATION,
@@ -168,14 +168,14 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
   // Same zoom-parented icon sizing as the atlas markers: the interior's
   // effective viewBox width is the map units visible across the screen
   // (100 / zoom), so castle icons hold a constant on-screen size at any
-  // interior zoom instead of ballooning with the map. The 30% desktop size
-  // boost is dropped on narrow screens so markers start smaller on phones.
+  // interior zoom instead of ballooning with the map. Narrow screens get
+  // the larger mobile boost (~50px icons) for visibility and tappability.
   const iconPx = useMemo(
     () =>
       castleIconPx(
         MARKER_DESIGN_W / view.zoom,
         size.w,
-        size.w > 0 && size.w < 480 ? 1.0 : undefined,
+        size.w > 0 && size.w < MOBILE_ICON_BREAKPOINT ? MOBILE_MARKER_BOOST : undefined,
       ),
     [view.zoom, size.w],
   );

@@ -2,6 +2,7 @@ import { useState, useCallback, useMemo } from 'react';
 import { Chess, type Square, type PieceSymbol, type Color } from 'chess.js';
 import { useTheme } from '@/contexts/ThemeContext';
 import { getPieceSvg } from '@/components/pieceStyles';
+import { tap as hapticTap } from '@/lib/haptics';
 
 interface ChessBoardProps {
   fen: string;
@@ -88,6 +89,7 @@ export default function ChessBoard({
 
       if (selectedSquare) {
         if (legalMoves.includes(square)) {
+          hapticTap();
           onMove(selectedSquare, square);
           setSelectedSquare(null);
           setLegalMoves([]);
@@ -143,6 +145,7 @@ export default function ChessBoard({
     (e: React.DragEvent, square: Square) => {
       e.preventDefault();
       if (draggedPiece && legalMoves.includes(square)) {
+        hapticTap();
         onMove(draggedPiece.square, square);
       }
       setDraggedPiece(null);

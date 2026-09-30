@@ -74,6 +74,14 @@ export function createInitialViewBox(aspect: number): ViewBox {
 export const MARKER_DESIGN_W = 100;
 /** 30% size boost on top of the zoom-parented scale (icons felt small). */
 const MARKER_SIZE_BOOST = 1.3;
+/**
+ * Mobile icon boost: yields ~50px icons on a 390px phone (vs ~30px at 1.3).
+ * Applied to both kingdom markers (atlas) and opening castle icons
+ * (kingdom interior) on narrow screens.
+ */
+export const MOBILE_MARKER_BOOST = 2.14;
+/** Narrow-screen breakpoint for the larger mobile icon treatment. */
+export const MOBILE_ICON_BREAKPOINT = 480;
 /** Markers never shrink below this fraction of their designed size. */
 const MARKER_MIN_SCALE = 0.1;
 

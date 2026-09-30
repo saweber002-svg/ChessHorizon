@@ -6,7 +6,7 @@ const PACK_KEY = 'chess_horizon_sound_pack';
 const VOLUME_KEY = 'chess_horizon_sound_volume';
 const ENABLED_KEY = 'chess_horizon_sound_enabled';
 
-const DEFAULT_PACK = 'glass';
+const DEFAULT_PACK = 'classic';
 const DEFAULT_VOLUME = 0.7;
 
 interface SoundContextValue {
