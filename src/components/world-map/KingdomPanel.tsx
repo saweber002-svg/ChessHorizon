@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { X, Swords, Eye, Star, Lock } from 'lucide-react';
+import { X, Swords, Star, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLocation } from 'wouter';
 import type { MapLocation } from '@/data/mapLocations';
@@ -40,11 +40,6 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
   const startDrill = (drillFileId: string, openingId: string, variationId: string) => {
     onClose();
     setLocation(`/drill-session/${drillFileId}?opening=${openingId}&variation=${variationId}`);
-  };
-
-  const startWatchMode = (drillFileId: string, openingId: string, variationId: string) => {
-    onClose();
-    setLocation(`/watch-mode/${drillFileId}?opening=${openingId}&variation=${variationId}`);
   };
 
   const goWilderness = () => {
@@ -170,20 +165,6 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
             >
               <Swords size={18} />
               Start Drill
-            </Button>
-            <Button
-              onClick={() =>
-                startWatchMode(
-                  location.drillFileId!,
-                  location.openingId,
-                  location.variationId ?? 'giuoco-piano'
-                )
-              }
-              variant="outline"
-              className="w-full gap-2 border-[#2a2a3e] text-white/70 hover:border-[#00f5d4]/30"
-            >
-              <Eye size={18} />
-              Watch Mode
             </Button>
           </div>
         )}

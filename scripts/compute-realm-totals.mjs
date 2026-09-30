@@ -16,7 +16,7 @@ const OUT_FILE = join(__dirname, '..', 'src', 'data', 'realmDrillTotals.ts');
 
 // Kingdom -> file ID prefixes (must match KingdomPanel's DRILLS filter)
 const KINGDOM_PREFIXES = {
-  italian: ['giuoco-pianissimo', 'evans-gambit', 'two-knights', 'fried-liver-attack', 'giuoco-piano', 'greco', 'traxler-counter-attack', 'ulvestad-variation'],
+  italian: ['giuoco-pianissimo', 'evans-gambit', 'two-knights', 'fried-liver-attack', 'giuoco-piano', 'greco', 'traxler-counter-attack', 'ulvestad-variation', 'moeller-attack'],
   sicilian: ['sicilian-'],
   spanish: ['ruy-lopez-'],
   english: ['english-'],

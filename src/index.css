@@ -245,6 +245,30 @@
   }
 }
 
+/* Trophy board: pieces that earned tactical prestige get a small idle bob.
+   Only pieces with tactical prestige carry this class; amplitude comes from
+   --tactic-bob and speed from the inline animation-duration (both tier-based). */
+@keyframes trophy-tactic-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(calc(-1 * var(--tactic-bob, 3%)));
+  }
+}
+
+.trophy-tactic-anim {
+  animation: trophy-tactic-bob 2.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trophy-tactic-anim {
+    animation: none;
+  }
+}
+
 @layer base {
   ::-webkit-scrollbar {
     width: 6px;

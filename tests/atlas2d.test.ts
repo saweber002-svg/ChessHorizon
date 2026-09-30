@@ -9,6 +9,9 @@ import {
   easeInOutCubic,
   mulberry32,
   markerScale,
+  castleIconPx,
+  CASTLE_ICON_UNITS,
+  MARKER_DESIGN_W,
   MIN_VIEW_W,
   maxViewW,
 } from '@/components/world-map/atlasCamera';
@@ -158,6 +161,22 @@ describe('atlas camera math', () => {
     // Never smaller than the floor, never larger than designed x boost.
     expect(markerScale(1)).toBeGreaterThanOrEqual(0.13);
     expect(markerScale(400)).toBe(1.3);
+  });
+
+  it('castleIconPx matches the atlas marker sizing at any interior zoom', () => {
+    // A 390px phone at full-map view: 6 units * 1.3 boost * (390/100).
+    expect(castleIconPx(100, 390)).toBeCloseTo(6 * 1.3 * 3.9, 10);
+    // Interior zooms 1..3.2 hold the same on-screen size (the zoom cancels out,
+    // which is the whole point of the zoom-parented scale).
+    for (const zoom of [1, 1.5, 2, 3.2]) {
+      const vbW = MARKER_DESIGN_W / zoom;
+      expect(castleIconPx(vbW, 390)).toBeCloseTo(castleIconPx(100, 390), 10);
+    }
+    // Icon geometry matches the Atlas2D marker image (6x6 units).
+    expect(CASTLE_ICON_UNITS).toBe(6);
+    // Degenerate inputs never produce NaN/Infinity.
+    expect(castleIconPx(0, 390)).toBe(0);
+    expect(castleIconPx(50, 0)).toBe(0);
   });
 
   it('tweenViewBox interpolates linearly and clamps t', () => {

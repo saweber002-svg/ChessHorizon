@@ -62,10 +62,15 @@ export const MAP_LOCATIONS: MapLocation[] = [
 ];
 
 export const ITALIAN_DRILL_VARIATIONS = [
+  { variationId: 'giuoco-piano', drillFileId: 'giuoco-piano-main', label: 'Giuoco Piano' },
   { variationId: 'giuoco-pianissimo', drillFileId: 'giuoco-pianissimo-main', label: 'Giuoco Pianissimo' },
   { variationId: 'evans-gambit', drillFileId: 'evans-gambit-main', label: 'Evans Gambit' },
   { variationId: 'two-knights', drillFileId: 'two-knights-main', label: 'Two Knights' },
   { variationId: 'fried-liver-attack', drillFileId: 'fried-liver-attack-main', label: 'Fried Liver Attack' },
+  { variationId: 'traxler-counter-attack', drillFileId: 'traxler-counter-attack-main', label: 'Traxler Counter Attack' },
+  { variationId: 'ulvestad-variation', drillFileId: 'ulvestad-variation-main', label: 'Ulvestad Variation' },
+  { variationId: 'greco-counter-attack', drillFileId: 'greco-counter-attack-main', label: 'Greco Counter Attack' },
+  { variationId: 'moeller-attack', drillFileId: 'moeller-attack-main', label: 'Moeller Attack' },
 ] as const;
 
 // =============================================================================
