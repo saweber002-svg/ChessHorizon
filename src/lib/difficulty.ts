@@ -1,17 +1,27 @@
 /**
  * Shared computer difficulty levels (Stockfish Skill Level 0-20).
- * Used by the Coaching Pavilion and the Wilderness sparring board.
+ * Used by the Coaching Pavilion and the sparring board.
+ *
+ * `blunder` is the probability that the engine deliberately plays a
+ * sub-optimal move (picked from outside its top candidate) instead of its
+ * best move. Low skill levels alone still play like a strong player who
+ * occasionally "tries" less — the blunder rate is what makes the lower
+ * levels feel human: they hang pieces and miss tactics sometimes.
  */
 export const DIFFICULTY_LEVELS = [
-  { id: 'beginner', label: 'Beginner', skill: 0, hint: 'Learning the moves' },
-  { id: 'casual', label: 'Casual', skill: 5, hint: 'Relaxed games' },
-  { id: 'club', label: 'Club', skill: 10, hint: 'Solid club player' },
-  { id: 'expert', label: 'Expert', skill: 15, hint: 'Strong tournament player' },
-  { id: 'master', label: 'Master', skill: 20, hint: 'Full strength' },
+  { id: 'beginner', label: 'Beginner', skill: 0, blunder: 0.45, hint: 'Learning the moves' },
+  { id: 'casual', label: 'Casual', skill: 2, blunder: 0.25, hint: 'Relaxed games' },
+  { id: 'club', label: 'Club', skill: 8, blunder: 0.08, hint: 'Solid club player' },
+  { id: 'expert', label: 'Expert', skill: 14, blunder: 0, hint: 'Strong tournament player' },
+  { id: 'master', label: 'Master', skill: 20, blunder: 0, hint: 'Full strength' },
 ] as const;
 
 export type DifficultyId = (typeof DIFFICULTY_LEVELS)[number]['id'];
 
 export function skillForDifficulty(id: DifficultyId): number {
-  return DIFFICULTY_LEVELS.find((d) => d.id === id)?.skill ?? 5;
+  return DIFFICULTY_LEVELS.find((d) => d.id === id)?.skill ?? 2;
+}
+
+export function blunderForDifficulty(id: DifficultyId): number {
+  return DIFFICULTY_LEVELS.find((d) => d.id === id)?.blunder ?? 0.25;
 }

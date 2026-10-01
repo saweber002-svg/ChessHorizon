@@ -7,6 +7,7 @@ import {
   isHumanTurn,
   gameOverReason,
   positionsAfterMoves,
+  takebackPlyCount,
 } from '@/lib/sparring';
 
 describe('buildStartPosition', () => {
@@ -102,5 +103,38 @@ describe('gameOverReason', () => {
   it('detects stalemate', () => {
     // Black to move, no legal moves, not in check.
     expect(gameOverReason('7k/5Q2/6K1/8/8/8/8/8 b - - 0 1')).toBe('stalemate');
+  });
+});
+
+describe('takebackPlyCount', () => {
+  const pos = (sans: string[]) => positionsAfterMoves(SPAR_START_FEN, sans);
+
+  it('rewinds the engine reply plus the human move (user White)', () => {
+    // 1.e4 e5 2.Nf3 Nc6 — take back 2 plies, White to move.
+    expect(takebackPlyCount(pos(['e4', 'e5', 'Nf3', 'Nc6']), 0, 'w')).toBe(2);
+  });
+
+  it('rewinds only the human move when the engine has not replied yet', () => {
+    expect(takebackPlyCount(pos(['e4']), 0, 'w')).toBe(1);
+  });
+
+  it('rewinds the engine reply plus the human move (user Black)', () => {
+    // 1.e4 (engine) e5 (human) 2.Nf3 (engine) — take back 2, Black to move.
+    expect(takebackPlyCount(pos(['e4', 'e5', 'Nf3']), 0, 'b')).toBe(2);
+  });
+
+  it('rewinds one ply with "both sides" mode', () => {
+    expect(takebackPlyCount(pos(['e4', 'e5', 'Nf3']), 0, 'both')).toBe(1);
+  });
+
+  it('never rewinds into preloaded opening moves', () => {
+    // Two preloaded plies + two played: only the played plies come back.
+    expect(takebackPlyCount(pos(['e4', 'e5', 'Nf3', 'Nc6']), 2, 'w')).toBe(2);
+    // Nothing played beyond the preload: no-op.
+    expect(takebackPlyCount(pos(['e4', 'e5']), 2, 'w')).toBe(0);
+  });
+
+  it('is a no-op with no moves played', () => {
+    expect(takebackPlyCount(pos([]), 0, 'w')).toBe(0);
   });
 });

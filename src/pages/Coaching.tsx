@@ -7,7 +7,7 @@ import ChessBoard from '@/components/ChessBoard';
 import { analyzeMove, analyzeGame, EngineUnavailableError, type MoveAnalysis as AnalysisResult, type GameReview } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
 import { tap as hapticTap, success as hapticSuccess, error as hapticError } from '@/lib/haptics';
-import { DIFFICULTY_LEVELS, skillForDifficulty, type DifficultyId } from '@/lib/difficulty';
+import { DIFFICULTY_LEVELS, blunderForDifficulty, skillForDifficulty, type DifficultyId } from '@/lib/difficulty';
 import { classificationColors, classificationIcons } from '@/lib/classificationStyle';
 
 const START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
@@ -60,9 +60,12 @@ export default function Coaching() {
   });
   const [pendingDifficulty, setPendingDifficulty] = useState<DifficultyId>('casual');
 
-  const makeComputerMove = useCallback(async (fen: string, skill: number) => {
+  const makeComputerMove = useCallback(async (fen: string, difficultyId: DifficultyId) => {
     try {
-      const uci = await getEngine().findBestMove(fen, skill);
+      const uci = await getEngine().findPlayMove(fen, {
+        skill: skillForDifficulty(difficultyId),
+        blunderRate: blunderForDifficulty(difficultyId),
+      });
       const computerGame = new Chess(fen);
       const moved = computerGame.move({
         from: uci.slice(0, 2) as Square,
@@ -144,7 +147,7 @@ export default function Coaching() {
 
     // Apply the move IMMEDIATELY so the board updates even if engine
     // analysis fails or hangs. Analysis runs in the background.
-    const skill = skillForDifficulty(gameState.difficulty);
+    const difficultyId = gameState.difficulty;
     setGameState(prev => ({
       ...prev,
       fen: newFen,
@@ -171,7 +174,7 @@ export default function Coaching() {
         }));
         if (!isGameOver) {
           setTimeout(() => {
-            void makeComputerMove(newFen, skill);
+            void makeComputerMove(newFen, difficultyId);
           }, 600);
         }
       }
@@ -184,7 +187,7 @@ export default function Coaching() {
       // Move was already applied; continue the game without analysis.
       if (!isGameOver) {
         setTimeout(() => {
-          void makeComputerMove(newFen, skill);
+          void makeComputerMove(newFen, difficultyId);
         }, 600);
       }
     } finally {
@@ -206,8 +209,7 @@ export default function Coaching() {
     if (gameState.gameStarted && gameState.userSide === 'b' && gameState.moveSans.length === 0) {
       const game = new Chess();
       if (game.turn() === 'w') {
-        const skill = skillForDifficulty(gameState.difficulty);
-        void makeComputerMove(game.fen(), skill);
+        void makeComputerMove(game.fen(), gameState.difficulty);
       }
     }
   }, [gameState.gameStarted, gameState.userSide, gameState.moveSans.length, gameState.difficulty, makeComputerMove]);

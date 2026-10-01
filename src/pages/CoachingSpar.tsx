@@ -5,6 +5,7 @@ import {
   Swords,
   RotateCcw,
   Save,
+  Undo2,
   X,
   ChevronLeft,
   ChevronRight,
@@ -21,7 +22,7 @@ import {
   type MoveAnalysis,
 } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
-import { DIFFICULTY_LEVELS, skillForDifficulty, type DifficultyId } from '@/lib/difficulty';
+import { DIFFICULTY_LEVELS, blunderForDifficulty, skillForDifficulty, type DifficultyId } from '@/lib/difficulty';
 import { classificationColors, classificationIcons } from '@/lib/classificationStyle';
 import {
   SPAR_START_FEN,
@@ -30,6 +31,7 @@ import {
   isHumanTurn,
   gameOverReason,
   positionsAfterMoves,
+  takebackPlyCount,
 } from '@/lib/sparring';
 
 type SideChoice = 'w' | 'b' | 'both';
@@ -72,6 +74,10 @@ export default function CoachingSpar() {
   const [gameOver, setGameOver] = useState<GameOverKind | null>(null);
   const [lastMove, setLastMove] = useState<{ from: Square; to: Square } | null>(null);
   const [userSide, setUserSide] = useState<SideChoice>('w');
+  // Board orientation follows the side chosen at game start and never changes
+  // mid-game (userSide can flip to 'both' if the engine drops out — the view
+  // should stay put).
+  const [boardSide, setBoardSide] = useState<'w' | 'b'>('w');
 
   // Engine line step-through (the follow-up line for a rated move)
   const [lineBaseFen, setLineBaseFen] = useState<string | null>(null);
@@ -84,6 +90,9 @@ export default function CoachingSpar() {
   const [saveName, setSaveName] = useState('');
 
   const engineTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Bumped on takeback so an in-flight engine reply is discarded instead of
+  // landing on the rewound position.
+  const replyToken = useRef(0);
   /** Incremented every time a new sparring game starts; async engine work
    *  from a previous game checks it and bails out instead of corrupting
    *  the new game's state. */
@@ -126,6 +135,7 @@ export default function CoachingSpar() {
     setGameOver(null);
     setLastMove(null);
     setUserSide(side);
+    setBoardSide(side === 'b' ? 'b' : 'w');
     setLineBaseFen(null);
     setLinePv([]);
     setLineStep(0);
@@ -182,11 +192,16 @@ export default function CoachingSpar() {
   );
 
   const makeEngineMove = useCallback(
-    async (engineFen: string, skill: number) => {
+    async (engineFen: string, difficultyId: DifficultyId) => {
       const id = gameId.current;
+      const token = replyToken.current;
       setEngineThinking(true);
       try {
-        const uci = await getEngine().findBestMove(engineFen, skill);
+        const uci = await getEngine().findPlayMove(engineFen, {
+          skill: skillForDifficulty(difficultyId),
+          blunderRate: blunderForDifficulty(difficultyId),
+        });
+        if (token !== replyToken.current) return; // taken back: discard the reply
         if (id !== gameId.current) return; // stale game: don't touch the new board
         const game = new Chess(engineFen);
         const result = game.move({
@@ -217,9 +232,8 @@ export default function CoachingSpar() {
   const scheduleEngineReply = useCallback(
     (engineFen: string) => {
       if (engineTimer.current) clearTimeout(engineTimer.current);
-      const skill = skillForDifficulty(difficulty);
       engineTimer.current = setTimeout(() => {
-        void makeEngineMoveRef.current(engineFen, skill);
+        void makeEngineMoveRef.current(engineFen, difficulty);
       }, 600);
     },
     [difficulty]
@@ -238,9 +252,8 @@ export default function CoachingSpar() {
     setStarted(true);
     // Engine (White) opens when the user chose Black and White is to move.
     if (sideChoice === 'b' && startSans.length % 2 === 0) {
-      const skill = skillForDifficulty(difficulty);
       engineTimer.current = setTimeout(() => {
-        void makeEngineMoveRef.current(startFen, skill);
+        void makeEngineMoveRef.current(startFen, difficulty);
       }, 600);
     }
   }, [startOpeningId, openings, sideChoice, difficulty, resetPlay]);
@@ -284,6 +297,41 @@ export default function CoachingSpar() {
     setLineStep(0);
     setLineForPly(null);
   }, []);
+
+  /**
+   * Take back moves against the computer: rewinds to the last position where
+   * it was the human's turn (your move + the engine's reply, or just your
+   * move if the engine hasn't replied yet). Preloaded opening moves are never
+   * taken back. An in-flight engine reply is cancelled via replyToken.
+   */
+  const handleTakeback = useCallback(() => {
+    if (!started || gameOver || lineBaseFen !== null || viewPly !== null) return;
+    const n = takebackPlyCount(positions, preloadedCount, userSide);
+    if (n <= 0) return;
+    if (engineTimer.current) clearTimeout(engineTimer.current);
+    replyToken.current += 1;
+    setEngineThinking(false);
+    setEngineError(null);
+    setGameOver(null);
+    closeLine();
+    setLastMove(null);
+    const total = positions.length - 1;
+    const newFen = positions[total - n];
+    setMoveSans((m) => m.slice(0, m.length - n));
+    setPositions((p) => p.slice(0, p.length - n));
+    setAnalyses((a) => a.slice(0, a.length - n));
+    setFailedPlies((prev) => new Set([...prev].filter((i) => i < total - n)));
+    setFen(newFen);
+    // If the rewind leaves the engine to move (e.g. taking back its opening
+    // move before you moved), have it move again instead of stalling.
+    if (
+      userSide !== 'both' &&
+      new Chess(newFen).turn() !== userSide &&
+      !gameOverReason(newFen)
+    ) {
+      scheduleEngineReply(newFen);
+    }
+  }, [started, gameOver, lineBaseFen, viewPly, positions, preloadedCount, userSide, closeLine, scheduleEngineReply]);
 
   const goToPly = useCallback(
     (ply: number | null) => {
@@ -347,6 +395,15 @@ export default function CoachingSpar() {
             {started && (
               <div className="flex items-center gap-2">
                 <button
+                  onClick={handleTakeback}
+                  disabled={moveSans.length <= preloadedCount || lineBaseFen !== null || viewPly !== null}
+                  title="Take back your last move (and the engine's reply)"
+                  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white/60 text-sm font-medium hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  <Undo2 size={14} />
+                  <span className="hidden sm:inline">Take back</span>
+                </button>
+                <button
                   onClick={() => setShowSave(true)}
                   disabled={moveSans.length === 0}
                   className="flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium hover:bg-emerald-500/20 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
@@ -393,7 +450,7 @@ export default function CoachingSpar() {
                   glowColor="idle"
                   interactive={boardInteractive}
                   lastMove={lineBaseFen !== null || viewPly !== null ? null : lastMove}
-                  orientation={userSide === 'b' ? 'black' : 'white'}
+                  orientation={boardSide === 'b' ? 'black' : 'white'}
                 />
                 <div className="flex items-center justify-between mt-3 text-xs text-white/40">
                   <span>

@@ -78,3 +78,30 @@ export function gameOverReason(fen: string): 'checkmate' | 'stalemate' | 'draw' 
   if (game.isStalemate()) return 'stalemate';
   return 'draw';
 }
+
+/**
+ * How many plies a takeback should rewind so that play resumes with the
+ * human to move. Against the engine this is the engine's reply plus the
+ * human's last move (or just the human's move if the engine hasn't replied
+ * yet); with "both sides" it's a single ply. Preloaded opening moves are
+ * never rewound. `positions[0]` is the initial FEN, `positions[i]` the FEN
+ * before ply `i`.
+ */
+export function takebackPlyCount(
+  positions: string[],
+  preloadedCount: number,
+  userSide: 'w' | 'b' | 'both',
+): number {
+  const total = positions.length - 1;
+  if (total <= preloadedCount) return 0;
+  if (userSide === 'both') return 1;
+  let n = 0;
+  let idx = total - 1;
+  while (idx >= preloadedCount) {
+    const mover = new Chess(positions[idx]).turn();
+    n += 1;
+    idx -= 1;
+    if (mover === userSide) break;
+  }
+  return n;
+}

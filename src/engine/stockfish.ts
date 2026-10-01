@@ -287,6 +287,44 @@ export class StockfishEngine {
     this.send('stop');
   }
 
+  /**
+   * Ask the engine to play a move the way a human at `skill` would.
+   * `blunderRate` (0..1) is the probability of deliberately playing a
+   * sub-optimal move picked from outside its top candidate — this is what
+   * makes the lower difficulties feel human instead of like a grandmaster
+   * holding back. Analysis callers should keep using findBestMove/analyze.
+   */
+  async findPlayMove(
+    fen: string,
+    opts: { skill?: number; movetimeMs?: number; blunderRate?: number } = {},
+  ): Promise<string> {
+    const { skill = 6, movetimeMs = 400, blunderRate = 0 } = opts;
+    const [line] = await this.enqueue(async () => {
+      await this.ensureReady();
+      this.send('stop');
+      const clamped = Math.max(0, Math.min(20, Math.round(skill)));
+      this.send(`setoption name Skill Level value ${clamped}`);
+      this.send(`setoption name MultiPV value ${blunderRate > 0 ? 5 : 1}`);
+      this.send(`position fen ${fen}`);
+      this.latest.clear();
+      this.send(`go movetime ${movetimeMs}`);
+      const bestmoveLine = await this.waitFor('bestmove', UCI_TIMEOUT_MS);
+      const bestMove = parseBestmoveLine(bestmoveLine);
+      if (!bestMove) throw new Error('Engine returned no move');
+      if (blunderRate > 0 && Math.random() < blunderRate) {
+        const candidates = [...this.latest.entries()]
+          .sort((a, b) => a[0] - b[0])
+          .map(([, info]) => info.pv[0])
+          .filter((m): m is string => typeof m === 'string' && m !== bestMove);
+        if (candidates.length > 0) {
+          return [{ bestMove: candidates[Math.floor(Math.random() * candidates.length)] }];
+        }
+      }
+      return [{ bestMove }];
+    });
+    return line.bestMove;
+  }
+
   /** Shut the engine down entirely (frees the worker + WASM memory). */
   terminate(): void {
     this.send('quit');
