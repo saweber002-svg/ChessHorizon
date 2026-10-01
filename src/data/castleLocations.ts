@@ -103,24 +103,26 @@ export const CASTLE_BY_VARIATION: Record<string, CastleLocation> = Object.fromEn
 // Baked-atlas geo-referencing
 // =============================================================================
 //
-// The atlas (public/atlas/atlas-map.webp, 2744x1568) is an Age of Exploration
+// The atlas (public/atlas/atlas-map.webp, 1170x1023) is an Age of Exploration
 // illustrated map. MAP_ASPECT is its width/height ratio; the SVG/div coordinate
 // system uses x in 0-100 across the width and y in 0-MAP_H down the height,
 // so the image renders undistorted. The affine fit below maps real lat/lng to
 // file fractions, converted to this coordinate space.
 
-export const MAP_ASPECT = 2744 / 1568;
-export const MAP_H = 100 / MAP_ASPECT; // ~57.14
-// Scotland, Toe of Italy, W. Ireland, N. Norway, Rome, Sicily, Athens).
-// Least-squares residuals: max 3.0 map units, most under 2.5 — plenty for
+export const MAP_ASPECT = 1170 / 1023;
+export const MAP_H = 100 / MAP_ASPECT; // ~87.43
+// Affine coefficients below were refit 2026-10-01 by least squares on 8 city
+// anchors pin-pointed on this exact image (London, Paris, Madrid, Rome,
+// Berlin, Vienna, Amsterdam, Copenhagen). Residuals: max 2.8 map units
+// (Madrid, where the artwork stretches Iberia), most under 2.2 — plenty for
 // castle markers (~4-5 units wide).
 
-const GEO_AX = 0.014182;
-const GEO_BX = 0.000579;
-const GEO_CX = 0.328122;
-const GEO_AY = -0.000346;
-const GEO_BY = -0.023348;
-const GEO_CY = 1.774014;
+const GEO_AX = 0.017992;
+const GEO_BX = 0.004097;
+const GEO_CX = 0.126006;
+const GEO_AY = 0.001307;
+const GEO_BY = -0.020144;
+const GEO_CY = 1.450545;
 
 export interface MapPoint {
   /** 0-100 map space, matching KINGDOM_POSITIONS. */

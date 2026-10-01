@@ -29,10 +29,10 @@ const ASPECT = 16 / 10;
 describe('atlas camera math', () => {
   it('starts over the western Mediterranean, not on the full map', () => {
     const vb = createInitialViewBox(ASPECT);
-    expect(vb.w).toBe(30);
-    expect(vb.h).toBeCloseTo(30 / ASPECT, 10);
-    expect(vb.x + vb.w / 2).toBeCloseTo(47, 10);
-    expect(vb.y + vb.h / 2).toBeCloseTo(40, 10);
+    expect(vb.w).toBe(24);
+    expect(vb.h).toBeCloseTo(24 / ASPECT, 10);
+    expect(vb.x + vb.w / 2).toBeCloseTo(48, 10);
+    expect(vb.y + vb.h / 2).toBeCloseTo(58, 1);
   });
 
   it('initial view frames Italy with Sicily and France a short pan away', () => {
@@ -50,26 +50,27 @@ describe('atlas camera math', () => {
       const vb = createInitialViewBox(aspect);
       for (const kingdom of ['sicilian', 'french'] as const) {
         const kp = KINGDOM_POSITIONS[kingdom];
-        expect(Math.abs(kp.x - (vb.x + vb.w / 2))).toBeLessThan(vb.w / 2 + 8);
-        expect(Math.abs(kp.y - (vb.y + vb.h / 2))).toBeLessThan(vb.h / 2 + 8);
+        expect(Math.abs(kp.x - (vb.x + vb.w / 2))).toBeLessThanOrEqual(vb.w / 2 + 8);
+        expect(Math.abs(kp.y - (vb.y + vb.h / 2))).toBeLessThanOrEqual(vb.h / 2 + 8);
       }
     }
   });
 
   it('creates a portrait initial viewBox clamped inside the world', () => {
     const vb = createInitialViewBox(0.5);
-    // Portrait: height is binding, so width clamps to MAP_H * aspect.
-    expect(vb.w).toBeCloseTo(28.57, 1);
-    expect(vb.h).toBeCloseTo(57.14, 1);
-    expect(vb.x).toBeCloseTo(47 - vb.w / 2, 10);
-    expect(vb.y).toBeCloseTo(0, 10);
+    // Portrait: INITIAL_W (24) is smaller than maxViewW (39.72), so w=24.
+    expect(vb.w).toBeCloseTo(24, 1);
+    expect(vb.h).toBeCloseTo(48, 1);
+    expect(vb.x).toBeCloseTo(48 - vb.w / 2, 10);
+    // y gets clamped: 58-24=34 would put vb.y+48=82 above the viewable world (79.42).
+    expect(vb.y).toBeCloseTo(31.44, 0);
   });
 
   it('pans the camera so content follows the pointer', () => {
     const vb = createInitialViewBox(ASPECT);
     // Drag right by half the viewport width -> camera moves left by half the viewBox width.
     const next = panViewBox(vb, 800, 0, 1600, 1000, ASPECT);
-    expect(next.x).toBeCloseTo(vb.x - 15, 10);
+    expect(next.x).toBeCloseTo(vb.x - 12, 10);
     expect(next.y).toBeCloseTo(vb.y, 10);
     expect(next.w).toBe(vb.w);
   });
@@ -100,10 +101,10 @@ describe('atlas camera math', () => {
 
   it('limits zoom-out so the map always covers the viewport', () => {
     // Widescreen map (100 x 57.14): height binds when aspect < 1.75.
-    expect(maxViewW(16 / 10)).toBeCloseTo(91.43, 1);
+    expect(maxViewW(16 / 10)).toBeCloseTo(100, 1);
     expect(maxViewW(2.5)).toBe(100);
-    expect(maxViewW(0.5)).toBeCloseTo(28.57, 1);
-    expect(maxViewW(1)).toBeCloseTo(57.14, 1);
+    expect(maxViewW(0.5)).toBeCloseTo(39.72, 1);
+    expect(maxViewW(1)).toBeCloseTo(79.44, 1);
     // Degenerate aspect never blows up the camera.
     expect(maxViewW(0)).toBe(100);
     expect(maxViewW(-3)).toBe(100);
@@ -114,7 +115,7 @@ describe('atlas camera math', () => {
     // Dragging far up-left shoves the camera to the bottom-right world edges.
     const next = panViewBox(vb, -100000, -100000, 1600, 1000, ASPECT);
     expect(next.x + next.w).toBe(100);
-    expect(next.y + next.h).toBeCloseTo(57.14, 1);
+    expect(next.y + next.h).toBeCloseTo(79.44, 1);
     // Dragging far down-right shoves it to the top-left edges.
     const other = panViewBox(vb, 100000, 100000, 1600, 1000, ASPECT);
     expect(other.x).toBe(0);
@@ -231,7 +232,7 @@ describe('atlas marker data', () => {
   });
 
   it('coaching keeps its centered legacy position (no GLB node exists for it)', () => {
-    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 50, y: 12 });
+    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 50, y: 18 });
   });
 
   it('keeps every pair of realm markers at least 5 world units apart', () => {

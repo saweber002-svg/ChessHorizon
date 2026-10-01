@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { progressReducer } from '@/contexts/ProgressContext';
-import type { ProgressState } from '@/types';
+import { reconcileUnlocks } from '@/types';
+import type { KingdomId, ProgressState } from '@/types';
 
 const initialState: ProgressState = {
   totalStars: 0,
@@ -79,6 +80,52 @@ describe('progress reducer', () => {
 
     expect(sided).toMatchObject({ drillMode: 'in-order', sideMode: 'black' });
     expect(reset).toEqual(initialState);
+  });
+});
+
+describe('kingdom unlock reconciliation', () => {
+  // Regression: saves created before Scandinavia joined KINGDOM_UNLOCK_ORDER
+  // showed it locked even with 18+ stars, because unlocks were only evaluated
+  // when a drill was recorded. Reconciliation also runs on load.
+  const staleRegions = [
+    'italian', 'spanish', 'french', 'germany', 'sicilian',
+    'english', 'dutch', 'wilderness', 'clearing', 'coaching',
+  ] as KingdomId[];
+
+  const eighteenStars = Object.fromEntries(
+    ['a', 'b', 'c', 'd', 'e', 'f'].map((k) => [
+      k, { stars: 3, tier: 1, lastDrilled: 1, attempts: 1, streak: 1 },
+    ]),
+  );
+
+  it('unlocks Scandinavia for a stale save that already earned 18 stars', () => {
+    const regions = reconcileUnlocks(staleRegions, 18);
+    expect(regions).toContain('scandinavian');
+    // Queendom needs 20 stars, so it stays locked at 18.
+    expect(regions).not.toContain('queendom');
+  });
+
+  it('keeps Scandinavia locked below its 18-star threshold', () => {
+    expect(reconcileUnlocks(staleRegions, 17)).not.toContain('scandinavian');
+  });
+
+  it('is idempotent and never duplicates regions', () => {
+    const once = reconcileUnlocks(staleRegions, 25);
+    const twice = reconcileUnlocks(once, 25);
+    expect(twice).toEqual(once);
+    expect(twice.filter((r) => r === 'scandinavian')).toHaveLength(1);
+  });
+
+  it('grants Scandinavia on the next drill for a stale in-memory state', () => {
+    const stale: ProgressState = {
+      ...initialState,
+      totalStars: 18,
+      unlockedRegions: [...staleRegions],
+      moveProgress: eighteenStars as ProgressState['moveProgress'],
+    };
+    const next = progressReducer(stale, { type: 'RECORD_DRILL', key: 'dutch:main:0', stars: 0 });
+    expect(next.totalStars).toBe(18);
+    expect(next.unlockedRegions).toContain('scandinavian');
   });
 });
 

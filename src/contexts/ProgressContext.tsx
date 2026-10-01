@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, useCallback, useEffect, useRef } from 'react';
 import type { MoveProgress, OpeningProgressLocal, ProgressState, KingdomId, TacticalProgressLocal, Tier } from '@/types';
-import { calculateTier, KINGDOM_UNLOCK_ORDER } from '@/types';
+import { calculateTier, reconcileUnlocks } from '@/types';
 import { getWatchStatus, isPerfectCompletion, type OpeningProgressSnapshot, type WatchStatus } from '../../shared/progressRules';
 import { useAuth } from './AuthContext';
 import { trpc } from '@/lib/trpc';
@@ -32,7 +32,12 @@ function loadState(): ProgressState {
           state.unlockedRegions.push(region);
         }
       });
-      
+
+      // Reconcile unlocks: saves created before a kingdom joined the unlock
+      // order (e.g. Scandinavia) pick it up on load instead of staying locked
+      // until the next recorded drill.
+      state.unlockedRegions = reconcileUnlocks(state.unlockedRegions, state.totalStars ?? 0);
+
       return state;
     }
   } catch {
@@ -140,26 +145,7 @@ export function progressReducer(state: ProgressState, action: ProgressAction): P
       );
 
       // Check kingdom unlocks based on KINGDOM_UNLOCK_ORDER
-      const unlockedRegions = [...state.unlockedRegions];
-      for (const unlockDef of KINGDOM_UNLOCK_ORDER) {
-        // Skip if already unlocked
-        if (unlockedRegions.includes(unlockDef.kingdom)) {
-          continue;
-        }
-        
-        // Check if total stars threshold is met
-        if (totalStars < unlockDef.starThreshold) {
-          continue;
-        }
-        
-        // If there's a previous kingdom requirement, check if it's unlocked
-        if (unlockDef.previousKingdom && !unlockedRegions.includes(unlockDef.previousKingdom)) {
-          continue;
-        }
-        
-        // All conditions met, unlock this kingdom
-        unlockedRegions.push(unlockDef.kingdom);
-      }
+      const unlockedRegions = reconcileUnlocks(state.unlockedRegions, totalStars);
 
       // Update streak
       let prestigeStreak = state.prestigeStreak;
@@ -222,7 +208,13 @@ export function progressReducer(state: ProgressState, action: ProgressAction): P
       newState = { ...defaultState };
       break;
     case 'LOAD_STATE':
-      newState = action.state;
+      newState = {
+        ...action.state,
+        unlockedRegions: reconcileUnlocks(
+          action.state.unlockedRegions ?? [],
+          action.state.totalStars ?? 0,
+        ),
+      };
       break;
     default:
       return state;

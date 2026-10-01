@@ -548,7 +548,7 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
         className="absolute cursor-grab active:cursor-grabbing"
         style={{
           width: `${view.zoom * 100}%`,
-          aspectRatio: '2744 / 1568',
+          aspectRatio: '1170 / 1023',
           left: `${mapOffset.left}%`,
           top: `${mapOffset.top}%`,
           backgroundImage: `url(${ATLAS_MAP_URL})`,
