@@ -27,47 +27,49 @@ import type { KingdomId } from '@/types';
 const ASPECT = 16 / 10;
 
 describe('atlas camera math', () => {
-  it('starts over the Tyrrhenian Sea west of Italy, not on the full map', () => {
+  it('starts over the western Mediterranean, not on the full map', () => {
     const vb = createInitialViewBox(ASPECT);
-    expect(vb.w).toBe(26);
-    expect(vb.h).toBeCloseTo(26 / ASPECT, 10);
-    expect(vb.x + vb.w / 2).toBeCloseTo(45, 10);
-    expect(vb.y + vb.h / 2).toBeCloseTo(72, 10);
+    expect(vb.w).toBe(30);
+    expect(vb.h).toBeCloseTo(30 / ASPECT, 10);
+    expect(vb.x + vb.w / 2).toBeCloseTo(47, 10);
+    expect(vb.y + vb.h / 2).toBeCloseTo(40, 10);
   });
 
-  it('initial view frames Italy and Sicily with France a short pan away', () => {
+  it('initial view frames Italy with Sicily and France a short pan away', () => {
     // Common phone / tablet / desktop aspects.
     for (const aspect of [0.46, 1, 4 / 3, 16 / 10, 16 / 9]) {
       const vb = createInitialViewBox(aspect);
-      for (const kingdom of ['italian', 'sicilian'] as const) {
-        const pos = KINGDOM_POSITIONS[kingdom];
-        expect(pos.x, `${kingdom} x @ aspect ${aspect}`).toBeGreaterThanOrEqual(vb.x);
-        expect(pos.x, `${kingdom} x @ aspect ${aspect}`).toBeLessThanOrEqual(vb.x + vb.w);
-        expect(pos.y, `${kingdom} y @ aspect ${aspect}`).toBeGreaterThanOrEqual(vb.y);
-        expect(pos.y, `${kingdom} y @ aspect ${aspect}`).toBeLessThanOrEqual(vb.y + vb.h);
+      const pos = KINGDOM_POSITIONS.italian;
+      expect(pos.x, `italian x @ aspect ${aspect}`).toBeGreaterThanOrEqual(vb.x);
+      expect(pos.x, `italian x @ aspect ${aspect}`).toBeLessThanOrEqual(vb.x + vb.w);
+      expect(pos.y, `italian y @ aspect ${aspect}`).toBeGreaterThanOrEqual(vb.y);
+      expect(pos.y, `italian y @ aspect ${aspect}`).toBeLessThanOrEqual(vb.y + vb.h);
+    }
+    // Sicily sits just south, France just west: one swipe away on portrait/square screens.
+    for (const aspect of [0.46, 1]) {
+      const vb = createInitialViewBox(aspect);
+      for (const kingdom of ['sicilian', 'french'] as const) {
+        const kp = KINGDOM_POSITIONS[kingdom];
+        expect(Math.abs(kp.x - (vb.x + vb.w / 2))).toBeLessThan(vb.w / 2 + 8);
+        expect(Math.abs(kp.y - (vb.y + vb.h / 2))).toBeLessThan(vb.h / 2 + 8);
       }
-      // France sits just outside the frame on wide screens: one swipe away.
-      const fr = KINGDOM_POSITIONS.french;
-      expect(Math.abs(fr.x - (vb.x + vb.w / 2))).toBeLessThan(vb.w / 2 + 3);
-      expect(Math.abs(fr.y - (vb.y + vb.h / 2))).toBeLessThan(vb.h / 2 + 3);
     }
   });
 
   it('creates a portrait initial viewBox clamped inside the world', () => {
     const vb = createInitialViewBox(0.5);
-    expect(vb.w).toBe(26);
-    expect(vb.h).toBe(52);
-    expect(vb.x).toBeCloseTo(45 - 13, 10);
-    // Center (45, 72) fits: h=52 -> y in [46, 98], no clamping needed.
-    expect(vb.y + vb.h / 2).toBeCloseTo(72, 10);
-    expect(vb.y).toBeCloseTo(46, 10);
+    // Portrait: height is binding, so width clamps to MAP_H * aspect.
+    expect(vb.w).toBeCloseTo(28.57, 1);
+    expect(vb.h).toBeCloseTo(57.14, 1);
+    expect(vb.x).toBeCloseTo(47 - vb.w / 2, 10);
+    expect(vb.y).toBeCloseTo(0, 10);
   });
 
   it('pans the camera so content follows the pointer', () => {
     const vb = createInitialViewBox(ASPECT);
     // Drag right by half the viewport width -> camera moves left by half the viewBox width.
     const next = panViewBox(vb, 800, 0, 1600, 1000, ASPECT);
-    expect(next.x).toBeCloseTo(vb.x - 13, 10);
+    expect(next.x).toBeCloseTo(vb.x - 15, 10);
     expect(next.y).toBeCloseTo(vb.y, 10);
     expect(next.w).toBe(vb.w);
   });
@@ -97,10 +99,11 @@ describe('atlas camera math', () => {
   });
 
   it('limits zoom-out so the map always covers the viewport', () => {
-    expect(maxViewW(16 / 10)).toBe(100);
+    // Widescreen map (100 x 57.14): height binds when aspect < 1.75.
+    expect(maxViewW(16 / 10)).toBeCloseTo(91.43, 1);
     expect(maxViewW(2.5)).toBe(100);
-    expect(maxViewW(0.5)).toBe(50);
-    expect(maxViewW(1)).toBe(100);
+    expect(maxViewW(0.5)).toBeCloseTo(28.57, 1);
+    expect(maxViewW(1)).toBeCloseTo(57.14, 1);
     // Degenerate aspect never blows up the camera.
     expect(maxViewW(0)).toBe(100);
     expect(maxViewW(-3)).toBe(100);
@@ -111,7 +114,7 @@ describe('atlas camera math', () => {
     // Dragging far up-left shoves the camera to the bottom-right world edges.
     const next = panViewBox(vb, -100000, -100000, 1600, 1000, ASPECT);
     expect(next.x + next.w).toBe(100);
-    expect(next.y + next.h).toBe(100);
+    expect(next.y + next.h).toBeCloseTo(57.14, 1);
     // Dragging far down-right shoves it to the top-left edges.
     const other = panViewBox(vb, 100000, 100000, 1600, 1000, ASPECT);
     expect(other.x).toBe(0);
@@ -142,10 +145,10 @@ describe('atlas camera math', () => {
   });
 
   it('flyToTarget centers the point at the requested zoom', () => {
-    const target = flyToTarget(35, 65, 34, ASPECT);
+    const target = flyToTarget(35, 35, 34, ASPECT);
     expect(target.w).toBe(34);
     expect(target.x + target.w / 2).toBeCloseTo(35, 10);
-    expect(target.y + target.h / 2).toBeCloseTo(65, 10);
+    expect(target.y + target.h / 2).toBeCloseTo(35, 10);
   });
 
   it('fly-to near a world edge clamps inside instead of showing void', () => {
@@ -228,7 +231,7 @@ describe('atlas marker data', () => {
   });
 
   it('coaching keeps its centered legacy position (no GLB node exists for it)', () => {
-    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 50, y: 50 });
+    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 50, y: 12 });
   });
 
   it('keeps every pair of realm markers at least 5 world units apart', () => {

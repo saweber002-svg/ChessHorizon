@@ -103,21 +103,24 @@ export const CASTLE_BY_VARIATION: Record<string, CastleLocation> = Object.fromEn
 // Baked-atlas geo-referencing
 // =============================================================================
 //
-// The atlas (public/atlas/atlas-map.webp, 4096px square) is a stylized
-// top-down bake of world-atlas.glb, not a true projection. The affine fit
-// below maps real lat/lng to file fractions (x = fraction of width,
-// y = fraction of height), derived 2026-09-29 from 12 coastal anchors pinned
-// against recognizable geography (Thames estuary, Bay of Naples, Øresund,
-// Ligurian coast, ...). Least-squares residuals: max 3.4 map units, most
-// under 2 — plenty for castle markers (~4-5 units wide), with Italy (the
-// densest cluster) under 1 unit.
+// The atlas (public/atlas/atlas-map.webp, 2744x1568) is an Age of Exploration
+// illustrated map. MAP_ASPECT is its width/height ratio; the SVG/div coordinate
+// system uses x in 0-100 across the width and y in 0-MAP_H down the height,
+// so the image renders undistorted. The affine fit below maps real lat/lng to
+// file fractions, converted to this coordinate space.
 
-const GEO_AX = 0.015077;
-const GEO_BX = 0.002021;
-const GEO_CX = 0.183854;
-const GEO_AY = -0.000133;
-const GEO_BY = -0.014759;
-const GEO_CY = 1.28489;
+export const MAP_ASPECT = 2744 / 1568;
+export const MAP_H = 100 / MAP_ASPECT; // ~57.14
+// Scotland, Toe of Italy, W. Ireland, N. Norway, Rome, Sicily, Athens).
+// Least-squares residuals: max 3.0 map units, most under 2.5 — plenty for
+// castle markers (~4-5 units wide).
+
+const GEO_AX = 0.014182;
+const GEO_BX = 0.000579;
+const GEO_CX = 0.328122;
+const GEO_AY = -0.000346;
+const GEO_BY = -0.023348;
+const GEO_CY = 1.774014;
 
 export interface MapPoint {
   /** 0-100 map space, matching KINGDOM_POSITIONS. */
@@ -129,7 +132,7 @@ export interface MapPoint {
 export function latLngToMap(lat: number, lng: number): MapPoint {
   return {
     x: (GEO_AX * lng + GEO_BX * lat + GEO_CX) * 100,
-    y: (GEO_AY * lng + GEO_BY * lat + GEO_CY) * 100,
+    y: (GEO_AY * lng + GEO_BY * lat + GEO_CY) * MAP_H,
   };
 }
 
@@ -189,6 +192,8 @@ export function fitCastlesView(points: MapPoint[]): FitView {
   }
   const w = Math.max(maxX - minX, 2);
   const h = Math.max(maxY - minY, 2);
-  const zoom = Math.min(MAX_ZOOM, 100 / (w * (1 + FIT_PADDING)), 100 / (h * (1 + FIT_PADDING)));
+  // Vertical span in screen space is h/MAP_ASPECT map-width units, so the
+  // vertical fit allows a proportionally larger zoom.
+  const zoom = Math.min(MAX_ZOOM, 100 / (w * (1 + FIT_PADDING)), (100 * MAP_ASPECT) / (h * (1 + FIT_PADDING)));
   return { zoom, centerX: (minX + maxX) / 2, centerY: (minY + maxY) / 2 };
 }

@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { useProgress } from '@/contexts/ProgressContext';
 import type { MapLocation } from '@/data/mapLocations';
 import { KINGDOM_POSITIONS, KINGDOM_UNLOCK_ORDER, KINGDOM_UNLOCK_STARS } from '@/types';
+import { MAP_H } from '@/data/castleLocations';
 import type { KingdomId } from '@/types';
 import {
   clampViewBox,
@@ -49,11 +50,9 @@ export function getUnlockThreshold(location: MapLocation): number {
 }
 
 /**
- * Baked top-down render of world-atlas.glb (4096px square WebP).
- * Rendered once offline with an orthographic camera; kingdom markers are
- * placed from KINGDOM_POSITIONS, which were measured in this image's space.
- * The bake's gray 3D marker spheres were inpainted out and a gentle shaded
- * relief was applied so mountains read slightly 3D (geometry untouched).
+ * Age of Exploration illustrated atlas map (2744x1568 WebP, 2x upscaled).
+ * Kingdom markers are placed from KINGDOM_POSITIONS, calibrated to this
+ * image's geography via the lat/lng projection in castleLocations.ts.
  */
 const ATLAS_MAP_URL = `${import.meta.env.BASE_URL}atlas/atlas-map.webp`;
 
@@ -583,7 +582,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
         <rect x={-60} y={-60} width={220} height={220} fill={`url(#ocean-${uid})`} />
 
         {/* Baked top-down render of the world-atlas.glb */}
-        <image href={ATLAS_MAP_URL} x={0} y={0} width={100} height={100} preserveAspectRatio="none" />
+        <image href={ATLAS_MAP_URL} x={0} y={0} width={100} height={MAP_H} preserveAspectRatio="none" />
 
         {/* Realm markers */}
         {locations.map((location) => {

@@ -18,7 +18,9 @@ export interface ViewBox {
   h: number;
 }
 
-/** The atlas world lives in 0–100 percent space (see KINGDOM_POSITIONS). */
+import { MAP_H } from '@/data/castleLocations';
+
+/** The atlas world lives in 0–100 (x) by 0–MAP_H (y) space (see KINGDOM_POSITIONS). */
 export const WORLD_SIZE = 100;
 
 /** Zoomed-in limit, expressed as viewBox width in world units. */
@@ -27,11 +29,11 @@ export const MIN_VIEW_W = 14;
 /**
  * Zoomed-out limit: the widest viewBox that still keeps the map covering
  * the viewport. On wide screens the full 100-unit world fits; on portrait
- * screens the height is the binding constraint.
+ * screens the height (MAP_H) is the binding constraint.
  */
 export function maxViewW(aspect: number): number {
   if (!(aspect > 0)) return WORLD_SIZE;
-  return WORLD_SIZE * Math.min(1, aspect);
+  return Math.min(WORLD_SIZE, MAP_H * aspect);
 }
 
 /** Clamp a number into [min, max]. */
@@ -48,7 +50,7 @@ export function clampViewBox(vb: ViewBox, aspect: number): ViewBox {
   const w = clamp(vb.w, MIN_VIEW_W, maxViewW(aspect));
   const h = w / aspect;
   const cx = clamp(vb.x + vb.w / 2, w / 2, WORLD_SIZE - w / 2);
-  const cy = clamp(vb.y + vb.h / 2, h / 2, WORLD_SIZE - h / 2);
+  const cy = clamp(vb.y + vb.h / 2, h / 2, MAP_H - h / 2);
   return { x: cx - w / 2, y: cy - h / 2, w, h };
 }
 
@@ -58,8 +60,8 @@ export function clampViewBox(vb: ViewBox, aspect: number): ViewBox {
  * map is left to discover by panning and zooming.
  * `aspect` is viewportWidth / viewportHeight.
  */
-const INITIAL_CENTER = { x: 45, y: 72 };
-const INITIAL_W = 26;
+const INITIAL_CENTER = { x: 47, y: 40 };
+const INITIAL_W = 30;
 
 export function createInitialViewBox(aspect: number): ViewBox {
   const w = INITIAL_W;
