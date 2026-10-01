@@ -73,13 +73,22 @@ export default function Wilderness() {
                 </div>
               </div>
             </div>
-            <button
-              onClick={() => setShowCreate(true)}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium hover:bg-emerald-500/20 transition-colors"
-            >
-              <Plus size={16} />
-              Create Opening
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setLocation('/wilderness/spar')}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium hover:bg-emerald-500/20 transition-colors"
+              >
+                <Swords size={16} />
+                Sparring Board
+              </button>
+              <button
+                onClick={() => setShowCreate(true)}
+                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium hover:bg-emerald-500/20 transition-colors"
+              >
+                <Plus size={16} />
+                Create Opening
+              </button>
+            </div>
           </div>
         </div>
       </div>

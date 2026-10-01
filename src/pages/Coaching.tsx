@@ -7,16 +7,8 @@ import ChessBoard from '@/components/ChessBoard';
 import { analyzeMove, analyzeGame, EngineUnavailableError, type MoveAnalysis as AnalysisResult, type GameReview } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
 import { tap as hapticTap, success as hapticSuccess, error as hapticError } from '@/lib/haptics';
-
-/** Computer difficulty levels (Stockfish Skill Level 0-20). */
-const DIFFICULTY_LEVELS = [
-  { id: 'beginner', label: 'Beginner', skill: 0, hint: 'Learning the moves' },
-  { id: 'casual', label: 'Casual', skill: 5, hint: 'Relaxed games' },
-  { id: 'club', label: 'Club', skill: 10, hint: 'Solid club player' },
-  { id: 'expert', label: 'Expert', skill: 15, hint: 'Strong tournament player' },
-  { id: 'master', label: 'Master', skill: 20, hint: 'Full strength' },
-] as const;
-type DifficultyId = typeof DIFFICULTY_LEVELS[number]['id'];
+import { DIFFICULTY_LEVELS, skillForDifficulty, type DifficultyId } from '@/lib/difficulty';
+import { classificationColors, classificationIcons } from '@/lib/classificationStyle';
 
 const START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
@@ -67,32 +59,6 @@ export default function Coaching() {
     gameOver: null,
   });
   const [pendingDifficulty, setPendingDifficulty] = useState<DifficultyId>('casual');
-
-  const classificationColors: Record<string, string> = {
-    'Brilliant': '#00f5d4',
-    'Great': '#10b981',
-    'Best': '#22c55e',
-    'Excellent': '#3b82f6',
-    'Good': '#8b5cf6',
-    'Book': '#a78bfa',
-    'Inaccuracy': '#f59e0b',
-    'Mistake': '#f97316',
-    'Miss': '#ef4444',
-    'Blunder': '#dc2626',
-  };
-
-  const classificationIcons: Record<string, string> = {
-    'Brilliant': '✦',
-    'Great': '★',
-    'Best': '✓',
-    'Excellent': '!',
-    'Good': '+',
-    'Book': '📖',
-    'Inaccuracy': '?!',
-    'Mistake': '?',
-    'Miss': '✕',
-    'Blunder': '??',
-  };
 
   const makeComputerMove = useCallback(async (fen: string, skill: number) => {
     try {
@@ -178,7 +144,7 @@ export default function Coaching() {
 
     // Apply the move IMMEDIATELY so the board updates even if engine
     // analysis fails or hangs. Analysis runs in the background.
-    const skill = DIFFICULTY_LEVELS.find(d => d.id === gameState.difficulty)?.skill ?? 5;
+    const skill = skillForDifficulty(gameState.difficulty);
     setGameState(prev => ({
       ...prev,
       fen: newFen,
@@ -240,7 +206,7 @@ export default function Coaching() {
     if (gameState.gameStarted && gameState.userSide === 'b' && gameState.moveSans.length === 0) {
       const game = new Chess();
       if (game.turn() === 'w') {
-        const skill = DIFFICULTY_LEVELS.find(d => d.id === gameState.difficulty)?.skill ?? 5;
+        const skill = skillForDifficulty(gameState.difficulty);
         void makeComputerMove(game.fen(), skill);
       }
     }
