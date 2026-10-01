@@ -14,6 +14,7 @@ import {
 import { useLocation } from 'wouter';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
+import BoardWithEval from '@/components/BoardWithEval';
 import { useWilderness } from '@/contexts/WildernessContext';
 import {
   analyzeMove,
@@ -444,14 +445,16 @@ export default function CoachingSpar() {
             {/* Board */}
             <div>
               <div className="max-w-[560px] mx-auto">
-                <ChessBoard
-                  fen={displayFen}
-                  onMove={handleBoardMove}
-                  glowColor="idle"
-                  interactive={boardInteractive}
-                  lastMove={lineBaseFen !== null || viewPly !== null ? null : lastMove}
-                  orientation={boardSide === 'b' ? 'black' : 'white'}
-                />
+                <BoardWithEval fen={displayFen} orientation={boardSide === 'b' ? 'black' : 'white'}>
+                  <ChessBoard
+                    fen={displayFen}
+                    onMove={handleBoardMove}
+                    glowColor="idle"
+                    interactive={boardInteractive}
+                    lastMove={lineBaseFen !== null || viewPly !== null ? null : lastMove}
+                    orientation={boardSide === 'b' ? 'black' : 'white'}
+                  />
+                </BoardWithEval>
                 <div className="flex items-center justify-between mt-3 text-xs text-white/40">
                   <span>
                     {engineThinking

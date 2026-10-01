@@ -3,6 +3,7 @@ import { ArrowLeft, RotateCcw, Save, Undo2, Eraser } from 'lucide-react';
 import { useLocation, useParams } from 'wouter';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
+import BoardWithEval from '@/components/BoardWithEval';
 import { useWilderness } from '@/contexts/WildernessContext';
 import { SPAR_START_FEN, positionsAfterMoves } from '@/lib/sparring';
 
@@ -89,13 +90,15 @@ export default function WildernessBoard() {
           {/* Board */}
           <div>
             <div className="max-w-[560px] mx-auto">
-              <ChessBoard
-                fen={fen}
-                onMove={handleMove}
-                glowColor="idle"
-                interactive
-                lastMove={lastMove}
-              />
+              <BoardWithEval fen={fen}>
+                <ChessBoard
+                  fen={fen}
+                  onMove={handleMove}
+                  glowColor="idle"
+                  interactive
+                  lastMove={lastMove}
+                />
+              </BoardWithEval>
               <div className="flex items-center justify-between mt-3">
                 <span className="text-xs text-white/40">
                   Move the pieces for both sides — {new Chess(fen).turn() === 'w' ? 'White' : 'Black'} to move

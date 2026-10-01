@@ -2,10 +2,16 @@ import React, { createContext, useContext, useState, useCallback, useEffect } fr
 import { getBoardTheme, type BoardTheme } from '@/data/boardThemes';
 import { getPieceColorTheme, type PieceColorTheme } from '@/data/pieceColors';
 import { PIECE_STYLES, type PieceStyleId } from '@/components/pieceStyles';
+import {
+  DEFAULT_EVAL_BAR_POSITION,
+  EVAL_BAR_POSITIONS,
+  type EvalBarPosition,
+} from '@/lib/evalBar';
 
 const BOARD_KEY = 'chess_horizon_board_theme';
 const STYLE_KEY = 'chess_horizon_piece_style';
 const COLOR_KEY = 'chess_horizon_piece_color';
+const EVAL_BAR_KEY = 'chess_horizon_eval_bar';
 
 const DEFAULT_BOARD = 'classic';
 const DEFAULT_STYLE: PieceStyleId = 'staunton';
@@ -23,6 +29,9 @@ interface ThemeContextValue {
   pieceColor: PieceColorTheme;
   pieceColorId: string;
   setPieceColorId: (id: string) => void;
+  // Evaluation bar
+  evalBarPosition: EvalBarPosition;
+  setEvalBarPosition: (position: EvalBarPosition) => void;
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
@@ -49,6 +58,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     () => load(STYLE_KEY, DEFAULT_STYLE) as PieceStyleId
   );
   const [pieceColorId, setPieceColorIdState] = useState<string>(() => load(COLOR_KEY, DEFAULT_COLOR));
+  const [evalBarPosition, setEvalBarPositionState] = useState<EvalBarPosition>(() => {
+    const saved = load(EVAL_BAR_KEY, DEFAULT_EVAL_BAR_POSITION);
+    return EVAL_BAR_POSITIONS.includes(saved as EvalBarPosition)
+      ? (saved as EvalBarPosition)
+      : DEFAULT_EVAL_BAR_POSITION;
+  });
 
   const boardTheme = getBoardTheme(boardThemeId);
   const pieceColor = getPieceColorTheme(pieceColorId);
@@ -79,6 +94,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     save(COLOR_KEY, id);
   }, []);
 
+  const setEvalBarPosition = useCallback((position: EvalBarPosition) => {
+    if (EVAL_BAR_POSITIONS.includes(position)) {
+      setEvalBarPositionState(position);
+      save(EVAL_BAR_KEY, position);
+    }
+  }, []);
+
   return (
     <ThemeContext.Provider
       value={{
@@ -90,6 +112,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         pieceColor,
         pieceColorId,
         setPieceColorId,
+        evalBarPosition,
+        setEvalBarPosition,
       }}
     >
       {children}

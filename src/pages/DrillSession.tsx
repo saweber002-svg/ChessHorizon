@@ -10,6 +10,7 @@ import { kingdomHasDrills } from '@/data/kingdomDrills';
 import type { KingdomId } from '@/types';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
+import BoardWithEval from '@/components/BoardWithEval';
 import StarOverlay from '@/components/StarOverlay';
 import { useProgress } from '@/contexts/ProgressContext';
 import { useAuth } from '@/contexts/AuthContext';
@@ -850,14 +851,16 @@ hapticSuccess();
         {sessionComplete ? (
           <div className="relative">
             {/* Board stays visible — final drill position, or live sparring game */}
-            <ChessBoard
-              fen={fen}
-              onMove={handleSparringMove}
-              glowColor={glowColor}
-              lastMove={lastMove}
-              interactive={sparring && !sparringOver && !sparringThinking}
-              orientation={playerColor === 'b' ? 'black' : 'white'}
-            />
+            <BoardWithEval fen={fen} orientation={playerColor === 'b' ? 'black' : 'white'}>
+              <ChessBoard
+                fen={fen}
+                onMove={handleSparringMove}
+                glowColor={glowColor}
+                lastMove={lastMove}
+                interactive={sparring && !sparringOver && !sparringThinking}
+                orientation={playerColor === 'b' ? 'black' : 'white'}
+              />
+            </BoardWithEval>
 
             {/* Drill-complete options overlay (hidden while sparring) */}
             <AnimatePresence>
@@ -1012,15 +1015,17 @@ hapticSuccess();
                 )}
               </AnimatePresence>
 
-              <ChessBoard
-                fen={fen}
-                onMove={handleMove}
-                glowColor={glowColor}
-                hintSquares={hintSquares}
-                lastMove={lastMove}
-                interactive={!waitingOpponent && !showStars && !watching}
-                orientation={playerColor === 'b' ? 'black' : 'white'}
-              />
+              <BoardWithEval fen={fen} orientation={playerColor === 'b' ? 'black' : 'white'}>
+                <ChessBoard
+                  fen={fen}
+                  onMove={handleMove}
+                  glowColor={glowColor}
+                  hintSquares={hintSquares}
+                  lastMove={lastMove}
+                  interactive={!waitingOpponent && !showStars && !watching}
+                  orientation={playerColor === 'b' ? 'black' : 'white'}
+                />
+              </BoardWithEval>
             </div>
 
             {/* Engine refutation: why the wrong move was bad (or wasn't) */}

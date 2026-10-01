@@ -4,6 +4,7 @@ import { ChevronLeft, AlertCircle, Swords, User } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { Chess, type Square } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
+import BoardWithEval from '@/components/BoardWithEval';
 import { analyzeMove, analyzeGame, EngineUnavailableError, type MoveAnalysis as AnalysisResult, type GameReview } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
 import { tap as hapticTap, success as hapticSuccess, error as hapticError } from '@/lib/haptics';
@@ -451,13 +452,15 @@ export default function Coaching() {
         )}
         <div className="flex flex-col min-w-0 lg:flex-[1.2] w-full">
           <div className="flex items-center justify-center bg-[#0a0a1f] rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
-            <div className="w-full max-w-[600px] aspect-square p-4 z-10">
-              <ChessBoard
-                fen={gameState.isExploring ? gameState.explorationBoard : viewedFen}
-                onMove={handleUserMove}
-                glowColor={gameState.isExploring ? 'correct' : (gameState.isPaused ? 'incorrect' : 'idle')}
-                interactive={(!gameState.isPaused || gameState.isExploring) && !isViewingHistory}
-              />
+            <div className="w-full max-w-[600px] p-4 z-10">
+              <BoardWithEval fen={gameState.isExploring ? gameState.explorationBoard : viewedFen}>
+                <ChessBoard
+                  fen={gameState.isExploring ? gameState.explorationBoard : viewedFen}
+                  onMove={handleUserMove}
+                  glowColor={gameState.isExploring ? 'correct' : (gameState.isPaused ? 'incorrect' : 'idle')}
+                  interactive={(!gameState.isPaused || gameState.isExploring) && !isViewingHistory}
+                />
+              </BoardWithEval>
             </div>
             <AnimatePresence>
               {isAnalyzing && (

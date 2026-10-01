@@ -16,6 +16,7 @@ import {
 import { useLocation } from 'wouter';
 import { Chess, type Square, type Move } from 'chess.js';
 import ChessBoard from '@/components/ChessBoard';
+import BoardWithEval from '@/components/BoardWithEval';
 
 const GAME_TIME = 600; // 10 minutes in seconds
 
@@ -299,13 +300,15 @@ export default function Clearing() {
 
             {/* Chess Board */}
             <div className="w-full max-w-md">
-              <ChessBoard
-                fen={fen}
-                onMove={handleMove}
-                glowColor={glowColor}
-                interactive={!isGameOver}
-                lastMove={lastMove}
-              />
+              <BoardWithEval fen={fen}>
+                <ChessBoard
+                  fen={fen}
+                  onMove={handleMove}
+                  glowColor={glowColor}
+                  interactive={!isGameOver}
+                  lastMove={lastMove}
+                />
+              </BoardWithEval>
             </div>
 
             {/* White player info */}

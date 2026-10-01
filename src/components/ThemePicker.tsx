@@ -2,6 +2,7 @@ import { BOARD_THEMES } from '@/data/boardThemes';
 import { PIECE_COLOR_THEMES } from '@/data/pieceColors';
 import { PIECE_STYLES, getPieceSvg, type PieceStyleId } from '@/components/pieceStyles';
 import { useTheme } from '@/contexts/ThemeContext';
+import { EVAL_BAR_LABELS, EVAL_BAR_POSITIONS } from '@/lib/evalBar';
 
 /**
  * Live mini-board preview for board themes.
@@ -90,6 +91,7 @@ export default function ThemePicker() {
     pieceStyleId, setPieceStyleId,
     pieceColorId, setPieceColorId,
     boardTheme,
+    evalBarPosition, setEvalBarPosition,
   } = useTheme();
 
   return (
@@ -174,6 +176,33 @@ export default function ThemePicker() {
         </div>
         <p className="text-xs text-slate-500 mt-2">
           Horizon requires a dark board (Midnight or Ocean).
+        </p>
+      </div>
+
+      {/* Evaluation bar */}
+      <div>
+        <h3 className="text-sm font-semibold text-slate-300 mb-3">Evaluation Bar</h3>
+        <div className="grid grid-cols-3 gap-2">
+          {EVAL_BAR_POSITIONS.map((position) => {
+            const isActive = position === evalBarPosition;
+            return (
+              <button
+                key={position}
+                onClick={() => setEvalBarPosition(position)}
+                className={`relative rounded-lg px-3 py-2.5 text-xs font-medium transition-colors ${
+                  isActive
+                    ? 'ring-2 ring-cyan-400 text-cyan-300 bg-slate-800/60'
+                    : 'ring-1 ring-slate-700 text-slate-400 hover:ring-slate-500'
+                }`}
+              >
+                {EVAL_BAR_LABELS[position]}
+                {isActive && <Checkmark />}
+              </button>
+            );
+          })}
+        </div>
+        <p className="text-xs text-slate-500 mt-2">
+          Shows Stockfish's read on the position next to the board in every game mode.
         </p>
       </div>
     </div>
