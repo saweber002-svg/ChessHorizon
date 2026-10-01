@@ -191,7 +191,7 @@ export async function analyzeMove(moveSan: string, fenBefore: string, depth: num
       evalAfter: 0,
       isMate: before.score.type === 'mate',
       bestMove: uciToSan(fenBefore, before.pv[0]),
-      pv: before.pv.map((m) => uciToSan(fenBefore, m)),
+      pv: pvToSan(fenBefore, before.pv),
       explanation: generateExplanation(classification, cpLoss, uciToSan(fenBefore, before.pv[0])),
     };
   }
@@ -254,7 +254,7 @@ export async function analyzeMove(moveSan: string, fenBefore: string, depth: num
     evalAfter: scoreToCp(afterMoverPerspective),
     isMate: before.score.type === 'mate' || afterLines.score.type === 'mate',
     bestMove: bestMoveSan,
-    pv: before.pv.map((m) => uciToSan(fenBefore, m)),
+    pv: pvToSan(fenBefore, before.pv),
     explanation: generateExplanation(classification, cpLoss, bestMoveSan),
   };
 }

@@ -120,6 +120,16 @@ describe('pvToSan', () => {
   it('handles promotions in the line', () => {
     expect(pvToSan('7k/5P2/8/8/8/8/6K1/8 w - - 0 1', ['f7f8q'])).toEqual(['f8=Q+']);
   });
+
+  it('is the only safe way to convert a full PV: mapping uciToSan over one FEN throws', () => {
+    // Regression: analyzeMove used to do before.pv.map((m) => uciToSan(fenBefore, m)).
+    // The PV's second move is the opponent's reply, illegal from fenBefore, and
+    // chess.js 1.x throws on illegal moves — killing the whole analysis.
+    const fen = 'rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1';
+    const pv = ['e7e5', 'g1f3', 'b8c6'];
+    expect(() => pv.map((m) => uciToSan(fen, m))).toThrow();
+    expect(pvToSan(fen, pv)).toEqual(['e5', 'Nf3', 'Nc6']);
+  });
 });
 
 describe('formatEval', () => {
