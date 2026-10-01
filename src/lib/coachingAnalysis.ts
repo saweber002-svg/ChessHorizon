@@ -150,8 +150,11 @@ function fenToPly(fen: string): number {
  *
  * @param moveSan the move just played, in SAN
  * @param fenBefore the position before the move
+ * @param depth search depth (default 14). Callers on slower devices or with
+ *   tighter latency budgets can pass a lower depth; classification quality
+ *   degrades gracefully.
  */
-export async function analyzeMove(moveSan: string, fenBefore: string): Promise<MoveAnalysis> {
+export async function analyzeMove(moveSan: string, fenBefore: string, depth: number = ANALYSIS_DEPTH): Promise<MoveAnalysis> {
   const engine = getEngine();
 
   const game = new Chess(fenBefore);
@@ -176,7 +179,7 @@ export async function analyzeMove(moveSan: string, fenBefore: string): Promise<M
       };
     }
     // Stalemate or draw: the game is drawn regardless of the prior eval.
-    const [before] = await engine.analyze(fenBefore, { depth: ANALYSIS_DEPTH });
+    const [before] = await engine.analyze(fenBefore, { depth });
     const evalBefore = scoreToCp(before.score);
     const cpLoss = Math.max(0, evalBefore);
     const classification = classifyMove(cpLoss);
@@ -194,8 +197,8 @@ export async function analyzeMove(moveSan: string, fenBefore: string): Promise<M
   }
 
   // MultiPV=3 to distinguish Best/Great and detect sacrifices.
-  const lines = await engine.analyze(fenBefore, { depth: ANALYSIS_DEPTH, multiPv: 3 });
-  const [afterLines] = await engine.analyze(fenAfter, { depth: ANALYSIS_DEPTH });
+  const lines = await engine.analyze(fenBefore, { depth, multiPv: 3 });
+  const [afterLines] = await engine.analyze(fenAfter, { depth });
 
   const before = lines[0];
   const afterMoverPerspective = flipScore(afterLines.score);

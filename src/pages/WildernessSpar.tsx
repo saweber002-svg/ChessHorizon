@@ -42,6 +42,11 @@ const SIDE_OPTIONS: Array<{ id: SideChoice; label: string; hint: string }> = [
   { id: 'both', label: 'Both', hint: 'Free input, engine coaches every move' },
 ];
 
+/** Analysis depth for wilderness sparring: a notch below coaching's 14 so the
+ *  two searches (before MultiPV=3 + after) stay comfortably inside the UCI
+ *  timeout even on slow devices. Classification quality is unaffected. */
+const SPAR_ANALYSIS_DEPTH = 12;
+
 export default function WildernessSpar() {
   const [, setLocation] = useLocation();
   const { openings, addOpening, updateVariationMoves } = useWilderness();
@@ -58,6 +63,8 @@ export default function WildernessSpar() {
   const [moveSans, setMoveSans] = useState<string[]>([]);
   /** Parallel to moveSans. null = engine move, preloaded line move, or analysis still pending. */
   const [analyses, setAnalyses] = useState<Array<MoveAnalysis | null>>([]);
+  /** Plies whose analysis failed (timeout, engine error). Never stuck as pending. */
+  const [failedPlies, setFailedPlies] = useState<ReadonlySet<number>>(new Set());
   /** Plies preloaded from a custom opening line — never analyzed. */
   const [preloadedCount, setPreloadedCount] = useState(0);
   const [viewPly, setViewPly] = useState<number | null>(null);
@@ -78,6 +85,10 @@ export default function WildernessSpar() {
   const [saveName, setSaveName] = useState('');
 
   const engineTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  /** Incremented every time a new sparring game starts; async engine work
+   *  from a previous game checks it and bails out instead of corrupting
+   *  the new game's state. */
+  const gameId = useRef(0);
   useEffect(() => () => {
     if (engineTimer.current) clearTimeout(engineTimer.current);
   }, []);
@@ -99,14 +110,18 @@ export default function WildernessSpar() {
     [preloadedCount, positions, userSide]
   );
 
-  const analysisPending = moveSans.some((_, i) => analyses[i] === null && isUserPly(i));
+  const analysisPending = moveSans.some(
+    (_, i) => analyses[i] === null && !failedPlies.has(i) && isUserPly(i)
+  );
 
   const resetPlay = useCallback((startFen: string, startSans: string[], side: SideChoice) => {
     if (engineTimer.current) clearTimeout(engineTimer.current);
+    gameId.current += 1;
     setFen(startFen);
     setPositions(positionsAfterMoves(startFen, startSans));
     setMoveSans(startSans);
     setAnalyses(startSans.map(() => null));
+    setFailedPlies(new Set());
     setPreloadedCount(startSans.length);
     setViewPly(null);
     setGameOver(null);
@@ -128,6 +143,7 @@ export default function WildernessSpar() {
       const newFen = game.fen();
       const over = gameOverReason(newFen);
       const plyIndex = moveSans.length;
+      const id = gameId.current;
 
       setFen(newFen);
       setPositions((p) => [...p, newFen]);
@@ -138,8 +154,9 @@ export default function WildernessSpar() {
       if (over) setGameOver(over);
 
       if (analyze) {
-        analyzeMove(result.san, fenBefore).then(
+        analyzeMove(result.san, fenBefore, SPAR_ANALYSIS_DEPTH).then(
           (analysis) => {
+            if (id !== gameId.current) return; // stale game: ignore
             setAnalyses((a) => {
               const next = [...a];
               next[plyIndex] = analysis;
@@ -147,9 +164,14 @@ export default function WildernessSpar() {
             });
           },
           (e) => {
+            if (id !== gameId.current) return; // stale game: ignore
+            // Never leave the ply stuck as "analyzing": record the failure
+            // so the UI moves on (e.g. UCI timeout on a slow device).
+            setFailedPlies((prev) => new Set(prev).add(plyIndex));
             if (e instanceof EngineUnavailableError) {
               setEngineError('Engine unavailable — playing on without analysis.');
             } else {
+              setEngineError('Analysis timed out on this device — that move will show no rating, play on.');
               console.error('Analysis failed', e);
             }
           }
@@ -162,9 +184,11 @@ export default function WildernessSpar() {
 
   const makeEngineMove = useCallback(
     async (engineFen: string, skill: number) => {
+      const id = gameId.current;
       setEngineThinking(true);
       try {
         const uci = await getEngine().findBestMove(engineFen, skill);
+        if (id !== gameId.current) return; // stale game: don't touch the new board
         const game = new Chess(engineFen);
         const result = game.move({
           from: uci.slice(0, 2) as Square,
@@ -174,6 +198,7 @@ export default function WildernessSpar() {
         applySan(result.san, result.from, result.to, engineFen, false);
       } catch (e) {
         if (e instanceof EngineUnavailableError) {
+          if (id !== gameId.current) return; // stale game: don't touch the new board
           setEngineError('Engine unavailable — the engine cannot reply. You can keep moving both sides.');
           setUserSide('both');
         } else {
