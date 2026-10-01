@@ -231,8 +231,8 @@ describe('atlas marker data', () => {
     }
   });
 
-  it('coaching keeps its centered legacy position (no GLB node exists for it)', () => {
-    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 50, y: 18 });
+  it('coaching sits in the Baltic Sea (Scott-placed, slice 22)', () => {
+    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 67.6, y: 28.6 });
   });
 
   it('keeps every pair of realm markers at least 5 world units apart', () => {

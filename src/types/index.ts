@@ -216,20 +216,22 @@ export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
   // artwork (London/Paris/Madrid/Rome/Berlin/Vienna/Amsterdam/Copenhagen/
   // Barcelona/Lisbon/Naples/Milan as anchors); the castle lat/lng projection
   // in castleLocations.ts was refit on the same anchors (max residual ~2.8u).
-  // `wilderness`/`clearing` are design placements (Anatolia / Aegean Sea);
-  // `coaching` has no map node, so it keeps the centered legacy position.
+  // Slice 22 (2026-10-01): per Scott's annotated screenshots — coaching to
+  // the Baltic Sea, clearing to the Danube basin, Sicily pinned to its
+  // island, France nudged down to sit centrally on the country.
+  // `wilderness` is a design placement (Anatolia).
   italian: { x: 50.5, y: 54.2 },
   spanish: { x: 25, y: 56.4 },
-  sicilian: { x: 54.5, y: 60.1 },
+  sicilian: { x: 54.9, y: 60.2 },
   english: { x: 30, y: 29.7 },
   scandinavian: { x: 58.5, y: 18.4 },
   queendom: { x: 31, y: 35.4 },
-  french: { x: 35.5, y: 39.3 },
+  french: { x: 35.5, y: 41.5 },
   dutch: { x: 43.5, y: 35.8 },
   germany: { x: 52, y: 35 },
   wilderness: { x: 88, y: 60 },
-  clearing: { x: 76, y: 58 },
-  coaching: { x: 50, y: 18 },
+  clearing: { x: 62.9, y: 43.9 },
+  coaching: { x: 67.6, y: 28.6 },
 };
 
 export function getTierColor(tier: Tier): string {
