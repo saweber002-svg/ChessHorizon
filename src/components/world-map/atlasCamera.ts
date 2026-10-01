@@ -58,8 +58,8 @@ export function clampViewBox(vb: ViewBox, aspect: number): ViewBox {
  * map is left to discover by panning and zooming.
  * `aspect` is viewportWidth / viewportHeight.
  */
-const INITIAL_CENTER = { x: 45, y: 72 };
-const INITIAL_W = 26;
+const INITIAL_CENTER = { x: 47, y: 70 };
+const INITIAL_W = 30;
 
 export function createInitialViewBox(aspect: number): ViewBox {
   const w = INITIAL_W;

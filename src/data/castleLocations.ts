@@ -103,21 +103,20 @@ export const CASTLE_BY_VARIATION: Record<string, CastleLocation> = Object.fromEn
 // Baked-atlas geo-referencing
 // =============================================================================
 //
-// The atlas (public/atlas/atlas-map.webp, 4096px square) is a stylized
-// top-down bake of world-atlas.glb, not a true projection. The affine fit
-// below maps real lat/lng to file fractions (x = fraction of width,
-// y = fraction of height), derived 2026-09-29 from 12 coastal anchors pinned
-// against recognizable geography (Thames estuary, Bay of Naples, Øresund,
-// Ligurian coast, ...). Least-squares residuals: max 3.4 map units, most
-// under 2 — plenty for castle markers (~4-5 units wide), with Italy (the
-// densest cluster) under 1 unit.
+// The atlas (public/atlas/atlas-map.webp, 2744x1568) is an Age of Exploration
+// illustrated map. The affine fit below maps real lat/lng to file fractions
+// (x = fraction of width, y = fraction of height), derived 2026-09-30 from
+// 8 coastal anchors pinned against recognizable geography (Gibraltar, N.
+// Scotland, Toe of Italy, W. Ireland, N. Norway, Rome, Sicily, Athens).
+// Least-squares residuals: max 3.0 map units, most under 2.5 — plenty for
+// castle markers (~4-5 units wide).
 
-const GEO_AX = 0.015077;
-const GEO_BX = 0.002021;
-const GEO_CX = 0.183854;
-const GEO_AY = -0.000133;
-const GEO_BY = -0.014759;
-const GEO_CY = 1.28489;
+const GEO_AX = 0.014182;
+const GEO_BX = 0.000579;
+const GEO_CX = 0.328122;
+const GEO_AY = -0.000346;
+const GEO_BY = -0.023348;
+const GEO_CY = 1.774014;
 
 export interface MapPoint {
   /** 0-100 map space, matching KINGDOM_POSITIONS. */

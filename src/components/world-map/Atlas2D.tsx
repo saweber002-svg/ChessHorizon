@@ -49,11 +49,9 @@ export function getUnlockThreshold(location: MapLocation): number {
 }
 
 /**
- * Baked top-down render of world-atlas.glb (4096px square WebP).
- * Rendered once offline with an orthographic camera; kingdom markers are
- * placed from KINGDOM_POSITIONS, which were measured in this image's space.
- * The bake's gray 3D marker spheres were inpainted out and a gentle shaded
- * relief was applied so mountains read slightly 3D (geometry untouched).
+ * Age of Exploration illustrated atlas map (2744x1568 WebP, 2x upscaled).
+ * Kingdom markers are placed from KINGDOM_POSITIONS, calibrated to this
+ * image's geography via the lat/lng projection in castleLocations.ts.
  */
 const ATLAS_MAP_URL = `${import.meta.env.BASE_URL}atlas/atlas-map.webp`;
 
