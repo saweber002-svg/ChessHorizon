@@ -10,7 +10,7 @@ import {
 import { getKingdomDrills } from '@/data/kingdomDrills';
 import type { KingdomId } from '@/types';
 
-const VIEW = { zoom: 3.2, centerX: 50, centerY: 50 };
+const VIEW = { zoom: 3.2, centerX: 50, centerY: 28.57 };
 
 describe('panCamera', () => {
   it('moves the map with the pointer (drag right shifts center left)', () => {
@@ -18,7 +18,7 @@ describe('panCamera', () => {
     const out = panCamera(VIEW, 39, 0, 390, 844);
     expect(out.zoom).toBe(VIEW.zoom);
     expect(out.centerX).toBeCloseTo(50 - (39 / 390) * (100 / 3.2), 10);
-    expect(out.centerY).toBe(50);
+    expect(out.centerY).toBe(28.57);
   });
 
   it('returns the view unchanged for degenerate sizes', () => {
@@ -33,7 +33,7 @@ describe('zoomCamera', () => {
     const out = zoomCamera(VIEW, minZoom, 2, 50, 50);
     expect(out.zoom).toBeCloseTo(6.4, 10);
     expect(out.centerX).toBeCloseTo(50, 10);
-    expect(out.centerY).toBeCloseTo(50, 10);
+    expect(out.centerY).toBeCloseTo(28.57, 10);
   });
 
   it('clamps to the fitted min zoom and the interior max zoom', () => {

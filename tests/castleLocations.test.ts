@@ -66,7 +66,7 @@ describe('latLngToMap', () => {
   it('maps Rome to its measured position on the atlas', () => {
     const p = latLngToMap(41.9, 12.5);
     expect(p.x).toBeCloseTo(52.97, 0);
-    expect(p.y).toBeCloseTo(79.14, 1);
+    expect(p.y).toBeCloseTo(45.22, 1);
   });
 
   it('maps the Tower of London west of Prague Castle', () => {

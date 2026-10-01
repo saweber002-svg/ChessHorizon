@@ -104,9 +104,13 @@ export const CASTLE_BY_VARIATION: Record<string, CastleLocation> = Object.fromEn
 // =============================================================================
 //
 // The atlas (public/atlas/atlas-map.webp, 2744x1568) is an Age of Exploration
-// illustrated map. The affine fit below maps real lat/lng to file fractions
-// (x = fraction of width, y = fraction of height), derived 2026-09-30 from
-// 8 coastal anchors pinned against recognizable geography (Gibraltar, N.
+// illustrated map. MAP_ASPECT is its width/height ratio; the SVG/div coordinate
+// system uses x in 0-100 across the width and y in 0-MAP_H down the height,
+// so the image renders undistorted. The affine fit below maps real lat/lng to
+// file fractions, converted to this coordinate space.
+
+export const MAP_ASPECT = 2744 / 1568;
+export const MAP_H = 100 / MAP_ASPECT; // ~57.14
 // Scotland, Toe of Italy, W. Ireland, N. Norway, Rome, Sicily, Athens).
 // Least-squares residuals: max 3.0 map units, most under 2.5 — plenty for
 // castle markers (~4-5 units wide).
@@ -128,7 +132,7 @@ export interface MapPoint {
 export function latLngToMap(lat: number, lng: number): MapPoint {
   return {
     x: (GEO_AX * lng + GEO_BX * lat + GEO_CX) * 100,
-    y: (GEO_AY * lng + GEO_BY * lat + GEO_CY) * 100,
+    y: (GEO_AY * lng + GEO_BY * lat + GEO_CY) * MAP_H,
   };
 }
 
@@ -188,6 +192,8 @@ export function fitCastlesView(points: MapPoint[]): FitView {
   }
   const w = Math.max(maxX - minX, 2);
   const h = Math.max(maxY - minY, 2);
-  const zoom = Math.min(MAX_ZOOM, 100 / (w * (1 + FIT_PADDING)), 100 / (h * (1 + FIT_PADDING)));
+  // Vertical span in screen space is h/MAP_ASPECT map-width units, so the
+  // vertical fit allows a proportionally larger zoom.
+  const zoom = Math.min(MAX_ZOOM, 100 / (w * (1 + FIT_PADDING)), (100 * MAP_ASPECT) / (h * (1 + FIT_PADDING)));
   return { zoom, centerX: (minX + maxX) / 2, centerY: (minY + maxY) / 2 };
 }

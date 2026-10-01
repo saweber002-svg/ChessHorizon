@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { useProgress } from '@/contexts/ProgressContext';
 import type { MapLocation } from '@/data/mapLocations';
 import { KINGDOM_POSITIONS, KINGDOM_UNLOCK_ORDER, KINGDOM_UNLOCK_STARS } from '@/types';
+import { MAP_H } from '@/data/castleLocations';
 import type { KingdomId } from '@/types';
 import {
   clampViewBox,
@@ -581,7 +582,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
         <rect x={-60} y={-60} width={220} height={220} fill={`url(#ocean-${uid})`} />
 
         {/* Baked top-down render of the world-atlas.glb */}
-        <image href={ATLAS_MAP_URL} x={0} y={0} width={100} height={100} preserveAspectRatio="none" />
+        <image href={ATLAS_MAP_URL} x={0} y={0} width={100} height={MAP_H} preserveAspectRatio="none" />
 
         {/* Realm markers */}
         {locations.map((location) => {

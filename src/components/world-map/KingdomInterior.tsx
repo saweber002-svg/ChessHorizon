@@ -9,6 +9,8 @@ import { castleIconPx, MARKER_DESIGN_W, MOBILE_MARKER_BOOST, MOBILE_ICON_BREAKPO
 import {
   CASTLE_BY_VARIATION,
   CASTLE_MIN_SEPARATION,
+  MAP_ASPECT,
+  MAP_H,
   declutterPositions,
   fitCastlesView,
   latLngToMap,
@@ -83,13 +85,15 @@ export function zoomCamera(
   const z2 = Math.min(INTERIOR_MAX_ZOOM, Math.max(minZoom, view.zoom * factor));
   if (z2 === view.zoom) return view;
   const left = 50 - view.zoom * view.centerX;
-  const top = 50 - view.zoom * view.centerY;
+  const vZoom = view.zoom / MAP_ASPECT;
+  const top = 50 - vZoom * view.centerY;
   const mx = (fxPct - left) / view.zoom;
-  const my = (fyPct - top) / view.zoom;
+  const my = (fyPct - top) / vZoom;
+  const vZ2 = z2 / MAP_ASPECT;
   return {
     zoom: z2,
     centerX: (50 - (fxPct - z2 * mx)) / z2,
-    centerY: (50 - (fyPct - z2 * my)) / z2,
+    centerY: (50 - (fyPct - vZ2 * my)) / vZ2,
   };
 }
 
@@ -98,7 +102,11 @@ export function clampCamera(v: FitView): FitView {
   const lo = 50 / v.zoom;
   const hi = 100 - 50 / v.zoom;
   const cx = Math.min(Math.max(v.centerX, lo), hi);
-  const cy = Math.min(Math.max(v.centerY, lo), hi);
+  // Vertical uses MAP_H range and aspect-corrected zoom.
+  const vZoom = v.zoom / MAP_ASPECT;
+  const loY = 50 / vZoom;
+  const hiY = MAP_H - 50 / vZoom;
+  const cy = Math.min(Math.max(v.centerY, loY), hiY);
   if (cx === v.centerX && cy === v.centerY) return v;
   return { zoom: v.zoom, centerX: cx, centerY: cy };
 }
@@ -152,17 +160,20 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
 
   const mapOffset = useMemo(() => {
     const rawL = 50 - view.zoom * view.centerX;
-    const rawT = 50 - view.zoom * view.centerY;
-    const min = 100 - view.zoom * 100;
+    // Vertical zoom is reduced by MAP_ASPECT since the map is widescreen.
+    const vZoom = view.zoom / MAP_ASPECT;
+    const rawT = 50 - vZoom * view.centerY;
+    const minL = 100 - view.zoom * 100;
+    const minT = 100 - vZoom * MAP_H;
     return {
-      left: Math.min(0, Math.max(min, rawL)),
-      top: Math.min(0, Math.max(min, rawT)),
+      left: Math.min(0, Math.max(minL, rawL)),
+      top: Math.min(0, Math.max(minT, rawT)),
     };
   }, [view]);
 
   const toScreen = (mx: number, my: number) => ({
     x: mapOffset.left + view.zoom * mx,
-    y: mapOffset.top + view.zoom * my,
+    y: mapOffset.top + (view.zoom / MAP_ASPECT) * my,
   });
 
   // Same zoom-parented icon sizing as the atlas markers: the interior's
@@ -523,7 +534,7 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
         className="absolute cursor-grab active:cursor-grabbing"
         style={{
           width: `${view.zoom * 100}%`,
-          height: `${view.zoom * 100}%`,
+          height: `${(view.zoom * 100) / MAP_ASPECT}%`,
           left: `${mapOffset.left}%`,
           top: `${mapOffset.top}%`,
           backgroundImage: `url(${ATLAS_MAP_URL})`,
