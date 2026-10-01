@@ -64,10 +64,11 @@ function trueCastleSpots(kingdom: KingdomId, drills: KingdomDrill[]): CastleSpot
  */
 export function panCamera(view: FitView, dxPx: number, dyPx: number, wPx: number, hPx: number): FitView {
   if (wPx <= 0 || hPx <= 0) return view;
+  const cAspect = wPx / hPx;
   return {
     zoom: view.zoom,
     centerX: view.centerX - ((dxPx / wPx) * 100) / view.zoom,
-    centerY: view.centerY - ((dyPx / hPx) * 100) / view.zoom,
+    centerY: view.centerY - ((dyPx / hPx) * 100) / (view.zoom * cAspect),
   };
 }
 
@@ -81,31 +82,30 @@ export function zoomCamera(
   factor: number,
   fxPct: number,
   fyPct: number,
+  cAspect: number = 1,
 ): FitView {
   const z2 = Math.min(INTERIOR_MAX_ZOOM, Math.max(minZoom, view.zoom * factor));
   if (z2 === view.zoom) return view;
   const left = 50 - view.zoom * view.centerX;
-  const vZoom = view.zoom / MAP_ASPECT;
-  const top = 50 - vZoom * view.centerY;
+  const top = 50 - view.zoom * cAspect * view.centerY;
   const mx = (fxPct - left) / view.zoom;
-  const my = (fyPct - top) / vZoom;
-  const vZ2 = z2 / MAP_ASPECT;
+  const my = (fyPct - top) / (view.zoom * cAspect);
   return {
     zoom: z2,
     centerX: (50 - (fxPct - z2 * mx)) / z2,
-    centerY: (50 - (fyPct - vZ2 * my)) / vZ2,
+    centerY: (50 - (fyPct - z2 * cAspect * my)) / (z2 * cAspect),
   };
 }
 
 /** Clamp the camera center so the map never slides past the container edges. */
-export function clampCamera(v: FitView): FitView {
+export function clampCamera(v: FitView, cAspect: number = 1): FitView {
   const lo = 50 / v.zoom;
   const hi = 100 - 50 / v.zoom;
   const cx = Math.min(Math.max(v.centerX, lo), hi);
-  // Vertical uses MAP_H range and aspect-corrected zoom.
-  const vZoom = v.zoom / MAP_ASPECT;
-  const loY = 50 / vZoom;
-  const hiY = MAP_H - 50 / vZoom;
+  // Vertical range is 0-MAP_H, scaled by container aspect.
+  const yZoom = v.zoom * cAspect;
+  const loY = 50 / yZoom;
+  const hiY = MAP_H - 50 / yZoom;
   const cy = Math.min(Math.max(v.centerY, loY), hiY);
   if (cx === v.centerX && cy === v.centerY) return v;
   return { zoom: v.zoom, centerX: cx, centerY: cy };
@@ -159,22 +159,27 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
   }, [fit.zoom]);
 
   const mapOffset = useMemo(() => {
+    // Vertical % refers to container height, horizontal to width — scale the
+    // vertical zoom by the container aspect so map units stay square.
+    const cAspect = size.w > 0 && size.h > 0 ? size.w / size.h : 1;
+    const yZoom = view.zoom * cAspect;
     const rawL = 50 - view.zoom * view.centerX;
-    // Vertical zoom is reduced by MAP_ASPECT since the map is widescreen.
-    const vZoom = view.zoom / MAP_ASPECT;
-    const rawT = 50 - vZoom * view.centerY;
+    const rawT = 50 - yZoom * view.centerY;
     const minL = 100 - view.zoom * 100;
-    const minT = 100 - vZoom * MAP_H;
+    const minT = 100 - (view.zoom * 100 * cAspect) / MAP_ASPECT;
     return {
       left: Math.min(0, Math.max(minL, rawL)),
       top: Math.min(0, Math.max(minT, rawT)),
     };
-  }, [view]);
+  }, [view, size]);
 
-  const toScreen = (mx: number, my: number) => ({
-    x: mapOffset.left + view.zoom * mx,
-    y: mapOffset.top + (view.zoom / MAP_ASPECT) * my,
-  });
+  const toScreen = (mx: number, my: number) => {
+    const cAspect = size.w > 0 && size.h > 0 ? size.w / size.h : 1;
+    return {
+      x: mapOffset.left + view.zoom * mx,
+      y: mapOffset.top + view.zoom * cAspect * my,
+    };
+  };
 
   // Same zoom-parented icon sizing as the atlas markers: the interior's
   // effective viewBox width is the map units visible across the screen
@@ -271,14 +276,17 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
 
   const applyPan = useCallback((dxPx: number, dyPx: number) => {
     const { w, h } = sizeRef.current;
-    setView((v) => clampCamera(panCamera(v, dxPx, dyPx, w, h)));
+    const cAspect = w > 0 && h > 0 ? w / h : 1;
+    setView((v) => clampCamera(panCamera(v, dxPx, dyPx, w, h), cAspect));
   }, []);
 
   const applyZoom = useCallback((factor: number, clientX: number, clientY: number) => {
     const p = toLocal(clientX, clientY);
     const fxPct = (p.x / p.w) * 100;
     const fyPct = (p.y / p.h) * 100;
-    setView((v) => clampCamera(zoomCamera(v, fitZoomRef.current, factor, fxPct, fyPct)));
+    const { w, h } = sizeRef.current;
+    const cAspect = w > 0 && h > 0 ? w / h : 1;
+    setView((v) => clampCamera(zoomCamera(v, fitZoomRef.current, factor, fxPct, fyPct, cAspect), cAspect));
   }, [toLocal]);
 
   const markMoved = useCallback((x: number, y: number) => {
@@ -368,7 +376,9 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
       const fxPct = (p.x / p.w) * 100;
       const fyPct = (p.y / p.h) * 100;
       const factor = Math.exp(-e.deltaY * 0.0015);
-      setView((v) => clampCamera(zoomCamera(v, fitZoomRef.current, factor, fxPct, fyPct)));
+      const r = el.getBoundingClientRect();
+      const cAspect = r.width > 0 && r.height > 0 ? r.width / r.height : 1;
+      setView((v) => clampCamera(zoomCamera(v, fitZoomRef.current, factor, fxPct, fyPct, cAspect), cAspect));
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
@@ -388,8 +398,11 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
       const r = el.getBoundingClientRect();
       return { x: t.clientX - r.left, y: t.clientY - r.top, w: r.width, h: r.height };
     };
-    const setViewClamped = (fn: (v: FitView) => FitView) =>
-      setView((v) => clampCamera(fn(v)));
+    const setViewClamped = (fn: (v: FitView) => FitView) => {
+      const r = el.getBoundingClientRect();
+      const cAspect = r.width > 0 && r.height > 0 ? r.width / r.height : 1;
+      setView((v) => clampCamera(fn(v), cAspect));
+    };
 
     const onTouchStart = (e: TouchEvent) => {
       for (const t of Array.from(e.changedTouches)) {
@@ -436,8 +449,9 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
           const pinchMy = pinch.my;
           const fxPct = (mx / r.width) * 100;
           const fyPct = (my / r.height) * 100;
+          const cAspect = r.width > 0 && r.height > 0 ? r.width / r.height : 1;
           setViewClamped((v) =>
-            zoomCamera(v, fitZoomRef.current, dist / pinchDist, fxPct, fyPct),
+            zoomCamera(v, fitZoomRef.current, dist / pinchDist, fxPct, fyPct, cAspect),
           );
           setViewClamped((v) => panCamera(v, mx - pinchMx, my - pinchMy, r.width, r.height));
         }
@@ -534,7 +548,7 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
         className="absolute cursor-grab active:cursor-grabbing"
         style={{
           width: `${view.zoom * 100}%`,
-          height: `${(view.zoom * 100) / MAP_ASPECT}%`,
+          aspectRatio: '2744 / 1568',
           left: `${mapOffset.left}%`,
           top: `${mapOffset.top}%`,
           backgroundImage: `url(${ATLAS_MAP_URL})`,
