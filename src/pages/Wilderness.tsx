@@ -9,48 +9,26 @@ import {
   TreePine,
   BookOpen,
   Clock,
-  Save,
   X,
   GripVertical,
 } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useWilderness } from '@/contexts/WildernessContext';
-import type { CustomOpening } from '@/types';
 
 export default function Wilderness() {
   const [, setLocation] = useLocation();
-  const { openings, addOpening, deleteOpening, updateVariationMoves } = useWilderness();
+  const { openings, addOpening, deleteOpening } = useWilderness();
   const [showCreate, setShowCreate] = useState(false);
   const [newName, setNewName] = useState('');
   const [newDesc, setNewDesc] = useState('');
-  const [editingOpening, setEditingOpening] = useState<CustomOpening | null>(null);
-  const [editMoves, setEditMoves] = useState('');
 
   const handleCreate = () => {
     if (!newName.trim()) return;
-    const created = addOpening(newName.trim(), newDesc.trim() || 'Custom opening created by you.');
+    const created = addOpening(newName.trim(), newDesc.trim() || 'Custom opening created by you.', []);
     setNewName('');
     setNewDesc('');
     setShowCreate(false);
-    setEditingOpening(created);
-    if (created.variations[0]) {
-      setEditMoves(created.variations[0].moves.join(' '));
-    }
-  };
-
-  const handleSaveMoves = () => {
-    if (!editingOpening) return;
-    const moves = editMoves.trim().split(/\s+/).filter(Boolean);
-    updateVariationMoves(editingOpening.id, 'main', moves);
-    setEditingOpening(null);
-  };
-
-  const handleEditOpening = (opening: CustomOpening) => {
-    setEditingOpening(opening);
-    const mainVar = opening.variations[0];
-    if (mainVar) {
-      setEditMoves(mainVar.moves.join(' '));
-    }
+    setLocation(`/wilderness/edit/${created.id}`);
   };
 
   return (
@@ -74,13 +52,6 @@ export default function Wilderness() {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <button
-                onClick={() => setLocation('/wilderness/spar')}
-                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium hover:bg-emerald-500/20 transition-colors"
-              >
-                <Swords size={16} />
-                Sparring Board
-              </button>
               <button
                 onClick={() => setShowCreate(true)}
                 className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-sm font-medium hover:bg-emerald-500/20 transition-colors"
@@ -152,9 +123,9 @@ export default function Wilderness() {
                     </div>
                     <div className="flex items-center gap-1 ml-4">
                       <button
-                        onClick={() => handleEditOpening(opening)}
+                        onClick={() => setLocation(`/wilderness/edit/${opening.id}`)}
                         className="p-2 rounded-lg hover:bg-white/10 text-white/30 hover:text-emerald-400 transition-colors"
-                        title="Edit"
+                        title="Edit moves on the board"
                       >
                         <Pencil size={16} />
                       </button>
@@ -252,76 +223,6 @@ export default function Wilderness() {
         )}
       </AnimatePresence>
 
-      {/* Edit Moves Modal */}
-      <AnimatePresence>
-        {editingOpening && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
-            onClick={() => setEditingOpening(null)}
-          >
-            <motion.div
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              className="bg-[#141422] border border-[#2a2a3e] rounded-2xl p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h2 className="text-lg font-bold text-white">Edit Moves</h2>
-                  <p className="text-sm text-white/40">{editingOpening.name}</p>
-                </div>
-                <button onClick={() => setEditingOpening(null)} className="p-1.5 rounded-lg hover:bg-white/10">
-                  <X size={18} className="text-white/40" />
-                </button>
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-sm text-white/60 mb-2">
-                  Move Sequence (space-separated SAN notation)
-                </label>
-                <textarea
-                  value={editMoves}
-                  onChange={(e) => setEditMoves(e.target.value)}
-                  placeholder="e.g., e4 e5 Nf3 Nc6 Bc4 Bc5 ..."
-                  rows={8}
-                  className="w-full px-4 py-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white font-mono text-sm placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 resize-none"
-                />
-                <p className="text-xs text-white/30 mt-2">
-                  Enter moves in standard algebraic notation (SAN), separated by spaces.
-                  Example: e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Nc3 Nxe4
-                </p>
-              </div>
-
-              {/* Move count preview */}
-              <div className="mb-4 p-3 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e]">
-                <p className="text-sm text-white/60">
-                  {editMoves.trim().split(/\s+/).filter(Boolean).length} moves entered
-                </p>
-              </div>
-
-              <div className="flex gap-3">
-                <button
-                  onClick={() => setEditingOpening(null)}
-                  className="flex-1 py-3 rounded-xl bg-[#2a2a3e] text-white/60 font-medium hover:bg-[#2a2a3e]/80 transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  onClick={handleSaveMoves}
-                  className="flex-1 py-3 rounded-xl bg-emerald-500 text-[#0a0a1f] font-semibold hover:bg-emerald-400 transition-colors flex items-center justify-center gap-2"
-                >
-                  <Save size={18} />
-                  Save Moves
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

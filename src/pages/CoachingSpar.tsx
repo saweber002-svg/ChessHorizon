@@ -9,7 +9,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Eye,
-  TreePine,
 } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { Chess, type Square } from 'chess.js';
@@ -25,13 +24,13 @@ import { getEngine } from '@/engine/stockfish';
 import { DIFFICULTY_LEVELS, skillForDifficulty, type DifficultyId } from '@/lib/difficulty';
 import { classificationColors, classificationIcons } from '@/lib/classificationStyle';
 import {
-  WILDERNESS_SPAR_START_FEN,
+  SPAR_START_FEN,
   buildStartPosition,
   lineFenAt,
   isHumanTurn,
   gameOverReason,
   positionsAfterMoves,
-} from '@/lib/wildernessSpar';
+} from '@/lib/sparring';
 
 type SideChoice = 'w' | 'b' | 'both';
 type GameOverKind = 'checkmate' | 'stalemate' | 'draw';
@@ -47,7 +46,7 @@ const SIDE_OPTIONS: Array<{ id: SideChoice; label: string; hint: string }> = [
  *  timeout even on slow devices. Classification quality is unaffected. */
 const SPAR_ANALYSIS_DEPTH = 12;
 
-export default function WildernessSpar() {
+export default function CoachingSpar() {
   const [, setLocation] = useLocation();
   const { openings, addOpening, updateVariationMoves } = useWilderness();
 
@@ -58,8 +57,8 @@ export default function WildernessSpar() {
   const [startOpeningId, setStartOpeningId] = useState<string>('');
 
   // Play state
-  const [fen, setFen] = useState(WILDERNESS_SPAR_START_FEN);
-  const [positions, setPositions] = useState<string[]>([WILDERNESS_SPAR_START_FEN]);
+  const [fen, setFen] = useState(SPAR_START_FEN);
+  const [positions, setPositions] = useState<string[]>([SPAR_START_FEN]);
   const [moveSans, setMoveSans] = useState<string[]>([]);
   /** Parallel to moveSans. null = engine move, preloaded line move, or analysis still pending. */
   const [analyses, setAnalyses] = useState<Array<MoveAnalysis | null>>([]);
@@ -227,7 +226,7 @@ export default function WildernessSpar() {
   );
 
   const startSparring = useCallback(() => {
-    let startFen = WILDERNESS_SPAR_START_FEN;
+    let startFen = SPAR_START_FEN;
     let startSans: string[] = [];
     if (startOpeningId) {
       const opening = openings.find((o) => o.id === startOpeningId);
@@ -296,7 +295,7 @@ export default function WildernessSpar() {
 
   const handleSave = useCallback(() => {
     if (!saveName.trim() || moveSans.length === 0) return;
-    const created = addOpening(saveName.trim(), 'Opening sparred on the Wilderness board.');
+    const created = addOpening(saveName.trim(), 'Opening sparred on the coaching board.');
     updateVariationMoves(created.id, 'main', moveSans);
     setShowSave(false);
     setSaveName('');
@@ -329,9 +328,9 @@ export default function WildernessSpar() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <button
-                onClick={() => setLocation('/wilderness')}
+                onClick={() => setLocation('/coaching')}
                 className="p-2 rounded-lg hover:bg-white/10 transition-colors"
-                aria-label="Back to Wilderness"
+                aria-label="Back to Coaching Pavilion"
               >
                 <ArrowLeft size={20} className="text-white/60" />
               </button>
@@ -700,7 +699,7 @@ function SetupScreen({
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl mx-auto">
       <div className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] mb-4">
         <div className="flex items-center gap-3 mb-2">
-          <TreePine size={20} className="text-emerald-400" />
+          <Swords size={20} className="text-emerald-400" />
           <h2 className="text-lg font-bold text-white">How it works</h2>
         </div>
         <p className="text-sm text-white/50">

@@ -50,7 +50,7 @@ function getDefaultWildernessOpenings(): CustomOpening[] {
 
 interface WildernessContextValue {
   openings: CustomOpening[];
-  addOpening: (name: string, description: string) => CustomOpening;
+  addOpening: (name: string, description: string, moves?: string[]) => CustomOpening;
   deleteOpening: (id: string) => void;
   addVariation: (openingId: string, name: string, moves: string[]) => void;
   deleteVariation: (openingId: string, variationId: string) => void;
@@ -63,7 +63,7 @@ const WildernessContext = createContext<WildernessContextValue | null>(null);
 export function WildernessProvider({ children }: { children: React.ReactNode }) {
   const [openings, setOpenings] = useState<CustomOpening[]>(loadOpenings);
 
-  const addOpening = useCallback((name: string, description: string): CustomOpening => {
+  const addOpening = useCallback((name: string, description: string, moves: string[] = ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5']): CustomOpening => {
     const newOpening: CustomOpening = {
       id: `custom-${Date.now()}`,
       name,
@@ -73,7 +73,7 @@ export function WildernessProvider({ children }: { children: React.ReactNode }) 
         {
           id: 'main',
           name: 'Main Line',
-          moves: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5'],
+          moves,
         },
       ],
     };

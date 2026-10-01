@@ -1,6 +1,6 @@
 import { Chess } from 'chess.js';
 
-export const WILDERNESS_SPAR_START_FEN =
+export const SPAR_START_FEN =
   'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
 /**

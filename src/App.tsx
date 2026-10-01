@@ -10,7 +10,8 @@ const Home = lazy(() => import('@/pages/Home'));
 const WorldMap = lazy(() => import('@/pages/WorldMap'));
 const DrillSession = lazy(() => import('@/pages/DrillSession'));
 const Wilderness = lazy(() => import('@/pages/Wilderness'));
-const WildernessSpar = lazy(() => import('@/pages/WildernessSpar'));
+const CoachingSpar = lazy(() => import('@/pages/CoachingSpar'));
+const WildernessBoard = lazy(() => import('@/pages/WildernessBoard'));
 const Clearing = lazy(() => import('@/pages/Clearing'));
 const Coaching = lazy(() => import('@/pages/Coaching'));
 const KingdomPage = lazy(() => import('@/pages/KingdomPage'));
@@ -38,7 +39,8 @@ export default function App() {
               <Route path="/kingdom/:kingdomId" component={KingdomPage} />
               <Route path="/drill-session/:drillFileId" component={DrillSession} />            
               <Route path="/wilderness" component={Wilderness} />
-              <Route path="/wilderness/spar" component={WildernessSpar} />
+              <Route path="/wilderness/edit/:openingId" component={WildernessBoard} />
+              <Route path="/coaching/spar" component={CoachingSpar} />
               <Route path="/clearing" component={Clearing} />
               <Route path="/coaching" component={Coaching} />
               <Route path="/:rest*">

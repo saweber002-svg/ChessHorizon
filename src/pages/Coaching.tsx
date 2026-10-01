@@ -403,6 +403,17 @@ export default function Coaching() {
           </div>
           
           <button
+            onClick={() => { hapticTap(); setLocation('/coaching/spar'); }}
+            className="mt-4 w-full flex items-center justify-center gap-3 p-4 rounded-2xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 hover:bg-[#00f5d4]/20 transition-all"
+          >
+            <Swords size={20} className="text-[#00f5d4]" />
+            <span className="text-left">
+              <span className="block text-white font-bold text-sm">Sparring Board</span>
+              <span className="block text-white/40 text-xs">Play openings move-by-move with live coaching</span>
+            </span>
+          </button>
+
+          <button
             onClick={() => setLocation('/atlas')}
             className="mt-8 text-white/30 hover:text-white/60 text-xs uppercase tracking-widest transition-colors"
           >
