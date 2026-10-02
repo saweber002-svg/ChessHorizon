@@ -1,0 +1,53 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for Black in the Blackburne Shilling Gambit. Lure White with 3...Nd4!? and punish the greedy 4.Nxe5??.",
+  "drills": [
+    {
+      "briefExplanation": "3...Nd4 4.Nxe5?? Qg5! 5.Bxf7+ Ke7 6.O-O Qxe5 — the queen forks g2 and e5, and Black wins a piece.",
+      "description": "Black to play. White develops 3.Bc4 — offer the Shilling Gambit with 3...Nd4!.",
+      "drillId": "bs-bt1",
+      "explanation": "Blackburne's trap: 3...Nd4 looks like it hangs the e-pawn, and 4.Nxe5?? grabs it — falling into 4...Qg5!, attacking the knight and threatening mate on g2. After 5.Bxf7+ Ke7 6.O-O Black simply plays 6...Qxe5, emerging a piece up: the 'free' pawn cost White a knight. Never trust a pawn that looks too free.",
+      "name": "The Shilling Trap",
+      "opponentResponse": "Nxe5",
+      "solutionMoves": [
+        "Nd4",
+        "Nxe5",
+        "Qg5",
+        "Bxf7+",
+        "Ke7",
+        "O-O",
+        "Qxe5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+    },
+    {
+      "briefExplanation": "4.c3 Nxf3+ 5.Qxf3 Qf6 — trade knights with check, then hit the queen and the b2 pawn.",
+      "description": "Black to play. White avoids 4.Nxe5 with 4.c3 — find the other Shilling idea.",
+      "drillId": "bs-bt2",
+      "explanation": "4.c3 looks solid, but the Shilling has a second sting: 4...Nxf3+! 5.Qxf3 Qf6 attacks the queen and eyes b2. White's center is loosened (the c-pawn advanced, the d-pawn is backward) and Black's queen is aggressively placed — full compensation for the slightly awkward knight trade, with ...Bc5 and ...d6 to follow.",
+      "name": "The c3 Punishment",
+      "opponentResponse": "Nxf3+",
+      "solutionMoves": [
+        "c3",
+        "Nxf3+",
+        "Qxf3",
+        "Qf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
+    }
+  ],
+  "id": "blackburne-shilling-gambit-black-tacticals",
+  "name": "Blackburne Shilling Gambit — Black Tactics"
+}

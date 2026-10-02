@@ -1,0 +1,50 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for White in the Légal Trap. Offer the queen with 6.Nxe5! and deliver the most famous mate in chess.",
+  "drills": [
+    {
+      "briefExplanation": "6.Nxe5! Bxd1?? 7.Bxf7+ Ke7 8.Nd5# — the queen sacrifice that mates.",
+      "description": "White to play. Black pinned the knight with 5...Bh5 — spring the Légal Trap with 6.Nxe5!.",
+      "drillId": "leg-t1",
+      "explanation": "The immortal Légal Trap: 6.Nxe5! offers the queen — and if Black greedily plays 6...Bxd1??, White mates in two: 7.Bxf7+ Ke7 8.Nd5#. The bishop on f7 and the knight on d5 weave a mating net the black king cannot escape, with his own queen on d8 blocking the flight. One of the most beautiful ideas in all of chess.",
+      "name": "The Légal Mate",
+      "opponentResponse": "Bxd1",
+      "solutionMoves": [
+        "Nxe5",
+        "Bxd1",
+        "Bxf7+",
+        "Ke7",
+        "Nd5#"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r2qkbnr/ppp2ppp/2np4/4p2b/2B1P3/2N2N1P/PPPP1PP1/R1BQK2R w KQkq - 1 6"
+    },
+    {
+      "briefExplanation": "7.Bxf7+ Ke7 8.Nd5# — find the forced mate after Black takes the queen.",
+      "description": "White to play. Black took the queen — now find the mate.",
+      "drillId": "leg-t2",
+      "explanation": "The finish of the Légal Trap as a pure mating puzzle: 7.Bxf7+! drags the king out, and after the forced 7...Ke7, 8.Nd5# is mate — the knight covers the escape squares while the bishop on f7 seals the net. Drill this pattern until you see it instantly; it recurs in many forms.",
+      "name": "Finding the Mate",
+      "opponentResponse": "Ke7",
+      "solutionMoves": [
+        "Bxf7+",
+        "Ke7",
+        "Nd5#"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r2qkbnr/ppp2ppp/2np4/4N3/2B1P3/2N4P/PPPP1PP1/R1BbK2R w KQkq - 0 7"
+    }
+  ],
+  "id": "legal-trap-tacticals",
+  "name": "Légal Trap — White Tactics"
+}

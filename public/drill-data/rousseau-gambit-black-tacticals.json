@@ -1,0 +1,52 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for Black in the Rousseau Gambit. Strike with 3...f5!? and seize the initiative.",
+  "drills": [
+    {
+      "briefExplanation": "3...f5 4.exf5 e4 5.Nd4 Nf6 — Black sacrifices for open lines and a kingside attack.",
+      "description": "Black to play. White plays the Italian 3.Bc4 — counter with the Rousseau 3...f5!.",
+      "drillId": "rou-bt1",
+      "explanation": "The Rousseau Gambit: Black meets the Italian Game with a King's Gambit reversed. After 4.exf5 e4 the f3 knight must move, and 5.Nd4 Nf6 gives Black the classic gambit setup — open f-file, mobile center, and attacking chances against White's king. White's extra pawn is shaky; Black's initiative is real.",
+      "name": "The Rousseau Strike",
+      "opponentResponse": "exf5",
+      "solutionMoves": [
+        "f5",
+        "exf5",
+        "e4",
+        "Nd4",
+        "Nf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+    },
+    {
+      "briefExplanation": "5...Nf6 6.Nxc6 bxc6 7.Nc3 d5 — give back the piece for a rolling pawn center.",
+      "description": "Black to play. White retreated 5.Nd4 — develop and prepare the central break.",
+      "drillId": "rou-bt2",
+      "explanation": "After 5...Nf6 White's knight is awkward on d4. 6.Nxc6 bxc6 opens the b-file and, more importantly, prepares 7...d5! — Black's pawn center starts rolling. White's f5 pawn will fall, the e4 pawn cramps White's game, and Black's bishops will rake the long diagonals. Gambit compensation, textbook-style.",
+      "name": "The Pawn Roller",
+      "opponentResponse": "Nxc6",
+      "solutionMoves": [
+        "Nf6",
+        "Nxc6",
+        "bxc6",
+        "Nc3",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/pppp2pp/2n5/5P2/2BNp3/8/PPPP1PPP/RNBQK2R b KQkq - 1 5"
+    }
+  ],
+  "id": "rousseau-gambit-black-tacticals",
+  "name": "Rousseau Gambit — Black Tactics"
+}

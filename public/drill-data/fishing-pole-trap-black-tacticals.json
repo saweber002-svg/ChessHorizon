@@ -1,0 +1,50 @@
+{
+  "arena": "ruy-lopez-berlin",
+  "description": "2 tactical challenges for Black in the Fishing Pole Trap. Cast the pole with 4...Ng4!? and go rook-hunting on the kingside.",
+  "drills": [
+    {
+      "briefExplanation": "4...Ng4! 5.h3 h5! 6.hxg4 hxg4 — the pole is cast; the h8 rook will swing to h5.",
+      "description": "Black to play. White castled into the Berlin — throw the Fishing Pole with 4...Ng4!.",
+      "drillId": "fp-bt1",
+      "explanation": "The Fishing Pole: 4...Ng4!? provokes 5.h3, and then 5...h5! is the point — Black sacrifices the knight to open the h-file. After 6.hxg4 hxg4 White's kingside is in ruins: the knight on f3 must move, and Black follows with ...Rh5!, ...Qh4, and a raging attack. The 'pole' is the h-pawn, and White took the bait.",
+      "name": "Casting the Pole",
+      "opponentResponse": "h3",
+      "solutionMoves": [
+        "Ng4",
+        "h3",
+        "h5",
+        "hxg4",
+        "hxg4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 4"
+    },
+    {
+      "briefExplanation": "6...hxg4 7.Ne1 Qh4! — the queen joins the attack with mate threats on h1.",
+      "description": "Black to play. White took the knight — recapture and bring the queen into the attack.",
+      "drillId": "fp-bt2",
+      "explanation": "The follow-up to the sacrifice: 6...hxg4 opens the h-file, and after the forced 7.Ne1 (the f3 knight had to move) Black plays 7...Qh4! — threatening ...Qxh2# and ...Rh5. White's king is caught in a mating net with Black down only a knight for a crushing initiative. This is what the pole was fishing for.",
+      "name": "Reeling It In",
+      "opponentResponse": "Ne1",
+      "solutionMoves": [
+        "hxg4",
+        "Ne1",
+        "Qh4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkb1r/pppp1pp1/2n5/1B2p2p/4P1P1/5N2/PPPP1PP1/RNBQ1RK1 b kq - 0 6"
+    }
+  ],
+  "id": "fishing-pole-trap-black-tacticals",
+  "name": "Fishing Pole Trap — Black Tactics"
+}

@@ -1,0 +1,50 @@
+{
+  "arena": "queen-gambit-accepted",
+  "description": "2 tactical challenges for Black in the Lasker Trap. Play 7...Bxf3! and punish both recaptures.",
+  "drills": [
+    {
+      "briefExplanation": "7...Bxf3! 8.gxf3?? Nxe5! 9.f4 Ng6! — shatter the kingside, occupy e5, retreat with tempo.",
+      "description": "Black to play. White kicked the bishop with 7.h3?? — take it and spring the Lasker Trap.",
+      "drillId": "la-bt1",
+      "explanation": "The Lasker Trap: 7...Bxf3! eliminates the knight defending e5. After the greedy 8.gxf3?? Black plays 8...Nxe5!, planting the knight on the dream outpost — it can't be touched, and White's kingside pawn structure is in ruins. After 9.f4 Ng6! the knight retreats with tempo, Black's pieces swarm, and White's extra pawn (e5) is gone with interest. Never kick a pinning bishop you can't recapture against.",
+      "name": "The Bxf3 Destruction",
+      "opponentResponse": "gxf3",
+      "solutionMoves": [
+        "Bxf3",
+        "gxf3",
+        "Nxe5",
+        "f4",
+        "Ng6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r3kbnr/ppp1qppp/2n5/4P3/2Pp2b1/P4N1P/1P1NPPP1/R1BQKB1R b KQkq - 0 7"
+    },
+    {
+      "briefExplanation": "8...Nxe5! 9.e3 dxe3 — win the e-pawn, then blast open the center.",
+      "description": "Black to play. White recaptured 8.Nxf3 — take the e5 pawn and open the position.",
+      "drillId": "la-bt2",
+      "explanation": "The other recapture fails too: after 8.Nxf3 Black plays 8...Nxe5!, simply winning the e5 pawn — White can't take back (9.Nxe5?? Qxe5+ wins on the spot). After 9.e3 dxe3 Black has won two pawns (e5 and e3) with a crushing central position. Both of White's 8th-move options lose; the trap is airtight once 7.h3?? is played.",
+      "name": "The e5 Outpost",
+      "opponentResponse": "e3",
+      "solutionMoves": [
+        "Nxe5",
+        "e3",
+        "dxe3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r3kbnr/ppp1qppp/2n5/4P3/2Pp4/P4N1P/1P2PPP1/R1BQKB1R b KQkq - 0 8"
+    }
+  ],
+  "id": "lasker-trap-black-tacticals",
+  "name": "Lasker Trap — Black Tactics"
+}

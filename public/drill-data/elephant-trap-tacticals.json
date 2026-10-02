@@ -1,0 +1,52 @@
+{
+  "arena": "queen-gambit-declined",
+  "description": "2 tactical challenges for White against the Elephant Trap. Develop solidly and never grab the 'free' knight on d5.",
+  "drills": [
+    {
+      "briefExplanation": "4.Bg5 Nbd7 5.e3! Be7 6.Nf3 — the solid QGD setup with zero risk.",
+      "description": "White to play. Black plays the solid 3...Nf6 — pin and develop without greed.",
+      "drillId": "el-t1",
+      "explanation": "The safe path through Elephant Trap territory: 4.Bg5 Nbd7 5.e3! — White develops solidly and refuses to be tempted. The d5 pawn isn't going anywhere, and after 5...Be7 6.Nf3 White has the standard QGD squeeze with zero risk. Traps only catch the greedy; the patient inherit the center.",
+      "name": "The Patient Pin",
+      "opponentResponse": "Nbd7",
+      "solutionMoves": [
+        "Bg5",
+        "Nbd7",
+        "e3",
+        "Be7",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4"
+    },
+    {
+      "briefExplanation": "6.Bxf6! Nxf6 7.Nf3 Be7 8.e3 — trade, develop, and disarm the trap.",
+      "description": "White to play. The center is symmetrical — trade on f6 and develop.",
+      "drillId": "el-t2",
+      "explanation": "If White has already exchanged on d5, the clean continuation is 6.Bxf6! — removing the knight that makes ...Nxd5 ideas work. After 6...Nxf6 7.Nf3 Be7 8.e3 White develops with tempo toward e5, and Black's 'trap' is disarmed: there's no knight left to grab, and White's bishop pair and center give the better game.",
+      "name": "Disarming the Trap",
+      "opponentResponse": "Nxf6",
+      "solutionMoves": [
+        "Bxf6",
+        "Nxf6",
+        "Nf3",
+        "Be7",
+        "e3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkb1r/pppn1ppp/5n2/3p2B1/3P4/2N5/PP2PPPP/R2QKBNR w KQkq - 0 6"
+    }
+  ],
+  "id": "elephant-trap-tacticals",
+  "name": "Elephant Trap — White Tactics"
+}

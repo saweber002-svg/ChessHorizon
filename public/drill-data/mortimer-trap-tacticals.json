@@ -1,0 +1,52 @@
+{
+  "arena": "ruy-lopez-berlin",
+  "description": "2 tactical challenges for White against the Mortimer Trap. Don't grab on e5 — develop and keep the Spanish pressure.",
+  "drills": [
+    {
+      "briefExplanation": "4.d3 Ne7 5.O-O! Ng6 6.Re1 — the quiet Spanish setup; ignore the e5 pawn.",
+      "description": "White to play. Black plays 3...Nf6 — meet the Berlin and the coming Mortimer solidly.",
+      "drillId": "mor-t1",
+      "explanation": "The correct attitude against the Mortimer: 4.d3, and after 4...Ne7 simply 5.O-O!. White refuses the poisoned 5.Nxe5? and keeps the Spanish bind — after 5...Ng6 6.Re1 the rook eyes e5, the b5 bishop still pressures c6, and Black's knight is passive on g6. The trap only snaps on greed.",
+      "name": "Ignoring the Bait",
+      "opponentResponse": "Ne7",
+      "solutionMoves": [
+        "d3",
+        "Ne7",
+        "O-O",
+        "Ng6",
+        "Re1"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
+    },
+    {
+      "briefExplanation": "5.Ba4! Ng6 6.O-O c6 7.Bb3 — retreat along the diagonal and keep the pressure.",
+      "description": "White to play. Black played the Mortimer 4...Ne7 — retreat and castle.",
+      "drillId": "mor-t2",
+      "explanation": "5.Ba4! is White's most flexible reply: the bishop steps off the c6-attack before ...c6 comes, keeping the pin on the d7 pawn (note 6...d6?? would be illegal — the pawn is pinned to the king). After 5...Ng6 6.O-O c6 White retreats 7.Bb3, keeping the Spanish pressure with Black's knight slightly misplaced — a small but lasting edge, and zero risk.",
+      "name": "The Ba4 Retreat",
+      "opponentResponse": "Ng6",
+      "solutionMoves": [
+        "Ba4",
+        "Ng6",
+        "O-O",
+        "c6",
+        "Bb3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkb1r/ppppnppp/5n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 1 5"
+    }
+  ],
+  "id": "mortimer-trap-tacticals",
+  "name": "Mortimer Trap — White Tactics"
+}

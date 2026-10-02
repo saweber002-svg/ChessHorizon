@@ -1,0 +1,50 @@
+{
+  "arena": "sicilian-najdorf",
+  "description": "2 tactical challenges for White in the Magnus Smith Trap. Play 9.Ng5! against 8...Nge7 and punish castling with 10.Qh5!.",
+  "drills": [
+    {
+      "briefExplanation": "9.Ng5! O-O?? 10.Qh5! h6 11.Nxe6 — the threats of mate and the fork can't both be met.",
+      "description": "White to play. Black played the passive 8...Nge7 — strike with the Magnus Smith 9.Ng5!.",
+      "drillId": "ms-t1",
+      "explanation": "The Magnus Smith Trap: 9.Ng5! hits e6 and prepares Qh5. If Black castles with 9...O-O??, White plays 10.Qh5! with a crushing attack — and after 10...h6 11.Nxe6! the knight forks queen and rook while the mate threat persists. Black's 8...Nge7 was too slow; the Morra initiative punishes every tempo lost.",
+      "name": "The Ng5 Strike",
+      "opponentResponse": "O-O",
+      "solutionMoves": [
+        "Ng5",
+        "O-O",
+        "Qh5",
+        "h6",
+        "Nxe6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqk2r/pp1pnppp/2n1p3/8/1bB1P3/2N2N2/PP3PPP/R1BQ1RK1 w kq - 4 8"
+    },
+    {
+      "briefExplanation": "10.Nxf7! Kxf7 11.Qh5+ — the Greek Gift sacrifice crashes through.",
+      "description": "White to play. Black tried 9...h6?? — sacrifice the knight Greek-Gift style.",
+      "drillId": "ms-t2",
+      "explanation": "9...h6?? tries to kick the knight but walks into a classic: 10.Nxf7! Kxf7 11.Qh5+ — the Greek Gift sacrifice. Black's king is dragged into the open, White's bishops (c4 raking f7, c1 joining via d2) create a mating net, and Black's extra piece is meaningless. Never weaken the kingside in front of a Morra attack.",
+      "name": "The Greek Gift",
+      "opponentResponse": "Kxf7",
+      "solutionMoves": [
+        "Nxf7",
+        "Kxf7",
+        "Qh5+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqk2r/pp1pnpp1/2n1p2p/6N1/1bB1P3/2N5/PP3PPP/R1BQ1RK1 w kq - 0 9"
+    }
+  ],
+  "id": "magnus-smith-trap-tacticals",
+  "name": "Magnus Smith Trap — White Tactics"
+}

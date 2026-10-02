@@ -1,0 +1,50 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for White against the Rousseau Gambit. Meet 3...f5 with the strong 4.d4! and take over the center.",
+  "drills": [
+    {
+      "briefExplanation": "3.Bc4 f5 4.d4! — counter in the center at once; Black's flank pawn push backfires.",
+      "description": "White to play. Black is threatening the Rousseau 3...f5 — develop and prepare the central counter.",
+      "drillId": "rou-t1",
+      "explanation": "The refutation of the Rousseau is 4.d4! — White ignores the flank provocation and strikes in the center. After 4...fxe4 5.Nxe5 White has the better center and the safer king; Black's f-pawn advance only weakened the kingside. Thematic and strong: meet a wing gambit with a central break.",
+      "name": "The d4 Counter",
+      "opponentResponse": "f5",
+      "solutionMoves": [
+        "Bc4",
+        "f5",
+        "d4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+    },
+    {
+      "briefExplanation": "3.Bc4 f5 4.d4! fxe4 5.Nxe5 — break, capture, and centralize with tempo.",
+      "description": "White to play. Play the 4.d4! break and follow through after 4...fxe4.",
+      "drillId": "rou-t2",
+      "explanation": "The 4.d4! break in full: after 4...fxe4 White recaptures with 5.Nxe5!, centralizing the knight with tempo — it attacks f7 and eyes d7. Black's kingside is airy, White's center is mobile, and the 'gambit' has only succeeded in wrecking Black's own pawn structure. This is how you punish flank pawn grabs.",
+      "name": "Break and Centralize",
+      "opponentResponse": "fxe4",
+      "solutionMoves": [
+        "Bc4",
+        "f5",
+        "d4",
+        "fxe4",
+        "Nxe5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+    }
+  ],
+  "id": "rousseau-gambit-tacticals",
+  "name": "Rousseau Gambit — White Tactics"
+}

@@ -1,0 +1,50 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for Black against the Jerome Gambit. Meet 4.Bxf7+ with the calm king walk and refute the sacrifice.",
+  "drills": [
+    {
+      "briefExplanation": "3...Bc5 4.Bxf7+ Kxf7 5.Nxe5+ Ke6! — take the bishop, then walk the king; never grab the knight.",
+      "description": "Black to play. White is hinting at the Jerome — develop 3...Bc5 and be ready for 4.Bxf7+.",
+      "drillId": "jer-bt1",
+      "explanation": "Against the Jerome, Black's rule is simple: take the bishop, then move the KING, not the knight. After 4.Bxf7+ Kxf7 5.Nxe5+ the greedy 5...Nxe5?? loses on the spot; the refutation is 5...Ke6! — the king strolls through the center (6.Qg4+ Kf7) and reaches safety on e8. White sacrificed a bishop for nothing, and Black's extra piece decides.",
+      "name": "The Calm King Walk",
+      "opponentResponse": "Bxf7+",
+      "solutionMoves": [
+        "Bc5",
+        "Bxf7+",
+        "Kxf7",
+        "Nxe5+",
+        "Ke6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+    },
+    {
+      "briefExplanation": "5...Ke6 6.Qg4+ Kf6 — keep walking; the checks run out and the extra bishop remains.",
+      "description": "Black to play. The sacrifice is on the board and White checks on e5 — find the only correct king move.",
+      "drillId": "jer-bt2",
+      "explanation": "The critical moment of the whole gambit. 5...Ke6! is the only move — 5...Nxe5?? and 5...Ke8?? both lose. After 6.Qg4+ Kf6! the king keeps walking toward the kingside, where White has no more checks: the queen checks are exhausted, the knights can't reach, and Black consolidates a bishop up. Precision under fire is the defender's art.",
+      "name": "Walking Through Checks",
+      "opponentResponse": "Qg4+",
+      "solutionMoves": [
+        "Ke6",
+        "Qg4+",
+        "Kf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bq2nr/pppp1kpp/2n5/2b1N3/4P3/8/PPPP1PPP/RNBQK2R b KQ - 0 5"
+    }
+  ],
+  "id": "jerome-gambit-black-tacticals",
+  "name": "Jerome Gambit — Black Tactics"
+}

@@ -1,0 +1,50 @@
+{
+  "arena": "ruy-lopez-morphy",
+  "description": "2 tactical challenges for White in the Tarrasch Trap. Punish 8...g6?? with the double attack 10.Qc4!.",
+  "drills": [
+    {
+      "briefExplanation": "9.Nxc6 bxc6 10.Qc4! — win the bishop with a double attack on c6 and f7.",
+      "description": "White to play. Black weakened with 8...g6?? — strike with 9.Nxc6!.",
+      "drillId": "tt-t1",
+      "explanation": "The Tarrasch Trap: after 8...g6?? Black's kingside is airy, and 9.Nxc6 bxc6 10.Qc4! is the punishment — the queen attacks the c6 bishop and eyes f7 in one move. Black can't defend both: 10...d5 11.Qxc6+ wins the bishop, and 10...Be6 11.Qxe6+ fxe6 leaves Black's structure in ruins. Provoking ...g6 was the whole idea.",
+      "name": "The Double Attack",
+      "opponentResponse": "bxc6",
+      "solutionMoves": [
+        "Nxc6",
+        "bxc6",
+        "Qc4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r2qkb1r/ppp2p1p/2bp1np1/8/3NP3/2NQ4/PPP2PPP/R1B1K2R w KQkq - 0 9"
+    },
+    {
+      "briefExplanation": "8.Nxd4 g6?? 9.Nxc6 bxc6 10.Qc4! — the full trap from the recapture.",
+      "description": "White to play. Black took on d4 — recapture and set the trap.",
+      "drillId": "tt-t2",
+      "explanation": "The trap in full sequence: 8.Nxd4 centralizes, and after the weakening 8...g6?? White executes 9.Nxc6 bxc6 10.Qc4!. Note the move order matters — White provokes ...g6 before striking, because the double attack needs the f7 weakness to be decisive. Patience in trap-setting is a skill.",
+      "name": "Setting the Trap",
+      "opponentResponse": "g6",
+      "solutionMoves": [
+        "Nxd4",
+        "g6",
+        "Nxc6",
+        "bxc6",
+        "Qc4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r2qkb1r/ppp2ppp/2bp1n2/8/3pP3/2NQ1N2/PPP2PPP/R1B1K2R w KQkq - 0 8"
+    }
+  ],
+  "id": "tarrasch-trap-tacticals",
+  "name": "Tarrasch Trap — White Tactics"
+}

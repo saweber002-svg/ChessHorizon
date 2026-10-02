@@ -1,0 +1,52 @@
+{
+  "arena": "queen-gambit-declined",
+  "description": "2 tactical challenges for Black in the Elephant Trap. Play 4...Nbd7! and punish the greedy 6.Nxd5??.",
+  "drills": [
+    {
+      "briefExplanation": "4...Nbd7! 5.cxd5 exd5 6.Nxd5?? Nxd5 — the 'free' knight costs White a piece.",
+      "description": "Black to play. White pins with 4.Bg5 — set the Elephant Trap with 4...Nbd7!.",
+      "drillId": "el-bt1",
+      "explanation": "The Elephant Trap: 4...Nbd7 looks passive, but it sets a deadly trap. After 5.cxd5 exd5, the natural-looking 6.Nxd5?? grabs what seems to be a free pawn — and 6...Nxd5 simply takes the knight, which has no defender. Note the fancy 7.Bxd8?? doesn't even work: the f6 knight covers d8. White just drops a piece; the 'trap' is that the pawn was never really free.",
+      "name": "The Elephant Steps In",
+      "opponentResponse": "cxd5",
+      "solutionMoves": [
+        "Nbd7",
+        "cxd5",
+        "exd5",
+        "Nxd5",
+        "Nxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/ppp2ppp/4pn2/3p2B1/2PP4/2N5/PP2PPPP/R2QKBNR b KQkq - 3 4"
+    },
+    {
+      "briefExplanation": "5...exd5 6.Bxf6 Nxf6 7.e3 Be7 — recapture toward the center and complete development.",
+      "description": "Black to play. White took on d5 — recapture correctly and avoid any tricks.",
+      "drillId": "el-bt2",
+      "explanation": "When White doesn't cooperate with 6.Nxd5??, Black just plays solidly: 5...exd5 opens the e-file for later use, and after 6.Bxf6 Nxf6 7.e3 Be7 Black has a sound Queen's Gambit Declined structure with easy development. The trap stays set for next time — and Black is never worse for having played the useful 4...Nbd7.",
+      "name": "The Solid Recapture",
+      "opponentResponse": "Bxf6",
+      "solutionMoves": [
+        "exd5",
+        "Bxf6",
+        "Nxf6",
+        "e3",
+        "Be7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkb1r/pppn1ppp/4pn2/3P2B1/3P4/2N5/PP2PPPP/R2QKBNR b KQkq - 0 5"
+    }
+  ],
+  "id": "elephant-trap-black-tacticals",
+  "name": "Elephant Trap — Black Tactics"
+}

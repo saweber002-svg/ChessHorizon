@@ -1,0 +1,50 @@
+{
+  "arena": "sicilian-najdorf",
+  "description": "2 tactical challenges for Black against the Magnus Smith Trap. Never play 8...Nge7?? — strike with 8...d5! instead.",
+  "drills": [
+    {
+      "briefExplanation": "8...d5! 9.exd5 exd5 10.Re1+ Be7 — break, recapture, block the check, and complete development.",
+      "description": "Black to play. White castled into the Morra attack — play the freeing 8...d5!.",
+      "drillId": "ms-bt1",
+      "explanation": "The antidote to the Magnus Smith: 8...d5! strikes in the center before White can play Ng5. After 9.exd5 exd5 10.Re1 Be7 Black completes development with a solid structure — the b4 bishop is well placed, the king is safe, and White's 'trap' never gets its Nge7?? trigger. Against gambits, central counterplay beats passive defense.",
+      "name": "The d5 Break",
+      "opponentResponse": "exd5",
+      "solutionMoves": [
+        "d5",
+        "exd5",
+        "exd5",
+        "Re1+",
+        "Be7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqk1nr/pp1p1ppp/2n1p3/8/1bB1P3/2N2N2/PP3PPP/R1BQ1RK1 b kq - 3 7"
+    },
+    {
+      "briefExplanation": "9...d5! 10.exd5 Nxd5 — meet the knight lunge with the central break.",
+      "description": "Black to play. White lunged 9.Ng5 — find the only defense.",
+      "drillId": "ms-bt2",
+      "explanation": "The critical defensive try after 9.Ng5: 9...d5! opens the center while White's knight is offside. After 10.exd5 Nxd5 Black's knight lands centrally with tempo, the e6 pawn's weakness is covered, and White's attack evaporates — the g5 knight will have to retreat, losing time. One accurate break defuses the whole trap.",
+      "name": "Defusing Ng5",
+      "opponentResponse": "exd5",
+      "solutionMoves": [
+        "d5",
+        "exd5",
+        "Nxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqk2r/pp1pnppp/2n1p3/6N1/1bB1P3/2N5/PP3PPP/R1BQ1RK1 b kq - 5 8"
+    }
+  ],
+  "id": "magnus-smith-trap-black-tacticals",
+  "name": "Magnus Smith Trap — Black Tactics"
+}

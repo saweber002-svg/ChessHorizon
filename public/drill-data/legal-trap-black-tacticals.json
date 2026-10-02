@@ -1,0 +1,48 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for Black against the Légal Trap. Decline the poisoned queen and keep the extra bishop pair.",
+  "drills": [
+    {
+      "briefExplanation": "5...Bxf3! 6.Qxf3 Nf6 — trade the bishop before White can set the trap.",
+      "description": "Black to play. White kicked the bishop with 5.h3 — don't retreat into the trap.",
+      "drillId": "leg-bt1",
+      "explanation": "The safe way to meet 5.h3: 5...Bxf3! trades the bishop before White's trap is set. After 6.Qxf3 Nf6 Black has the bishop pair and a solid Philidor structure — White's h3 is a slight weakening, and there are no tactics to fear. Sometimes the best defense is refusing to play the opponent's game.",
+      "name": "Trading Before the Trap",
+      "opponentResponse": "Qxf3",
+      "solutionMoves": [
+        "Bxf3",
+        "Qxf3",
+        "Nf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r2qkbnr/ppp2ppp/2np4/4p3/2B1P1b1/2N2N1P/PPPP1PP1/R1BQK2R b KQkq - 0 5"
+    },
+    {
+      "briefExplanation": "6...dxe5! 7.Qxh5 Nf6 — take back with the pawn and let White's 'trap' win nothing.",
+      "description": "Black to play. White offered the queen with 6.Nxe5 — decline it correctly.",
+      "drillId": "leg-bt2",
+      "explanation": "The critical defensive resource: 6...dxe5! simply takes back with the pawn. After 7.Qxh5 Nf6 White has won the bishop pair but Black is completely solid — the e5 pawn controls the center, the knight develops with tempo, and the 'trap' has netted White nothing. Greed (6...Bxd1??) gets mated; calm recapture gets equality.",
+      "name": "Declining the Queen",
+      "opponentResponse": "Qxg4",
+      "solutionMoves": [
+        "dxe5",
+        "Qxh5",
+        "Nf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r2qkbnr/ppp2ppp/2np4/4N2b/2B1P3/2N4P/PPPP1PP1/R1BQK2R b KQkq - 0 6"
+    }
+  ],
+  "id": "legal-trap-black-tacticals",
+  "name": "Légal Trap — Black Tactics"
+}

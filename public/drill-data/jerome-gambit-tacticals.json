@@ -1,0 +1,55 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for White in the Jerome Gambit. Sacrifice the bishop on f7 with 4.Bxf7+!? and hunt the black king.",
+  "drills": [
+    {
+      "briefExplanation": "4.Bxf7+ Kxf7 5.Nxe5+ Nxe5?? 6.Qh5+ g6 7.Qxe5 — punish Black's greed and emerge a piece up.",
+      "description": "White to play. Black develops naturally with 3...Bc5 — sacrifice with the Jerome 4.Bxf7+!.",
+      "drillId": "jer-t1",
+      "explanation": "The Jerome Gambit: White gives up the bishop for a raging initiative. After 4...Kxf7 5.Nxe5+ Black must NOT get greedy: 5...Nxe5?? 6.Qh5+ g6 7.Qxe5 wins the knight with a continuing attack — Black's king is drafty and White's pieces pour in. The whole gambit lives or dies on Black's 5th move.",
+      "name": "The Bishop Sacrifice",
+      "opponentResponse": "Kxf7",
+      "solutionMoves": [
+        "Bxf7+",
+        "Kxf7",
+        "Nxe5+",
+        "Nxe5",
+        "Qh5+",
+        "g6",
+        "Qxe5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
+    },
+    {
+      "briefExplanation": "5...Ke6! 6.Qg4+ Kf6 7.Qf5+ Ke7 — the king walks home through the center and the gambit fizzles.",
+      "description": "White to play. Black took the bishop and you're checking on e5 — but Black won't take the knight.",
+      "drillId": "jer-t2",
+      "explanation": "This is why the Jerome is unsound at master level: 5...Ke6! calmly walks the king toward safety. After 6.Qg4+ Kf6 7.Qf5+ Ke8 is coming via e7 — White's checks run out, the king reaches home, and White is down a bishop for nothing. Knowing the refutation is as important as knowing the trap.",
+      "name": "The King Walk Refutation",
+      "opponentResponse": "Ke6",
+      "solutionMoves": [
+        "Nxe5+",
+        "Ke6",
+        "Qg4+",
+        "Kf6",
+        "Qf5+",
+        "Ke7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bq2nr/pppp1kpp/2n5/2b1p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQ - 0 5"
+    }
+  ],
+  "id": "jerome-gambit-tacticals",
+  "name": "Jerome Gambit — White Tactics"
+}

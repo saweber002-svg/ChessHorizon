@@ -1,0 +1,52 @@
+{
+  "arena": "ruy-lopez-morphy",
+  "description": "2 tactical challenges for Black against the Tarrasch Trap. Never weaken with ...g6?? — develop the queen instead.",
+  "drills": [
+    {
+      "briefExplanation": "8...Qd7! 9.Qc4 d5! — develop the queen, then strike in the center.",
+      "description": "Black to play. White recaptured 8.Nxd4 — develop 8...Qd7! and meet 9.Qc4 with 9...d5!.",
+      "drillId": "tt-bt1",
+      "explanation": "The antidote to the Tarrasch Trap: 8...Qd7! develops, defending d6. After 9.Qc4 Black strikes with 9...d5!, opening the center while White's queen is committed — 10.exd5 Nxd5 centralizes the knight with tempo. White's 'trap' never gets its ...g6?? trigger, and Black's active pieces give full equality. The trap needs a mistake; don't provide one.",
+      "name": "Queen to the Rescue",
+      "opponentResponse": "Qc4",
+      "solutionMoves": [
+        "Qd7",
+        "Qc4",
+        "d5",
+        "exd5",
+        "Nxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r2qkb1r/ppp2ppp/2bp1n2/8/3NP3/2NQ4/PPP2PPP/R1B1K2R b KQkq - 0 8"
+    },
+    {
+      "briefExplanation": "6...bxc6! 7.Qd3 exd4 8.Nxd4 c5! — recapture toward the center and kick the knight at once.",
+      "description": "Black to play. White took on c6 — recapture with the b-pawn and strike back.",
+      "drillId": "tt-bt2",
+      "explanation": "An entirely different defense: 6...bxc6! recaptures toward the center, opening the b-file. After 7.Qd3 exd4 8.Nxd4 Black plays the energetic 8...c5!, kicking the knight with tempo and seizing space. White's bishop-pair advantage is neutralized by Black's central majority — a dynamic, modern way to meet the Steinitz.",
+      "name": "The bxc6 Alternative",
+      "opponentResponse": "Qd3",
+      "solutionMoves": [
+        "bxc6",
+        "Qd3",
+        "exd4",
+        "Nxd4",
+        "c5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r2qkb1r/pppb1ppp/2Bp1n2/4p3/3PP3/2N2N2/PPP2PPP/R1BQK2R b KQkq - 0 6"
+    }
+  ],
+  "id": "tarrasch-trap-black-tacticals",
+  "name": "Tarrasch Trap — Black Tactics"
+}

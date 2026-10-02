@@ -1,0 +1,52 @@
+{
+  "arena": "queen-gambit-accepted",
+  "description": "2 tactical challenges for White against the Lasker Trap. Play 7.e3! and never let ...Bxf3 come with tempo.",
+  "drills": [
+    {
+      "briefExplanation": "7.e3! Bxf3 8.Qxf3! dxe3 9.fxe3 — unpin first, then the queen CAN recapture.",
+      "description": "White to play. Black pins with 5...Bg4 and 6...Qe7 — don't play 7.h3??; unpin with 7.e3!.",
+      "drillId": "la-t1",
+      "explanation": "The refutation of the Lasker Trap: 7.e3! unpins the f3 knight BEFORE kicking the bishop. Now 7...Bxf3 is met by 8.Qxf3! — the queen recapture works because the e-pawn vacated e2. After 8...dxe3 9.fxe3 White is simply a pawn up with a solid position; Black's Albin 'compensation' never materializes. The whole trap depended on the e2 pawn blocking the queen — remove the blocker, remove the trap.",
+      "name": "The e3 Unpin",
+      "opponentResponse": "Bxf3",
+      "solutionMoves": [
+        "e3",
+        "Bxf3",
+        "Qxf3",
+        "dxe3",
+        "fxe3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r3kbnr/ppp1qppp/2n5/4P3/2Pp2b1/P4N2/1P1NPPPP/R1BQKB1R w KQkq - 3 7"
+    },
+    {
+      "briefExplanation": "8.Nxf3! Nxe5 9.e3! dxe3 10.fxe3 — the trap is sprung; limit the damage and keep the structure.",
+      "description": "White to play. The trap is on the board after 7...Bxf3 — find the toughest defense.",
+      "drillId": "la-t2",
+      "explanation": "Damage limitation once 7.h3?? is played: 8.Nxf3! is the tougher recapture (8.gxf3?? Nxe5 is crushing, and 8.Qxf3 is illegal — the e2 pawn blocks the queen). After 8...Nxe5 White plays 9.e3!, and after 9...dxe3 10.fxe3 the position is holdable — Black has won the e5 pawn, but White's structure is intact and the bishops will develop. Prevention (7.e3!) beats cure, but this cure beats collapse.",
+      "name": "Limiting the Damage",
+      "opponentResponse": "Nxe5",
+      "solutionMoves": [
+        "Nxf3",
+        "Nxe5",
+        "e3",
+        "dxe3",
+        "fxe3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r3kbnr/ppp1qppp/2n5/4P3/2Pp4/P4b1P/1P1NPPP1/R1BQKB1R w KQkq - 0 8"
+    }
+  ],
+  "id": "lasker-trap-tacticals",
+  "name": "Lasker Trap — White Tactics"
+}

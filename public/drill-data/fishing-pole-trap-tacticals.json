@@ -1,0 +1,50 @@
+{
+  "arena": "ruy-lopez-berlin",
+  "description": "2 tactical challenges for White against the Fishing Pole Trap. Don't kick the knight — take on c6 and punish the expedition.",
+  "drills": [
+    {
+      "briefExplanation": "4.O-O Ng4 5.Bxc6! dxc6 6.h3! — take the defender, then kick the knight with tempo.",
+      "description": "White to play. Black may try the Fishing Pole — castle and know the refutation.",
+      "drillId": "fp-t1",
+      "explanation": "The refutation of the Fishing Pole is 5.Bxc6!: instead of kicking the knight with 5.h3??, White simply takes the c6 knight — the key defender of e5. After 5...dxc6 6.h3! the g4 knight must retreat, and then 7.Nxe5 wins a clean pawn: White's bishops and center dominate, and the pole caught nothing.",
+      "name": "Taking the Defender",
+      "opponentResponse": "Ng4",
+      "solutionMoves": [
+        "O-O",
+        "Ng4",
+        "Bxc6",
+        "dxc6",
+        "h3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4"
+    },
+    {
+      "briefExplanation": "6.d4! — counter in the center instead of taking the knight.",
+      "description": "White to play. Black cast the pole with 5...h5 — strike back in the center.",
+      "drillId": "fp-t2",
+      "explanation": "If White has already played 5.h3, the damage limitation is 6.d4! — counter in the center rather than taking on g4. After 6...exd4 7.Nxd4 White's knights dominate the center, Black's kingside 'attack' has no target (the h5 pawn is just weak), and White's development advantage takes over. Central counterplay defuses flank sacrifices.",
+      "name": "The Central Counter",
+      "opponentResponse": "d4",
+      "solutionMoves": [
+        "h3",
+        "h5",
+        "d4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkb1r/pppp1ppp/2n5/1B2p3/4P1n1/5N2/PPPP1PPP/RNBQ1RK1 w kq - 6 5"
+    }
+  ],
+  "id": "fishing-pole-trap-tacticals",
+  "name": "Fishing Pole Trap — White Tactics"
+}

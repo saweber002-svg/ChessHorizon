@@ -1,0 +1,49 @@
+{
+  "arena": "ruy-lopez-morphy",
+  "description": "2 tactical challenges for White against Noah's Ark Trap. Recapture with the queen and never let the b3 bishop get trapped.",
+  "drills": [
+    {
+      "briefExplanation": "7.Qxd4! — recapture with the queen, keeping the bishop safe and the center stable.",
+      "description": "White to play. Black pushed 5...b5 — retreat 6.Bb3, then meet 6...Nxd4 with 7.Qxd4!.",
+      "drillId": "nat-t1",
+      "explanation": "The simple antidote to Noah's Ark: 7.Qxd4! recaptures with the queen instead of the knight. Now 7...exd4 is impossible (the pawn is pinned... rather, there's no pawn to take), and Black has no trap — White keeps the bishop pair and the better center. The ark only works if White recaptures 7.Nxd4?? first.",
+      "name": "Queen Takes First",
+      "opponentResponse": "exd4",
+      "solutionMoves": [
+        "Bb3",
+        "Nxd4",
+        "Qxd4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkbnr/2p2ppp/p1np4/1p2p3/B2PP3/5N2/PPP2PPP/RNBQK2R w KQkq - 0 6"
+    },
+    {
+      "briefExplanation": "8.Bd5! Rb8 9.c3 Nf6 — block the c-pawn's advance and untangle before Black's trap is set.",
+      "description": "White to play. The knights are gone and Black took on d4 — don't touch the queen.",
+      "drillId": "nat-t2",
+      "explanation": "If White has already played 7.Nxd4, the damage limitation is 8.Bd5! — the bishop blocks the ...c5 advance and eyes b7. After 8...Rb8 9.c3 Nf6 White untangles: the d4 pawn will fall, the bishops stay active, and Black's 'trap' never gets its second act. Prevention beats cure, but cure still beats 8.Qxd4??.",
+      "name": "Blocking the Flood",
+      "opponentResponse": "Rb8",
+      "solutionMoves": [
+        "Bd5",
+        "Rb8",
+        "c3",
+        "Nf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkbnr/2p2ppp/p2p4/1p6/3pP3/1B6/PPP2PPP/RNBQK2R w KQkq - 0 8"
+    }
+  ],
+  "id": "noahs-ark-trap-tacticals",
+  "name": "Noah's Ark Trap — White Tactics"
+}

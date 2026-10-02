@@ -1,0 +1,60 @@
+{
+  "arena": "ruy-lopez-morphy",
+  "description": "2 tactical challenges for Black in Noah's Ark Trap. Lure the white queen deep with 8...c5! and trap the b3 bishop.",
+  "drills": [
+    {
+      "briefExplanation": "6...Nxd4 7.Nxd4 exd4 8.Qxd4?? c5! 9.Qd5 Be6 — the queen is lured in and the bishop is trapped.",
+      "description": "Black to play. White retreated 6.Bb3 — start the trap with 6...Nxd4!.",
+      "drillId": "nat-bt1",
+      "explanation": "Noah's Ark: after 6...Nxd4 7.Nxd4 exd4, the natural 8.Qxd4?? walks into 8...c5! — the queen is attacked and must go to d5, where 9...Be6! attacks it again AND seals the b3 bishop's fate. After 10.Qc6+ Bd7 11.Qd5 c4! the bishop on b3 is trapped (its escape squares are gone) and Black wins a piece. The queen and bishop march into the ark two by two.",
+      "name": "Springing the Ark",
+      "opponentResponse": "Nxd4",
+      "solutionMoves": [
+        "Nxd4",
+        "Nxd4",
+        "exd4",
+        "Qxd4",
+        "c5",
+        "Qd5",
+        "Be6",
+        "Qc6+",
+        "Bd7",
+        "Qd5",
+        "c4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/2p2ppp/p1np4/1p2p3/3PP3/1B3N2/PPP2PPP/RNBQK2R b KQkq - 1 6"
+    },
+    {
+      "briefExplanation": "8...c5 9.Qd5 Be6 10.Qc6+ Bd7 11.Qd5 c4! — chase the queen, then slam the door on the bishop.",
+      "description": "Black to play. White grabbed with 8.Qxd4?? — spring the trap.",
+      "drillId": "nat-bt2",
+      "explanation": "The execution phase: 8...c5! gains time on the queen, 9...Be6! attacks it a second time while developing, and after 10.Qc6+ Bd7 11.Qd5 the quiet 11...c4! is the point — the b3 bishop's retreats (a2 is occupied, c2 will be covered) vanish, and ...Bc5 next wins it. A trap in two acts: first the queen, then the bishop.",
+      "name": "Slamming the Door",
+      "opponentResponse": "Qd5",
+      "solutionMoves": [
+        "c5",
+        "Qd5",
+        "Be6",
+        "Qc6+",
+        "Bd7",
+        "Qd5",
+        "c4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/2p2ppp/p2p4/1p6/3QP3/1B6/PPP2PPP/RNB1K2R b KQkq - 0 8"
+    }
+  ],
+  "id": "noahs-ark-trap-black-tacticals",
+  "name": "Noah's Ark Trap — Black Tactics"
+}
