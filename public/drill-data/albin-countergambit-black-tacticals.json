@@ -1,0 +1,62 @@
+{
+  "arena": "queen-gambit-accepted",
+  "description": "2 tactical challenges for Black in the Albin Countergambit. Answer 2.c4 with the shocking 2...e5! and build the d4 wedge.",
+  "drills": [
+    {
+      "briefExplanation": "2...e5 3.dxe5 d4 4.Nf3 Nc6 5.g3 Nge7 — Black sacrifices a pawn for the mighty d4 wedge.",
+      "description": "Black to play. White offers the Queen's Gambit with 2.c4 — counter with the Albin 2...e5!.",
+      "drillId": "alb-bt1",
+      "explanation": "The Albin Countergambit: instead of defending the gambit pawn, Black counterattacks in the center. After 3.dxe5 d4 the d-pawn becomes a wedge cramping White's whole game. The main line continues 4.Nf3 Nc6 5.g3 Nge7 — Black reroutes to g6, eyeing e5 and f4, and will follow with ...Bg2-challenging ...Be6, ...Qd7 and long castling into a kingside attack.",
+      "name": "The Albin Countergambit",
+      "opponentResponse": "dxe5",
+      "solutionMoves": [
+        "e5",
+        "dxe5",
+        "d4",
+        "Nf3",
+        "Nc6",
+        "g3",
+        "Nge7",
+        "Bg2",
+        "Ng6",
+        "O-O",
+        "Be6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "5...Nge7 6.Bg2 Ng6 7.O-O Be6 8.b3 Qd7 9.Bb2 O-O-O — complete development and castle into the attack.",
+      "description": "Black to play. The wedge stands on d4 and White has fianchettoed — finish development and castle long.",
+      "drillId": "alb-bt2",
+      "explanation": "With the d4 wedge fixed, Black's plan is pure Albin: knights to c6 and g6, bishop to e6 pressuring c4, queen to d7, and 9...O-O-O castling directly into a kingside pawn storm. White's extra e-pawn is a static weakness Black will hunt with ...Ngxe5 ideas — the wedge does the strategic work while the pieces do the attacking.",
+      "name": "Castling Into the Attack",
+      "opponentResponse": "Bg2",
+      "solutionMoves": [
+        "Nge7",
+        "Bg2",
+        "Ng6",
+        "O-O",
+        "Be6",
+        "b3",
+        "Qd7",
+        "Bb2",
+        "O-O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/ppp2ppp/2n5/4P3/2Pp4/5NP1/PP2PP1P/RNBQKB1R b KQkq - 0 5"
+    }
+  ],
+  "id": "albin-countergambit-black-tacticals",
+  "name": "Albin Countergambit — Black Tactics"
+}

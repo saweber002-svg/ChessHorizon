@@ -1,0 +1,57 @@
+{
+  "arena": "french-winawer",
+  "description": "2 tactical challenges for White in the Winawer Poisoned Pawn. After 6...Ne7 sidesteps the pin, White strikes with 7.Qg4 — and the pawn on g7 is poisoned.",
+  "drills": [
+    {
+      "briefExplanation": "7.Qg4 Qc7 8.Qxg7 Rg8 9.Qxh7 — White collects both kingside pawns while Black scrambles to develop.",
+      "description": "White to play. Black's 6...Ne7 unpins the knight — play the critical 7.Qg4!, beginning the Poisoned Pawn variation.",
+      "drillId": "wpp-t1",
+      "explanation": "The whole point of the Poisoned Pawn: 7.Qg4 attacks g7, and after 7...Qc7 defending it, 8.Qxg7 Rg8 9.Qxh7 wins a second pawn. Black's compensation is the half-open g-file and pressure on c3 after 9...cxd4. White consolidates with 10.Ne2 (guarding c3, preparing f4) 10...Nbc6 11.f4, keeping the extra material with a playable position.",
+      "name": "The Poisoned Pawn Grab",
+      "opponentResponse": "Qc7",
+      "solutionMoves": [
+        "Qg4",
+        "Qc7",
+        "Qxg7",
+        "Rg8",
+        "Qxh7",
+        "cxd4",
+        "Ne2",
+        "Nbc6",
+        "f4",
+        "Bd7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqk2r/pp2nppp/4p3/2ppP3/3P4/P1P5/2P2PPP/R1BQKBNR w KQkq - 1 7"
+    },
+    {
+      "briefExplanation": "10.Ne2 Nbc6 11.f4 Bd7 12.Qd3 — centralize the queen, support e5, and get the king to safety.",
+      "description": "White to play. The pawns are won — now find the consolidation plan after 9...cxd4.",
+      "drillId": "wpp-t2",
+      "explanation": "Grabbing the pawns is only half the variation — keeping them is the rest. 10.Ne2 defends c3 and unblocks f4; after 10...Nbc6 11.f4 the e5 pawn is rock solid and Black's counterplay is stalling. 12.Qd3 centralizes the queen, eyes h7's escape routes, and prepares queenside castling.",
+      "name": "Consolidating the Loot",
+      "opponentResponse": "Nbc6",
+      "solutionMoves": [
+        "Ne2",
+        "Nbc6",
+        "f4",
+        "Bd7",
+        "Qd3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnb1k1r1/ppq1np1Q/4p3/3pP3/3p4/P1P5/2P2PPP/R1B1KBNR w KQq - 0 10"
+    }
+  ],
+  "id": "winawer-poisoned-pawn-tacticals",
+  "name": "Winawer Poisoned Pawn — White Tactics"
+}

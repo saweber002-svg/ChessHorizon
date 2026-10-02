@@ -1,0 +1,59 @@
+{
+  "arena": "scandinavian-nf6",
+  "description": "2 tactical challenges for Black in the Icelandic Gambit. After 3.c4, offer the pawn with 3...e6! and play for the initiative.",
+  "drills": [
+    {
+      "briefExplanation": "3...e6 4.dxe6 Bxe6 — Black gives up a pawn for a lead in development and pressure on d4.",
+      "description": "Black to play. White has pushed 3.c4, grabbing space — sacrifice with the Icelandic 3...e6!.",
+      "drillId": "ice-bt1",
+      "explanation": "The Icelandic Gambit's soul: 3...e6 offers the d5 pawn back to accelerate development. After 4.dxe6 Bxe6 Black's bishops already aim at White's center, and White must spend tempi defending. The gambit is sound because White's extra pawn is doubled-isolated in spirit — Black's activity is the real currency.",
+      "name": "Offering the Pawn",
+      "opponentResponse": "dxe6",
+      "solutionMoves": [
+        "e6",
+        "dxe6",
+        "Bxe6",
+        "Nf3",
+        "Nc6",
+        "Be2",
+        "Bc5",
+        "O-O",
+        "O-O",
+        "Nc3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/3P4/2P5/8/PP1P1PPP/RNBQKBNR b KQkq - 0 3"
+    },
+    {
+      "briefExplanation": "5...Nc6 6.Be2 Bc5 7.O-O O-O 8.Nc3 a6 — develop every piece toward the center, then prepare ...b5 expansion.",
+      "description": "Black to play. White has accepted and played 5.Nf3 — develop rapidly and keep the pressure on.",
+      "drillId": "ice-bt2",
+      "explanation": "5.Nf3 is White's critical test, developing before Black's initiative grows. Black answers in gambit style: 5...Nc6 and 6...Bc5 aim everything at f2 and d4. After 7...O-O Black's king is safe — 8...a6 prepares ...b5, when Black's queenside majority starts rolling and the pawn deficit is invisible next to Black's activity.",
+      "name": "Rapid Development",
+      "opponentResponse": "Be2",
+      "solutionMoves": [
+        "Nc6",
+        "Be2",
+        "Bc5",
+        "O-O",
+        "O-O",
+        "Nc3",
+        "a6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rn1qkb1r/ppp2ppp/4bn2/8/2P5/5N2/PP1P1PPP/RNBQKB1R b KQkq - 1 5"
+    }
+  ],
+  "id": "scandinavian-icelandic-gambit-black-tacticals",
+  "name": "Icelandic Gambit — Black Tactics"
+}

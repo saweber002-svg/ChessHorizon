@@ -1,0 +1,60 @@
+{
+  "arena": "queen-gambit-accepted",
+  "description": "2 tactical challenges for White against the Albin Countergambit. Meet 2...e5 with accurate play and neutralize the d4 wedge.",
+  "drills": [
+    {
+      "briefExplanation": "2.c4 e5 3.dxe5 d4 4.Nf3 Nc6 5.g3 — accept the pawn, challenge the wedge, and fianchetto against it.",
+      "description": "White to play. Black may try the Albin 2...e5 — offer the gambit and be ready.",
+      "drillId": "alb-t1",
+      "explanation": "2.c4 invites the Albin, and White should accept the challenge: 3.dxe5 wins the pawn, and after 3...d4 4.Nf3 develops while attacking the wedge. 4...Nc6 5.g3 prepares the fianchetto — the bishop on g2 will stare down the long diagonal at the d4 pawn for the rest of the game. White's plan: complete development, play e3 at the right moment, and prove the extra pawn matters.",
+      "name": "Holding the Extra Pawn",
+      "opponentResponse": "e5",
+      "solutionMoves": [
+        "c4",
+        "e5",
+        "dxe5",
+        "d4",
+        "Nf3",
+        "Nc6",
+        "g3",
+        "Nge7",
+        "Bg2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "4.Nf3 Nc6 5.g3 Nge7 6.Bg2 Ng6 7.O-O Be6 8.b3 — develop around the wedge and prepare the e3 break.",
+      "description": "White to play. The d4 wedge is established — develop solidly and prepare to undermine it.",
+      "drillId": "alb-t2",
+      "explanation": "Against the wedge, White plays around it, not through it. 4.Nf3 attacks d4 immediately, and after 4...Nc6 5.g3 Nge7 White continues 6.Bg2 Ng6 7.O-O — king safe, rook coming to e1. 7...Be6 8.b3 prepares Bb2, when White's bishops both aim at Black's center and the e3 break will dissolve the wedge on White's terms.",
+      "name": "Blunting the Wedge",
+      "opponentResponse": "Nc6",
+      "solutionMoves": [
+        "Nf3",
+        "Nc6",
+        "g3",
+        "Nge7",
+        "Bg2",
+        "Ng6",
+        "O-O",
+        "Be6",
+        "b3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/ppp2ppp/8/4P3/2Pp4/8/PP2PPPP/RNBQKBNR w KQkq - 0 4"
+    }
+  ],
+  "id": "albin-countergambit-tacticals",
+  "name": "Albin Countergambit — White Tactics"
+}

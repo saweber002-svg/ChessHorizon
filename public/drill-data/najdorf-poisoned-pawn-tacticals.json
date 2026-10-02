@@ -1,0 +1,64 @@
+{
+  "arena": "sicilian-najdorf",
+  "description": "2 tactical challenges for White in the Najdorf Poisoned Pawn. After 7...Qb6 Black grabs on b2 — prove the pawn is poisoned with the famous 8.Qd2 sacrifice line.",
+  "drills": [
+    {
+      "briefExplanation": "8.Qd2 Qxb2 9.Rb1 Qa3 10.f5 — White sacrifices the b-pawn for a crushing kingside initiative.",
+      "description": "White to play. Black has just played the provocative 7...Qb6, eyeing b2 — start the refutation with 8.Qd2!.",
+      "drillId": "npp-t1",
+      "explanation": "The Poisoned Pawn variation in its most famous form. 8.Qd2 invites 8...Qxb2, and after 9.Rb1 Qa3 White has 10.f5! — opening the f-file and threatening fxe6. The main line runs 10...Nc6 11.fxe6 fxe6 12.Nxc6 bxc6 13.e5 dxe5 14.Bxf6 gxf6 15.Ne4, when White's pieces swarm: the knight heads for d6 or g5, and Black's exposed king pays for the extra pawn.",
+      "name": "Poisoned Pawn Accepted",
+      "opponentResponse": "Qxb2",
+      "solutionMoves": [
+        "Qd2",
+        "Qxb2",
+        "Rb1",
+        "Qa3",
+        "f5",
+        "Nc6",
+        "fxe6",
+        "fxe6",
+        "Nxc6",
+        "bxc6",
+        "e5",
+        "dxe5",
+        "Bxf6",
+        "gxf6",
+        "Ne4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnb1kb1r/1p3ppp/pq1ppn2/6B1/3NPP2/2N5/PPP3PP/R2QKB1R w KQkq - 1 8"
+    },
+    {
+      "briefExplanation": "9.Nb3 Qa3 10.Bxf6 gxf6 11.Na4 — reroute the knight and clamp down on the queenside.",
+      "description": "White to play. After 8...Qxb2, try the modern 9.Nb3 instead of 9.Rb1.",
+      "drillId": "npp-t2",
+      "explanation": "9.Nb3 is White's refined alternative: rather than chasing the queen immediately, White develops and prepares Na4-c5 ideas. After 9...Qa3 10.Bxf6 gxf6 White damages Black's structure before rerouting: 11.Na4 b5 12.Nc3 eyes d5 and b5, and Black's queen remains awkwardly placed on a3 while White's center rolls.",
+      "name": "The Nb3 Alternative",
+      "opponentResponse": "Qa3",
+      "solutionMoves": [
+        "Nb3",
+        "Qa3",
+        "Bxf6",
+        "gxf6",
+        "Na4",
+        "b5",
+        "Nc3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnb1kb1r/1p3ppp/p2ppn2/6B1/3NPP2/2N5/PqPQ2PP/R3KB1R w KQkq - 0 9"
+    }
+  ],
+  "id": "najdorf-poisoned-pawn-tacticals",
+  "name": "Najdorf Poisoned Pawn — White Tactics"
+}

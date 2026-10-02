@@ -1,0 +1,54 @@
+{
+  "arena": "ruy-lopez-morphy",
+  "description": "2 tactical challenges for White against the Marshall Attack. Meet 8...d5 with precise central play and defuse Black's initiative.",
+  "drills": [
+    {
+      "briefExplanation": "8.c3 d5 9.exd5 Nxd5 10.Nxe5 Nf4 11.Qf3 — take the pawn, return it, and consolidate the center.",
+      "description": "White to play. Black has castled and you sense the Marshall coming — play 8.c3 and meet 8...d5 correctly.",
+      "drillId": "ma-t1",
+      "explanation": "8.c3 is the anti-Marshall waiting move: it prepares d4 and meets 8...d5 with 9.exd5 Nxd5. After 10.Nxe5 Nf4 White must stay calm — 11.Qf3 defends everything at once, attacking f4 and eyeing f7. The point: White gives the pawn back on White's terms and keeps the safer king.",
+      "name": "Meeting the Gambit",
+      "opponentResponse": "d5",
+      "solutionMoves": [
+        "c3",
+        "d5",
+        "exd5",
+        "Nxd5",
+        "Nxe5",
+        "Nf4",
+        "Qf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 2 8"
+    },
+    {
+      "briefExplanation": "10.Nxe5 Nf4 11.Qf3 Bd6 12.g3 — challenge the knight at once and blunt the bishop.",
+      "description": "White to play. The gambit is on the board after 9...Nxd5 — grab on e5 and defuse the Nf4 jump.",
+      "drillId": "ma-t2",
+      "explanation": "10.Nxe5 accepts the challenge, and after 10...Nf4 the move 11.Qf3! is White's best defense — it defends f2, attacks the knight, and prepares d4. After 11...Bd6 12.g3 the knight must retreat and Black's attack loses its sting; White's extra central pawn and safer structure take over.",
+      "name": "Defusing the Center",
+      "opponentResponse": "Nf4",
+      "solutionMoves": [
+        "Nxe5",
+        "Nf4",
+        "Qf3",
+        "Bd6",
+        "g3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bq1rk1/2p1bppp/p1n5/1p1np3/8/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 10"
+    }
+  ],
+  "id": "marshall-attack-tacticals",
+  "name": "Marshall Attack — White Tactics"
+}

@@ -1,0 +1,57 @@
+{
+  "arena": "ruy-lopez-morphy",
+  "description": "2 tactical challenges for White against the Schliemann Gambit. Meet 3...f5 with calm development and punish Black's overextension.",
+  "drills": [
+    {
+      "briefExplanation": "3.Bb5 f5 4.Nc3 fxe4 5.Nxe4 d5 6.Nxe5 — develop, centralize, and let Black's pawn weaknesses tell.",
+      "description": "White to play. Black is threatening the wild 3...f5 — pin the knight and be ready for it.",
+      "drillId": "sch-t1",
+      "explanation": "3.Bb5 keeps the pressure while preparing to meet 3...f5 with 4.Nc3. After 4...fxe4 5.Nxe4 d5 White doesn't panic: 6.Nxe5 centralizes the knight and eyes f7 and c6. Black's f-file looks scary but the e5 knight, the bishop on b5, and the coming d4 break give White the steadier game — gambits must be refuted, not feared.",
+      "name": "Refuting the Gambit",
+      "opponentResponse": "f5",
+      "solutionMoves": [
+        "Bb5",
+        "f5",
+        "Nc3",
+        "fxe4",
+        "Nxe4",
+        "d5",
+        "Nxe5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3"
+    },
+    {
+      "briefExplanation": "4.exf5 Nf6 5.Nc3 d5 6.d4 — take the pawn, develop, and strike back in the center.",
+      "description": "White to play. Black has played 3...f5 — accept the pawn and counter in the center.",
+      "drillId": "sch-t2",
+      "explanation": "4.exf5 is White's most testing reply: just take the pawn and dare Black to prove compensation. After 4...Nf6 5.Nc3 d5 White strikes with 6.d4! — opening the position while ahead in development. 6...exd4 7.Qxd4 Bxf5 looks active for Black, but White's lead in development and Black's airy kingside favor the better-prepared side.",
+      "name": "The exf5 Alternative",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "exf5",
+        "Nf6",
+        "Nc3",
+        "d5",
+        "d4",
+        "exd4",
+        "Qxd4",
+        "Bxf5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkbnr/pppp2pp/2n5/1B2pp2/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4"
+    }
+  ],
+  "id": "schliemann-gambit-tacticals",
+  "name": "Schliemann Gambit — White Tactics"
+}

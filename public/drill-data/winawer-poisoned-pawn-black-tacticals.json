@@ -1,0 +1,59 @@
+{
+  "arena": "french-winawer",
+  "description": "2 tactical challenges for Black in the Winawer Poisoned Pawn. Meet 7.Qg4 with accurate defense and generate counterplay against White's exposed queen.",
+  "drills": [
+    {
+      "briefExplanation": "6...Ne7 unpins, then meet 7.Qg4 with 7...Qc7 8...Rg8 — and strike back with 9...cxd4.",
+      "description": "Black to play. White's center is imposing after 6.bxc3 — find the unpinning 6...Ne7 and the plan against 7.Qg4.",
+      "drillId": "wpp-bt1",
+      "explanation": "6...Ne7 is the only move that keeps Black's position together, breaking the pin on the f6 square. After 7.Qg4 Qc7 Black defends g7 indirectly; 8.Qxg7 Rg8 9.Qxh7 looks terrifying, but 9...cxd4 opens the position while White's queen is stranded on h7. Follow up with ...Nbc6 and ...Bd7, and Black has real compensation in activity.",
+      "name": "Sidestep and Counter",
+      "opponentResponse": "Qg4",
+      "solutionMoves": [
+        "Ne7",
+        "Qg4",
+        "Qc7",
+        "Qxg7",
+        "Rg8",
+        "Qxh7",
+        "cxd4",
+        "Ne2",
+        "Nbc6",
+        "f4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqk1nr/pp3ppp/4p3/2ppP3/3P4/P1P5/2P2PPP/R1BQKBNR b KQkq - 0 6"
+    },
+    {
+      "briefExplanation": "8...Rg8 9.Qxh7 cxd4 — the rook comes alive and the center opens while White's queen is offside.",
+      "description": "Black to play. White has just grabbed on g7 — activate the rook and blast the center open.",
+      "drillId": "wpp-bt2",
+      "explanation": "8...Rg8 is the key defensive resource: the rook both attacks the queen and prepares to dominate the g-file. After 9.Qxh7 cxd4 Black's idea is clear — open lines before White consolidates. 10...Nbc6 develops with tempo on d4, and 11...Bd7 prepares ...O-O-O, when the half-open g-file and central pressure give full compensation for the pawns.",
+      "name": "Holding the Counterplay",
+      "opponentResponse": "Qxh7",
+      "solutionMoves": [
+        "Rg8",
+        "Qxh7",
+        "cxd4",
+        "Ne2",
+        "Nbc6",
+        "f4",
+        "Bd7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnb1k2r/ppq1npQp/4p3/2ppP3/3P4/P1P5/2P2PPP/R1B1KBNR b KQkq - 0 8"
+    }
+  ],
+  "id": "winawer-poisoned-pawn-black-tacticals",
+  "name": "Winawer Poisoned Pawn — Black Tactics"
+}

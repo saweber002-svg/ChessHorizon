@@ -1,0 +1,63 @@
+{
+  "arena": "sicilian-najdorf",
+  "description": "2 tactical challenges for Black against the Smith-Morra Gambit. Meet 2.d4 with solid development and return the pawn at the right moment.",
+  "drills": [
+    {
+      "briefExplanation": "2...cxd4 3.c3 dxc3 4.Nxc3 Nc6 5.Nf3 d6 — accept the pawn, develop solidly, and give it back for equality.",
+      "description": "Black to play. White gambits with 2.d4 — accept it and find the solid setup.",
+      "drillId": "sm-bt1",
+      "explanation": "Against the Morra, Black's best policy is: take the pawn, develop, and return it when convenient. After 2...cxd4 3.c3 dxc3 4.Nxc3 Nc6 Black develops the knight first — the key move, fighting for d4 and e5. 5...d6 solidifies e5, and after the coming ...e6, ...Nf6, ...Be7 Black will be a tempo down but structurally sound, ready to neutralize White's initiative.",
+      "name": "Weathering the Gambit",
+      "opponentResponse": "c3",
+      "solutionMoves": [
+        "cxd4",
+        "c3",
+        "dxc3",
+        "Nxc3",
+        "Nc6",
+        "Nf3",
+        "d6",
+        "Bc4",
+        "e6",
+        "O-O",
+        "Nf6",
+        "Qe2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "3...dxc3 4.Nxc3 Nc6 5.Nf3 d6 6.Bc4 e6 7.O-O Nf6 — develop knights before bishops and keep the center flexible.",
+      "description": "Black to play. White has offered the c-pawn with 3.c3 — take it and develop the Maroczy-style setup.",
+      "drillId": "sm-bt2",
+      "explanation": "3...dxc3 accepts the second pawn, and now 4...Nc6 is the cornerstone — development with central control. The setup 5...d6, 6...e6, 7...Nf6 follows the Scheveningen pattern: Black concedes space but keeps every break (...d5, ...b5) in reserve. White's initiative looks scary but evaporates against accurate, patient defense.",
+      "name": "Developing Calmly",
+      "opponentResponse": "Nxc3",
+      "solutionMoves": [
+        "dxc3",
+        "Nxc3",
+        "Nc6",
+        "Nf3",
+        "d6",
+        "Bc4",
+        "e6",
+        "O-O",
+        "Nf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pp1ppppp/8/8/3pP3/2P5/PP3PPP/RNBQKBNR b KQkq - 0 3"
+    }
+  ],
+  "id": "smith-morra-gambit-black-tacticals",
+  "name": "Smith-Morra Gambit — Black Tactics"
+}

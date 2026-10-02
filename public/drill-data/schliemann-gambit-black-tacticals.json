@@ -1,0 +1,64 @@
+{
+  "arena": "ruy-lopez-morphy",
+  "description": "2 tactical challenges for Black in the Schliemann Gambit. Answer 3.Bb5 with the swashbuckling 3...f5! and play for mate, not material.",
+  "drills": [
+    {
+      "briefExplanation": "3...f5 4.Nc3 fxe4 5.Nxe4 d5 — Black blows the center open and hunts White's king.",
+      "description": "Black to play. White pins the knight with 3.Bb5 — counterattack with the Schliemann 3...f5!.",
+      "drillId": "sch-bt1",
+      "explanation": "The Schliemann (also called the Jaenisch Gambit): Black ignores the pin and strikes at e4. After 4.Nc3 fxe4 5.Nxe4 d5 Black's idea is revealed — open lines at any cost. The wild main line runs 6.Nxe5 dxe4 7.Nxc6 Qg5 8.Qe2 Nf6 9.f4 Qxf4 10.Nxa7+, when Black's queen and bishops create chaos around White's stranded king. Material is irrelevant; only the attack counts.",
+      "name": "The Schliemann Sacrifice",
+      "opponentResponse": "Nc3",
+      "solutionMoves": [
+        "f5",
+        "Nc3",
+        "fxe4",
+        "Nxe4",
+        "d5",
+        "Nxe5",
+        "dxe4",
+        "Nxc6",
+        "Qg5",
+        "Qe2",
+        "Nf6",
+        "f4",
+        "Qxf4",
+        "Nxa7+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3"
+    },
+    {
+      "briefExplanation": "7.Nxc6 Qg5 8.Qe2 Nf6 9.f4 Qxf4 10.Nxa7+ Bd7 — win the exchange of blows and keep the initiative.",
+      "description": "Black to play. The center is ablaze after 6...dxe4 — keep attacking with 7.Nxc6!.",
+      "drillId": "sch-bt2",
+      "explanation": "7.Nxc6 destroys White's coordination: the knight on e5 was White's best piece. After 7...Qg5 Black threatens ...Qxg2 and ...Qxe5 alike. 8.Qe2 Nf6 develops with tempo on e4, and 9.f4 Qxf4 keeps the queen centralized and menacing. 10.Nxa7+ grabs a pawn but 10...Bd7 traps the knight — Black's initiative is worth far more than the exchange of minor inaccuracies.",
+      "name": "Pressing the Initiative",
+      "opponentResponse": "Qg5",
+      "solutionMoves": [
+        "Nxc6",
+        "Qg5",
+        "Qe2",
+        "Nf6",
+        "f4",
+        "Qxf4",
+        "Nxa7+",
+        "Bd7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqkbnr/ppp3pp/2n5/1B2N3/4p3/8/PPPP1PPP/R1BQK2R w KQkq - 0 7"
+    }
+  ],
+  "id": "schliemann-gambit-black-tacticals",
+  "name": "Schliemann Gambit — Black Tactics"
+}

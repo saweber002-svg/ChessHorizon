@@ -1,0 +1,60 @@
+{
+  "arena": "ruy-lopez-morphy",
+  "description": "2 tactical challenges for Black in the Marshall Attack. After 8.c3, sacrifice the d-pawn with 8...d5! and unleash the most famous gambit in the Ruy Lopez.",
+  "drills": [
+    {
+      "briefExplanation": "8...d5 9.exd5 Nxd5 10.Nxe5 Nf4 — Black sacrifices for a raging initiative against White's king.",
+      "description": "Black to play. White has played the solid 8.c3 — detonate the center with the Marshall Gambit 8...d5!.",
+      "drillId": "ma-bt1",
+      "explanation": "Frank Marshall's legendary gambit: 8...d5 sacrifices a pawn to open the e-file and activate every piece. After 9.exd5 Nxd5 10.Nxe5 Nf4 Black's knight lands on the dream square, eyeing g2. The main line continues 11.Qf3 Bd6 12.g3 Nxe5 13.Rxe5 Bd7, when Black's bishops rake the kingside and White's extra pawn is meaningless against the attack.",
+      "name": "The Marshall Gambit",
+      "opponentResponse": "exd5",
+      "solutionMoves": [
+        "d5",
+        "exd5",
+        "Nxd5",
+        "Nxe5",
+        "Nf4",
+        "Qf3",
+        "Bd6",
+        "g3",
+        "Nxe5",
+        "Rxe5",
+        "Bd7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 8"
+    },
+    {
+      "briefExplanation": "10...Nxe5 11.Rxe5 c6 12.d4 Bd6 13.Re1 Qh4 — trade the knights, then swing the queen to the kingside.",
+      "description": "Black to play. After 10.Nxe5, try the quieter 10...Nxe5 instead of 10...Nf4.",
+      "drillId": "ma-bt2",
+      "explanation": "10...Nxe5 is Marshall's calmer cousin: Black returns the piece immediately for a superior structure and easy development. After 11.Rxe5 c6 the knight on d5 is a rock, 12...Bd6 hits the rook with tempo, and 13...Qh4 eyes f2 — Black has full compensation and none of the chaos of the main line.",
+      "name": "The Quiet Nxe5",
+      "opponentResponse": "Rxe5",
+      "solutionMoves": [
+        "Nxe5",
+        "Rxe5",
+        "c6",
+        "d4",
+        "Bd6",
+        "Re1",
+        "Qh4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bq1rk1/2p1bppp/p1n5/1p1nN3/8/1BP5/PP1P1PPP/RNBQR1K1 b - - 0 10"
+    }
+  ],
+  "id": "marshall-attack-black-tacticals",
+  "name": "Marshall Attack — Black Tactics"
+}

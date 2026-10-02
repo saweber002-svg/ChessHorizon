@@ -3,13 +3,13 @@
  * Used for per-realm progress meters. DO NOT EDIT MANUALLY.
  */
 export const REALM_TOTAL_MOVES: Record<string, number> = {
-  "germany": 28,
-  "dutch": 14,
-  "english": 32,
+  "germany": 63,
+  "dutch": 47,
+  "english": 67,
   "italian": 183,
-  "french": 42,
+  "french": 76,
   "queendom": 90,
   "spanish": 66,
-  "scandinavian": 47,
+  "scandinavian": 63,
   "sicilian": 174
 };

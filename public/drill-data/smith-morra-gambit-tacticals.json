@@ -1,0 +1,65 @@
+{
+  "arena": "sicilian-najdorf",
+  "description": "2 tactical challenges for White in the Smith-Morra Gambit. After 1...c5, sacrifice with 2.d4 and develop at lightning speed.",
+  "drills": [
+    {
+      "briefExplanation": "2.d4 cxd4 3.c3 dxc3 4.Nxc3 — White sacrifices a pawn for a massive lead in development.",
+      "description": "White to play. Black plays the Sicilian — unleash the Smith-Morra with 2.d4!.",
+      "drillId": "sm-t1",
+      "explanation": "The Smith-Morra: White gives up a pawn for open lines and a development avalanche. After 2...cxd4 3.c3 dxc3 4.Nxc3 White's plan is simple — develop everything with tempo: 4...Nc6 5.Nf3 d6 6.Bc4 e6 7.O-O Nf6 8.Qe2 Be7 9.Rd1, and Black is cramped while White's rooks and bishops dominate the center. The pawn is long forgotten.",
+      "name": "The Morra Accepted",
+      "opponentResponse": "cxd4",
+      "solutionMoves": [
+        "d4",
+        "cxd4",
+        "c3",
+        "dxc3",
+        "Nxc3",
+        "Nc6",
+        "Nf3",
+        "d6",
+        "Bc4",
+        "e6",
+        "O-O",
+        "Nf6",
+        "Qe2",
+        "Be7",
+        "Rd1"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "3.c3 d5 4.exd5 Qxd5 5.cxd4 — meet the declined try with central exchanges and easy development.",
+      "description": "White to play. Black took on d4 — play 3.c3, and be ready if Black declines with 3...d5.",
+      "drillId": "sm-t2",
+      "explanation": "3...d5 is Black's attempt to decline the gambit and hold the center. White meets it with 4.exd5 Qxd5 5.cxd4 — the queen is exposed on d5 and White gains time with Nc3 next. After 5...Nf6 6.Nf3 e6 White has the freer game and Black's queen will have to move again. Declining doesn't solve Black's development problem.",
+      "name": "The Declined Try",
+      "opponentResponse": "d5",
+      "solutionMoves": [
+        "c3",
+        "d5",
+        "exd5",
+        "Qxd5",
+        "cxd4",
+        "Nf6",
+        "Nf3",
+        "e6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pp1ppppp/8/8/3pP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3"
+    }
+  ],
+  "id": "smith-morra-gambit-tacticals",
+  "name": "Smith-Morra Gambit — White Tactics"
+}

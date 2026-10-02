@@ -1,0 +1,56 @@
+{
+  "arena": "scandinavian-nf6",
+  "description": "2 tactical challenges for White against the Icelandic Gambit. Accept the pawn with 4.dxe6 and meet Black's initiative with the solid 5.Nf3.",
+  "drills": [
+    {
+      "briefExplanation": "3.c4 e6 4.dxe6 Bxe6 5.Nf3 — accept the pawn, then develop before Black's initiative can grow.",
+      "description": "White to play. Black has played the modern 2...Nf6 — push 3.c4 and be ready for the Icelandic 3...e6.",
+      "drillId": "ice-t1",
+      "explanation": "3.c4 is White's most ambitious reply to 2...Nf6, and after 3...e6 White should accept: 4.dxe6 Bxe6. The key is not to get greedy — 5.Nf3 develops and prepares to castle, meeting Black's activity with solid development. White's extra pawn will tell in the endgame if Black's attack comes to nothing.",
+      "name": "Meeting the Icelandic",
+      "opponentResponse": "e6",
+      "solutionMoves": [
+        "c4",
+        "e6",
+        "dxe6",
+        "Bxe6",
+        "Nf3",
+        "Nc6",
+        "Be2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/3P4/8/8/PPPP1PPP/RNBQKBNR w KQkq - 1 3"
+    },
+    {
+      "briefExplanation": "5.Nf3 Nc6 6.Be2 Bc5 7.O-O — the critical test: develop, castle, and let the extra pawn speak.",
+      "description": "White to play. The pawn is accepted and Black's bishops are active — play the critical 5.Nf3.",
+      "drillId": "ice-t2",
+      "explanation": "5.Nf3 is the move that asks the Icelandic Gambit its hardest question: where is the compensation? After 5...Nc6 6.Be2 Bc5 White simply castles — 7.O-O — and Black's initiative has no target. The e6 bishop looks pretty but bites on granite; White will consolidate with Nc3, d3, and the extra pawn.",
+      "name": "The Critical Nf3",
+      "opponentResponse": "Nc6",
+      "solutionMoves": [
+        "Nf3",
+        "Nc6",
+        "Be2",
+        "Bc5",
+        "O-O",
+        "O-O",
+        "Nc3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rn1qkb1r/ppp2ppp/4bn2/8/2P5/8/PP1P1PPP/RNBQKBNR w KQkq - 0 5"
+    }
+  ],
+  "id": "scandinavian-icelandic-gambit-tacticals",
+  "name": "Icelandic Gambit — White Tactics"
+}

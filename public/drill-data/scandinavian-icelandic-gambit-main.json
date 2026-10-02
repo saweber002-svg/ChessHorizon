@@ -1,0 +1,32 @@
+{
+  "description": "Black answers 3.c4 with the genuine Icelandic Gambit 3...e6: 4.dxe6 Bxe6 surrenders a pawn for rapid development and lasting pressure on White's center. White's critical test is the solid 5.Nf3 — Black must prove real compensation for the missing pawn.",
+  "id": "scandinavian-icelandic-gambit-main",
+  "lines": [
+    {
+      "description": "The real Icelandic Gambit: 3...e6 4.dxe6 Bxe6. White accepts and plays the critical 5.Nf3, developing before Black's initiative can grow. Black develops rapidly with ...Nc6 and ...Bc5, castles, and keeps the pressure on — the pawn is gone, but the activity remains.",
+      "difficulty": "Intermediate",
+      "id": "scandinavian-icelandic-gambit",
+      "moveCount": 15,
+      "moves": [
+        "e4",
+        "d5",
+        "exd5",
+        "Nf6",
+        "c4",
+        "e6",
+        "dxe6",
+        "Bxe6",
+        "Nf3",
+        "Nc6",
+        "Be2",
+        "Bc5",
+        "O-O",
+        "O-O",
+        "Nc3"
+      ],
+      "name": "Scandinavian — Icelandic Gambit"
+    }
+  ],
+  "name": "Scandinavian — Icelandic Gambit",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+}

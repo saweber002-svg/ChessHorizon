@@ -1,32 +1,33 @@
 {
+  "description": "Black plays 2...Nf6, avoiding the early queen sortie entirely. After 3.d4 Nxd5 Black steers into Lasker's rock-solid system: the knight reroutes to b6, the bishop fianchettoes to g7, and Black's position has no weaknesses.",
   "id": "scandinavian-nf6-main",
-  "name": "Scandinavian \u2014 Nf6 Modern (Icelandic Gambit)",
-  "description": "Black plays 2...Nf6, avoiding the early queen sortie entirely. After 3.c4, Black offers the genuine Icelandic Gambit with 3...e6: 4.dxe6 Bxe6 surrenders a pawn for rapid development and lasting pressure on White's center. White's critical test is the solid 5.Nf3 \u2014 Black must prove real compensation for the missing pawn.",
-  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   "lines": [
     {
+      "description": "The Lasker Scandinavian: 3.d4 Nxd5 4.Nf3 g6. Black reroutes the knight to b6, fianchettoes the bishop, and castles into a fortress. White keeps the space advantage with c4 and Nc3, but Black's position is famously hard to crack — the Icelandic Gambit now lives on as a separate tactical variation.",
+      "difficulty": "Intermediate",
       "id": "scandinavian-nf6",
-      "name": "Scandinavian \u2014 Nf6 Modern (Icelandic Gambit)",
-      "description": "The real Icelandic Gambit: 3...e6 4.dxe6 Bxe6. White accepts and plays the critical 5.Nf3, developing before Black's initiative can grow. Black develops rapidly with ...Nc6 and ...Bc5, castles, and keeps the pressure on \u2014 the pawn is gone, but the activity remains.",
+      "moveCount": 16,
       "moves": [
         "e4",
         "d5",
         "exd5",
         "Nf6",
-        "c4",
-        "e6",
-        "dxe6",
-        "Bxe6",
+        "d4",
+        "Nxd5",
         "Nf3",
-        "Nc6",
+        "g6",
+        "c4",
+        "Nb6",
+        "Nc3",
+        "Bg7",
         "Be2",
-        "Bc5",
         "O-O",
         "O-O",
-        "Nc3"
+        "Nc6"
       ],
-      "moveCount": 15,
-      "difficulty": "Intermediate"
+      "name": "Scandinavian — Nf6 Modern (Lasker)"
     }
-  ]
+  ],
+  "name": "Scandinavian — Nf6 Modern (Lasker)",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
 }
