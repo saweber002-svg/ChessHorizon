@@ -1,0 +1,52 @@
+{
+  "arena": "french-classical",
+  "description": "2 tactical challenges for White in the Alekhine-Chatard Attack. Play 6.h4! and launch the kingside pawn storm.",
+  "drills": [
+    {
+      "briefExplanation": "6.h4! O-O 7.Bd3 c5 8.dxc5 — launch the storm, then open the center.",
+      "description": "White to play. Black retreated 5...Nfd7 — launch the Alekhine-Chatard with 6.h4!.",
+      "drillId": "ac-t1",
+      "explanation": "The Alekhine-Chatard Attack: White plays the startling 6.h4!, preparing h5 to rip open Black's kingside. After 6...O-O 7.Bd3 White's attack builds with every move — h5, Qh5, Bxh7 ideas. The French's solid center means nothing when the kingside is under direct assault. Pawn storms beat pawn chains.",
+      "name": "The h4 Launch",
+      "opponentResponse": "O-O",
+      "solutionMoves": [
+        "h4",
+        "O-O",
+        "Bd3",
+        "c5",
+        "dxc5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqk2r/pppnbppp/4p3/3pP1B1/3P4/2N5/PPP2PPP/R2QKBNR w KQkq - 1 6"
+    },
+    {
+      "briefExplanation": "7.Bd3 c5 8.Nb5! a6 9.Nd6 — challenge the break, leap, and occupy the hole.",
+      "description": "White to play. Black countered 7...c5 — leap 8.Nb5! toward the weak squares.",
+      "drillId": "ac-t2",
+      "explanation": "Against Black's 7...c5 break, White doesn't retreat — 8.Nb5! leaps toward d6, and after 8...a6 comes 9.Nd6!, occupying the hole in Black's camp. The knight eyes f7 and e8, Black's development stalls, and White's initiative is overwhelming.",
+      "name": "The Nb5 Leap",
+      "opponentResponse": "c5",
+      "solutionMoves": [
+        "Bd3",
+        "c5",
+        "Nb5",
+        "a6",
+        "Nd6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbq1rk1/pppnbppp/4p3/3pP1B1/3P3P/2N5/PPP2PP1/R2QKBNR w KQ - 1 7"
+    }
+  ],
+  "id": "alekhine-chatard-attack-tacticals",
+  "name": "Alekhine-Chatard Attack — White Tactics"
+}

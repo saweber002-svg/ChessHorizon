@@ -1,0 +1,52 @@
+{
+  "arena": "french-advance",
+  "description": "2 tactical challenges for Black against the Milner-Barry Gambit. Develop with 7...Nge7! and refuse the second pawn.",
+  "drills": [
+    {
+      "briefExplanation": "6...cxd4 7.O-O Nge7! 8.Re1 Nf5 — take, then develop; don't grab the second pawn.",
+      "description": "Black to play. White plays 6.Bd3 — take on d4 and meet 7.O-O with 7...Nge7!.",
+      "drillId": "mb-bt1",
+      "explanation": "The safe defense: after 6...cxd4 7.O-O, Black develops with 7...Nge7! — refusing the greedy 7...dxc3?!. After 8.Re1 Nf5 Black's knight heads for its best square, the king will castle, and White's 'sacrifice' bought nothing: Black is a pawn up with a solid French structure. Develop first, grab later.",
+      "name": "Refusing the Pawn",
+      "opponentResponse": "O-O",
+      "solutionMoves": [
+        "cxd4",
+        "O-O",
+        "Nge7",
+        "Re1",
+        "Nf5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1b1kbnr/pp3ppp/1qn1p3/2ppP3/3P4/2PB1N2/PP3PPP/RNBQK2R b KQkq - 4 6"
+    },
+    {
+      "briefExplanation": "6...Nge7! 7.O-O Nf5 8.Re1 Be7 — develop everything before touching the center.",
+      "description": "Black to play. White develops 6.Bd3 — skip the capture and develop at once.",
+      "drillId": "mb-bt2",
+      "explanation": "The ultra-solid approach: Black doesn't even take on d4, playing 6...Nge7! at once. After 7.O-O Nf5 8.Re1 Be7 Black completes development with zero weaknesses — White's gambit idea never gets its trigger, the French structure is rock solid, and Black can later strike with ...f6. Sometimes the best counter to a gambit is ignoring it.",
+      "name": "Ignoring the Gambit",
+      "opponentResponse": "O-O",
+      "solutionMoves": [
+        "Nge7",
+        "O-O",
+        "Nf5",
+        "Re1",
+        "Be7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1b1kbnr/pp3ppp/1qn1p3/2ppP3/3P4/2PB1N2/PP3PPP/RNBQK2R b KQkq - 4 6"
+    }
+  ],
+  "id": "milner-barry-gambit-black-tacticals",
+  "name": "Milner-Barry Gambit — Black Tactics"
+}

@@ -1,0 +1,52 @@
+{
+  "arena": "scandinavian-nf6",
+  "description": "2 tactical challenges for Black in the Portuguese Variation. Play 3...Bg4! and pin before developing.",
+  "drills": [
+    {
+      "briefExplanation": "3...Bg4! 4.f3 Bf5 5.Bd3 Bxd3 — pin, retreat with tempo, trade the bishops.",
+      "description": "Black to play. White plays 3.d4 in the Scandinavian — answer with the Portuguese 3...Bg4!.",
+      "drillId": "pv-bt1",
+      "explanation": "The Portuguese Variation: instead of the main-line 3...e6 or 3...g6, Black pins with 3...Bg4! at once. After 4.f3 Bf5 the bishop retreats with tempo (hitting d3), White's kingside is loosened, and Black develops with ...e6 and ...c6. The early pin disrupts White's whole setup — provocation with a point.",
+      "name": "The Early Pin",
+      "opponentResponse": "f3",
+      "solutionMoves": [
+        "Bg4",
+        "f3",
+        "Bf5",
+        "Bd3",
+        "Bxd3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/3P4/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3"
+    },
+    {
+      "briefExplanation": "4...Bf5 5.Bd3 Bxd3 6.Qxd3 e6 — retreat with tempo, trade, solidify.",
+      "description": "Black to play. White kicked with 4.f3 — retreat, trade on d3, and solidify.",
+      "drillId": "pv-bt2",
+      "explanation": "The follow-through: after 3...Bg4 4.f3, Black retreats 4...Bf5! (not 4...Bh5?, which gets trapped). After 5.Bd3 Bxd3 6.Qxd3 e6 Black has traded the bishops and solidified — White's f3 loosened the kingside for nothing, and Black develops easily. The pin-and-retreat won time; the trade won the bishop battle.",
+      "name": "Pin and Trade",
+      "opponentResponse": "Nf3",
+      "solutionMoves": [
+        "Bf5",
+        "Bd3",
+        "Bxd3",
+        "Qxd3",
+        "e6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rn1qkb1r/ppp1pppp/5n2/3P4/3P2b1/5P2/PPP3PP/RNBQKBNR b KQkq - 0 4"
+    }
+  ],
+  "id": "portuguese-variation-black-tacticals",
+  "name": "Portuguese Variation — Black Tactics"
+}

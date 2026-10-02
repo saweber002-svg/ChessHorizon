@@ -1,0 +1,52 @@
+{
+  "arena": "two-knights",
+  "description": "2 tactical challenges for Black against the Max Lange Attack. Take on d4 early or block the e-file check.",
+  "drills": [
+    {
+      "briefExplanation": "5...Nxe4! 6.Re1 d5 7.Bxd5 Qxd5 — take the pawn, then blockade the center.",
+      "description": "Black to play. White castled into the complications — take with 5...Nxe4!.",
+      "drillId": "ml-bt1",
+      "explanation": "The safe path through the Max Lange: instead of 5...Bc5?!, Black takes with 5...Nxe4! — grabbing the center pawn at once. After 6.Re1 d5 7.Bxd5 Qxd5 Black blockades the center, the queen on d5 is perfectly placed, and White's 'attack' has no open lines. Take material, then blockade.",
+      "name": "Taking the Pawn",
+      "opponentResponse": "Nxd4",
+      "solutionMoves": [
+        "Nxe4",
+        "Re1",
+        "d5",
+        "Bxd5",
+        "Qxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/8/2BpP3/5N2/PPP2PPP/RNBQ1RK1 b kq - 1 5"
+    },
+    {
+      "briefExplanation": "6...d5 7.exf6 dxc4 8.Re1+ Be6! — meet the blast, then block the check.",
+      "description": "Black to play. White blasted 6.e5 — play 6...d5 and block the coming check.",
+      "drillId": "ml-bt2",
+      "explanation": "If White gets 6.e5 in, Black must be precise: 6...d5 7.exf6 dxc4, and after 8.Re1+ comes 8...Be6! — blocking the check while developing. Black's bishops rake the board, the extra exchange (rook for bishop... rather, the material) is balanced, and White's attack has a solid wall in front of it. Precision under fire.",
+      "name": "Blocking the Check",
+      "opponentResponse": "dxc4",
+      "solutionMoves": [
+        "d5",
+        "exf6",
+        "dxc4",
+        "Re1+",
+        "Be6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "r1bqk2r/pppp1ppp/2n2n2/2b1P3/2Bp4/5N2/PPP2PPP/RNBQ1RK1 b kq - 0 6"
+    }
+  ],
+  "id": "max-lange-attack-black-tacticals",
+  "name": "Max Lange Attack — Black Tactics"
+}

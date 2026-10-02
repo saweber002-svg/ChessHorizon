@@ -1,0 +1,52 @@
+{
+  "arena": "french-advance",
+  "description": "2 tactical challenges for White in the Milner-Barry Gambit. Sacrifice with 7.O-O! and attack down the open lines.",
+  "drills": [
+    {
+      "briefExplanation": "7.O-O! dxc3 8.Nxc3 Bb4 9.Bg5 — sacrifice, develop, and pin.",
+      "description": "White to play. Black took on d4 — offer the Milner-Barry with 7.O-O!.",
+      "drillId": "mb-t1",
+      "explanation": "The Milner-Barry Gambit: instead of recapturing on d4, White castles with 7.O-O!, sacrificing the pawn for the initiative. After 7...dxc3 8.Nxc3 White has open lines, fast development, and direct attacking chances against Black's king — the French's solid structure becomes a target. One inaccurate defense and the attack breaks through.",
+      "name": "The O-O Sacrifice",
+      "opponentResponse": "dxc3",
+      "solutionMoves": [
+        "O-O",
+        "dxc3",
+        "Nxc3",
+        "Bb4",
+        "Bg5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1b1kbnr/pp3ppp/1qn1p3/3pP3/3p4/2PB1N2/PP3PPP/RNBQK2R w KQkq - 0 7"
+    },
+    {
+      "briefExplanation": "8.Nxc3 Nge7 9.Nb5! a6 10.Nd6+! — develop, leap, and fork with check.",
+      "description": "White to play. Black took the pawn — recapture and jump to b5.",
+      "drillId": "mb-t2",
+      "explanation": "The follow-up: after 7...dxc3 8.Nxc3 Nge7, White plays the energetic 9.Nb5! — and after 9...a6 comes 10.Nd6+!, forking with check. Black's extra pawn is meaningless while the king is stuck; White's initiative converts to material.",
+      "name": "The Nb5 Leap",
+      "opponentResponse": "Nge7",
+      "solutionMoves": [
+        "Nxc3",
+        "Nge7",
+        "Nb5",
+        "a6",
+        "Nd6+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1b1kbnr/pp3ppp/1qn1p3/3pP3/8/2pB1N2/PP3PPP/RNBQ1RK1 w kq - 0 8"
+    }
+  ],
+  "id": "milner-barry-gambit-tacticals",
+  "name": "Milner-Barry Gambit — White Tactics"
+}

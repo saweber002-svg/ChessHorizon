@@ -1,0 +1,51 @@
+{
+  "arena": "slav-defense",
+  "description": "2 tactical challenges for White in the Geller Gambit. Play 5.e4! and build the mobile center.",
+  "drills": [
+    {
+      "briefExplanation": "5.e4! b5 6.e5 Ne4 7.Bd3 — the roller starts; meet the knight with development.",
+      "description": "White to play. Black took on c4 — strike with the Geller 5.e4!.",
+      "drillId": "ge-t1",
+      "explanation": "The Geller Gambit: White sacrifices the c-pawn for a powerful mobile center. After 5.e4! b5 6.e5 White's pawns start rolling — the e5 wedge cramps Black, the bishops will rake the long diagonals, and Black's extra pawn is a weakness, not an asset. Space and time beat material.",
+      "name": "The Pawn Roller",
+      "opponentResponse": "b5",
+      "solutionMoves": [
+        "e4",
+        "b5",
+        "e5",
+        "Ne4",
+        "Bd3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/pp2pppp/2p2n2/8/2pP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5"
+    },
+    {
+      "briefExplanation": "6.e5 Nd5 7.Nxd5 cxd5 — push the pawn, trade the blockader, open the c-file.",
+      "description": "White to play. Black pushed 5...b5 — advance 6.e5! and trade on d5.",
+      "drillId": "ge-t2",
+      "explanation": "The Geller in motion: after 5...b5 White plays 6.e5!, and after 6...Nd5 comes 7.Nxd5 cxd5 — White trades the blockader and opens the c-file for the rook. Black's queenside is loosened, the e5 pawn cramps everything, and White's initiative is lasting.",
+      "name": "Trading the Blockader",
+      "opponentResponse": "cxd5",
+      "solutionMoves": [
+        "e5",
+        "Nd5",
+        "Nxd5",
+        "cxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/p3pppp/2p2n2/1p6/2pPP3/2N2N2/PP3PPP/R1BQKB1R w KQkq - 0 6"
+    }
+  ],
+  "id": "geller-gambit-tacticals",
+  "name": "Geller Gambit — White Tactics"
+}

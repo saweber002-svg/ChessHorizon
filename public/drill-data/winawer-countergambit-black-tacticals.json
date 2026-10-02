@@ -1,0 +1,52 @@
+{
+  "arena": "slav-defense",
+  "description": "2 tactical challenges for Black in the Winawer Countergambit. Strike with 3...e5! and blast open the center.",
+  "drills": [
+    {
+      "briefExplanation": "3...e5! 4.dxe5 d4 5.Nf3 Bb4! — counter, wedge, and pin the knight.",
+      "description": "Black to play. White plays 3.Nc3 in the Slav — counter with 3...e5!.",
+      "drillId": "wc-bt1",
+      "explanation": "The Winawer Countergambit: Black meets the Slav with 3...e5!. After 4.dxe5 d4 5.Nf3, Black plays 5...Bb4! — pinning the c3 knight while the d4 wedge cramps White. White's extra pawn (e5) is loose, Black's development flows, and the 'solid' Slav has become a tactical minefield.",
+      "name": "The e5 Counter",
+      "opponentResponse": "dxe5",
+      "solutionMoves": [
+        "e5",
+        "dxe5",
+        "d4",
+        "Nf3",
+        "Bb4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3"
+    },
+    {
+      "briefExplanation": "4...d4 5.Nf3 Nf6 6.e3 Bg4 — wedge, develop, and pin the knight.",
+      "description": "Black to play. White took on e5 — push 4...d4 and develop with the pin.",
+      "drillId": "wc-bt2",
+      "explanation": "The follow-through: after 3...e5 4.dxe5, Black plays 4...d4! — the wedge stays. After 5.Nf3 Nf6 6.e3, Black pins with 6...Bg4!, keeping the pressure while White struggles to untangle. The d4 pawn cramps White's game, the pin paralyzes the kingside, and Black's 'sacrifice' has become a lasting initiative.",
+      "name": "Winning It Back",
+      "opponentResponse": "Nf3",
+      "solutionMoves": [
+        "d4",
+        "Nf3",
+        "Nf6",
+        "e3",
+        "Bg4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pp3ppp/2p5/3pP3/2P5/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4"
+    }
+  ],
+  "id": "winawer-countergambit-black-tacticals",
+  "name": "Winawer Countergambit — Black Tactics"
+}

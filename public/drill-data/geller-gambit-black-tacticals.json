@@ -1,0 +1,52 @@
+{
+  "arena": "slav-defense",
+  "description": "2 tactical challenges for Black against the Geller Gambit. Hold with 5...b5! or develop the bishop first.",
+  "drills": [
+    {
+      "briefExplanation": "4...dxc4 5.e4 b5! 6.e5 Nd5 — take the pawn, hold it, and blockade.",
+      "description": "Black to play. White plays 4.Nc3 — take on c4 and hold with 5...b5!.",
+      "drillId": "ge-bt1",
+      "explanation": "The greedy defense: after 4...dxc4 5.e4, Black holds with 5...b5!. After 6.e5 Nd5 the knight blockades the pawn roller — the classic antidote to mobile centers. Black is a pawn up, the blockade is solid, and White's 'initiative' runs into a wall. Blockade before you counterattack.",
+      "name": "The b5 Blockade",
+      "opponentResponse": "e4",
+      "solutionMoves": [
+        "dxc4",
+        "e4",
+        "b5",
+        "e5",
+        "Nd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4"
+    },
+    {
+      "briefExplanation": "6...Bb7 7.Bxc4 e6 8.O-O Nbd7 — develop, solidify, castle, complete the setup.",
+      "description": "Black to play. White pushed 6.e5 — fianchetto the bishop and play 7...e6.",
+      "drillId": "ge-bt2",
+      "explanation": "The positional defense: after 6.e5 Black plays 6...Bb7!, developing with pressure on e4. After 7.Bxc4 e6 Black solidifies — the bishop eyes the center, the e6 pawn supports d5, and White's pawn roller is contained. Development and solidity beat the gambit's momentum.",
+      "name": "The Bb7 Development",
+      "opponentResponse": "Bxc4",
+      "solutionMoves": [
+        "Bb7",
+        "Bxc4",
+        "e6",
+        "O-O",
+        "Nbd7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/p3pppp/2p2n2/1p2P3/2pP4/2N2N2/PP3PPP/R1BQKB1R b KQkq - 0 6"
+    }
+  ],
+  "id": "geller-gambit-black-tacticals",
+  "name": "Geller Gambit — Black Tactics"
+}

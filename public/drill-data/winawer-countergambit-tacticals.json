@@ -1,0 +1,52 @@
+{
+  "arena": "slav-defense",
+  "description": "2 tactical challenges for White against the Winawer Countergambit. Meet 3...e5 with calm development.",
+  "drills": [
+    {
+      "briefExplanation": "3.Nc3 e5 4.dxe5 d4 5.Nf3! — take, then develop; don't fear the wedge.",
+      "description": "White to play. Black may try the countergambit 3...e5 — develop 3.Nc3 and know the reply.",
+      "drillId": "wc-t1",
+      "explanation": "The calm antidote: after 3...e5 4.dxe5 d4, White plays 5.Nf3! — developing and ignoring the pawn. Black's d4 wedge looks scary but White will undermine it with e3; the extra pawn (e5) is real, and Black's 'initiative' needs a target that White won't provide. Take the pawn, develop, undermine.",
+      "name": "The Calm Nf3",
+      "opponentResponse": "d4",
+      "solutionMoves": [
+        "Nc3",
+        "e5",
+        "dxe5",
+        "d4",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3"
+    },
+    {
+      "briefExplanation": "5.e3! dxe3 6.Bxe3 Nf6 7.Nf3 — undermine, develop with tempo, complete the setup.",
+      "description": "White to play. Black pushed 4...d4 — undermine with 5.e3!.",
+      "drillId": "wc-t2",
+      "explanation": "The direct refutation of the wedge: 5.e3! challenges d4 immediately. After 5...dxe3 6.Bxe3 White develops with tempo, the center opens for the bishops, and Black's gambit pawn is gone — White keeps the e5 pawn and the better structure. Undermine advanced wedges at their base.",
+      "name": "The e3 Undermining",
+      "opponentResponse": "dxe3",
+      "solutionMoves": [
+        "e3",
+        "dxe3",
+        "Bxe3",
+        "Nf6",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pp3ppp/2p5/4P3/2Pp4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 5"
+    }
+  ],
+  "id": "winawer-countergambit-tacticals",
+  "name": "Winawer Countergambit — White Tactics"
+}

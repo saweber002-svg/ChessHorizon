@@ -1,0 +1,50 @@
+{
+  "arena": "french-classical",
+  "description": "2 tactical challenges for Black against the Alekhine-Chatard Attack. Slow it with 6...a6! or trade the attacker.",
+  "drills": [
+    {
+      "briefExplanation": "5...Nfd7 6.h4 a6! 7.Nf3 c5 — retreat, slow the storm, then break.",
+      "description": "Black to play. White is threatening the Chatard 6.h4 — retreat 5...Nfd7 and prepare 6...a6!.",
+      "drillId": "ac-bt1",
+      "explanation": "The patient defense: after 5...Nfd7 6.h4, Black plays 6...a6! — a useful waiting move that slows White's queenside ideas. After 7.Nf3 c5 Black strikes in the center, the classic French counter. White's h-pawn adventure looks premature when the center opens — the storm passes, the structure remains.",
+      "name": "Slowing the Storm",
+      "opponentResponse": "h4",
+      "solutionMoves": [
+        "Nfd7",
+        "h4",
+        "a6",
+        "Nf3",
+        "c5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqk2r/ppp1bppp/4pn2/3pP1B1/3P4/2N5/PPP2PPP/R2QKBNR b KQkq - 0 5"
+    },
+    {
+      "briefExplanation": "6...Bxg5! 7.hxg5 Qxg5 — trade the pinning bishop and take the pawn.",
+      "description": "Black to play. White launched 6.h4 — trade on g5 and grab the pawn.",
+      "drillId": "ac-bt2",
+      "explanation": "The concrete defense: 6...Bxg5! removes the pinning bishop, and after 7.hxg5 Qxg5 Black has won the h-pawn — White's 'attack' cost a pawn and achieved nothing. The queen on g5 eyes g2, Black's development is easy, and the Chatard is refuted by simple tactics. Trade the attacker, take the material.",
+      "name": "Trading the Attacker",
+      "opponentResponse": "hxg5",
+      "solutionMoves": [
+        "Bxg5",
+        "hxg5",
+        "Qxg5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqk2r/pppnbppp/4p3/3pP1B1/3P3P/2N5/PPP2PP1/R2QKBNR b KQkq - 0 6"
+    }
+  ],
+  "id": "alekhine-chatard-attack-black-tacticals",
+  "name": "Alekhine-Chatard Attack — Black Tactics"
+}

@@ -1,0 +1,53 @@
+{
+  "arena": "two-knights",
+  "description": "2 tactical challenges for White in the Max Lange Attack. Play 6.e5! and rip open the center.",
+  "drills": [
+    {
+      "briefExplanation": "6.e5! d5 7.exf6 dxc4 8.Re1+ Be6 — blast, trade, and seize the file with check.",
+      "description": "White to play. Black plays 5...Bc5 — strike with the Max Lange 6.e5!.",
+      "drillId": "ml-t1",
+      "explanation": "The Max Lange Attack: White meets the Two Knights with 6.e5!, blowing up the center. After 6...d5 7.exf6 dxc4 the position is chaos — open lines everywhere, both kings exposed, tactics on every move. White's lead in development is the tiebreaker: in open chaos, the faster army wins.",
+      "name": "The e5 Blast",
+      "opponentResponse": "d5",
+      "solutionMoves": [
+        "e5",
+        "d5",
+        "exf6",
+        "dxc4",
+        "Re1+",
+        "Be6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqk2r/pppp1ppp/2n2n2/2b5/2BpP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 2 6"
+    },
+    {
+      "briefExplanation": "8.Re1+! Be6 9.Ng5 Qxf6 10.Nxe6 — check, hunt, capture, and win the bishop.",
+      "description": "White to play. The center exploded — play 8.Re1+! with check.",
+      "drillId": "ml-t2",
+      "explanation": "The Max Lange in full cry: after the explosion, White plays 8.Re1+! — and after 8...Be6 9.Ng5 Qf6 comes 10.Nxe6!, winning the bishop (10...fxe6?? 11.Qh5+ wins). White's attack converts initiative directly into material.",
+      "name": "The Re1 Check",
+      "opponentResponse": "Be6",
+      "solutionMoves": [
+        "Re1+",
+        "Be6",
+        "Ng5",
+        "Qxf6",
+        "Nxe6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "r1bqk2r/ppp2ppp/2n2P2/2b5/2pp4/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 8"
+    }
+  ],
+  "id": "max-lange-attack-tacticals",
+  "name": "Max Lange Attack — White Tactics"
+}

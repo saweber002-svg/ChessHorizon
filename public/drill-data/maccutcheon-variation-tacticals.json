@@ -1,0 +1,52 @@
+{
+  "arena": "french-classical",
+  "description": "2 tactical challenges for White against the MacCutcheon Variation. Meet 4...Bb4 with 5.e5 and trade into structure.",
+  "drills": [
+    {
+      "briefExplanation": "4.Bg5 Bb4 5.e5 h6 6.exf6! — pin, push, and trade into the better pawn structure.",
+      "description": "White to play. Black may try the MacCutcheon 4...Bb4 — pin 4.Bg5 and know the trade.",
+      "drillId": "mc-t1",
+      "explanation": "The structural antidote: after 4...Bb4 5.e5 h6, White plays 6.exf6! — trading into a superior pawn structure. Black must recapture with the g-pawn (6...gxf6), shattering the kingside; White's center is solid, the bishops will develop freely, and Black's 'provocation' only damaged their own structure. Trade into what favors you.",
+      "name": "The exf6 Trade",
+      "opponentResponse": "h6",
+      "solutionMoves": [
+        "Bg5",
+        "Bb4",
+        "e5",
+        "h6",
+        "exf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/ppp2ppp/4pn2/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 4"
+    },
+    {
+      "briefExplanation": "6.Bd2! Bxc3 7.Bxc3 Ne4 8.f3! — retreat, recapture, and kick the outpost.",
+      "description": "White to play. Black kicked with 5...h6 — retreat 6.Bd2! keeping the tension.",
+      "drillId": "mc-t2",
+      "explanation": "The flexible defense: 6.Bd2! retreats while keeping the pin on the f6 knight. After 6...Bxc3 7.Bxc3 Ne4 White plays 8.f3!, kicking the knight at once — Black must retreat, White's center holds, and the Bb4 excursion achieved nothing. Meet outposts with pawn kicks.",
+      "name": "The Bd2 Retreat",
+      "opponentResponse": "Bxc3",
+      "solutionMoves": [
+        "Bd2",
+        "Bxc3",
+        "Bxc3",
+        "Ne4",
+        "f3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqk2r/ppp2pp1/4pn1p/3pP1B1/1b1P4/2N5/PPP2PPP/R2QKBNR w KQkq - 0 6"
+    }
+  ],
+  "id": "maccutcheon-variation-tacticals",
+  "name": "MacCutcheon Variation — White Tactics"
+}

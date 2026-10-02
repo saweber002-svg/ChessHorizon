@@ -1,0 +1,52 @@
+{
+  "arena": "french-classical",
+  "description": "2 tactical challenges for Black in the MacCutcheon Variation. Play 4...Bb4! and provoke weaknesses.",
+  "drills": [
+    {
+      "briefExplanation": "4...Bb4! 5.e5 h6 6.Bh4 g5! — pin, kick, and gain space with tempo.",
+      "description": "Black to play. White pins with 4.Bg5 — answer with the MacCutcheon 4...Bb4!.",
+      "drillId": "mc-bt1",
+      "explanation": "The MacCutcheon Variation: Black meets 4.Bg5 with the provocative 4...Bb4!, pinning the c3 knight. After 5.e5 h6 White must decide — the bishop retreats, and Black will follow with ...g5 and ...Ne4, gaining space and time. The pin forces White to show their hand; Black's counterplay comes fast.",
+      "name": "The Bb4 Provocation",
+      "opponentResponse": "e5",
+      "solutionMoves": [
+        "Bb4",
+        "e5",
+        "h6",
+        "Bh4",
+        "g5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/ppp2ppp/4pn2/3p2B1/3PP3/2N5/PPP2PPP/R2QKBNR b KQkq - 3 4"
+    },
+    {
+      "briefExplanation": "6...g5 7.Bg3 Ne4 8.f3 Nxc3 — space with tempo, outpost, then remove the defender.",
+      "description": "Black to play. White retreated 6.Bh4 — push 6...g5! and follow with 7...Ne4.",
+      "drillId": "mc-bt2",
+      "explanation": "The MacCutcheon in full flow: after 5.e5 h6 6.Bh4, Black plays 6...g5! — gaining space with tempo. After 7.Bg3 Ne4 8.f3 Black takes the defender with 8...Nxc3!, and after 9.bxc3 White's queenside is shattered. The knight did its job before being traded.",
+      "name": "The g5 Push",
+      "opponentResponse": "Bg3",
+      "solutionMoves": [
+        "g5",
+        "Bg3",
+        "Ne4",
+        "f3",
+        "Nxc3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqk2r/ppp2pp1/4pn1p/3pP3/1b1P3B/2N5/PPP2PPP/R2QKBNR b KQkq - 1 6"
+    }
+  ],
+  "id": "maccutcheon-variation-black-tacticals",
+  "name": "MacCutcheon Variation — Black Tactics"
+}
