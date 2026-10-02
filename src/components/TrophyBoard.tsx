@@ -43,7 +43,13 @@ interface TrophyData {
   capturedByWhite: PieceSymbol[];
   capturedByBlack: PieceSymbol[];
   totalStars: number;
-  openingTier: Tier;
+  /**
+   * Opening prestige per side: perfect completions of the opening drill as
+   * White / as Black. Unmoved pieces prestige by their OWN side's tier —
+   * completing the opening perfectly as White never prestiges Black's pieces.
+   */
+  openingTierWhite: Tier;
+  openingTierBlack: Tier;
   /**
    * Board prestige: the minimum tier across every tactical drill for this
    * opening. Never displays a level that hasn't been reached by every
@@ -91,10 +97,8 @@ export function TrophyBoard({
     { openingId, variationId, side: 'black' },
     { enabled: !!user, retry: 1, refetchOnWindowFocus: false }
   );
-  const serverOpeningTier = Math.max(
-    serverOpeningWhite.data?.prestigeTier ?? 0,
-    serverOpeningBlack.data?.prestigeTier ?? 0
-  );
+  const serverOpeningTierWhite = serverOpeningWhite.data?.prestigeTier ?? 0;
+  const serverOpeningTierBlack = serverOpeningBlack.data?.prestigeTier ?? 0;
 
   useEffect(() => {
     let cancelled = false;
@@ -122,19 +126,25 @@ export function TrophyBoard({
           }
         }
 
-        // Opening prestige = perfect completions of the opening drill.
-        // Unmoved pieces prestige by this. Take the best of local progress
-        // (both sides) and server progress (signed-in history).
-        const localOpeningTier = tierOf(
+        // Opening prestige = perfect completions of the opening drill, tracked
+        // independently per side. Unmoved pieces prestige by their OWN side's
+        // tier: the best of local progress and server progress for that side.
+        const openingTierWhite = tierOf(
           Math.max(
             state.openingProgress?.[`${openingId}:${variationId}:white`]?.tier ?? 0,
-            state.openingProgress?.[`${openingId}:${variationId}:black`]?.tier ?? 0
+            serverOpeningTierWhite
           )
         );
-        const openingTier = tierOf(Math.max(localOpeningTier, serverOpeningTier));
+        const openingTierBlack = tierOf(
+          Math.max(
+            state.openingProgress?.[`${openingId}:${variationId}:black`]?.tier ?? 0,
+            serverOpeningTierBlack
+          )
+        );
 
         // Each individual moved piece prestiges independently: the best tier
-        // among the moves THAT piece made. Unmoved pieces get the opening tier.
+        // among the moves THAT piece made. Unmoved pieces get their own
+        // side's opening tier.
         const pieceTier = new Map<string, Tier>();
         for (const [idx, pieceId] of pos.moverIdAtIndex) {
           const t = moveTier.get(idx) ?? 0;
@@ -168,7 +178,9 @@ export function TrophyBoard({
           }
         }
         const boardTier =
-          tacticalTiers.length > 0 ? minPrestigeTier(tacticalTiers) : openingTier;
+          tacticalTiers.length > 0
+            ? minPrestigeTier(tacticalTiers)
+            : tierOf(Math.min(openingTierWhite, openingTierBlack));
 
         // Per-piece tactical prestige: each tactic line's tier is credited to
         // the individual pieces the hero side moved, mapped back onto the
@@ -181,7 +193,9 @@ export function TrophyBoard({
 
         const pieces: TrophyPiece[] = pos.pieces.map((p) => ({
           ...p,
-          tier: pieceTier.get(p.pieceId) ?? openingTier,
+          tier:
+            pieceTier.get(p.pieceId) ??
+            (p.color === 'w' ? openingTierWhite : openingTierBlack),
           tacticalTier: tierOf(tacticalPieceTier.get(p.pieceId) ?? 0),
         }));
 
@@ -194,7 +208,8 @@ export function TrophyBoard({
             capturedByWhite: pos.capturedByWhite,
             capturedByBlack: pos.capturedByBlack,
             totalStars,
-            openingTier,
+            openingTierWhite,
+            openingTierBlack,
             boardTier,
             allMaster: pieces.length > 0 && pieces.every((p) => p.tier === 4),
           });
@@ -209,7 +224,7 @@ export function TrophyBoard({
     // Progress is read once when the board is built (plus when server
     // prestige arrives for signed-in users).
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [drillFileId, openingId, variationId, serverOpeningTier]);
+  }, [drillFileId, openingId, variationId, serverOpeningTierWhite, serverOpeningTierBlack]);
 
   const boardCells = useMemo(() => {
     if (!data) return [];
@@ -303,12 +318,22 @@ export function TrophyBoard({
             <span
               className="ml-1 px-2 py-0.5 rounded-full text-[10px] font-semibold"
               style={{
-                color: getTierColor(data.openingTier),
-                border: `1px solid ${getTierColor(data.openingTier)}55`,
+                color: getTierColor(data.openingTierWhite),
+                border: `1px solid ${getTierColor(data.openingTierWhite)}55`,
               }}
-              title="Opening prestige: perfect completions of the opening drill"
+              title="White opening prestige: perfect completions of the opening drill as White"
             >
-              {getTierLabel(data.openingTier)}
+              W · {getTierLabel(data.openingTierWhite)}
+            </span>
+            <span
+              className="ml-1 px-2 py-0.5 rounded-full text-[10px] font-semibold"
+              style={{
+                color: getTierColor(data.openingTierBlack),
+                border: `1px solid ${getTierColor(data.openingTierBlack)}55`,
+              }}
+              title="Black opening prestige: perfect completions of the opening drill as Black"
+            >
+              B · {getTierLabel(data.openingTierBlack)}
             </span>
             <span
               className="px-2 py-0.5 rounded-full text-[10px] font-semibold"
