@@ -24,28 +24,33 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Nxh7 (knight to h7). 1. Nxh7 Kxh7 2. Qh5+ Kg8 3. Rh4.",
-      "explanation": "Black to move. No forced tactic exists here, but Nxh7 is clearly the strongest continuation. Line: 1. Nxh7 Kxh7 2. Qh5+ Kg8 3. Rh4. Stockfish 18 (depth 16) evaluates the result at 0.00 for Black, 0.55 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Nxh7 is clearly the strongest continuation. Line: 1. Nxh7 Kxh7 2. Qh5+ Kg8 3. Rh4. Stockfish 18 (depth 16) evaluates the result at 0.00 for Black, 0.55 pawns better than the next-best alternative.",
+      "leadInMoves": [
+        "Rxe4",
+        "d6",
+        "Bg5",
+        "Bxg5",
+        "Nxg5",
+        "O-O"
+      ]
     },
     {
       "drillId": "moeller-t3",
       "name": "Black plays Re1",
       "theme": "Key idea",
-      "description": "Black to play. The engine's choice in this position: Re1 (-0.14).",
-      "fen": "r1bqk2r/pppp1ppp/2n2b2/3P4/2B1n3/5N2/PP3PPP/R1BQ1RK1 w kq - 0 10",
+      "description": "White to play. Black deviates with 11...O-O instead of 11...d6 — meet it with 12.Bg5.",
+      "fen": "r1bqk2r/ppppnppp/5b2/3P4/2B1R3/5N2/PP3PPP/R1BQ2K1 b kq - 0 11",
       "solutionMoves": [
-        "Re1",
-        "Ne7",
-        "Rxe4",
         "O-O",
         "Bg5"
       ],
-      "opponentResponse": "Ne7",
+      "opponentResponse": "Bg5",
       "stars": {
         "1": "Third attempt",
         "2": "Second attempt",
         "3": "First move correct"
       },
-      "briefExplanation": "The strongest move is Re1 (rook to e1). 1. Re1 Ne7 2. Rxe4 O-O 3. Bg5.",
+      "briefExplanation": "11...O-O (instead of 11...d6) — White answers 12.Bg5.",
       "explanation": "Black to move. No forced tactic exists here, but Re1 is clearly the strongest continuation. Line: 1. Re1 Ne7 2. Rxe4 O-O 3. Bg5. Stockfish 18 (depth 16) evaluates the result at -0.14 for Black, 0.50 pawns better than the next-best alternative."
     }
   ]

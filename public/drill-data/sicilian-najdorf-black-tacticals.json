@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is h6 (pawn to h6). 1. h6 Bxf6 2. Bxf6 Be3 3. Nc6.",
-      "explanation": "Black to move. No forced tactic exists here, but h6 is clearly the strongest continuation. Line: 1. h6 Bxf6 2. Bxf6 Be3 3. Nc6. Stockfish 18 (depth 16) evaluates the result at +0.38 for Black, 0.21 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but h6 is clearly the strongest continuation. Line: 1. h6 Bxf6 2. Bxf6 Be3 3. Nc6. Stockfish 18 (depth 16) evaluates the result at +0.38 for Black, 0.21 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Sicilian Najdorf main line."
     }
   ]
 }

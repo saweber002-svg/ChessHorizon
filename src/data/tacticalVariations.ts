@@ -73,6 +73,14 @@ export const TACTICAL_VARIATIONS: TacticalVariation[] = [
   { id: 'icelandic-gambit', name: 'Icelandic Gambit', executingColor: 'b', gateTier: 3, parents: ['scandinavian-nf6'], line: ['e4', 'd5', 'exd5', 'Nf6', 'c4', 'e6'] },
   { id: 'dutch-staunton-gambit', name: 'Staunton Gambit', executingColor: 'w', gateTier: 3, parents: ['dutch-classical'], line: ['d4', 'f5', 'e4'] },
 
+  // ——— Journeyman gate, mid-line deviations (rebased Slice G) ———
+  { id: 'fried-liver-bb3-deviation', name: 'Fried Liver: 9.Bb3', executingColor: 'w', gateTier: 3, parents: ['fried-liver-attack'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'd5', 'exd5', 'Nxd5', 'Nxf7', 'Kxf7', 'Qf3+', 'Ke6', 'Nc3', 'Nb4', 'Bb3'], placementNote: 'White sideline: 9.Bb3 instead of the main line 9.O-O.' },
+  { id: 'moeller-oo-deviation', name: 'Moeller: 11...O-O', executingColor: 'b', gateTier: 3, parents: ['moeller-attack'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5', 'c3', 'Nf6', 'd4', 'exd4', 'cxd4', 'Bb4+', 'Nc3', 'Nxe4', 'O-O', 'Bxc3', 'd5', 'Bf6', 'Re1', 'Ne7', 'Rxe4', 'O-O'], placementNote: 'Black sideline: 11...O-O instead of the main line 11...d6.' },
+  { id: 'slav-exchange-deviation', name: 'Slav: 3.cxd5 (Exchange)', executingColor: 'w', gateTier: 3, parents: ['slav-defense'], line: ['d4', 'd5', 'c4', 'c6', 'cxd5'], placementNote: 'White sideline: the Exchange Slav 3.cxd5 instead of 3.Nf3.' },
+  { id: 'slav-e4-deviation', name: 'Slav: 3.e4', executingColor: 'w', gateTier: 3, parents: ['slav-defense'], line: ['d4', 'd5', 'c4', 'c6', 'e4'], placementNote: 'White sideline: the gambit 3.e4 instead of 3.Nf3.' },
+  { id: 'traxler-qe7-deviation', name: 'Traxler: 8...Qe7', executingColor: 'b', gateTier: 3, parents: ['traxler-counter-attack'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'Bc5', 'Nxf7', 'Bxf2+', 'Kxf2', 'Nxe4+', 'Ke3', 'Qh4', 'g3', 'Qe7'], placementNote: 'Black sideline: 8...Qe7 instead of the main line 8...Nxg3.' },
+  { id: 'ulvestad-cxd4-deviation', name: 'Ulvestad: 8.cxd4', executingColor: 'w', gateTier: 3, parents: ['ulvestad-variation'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'd5', 'exd5', 'b5', 'Bf1', 'Nd4', 'c3', 'Nxd5', 'cxd4'], placementNote: 'White sideline: 8.cxd4 instead of the main line 8.Ne4.' },
+
   // ——— Journeyman gate, Tier 2 (approved) ———
   { id: 'winawer-poisoned-pawn', name: 'Winawer Poisoned Pawn', executingColor: 'w', gateTier: 3, parents: ['french-winawer'], line: ['e4', 'e6', 'd4', 'd5', 'Nc3', 'Bb4', 'e5', 'c5', 'a3', 'Bxc3+', 'bxc3', 'Ne7', 'Qg4', 'Qc7', 'Qxg7'] },
   { id: 'najdorf-poisoned-pawn', name: 'Najdorf Poisoned Pawn', executingColor: 'w', gateTier: 3, parents: ['sicilian-najdorf'], line: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6', 'Nc3', 'a6', 'Bg5', 'e6', 'f4', 'Qb6', 'Qd2', 'Qxb2'] },

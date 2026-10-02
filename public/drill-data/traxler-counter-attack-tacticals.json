@@ -8,14 +8,10 @@
       "drillId": "traxler-t2",
       "name": "Black plays g3",
       "theme": "Key idea",
-      "description": "Black to play. The engine's choice in this position: g3 (-0.21).",
-      "fen": "r1b1k2r/pppp1Npp/2n5/4p3/2B1n2q/4K3/PPPP2PP/RNBQ3R w kq - 2 8",
+      "description": "Black to play. After 8.g3, play 8...Qe7 — a quiet deviation from 8...Nxg3.",
+      "fen": "r1b1k2r/pppp1Npp/2n5/4p3/2B1n2q/4K1P1/PPPP3P/RNBQ3R b kq - 0 8",
       "solutionMoves": [
-        "g3",
-        "Qe7",
-        "Kxe4",
-        "d5+",
-        "Bxd5"
+        "Qe7"
       ],
       "opponentResponse": "Qe7",
       "stars": {
@@ -23,7 +19,7 @@
         "2": "Second attempt",
         "3": "First move correct"
       },
-      "briefExplanation": "The strongest move is g3 (pawn to g3). 1. g3 Qe7 2. Kxe4 d5+ 3. Bxd5.",
+      "briefExplanation": "8...Qe7 (instead of 8...Nxg3).",
       "explanation": "Black to move. No forced tactic exists here, but g3 is clearly the strongest continuation. Line: 1. g3 Qe7 2. Kxe4 d5+ 3. Bxd5. Stockfish 18 (depth 16) evaluates the result at -0.21 for Black, 2.11 pawns better than the next-best alternative."
     },
     {
@@ -46,7 +42,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Bc3 (bishop to c3). 1. Bc3 Nb4+ 2. Bxb4 Nf2+ 3. Ke3.",
-      "explanation": "Black to move. No forced tactic exists here, but Bc3 is clearly the strongest continuation. Line: 1. Bc3 Nb4+ 2. Bxb4 Nf2+ 3. Ke3. Stockfish 18 (depth 16) evaluates the result at -4.97 for Black, 0.86 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Bc3 is clearly the strongest continuation. Line: 1. Bc3 Nb4+ 2. Bxb4 Nf2+ 3. Ke3. Stockfish 18 (depth 16) evaluates the result at -4.97 for Black, 0.86 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Traxler Counter Attack main line."
     }
   ]
 }

@@ -24,7 +24,15 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is d4 (pawn to d4). 1. d4 exd3 2. Nxd3 Qc7 3. g3.",
-      "explanation": "Black to move. No forced tactic exists here, but d4 is clearly the strongest continuation. Line: 1. d4 exd3 2. Nxd3 Qc7 3. g3. Stockfish 18 (depth 16) evaluates the result at +0.12 for Black, 0.56 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but d4 is clearly the strongest continuation. Line: 1. d4 exd3 2. Nxd3 Qc7 3. g3. Stockfish 18 (depth 16) evaluates the result at +0.12 for Black, 0.56 pawns better than the next-best alternative.",
+      "leadInMoves": [
+        "Nf3",
+        "e4",
+        "Ne5",
+        "Bd6",
+        "O-O",
+        "O-O"
+      ]
     }
   ]
 }

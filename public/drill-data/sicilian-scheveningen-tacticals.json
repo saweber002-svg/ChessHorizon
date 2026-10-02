@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is g5 (pawn to g5). 1. g5 Nd7 2. Qd2 Nxd4 3. Qxd4.",
-      "explanation": "Black to move. No forced tactic exists here, but g5 is clearly the strongest continuation. Line: 1. g5 Nd7 2. Qd2 Nxd4 3. Qxd4. Stockfish 18 (depth 16) evaluates the result at +1.48 for Black, 0.22 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but g5 is clearly the strongest continuation. Line: 1. g5 Nd7 2. Qd2 Nxd4 3. Qxd4. Stockfish 18 (depth 16) evaluates the result at +1.48 for Black, 0.22 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Sicilian Scheveningen main line."
     },
     {
       "drillId": "sicilian-scheveningen-t3",
@@ -46,7 +47,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is fxg5 (pawn to fxg5). 1. fxg5 Bxg5 2. Bxg5 Qxg5 3. a3.",
-      "explanation": "Black to move. No forced tactic exists here, but fxg5 is clearly the strongest continuation. Line: 1. fxg5 Bxg5 2. Bxg5 Qxg5 3. a3. Stockfish 18 (depth 16) evaluates the result at -2.53 for Black, 1.17 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but fxg5 is clearly the strongest continuation. Line: 1. fxg5 Bxg5 2. Bxg5 Qxg5 3. a3. Stockfish 18 (depth 16) evaluates the result at -2.53 for Black, 1.17 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Sicilian Scheveningen main line."
     }
   ]
 }

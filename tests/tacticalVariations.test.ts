@@ -15,8 +15,8 @@ const OPENING_IDS = new Set(MAIN_DRILLS.map((d) => d.id.replace(/-main$/, '')));
 const TACTIC_IDS = new Set(TACTICAL_VARIATIONS.map((t) => t.id));
 
 describe('tacticalVariations data integrity', () => {
-  it('registers the full approved catalog (42 parented + 3 orphans)', () => {
-    expect(TACTICAL_VARIATIONS).toHaveLength(45);
+  it('registers the full approved catalog (42 parented + 3 orphans + 6 Slice-G deviations)', () => {
+    expect(TACTICAL_VARIATIONS).toHaveLength(51);
     expect(orphanTactics().map((t) => t.id).sort()).toEqual([
       'cochrane-gambit',
       'halloween-gambit',

@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Nxh7 (knight to h7). 1. Nxh7 Kxh7 2. Qh5+ Kg8 3. Rh4.",
-      "explanation": "Black to move. No forced tactic exists here, but Nxh7 is clearly the strongest continuation. Line: 1. Nxh7 Kxh7 2. Qh5+ Kg8 3. Rh4. Stockfish 18 (depth 16) evaluates the result at 0.00 for Black, 0.58 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Nxh7 is clearly the strongest continuation. Line: 1. Nxh7 Kxh7 2. Qh5+ Kg8 3. Rh4. Stockfish 18 (depth 16) evaluates the result at 0.00 for Black, 0.58 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Two Knights Defense main line."
     },
     {
       "drillId": "two-knights-t3",
@@ -46,7 +47,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Re1 (rook to e1). 1. Re1 O-O 2. Rxe4 Ne7 3. Bg5.",
-      "explanation": "Black to move. No forced tactic exists here, but Re1 is clearly the strongest continuation. Line: 1. Re1 O-O 2. Rxe4 Ne7 3. Bg5. Stockfish 18 (depth 16) evaluates the result at -0.26 for Black, 0.51 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Re1 is clearly the strongest continuation. Line: 1. Re1 O-O 2. Rxe4 Ne7 3. Bg5. Stockfish 18 (depth 16) evaluates the result at -0.26 for Black, 0.51 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Two Knights Defense main line."
     }
   ]
 }

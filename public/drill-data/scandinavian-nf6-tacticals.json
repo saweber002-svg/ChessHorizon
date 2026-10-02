@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is d4 (pawn to d4). 1. d4 exd3 2. Bxd3 Nbd7 3. O-O.",
-      "explanation": "Black to move. No forced tactic exists here, but d4 is clearly the strongest continuation. Line: 1. d4 exd3 2. Bxd3 Nbd7 3. O-O. Stockfish 18 (depth 16) evaluates the result at -3.86 for Black, 0.49 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but d4 is clearly the strongest continuation. Line: 1. d4 exd3 2. Bxd3 Nbd7 3. O-O. Stockfish 18 (depth 16) evaluates the result at -3.86 for Black, 0.49 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Scandinavian Nf6 main line."
     }
   ]
 }

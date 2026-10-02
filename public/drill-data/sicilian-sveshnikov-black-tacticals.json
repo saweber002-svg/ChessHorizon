@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "b4! kicks the c3-knight; after Bxf6 gxf6 Black’s queenside majority starts rolling.",
-      "explanation": "Black to move. There is a real tactic here: b4 winning material. Line: 1. b4 Bxf6 2. gxf6 Nab5 3. bxc3. Stockfish 18 (depth 16) evaluates the result at +2.74 for Black, 2.39 pawns better than the next-best alternative."
+      "explanation": "Black to move. There is a real tactic here: b4 winning material. Line: 1. b4 Bxf6 2. gxf6 Nab5 3. bxc3. Stockfish 18 (depth 16) evaluates the result at +2.74 for Black, 2.39 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Sicilian Sveshnikov main line."
     }
   ]
 }

@@ -24,7 +24,15 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Nbd2 (knight to bd2). 1. Nbd2 Nf6 2. e5 dxe5 3. dxe5.",
-      "explanation": "Black to move. No forced tactic exists here, but Nbd2 is clearly the strongest continuation. Line: 1. Nbd2 Nf6 2. e5 dxe5 3. dxe5. Stockfish 18 (depth 16) evaluates the result at +0.40 for Black, 0.16 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Nbd2 is clearly the strongest continuation. Line: 1. Nbd2 Nf6 2. e5 dxe5 3. dxe5. Stockfish 18 (depth 16) evaluates the result at +0.40 for Black, 0.16 pawns better than the next-best alternative.",
+      "leadInMoves": [
+        "d4",
+        "exd4",
+        "O-O",
+        "d6",
+        "cxd4",
+        "Bb6"
+      ]
     }
   ]
 }

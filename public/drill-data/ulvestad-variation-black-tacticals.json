@@ -8,22 +8,19 @@
       "drillId": "ulvestad-bt1",
       "name": "Nd4 Central Outpost",
       "theme": "Knight Centralization",
-      "description": "Black to play. The engine's choice in this position: Bf1 (+0.27).",
-      "fen": "r1bqkb1r/p1p2ppp/2n2n2/1p1Pp1N1/2B5/8/PPPP1PPP/RNBQK2R w KQkq - 0 6",
+      "description": "Black to play. After 7.c3, take 7...Nxd5 — White deviates with 8.cxd4 instead of 8.Ne4.",
+      "fen": "r1bqkb1r/p1p2ppp/5n2/1p1Pp1N1/3n4/2P5/PP1P1PPP/RNBQKB1R b KQkq - 0 7",
       "solutionMoves": [
-        "Bf1",
-        "Nd4",
-        "c3",
         "Nxd5",
         "cxd4"
       ],
-      "opponentResponse": "Nd4",
+      "opponentResponse": "cxd4",
       "stars": {
         "1": "Third attempt",
         "2": "Second attempt",
         "3": "First move correct"
       },
-      "briefExplanation": "The strongest move is Bf1 (bishop to f1). 1. Bf1 Nd4 2. c3 Nxd5 3. cxd4.",
+      "briefExplanation": "7...Nxd5 — White answers 8.cxd4 (instead of 8.Ne4).",
       "explanation": "Black to move. No forced tactic exists here, but Bf1 is clearly the strongest continuation. Line: 1. Bf1 Nd4 2. c3 Nxd5 3. cxd4. Stockfish 18 (depth 16) evaluates the result at +0.27 for Black, 0.35 pawns better than the next-best alternative."
     },
     {
@@ -46,7 +43,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "cxd4 exd4 d3! fixes Black’s pawns and leaves White with the superior structure.",
-      "explanation": "Black to move. There is a real tactic here: cxd4 winning material. Line: 1. cxd4 exd4 2. d3 Bb4+ 3. Bd2. Stockfish 18 (depth 16) evaluates the result at +1.58 for Black, 2.30 pawns better than the next-best alternative."
+      "explanation": "Black to move. There is a real tactic here: cxd4 winning material. Line: 1. cxd4 exd4 2. d3 Bb4+ 3. Bd2. Stockfish 18 (depth 16) evaluates the result at +1.58 for Black, 2.30 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Ulvestad Variation main line."
     }
   ]
 }

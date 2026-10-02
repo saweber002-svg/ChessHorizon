@@ -10,11 +10,29 @@
       "theme": "Knight Centralization",
       "description": "White develops the b1-knight to c3, then after Black's king retreats, plants the f3-knight on the dominant d4 outpost.",
       "fen": "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 w - - 0 9",
-      "solutionMoves": ["Nc3", "Ke8", "Nd4", "Be7", "Be3"],
+      "solutionMoves": [
+        "Nc3",
+        "Ke8",
+        "Nd4",
+        "Be7",
+        "Be3"
+      ],
       "opponentResponse": "Ke8",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
       "briefExplanation": "White develops Nc3 and after Black's Ke8, plants the knight on the dominant d4 outpost.",
-      "explanation": "The knight on d4 is White's most powerful piece in the Berlin Endgame. It dominates the center, attacks the doubled c-pawns on c6, eyes the f5-knight, and controls key squares. After Nc3 and Nd4, White follows with Nf5 or exerts pressure with Re1 to support the e5-pawn. The combination of the d4 knight and e5-pawn gives White a long-term structural advantage."
+      "explanation": "The knight on d4 is White's most powerful piece in the Berlin Endgame. It dominates the center, attacks the doubled c-pawns on c6, eyes the f5-knight, and controls key squares. After Nc3 and Nd4, White follows with Nf5 or exerts pressure with Re1 to support the e5-pawn. The combination of the d4 knight and e5-pawn gives White a long-term structural advantage.",
+      "leadInMoves": [
+        "Bxc6",
+        "dxc6",
+        "dxe5",
+        "Nf5",
+        "Qxd8+",
+        "Kxd8"
+      ]
     },
     {
       "drillId": "ruy-lopez-berlin-t2",
@@ -22,11 +40,29 @@
       "theme": "Forcing the King",
       "description": "White plays Rfd1+, forcing the Black king to retreat, then centralizes the knight on d4.",
       "fen": "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 w - - 0 9",
-      "solutionMoves": ["Rfd1+", "Ke8", "Nd4", "Be7", "Be3"],
+      "solutionMoves": [
+        "Rfd1+",
+        "Ke8",
+        "Nd4",
+        "Be7",
+        "Be3"
+      ],
       "opponentResponse": "Ke8",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
       "briefExplanation": "White checks with Rfd1+, forces the Black king to e8, then centralizes the knight on d4.",
-      "explanation": "Rfd1+ is an immediate forcing move — the rook seizes the d-file with check, pushing the Black king from d8 to e8 (or c7, which is also slightly uncomfortable). After Ke8, White plays Nd4, landing the knight on the dominant central outpost. The king on e8 is worse than on d8 — it blocks the f8-bishop's development and gives White more time to set up the ideal Berlin structure."
+      "explanation": "Rfd1+ is an immediate forcing move — the rook seizes the d-file with check, pushing the Black king from d8 to e8 (or c7, which is also slightly uncomfortable). After Ke8, White plays Nd4, landing the knight on the dominant central outpost. The king on e8 is worse than on d8 — it blocks the f8-bishop's development and gives White more time to set up the ideal Berlin structure.",
+      "leadInMoves": [
+        "Bxc6",
+        "dxc6",
+        "dxe5",
+        "Nf5",
+        "Qxd8+",
+        "Kxd8"
+      ]
     },
     {
       "drillId": "ruy-lopez-berlin-t3",
@@ -34,11 +70,29 @@
       "theme": "Rook Activity",
       "description": "White activates the rook to e1 to support the e5-pawn, then develops Nc3 for a powerful setup.",
       "fen": "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 w - - 0 9",
-      "solutionMoves": ["Re1", "Ke8", "Nc3", "Be7", "Be3"],
+      "solutionMoves": [
+        "Re1",
+        "Ke8",
+        "Nc3",
+        "Be7",
+        "Be3"
+      ],
       "opponentResponse": "Ke8",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
       "briefExplanation": "White activates the rook to e1, cementing the e5-pawn wedge, then develops Nc3.",
-      "explanation": "Re1 is a key move that cements the e5-pawn. The rook on e1 eyes the Black king and supports a future e6 push. After Nc3, White's knight heads for d5 or e4, creating a powerful central cluster. The e5-pawn is White's most significant structural asset — protecting it with the rook ensures it remains a long-term advantage that cramps Black's position throughout the endgame."
+      "explanation": "Re1 is a key move that cements the e5-pawn. The rook on e1 eyes the Black king and supports a future e6 push. After Nc3, White's knight heads for d5 or e4, creating a powerful central cluster. The e5-pawn is White's most significant structural asset — protecting it with the rook ensures it remains a long-term advantage that cramps Black's position throughout the endgame.",
+      "leadInMoves": [
+        "Bxc6",
+        "dxc6",
+        "dxe5",
+        "Nf5",
+        "Qxd8+",
+        "Kxd8"
+      ]
     },
     {
       "drillId": "ruy-lopez-berlin-t4",
@@ -46,11 +100,29 @@
       "theme": "Piece Displacement",
       "description": "White plays g4 to displace the f5-knight, then after Ne7, centralizes with the powerful Nd4.",
       "fen": "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 w - - 0 9",
-      "solutionMoves": ["g4", "Ne7", "Nd4", "Ke8", "Nc3"],
+      "solutionMoves": [
+        "g4",
+        "Ne7",
+        "Nd4",
+        "Ke8",
+        "Nc3"
+      ],
       "opponentResponse": "Ne7",
-      "stars": { "3": "First move correct", "2": "Second attempt", "1": "Third attempt" },
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
       "briefExplanation": "White plays g4 to dislodge the f5-knight. After Black retreats Ne7, White plants the knight on d4.",
-      "explanation": "g4 immediately attacks the Nf5, forcing it to retreat. Black's best response is Ne7, heading toward d5 or g6, but after White plays Nd4, White controls the center with a dominant knight on d4 and the space-gaining e5-pawn. The g4 push also gives White extra kingside space. Nd4 attacks the doubled c-pawns and eyes f5 and e6, keeping permanent pressure on Black's weaknesses."
+      "explanation": "g4 immediately attacks the Nf5, forcing it to retreat. Black's best response is Ne7, heading toward d5 or g6, but after White plays Nd4, White controls the center with a dominant knight on d4 and the space-gaining e5-pawn. The g4 push also gives White extra kingside space. Nd4 attacks the doubled c-pawns and eyes f5 and e6, keeping permanent pressure on Black's weaknesses.",
+      "leadInMoves": [
+        "Bxc6",
+        "dxc6",
+        "dxe5",
+        "Nf5",
+        "Qxd8+",
+        "Kxd8"
+      ]
     }
   ]
 }

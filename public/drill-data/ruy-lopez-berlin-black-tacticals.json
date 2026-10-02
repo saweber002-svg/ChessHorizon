@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Bd7 (bishop to d7). 1. Bd7 Nc3 2. a5 Rd1 3. Kc8.",
-      "explanation": "Black to move. No forced tactic exists here, but Bd7 is clearly the strongest continuation. Line: 1. Bd7 Nc3 2. a5 Rd1 3. Kc8. Stockfish 18 (depth 16) evaluates the result at +0.36 for Black, 0.33 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Bd7 is clearly the strongest continuation. Line: 1. Bd7 Nc3 2. a5 Rd1 3. Kc8. Stockfish 18 (depth 16) evaluates the result at +0.36 for Black, 0.33 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Ruy Lopez Berlin main line."
     }
   ]
 }

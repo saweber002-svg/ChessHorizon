@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Ne7 (knight to e7). 1. Ne7 Re1 2. Nd6 Bb3 3. Kf8.",
-      "explanation": "Black to move. No forced tactic exists here, but Ne7 is clearly the strongest continuation. Line: 1. Ne7 Re1 2. Nd6 Bb3 3. Kf8. Stockfish 18 (depth 16) evaluates the result at +2.67 for Black, 0.58 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Ne7 is clearly the strongest continuation. Line: 1. Ne7 Re1 2. Nd6 Bb3 3. Kf8. Stockfish 18 (depth 16) evaluates the result at +2.67 for Black, 0.58 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Two Knights Defense main line."
     }
   ]
 }

@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is d5 (pawn to d5). 1. d5 O-O-O 2. Nxd4 Qxd4 3. Nxe4.",
-      "explanation": "Black to move. No forced tactic exists here, but d5 is clearly the strongest continuation. Line: 1. d5 O-O-O 2. Nxd4 Qxd4 3. Nxe4. Stockfish 18 (depth 16) evaluates the result at +0.17 for Black, 0.26 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but d5 is clearly the strongest continuation. Line: 1. d5 O-O-O 2. Nxd4 Qxd4 3. Nxe4. Stockfish 18 (depth 16) evaluates the result at +0.17 for Black, 0.26 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Sicilian Dragon main line."
     }
   ]
 }

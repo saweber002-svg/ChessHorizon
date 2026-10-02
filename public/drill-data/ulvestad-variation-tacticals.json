@@ -8,22 +8,20 @@
       "drillId": "ulvestad-t1",
       "name": "Black plays c3",
       "theme": "Key idea",
-      "description": "Black to play. The engine's choice in this position: c3 (+0.39).",
-      "fen": "r1bqkb1r/p1p2ppp/5n2/1p1Pp1N1/3n4/8/PPPP1PPP/RNBQKB1R w KQkq - 0 7",
+      "description": "White to play. After 7...Nxd5, deviate with 8.cxd4! instead of the main line 8.Ne4.",
+      "fen": "r1bqkb1r/p1p2ppp/8/1p1np1N1/3n4/2P5/PP1P1PPP/RNBQKB1R w KQkq - 0 8",
       "solutionMoves": [
-        "c3",
-        "Nxd5",
         "cxd4",
         "Qxg5",
         "Bxb5+"
       ],
-      "opponentResponse": "Nxd5",
+      "opponentResponse": "Qxg5",
       "stars": {
         "1": "Third attempt",
         "2": "Second attempt",
         "3": "First move correct"
       },
-      "briefExplanation": "The strongest move is c3 (pawn to c3). 1. c3 Nxd5 2. cxd4 Qxg5 3. Bxb5+.",
+      "briefExplanation": "8.cxd4! (instead of 8.Ne4) 8...Qxg5 9.Bxb5+.",
       "explanation": "Black to move. No forced tactic exists here, but c3 is clearly the strongest continuation. Line: 1. c3 Nxd5 2. cxd4 Qxg5 3. Bxb5+. Stockfish 18 (depth 16) evaluates the result at +0.39 for Black, 1.11 pawns better than the next-best alternative."
     },
     {
@@ -46,7 +44,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is cxd4 (pawn to cxd4). 1. cxd4 exd4 2. Bb5+ Bd7 3. Bxd7+.",
-      "explanation": "Black to move. No forced tactic exists here, but cxd4 is clearly the strongest continuation. Line: 1. cxd4 exd4 2. Bb5+ Bd7 3. Bxd7+. Stockfish 18 (depth 16) evaluates the result at -0.44 for Black, 2.98 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but cxd4 is clearly the strongest continuation. Line: 1. cxd4 exd4 2. Bb5+ Bd7 3. Bxd7+. Stockfish 18 (depth 16) evaluates the result at -0.44 for Black, 2.98 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Ulvestad Variation main line."
     },
     {
       "drillId": "ulvestad-t4",
@@ -68,7 +67,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "Nxf6+! wrecks Black’s pawn shield; cxd4 opens the center and Bb5+ picks up the piece.",
-      "explanation": "Black to move. There is a real tactic here: Nxf6+ winning material. Line: 1. Nxf6+ Qxf6 2. cxd4 exd4 3. Bxb5+. Stockfish 18 (depth 16) evaluates the result at +2.81 for Black, 1.63 pawns better than the next-best alternative."
+      "explanation": "Black to move. There is a real tactic here: Nxf6+ winning material. Line: 1. Nxf6+ Qxf6 2. cxd4 exd4 3. Bxb5+. Stockfish 18 (depth 16) evaluates the result at +2.81 for Black, 1.63 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Ulvestad Variation main line."
     }
   ]
 }

@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "cxd4! provokes Qxd4, and then Nxg4! wins the overextended pawn with tempo.",
-      "explanation": "Black to move. There is a real tactic here: cxd4 winning material. Line: 1. cxd4 Qxd4 2. Nxg4 Rg1 3. Nc6. Stockfish 18 (depth 16) evaluates the result at +4.09 for Black, 2.00 pawns better than the next-best alternative."
+      "explanation": "Black to move. There is a real tactic here: cxd4 winning material. Line: 1. cxd4 Qxd4 2. Nxg4 Rg1 3. Nc6. Stockfish 18 (depth 16) evaluates the result at +4.09 for Black, 2.00 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Sicilian Scheveningen main line."
     }
   ]
 }

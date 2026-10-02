@@ -24,7 +24,15 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Bxf6 (bishop to f6). 1. Bxf6 gxf6 2. Nd5 f5 3. Bd3.",
-      "explanation": "Black to move. No forced tactic exists here, but Bxf6 is clearly the strongest continuation. Line: 1. Bxf6 gxf6 2. Nd5 f5 3. Bd3. Stockfish 18 (depth 16) evaluates the result at +0.37 for Black, 0.18 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Bxf6 is clearly the strongest continuation. Line: 1. Bxf6 gxf6 2. Nd5 f5 3. Bd3. Stockfish 18 (depth 16) evaluates the result at +0.37 for Black, 0.18 pawns better than the next-best alternative.",
+      "leadInMoves": [
+        "Ndb5",
+        "d6",
+        "Bg5",
+        "a6",
+        "Na3",
+        "b5"
+      ]
     }
   ]
 }

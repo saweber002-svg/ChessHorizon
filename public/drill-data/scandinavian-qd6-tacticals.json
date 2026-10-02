@@ -24,7 +24,15 @@
         "3": "First move correct"
       },
       "briefExplanation": "Qxb7! starts a raid: the queen grabs the b-pawn, then the a8-rook, and escapes before it gets trapped.",
-      "explanation": "Black to move. There is a real tactic here: Qxb7 winning the exchange or more. Line: 1. Qxb7 O-O 2. Qxa8 Nc6 3. Qb7. Stockfish 18 (depth 16) evaluates the result at +3.65 for Black, 2.48 pawns better than the next-best alternative."
+      "explanation": "Black to move. There is a real tactic here: Qxb7 winning the exchange or more. Line: 1. Qxb7 O-O 2. Qxa8 Nc6 3. Qb7. Stockfish 18 (depth 16) evaluates the result at +3.65 for Black, 2.48 pawns better than the next-best alternative.",
+      "leadInMoves": [
+        "h3",
+        "Bxf3",
+        "Qxf3",
+        "e6",
+        "Bd3",
+        "Be7"
+      ]
     }
   ]
 }

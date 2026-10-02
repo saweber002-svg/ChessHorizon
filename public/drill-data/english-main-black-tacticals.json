@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Bg7 (bishop to g7). 1. Bg7 d4 2. cxd4 Nxd4 3. Nxd4.",
-      "explanation": "Black to move. No forced tactic exists here, but Bg7 is clearly the strongest continuation. Line: 1. Bg7 d4 2. cxd4 Nxd4 3. Nxd4. Stockfish 18 (depth 16) evaluates the result at -0.10 for Black, 0.52 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Bg7 is clearly the strongest continuation. Line: 1. Bg7 d4 2. cxd4 Nxd4 3. Nxd4. Stockfish 18 (depth 16) evaluates the result at -0.10 for Black, 0.52 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the English Opening main line."
     }
   ]
 }

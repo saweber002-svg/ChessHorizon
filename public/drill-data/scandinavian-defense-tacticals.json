@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Ne5 (knight to e5). 1. Ne5 Nd5 2. Bxd5 cxd5 3. g4.",
-      "explanation": "Black to move. No forced tactic exists here, but Ne5 is clearly the strongest continuation. Line: 1. Ne5 Nd5 2. Bxd5 cxd5 3. g4. Stockfish 18 (depth 16) evaluates the result at +0.78 for Black, 0.18 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Ne5 is clearly the strongest continuation. Line: 1. Ne5 Nd5 2. Bxd5 cxd5 3. g4. Stockfish 18 (depth 16) evaluates the result at +0.78 for Black, 0.18 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Scandinavian Defense main line."
     }
   ]
 }

@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Nxd4 (knight to d4). 1. Nxd4 Qxd4 2. c5 Qd1 3. c4.",
-      "explanation": "Black to move. No forced tactic exists here, but Nxd4 is clearly the strongest continuation. Line: 1. Nxd4 Qxd4 2. c5 Qd1 3. c4. Stockfish 18 (depth 16) evaluates the result at +2.86 for Black, 2.75 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Nxd4 is clearly the strongest continuation. Line: 1. Nxd4 Qxd4 2. c5 Qd1 3. c4. Stockfish 18 (depth 16) evaluates the result at +2.86 for Black, 2.75 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Ruy Lopez Open main line."
     }
   ]
 }

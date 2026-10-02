@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Nc6 (knight to c6). 1. Nc6 Be2 2. Qd7 O-O 3. Bc5.",
-      "explanation": "Black to move. No forced tactic exists here, but Nc6 is clearly the strongest continuation. Line: 1. Nc6 Be2 2. Qd7 O-O 3. Bc5. Stockfish 18 (depth 16) evaluates the result at +4.82 for Black, 0.17 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Nc6 is clearly the strongest continuation. Line: 1. Nc6 Be2 2. Qd7 O-O 3. Bc5. Stockfish 18 (depth 16) evaluates the result at +4.82 for Black, 0.17 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Scandinavian Nf6 main line."
     },
     {
       "drillId": "scandinavian-nf6-bt3",
@@ -46,7 +47,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Nc6 (knight to c6). 1. Nc6 d3 2. exd3 Qxd3 3. Qxd3.",
-      "explanation": "Black to move. No forced tactic exists here, but Nc6 is clearly the strongest continuation. Line: 1. Nc6 d3 2. exd3 Qxd3 3. Qxd3. Stockfish 18 (depth 16) evaluates the result at +2.32 for Black, 0.59 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Nc6 is clearly the strongest continuation. Line: 1. Nc6 d3 2. exd3 Qxd3 3. Qxd3. Stockfish 18 (depth 16) evaluates the result at +2.32 for Black, 0.59 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Scandinavian Nf6 main line."
     }
   ]
 }

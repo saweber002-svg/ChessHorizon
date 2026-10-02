@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "Bxe5! trades the bishop for the powerful e5-knight; after d3 exd3 White’s pawn center collapses.",
-      "explanation": "Black to move. There is a real tactic here: Bxe5 winning material. Line: 1. Bxe5 d3 2. exd3 Qxd3 3. Qc7. Stockfish 18 (depth 16) evaluates the result at +3.83 for Black, 2.95 pawns better than the next-best alternative."
+      "explanation": "Black to move. There is a real tactic here: Bxe5 winning material. Line: 1. Bxe5 d3 2. exd3 Qxd3 3. Qc7. Stockfish 18 (depth 16) evaluates the result at +3.83 for Black, 2.95 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Greco Counter-Attack main line."
     }
   ]
 }

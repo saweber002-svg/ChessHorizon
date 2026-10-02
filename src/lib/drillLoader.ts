@@ -10,6 +10,12 @@ export interface DrillLine {
   difficulty: string;
   /** Optional per-line starting FEN for tactical drills */
   startFen?: string;
+  /**
+   * Optional lead-in moves (parent main-line plies immediately before startFen).
+   * Slice H will auto-play these as context before the graded tactic begins;
+   * until then they are informational only and never graded.
+   */
+  leadInMoves?: string[];
 }
 
 export interface DrillPack {
@@ -28,6 +34,8 @@ interface TacticalDrill {
   difficulty?: string;
   fen?: string;
   solutionMoves?: unknown;
+  leadInMoves?: unknown;
+  placementNote?: string;
 }
 
 const DEFAULT_START_FEN =
@@ -81,6 +89,9 @@ export async function loadDrillPack(drillFileId: string): Promise<DrillPack> {
       const moves: string[] = Array.isArray(d.solutionMoves)
         ? d.solutionMoves.filter((move): move is string => typeof move === 'string')
         : [];
+      const leadInMoves: string[] | undefined = Array.isArray(d.leadInMoves)
+        ? d.leadInMoves.filter((move): move is string => typeof move === 'string')
+        : undefined;
       return {
         id: d.drillId ?? `${drillFileId}-t${idx}`,
         name: d.name ?? `Tactic ${idx + 1}`,
@@ -89,6 +100,7 @@ export async function loadDrillPack(drillFileId: string): Promise<DrillPack> {
         moveCount: moves.length,
         difficulty: d.difficulty ?? 'Tactical',
         startFen: d.fen ?? undefined,
+        ...(leadInMoves?.length ? { leadInMoves } : {}),
       };
     });
 

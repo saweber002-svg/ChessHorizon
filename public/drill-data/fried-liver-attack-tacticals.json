@@ -24,7 +24,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Nxd5 (knight to d5). 1. Nxd5 Nxd5 2. Qe4+ Kf6 3. Bxd5.",
-      "explanation": "Black to move. No forced tactic exists here, but Nxd5 is clearly the strongest continuation. Line: 1. Nxd5 Nxd5 2. Qe4+ Kf6 3. Bxd5. Stockfish 18 (depth 16) evaluates the result at +3.52 for Black, 0.48 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Nxd5 is clearly the strongest continuation. Line: 1. Nxd5 Nxd5 2. Qe4+ Kf6 3. Bxd5. Stockfish 18 (depth 16) evaluates the result at +3.52 for Black, 0.48 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Fried Liver Attack main line."
     },
     {
       "drillId": "fried-liver-t4",
@@ -46,7 +47,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is O-O (pawn to O-O). 1. O-O Kd7 2. Bg5 Nxc3 3. bxc3.",
-      "explanation": "Black to move. No forced tactic exists here, but O-O is clearly the strongest continuation. Line: 1. O-O Kd7 2. Bg5 Nxc3 3. bxc3. Stockfish 18 (depth 16) evaluates the result at +2.61 for Black, 0.58 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but O-O is clearly the strongest continuation. Line: 1. O-O Kd7 2. Bg5 Nxc3 3. bxc3. Stockfish 18 (depth 16) evaluates the result at +2.61 for Black, 0.58 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Fried Liver Attack main line."
     }
   ]
 }

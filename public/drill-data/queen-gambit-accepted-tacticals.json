@@ -23,7 +23,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is e5 (pawn to e5). 1. e5 dxe5 2. Qxd1+ Kxd1 3. Nc6.",
-      "explanation": "Black to move. No forced tactic exists here, but e5 is clearly the strongest continuation. Line: 1. e5 dxe5 2. Qxd1+ Kxd1 3. Nc6. Stockfish 18 (depth 16) evaluates the result at -1.26 for Black, 0.51 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but e5 is clearly the strongest continuation. Line: 1. e5 dxe5 2. Qxd1+ Kxd1 3. Nc6. Stockfish 18 (depth 16) evaluates the result at -1.26 for Black, 0.51 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Queen's Gambit Accepted main line."
     },
     {
       "drillId": "qga-t4",
@@ -45,7 +46,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Bxc4 (bishop to c4). 1. Bxc4 Qc7 2. Qe2 a6 3. O-O.",
-      "explanation": "Black to move. No forced tactic exists here, but Bxc4 is clearly the strongest continuation. Line: 1. Bxc4 Qc7 2. Qe2 a6 3. O-O. Stockfish 18 (depth 16) evaluates the result at +0.14 for Black, 0.35 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Bxc4 is clearly the strongest continuation. Line: 1. Bxc4 Qc7 2. Qe2 a6 3. O-O. Stockfish 18 (depth 16) evaluates the result at +0.14 for Black, 0.35 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Queen's Gambit Accepted main line."
     }
   ]
 }

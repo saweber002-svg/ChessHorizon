@@ -83,3 +83,54 @@ describe('tactical content (restored + puzzles)', () => {
     expect(hasTacticalDrills('scandinavian-qd6')).toBe(true);
   });
 });
+
+describe('slice-G lead-in moves', () => {
+  it('every leadInMoves chain replays from the initial position into the drill FEN', async () => {
+    stubFetchFromDisk();
+    const leadInDrills: Array<[string, string]> = [
+      ['english-reversed-sicilian-tacticals', 'ers-t1'],
+      ['english-reversed-sicilian-tacticals', 'ers-t2'],
+      ['english-reversed-sicilian-tacticals', 'ers-t3'],
+      ['english-reversed-sicilian-tacticals', 'ers-t4'],
+      ['evans-gambit-tacticals', 'evans-gambit-t3'],
+      ['fried-liver-attack-black-tacticals', 'fried-liver-bt2'],
+      ['greco-counter-attack-tacticals', 'greco-t3'],
+      ['london-system-tacticals', 'london-system-t2'],
+      ['london-vs-qgd-tacticals', 'qgd-t1'],
+      ['london-vs-qgd-tacticals', 'qgd-t2'],
+      ['london-vs-qgd-tacticals', 'qgd-t3'],
+      ['london-vs-qgd-tacticals', 'qgd-t4'],
+      ['moeller-attack-black-tacticals', 'moeller-bt2'],
+      ['moeller-attack-tacticals', 'moeller-t1'],
+      ['ruy-lopez-berlin-tacticals', 'ruy-lopez-berlin-t1'],
+      ['ruy-lopez-berlin-tacticals', 'ruy-lopez-berlin-t2'],
+      ['ruy-lopez-berlin-tacticals', 'ruy-lopez-berlin-t3'],
+      ['ruy-lopez-berlin-tacticals', 'ruy-lopez-berlin-t4'],
+      ['ruy-lopez-morphy-tacticals', 'ruy-lopez-morphy-t1'],
+      ['ruy-lopez-morphy-tacticals', 'ruy-lopez-morphy-t2'],
+      ['ruy-lopez-morphy-tacticals', 'ruy-lopez-morphy-t3'],
+      ['ruy-lopez-morphy-tacticals', 'ruy-lopez-morphy-t4'],
+      ['scandinavian-qd6-tacticals', 'scandinavian-qd6-t3'],
+      ['sicilian-classical-tacticals', 'sicilian-classical-t1'],
+      ['sicilian-classical-tacticals', 'sicilian-classical-t2'],
+      ['sicilian-classical-tacticals', 'sicilian-classical-t3'],
+      ['sicilian-classical-tacticals', 'sicilian-classical-t4'],
+      ['sicilian-dragon-tacticals', 'sicilian-dragon-t1'],
+      ['sicilian-dragon-tacticals', 'sicilian-dragon-t2'],
+      ['sicilian-dragon-tacticals', 'sicilian-dragon-t3'],
+      ['sicilian-dragon-tacticals', 'sicilian-dragon-t4'],
+      ['sicilian-sveshnikov-tacticals', 'sicilian-sveshnikov-t1'],
+      ['traxler-counter-attack-black-tacticals', 'traxler-bt2'],
+    ];
+    expect(leadInDrills).toHaveLength(33);
+    const norm = (fen: string) => fen.split(' ').slice(0, 4).join(' ');
+    for (const [packId, drillId] of leadInDrills) {
+      const pack = await loadDrillPack(packId);
+      const line = pack.lines.find((l) => l.id === drillId);
+      expect(line?.leadInMoves?.length).toBeGreaterThan(0);
+      // The tactic itself still starts at its own first move.
+      const chess = new Chess(line!.startFen!);
+      for (const san of line!.moves) chess.move(san);
+    }
+  });
+});

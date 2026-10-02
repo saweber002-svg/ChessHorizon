@@ -24,7 +24,15 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is g3 (pawn to g3). 1. g3 Nxg3 2. hxg3 Qd4+ 3. Kf3.",
-      "explanation": "Black to move. No forced tactic exists here, but g3 is clearly the strongest continuation. Line: 1. g3 Nxg3 2. hxg3 Qd4+ 3. Kf3. Stockfish 18 (depth 16) evaluates the result at 0.00 for Black, 2.18 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but g3 is clearly the strongest continuation. Line: 1. g3 Nxg3 2. hxg3 Qd4+ 3. Kf3. Stockfish 18 (depth 16) evaluates the result at 0.00 for Black, 2.18 pawns better than the next-best alternative.",
+      "leadInMoves": [
+        "Nxf7",
+        "Bxf2+",
+        "Kxf2",
+        "Nxe4+",
+        "Ke3",
+        "Qh4"
+      ]
     },
     {
       "drillId": "traxler-bt3",
@@ -46,7 +54,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is dxe4 (pawn to dxe4). 1. dxe4 Qf4+ 2. Ke2 Nd4+ 3. Qxd4.",
-      "explanation": "Black to move. No forced tactic exists here, but dxe4 is clearly the strongest continuation. Line: 1. dxe4 Qf4+ 2. Ke2 Nd4+ 3. Qxd4. Stockfish 18 (depth 16) evaluates the result at -1.95 for Black, 1.85 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but dxe4 is clearly the strongest continuation. Line: 1. dxe4 Qf4+ 2. Ke2 Nd4+ 3. Qxd4. Stockfish 18 (depth 16) evaluates the result at -1.95 for Black, 1.85 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Traxler Counter Attack main line."
     },
     {
       "drillId": "traxler-bt4",
@@ -68,7 +77,8 @@
         "3": "First move correct"
       },
       "briefExplanation": "The strongest move is Qf1 (queen to f1). 1. Qf1 Bf5 2. Bxd5 Qh6+ 3. Ke2.",
-      "explanation": "Black to move. No forced tactic exists here, but Qf1 is clearly the strongest continuation. Line: 1. Qf1 Bf5 2. Bxd5 Qh6+ 3. Ke2. Stockfish 18 (depth 16) evaluates the result at -0.82 for Black, 0.30 pawns better than the next-best alternative."
+      "explanation": "Black to move. No forced tactic exists here, but Qf1 is clearly the strongest continuation. Line: 1. Qf1 Bf5 2. Bxd5 Qh6+ 3. Ke2. Stockfish 18 (depth 16) evaluates the result at -0.82 for Black, 0.30 pawns better than the next-best alternative.",
+      "placementNote": "Standalone position — does not arise from the Traxler Counter Attack main line."
     }
   ]
 }
