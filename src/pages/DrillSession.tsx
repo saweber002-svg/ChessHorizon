@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ThemePicker from '@/components/ThemePicker';
 import SoundPicker from '@/components/SoundPicker';
 import { useSound } from '@/contexts/SoundContext';
-import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play, Eye, Swords } from 'lucide-react';
+import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play, Eye, Swords, Undo2 } from 'lucide-react';
 import { useLocation, useParams, useSearch } from 'wouter';
 import { TrophyBoard } from '@/components/TrophyBoard';
 import { kingdomHasDrills } from '@/data/kingdomDrills';
@@ -30,6 +30,7 @@ import {
   type DeviationAnalysis,
 } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
+import { sparUndoPlies } from '@/lib/drillSpar';
 import { tap as hapticTap, success as hapticSuccess, error as hapticError } from '@/lib/haptics';
 
 type PlayerColor = 'w' | 'b';
@@ -75,6 +76,12 @@ export default function DrillSession() {
   const [sparring, setSparring] = useState(false);
   const [sparringOver, setSparringOver] = useState(false);
   const [sparringThinking, setSparringThinking] = useState(false);
+  /** Sparring position history: [0] is the drill's final position. */
+  const [sparHistory, setSparHistory] = useState<string[]>([]);
+  /** Move that produced each sparHistory entry after the first. */
+  const [sparLastMoves, setSparLastMoves] = useState<Array<{ from: Square; to: Square } | null>>([]);
+  /** Bumped on undo/exit/restart so stale sparring engine replies are discarded. */
+  const sparSeq = useRef(0);
   const { play: playSound } = useSound();
   const [lastMove, setLastMove] = useState<{ from: Square; to: Square } | null>(null);
   const [moveResults, setMoveResults] = useState<number[]>([]);
@@ -137,6 +144,9 @@ export default function DrillSession() {
     setSessionComplete(false);
     setSparring(false);
     setSparringOver(false);
+    sparSeq.current += 1;
+    setSparHistory([]);
+    setSparLastMoves([]);
     setMoveIndex(0);
     setAttempts(0);
     setMoveResults([]);
@@ -150,16 +160,20 @@ export default function DrillSession() {
 
   /** Enter sparring mode: play the final drill position against Stockfish. */
   const startSparring = useCallback(() => {
+    const seq = ++sparSeq.current;
     setSparring(true);
     setSparringOver(false);
     setGlowColor('idle');
     setLastMove(null);
+    setSparHistory([fen]);
+    setSparLastMoves([]);
     // If it's the opponent's turn in the final position, engine moves first.
     const game = new Chess(fen);
     if (playerColor && game.turn() !== playerColor && !game.isGameOver()) {
       setSparringThinking(true);
       getEngine().findBestMove(fen, 6, 400).then(
         (uci) => {
+          if (sparSeq.current !== seq) return; // undone/exited/restarted
           const g = new Chess(fen);
           const moved = g.move({
             from: uci.slice(0, 2) as Square,
@@ -169,10 +183,14 @@ export default function DrillSession() {
           if (moved) {
             setFen(g.fen());
             setLastMove({ from: moved.from, to: moved.to });
+            setSparHistory((h) => [...h, g.fen()]);
+            setSparLastMoves((m) => [...m, { from: moved.from, to: moved.to }]);
           }
           setSparringThinking(false);
         },
-        () => setSparringThinking(false),
+        () => {
+          if (sparSeq.current === seq) setSparringThinking(false);
+        },
       );
     }
   }, [fen, playerColor]);
@@ -194,6 +212,8 @@ export default function DrillSession() {
     const newFen = game.fen();
     setFen(newFen);
     setLastMove({ from: result.from, to: result.to });
+    setSparHistory((h) => [...h, newFen]);
+    setSparLastMoves((m) => [...m, { from: result.from, to: result.to }]);
 
     if (game.isGameOver()) {
       setSparringOver(true);
@@ -201,10 +221,13 @@ export default function DrillSession() {
       return;
     }
 
-    // Engine's turn
+    // Engine's turn. The seq guard drops this reply if the user undoes,
+    // exits, or restarts before it lands.
+    const seq = sparSeq.current;
     setSparringThinking(true);
     getEngine().findBestMove(newFen, 6, 400).then(
       (uci) => {
+        if (sparSeq.current !== seq) return;
         const g = new Chess(newFen);
         const moved = g.move({
           from: uci.slice(0, 2) as Square,
@@ -214,6 +237,8 @@ export default function DrillSession() {
         if (moved) {
           setFen(g.fen());
           setLastMove({ from: moved.from, to: moved.to });
+          setSparHistory((h) => [...h, g.fen()]);
+          setSparLastMoves((m) => [...m, { from: moved.from, to: moved.to }]);
           if (g.isGameOver()) {
             setSparringOver(true);
             playSound('drillCompleted');
@@ -222,6 +247,7 @@ export default function DrillSession() {
         setSparringThinking(false);
       },
       () => {
+        if (sparSeq.current !== seq) return;
         // Engine failed: fall back to random move so play continues
         const g = new Chess(newFen);
         const moves = g.moves({ verbose: true });
@@ -230,6 +256,8 @@ export default function DrillSession() {
           g.move(m);
           setFen(g.fen());
           setLastMove({ from: m.from, to: m.to });
+          setSparHistory((h) => [...h, g.fen()]);
+          setSparLastMoves((lm) => [...lm, { from: m.from, to: m.to }]);
           if (g.isGameOver()) setSparringOver(true);
         }
         setSparringThinking(false);
@@ -239,10 +267,26 @@ export default function DrillSession() {
 
   /** Exit sparring back to the drill-complete overlay. */
   const exitSparring = useCallback(() => {
+    sparSeq.current += 1;
     setSparring(false);
     setSparringOver(false);
     setSparringThinking(false);
   }, []);
+
+  /** Undo the last sparring move: rewind to the player's previous turn. */
+  const undoSparMove = useCallback(() => {
+    if (!playerColor) return;
+    const n = sparUndoPlies(sparHistory, playerColor);
+    if (n === 0) return;
+    sparSeq.current += 1; // an in-flight engine reply no longer applies
+    const newLength = sparHistory.length - n;
+    setFen(sparHistory[newLength - 1]);
+    setLastMove(newLength >= 2 ? sparLastMoves[newLength - 2] : null);
+    setSparHistory(sparHistory.slice(0, newLength));
+    setSparLastMoves(sparLastMoves.slice(0, newLength - 1));
+    setSparringOver(false);
+    setSparringThinking(false);
+  }, [playerColor, sparHistory, sparLastMoves]);
 
   const moves = useMemo(() => line?.moves ?? [], [line]);
   const startFen = line?.startFen ?? pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
@@ -274,6 +318,9 @@ export default function DrillSession() {
     setSparring(false);
     setSparringOver(false);
     setSparringThinking(false);
+    sparSeq.current += 1;
+    setSparHistory([]);
+    setSparLastMoves([]);
     setWaitingOpponent(false);
     setLastMove(null);
     setMoveResults([]);
@@ -375,6 +422,9 @@ hapticSuccess();
     setSparring(false);
     setSparringOver(false);
     setSparringThinking(false);
+    sparSeq.current += 1;
+    setSparHistory([]);
+    setSparLastMoves([]);
     if (playerColor) {
       beginSession(playerColor);
     }
@@ -812,6 +862,9 @@ hapticSuccess();
 
   const deviationInfo = deviation ? deviationCopy(deviation) : null;
 
+  const sparUndoAvailable =
+    playerColor !== null && sparUndoPlies(sparHistory, playerColor ?? 'w') > 0;
+
   return (
     <motion.div className="min-h-screen bg-[#0a0a1f]">
       <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
@@ -980,6 +1033,14 @@ hapticSuccess();
                     Game over
                   </span>
                 )}
+                <button
+                  onClick={undoSparMove}
+                  disabled={!sparUndoAvailable}
+                  className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white/70 text-sm font-bold hover:bg-white/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5"
+                >
+                  <Undo2 size={14} />
+                  Undo move
+                </button>
                 <button
                   onClick={exitSparring}
                   className="px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white/70 text-sm font-bold hover:bg-white/10 transition-colors"

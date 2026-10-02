@@ -24,6 +24,8 @@ import {
 } from '@/lib/coachingAnalysis';
 import { getEngine } from '@/engine/stockfish';
 import { DIFFICULTY_LEVELS, blunderForDifficulty, skillForDifficulty, type DifficultyId } from '@/lib/difficulty';
+import { loadDrillPack } from '@/lib/drillLoader';
+import { builtinSparKingdoms } from '@/lib/sparOpenings';
 import { classificationColors, classificationIcons } from '@/lib/classificationStyle';
 import {
   SPAR_START_FEN,
@@ -57,7 +59,9 @@ export default function CoachingSpar() {
   const [started, setStarted] = useState(false);
   const [sideChoice, setSideChoice] = useState<SideChoice>('w');
   const [difficulty, setDifficulty] = useState<DifficultyId>('casual');
+  const [startKingdom, setStartKingdom] = useState<string>('');
   const [startOpeningId, setStartOpeningId] = useState<string>('');
+  const [starting, setStarting] = useState(false);
 
   // Play state
   const [fen, setFen] = useState(SPAR_START_FEN);
@@ -127,7 +131,9 @@ export default function CoachingSpar() {
     if (engineTimer.current) clearTimeout(engineTimer.current);
     gameId.current += 1;
     setFen(startFen);
-    setPositions(positionsAfterMoves(startFen, startSans));
+    // Positions are the replay of the line from the standard start — NOT
+    // from startFen, which is already the line's final position.
+    setPositions(positionsAfterMoves(SPAR_START_FEN, startSans));
     setMoveSans(startSans);
     setAnalyses(startSans.map(() => null));
     setFailedPlies(new Set());
@@ -240,24 +246,42 @@ export default function CoachingSpar() {
     [difficulty]
   );
 
-  const startSparring = useCallback(() => {
+  const startSparring = useCallback(async () => {
+    if (starting) return;
     let startFen = SPAR_START_FEN;
     let startSans: string[] = [];
-    if (startOpeningId) {
+    if (startKingdom === 'wilderness' && startOpeningId) {
       const opening = openings.find((o) => o.id === startOpeningId);
       const built = buildStartPosition(opening?.variations[0]?.moves ?? []);
       startFen = built.fen;
       startSans = built.appliedSans;
+    } else if (startKingdom && startOpeningId) {
+      // Built-in opening: its -main pack's first line is the preload.
+      setStarting(true);
+      try {
+        const pack = await loadDrillPack(startOpeningId);
+        if (pack.startFen === SPAR_START_FEN) {
+          const built = buildStartPosition(pack.lines[0]?.moves ?? []);
+          startFen = built.fen;
+          startSans = built.appliedSans;
+        }
+      } catch {
+        // Pack failed to load — fall back to the standard start position.
+      } finally {
+        setStarting(false);
+      }
     }
     resetPlay(startFen, startSans, sideChoice);
     setStarted(true);
-    // Engine (White) opens when the user chose Black and White is to move.
-    if (sideChoice === 'b' && startSans.length % 2 === 0) {
+    // The engine opens whenever the loaded line leaves the *engine's* side
+    // to move: White engine when the user plays Black, Black engine after
+    // an odd-length line when the user plays White.
+    if (sideChoice !== 'both' && !isHumanTurn(startFen, sideChoice)) {
       engineTimer.current = setTimeout(() => {
         void makeEngineMoveRef.current(startFen, difficulty);
       }, 600);
     }
-  }, [startOpeningId, openings, sideChoice, difficulty, resetPlay]);
+  }, [starting, startKingdom, startOpeningId, openings, sideChoice, difficulty, resetPlay]);
 
   const handleBoardMove = useCallback(
     (from: Square, to: Square) => {
@@ -435,10 +459,13 @@ export default function CoachingSpar() {
             setSideChoice={setSideChoice}
             difficulty={difficulty}
             setDifficulty={setDifficulty}
+            startKingdom={startKingdom}
+            setStartKingdom={setStartKingdom}
             startOpeningId={startOpeningId}
             setStartOpeningId={setStartOpeningId}
             openings={openings}
             onStart={startSparring}
+            starting={starting}
           />
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-6">
@@ -741,20 +768,42 @@ function SetupScreen({
   setSideChoice,
   difficulty,
   setDifficulty,
+  startKingdom,
+  setStartKingdom,
   startOpeningId,
   setStartOpeningId,
   openings,
   onStart,
+  starting,
 }: {
   sideChoice: SideChoice;
   setSideChoice: (s: SideChoice) => void;
   difficulty: DifficultyId;
   setDifficulty: (d: DifficultyId) => void;
+  startKingdom: string;
+  setStartKingdom: (id: string) => void;
   startOpeningId: string;
   setStartOpeningId: (id: string) => void;
   openings: OpeningLike[];
   onStart: () => void;
+  starting: boolean;
 }) {
+  const kingdomGroups = builtinSparKingdoms();
+  const activeGroup = kingdomGroups.find((g) => g.kingdomId === startKingdom);
+
+  // Picking a kingdom preselects its first opening; clearing it returns to
+  // the standard start position.
+  const handleKingdomChange = (kingdomId: string) => {
+    setStartKingdom(kingdomId);
+    if (!kingdomId) {
+      setStartOpeningId('');
+    } else if (kingdomId === 'wilderness') {
+      setStartOpeningId(openings[0]?.id ?? '');
+    } else {
+      const group = kingdomGroups.find((g) => g.kingdomId === kingdomId);
+      setStartOpeningId(group?.openings[0]?.drillFileId ?? '');
+    }
+  };
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl mx-auto">
       <div className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] mb-4">
@@ -817,26 +866,61 @@ function SetupScreen({
 
       <div className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] mb-6">
         <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Start from an opening (optional)</p>
+        <p className="text-white/40 text-[11px] uppercase tracking-widest mb-1.5">Kingdom</p>
         <select
-          value={startOpeningId}
-          onChange={(e) => setStartOpeningId(e.target.value)}
+          value={startKingdom}
+          onChange={(e) => handleKingdomChange(e.target.value)}
           className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white focus:outline-none focus:border-emerald-500/50"
         >
           <option value="">Standard starting position</option>
-          {openings.map((o) => (
-            <option key={o.id} value={o.id}>
-              {o.name} ({o.variations[0]?.moves.length ?? 0} moves)
+          {kingdomGroups.map((g) => (
+            <option key={g.kingdomId} value={g.kingdomId}>
+              {g.kingdomName}
             </option>
           ))}
+          {openings.length > 0 && <option value="wilderness">The Wilderness — your openings</option>}
         </select>
+        {startKingdom === 'wilderness' && (
+          <>
+            <p className="text-white/40 text-[11px] uppercase tracking-widest mt-4 mb-1.5">Opening</p>
+            <select
+              value={startOpeningId}
+              onChange={(e) => setStartOpeningId(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white focus:outline-none focus:border-emerald-500/50"
+            >
+              {openings.map((o) => (
+                <option key={o.id} value={o.id}>
+                  {o.name} ({o.variations[0]?.moves.length ?? 0} moves)
+                </option>
+              ))}
+            </select>
+          </>
+        )}
+        {activeGroup && (
+          <>
+            <p className="text-white/40 text-[11px] uppercase tracking-widest mt-4 mb-1.5">Opening</p>
+            <select
+              value={startOpeningId}
+              onChange={(e) => setStartOpeningId(e.target.value)}
+              className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white focus:outline-none focus:border-emerald-500/50"
+            >
+              {activeGroup.openings.map((o) => (
+                <option key={o.drillFileId} value={o.drillFileId}>
+                  {o.label}
+                </option>
+              ))}
+            </select>
+          </>
+        )}
       </div>
 
       <button
         onClick={onStart}
-        className="w-full py-4 rounded-2xl bg-emerald-500 text-[#0a0a1f] font-bold text-lg hover:bg-emerald-400 transition-colors flex items-center justify-center gap-2"
+        disabled={starting}
+        className="w-full py-4 rounded-2xl bg-emerald-500 text-[#0a0a1f] font-bold text-lg hover:bg-emerald-400 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-wait"
       >
         <Swords size={20} />
-        Start sparring
+        {starting ? 'Loading line…' : 'Start sparring'}
       </button>
     </motion.div>
   );
