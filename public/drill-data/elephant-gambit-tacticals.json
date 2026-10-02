@@ -1,0 +1,48 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for White against the Elephant Gambit. Take on e5 and punish the early ...d5.",
+  "drills": [
+    {
+      "briefExplanation": "2.Nf3 d5 3.Nxe5! — take the pawn; Black's center collapses before it forms.",
+      "description": "White to play. Black may try the Elephant 2...d5 — develop and know the refutation.",
+      "drillId": "eg-t1",
+      "explanation": "The refutation of the Elephant Gambit is brutally simple: 3.Nxe5! just takes the pawn. Black's 2...d5 sacrificed a pawn for activity that never materializes — after the knight takes on e5, White is a clean pawn up with the better center. The gambit only works if White cooperates; taking the material kills it.",
+      "name": "Taking the Pawn",
+      "opponentResponse": "d5",
+      "solutionMoves": [
+        "Nf3",
+        "d5",
+        "Nxe5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "4.d3! exd3 5.Bxd3 — undermine the wedge and develop with tempo.",
+      "description": "White to play. Black pushed 3...e4 — undermine the advanced pawn at once.",
+      "drillId": "eg-t2",
+      "explanation": "If White already took on d5, the clean antidote to 3...e4 is 4.d3! — undermining the wedge immediately. After 4...exd3 5.Bxd3 White develops with tempo, the e4 outpost never happens, and Black's gambit pawn is gone for nothing. Challenge advanced pawns at their base.",
+      "name": "Undermining the Wedge",
+      "opponentResponse": "exd3",
+      "solutionMoves": [
+        "d3",
+        "exd3",
+        "Bxd3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/ppp2ppp/8/3P4/4p3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 4"
+    }
+  ],
+  "id": "elephant-gambit-tacticals",
+  "name": "Elephant Gambit — White Tactics"
+}

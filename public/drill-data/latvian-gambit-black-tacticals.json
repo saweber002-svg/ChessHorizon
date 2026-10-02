@@ -1,0 +1,52 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for Black in the Latvian Gambit. Play 2...f5!? and hunt the white king.",
+  "drills": [
+    {
+      "briefExplanation": "2...f5! 3.exf5 e4 4.Ne5 Nf6 — the Latvian: open lines and a kingside attack for the pawn.",
+      "description": "Black to play. White plays 2.Nf3 — counter with the Latvian 2...f5!.",
+      "drillId": "lat-bt1",
+      "explanation": "The Latvian Gambit: Black answers 2.Nf3 with the audacious 2...f5!, a King's Gambit with colors reversed. After 3.exf5 e4 4.Ne5 Nf6 Black has the classic gambit setup — open f-file, central wedge, and direct threats against White's king. Sound? Barely. Fun and dangerous? Absolutely.",
+      "name": "The Latvian Strike",
+      "opponentResponse": "exf5",
+      "solutionMoves": [
+        "f5",
+        "exf5",
+        "e4",
+        "Ne5",
+        "Nf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"
+    },
+    {
+      "briefExplanation": "4...Nf6 5.Qe2 Qe7 6.d4 d5! — develop, neutralize, then break in the center.",
+      "description": "Black to play. White centralized 4.Ne5 — develop and neutralize 5.Qe2.",
+      "drillId": "lat-bt2",
+      "explanation": "After 4.Ne5 Nf6 White often tries 5.Qe2, eyeing e4. Black answers 5...Qe7! — developing with tempo and keeping the gambit tension. After 6.d4 Black strikes with 6...d5!, opening the center while the e4 wedge cramps White. Calm development, then the thematic break.",
+      "name": "Meeting Qe2",
+      "opponentResponse": "Qe2",
+      "solutionMoves": [
+        "Nf6",
+        "Qe2",
+        "Qe7",
+        "d4",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pppp2pp/8/4NP2/4p3/8/PPPP1PPP/RNBQKB1R b KQkq - 1 4"
+    }
+  ],
+  "id": "latvian-gambit-black-tacticals",
+  "name": "Latvian Gambit — Black Tactics"
+}

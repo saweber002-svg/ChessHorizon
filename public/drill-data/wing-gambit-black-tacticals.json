@@ -1,0 +1,52 @@
+{
+  "arena": "sicilian-classical",
+  "description": "2 tactical challenges for Black against the Wing Gambit. Decline solidly or take and counter in the center.",
+  "drills": [
+    {
+      "briefExplanation": "1...c5 2.b4 b6! 3.bxc5 bxc5 — decline, trade, and keep the solid structure.",
+      "description": "Black to play. White is hinting at the Wing Gambit — play 1...c5 and decline with 2...b6!.",
+      "drillId": "wg-bt1",
+      "explanation": "The solid decline: after 1...c5 2.b4, Black plays 2...b6! — refusing the pawn. After 3.bxc5 bxc5 Black's structure is sound, the b-pawn trade opened nothing for White, and the queenside weakening (a3 played to no purpose) is White's alone. Declining well is a defensive art.",
+      "name": "The Solid Decline",
+      "opponentResponse": "b4",
+      "solutionMoves": [
+        "c5",
+        "b4",
+        "b6",
+        "bxc5",
+        "bxc5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1"
+    },
+    {
+      "briefExplanation": "2...cxb4 3.a3 d5! — take the pawn, then strike in the center at once.",
+      "description": "Black to play. White played the Wing 2.b4 — take and counter with 3...d5!.",
+      "drillId": "wg-bt2",
+      "explanation": "The active defense: take with 2...cxb4, and after 3.a3 strike 3...d5! — countering in the center before White builds pressure. After 4.exd5 Qxd5 Black is a pawn up with a centralized queen and easy development. White's open files mean little when Black's center is mobile and the extra pawn is secure.",
+      "name": "Take and Counter",
+      "opponentResponse": "a3",
+      "solutionMoves": [
+        "cxb4",
+        "a3",
+        "d5",
+        "exd5",
+        "Qxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/1P2P3/8/P1PP1PPP/RNBQKBNR b KQkq - 0 2"
+    }
+  ],
+  "id": "wing-gambit-black-tacticals",
+  "name": "Wing Gambit — Black Tactics"
+}

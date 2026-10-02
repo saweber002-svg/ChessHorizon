@@ -1,0 +1,52 @@
+{
+  "arena": "dutch-leningrad",
+  "description": "2 tactical challenges for Black against the Hopton Attack. Develop with 2...Nf6! and recapture toward the center.",
+  "drills": [
+    {
+      "briefExplanation": "1...f5 2.Bg5 Nf6! 3.Bxf6 exf6 — just develop; the pin costs White a tempo.",
+      "description": "Black to play. White pins with the Hopton 2.Bg5 — play 1...f5 and develop calmly.",
+      "drillId": "ho-bt1",
+      "explanation": "The calm defense: after 1...f5 2.Bg5, Black simply plays 2...Nf6! — developing and ignoring the pin. After 3.Bxf6 exf6 Black's structure is slightly damaged, but White spent two moves on the bishop excursion; Black will play ...d5, ...e6, and castle, with a playable Dutch. Don't fear the pin — outdevelop it.",
+      "name": "Ignoring the Pin",
+      "opponentResponse": "Bg5",
+      "solutionMoves": [
+        "f5",
+        "Bg5",
+        "Nf6",
+        "Bxf6",
+        "exf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1"
+    },
+    {
+      "briefExplanation": "2...Nf6 3.Bxf6 gxf6! 4.e4 d6 — recapture toward the center and build the wall.",
+      "description": "Black to play. White pinned 2.Bg5 — develop and recapture toward the center.",
+      "drillId": "ho-bt2",
+      "explanation": "The principled recapture: after 2...Nf6 3.Bxf6, Black plays 3...gxf6! — recapturing toward the center, opening the g-file for the rook, and keeping the pawn mass mobile. After 4.e4 d6 Black builds the Stonewall-style center; the 'damaged' structure is actually flexible, and White's bishop is gone. Recapture toward the center — a lifelong rule.",
+      "name": "Recapturing Toward Center",
+      "opponentResponse": "Bxf6",
+      "solutionMoves": [
+        "Nf6",
+        "Bxf6",
+        "gxf6",
+        "e4",
+        "d6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/ppppp1pp/8/5pB1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 1 2"
+    }
+  ],
+  "id": "hopton-attack-black-tacticals",
+  "name": "Hopton Attack — Black Tactics"
+}

@@ -1,0 +1,52 @@
+{
+  "arena": "dutch-leningrad",
+  "description": "2 tactical challenges for White in the Krejcik Gambit. Play the shocking 2.g4!? and open lines against the Dutch.",
+  "drills": [
+    {
+      "briefExplanation": "2.g4!? fxg4 3.e4! d5 4.exd5 — sacrifice, strike, and open the center.",
+      "description": "White to play. Black plays the Dutch 1...f5 — answer with the Krejcik 2.g4!.",
+      "drillId": "kr-t1",
+      "explanation": "The Krejcik Gambit: White meets the Dutch with the stunning 2.g4!?, sacrificing a wing pawn for open lines. After 2...fxg4 3.e4! White strikes in the center — the g4 pawn is weak, the e-file may open, and Black's kingside is suddenly airy. Shock value with real venom behind it.",
+      "name": "The g4 Shock",
+      "opponentResponse": "fxg4",
+      "solutionMoves": [
+        "g4",
+        "fxg4",
+        "e4",
+        "d5",
+        "exd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/ppppp1pp/8/5p2/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "3.h3! gxh3 4.Nxh3 Nf6 5.Bg5 — undermine, develop with tempo, and pin.",
+      "description": "White to play. Black took on g4 — undermine with 3.h3!.",
+      "drillId": "kr-t2",
+      "explanation": "The follow-up idea: after 2...fxg4, White plays 3.h3! — undermining the advanced pawn at once. After 3...gxh3 4.Nxh3 Nf6 5.Bg5 White has developed everything with tempo, the pin is annoying, and Black's 'extra' pawn cost the whole opening. Undermine advanced gambit pawns at their base.",
+      "name": "Undermining g4",
+      "opponentResponse": "gxh3",
+      "solutionMoves": [
+        "h3",
+        "gxh3",
+        "Nxh3",
+        "Nf6",
+        "Bg5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/ppppp1pp/8/8/3P2p1/8/PPP1PP1P/RNBQKBNR w KQkq - 0 3"
+    }
+  ],
+  "id": "krejcik-gambit-tacticals",
+  "name": "Krejcik Gambit — White Tactics"
+}

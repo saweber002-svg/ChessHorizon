@@ -1,0 +1,52 @@
+{
+  "arena": "sicilian-classical",
+  "description": "2 tactical challenges for White in the Wing Gambit. Play 2.b4! and open the queenside against the Sicilian.",
+  "drills": [
+    {
+      "briefExplanation": "2.b4! cxb4 3.a3! d5 4.exd5 Qxd5 — sacrifice the wing pawn for open lines.",
+      "description": "White to play. Black plays the Sicilian 1...c5 — answer with the Wing Gambit 2.b4!.",
+      "drillId": "wg-t1",
+      "explanation": "The Wing Gambit: White sacrifices the b-pawn to open the a- and b-files against the Sicilian. After 2.b4! cxb4 3.a3! d5 4.exd5 Qxd5 White has the classic gambit setup — open lines, fast development, and pressure down the half-open files. Black's queenside majority is slow; White's initiative is immediate.",
+      "name": "The Wing Sacrifice",
+      "opponentResponse": "cxb4",
+      "solutionMoves": [
+        "b4",
+        "cxb4",
+        "a3",
+        "d5",
+        "exd5",
+        "Qxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "2.b4! d6 3.bxc5 dxc5 — if Black declines, trade into an open queenside.",
+      "description": "White to play. Black may decline the Wing — trade and open the position.",
+      "drillId": "wg-t2",
+      "explanation": "Against the solid 2...d6 decline, White keeps the gambit spirit by trading: 3.bxc5 dxc5 opens the b-file and the queenside. White's rook will swing to b1 with pressure, Black's c-pawn is fixed as a target, and the 'declined' gambit still yields the initiative. Open files are the gambiteer's wages.",
+      "name": "Opening the Queenside",
+      "opponentResponse": "d6",
+      "solutionMoves": [
+        "b4",
+        "d6",
+        "bxc5",
+        "dxc5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    }
+  ],
+  "id": "wing-gambit-tacticals",
+  "name": "Wing Gambit — White Tactics"
+}

@@ -1,0 +1,50 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for Black against the Danish Gambit. Decline with 3...d5! or take and strike back in the center.",
+  "drills": [
+    {
+      "briefExplanation": "2...exd4 3.c3 d5! 4.exd5 Qxd5 — take, block, trade, and centralize the queen.",
+      "description": "Black to play. White offers the Danish with 2.d4 — take and decline the second pawn.",
+      "drillId": "dan-bt1",
+      "explanation": "The safest antidote to the Danish: after 2...exd4 3.c3, Black plays 3...d5! — declining the second pawn. After 4.exd5 Qxd5 Black is a pawn up with a centralized queen and a solid structure; White's gambit idea (open lines for the bishops) fizzles against the closed center. Sometimes the best tactic is refusing the gift.",
+      "name": "Declining the Second Pawn",
+      "opponentResponse": "c3",
+      "solutionMoves": [
+        "exd4",
+        "c3",
+        "d5",
+        "exd5",
+        "Qxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "4...cxb2! 5.Bxb2 d5! — accept both pawns, then strike in the center.",
+      "description": "Black to play. White offered the second pawn with 4.Bc4 — take it, then strike with 5...d5!.",
+      "drillId": "dan-bt2",
+      "explanation": "The brave defense: after 4.Bc4 Black takes the second pawn with 4...cxb2!, then plays 5...d5! before White consolidates. The central strike challenges White's bishops and says: the pawns are mine, and the initiative too. White's compensation evaporates if Black develops quickly — greed works when followed by energy.",
+      "name": "Take and Strike",
+      "opponentResponse": "Bxb2",
+      "solutionMoves": [
+        "cxb2",
+        "Bxb2",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pppp1ppp/8/8/2B1P3/2p5/PP3PPP/RNBQK1NR b KQkq - 1 4"
+    }
+  ],
+  "id": "danish-gambit-black-tacticals",
+  "name": "Danish Gambit — Black Tactics"
+}

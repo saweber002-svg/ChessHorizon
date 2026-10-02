@@ -1,0 +1,52 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for Black in the Elephant Gambit. Strike with 2...d5!? and seize the center.",
+  "drills": [
+    {
+      "briefExplanation": "2...d5! 3.exd5 e4! 4.Qe2 Nf6 — sacrifice the pawn for a mobile center and open lines.",
+      "description": "Black to play. White plays 2.Nf3 — answer with the Elephant 2...d5!.",
+      "drillId": "eg-bt1",
+      "explanation": "The Elephant Gambit: Black meets 2.Nf3 with the shocking 2...d5!, sacrificing a pawn for the initiative. After 3.exd5 e4! the knight must move, and 4.Qe2 Nf6 gives Black a dream gambit position — open lines, a central wedge, and fast development. White's extra pawn is weak; Black's activity is lasting.",
+      "name": "The Elephant Charge",
+      "opponentResponse": "exd5",
+      "solutionMoves": [
+        "d5",
+        "exd5",
+        "e4",
+        "Qe2",
+        "Nf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"
+    },
+    {
+      "briefExplanation": "4...Nf6 5.dxe4 Nxe4 6.Qe2 Bb4+! — the knight outpost, then the pin.",
+      "description": "Black to play. White undermined with 4.d3 — develop and take back in the center.",
+      "drillId": "eg-bt2",
+      "explanation": "Against the careful 4.d3, Black keeps the gambit spirit: 4...Nf6 develops, and after 5.dxe4 Nxe4 the knight lands on a superb central outpost. After 6.Qe2 Black plays 6...Bb4+!, developing with check — White must respond, the e4 knight dominates the center, and Black's activity fully compensates the pawn.",
+      "name": "The e4 Outpost",
+      "opponentResponse": "dxe4",
+      "solutionMoves": [
+        "Nf6",
+        "dxe4",
+        "Nxe4",
+        "Qe2",
+        "Bb4+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/ppp2ppp/8/3P4/4p3/3P1N2/PPP2PPP/RNBQKB1R b KQkq - 0 4"
+    }
+  ],
+  "id": "elephant-gambit-black-tacticals",
+  "name": "Elephant Gambit — Black Tactics"
+}

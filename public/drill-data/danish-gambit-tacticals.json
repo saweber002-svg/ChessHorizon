@@ -1,0 +1,52 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for White in the Danish Gambit. Sacrifice both c-pawns with 3.c3! and develop with lightning speed.",
+  "drills": [
+    {
+      "briefExplanation": "3.c3! dxc3 4.Bc4 cxb2 5.Bxb2 — two pawns for two bishops and a raging initiative.",
+      "description": "White to play. Black took on d4 — offer the Danish with 3.c3!.",
+      "drillId": "dan-t1",
+      "explanation": "The Danish Gambit: White sacrifices one pawn, then a second, for massive development. After 3.c3! dxc3 4.Bc4 cxb2 5.Bxb2 White has two bishops raking the center, a lead in development, and open lines — full compensation for the pawns. Black's extra material is meaningless if the king never castles. Gambit play at its purest.",
+      "name": "The Double Sacrifice",
+      "opponentResponse": "dxc3",
+      "solutionMoves": [
+        "c3",
+        "dxc3",
+        "Bc4",
+        "cxb2",
+        "Bxb2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pppp1ppp/8/8/3pP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3"
+    },
+    {
+      "briefExplanation": "4.exd5 Qxd5 5.cxd4 Nc6 6.Nf3 — trade, open the center, and chase the queen.",
+      "description": "White to play. Black declined with 3...d5 — trade and open the position.",
+      "drillId": "dan-t2",
+      "explanation": "Against the solid 3...d5, White keeps the initiative by trading: 4.exd5 Qxd5 5.cxd4 — now the center is open, and after 5...Nc6 6.Nf3 White develops with tempo on the queen. White's bishops have free scope, Black's queen is a target, and the gambit spirit survives the decline.",
+      "name": "Opening the Center",
+      "opponentResponse": "Qxd5",
+      "solutionMoves": [
+        "exd5",
+        "Qxd5",
+        "cxd4",
+        "Nc6",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/ppp2ppp/8/3p4/3pP3/2P5/PP3PPP/RNBQKBNR w KQkq - 0 4"
+    }
+  ],
+  "id": "danish-gambit-tacticals",
+  "name": "Danish Gambit — White Tactics"
+}

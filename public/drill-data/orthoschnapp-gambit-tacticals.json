@@ -1,0 +1,52 @@
+{
+  "arena": "caro-kann-advance",
+  "description": "2 tactical challenges for White in the Orthoschnapp Gambit. Play 4.Bd3! and trade into a better endgame.",
+  "drills": [
+    {
+      "briefExplanation": "4.Bd3! Bxd3 5.Qxd3 e6 6.Nf3 — trade the bishops, centralize, develop.",
+      "description": "White to play. Black developed 3...Bf5 — challenge it with the Orthoschnapp 4.Bd3!.",
+      "drillId": "or-t1",
+      "explanation": "The Orthoschnapp Gambit: White meets the Caro-Kann Advance with 4.Bd3!, challenging Black's best piece. After 4...Bxd3 5.Qxd3 e6 6.Nf3 White has the bishop pair, a centralized queen, and a space advantage — Black's light-squared bishop, the soul of the Caro-Kann, is gone. A positional 'gambit' that wins the two bishops.",
+      "name": "The Bishop Challenge",
+      "opponentResponse": "Bxd3",
+      "solutionMoves": [
+        "Bd3",
+        "Bxd3",
+        "Qxd3",
+        "e6",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P4/8/PPP2PPP/RNBQKBNR w KQkq - 1 4"
+    },
+    {
+      "briefExplanation": "4.Bd3! Bxd3 5.Qxd3 e6 6.Nf3 — trade, centralize the queen, and develop.",
+      "description": "White to play. Play 4.Bd3! and follow up after the trade.",
+      "drillId": "or-t2",
+      "explanation": "The full Orthoschnapp sequence: 4.Bd3! Bxd3 5.Qxd3, and after 5...e6 White develops with 6.Nf3 — the queen is perfectly centralized, the bishop pair is secured, and Black's Caro-Kann has lost its best minor piece. White's space advantage (e5) plus the bishops is a lasting edge.",
+      "name": "Securing the Bishops",
+      "opponentResponse": "Bxd3",
+      "solutionMoves": [
+        "Bd3",
+        "Bxd3",
+        "Qxd3",
+        "e6",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P4/8/PPP2PPP/RNBQKBNR w KQkq - 1 4"
+    }
+  ],
+  "id": "orthoschnapp-gambit-tacticals",
+  "name": "Orthoschnapp Gambit — White Tactics"
+}

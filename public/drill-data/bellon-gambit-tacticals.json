@@ -1,0 +1,50 @@
+{
+  "arena": "english-reversed-sicilian",
+  "description": "2 tactical challenges for White against the Bellon Gambit. Meet 3...e4 with 4.Nd4! or break with 5.d3!.",
+  "drills": [
+    {
+      "briefExplanation": "3.Nf3 e4 4.Nd4! — centralize the knight instead of retreating it.",
+      "description": "White to play. Black may push the Bellon 3...e4 — develop and know the knight maneuver.",
+      "drillId": "be-t1",
+      "explanation": "The refutation of the Bellon: after 3...e4, White doesn't retreat with 4.Ng5?? — instead 4.Nd4! centralizes the knight, attacking e6 and eyeing c6. Black's e4 wedge is now a target rather than a weapon: White will play d3 next, undermining it. Centralize against advanced pawns.",
+      "name": "The Nd4 Centralization",
+      "opponentResponse": "e4",
+      "solutionMoves": [
+        "Nf3",
+        "e4",
+        "Nd4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR w KQkq - 2 3"
+    },
+    {
+      "briefExplanation": "3.Nf3 e4 4.Ng5 c6 5.d3! — lure the pawn forward, then undermine it.",
+      "description": "White to play. Black supported with 4...c6 — break the wedge with 5.d3!.",
+      "drillId": "be-t2",
+      "explanation": "If Black consolidates with 4...c6, White breaks with 5.d3! — challenging the e4 wedge at its base. After 5...exd3 6.Bxd3 White develops with tempo, the center opens for the bishops, and Black's 'space advantage' dissolves. Undermine advanced pawns; don't let them sit.",
+      "name": "The d3 Break",
+      "opponentResponse": "c6",
+      "solutionMoves": [
+        "Nf3",
+        "e4",
+        "Ng5",
+        "c6",
+        "d3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR w KQkq - 2 3"
+    }
+  ],
+  "id": "bellon-gambit-tacticals",
+  "name": "Bellon Gambit — White Tactics"
+}

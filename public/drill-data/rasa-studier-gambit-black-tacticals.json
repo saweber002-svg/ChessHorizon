@@ -1,0 +1,52 @@
+{
+  "arena": "english-reversed-sicilian",
+  "description": "2 tactical challenges for Black in the Rasa-Studier Gambit. Play 3...e4! and develop with 4...Bb4!.",
+  "drills": [
+    {
+      "briefExplanation": "3...e4! 4.Ng5 Bb4! 5.e3 d5! — wedge, pin, then the central break.",
+      "description": "Black to play. White develops 3.Nf3 — strike with 3...e4! and follow with 4...Bb4!.",
+      "drillId": "rs-bt1",
+      "explanation": "The Rasa-Studier Gambit: Black plays 3...e4!, and after 4.Ng5 follows with the sharper 4...Bb4! — pinning the c3 knight. When White tries 5.e3, Black breaks with 5...d5!, opening the center while the pin paralyzes White's queenside. The e4 wedge, the pin, and the break: three ideas in five moves.",
+      "name": "The Bb4 Pin",
+      "opponentResponse": "Ng5",
+      "solutionMoves": [
+        "e4",
+        "Ng5",
+        "Bb4",
+        "e3",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N2N2/PP1PPPPP/R1BQKB1R b KQkq - 3 3"
+    },
+    {
+      "briefExplanation": "4...Bb4! 5.e3 Bxc3! 6.bxc3 d5! — pin, remove the defender, break in the center.",
+      "description": "Black to play. White tries 5.e3 — take the knight at once, then break with 6...d5!.",
+      "drillId": "rs-bt2",
+      "explanation": "Against White's 5.e3 break, Black strikes at once: 5...Bxc3! removes the knight holding White's center together. After 6.bxc3 d5! Black opens the position while White's queenside is shattered — the doubled c-pawns are weak, the bishops will rake the board, and the 'solid' 5.e3 only created targets. The pin punishes every defensive try.",
+      "name": "Removing the Defender",
+      "opponentResponse": "e3",
+      "solutionMoves": [
+        "Bb4",
+        "e3",
+        "Bxc3",
+        "bxc3",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/6N1/2P1p3/2N5/PP1PPPPP/R1BQKB1R b KQkq - 1 4"
+    }
+  ],
+  "id": "rasa-studier-gambit-black-tacticals",
+  "name": "Rasa-Studier Gambit — Black Tactics"
+}

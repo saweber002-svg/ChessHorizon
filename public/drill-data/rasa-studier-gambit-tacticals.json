@@ -1,0 +1,50 @@
+{
+  "arena": "english-reversed-sicilian",
+  "description": "2 tactical challenges for White against the Rasa-Studier Gambit. Meet 3...e4 with 4.Nd4! or 5.Qc2!.",
+  "drills": [
+    {
+      "briefExplanation": "3.Nf3 e4 4.Nd4! — centralize instead of allowing the pin.",
+      "description": "White to play. Black may push 3...e4 — develop and know the knight maneuver.",
+      "drillId": "rs-t1",
+      "explanation": "The clean antidote: after 3...e4, White plays 4.Nd4! — centralizing before Black can pin with ...Bb4. The knight eyes c6 and e6, the e4 pawn is a target, and Black's whole gambit idea (pressure via the pin) never gets its trigger. Move order matters: Nd4 first, questions later.",
+      "name": "Nd4 Before Bb4",
+      "opponentResponse": "e4",
+      "solutionMoves": [
+        "Nf3",
+        "e4",
+        "Nd4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR w KQkq - 2 3"
+    },
+    {
+      "briefExplanation": "3.Nf3 e4 4.Ng5 Bb4 5.Qc2! — defend c3 and prepare to break.",
+      "description": "White to play. Black pinned with 4...Bb4 — defend the knight with 5.Qc2!.",
+      "drillId": "rs-t2",
+      "explanation": "If Black gets the pin in with 4...Bb4, White defends calmly: 5.Qc2! protects the c3 knight and prepares d3, breaking the e4 wedge. Black's pin looks scary but achieves little — White will untangle with a3 and d3, the extra tempo (Qc2 is useful anyway) keeps White in the game, and the gambit fizzles.",
+      "name": "The Qc2 Defense",
+      "opponentResponse": "Bb4",
+      "solutionMoves": [
+        "Nf3",
+        "e4",
+        "Ng5",
+        "Bb4",
+        "Qc2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR w KQkq - 2 3"
+    }
+  ],
+  "id": "rasa-studier-gambit-tacticals",
+  "name": "Rasa-Studier Gambit — White Tactics"
+}

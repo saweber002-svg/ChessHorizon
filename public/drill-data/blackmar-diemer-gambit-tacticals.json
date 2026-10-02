@@ -1,0 +1,52 @@
+{
+  "arena": "scandinavian-defense",
+  "description": "2 tactical challenges for White in the Blackmar-Diemer Gambit. Sacrifice with 4.f3! and attack the black king.",
+  "drills": [
+    {
+      "briefExplanation": "4.f3! exf3 5.Nxf3 Bg4 6.h3 — sacrifice, develop, and question the pin.",
+      "description": "White to play. Black took on e4 — sacrifice with the Blackmar-Diemer 4.f3!.",
+      "drillId": "bdg-t1",
+      "explanation": "The Blackmar-Diemer Gambit: White sacrifices a pawn (and sometimes two) for a ferocious initiative. After 4.f3! exf3 5.Nxf3 White has open e- and f-files, fast development, and direct attacking chances — the classic BDG compensation. Club players fear it for good reason: one slow move by Black and the attack crashes through.",
+      "name": "The f3 Sacrifice",
+      "opponentResponse": "exf3",
+      "solutionMoves": [
+        "f3",
+        "exf3",
+        "Nxf3",
+        "Bg4",
+        "h3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/8/3Pp3/2N5/PPP2PPP/R1BQKBNR w KQkq - 2 4"
+    },
+    {
+      "briefExplanation": "5.fxe4 Nxe4 6.Qf3! Nc6 7.Bb5 — trade, hit the knight, and pin in return.",
+      "description": "White to play. Black declined with 4...Bf5 — trade and attack the knight.",
+      "drillId": "bdg-t2",
+      "explanation": "Against the solid 4...Bf5 decline, White keeps the pressure by trading: 5.fxe4 Nxe4 6.Qf3! — the queen hits the knight and eyes f7. After 6...Nc6 7.Bb5 White pins in return, keeping the initiative. The gambit may be declined, but the pressure isn't.",
+      "name": "Trading Into Attack",
+      "opponentResponse": "Nxe4",
+      "solutionMoves": [
+        "fxe4",
+        "Nxe4",
+        "Qf3",
+        "Nc6",
+        "Bb5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rn1qkb1r/ppp1pppp/5n2/5b2/3Pp3/2N2P2/PPP3PP/R1BQKBNR w KQkq - 1 5"
+    }
+  ],
+  "id": "blackmar-diemer-gambit-tacticals",
+  "name": "Blackmar-Diemer Gambit — White Tactics"
+}

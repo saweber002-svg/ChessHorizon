@@ -1,0 +1,52 @@
+{
+  "arena": "dutch-leningrad",
+  "description": "2 tactical challenges for White in the Hopton Attack. Pin with 2.Bg5! and wreck Black's kingside structure.",
+  "drills": [
+    {
+      "briefExplanation": "2.Bg5! Nf6 3.Bxf6 exf6 4.e4! — pin, trade, and strike in the center.",
+      "description": "White to play. Black plays the Dutch 1...f5 — pin with the Hopton 2.Bg5!.",
+      "drillId": "ho-t1",
+      "explanation": "The Hopton Attack: White meets the Dutch with 2.Bg5!, pinning the knight before it develops. After 2...Nf6 3.Bxf6 exf6 Black's kingside structure is shattered (doubled f-pawns, open e-file), and 4.e4! strikes in the center while Black is undeveloped. Positional gambit play: damage the structure, then open the position.",
+      "name": "The Pin and Trade",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Bg5",
+        "Nf6",
+        "Bxf6",
+        "exf6",
+        "e4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/ppppp1pp/8/5p2/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "2.Bg5! g6?? 3.e4! fxe4 4.Nd2 — punish the weakening with a central break.",
+      "description": "White to play. Black weakens with 2...g6?? — strike in the center at once.",
+      "drillId": "ho-t2",
+      "explanation": "When Black weakens with 2...g6??, the Hopton bites harder: 3.e4! strikes in the center immediately, exploiting the loosened kingside. After 3...fxe4 4.Nd2 White develops with tempo on the e4 pawn, Black's kingside is full of holes, and the 'solid' ...g6 only created targets. Punish every weakening.",
+      "name": "Punishing g6",
+      "opponentResponse": "g6",
+      "solutionMoves": [
+        "Bg5",
+        "g6",
+        "e4",
+        "fxe4",
+        "Nd2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/ppppp1pp/8/5p2/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2"
+    }
+  ],
+  "id": "hopton-attack-tacticals",
+  "name": "Hopton Attack — White Tactics"
+}

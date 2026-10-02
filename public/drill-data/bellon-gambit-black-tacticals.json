@@ -1,0 +1,52 @@
+{
+  "arena": "english-reversed-sicilian",
+  "description": "2 tactical challenges for Black in the Bellon Gambit. Play 3...e4! and clamp with 4...c6!.",
+  "drills": [
+    {
+      "briefExplanation": "3...e4! 4.Ng5 c6! 5.d3 d5! — wedge, support, then the central break.",
+      "description": "Black to play. White develops 3.Nf3 — strike with the Bellon 3...e4!.",
+      "drillId": "be-bt1",
+      "explanation": "The Bellon Gambit: Black plays 3...e4!, and after 4.Ng5 c6! the pawn is solid. When White tries 5.d3, Black breaks with 5...d5! — opening the center while the e4 wedge cramps White. The knight on g5 will retreat with loss of time; Black's space advantage is lasting.",
+      "name": "The e4 Wedge",
+      "opponentResponse": "Ng5",
+      "solutionMoves": [
+        "e4",
+        "Ng5",
+        "c6",
+        "d3",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N2N2/PP1PPPPP/R1BQKB1R b KQkq - 3 3"
+    },
+    {
+      "briefExplanation": "4...c6 5.d4 d5! 6.e3 dxc4 — support, break, and win the c-pawn.",
+      "description": "Black to play. White lunged 4.Ng5 — support with 4...c6! and meet 5.d4 with the 5...d5! break.",
+      "drillId": "be-bt2",
+      "explanation": "The follow-through: after 3...e4 4.Ng5 c6!, White's 5.d4 is met by the central break 5...d5!. After 6.e3 Black plays 6...dxc4!, winning the c4 pawn — White's queenside is loosened, the e4 wedge cramps everything, and the g5 knight must retreat with loss of time. Black's space has become material.",
+      "name": "Supporting and Trading",
+      "opponentResponse": "d4",
+      "solutionMoves": [
+        "c6",
+        "d4",
+        "d5",
+        "e3",
+        "dxc4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/6N1/2P1p3/2N5/PP1PPPPP/R1BQKB1R b KQkq - 1 4"
+    }
+  ],
+  "id": "bellon-gambit-black-tacticals",
+  "name": "Bellon Gambit — Black Tactics"
+}

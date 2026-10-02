@@ -1,0 +1,50 @@
+{
+  "arena": "giuoco-piano",
+  "description": "2 tactical challenges for White against the Latvian Gambit. Take on e5 and refute the early ...f5.",
+  "drills": [
+    {
+      "briefExplanation": "2.Nf3 f5 3.Nxe5! — take the pawn; Black's attack never gets started.",
+      "description": "White to play. Black may try the Latvian 2...f5 — develop and know the refutation.",
+      "drillId": "lat-t1",
+      "explanation": "The refutation of the Latvian is 3.Nxe5!: White simply takes the pawn, and Black's 'attack' collapses before it begins. After 3...Qf6 4.d4 White has the center, the extra pawn, and the safer king — the f5 advance only weakened Black's kingside. Against unsound gambits, taking the material is often the strongest move.",
+      "name": "Taking on e5",
+      "opponentResponse": "f5",
+      "solutionMoves": [
+        "Nf3",
+        "f5",
+        "Nxe5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "2...f5 3.exf5 e4 4.d4! d5 — take, counter in the center, and meet the block.",
+      "description": "White to play. Black is threatening the Latvian 2...f5 — take, meet 3...e4 with 4.d4!, and face 4...d5.",
+      "drillId": "lat-t2",
+      "explanation": "If White took on f5, the strong reply to 3...e4 is 4.d4! — counterattacking in the center rather than retreating the knight to its doom. The d-pawn challenges e4's support, opens lines for White's bishops, and turns Black's wedge into a weakness. Central counterplay is the universal solvent for flank gambits.",
+      "name": "The d4 Counter",
+      "opponentResponse": "d4",
+      "solutionMoves": [
+        "f5",
+        "exf5",
+        "e4",
+        "d4",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2"
+    }
+  ],
+  "id": "latvian-gambit-tacticals",
+  "name": "Latvian Gambit — White Tactics"
+}

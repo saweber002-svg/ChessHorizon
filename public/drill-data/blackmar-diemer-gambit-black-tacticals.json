@@ -1,0 +1,52 @@
+{
+  "arena": "scandinavian-defense",
+  "description": "2 tactical challenges for Black against the Blackmar-Diemer Gambit. Decline with 4...e3! or take and develop with tempo.",
+  "drills": [
+    {
+      "briefExplanation": "2...dxe4 3.Nc3 Nf6 4.f3 e3! — return the pawn to wreck White's structure.",
+      "description": "Black to play. White offers the BDG with 2.e4 — take and prepare the e3 counter.",
+      "drillId": "bdg-bt1",
+      "explanation": "The Lemberger counter to the BDG: after 2...dxe4 3.Nc3 Nf6, White's 4.f3 is met by 4...e3! — Black returns the pawn to shatter White's kingside structure. White can't take (5.Bxe3?? Ng4 wins), and the e3 wedge cramps White's whole game. The gambiteer becomes the gambited.",
+      "name": "The e3 Wedge",
+      "opponentResponse": "f3",
+      "solutionMoves": [
+        "dxe4",
+        "Nc3",
+        "Nf6",
+        "f3",
+        "e3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2"
+    },
+    {
+      "briefExplanation": "4...exf3 5.Nxf3 Bg4 6.Qd2 Nc6 — take, pin, and develop with tempo on the queen.",
+      "description": "Black to play. White sacrificed 4.f3 — take and pin the knight at once.",
+      "drillId": "bdg-bt2",
+      "explanation": "The Teichmann defense: accept with 4...exf3, and after 5.Nxf3 develop with tempo via 5...Bg4!, pinning the knight. After 6.Qd2 Nc6 Black is a pawn up with easy development — White's 'attack' has no target, and Black's extra pawn will tell in the endgame. Take the material, then develop faster than the attack.",
+      "name": "Take and Pin",
+      "opponentResponse": "Nxf3",
+      "solutionMoves": [
+        "exf3",
+        "Nxf3",
+        "Bg4",
+        "Qd2",
+        "Nc6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/8/3Pp3/2N2P2/PPP3PP/R1BQKBNR b KQkq - 0 4"
+    }
+  ],
+  "id": "blackmar-diemer-gambit-black-tacticals",
+  "name": "Blackmar-Diemer Gambit — Black Tactics"
+}

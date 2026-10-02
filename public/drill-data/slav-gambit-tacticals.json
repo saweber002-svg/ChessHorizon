@@ -1,0 +1,52 @@
+{
+  "arena": "slav-exchange",
+  "description": "2 tactical challenges for White in the Slav Gambit. Play 4.e4! and attack the c4 pawn's defenders.",
+  "drills": [
+    {
+      "briefExplanation": "4.e4! b5 5.a4! b4 6.Nb5 — the Slav Gambit: space and initiative for the pawn.",
+      "description": "White to play. Black took on c4 — strike with the Slav Gambit 4.e4!.",
+      "drillId": "sl-t1",
+      "explanation": "The Slav Gambit: White sacrifices the c-pawn for a mobile center and fast development. After 4.e4! b5 5.a4! b4 6.Nb5 White undermines the queenside and lands a knight on a superb outpost — eyeing c7 and d6. Black's extra pawn is hard to keep; White's initiative plays itself.",
+      "name": "The e4 Strike",
+      "opponentResponse": "b5",
+      "solutionMoves": [
+        "e4",
+        "b5",
+        "a4",
+        "b4",
+        "Nb5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pp2pppp/2p5/8/2pP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4"
+    },
+    {
+      "briefExplanation": "4.e4! b5 5.a4! bxa4 6.Rxa4 — undermine, trade, and win the pawn back with tempo.",
+      "description": "White to play. Play 4.e4! and win the pawn back after 4...b5.",
+      "drillId": "sl-t2",
+      "explanation": "The concrete answer to 4...b5: 5.a4! undermines at once, and after 5...bxa4 White plays 6.Rxa4 — winning the pawn back with tempo down the open file. Black's queenside is loosened, the rook is actively placed, and the 'gambit' cost Black time and structure. Undermine pawn chains at their base.",
+      "name": "Winning It Back",
+      "opponentResponse": "bxa4",
+      "solutionMoves": [
+        "e4",
+        "b5",
+        "a4",
+        "bxa4",
+        "Rxa4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Key idea",
+      "fen": "rnbqkbnr/pp2pppp/2p5/8/2pP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4"
+    }
+  ],
+  "id": "slav-gambit-tacticals",
+  "name": "Slav Gambit — White Tactics"
+}

@@ -1,0 +1,50 @@
+{
+  "arena": "dutch-leningrad",
+  "description": "2 tactical challenges for Black against the Krejcik Gambit. Counter 2.g4 with 2...d5! or take and hold the pawn.",
+  "drills": [
+    {
+      "briefExplanation": "1...f5 2.g4 d5! — play the Dutch and meet the flank push with a central counter.",
+      "description": "Black to play. White is threatening the Krejcik 2.g4 — play 1...f5 and be ready with 2...d5!.",
+      "drillId": "kr-bt1",
+      "explanation": "The central antidote: after 1...f5 2.g4, Black ignores the wing and plays 2...d5! — striking in the center. White's g4 push now looks silly: the center is Black's, the g-pawn is overextended, and Black will develop with ...Nf6 and ...e6. Meet flank attacks with central breaks — always.",
+      "name": "The d5 Counter",
+      "opponentResponse": "g4",
+      "solutionMoves": [
+        "f5",
+        "g4",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq - 0 1"
+    },
+    {
+      "briefExplanation": "2...fxg4 3.e4 d5! — take the pawn, then strike in the center before White consolidates.",
+      "description": "Black to play. White played the Krejcik 2.g4 — take and counter with 3...d5!.",
+      "drillId": "kr-bt2",
+      "explanation": "The greedy-and-solid defense: take with 2...fxg4, and after 3.e4 strike 3...d5! — opening the center while White's kingside is loose. After 4.exd5 Qxd5 Black is a pawn up with a centralized queen; White's g4 'sacrifice' only weakened the kingside. Take the material, then play in the center.",
+      "name": "Take and Break",
+      "opponentResponse": "e4",
+      "solutionMoves": [
+        "fxg4",
+        "e4",
+        "d5",
+        "exd5",
+        "Qxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Best defense",
+      "fen": "rnbqkbnr/ppppp1pp/8/5p2/3P2P1/8/PPP1PP1P/RNBQKBNR b KQkq - 0 2"
+    }
+  ],
+  "id": "krejcik-gambit-black-tacticals",
+  "name": "Krejcik Gambit — Black Tactics"
+}
