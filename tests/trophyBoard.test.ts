@@ -88,19 +88,14 @@ describe('individual piece identity', () => {
 });
 
 describe('getKingdomDrills', () => {
-  it('returns the nine Italian variations (orphan Italian-family packs included)', () => {
+  it('returns the four Italian variations (demoted tactics excluded)', () => {
     const drills = getKingdomDrills('italian');
     expect(drills.map((d) => d.drillFileId).sort()).toEqual(
       [
-        'evans-gambit-main',
-        'fried-liver-attack-main',
         'giuoco-pianissimo-main',
         'giuoco-piano-main',
         'greco-counter-attack-main',
-        'moeller-attack-main',
-        'traxler-counter-attack-main',
         'two-knights-main',
-        'ulvestad-variation-main',
       ].sort()
     );
     expect(drills.every((d) => d.openingId === 'italian')).toBe(true);

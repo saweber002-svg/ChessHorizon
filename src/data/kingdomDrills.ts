@@ -13,13 +13,30 @@ export interface KingdomDrill {
 }
 
 /**
+ * Variations that the tactical catalog reclassifies as TACTICS rather than
+ * standalone openings. Their drill packs stay in the registry (reachable via
+ * the tactic selection flow), but they get no kingdom-interior node, no castle
+ * marker, and no castle icon — tactics are a selection screen after completing
+ * a parent opening drill, never atlas destinations of their own.
+ */
+export const DEMOTED_TACTIC_VARIATION_IDS: ReadonlySet<string> = new Set([
+  'evans-gambit',
+  'fried-liver-attack',
+  'traxler-counter-attack',
+  'ulvestad-variation',
+  'moeller-attack',
+  'dutch-staunton-gambit',
+  'scandinavian-icelandic-gambit',
+]);
+
+/**
  * Every drillable opening inside a kingdom, in display order.
  * Mirrors the mapping previously embedded in KingdomPanel so the atlas panel
  * and the kingdom interior view stay in sync.
  */
 export function getKingdomDrills(kingdom: KingdomId): KingdomDrill[] {
   if (kingdom === 'italian') {
-    return ITALIAN_DRILL_VARIATIONS.map((v) => ({
+    return ITALIAN_DRILL_VARIATIONS.filter((v) => !DEMOTED_TACTIC_VARIATION_IDS.has(v.variationId)).map((v) => ({
       drillFileId: v.drillFileId,
       openingId: 'italian',
       variationId: v.variationId,
@@ -56,7 +73,10 @@ export function getKingdomDrills(kingdom: KingdomId): KingdomDrill[] {
   const openingId = kingdom;
 
   return DRILLS.filter(
-    (d) => d.id.endsWith('-main') && prefixes.some((p) => d.id.startsWith(p))
+    (d) =>
+      d.id.endsWith('-main') &&
+      !DEMOTED_TACTIC_VARIATION_IDS.has(d.id.replace(/-main$/, '')) &&
+      prefixes.some((p) => d.id.startsWith(p))
   ).map((d) => ({
     drillFileId: d.id,
     openingId,

@@ -19,10 +19,10 @@ describe('builtinSparKingdoms', () => {
     ]);
   });
 
-  it('includes every built-in main-line pack exactly once (48 openings)', () => {
+  it('includes every non-demoted built-in main-line pack exactly once (42 openings)', () => {
     const ids = groups.flatMap((g) => g.openings.map((o) => o.drillFileId));
-    expect(ids).toHaveLength(48);
-    expect(new Set(ids).size).toBe(48);
+    expect(ids).toHaveLength(42);
+    expect(new Set(ids).size).toBe(42);
     expect(ids.every((id) => id.endsWith('-main'))).toBe(true);
     expect(ids.every((id) => ALL_DRILL_FILE_IDS.includes(id))).toBe(true);
   });
@@ -37,12 +37,16 @@ describe('builtinSparKingdoms', () => {
     }
   });
 
-  it('files the sharp Italian lines under Italy', () => {
+  it('files the remaining Italian lines under Italy (demoted tactics excluded)', () => {
     const italy = groups.find((g) => g.kingdomId === 'italian');
     const ids = italy?.openings.map((o) => o.drillFileId) ?? [];
-    expect(ids).toContain('traxler-counter-attack-main');
-    expect(ids).toContain('fried-liver-attack-main');
     expect(ids).toContain('two-knights-main');
-    expect(ids).toContain('evans-gambit-main');
+    expect(ids).toContain('giuoco-piano-main');
+    // Reclassified as tactics: no interior node, no spar entry.
+    expect(ids).not.toContain('traxler-counter-attack-main');
+    expect(ids).not.toContain('fried-liver-attack-main');
+    expect(ids).not.toContain('evans-gambit-main');
+    expect(ids).not.toContain('ulvestad-variation-main');
+    expect(ids).not.toContain('moeller-attack-main');
   });
 });
