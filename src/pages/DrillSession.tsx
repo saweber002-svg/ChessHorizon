@@ -22,7 +22,8 @@ import {
   type DrillPack,
   type DrillLine,
 } from '@/lib/drillLoader';
-import { hasTacticalDrills, hasPuzzleDrills, isTacticalPackId, TACTICAL_FILE_IDS } from '@/data/drillRegistry';
+import { hasTacticalDrills, hasPuzzleDrills, isTacticalPackId } from '@/data/drillRegistry';
+import { tacticsListedUnder } from '@/data/tacticalVariations';
 import { isQuarantinedTacticalFileId } from '@/data/quarantinedTacticalRegistry';
 import {
   analyzeDeviation,
@@ -795,6 +796,11 @@ hapticSuccess();
                   <div className="font-semibold text-white group-hover:text-[#00f5d4]">
                     {tactic.name}
                   </div>
+                  {tactic.leadInMoves && tactic.leadInMoves.length > 0 && (
+                    <div className="text-xs text-white/40 mt-1">
+                      From: {tactic.leadInMoves.join(' ')}
+                    </div>
+                  )}
                   {tactic.description && (
                     <div className="text-sm text-white/60 mt-1 line-clamp-2">
                       {tactic.description}
@@ -949,14 +955,11 @@ hapticSuccess();
                       >
                         <Swords size={18} /> Play vs Computer
                       </button>
-                      {drillFileId.endsWith('-main') && hasTacticalDrills(variationId) && (
+                      {drillFileId.endsWith('-main') && (hasTacticalDrills(variationId) || tacticsListedUnder(variationId).length > 0) && (
                         <button
                           onClick={() => {
-                            const t1 = `${variationId}-tacticals`;
-                            const t2 = `${variationId}-black-tacticals`;
-                            const tacticalDrillId = TACTICAL_FILE_IDS.includes(t1) ? t1 : t2;
                             setLocation(
-                              `/drill-session/${tacticalDrillId}?opening=${openingId}&variation=${variationId}`
+                              `/tactics/${variationId}?opening=${openingId}`
                             );
                           }}
                           className="px-4 py-3 rounded-xl bg-[#f5a623] text-[#0a0a1f] font-bold hover:bg-[#e5941a] transition-colors"

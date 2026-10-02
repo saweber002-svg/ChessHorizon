@@ -133,3 +133,33 @@ describe('tactic gating', () => {
     }
   });
 });
+
+describe('tactic selection helpers', () => {
+  it('prestigeSourceVariationId walks through tactic parents to the opening', async () => {
+    const { prestigeSourceVariationId, GATE_TIER_NAMES } = await import('@/data/tacticalVariations');
+    // Sub-tactic -> parent tactic -> opening
+    expect(prestigeSourceVariationId('fried-liver-bb3-deviation')).toBe('two-knights');
+    expect(prestigeSourceVariationId('ulvestad-cxd4-deviation')).toBe('two-knights');
+    // Tactic -> opening (single step)
+    expect(prestigeSourceVariationId('traxler-counter-attack')).toBe('two-knights');
+    // Opening -> itself
+    expect(prestigeSourceVariationId('two-knights')).toBe('two-knights');
+    expect(prestigeSourceVariationId('giuoco-piano')).toBe('giuoco-piano');
+    // Tier names
+    expect(GATE_TIER_NAMES[1]).toBe('Novice');
+    expect(GATE_TIER_NAMES[2]).toBe('Apprentice');
+    expect(GATE_TIER_NAMES[3]).toBe('Journeyman');
+  });
+
+  it('demoted tactics are listed under their parent openings', async () => {
+    const { tacticsListedUnder } = await import('@/data/tacticalVariations');
+    const twoKnights = tacticsListedUnder('two-knights').map((t) => t.id);
+    expect(twoKnights).toContain('traxler-counter-attack');
+    expect(twoKnights).toContain('fried-liver-attack');
+    expect(twoKnights).toContain('ulvestad-variation');
+    expect(twoKnights).toContain('max-lange-attack');
+    const giuoco = tacticsListedUnder('giuoco-piano').map((t) => t.id);
+    expect(giuoco).toContain('evans-gambit');
+    expect(giuoco).toContain('moeller-attack');
+  });
+});

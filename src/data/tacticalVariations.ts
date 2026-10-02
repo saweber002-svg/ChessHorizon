@@ -184,3 +184,28 @@ export function lockedTacticsUnder(
 export function orphanTactics(): TacticalVariation[] {
   return TACTICAL_VARIATIONS.filter((t) => t.parents.length === 0);
 }
+
+/**
+ * Find the prestige-source variation for gating: walk up the parents chain
+ * until we hit an opening (a variation id that is not itself a tactic).
+ * Used by the tactic selection UI to look up the correct (openingId,
+ * variationId) prestige tiers for sub-tactics nested under tactics.
+ */
+export function prestigeSourceVariationId(variationId: string): string {
+  let current = variationId;
+  const seen = new Set<string>();
+  while (getTacticalVariation(current) && !seen.has(current)) {
+    seen.add(current);
+    const parents = getTacticalVariation(current)!.parents;
+    if (parents.length === 0) break; // orphan — no prestige source
+    current = parents[0];
+  }
+  return current;
+}
+
+/** Tier display names for gate badges and lock messages. */
+export const GATE_TIER_NAMES: Record<TacticGateTier, string> = {
+  1: 'Novice',
+  2: 'Apprentice',
+  3: 'Journeyman',
+};
