@@ -124,7 +124,9 @@ export function clampCamera(v: FitView, cAspect: number = 1): FitView {
   const yZoom = v.zoom * cAspect;
   const loY = 50 / yZoom;
   const hiY = MAP_H - 50 / yZoom;
-  const cy = Math.min(Math.max(v.centerY, loY), hiY);
+  // If the whole map height fits in view (portrait / zoomed out), center it
+  // instead of clamping to an inverted range.
+  const cy = loY > hiY ? MAP_H / 2 : Math.min(Math.max(v.centerY, loY), hiY);
   if (cx === v.centerX && cy === v.centerY) return v;
   return { zoom: v.zoom, centerX: cx, centerY: cy };
 }
@@ -158,30 +160,46 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
   // Baked interior texture when available; falls back to the main atlas.
   const interiorUrl = INTERIOR_TEXTURE_URL(kingdom);
   const mapUrl = interiorUrl ?? ATLAS_MAP_URL;
-  // Baked interiors are 1170×1054; the main atlas is 1170×1170.
-  const mapAspect = interiorUrl ? '1170 / 1054' : '1170 / 1170';
-  const mapAspectNum = interiorUrl ? 1170 / 1054 : 1;
+  // All interior textures and the main atlas are square (1:1).
+  const mapAspect = '1 / 1';
+  const mapAspectNum = 1;
 
-  // Interactive camera: starts fitted to the castle bounding box (capped at
-  // the close-up zoom) and clamped so we never show past the map edges.
-  // Pinch/wheel zoom bottoms out at the fitted zoom so every castle stays
-  // reachable; icons stay a constant on-screen size via castleIconPx.
+  // Interactive camera: starts zoomed in on the castles, clamped so the
+  // image always fills the screen (no black bars). minZoom is the fill zoom.
   const fit = useMemo(
     () => fitCastlesView(castles.map((c) => ({ x: c.mx, y: c.my }))),
     [castles],
   );
-  const [view, setView] = useState<FitView>(fit);
+
+  // Fill zoom: the minimum zoom where the square image covers the container.
+  // For portrait (cAspect < 1), height is the constraint: zoom >= 1/cAspect.
+  // For landscape, width is the constraint: zoom >= 1.
+  const fillZoom = useMemo(() => {
+    const cAspect = size.w > 0 && size.h > 0 ? size.w / size.h : 1;
+    return Math.max(1, 1 / cAspect);
+  }, [size]);
+
+  // Start zoomed in: fill zoom plus a bit, centered on the castles.
+  const initialView = useMemo(
+    () => ({
+      zoom: Math.min(INTERIOR_MAX_ZOOM, fillZoom * 1.4),
+      centerX: fit.centerX,
+      centerY: fit.centerY,
+    }),
+    [fit, fillZoom],
+  );
+  const [view, setView] = useState<FitView>(initialView);
   useEffect(() => {
-    setView(fit);
-  }, [fit]);
+    setView(initialView);
+  }, [initialView]);
   const sizeRef = useRef(size);
   useEffect(() => {
     sizeRef.current = size;
   }, [size]);
-  const fitZoomRef = useRef(fit.zoom);
+  const minZoomRef = useRef(fillZoom);
   useEffect(() => {
-    fitZoomRef.current = fit.zoom;
-  }, [fit.zoom]);
+    minZoomRef.current = fillZoom;
+  }, [fillZoom]);
 
   const mapOffset = useMemo(() => {
     // Vertical % refers to container height, horizontal to width — scale the
@@ -192,9 +210,13 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
     const rawT = 50 - yZoom * view.centerY;
     const minL = 100 - view.zoom * 100;
     const minT = 100 - (view.zoom * 100 * cAspect) / mapAspectNum;
+    // On portrait/mobile, bottom-align the map when it doesn't fill the
+    // container vertically (minT > 0) so the image sits on the screen bottom.
+    const top =
+      cAspect < 1 && minT > 0 ? minT : Math.min(0, Math.max(minT, rawT));
     return {
       left: Math.min(0, Math.max(minL, rawL)),
-      top: Math.min(0, Math.max(minT, rawT)),
+      top,
     };
   }, [view, size, mapAspectNum]);
 
@@ -311,7 +333,7 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
     const fyPct = (p.y / p.h) * 100;
     const { w, h } = sizeRef.current;
     const cAspect = w > 0 && h > 0 ? w / h : 1;
-    setView((v) => clampCamera(zoomCamera(v, fitZoomRef.current, factor, fxPct, fyPct, cAspect), cAspect));
+    setView((v) => clampCamera(zoomCamera(v, minZoomRef.current, factor, fxPct, fyPct, cAspect), cAspect));
   }, [toLocal]);
 
   const markMoved = useCallback((x: number, y: number) => {
@@ -403,7 +425,7 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
       const factor = Math.exp(-e.deltaY * 0.0015);
       const r = el.getBoundingClientRect();
       const cAspect = r.width > 0 && r.height > 0 ? r.width / r.height : 1;
-      setView((v) => clampCamera(zoomCamera(v, fitZoomRef.current, factor, fxPct, fyPct, cAspect), cAspect));
+      setView((v) => clampCamera(zoomCamera(v, minZoomRef.current, factor, fxPct, fyPct, cAspect), cAspect));
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
@@ -476,7 +498,7 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
           const fyPct = (my / r.height) * 100;
           const cAspect = r.width > 0 && r.height > 0 ? r.width / r.height : 1;
           setViewClamped((v) =>
-            zoomCamera(v, fitZoomRef.current, dist / pinchDist, fxPct, fyPct, cAspect),
+            zoomCamera(v, minZoomRef.current, dist / pinchDist, fxPct, fyPct, cAspect),
           );
           setViewClamped((v) => panCamera(v, mx - pinchMx, my - pinchMy, r.width, r.height));
         }

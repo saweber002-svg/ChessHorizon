@@ -220,7 +220,7 @@ export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
   sicilian: { x: 56.5, y: 75.5 },
   english: { x: 32.2, y: 40.5 },
   scandinavian: { x: 63.5, y: 22.5 },
-  queendom: { x: 62.0, y: 50.0 },
+  queendom: { x: 46.0, y: 48.5 },
   french: { x: 35.5, y: 53.0 },
   dutch: { x: 44.2, y: 39.0 },
   germany: { x: 56.0, y: 44.0 },
