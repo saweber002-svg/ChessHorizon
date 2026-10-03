@@ -2,29 +2,27 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star } from 'lucide-react';
 import type { KingdomId } from '@/types';
-import { KINGDOM_POSITIONS, getTierColor } from '@/types';
+import { KINGDOM_POSITIONS } from '@/types';
 import { MAP_LOCATIONS } from '@/data/mapLocations';
 import { getKingdomDrills, type KingdomDrill } from '@/data/kingdomDrills';
 import { castleIconPx, MARKER_DESIGN_W, MOBILE_MARKER_BOOST, MOBILE_ICON_BREAKPOINT } from './atlasCamera';
 import {
   CASTLE_BY_VARIATION,
-  CASTLE_MIN_SEPARATION,
-  MAP_ASPECT,
   MAP_H,
-  declutterPositions,
   fitCastlesView,
-  latLngToMap,
   type CastleLocation,
   type FitView,
 } from '@/data/castleLocations';
 import { useProgress } from '@/contexts/ProgressContext';
 import { REALM_TOTAL_MOVES } from '@/data/realmDrillTotals';
 
-const ATLAS_MAP_URL = `${import.meta.env.BASE_URL}atlas/atlas-map.webp`;
-const CASTLE_ICON_URL = (variationId: string) =>
-  `${import.meta.env.BASE_URL}atlas/icons/castles/${variationId}.webp`;
-const KINGDOM_ICON_URL = (kingdom: KingdomId) =>
-  `${import.meta.env.BASE_URL}atlas/icons/${kingdom}.webp`;
+import {
+  INTERIOR_CASTLE_SPOTS,
+  INTERIOR_TEXTURE_URL,
+  MAIN_ATLAS_CASTLE_SPOTS,
+} from '@/data/interiorCastleSpots';
+
+const ATLAS_MAP_URL = `${import.meta.env.BASE_URL}atlas/atlas-map.webp`; // fallback for kingdoms without a baked interior
 
 /** Furthest the interior camera may zoom in (map units per screen width). */
 const INTERIOR_MAX_ZOOM = 8;
@@ -40,22 +38,42 @@ interface CastleSpot {
 }
 
 /**
- * Places one castle per opening at its true geographic location on the baked
- * atlas, with a deterministic de-collision pass so dense clusters (Sicily,
- * the London set) stay legible.
+ * Castle positions for the interior view.
+ *
+ * Kingdoms with a baked interior texture use the hand-mapped spots from
+ * interiorCastleSpots.ts (the castles are baked into the art). Kingdoms
+ * without one (scandinavian) fall back to true geographic positions on
+ * the main atlas.
  */
 function trueCastleSpots(kingdom: KingdomId, drills: KingdomDrill[]): CastleSpot[] {
+  const baked = INTERIOR_CASTLE_SPOTS[kingdom as keyof typeof INTERIOR_CASTLE_SPOTS];
+  if (baked) {
+    const byId = new Map(baked.map((s) => [s.variationId, s]));
+    const fallback = KINGDOM_POSITIONS[kingdom];
+    return drills.map((drill) => {
+      const spot = byId.get(drill.variationId);
+      const castle = CASTLE_BY_VARIATION[drill.variationId] ?? null;
+      return {
+        drill,
+        castle,
+        mx: spot ? spot.x : fallback.x,
+        my: spot ? spot.y : fallback.y,
+      };
+    });
+  }
+  // Fallback: main-atlas positions for kingdoms without a baked interior.
+  const mainAtlas = new Map(MAIN_ATLAS_CASTLE_SPOTS.map((s) => [s.variationId, s]));
   const fallback = KINGDOM_POSITIONS[kingdom];
-  const raw = drills.map((drill) => {
+  return drills.map((drill) => {
+    const spot = mainAtlas.get(drill.variationId);
     const castle = CASTLE_BY_VARIATION[drill.variationId] ?? null;
-    const p = castle ? latLngToMap(castle.lat, castle.lng) : fallback;
-    return { drill, castle, mx: p.x, my: p.y };
+    return {
+      drill,
+      castle,
+      mx: spot ? spot.x : fallback.x,
+      my: spot ? spot.y : fallback.y,
+    };
   });
-  const decluttered = declutterPositions(
-    raw.map((r) => ({ x: r.mx, y: r.my })),
-    CASTLE_MIN_SEPARATION,
-  );
-  return raw.map((r, i) => ({ ...r, mx: decluttered[i].x, my: decluttered[i].y }));
 }
 
 /**
@@ -137,6 +155,13 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
   const drills = useMemo(() => getKingdomDrills(kingdom), [kingdom]);
   const castles = useMemo(() => trueCastleSpots(kingdom, drills), [kingdom, drills]);
 
+  // Baked interior texture when available; falls back to the main atlas.
+  const interiorUrl = INTERIOR_TEXTURE_URL(kingdom);
+  const mapUrl = interiorUrl ?? ATLAS_MAP_URL;
+  // Baked interiors are 1170×1054; the main atlas is 1170×1170.
+  const mapAspect = interiorUrl ? '1170 / 1054' : '1170 / 1170';
+  const mapAspectNum = interiorUrl ? 1170 / 1054 : 1;
+
   // Interactive camera: starts fitted to the castle bounding box (capped at
   // the close-up zoom) and clamped so we never show past the map edges.
   // Pinch/wheel zoom bottoms out at the fitted zoom so every castle stays
@@ -166,12 +191,12 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
     const rawL = 50 - view.zoom * view.centerX;
     const rawT = 50 - yZoom * view.centerY;
     const minL = 100 - view.zoom * 100;
-    const minT = 100 - (view.zoom * 100 * cAspect) / MAP_ASPECT;
+    const minT = 100 - (view.zoom * 100 * cAspect) / mapAspectNum;
     return {
       left: Math.min(0, Math.max(minL, rawL)),
       top: Math.min(0, Math.max(minT, rawT)),
     };
-  }, [view, size]);
+  }, [view, size, mapAspectNum]);
 
   const toScreen = (mx: number, my: number) => {
     const cAspect = size.w > 0 && size.h > 0 ? size.w / size.h : 1;
@@ -548,10 +573,10 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
         className="absolute cursor-grab active:cursor-grabbing"
         style={{
           width: `${view.zoom * 100}%`,
-          aspectRatio: '1170 / 1023',
+          aspectRatio: mapAspect,
           left: `${mapOffset.left}%`,
           top: `${mapOffset.top}%`,
-          backgroundImage: `url(${ATLAS_MAP_URL})`,
+          backgroundImage: `url(${mapUrl})`,
           backgroundSize: '100% 100%',
           backgroundRepeat: 'no-repeat',
         }}
@@ -563,9 +588,8 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
       {castles.map(({ drill, castle, mx, my }, i) => {
         const pos = toScreen(mx, my);
         const prog = variationProgress.get(drill.drillFileId) ?? { stars: 0, tier: 0 };
-        const tierColor = getTierColor(prog.tier as 0 | 1 | 2 | 3 | 4);
         const castleName = castle ? `${castle.castle}, ${castle.place}` : drill.label;
-        // The icon itself is anchored on the castle's map position; the
+        // The (invisible) hit area is anchored on the castle's map position; the
         // label floats below or above it per the screen-space culling pass.
         const place = labelPlacement.get(drill.drillFileId);
         return (
@@ -587,28 +611,11 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
                 top: -iconPx / 2,
               }}
               aria-label={`${drill.label} at ${castleName}. ${prog.stars} stars.`}
+              title={drill.label}
             >
-              <div
-                className="relative w-full h-full rounded-full overflow-hidden border-2 transition-transform group-hover:scale-110 group-active:scale-95"
-                style={{
-                  borderColor: tierColor,
-                  boxShadow: `0 0 24px ${tierColor}66, 0 4px 16px rgba(0,0,0,0.6)`,
-                }}
-              >
-                <img
-                  src={CASTLE_ICON_URL(drill.variationId)}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  draggable={false}
-                  onError={(e) => {
-                    const t = e.currentTarget;
-                    if (!t.dataset.fbk) {
-                      t.dataset.fbk = '1';
-                      t.src = KINGDOM_ICON_URL(kingdom);
-                    }
-                  }}
-                />
-              </div>
+              {/* Invisible hit area — the castle is baked into the map texture.
+                  The label pill below remains the visible tag. */}
+              <div className="absolute inset-0 rounded-full group-hover:bg-white/10 transition-colors" />
               {place && (
                 <div
                   className="absolute left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-[#0a0a1f]/85 backdrop-blur border border-white/10 text-center whitespace-nowrap"

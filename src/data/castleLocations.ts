@@ -103,8 +103,8 @@ export const CASTLE_BY_VARIATION: Record<string, CastleLocation> = Object.fromEn
 // so the image renders undistorted. The affine fit below maps real lat/lng to
 // file fractions, converted to this coordinate space.
 
-export const MAP_ASPECT = 1170 / 1023;
-export const MAP_H = 100 / MAP_ASPECT; // ~87.43
+export const MAP_ASPECT = 1170 / 1170;
+export const MAP_H = 100 / MAP_ASPECT; // 100 (square atlas)
 // Affine coefficients below were refit 2026-10-01 by least squares on 8 city
 // anchors pin-pointed on this exact image (London, Paris, Madrid, Rome,
 // Berlin, Vienna, Amsterdam, Copenhagen). Residuals: max 2.8 map units

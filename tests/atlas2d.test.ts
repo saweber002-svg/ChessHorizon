@@ -58,12 +58,12 @@ describe('atlas camera math', () => {
 
   it('creates a portrait initial viewBox clamped inside the world', () => {
     const vb = createInitialViewBox(0.5);
-    // Portrait: INITIAL_W (24) is smaller than maxViewW (39.72), so w=24.
+    // Portrait: INITIAL_W (24) is smaller than maxViewW (46), so w=24.
     expect(vb.w).toBeCloseTo(24, 1);
     expect(vb.h).toBeCloseTo(48, 1);
     expect(vb.x).toBeCloseTo(48 - vb.w / 2, 10);
-    // y gets clamped: 58-24=34 would put vb.y+48=82 above the viewable world (79.42).
-    expect(vb.y).toBeCloseTo(31.44, 0);
+    // y gets clamped: 58-24=34 keeps vb.y+48=82 inside the viewable world (92).
+    expect(vb.y).toBeCloseTo(34, 0);
   });
 
   it('pans the camera so content follows the pointer', () => {
@@ -100,11 +100,11 @@ describe('atlas camera math', () => {
   });
 
   it('limits zoom-out so the map always covers the viewport', () => {
-    // Widescreen map (100 x 57.14): height binds when aspect < 1.75.
+    // Square map (100 x 100): height binds when aspect < 1.09.
     expect(maxViewW(16 / 10)).toBeCloseTo(100, 1);
     expect(maxViewW(2.5)).toBe(100);
-    expect(maxViewW(0.5)).toBeCloseTo(39.72, 1);
-    expect(maxViewW(1)).toBeCloseTo(79.44, 1);
+    expect(maxViewW(0.5)).toBeCloseTo(46, 1);
+    expect(maxViewW(1)).toBeCloseTo(92, 1);
     // Degenerate aspect never blows up the camera.
     expect(maxViewW(0)).toBe(100);
     expect(maxViewW(-3)).toBe(100);
@@ -115,7 +115,7 @@ describe('atlas camera math', () => {
     // Dragging far up-left shoves the camera to the bottom-right world edges.
     const next = panViewBox(vb, -100000, -100000, 1600, 1000, ASPECT);
     expect(next.x + next.w).toBe(100);
-    expect(next.y + next.h).toBeCloseTo(79.44, 1);
+    expect(next.y + next.h).toBeCloseTo(92, 1);
     // Dragging far down-right shoves it to the top-left edges.
     const other = panViewBox(vb, 100000, 100000, 1600, 1000, ASPECT);
     expect(other.x).toBe(0);
@@ -232,7 +232,7 @@ describe('atlas marker data', () => {
   });
 
   it('coaching sits in the Baltic Sea (Scott-placed, slice 22)', () => {
-    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 67.6, y: 28.6 });
+    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 68, y: 30 });
   });
 
   it('keeps every pair of realm markers at least 5 world units apart', () => {

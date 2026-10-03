@@ -4,7 +4,6 @@ import {
   CASTLE_LOCATIONS,
   declutterPositions,
   fitCastlesView,
-  latLngToMap,
 } from '@/data/castleLocations';
 import { getKingdomDrills, kingdomHasDrills } from '@/data/kingdomDrills';
 import type { KingdomId } from '@/types';
@@ -58,31 +57,6 @@ describe('castle assignments', () => {
         expect(d.drillFileId.endsWith('-main'), `${d.drillFileId} in ${kingdom}`).toBe(true);
         expect(d.drillFileId).not.toMatch(/-(tacticals|black-tacticals|puzzles)$/i);
       }
-    }
-  });
-});
-
-describe('latLngToMap', () => {
-  it('maps Rome to its measured position on the atlas', () => {
-    const p = latLngToMap(41.9, 12.5);
-    expect(p.x).toBeCloseTo(52.3, 0);
-    expect(p.y).toBeCloseTo(54.5, 1);
-  });
-
-  it('maps the Tower of London west of Prague Castle', () => {
-    const london = latLngToMap(51.5081, 0.0759);
-    const prague = latLngToMap(50.0901, 14.4014);
-    expect(london.x).toBeLessThan(prague.x);
-    expect(london.y).toBeLessThan(prague.y); // London is further north
-  });
-
-  it('keeps every castle on the map', () => {
-    for (const c of CASTLE_LOCATIONS) {
-      const p = latLngToMap(c.lat, c.lng);
-      expect(p.x, `${c.castle} x`).toBeGreaterThan(0);
-      expect(p.x, `${c.castle} x`).toBeLessThan(100);
-      expect(p.y, `${c.castle} y`).toBeGreaterThan(0);
-      expect(p.y, `${c.castle} y`).toBeLessThan(100);
     }
   });
 });

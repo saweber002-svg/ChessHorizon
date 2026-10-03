@@ -210,28 +210,23 @@ export function reconcileUnlocks(
 }
 
 export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
-  // Measured on Scott's Age of Exploration atlas map (1170x1023), 2026-10-01.
-  // y is in 0-MAP_H space (~87.42) so the image renders undistorted.
-  // Geographic kingdoms were pin-pointed with visual grounding against the
-  // artwork (London/Paris/Madrid/Rome/Berlin/Vienna/Amsterdam/Copenhagen/
-  // Barcelona/Lisbon/Naples/Milan as anchors); the castle lat/lng projection
-  // in castleLocations.ts was refit on the same anchors (max residual ~2.8u).
-  // Slice 22 (2026-10-01): per Scott's annotated screenshots — coaching to
-  // the Baltic Sea, clearing to the Danube basin, Sicily pinned to its
-  // island, France nudged down to sit centrally on the country.
-  // `wilderness` is a design placement (Anatolia).
-  italian: { x: 50.5, y: 54.2 },
-  spanish: { x: 25, y: 56.4 },
-  sicilian: { x: 54.9, y: 60.2 },
-  english: { x: 30, y: 29.7 },
-  scandinavian: { x: 58.5, y: 18.4 },
-  queendom: { x: 31, y: 35.4 },
-  french: { x: 35.5, y: 41.5 },
-  dutch: { x: 43.5, y: 35.8 },
-  germany: { x: 52, y: 35 },
-  wilderness: { x: 88, y: 60 },
-  clearing: { x: 62.9, y: 43.9 },
-  coaching: { x: 67.6, y: 28.6 },
+  // Measured on Scott's Age of Exploration atlas (1170x1170 square), 2026-10-03.
+  // Both axes are 0-100. Geographic kingdoms were pin-pointed with visual
+  // grounding against the new artwork. Queendom is offset SE of Germany for
+  // UI separation (Czechia sits inside German territory geographically).
+  // Wilderness/clearing/coaching are design placements.
+  italian: { x: 57.5, y: 64.0 },
+  spanish: { x: 24.0, y: 68.5 },
+  sicilian: { x: 56.5, y: 75.5 },
+  english: { x: 32.2, y: 40.5 },
+  scandinavian: { x: 63.5, y: 22.5 },
+  queendom: { x: 62.0, y: 50.0 },
+  french: { x: 35.5, y: 53.0 },
+  dutch: { x: 44.2, y: 39.0 },
+  germany: { x: 56.0, y: 44.0 },
+  wilderness: { x: 85.0, y: 55.0 },
+  clearing: { x: 58.0, y: 56.0 },
+  coaching: { x: 68.0, y: 30.0 },
 };
 
 export function getTierColor(tier: Tier): string {
