@@ -124,7 +124,9 @@ export function clampCamera(v: FitView, cAspect: number = 1): FitView {
   const yZoom = v.zoom * cAspect;
   const loY = 50 / yZoom;
   const hiY = MAP_H - 50 / yZoom;
-  const cy = Math.min(Math.max(v.centerY, loY), hiY);
+  // If the whole map height fits in view (portrait / zoomed out), center it
+  // instead of clamping to an inverted range.
+  const cy = loY > hiY ? MAP_H / 2 : Math.min(Math.max(v.centerY, loY), hiY);
   if (cx === v.centerX && cy === v.centerY) return v;
   return { zoom: v.zoom, centerX: cx, centerY: cy };
 }
@@ -192,9 +194,13 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
     const rawT = 50 - yZoom * view.centerY;
     const minL = 100 - view.zoom * 100;
     const minT = 100 - (view.zoom * 100 * cAspect) / mapAspectNum;
+    // On portrait/mobile, bottom-align the map when it doesn't fill the
+    // container vertically (minT > 0) so the image sits on the screen bottom.
+    const top =
+      cAspect < 1 && minT > 0 ? minT : Math.min(0, Math.max(minT, rawT));
     return {
       left: Math.min(0, Math.max(minL, rawL)),
-      top: Math.min(0, Math.max(minT, rawT)),
+      top,
     };
   }, [view, size, mapAspectNum]);
 
