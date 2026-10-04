@@ -382,9 +382,7 @@ export function TrophyBoard({
                   className="relative flex items-center justify-center"
                 >
                   {piece && (
-                    <div className="w-full h-full">
-                      {renderPiece(piece, 'w-full h-full')}
-                    </div>
+                    <>{renderPiece(piece, 'w-full h-full')}</>
                   )}
                 </div>
               ))}
