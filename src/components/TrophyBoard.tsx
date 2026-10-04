@@ -245,7 +245,7 @@ export function TrophyBoard({
     const animated = piece.tacticalTier >= 1;
     return (
       <div
-        className={`relative ${sizeClass}${animated ? ' trophy-tactic-anim' : ''}`}
+        className={`${sizeClass}${animated ? ' trophy-tactic-anim' : ''}`}
         title={animated ? `Tactical prestige: ${getTierLabel(piece.tacticalTier)}` : undefined}
         style={{
           opacity,
