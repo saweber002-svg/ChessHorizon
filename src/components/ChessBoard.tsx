@@ -248,9 +248,7 @@ export default function ChessBoard({
 
   const renderGlyph = useCallback(
     (piece: PieceType) => (
-      <div className="w-full h-full">
-        <ThemePiece theme={gameTheme} piece={piece} />
-      </div>
+      <ThemePiece theme={gameTheme} piece={piece} />
     ),
     [gameTheme]
   );
