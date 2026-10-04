@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef, type ReactNode } from 'react';
 import { Chess, type Square, type PieceSymbol, type Color } from 'chess.js';
 import { useTheme } from '@/contexts/ThemeContext';
 import { getPieceSvg } from '@/components/pieceStyles';
@@ -19,6 +19,111 @@ const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as const;
 const RANKS = ['8', '7', '6', '5', '4', '3', '2', '1'] as const;
 
 type PieceType = `${Color}${PieceSymbol}`;
+
+/** How long a piece slide animation runs (ms). */
+const ANIM_MS = 220;
+
+interface AnimStep {
+  from: Square;
+  to: Square;
+  /** The glyph that slides. For promotions this is the pawn; the static
+   *  board shows the promoted piece once the slide finishes. */
+  piece: PieceType;
+}
+
+/**
+ * Diff two square->piece maps and, when the change looks like a single
+ * chess move (normal move, capture, castling, en passant, promotion),
+ * return the piece slides to animate. Anything else (position reset,
+ * multi-ply undo, initial load) returns null so the board teleports
+ * exactly as before.
+ */
+function diffToSteps(
+  prev: Map<string, PieceType>,
+  next: Map<string, PieceType>
+): AnimStep[] | null {
+  const removed: { square: Square; piece: PieceType }[] = [];
+  const added: { square: Square; piece: PieceType }[] = [];
+  for (const [sq, p] of prev) {
+    if (next.get(sq) !== p) removed.push({ square: sq as Square, piece: p });
+  }
+  for (const [sq, p] of next) {
+    if (prev.get(sq) !== p) added.push({ square: sq as Square, piece: p });
+  }
+  // A single move touches at most 2 squares each way (castling).
+  if (removed.length === 0 || removed.length > 2 || added.length === 0 || added.length > 2) {
+    return null;
+  }
+
+  const usedR = new Set<number>();
+  const steps: AnimStep[] = [];
+
+  // Pass 1: exact piece matches (normal moves, captures, castling, the
+  // en-passant mover).
+  for (const a of added) {
+    const ri = removed.findIndex((r, i) => !usedR.has(i) && r.piece === a.piece);
+    if (ri >= 0) {
+      usedR.add(ri);
+      steps.push({ from: removed[ri].square, to: a.square, piece: a.piece });
+    }
+  }
+  // Pass 2: promotion — the leftover added piece is a promoted piece on the
+  // last rank, paired with a leftover pawn of the same color.
+  for (const a of added) {
+    if (steps.some((s) => s.to === a.square)) continue;
+    const color = a.piece[0];
+    const lastRank = color === 'w' ? '8' : '1';
+    if (a.piece[1] === 'p' || a.square[1] !== lastRank) return null;
+    const ri = removed.findIndex((r, i) => !usedR.has(i) && r.piece === `${color}p`);
+    if (ri < 0) return null;
+    usedR.add(ri);
+    steps.push({ from: removed[ri].square, to: a.square, piece: removed[ri].piece });
+  }
+  if (steps.length !== added.length) return null;
+  // Every unpaired removed piece must be a capture victim sitting on a
+  // landing square (captured piece, en-passant victim).
+  const landings = new Set(steps.map((s) => s.to));
+  for (let i = 0; i < removed.length; i++) {
+    if (!usedR.has(i) && !landings.has(removed[i].square)) return null;
+  }
+  return steps;
+}
+
+function SlidingPiece({
+  step,
+  fromPos,
+  toPos,
+  durationMs,
+  renderGlyph,
+}: {
+  step: AnimStep;
+  fromPos: { r: number; c: number };
+  toPos: { r: number; c: number };
+  durationMs: number;
+  renderGlyph: (piece: PieceType) => ReactNode;
+}) {
+  const [arrived, setArrived] = useState(false);
+  useEffect(() => {
+    // Let the initial position paint before starting the transition.
+    const t = setTimeout(() => setArrived(true), 20);
+    return () => clearTimeout(t);
+  }, []);
+  const pos = arrived ? toPos : fromPos;
+  return (
+    <div
+      className="absolute"
+      style={{
+        width: '12.5%',
+        height: '12.5%',
+        left: `${(pos.c / 8) * 100}%`,
+        top: `${(pos.r / 8) * 100}%`,
+        transition: `left ${durationMs}ms ease-out, top ${durationMs}ms ease-out`,
+      }}
+    >
+      {renderGlyph(step.piece)}
+    </div>
+  );
+}
 
 export default function ChessBoard({
   fen,
@@ -72,6 +177,100 @@ export default function ChessBoard({
   const fileOrder = useMemo(
     () => (orientation === 'black' ? [...FILES].reverse() : FILES),
     [orientation]
+  );
+
+  // --- Piece slide animation ------------------------------------------------
+  // When the FEN changes by a single move, the moving piece(s) glide from
+  // the old square to the new one instead of teleporting. Anything else
+  // (reset, multi-ply undo, initial load) teleports as before.
+  const [anim, setAnim] = useState<{ id: number; steps: AnimStep[] } | null>(null);
+  const prevPosRef = useRef<Map<string, PieceType> | null>(null);
+  const animIdRef = useRef(0);
+  const animTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const squareToDisplay = useCallback(
+    (sq: Square) => ({
+      r: rankOrder.indexOf(sq[1] as (typeof rankOrder)[number]),
+      c: fileOrder.indexOf(sq[0] as (typeof fileOrder)[number]),
+    }),
+    [fileOrder, rankOrder]
+  );
+
+  useEffect(() => {
+    const pos = new Map<string, PieceType>();
+    for (let r = 0; r < 8; r++) {
+      for (let c = 0; c < 8; c++) {
+        const p = board[r][c];
+        if (p) pos.set(`${FILES[c]}${RANKS[r]}`, p);
+      }
+    }
+    const prev = prevPosRef.current;
+    prevPosRef.current = pos;
+    if (animTimerRef.current) {
+      clearTimeout(animTimerRef.current);
+      animTimerRef.current = null;
+    }
+    if (!prev) {
+      setAnim(null);
+      return;
+    }
+    const reduced =
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const steps = reduced ? null : diffToSteps(prev, pos);
+    if (!steps) {
+      setAnim(null);
+      return;
+    }
+    const id = ++animIdRef.current;
+    setAnim({ id, steps });
+    animTimerRef.current = setTimeout(() => {
+      setAnim((a) => (a && a.id === id ? null : a));
+    }, ANIM_MS + 60);
+    return () => {
+      if (animTimerRef.current) {
+        clearTimeout(animTimerRef.current);
+        animTimerRef.current = null;
+      }
+    };
+  }, [fen, board]);
+
+  useEffect(() => {
+    return () => {
+      if (animTimerRef.current) clearTimeout(animTimerRef.current);
+    };
+  }, []);
+
+  /** Squares whose static piece is hidden while its slide animation runs. */
+  const animDests = useMemo(() => new Set((anim?.steps ?? []).map((s) => s.to)), [anim]);
+
+  const renderGlyph = useCallback(
+    (piece: PieceType) => (
+      <div
+        className="w-full h-full p-[2px]"
+        style={{
+          filter: (() => {
+            const glow = piece[0] === 'w' ? pieceColor.whiteGlow : pieceColor.blackGlow;
+            return glow ? `drop-shadow(0 0 ${pieceColor.glowBlur}px ${glow})` : undefined;
+          })(),
+        }}
+        dangerouslySetInnerHTML={{
+          __html: getPieceSvg(
+            pieceStyleId,
+            piece[1] as PieceSymbol,
+            piece[0] as Color,
+            {
+              whiteFill: pieceColor.whiteFill,
+              whiteStroke: pieceColor.whiteStroke,
+              blackFill: pieceColor.blackFill,
+              blackStroke: pieceColor.blackStroke,
+            }
+          ),
+        }}
+      />
+    ),
+    [pieceStyleId, pieceColor]
   );
 
   const getSquareFromRC = useCallback(
@@ -219,7 +418,7 @@ export default function ChessBoard({
                 {isLegalMove && piece && (
                   <div className="absolute inset-0 rounded-sm border-2" style={{ borderColor: theme.dotColor }} />
                 )}
-                {piece && (
+                {piece && !animDests.has(square) && (
                   <div
                     draggable={interactive}
                     onDragStart={(e) =>
@@ -268,6 +467,22 @@ export default function ChessBoard({
           })
         )}
       </div>
+      {/* Sliding pieces: absolutely positioned glyphs that glide from the
+          old square to the new one while the static piece stays hidden. */}
+      {anim && (
+        <div className="absolute inset-0 z-20 pointer-events-none" aria-hidden="true">
+          {anim.steps.map((s) => (
+            <SlidingPiece
+              key={`${anim.id}-${s.from}-${s.to}`}
+              step={s}
+              fromPos={squareToDisplay(s.from)}
+              toPos={squareToDisplay(s.to)}
+              durationMs={ANIM_MS}
+              renderGlyph={renderGlyph}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

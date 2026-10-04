@@ -9,7 +9,6 @@ import { castleIconPx, MARKER_DESIGN_W, MOBILE_MARKER_BOOST, MOBILE_ICON_BREAKPO
 import {
   CASTLE_BY_VARIATION,
   MAP_H,
-  fitCastlesView,
   type CastleLocation,
   type FitView,
 } from '@/data/castleLocations';
@@ -164,29 +163,23 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
   const mapAspect = '1 / 1';
   const mapAspectNum = 1;
 
-  // Interactive camera: starts zoomed in on the castles, clamped so the
-  // image always fills the screen (no black bars). minZoom is the fill zoom.
-  const fit = useMemo(
-    () => fitCastlesView(castles.map((c) => ({ x: c.mx, y: c.my }))),
-    [castles],
-  );
-
-  // Fill zoom: the minimum zoom where the square image covers the container.
-  // For portrait (cAspect < 1), height is the constraint: zoom >= 1/cAspect.
-  // For landscape, width is the constraint: zoom >= 1.
+  // Fill zoom: the minimum zoom where the square image covers the container
+  // (no black bars). For portrait (cAspect < 1), height is the constraint:
+  // zoom >= 1/cAspect. For landscape, width is the constraint: zoom >= 1.
   const fillZoom = useMemo(() => {
     const cAspect = size.w > 0 && size.h > 0 ? size.w / size.h : 1;
     return Math.max(1, 1 / cAspect);
   }, [size]);
 
-  // Start zoomed in: fill zoom plus a bit, centered on the castles.
+  // Start fully zoomed out: the whole interior is visible on entry (no
+  // black bars — fillZoom is the minimum). Users pinch/drag to explore.
   const initialView = useMemo(
     () => ({
-      zoom: Math.min(INTERIOR_MAX_ZOOM, fillZoom * 1.4),
-      centerX: fit.centerX,
-      centerY: fit.centerY,
+      zoom: fillZoom,
+      centerX: 50,
+      centerY: MAP_H / 2,
     }),
-    [fit, fillZoom],
+    [fillZoom],
   );
   const [view, setView] = useState<FitView>(initialView);
   useEffect(() => {

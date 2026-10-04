@@ -13,7 +13,7 @@ const STYLE_KEY = 'chess_horizon_piece_style';
 const COLOR_KEY = 'chess_horizon_piece_color';
 const EVAL_BAR_KEY = 'chess_horizon_eval_bar';
 
-const DEFAULT_BOARD = 'classic';
+const DEFAULT_BOARD = 'mono';
 const DEFAULT_STYLE: PieceStyleId = 'staunton';
 const DEFAULT_COLOR = 'plain';
 

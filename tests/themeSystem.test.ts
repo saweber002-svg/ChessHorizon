@@ -78,7 +78,7 @@ describe('Board themes', () => {
     expect(walnut.isDark).toBe(false);
   });
 
-  it('still has 4 board themes', () => {
-    expect(BOARD_THEMES).toHaveLength(4);
+  it('still has 5 board themes', () => {
+    expect(BOARD_THEMES).toHaveLength(5);
   });
 });
