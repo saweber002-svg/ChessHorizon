@@ -17,12 +17,13 @@ interface ThemePieceProps {
 
 export default function ThemePiece({ theme, piece, className, draggable }: ThemePieceProps) {
   return (
-    <img
-      src={pieceSpriteUrl(theme, piece)}
-      alt=""
-      draggable={draggable}
-      className={className}
-      style={{ width: '100%', height: '100%', objectFit: 'contain', pointerEvents: draggable ? undefined : 'none' }}
-    />
+    <div className={`w-full h-full flex items-center justify-center ${className ?? ''}`}>
+      <img
+        src={pieceSpriteUrl(theme, piece)}
+        alt=""
+        draggable={draggable}
+        style={{ width: '82%', height: '82%', objectFit: 'contain', pointerEvents: draggable ? undefined : 'none' }}
+      />
+    </div>
   );
 }
