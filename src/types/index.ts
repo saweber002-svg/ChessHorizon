@@ -224,9 +224,9 @@ export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
   french: { x: 35.5, y: 53.0 },
   dutch: { x: 44.2, y: 39.0 },
   germany: { x: 56.0, y: 44.0 },
-  wilderness: { x: 85.0, y: 55.0 },
-  clearing: { x: 58.0, y: 56.0 },
-  coaching: { x: 68.0, y: 30.0 },
+  wilderness: { x: 75.0, y: 77.0 },
+  clearing: { x: 55.0, y: 53.0 },
+  coaching: { x: 71.0, y: 34.0 },
 };
 
 export function getTierColor(tier: Tier): string {

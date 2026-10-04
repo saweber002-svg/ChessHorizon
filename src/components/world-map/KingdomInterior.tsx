@@ -201,6 +201,9 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
     minZoomRef.current = fillZoom;
   }, [fillZoom]);
 
+/** Space below the kingdom title header where the map starts (px). */
+const HEADER_OFFSET_PX = 92;
+
   const mapOffset = useMemo(() => {
     // Vertical % refers to container height, horizontal to width — scale the
     // vertical zoom by the container aspect so map units stay square.
@@ -212,11 +215,14 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
     const minT = 100 - (view.zoom * 100 * cAspect) / mapAspectNum;
     // On portrait/mobile, bottom-align the map when it doesn't fill the
     // container vertically (minT > 0) so the image sits on the screen bottom.
-    const top =
+    const baseTop =
       cAspect < 1 && minT > 0 ? minT : Math.min(0, Math.max(minT, rawT));
+    // Shift the map down so its top edge sits just below the kingdom title,
+    // making use of the header space instead of hiding map behind it.
+    const headerPct = size.h > 0 ? (HEADER_OFFSET_PX / size.h) * 100 : 0;
     return {
       left: Math.min(0, Math.max(minL, rawL)),
-      top,
+      top: baseTop + headerPct,
     };
   }, [view, size, mapAspectNum]);
 

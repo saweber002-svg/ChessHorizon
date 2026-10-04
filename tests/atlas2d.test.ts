@@ -232,7 +232,7 @@ describe('atlas marker data', () => {
   });
 
   it('coaching sits in the Baltic Sea (Scott-placed, slice 22)', () => {
-    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 68, y: 30 });
+    expect(KINGDOM_POSITIONS.coaching).toEqual({ x: 71, y: 34 });
   });
 
   it('keeps every pair of realm markers at least 5 world units apart', () => {
