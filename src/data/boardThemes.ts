@@ -1,6 +1,7 @@
 /**
  * Board + piece theme definitions for Chess Horizon.
- * The default "Classic" theme mirrors the chess.com green board Scott uses.
+ * The default "Black & White" theme is pure monochrome; "Classic" mirrors
+ * the chess.com green board Scott uses.
  */
 import type { PieceThemeColors } from '@/components/pieceStyles';
 
@@ -28,6 +29,25 @@ export interface BoardTheme {
 }
 
 export const BOARD_THEMES: BoardTheme[] = [
+  {
+    id: 'mono',
+    name: 'Black & White',
+    description: 'Pure monochrome — black and white squares',
+    lightSquare: '#F5F5F5',
+    darkSquare: '#212121',
+    frameColor: '#111111',
+    isDark: false,
+    pieces: {
+      whiteFill: '#FFFFFF',
+      whiteStroke: '#1A1A1A',
+      blackFill: '#1A1A1A',
+      blackStroke: '#FFFFFF',
+    },
+    selectColor: 'rgba(255, 213, 79, 0.65)',
+    lastMoveLight: '#D8D8D8',
+    lastMoveDark: '#3F3F3F',
+    dotColor: 'rgba(0, 0, 0, 0.25)',
+  },
   {
     id: 'classic',
     name: 'Classic Green',

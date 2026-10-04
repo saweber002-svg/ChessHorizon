@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ThemePicker from '@/components/ThemePicker';
 import SoundPicker from '@/components/SoundPicker';
 import { useSound } from '@/contexts/SoundContext';
-import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play, Eye, Swords, Undo2 } from 'lucide-react';
+import { ArrowLeft, Star, RotateCcw, Shuffle, ListOrdered, Lightbulb, Pause, X, Play, Eye, Swords, Undo2, ArrowRight } from 'lucide-react';
 import { useLocation, useParams, useSearch } from 'wouter';
 import { TrophyBoard } from '@/components/TrophyBoard';
 import { kingdomHasDrills } from '@/data/kingdomDrills';
@@ -46,6 +46,13 @@ function starsFromAttempts(attempts: number): number {
   return 0;
 }
 
+/** Pick the sound-pack event for a played move: check > capture > quiet move. */
+function moveSoundFor(san: string): 'move' | 'capture' | 'check' {
+  if (san.includes('+')) return 'check';
+  if (san.includes('x')) return 'capture';
+  return 'move';
+}
+
 export default function DrillSession() {
   const params = useParams<{ drillFileId: string }>();
   const search = useSearch();
@@ -71,6 +78,8 @@ export default function DrillSession() {
   const [showStars, setShowStars] = useState(false);
   const [earnedStars, setEarnedStars] = useState(0);
   const [sessionComplete, setSessionComplete] = useState(false);
+  /** Full-screen drill-complete options overlay (opened via Continue). */
+  const [resultsOpen, setResultsOpen] = useState(false);
   const [showPauseMenu, setShowPauseMenu] = useState(false);
   const [waitingOpponent, setWaitingOpponent] = useState(false);
   /** Sparring: play out the final drill position against the engine. */
@@ -143,6 +152,7 @@ export default function DrillSession() {
     setLine(tactic);
     setPlayerColor(null);
     setSessionComplete(false);
+    setResultsOpen(false);
     setSparring(false);
     setSparringOver(false);
     sparSeq.current += 1;
@@ -163,6 +173,7 @@ export default function DrillSession() {
   const startSparring = useCallback(() => {
     const seq = ++sparSeq.current;
     setSparring(true);
+    setResultsOpen(false);
     setSparringOver(false);
     setGlowColor('idle');
     setLastMove(null);
@@ -186,6 +197,7 @@ export default function DrillSession() {
             setLastMove({ from: moved.from, to: moved.to });
             setSparHistory((h) => [...h, g.fen()]);
             setSparLastMoves((m) => [...m, { from: moved.from, to: moved.to }]);
+            playSound(moveSoundFor(moved.san));
           }
           setSparringThinking(false);
         },
@@ -194,7 +206,7 @@ export default function DrillSession() {
         },
       );
     }
-  }, [fen, playerColor]);
+  }, [fen, playerColor, playSound]);
 
   /** Handle a user move during sparring. Engine replies as the opponent. */
   const handleSparringMove = useCallback((from: Square, to: Square) => {
@@ -215,6 +227,7 @@ export default function DrillSession() {
     setLastMove({ from: result.from, to: result.to });
     setSparHistory((h) => [...h, newFen]);
     setSparLastMoves((m) => [...m, { from: result.from, to: result.to }]);
+    playSound(moveSoundFor(result.san));
 
     if (game.isGameOver()) {
       setSparringOver(true);
@@ -240,6 +253,7 @@ export default function DrillSession() {
           setLastMove({ from: moved.from, to: moved.to });
           setSparHistory((h) => [...h, g.fen()]);
           setSparLastMoves((m) => [...m, { from: moved.from, to: moved.to }]);
+          playSound(moveSoundFor(moved.san));
           if (g.isGameOver()) {
             setSparringOver(true);
             playSound('drillCompleted');
@@ -259,6 +273,7 @@ export default function DrillSession() {
           setLastMove({ from: m.from, to: m.to });
           setSparHistory((h) => [...h, g.fen()]);
           setSparLastMoves((lm) => [...lm, { from: m.from, to: m.to }]);
+          playSound(moveSoundFor(m.san));
           if (g.isGameOver()) setSparringOver(true);
         }
         setSparringThinking(false);
@@ -266,12 +281,13 @@ export default function DrillSession() {
     );
   }, [fen, playerColor, sparringOver, sparringThinking, playSound]);
 
-  /** Exit sparring back to the drill-complete overlay. */
+  /** Exit sparring back to the drill-complete results overlay. */
   const exitSparring = useCallback(() => {
     sparSeq.current += 1;
     setSparring(false);
     setSparringOver(false);
     setSparringThinking(false);
+    setResultsOpen(true);
   }, []);
 
   /** Undo the last sparring move: rewind to the player's previous turn. */
@@ -292,16 +308,17 @@ export default function DrillSession() {
   const moves = useMemo(() => line?.moves ?? [], [line]);
   const startFen = line?.startFen ?? pack?.startFen ?? 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
-  // Lock body scroll while the pause menu is open so gestures don't
-  // scroll the page behind the modal on touch devices.
+  // Lock body scroll while the pause menu or the drill-complete results
+  // overlay is open so gestures don't scroll the page behind the modal on
+  // touch devices.
   useEffect(() => {
-    if (!showPauseMenu) return;
+    if (!showPauseMenu && !resultsOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
       document.body.style.overflow = prev;
     };
-  }, [showPauseMenu]);
+  }, [showPauseMenu, resultsOpen]);
 
   useEffect(() => {
     // Reset session state when drillFileId changes
@@ -316,6 +333,7 @@ export default function DrillSession() {
     setShowStars(false);
     setEarnedStars(0);
     setSessionComplete(false);
+    setResultsOpen(false);
     setSparring(false);
     setSparringOver(false);
     setSparringThinking(false);
@@ -384,9 +402,9 @@ hapticSuccess();
         }
         setWaitingOpponent(true);
         applyMovesUpTo(i + 1);
-        // Play move sound (capture if SAN contains 'x')
+        // Opponent moves play the selected sound pack (check > capture > move).
         const san = moves[i] ?? '';
-        playSound(san.includes('x') ? 'capture' : 'move');
+        playSound(moveSoundFor(san));
         i++;
         autoPlayRef.current = setTimeout(step, 450);
       };
@@ -403,6 +421,7 @@ hapticSuccess();
       setAttempts(0);
       setMoveResults([]);
       setSessionComplete(false);
+      setResultsOpen(false);
       setShowStars(false);
       setHintUsed(false);
       setHintSquares([]);
@@ -517,7 +536,7 @@ hapticSuccess();
       }
       applyMovesUpTo(i + 1);
       const san = moves[i] ?? '';
-      playSound(san.includes('x') ? 'capture' : 'move');
+      playSound(moveSoundFor(san));
       i += 1;
       watchTimerRef.current = setTimeout(step, 1100);
     };
@@ -670,6 +689,7 @@ hapticSuccess();
               if (m) {
                 setFen(correct.fen());
                 setLastMove({ from: m.from as Square, to: m.to as Square });
+                playSound(moveSoundFor(m.san));
               }
               setTimeout(() => {
                 const nextMoveIndex = moveIndex + 1;
@@ -871,6 +891,11 @@ hapticSuccess();
   const sparUndoAvailable =
     playerColor !== null && sparUndoPlies(sparHistory, playerColor ?? 'w') > 0;
 
+  /** Drill-complete overlay return target: the opening's kingdom page when it has one. */
+  const inKingdom = kingdomHasDrills(openingId as KingdomId);
+  const kingdomReturnTarget = inKingdom ? `/kingdom/${openingId}` : '/atlas';
+  const kingdomReturnLabel = inKingdom ? 'Return to Kingdom' : 'Return to Atlas';
+
   return (
     <motion.div className="min-h-screen bg-[#0a0a1f]">
       <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
@@ -921,103 +946,139 @@ hapticSuccess();
               />
             </BoardWithEval>
 
-            {/* Drill-complete options overlay (hidden while sparring) */}
+            {/* Drill over: the final position stays fully visible with a
+                Continue button below the board — the options live in the
+                full-screen overlay instead of covering the board. */}
+            {!sparring && !resultsOpen && (
+              <div className="mt-4 text-center">
+                <p className="text-sm font-bold text-white uppercase tracking-[0.2em] mb-2">
+                  Drill Complete
+                </p>
+                <div className="flex justify-center gap-1 mb-4">
+                  {moveResults.map((s, i) => (
+                    <Star
+                      key={i}
+                      size={20}
+                      className={s > 0 ? 'text-yellow-400 fill-yellow-400' : 'text-white/20'}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={() => setResultsOpen(true)}
+                  className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-[#00e0c0] transition-colors"
+                >
+                  Continue <ArrowRight size={18} />
+                </button>
+              </div>
+            )}
+
+            {/* Drill-complete options: full-screen overlay so every option is
+                visible without scrolling the page. Backdrop tap dismisses. */}
             <AnimatePresence>
-              {!sparring && (
+              {resultsOpen && !sparring && (
                 <motion.div
                   key="complete-overlay"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 z-20 flex items-center justify-center bg-[#050510]/85 backdrop-blur-sm rounded-2xl p-4 overflow-y-auto"
+                  className="fixed inset-0 z-50 flex items-center justify-center bg-[#050510]/90 backdrop-blur-sm p-4"
+                  onClick={() => setResultsOpen(false)}
                 >
-                  <div className="text-center max-w-md w-full py-4">
-                    <h2 className="text-2xl font-bold text-white mb-3">Drill Complete</h2>
-                    <div className="flex justify-center gap-1 mb-5">
-                      {moveResults.map((s, i) => (
-                        <Star
-                          key={i}
-                          size={24}
-                          className={s > 0 ? 'text-yellow-400 fill-yellow-400' : 'text-white/20'}
-                        />
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <button
-                        onClick={restartDrill}
-                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white font-bold hover:bg-white/20 transition-colors"
-                      >
-                        <RotateCcw size={18} /> Drill Again
-                      </button>
-                      <button
-                        onClick={startSparring}
-                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-300 font-bold hover:bg-purple-500/30 transition-colors"
-                      >
-                        <Swords size={18} /> Play vs Computer
-                      </button>
-                      {drillFileId.endsWith('-main') && (hasTacticalDrills(variationId) || tacticsListedUnder(variationId).length > 0) && (
-                        <button
-                          onClick={() => {
-                            setLocation(
-                              `/tactics/${variationId}?opening=${openingId}`
-                            );
-                          }}
-                          className="px-4 py-3 rounded-xl bg-[#f5a623] text-[#0a0a1f] font-bold hover:bg-[#e5941a] transition-colors"
-                        >
-                          Drill tactics for this variation
-                        </button>
-                      )}
-                      {drillFileId.endsWith('-main') && hasPuzzleDrills(variationId) && (
-                        <button
-                          onClick={() => {
-                            setLocation(
-                              `/drill-session/${variationId}-puzzles?opening=${openingId}&variation=${variationId}`
-                            );
-                          }}
-                          className="px-4 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-[#00e0c0] transition-colors"
-                        >
-                          Practice real puzzles
-                        </button>
-                      )}
-                      <button
-                        onClick={() => setLocation('/atlas')}
-                        className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white/70 font-bold hover:bg-white/10 transition-colors sm:col-span-2"
-                      >
-                        Return to Atlas
-                      </button>
-                    </div>
-
-                    {/* If we are in a tactical pack, show the other tactics to practice next */}
-                    {isTacticalPack && pack && pack.lines.length > 0 && (
-                      <div className="mt-6 w-full text-left">
-                        <p className="text-xs uppercase tracking-[0.2em] text-white/30 mb-3 text-center">Practice another tactic</p>
-                        <div className="grid gap-2 max-h-48 overflow-y-auto">
-                          {pack.lines.map((tactic) => (
-                            <button
-                              key={tactic.id}
-                              onClick={() => selectTactic(tactic)}
-                              className={`w-full text-left p-3 rounded-xl border transition-all group ${
-                                line?.id === tactic.id
-                                  ? 'bg-[#00f5d4]/5 border-[#00f5d4]/30 cursor-default'
-                                  : 'bg-[#141422] border-[#2a2a3e] hover:border-[#00f5d4]/40 hover:bg-[#1a1a2e]'
-                              }`}
-                            >
-                              <div className="flex items-center justify-between">
-                                <div className={`font-semibold text-sm ${line?.id === tactic.id ? 'text-[#00f5d4]' : 'text-white group-hover:text-[#00f5d4]'}`}>
-                                  {tactic.name}
-                                </div>
-                                {line?.id === tactic.id && (
-                                  <span className="text-[10px] font-bold bg-[#00f5d4]/20 text-[#00f5d4] px-2 py-0.5 rounded-full uppercase tracking-wider">
-                                    Just Completed
-                                  </span>
-                                )}
-                              </div>
-                            </button>
-                          ))}
-                        </div>
+                  <motion.div
+                    initial={{ scale: 0.95, y: 20 }}
+                    animate={{ scale: 1, y: 0 }}
+                    exit={{ scale: 0.95, y: 20 }}
+                    className="w-full max-w-md rounded-2xl bg-[#141422] border border-[#2a2a3e] p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="text-center w-full">
+                      <h2 className="text-2xl font-bold text-white mb-3">Drill Complete</h2>
+                      <div className="flex justify-center gap-1 mb-5">
+                        {moveResults.map((s, i) => (
+                          <Star
+                            key={i}
+                            size={24}
+                            className={s > 0 ? 'text-yellow-400 fill-yellow-400' : 'text-white/20'}
+                          />
+                        ))}
                       </div>
-                    )}
-                  </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <button
+                          onClick={restartDrill}
+                          className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white font-bold hover:bg-white/20 transition-colors"
+                        >
+                          <RotateCcw size={18} /> Drill Again
+                        </button>
+                        <button
+                          onClick={startSparring}
+                          className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-300 font-bold hover:bg-purple-500/30 transition-colors"
+                        >
+                          <Swords size={18} /> Play vs Computer
+                        </button>
+                        {drillFileId.endsWith('-main') && (hasTacticalDrills(variationId) || tacticsListedUnder(variationId).length > 0) && (
+                          <button
+                            onClick={() => {
+                              setLocation(
+                                `/tactics/${variationId}?opening=${openingId}`
+                              );
+                            }}
+                            className="px-4 py-3 rounded-xl bg-[#f5a623] text-[#0a0a1f] font-bold hover:bg-[#e5941a] transition-colors"
+                          >
+                            Drill tactics for this variation
+                          </button>
+                        )}
+                        {drillFileId.endsWith('-main') && hasPuzzleDrills(variationId) && (
+                          <button
+                            onClick={() => {
+                              setLocation(
+                                `/drill-session/${variationId}-puzzles?opening=${openingId}&variation=${variationId}`
+                              );
+                            }}
+                            className="px-4 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-[#00e0c0] transition-colors"
+                          >
+                            Practice real puzzles
+                          </button>
+                        )}
+                        <button
+                          onClick={() => setLocation(kingdomReturnTarget)}
+                          className="px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white/70 font-bold hover:bg-white/10 transition-colors sm:col-span-2"
+                        >
+                          {kingdomReturnLabel}
+                        </button>
+                      </div>
+
+                      {/* If we are in a tactical pack, show the other tactics to practice next */}
+                      {isTacticalPack && pack && pack.lines.length > 0 && (
+                        <div className="mt-6 w-full text-left">
+                          <p className="text-xs uppercase tracking-[0.2em] text-white/30 mb-3 text-center">Practice another tactic</p>
+                          <div className="grid gap-2 max-h-48 overflow-y-auto">
+                            {pack.lines.map((tactic) => (
+                              <button
+                                key={tactic.id}
+                                onClick={() => selectTactic(tactic)}
+                                className={`w-full text-left p-3 rounded-xl border transition-all group ${
+                                  line?.id === tactic.id
+                                    ? 'bg-[#00f5d4]/5 border-[#00f5d4]/30 cursor-default'
+                                    : 'bg-[#141422] border-[#2a2a3e] hover:border-[#00f5d4]/40 hover:bg-[#1a1a2e]'
+                                }`}
+                              >
+                                <div className="flex items-center justify-between">
+                                  <div className={`font-semibold text-sm ${line?.id === tactic.id ? 'text-[#00f5d4]' : 'text-white group-hover:text-[#00f5d4]'}`}>
+                                    {tactic.name}
+                                  </div>
+                                  {line?.id === tactic.id && (
+                                    <span className="text-[10px] font-bold bg-[#00f5d4]/20 text-[#00f5d4] px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                      Just Completed
+                                    </span>
+                                  )}
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -1154,11 +1215,11 @@ hapticSuccess();
               )}
             </AnimatePresence>
 
-            <motion.div className="flex justify-center gap-3 mt-6">
+            <motion.div className="flex flex-wrap justify-center gap-2 mt-6">
               {watching ? (
                 <button
                   onClick={exitWatch}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#00f5d4]/40 text-[#00f5d4] text-sm"
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#141422] border border-[#00f5d4]/40 text-[#00f5d4] text-sm whitespace-nowrap"
                 >
                   <X size={16} /> Exit watch
                 </button>
@@ -1166,14 +1227,14 @@ hapticSuccess();
                 <>
                   <button
                     onClick={() => beginSession(playerColor)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm whitespace-nowrap"
                   >
                     <RotateCcw size={16} /> Restart
                   </button>
                   <button
                     onClick={startWatch}
                     disabled={showStars || waitingOpponent}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm hover:text-[#00f5d4] hover:border-[#00f5d4]/30 disabled:opacity-40 disabled:hover:text-white/60 disabled:hover:border-[#2a2a3e]"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm whitespace-nowrap hover:text-[#00f5d4] hover:border-[#00f5d4]/30 disabled:opacity-40 disabled:hover:text-white/60 disabled:hover:border-[#2a2a3e]"
                     title="Watch the full line once"
                   >
                     <Eye size={16} /> Watch
@@ -1183,7 +1244,7 @@ hapticSuccess();
               <button
                 onClick={handleHint}
                 disabled={hintUsed || sessionComplete || showStars || watching}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg border text-sm transition-colors ${
+                className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-sm whitespace-nowrap transition-colors ${
                   hintUsed
                     ? 'bg-[#141422] border-[#2a2a3e] text-white/30 cursor-not-allowed'
                     : 'bg-[#141422] border-[#2a2a3e] text-white/60 hover:text-[#00f5d4] hover:border-[#00f5d4]/30'
@@ -1194,7 +1255,7 @@ hapticSuccess();
               </button>
               <button
                 onClick={() => setDrillMode((m) => (m === 'in-order' ? 'random' : 'in-order'))}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm whitespace-nowrap"
               >
                 {drillMode === 'in-order' ? <ListOrdered size={16} /> : <Shuffle size={16} />}
                 {drillMode === 'in-order' ? 'In order' : 'Random'}
