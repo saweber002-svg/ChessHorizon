@@ -540,7 +540,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 overflow-hidden bg-[#050510]"
+      className="absolute inset-0 overflow-hidden th-bg"
       style={{ touchAction: 'none', overscrollBehavior: 'none' }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -612,7 +612,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
           type="button"
           aria-label="Zoom in"
           onClick={() => zoomBy(0.7)}
-          className="w-10 h-10 rounded-full bg-[#141422]/90 border border-[#2a2a3e] text-white text-xl leading-none hover:border-[#00f5d4]/50 hover:text-[#00f5d4] transition-colors"
+          className="w-10 h-10 rounded-full th-panel border th-border text-white text-xl leading-none th-hover-accent-border th-hover-accent-text transition-colors"
         >
           +
         </button>
@@ -620,7 +620,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
           type="button"
           aria-label="Zoom out"
           onClick={() => zoomBy(1.4)}
-          className="w-10 h-10 rounded-full bg-[#141422]/90 border border-[#2a2a3e] text-white text-xl leading-none hover:border-[#00f5d4]/50 hover:text-[#00f5d4] transition-colors"
+          className="w-10 h-10 rounded-full th-panel border th-border text-white text-xl leading-none th-hover-accent-border th-hover-accent-text transition-colors"
         >
           −
         </button>
@@ -628,7 +628,7 @@ export default function Atlas2D({ locations, selectedId, onSelectLocation }: Atl
           type="button"
           aria-label="Reset atlas view"
           onClick={resetCamera}
-          className="w-10 h-10 rounded-full bg-[#141422]/90 border border-[#2a2a3e] text-white/70 text-sm hover:border-[#00f5d4]/50 hover:text-[#00f5d4] transition-colors"
+          className="w-10 h-10 rounded-full th-panel border th-border text-white/70 text-sm th-hover-accent-border th-hover-accent-text transition-colors"
         >
           ⟲
         </button>

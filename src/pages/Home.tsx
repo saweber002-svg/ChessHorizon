@@ -105,13 +105,13 @@ export default function Home() {
   }, [showSettings]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a1f]">
+    <div className="min-h-screen th-bg">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a1f]/80 backdrop-blur-md border-b border-[#2a2a3e]/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 th-bg-soft backdrop-blur-md border-b th-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
-              <Swords className="text-[#00f5d4]" size={24} />
+              <Swords className="th-accent-text" size={24} />
               <span className="text-lg font-bold text-white">Chess Horizon</span>
             </div>
             <div className="flex items-center gap-4">
@@ -140,8 +140,8 @@ export default function Home() {
               </Button>
               {user ? (
                 <>
-                  <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#141422] border border-[#2a2a3e]">
-                    <User size={14} className="text-[#00f5d4]" />
+                  <div className="flex items-center gap-2 px-3 py-1 rounded-full th-panel border th-border">
+                    <User size={14} className="th-accent-text" />
                     <span className="text-xs font-medium text-white/70">
                       {user.email?.split('@')[0]}
                     </span>
@@ -157,7 +157,7 @@ export default function Home() {
                 </>
               ) : (
                 <Button
-                  className="bg-[#00f5d4] text-[#0a0a1f] hover:bg-[#00f5d4]/90"
+                  className="th-accent th-accent-hover"
                   onClick={() => setShowAuthModal(true)}
                 >
                   Sign In
@@ -178,7 +178,7 @@ export default function Home() {
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-[#00f5d4]/30 rounded-full"
+              className="absolute w-1 h-1 th-accent/30 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -204,13 +204,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <div className="relative w-64 h-40 mx-auto rounded-2xl overflow-hidden border border-[#00f5d4]/20 shadow-2xl">
+            <div className="relative w-64 h-40 mx-auto rounded-2xl overflow-hidden border th-accent-border shadow-2xl">
               <img
                 src={`${import.meta.env.BASE_URL}images/hero.jpg`}
                 alt="Chess Horizon"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1f]/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[var(--th-bg)] to-transparent" />
             </div>
           </motion.div>
 
@@ -219,10 +219,10 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00f5d4]/10 border border-[#00f5d4]/20 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full th-accent-soft border th-accent-border mb-6"
           >
-            <Sparkles size={16} className="text-[#00f5d4]" />
-            <span className="text-sm text-[#00f5d4]">
+            <Sparkles size={16} className="th-accent-text" />
+            <span className="text-sm th-accent-text">
               Active Opening Repertoire Across the Atlas
             </span>
           </motion.div>
@@ -259,7 +259,7 @@ export default function Home() {
           >
             <Button
               size="lg"
-              className="bg-[#00f5d4] text-[#0a0a1f] hover:bg-[#00f5d4]/90 text-lg px-8 py-6 font-semibold group"
+              className="th-accent th-accent-hover text-lg px-8 py-6 font-semibold group"
               onClick={() => go('/atlas')}
             >
               Enter the Atlas
@@ -271,7 +271,7 @@ export default function Home() {
             <Button
               size="lg"
               variant="outline"
-              className="border-[#2a2a3e] text-white hover:bg-white/5 text-lg px-8 py-6"
+              className="th-border text-white hover:bg-white/5 text-lg px-8 py-6"
               onClick={() => go('/drill/italian/giuoco-piano/0')}
             >
               Start Drilling
@@ -289,12 +289,12 @@ export default function Home() {
               <div className="text-2xl sm:text-3xl font-bold text-white">6</div>
               <div className="text-sm text-white/50">Kingdoms</div>
             </div>
-            <div className="w-px h-10 bg-[#2a2a3e]" />
+            <div className="w-px h-10 th-panel" />
             <div className="text-center">
               <div className="text-2xl sm:text-3xl font-bold text-white">26</div>
               <div className="text-sm text-white/50">Variations</div>
             </div>
-            <div className="w-px h-10 bg-[#2a2a3e]" />
+            <div className="w-px h-10 th-panel" />
             <div className="text-center">
               <div className="text-2xl sm:text-3xl font-bold text-white">4</div>
               <div className="text-sm text-white/50">Prestige Tiers</div>
@@ -316,7 +316,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-24 bg-[#0a0a1f]">
+      <section className="py-24 th-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -342,10 +342,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] hover:border-[#00f5d4]/30 transition-colors group"
+                className="p-6 rounded-2xl th-panel border th-border th-hover-accent-border transition-colors group"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#00f5d4]/10 flex items-center justify-center mb-4 group-hover:bg-[#00f5d4]/20 transition-colors">
-                  <feature.icon className="text-[#00f5d4]" size={24} />
+                <div className="w-12 h-12 rounded-xl th-accent-soft flex items-center justify-center mb-4 group-th-hover-accent-soft transition-colors">
+                  <feature.icon className="th-accent-text" size={24} />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">
                   {feature.title}
@@ -386,13 +386,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] text-center group hover:border-[#00f5d4]/30 transition-colors"
+                className="p-6 rounded-2xl th-panel border th-border text-center group th-hover-accent-border transition-colors"
               >
-                <div className="text-4xl font-bold text-[#00f5d4] mb-2">
+                <div className="text-4xl font-bold th-accent-text mb-2">
                   {benefit.stat}
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-[#00f5d4]/10 flex items-center justify-center mx-auto mb-3">
-                  <benefit.icon className="text-[#00f5d4]" size={24} />
+                <div className="w-12 h-12 rounded-xl th-accent-soft flex items-center justify-center mx-auto mb-3">
+                  <benefit.icon className="th-accent-text" size={24} />
                 </div>
                 <h3 className="text-lg font-semibold text-white mb-2">
                   {benefit.label}
@@ -407,13 +407,13 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-[#0a0a1f]">
+      <section className="py-24 th-bg">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="p-12 rounded-3xl bg-gradient-to-br from-[#141422] to-[#1a1a2e] border border-[#2a2a3e]"
+            className="p-12 rounded-3xl th-panel border th-border"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Ready to Begin Your Journey?
@@ -424,7 +424,7 @@ export default function Home() {
             </p>
             <Button
               size="lg"
-              className="bg-[#00f5d4] text-[#0a0a1f] hover:bg-[#00f5d4]/90 text-lg px-10 py-6 font-semibold"
+              className="th-accent th-accent-hover text-lg px-10 py-6 font-semibold"
               onClick={() => go('/atlas')}
             >
               Explore the Atlas
@@ -435,11 +435,11 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 bg-[#080818] border-t border-[#2a2a3e]/50">
+      <footer className="py-8 bg-[#080818] border-t th-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <Swords className="text-[#00f5d4]" size={20} />
+              <Swords className="th-accent-text" size={20} />
               <span className="font-semibold text-white">Chess Horizon</span>
             </div>
             <p className="text-sm text-white/40">
@@ -466,7 +466,7 @@ export default function Home() {
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
-              className="w-full max-w-md m-auto rounded-2xl bg-[#141422] border border-[#2a2a3e] p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain"
+              className="w-full max-w-md m-auto rounded-2xl th-panel border th-border p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain"
               style={{ WebkitOverflowScrolling: 'touch' }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -482,7 +482,7 @@ export default function Home() {
               </div>
               <h3 className="text-sm font-semibold text-white/70 mb-3">Board Theme</h3>
               <ThemePicker />
-              <div className="mt-6 pt-6 border-t border-[#2a2a3e]">
+              <div className="mt-6 pt-6 border-t th-border">
                 <h3 className="text-sm font-semibold text-white/70 mb-3">Sound</h3>
                 <SoundPicker />
               </div>

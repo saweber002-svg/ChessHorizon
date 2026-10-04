@@ -39,7 +39,7 @@ export default function WorldMap() {
   };
 
   return (
-    <div className="w-screen h-screen bg-[#050510] overflow-hidden relative">
+    <div className="w-screen h-screen th-bg overflow-hidden relative">
       {/* 2D atlas */}
       <div className="absolute inset-0">
         <Atlas2D
@@ -51,22 +51,22 @@ export default function WorldMap() {
 
       {/* Top HUD */}
       <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
-        <div className="bg-gradient-to-b from-[#0a0a1f]/90 to-transparent pt-4 pb-12 px-4">
+        <div className="bg-gradient-to-b from-[var(--th-bg)] to-transparent pt-4 pb-12 px-4">
           <div className="flex items-center justify-between max-w-7xl mx-auto pointer-events-auto">
             <button
               onClick={() => setLocation('/')}
               className="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
             >
-              <Home size={18} className="text-[#00f5d4]" />
-              <Swords size={18} className="text-[#00f5d4]" />
+              <Home size={18} className="th-accent-text" />
+              <Swords size={18} className="th-accent-text" />
               <span className="font-semibold tracking-wide">Chess Horizon</span>
             </button>
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#141422]/90 border border-[#2a2a3e] backdrop-blur">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full th-panel border th-border backdrop-blur">
                 <Star size={16} className="text-yellow-400 fill-yellow-400" />
                 <span className="text-sm font-medium text-white">{state.totalStars}</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#141422]/90 border border-[#2a2a3e] backdrop-blur">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full th-panel border th-border backdrop-blur">
                 <Flame size={16} className="text-orange-400" />
                 <span className="text-sm font-medium text-white">{state.prestigeStreak}</span>
               </div>
@@ -101,9 +101,9 @@ export default function WorldMap() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="max-w-md w-full p-8 rounded-2xl bg-[#0a0a1f] border border-[#00f5d4]/30 text-center shadow-[0_0_80px_rgba(0,245,212,0.15)]"
+              className="max-w-md w-full p-8 rounded-2xl th-bg border th-accent-border text-center shadow-[0_0_80px_rgba(0,245,212,0.15)]"
             >
-              <p className="text-[#00f5d4] text-xs uppercase tracking-[0.3em] mb-3">Welcome, traveler</p>
+              <p className="th-accent-text text-xs uppercase tracking-[0.3em] mb-3">Welcome, traveler</p>
               <h2 className="text-2xl font-bold text-white mb-3">The Fantasy Atlas</h2>
               <p className="text-white/50 text-sm leading-relaxed mb-6">
                 Explore the atlas of realms. Click glowing markers to open kingdoms and start opening drills
@@ -111,7 +111,7 @@ export default function WorldMap() {
               </p>
               <button
                 onClick={dismissIntro}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-[#00f5d4] to-[#00c4aa] text-[#0a0a1f] font-bold"
+                className="w-full py-3 rounded-xl th-accent th-accent-hover font-bold"
               >
                 Enter the Atlas
               </button>

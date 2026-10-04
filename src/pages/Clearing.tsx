@@ -158,8 +158,8 @@ export default function Clearing() {
   // Menu screen
   if (gameState === 'menu') {
     return (
-      <div className="min-h-screen bg-[#0a0a1f]">
-        <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
+      <div className="min-h-screen th-bg">
+        <div className="sticky top-0 z-30 th-bg-soft backdrop-blur-md border-b th-border">
           <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
             <button onClick={() => setLocation('/atlas')} className="p-2 rounded-lg hover:bg-white/10 transition-colors">
               <ArrowLeft size={20} className="text-white/60" />
@@ -191,7 +191,7 @@ export default function Clearing() {
 
           {/* Player names */}
           <div className="space-y-3 mb-8">
-            <div className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]">
+            <div className="p-4 rounded-2xl th-panel border th-border">
               <label className="text-xs text-white/40 mb-1 block">White Player</label>
               <input
                 type="text"
@@ -202,11 +202,11 @@ export default function Clearing() {
               />
             </div>
             <div className="flex justify-center">
-              <div className="w-8 h-8 rounded-full bg-[#2a2a3e] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full th-panel flex items-center justify-center">
                 <SwordsIcon size={14} className="text-white/30" />
               </div>
             </div>
-            <div className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]">
+            <div className="p-4 rounded-2xl th-panel border th-border">
               <label className="text-xs text-white/40 mb-1 block">Black Player</label>
               <input
                 type="text"
@@ -237,9 +237,9 @@ export default function Clearing() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a1f]">
+    <div className="min-h-screen th-bg">
       {/* Header */}
-      <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
+      <div className="sticky top-0 z-30 th-bg-soft backdrop-blur-md border-b th-border">
         <div className="max-w-4xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -280,7 +280,7 @@ export default function Clearing() {
             {/* Black player info */}
             <div className="w-full max-w-md mb-3 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#2a2a3e] border border-[#3a3a4e] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full th-panel border border-[#3a3a4e] flex items-center justify-center">
                   <Shield size={16} className="text-white/50" />
                 </div>
                 <div>
@@ -290,7 +290,7 @@ export default function Clearing() {
                   )}
                 </div>
               </div>
-              <div className={`px-3 py-1.5 rounded-xl bg-[#141422] border border-[#2a2a3e] font-mono text-sm ${
+              <div className={`px-3 py-1.5 rounded-xl th-panel border th-border font-mono text-sm ${
                 turn === 'b' && blackTime < 60 ? 'text-red-400' : 'text-white/60'
               }`}>
                 <Clock size={14} className="inline mr-1" />
@@ -314,7 +314,7 @@ export default function Clearing() {
             {/* White player info */}
             <div className="w-full max-w-md mt-3 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-[#2a2a3e] border border-[#3a3a4e] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full th-panel border border-[#3a3a4e] flex items-center justify-center">
                   <Crown size={16} className="text-white/50" />
                 </div>
                 <div>
@@ -324,7 +324,7 @@ export default function Clearing() {
                   )}
                 </div>
               </div>
-              <div className={`px-3 py-1.5 rounded-xl bg-[#141422] border border-[#2a2a3e] font-mono text-sm ${
+              <div className={`px-3 py-1.5 rounded-xl th-panel border th-border font-mono text-sm ${
                 turn === 'w' && whiteTime < 60 ? 'text-red-400' : 'text-white/60'
               }`}>
                 <Clock size={14} className="inline mr-1" />
@@ -348,7 +348,7 @@ export default function Clearing() {
           {/* Sidebar */}
           <div className="space-y-4">
             {/* Game Status */}
-            <div className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]">
+            <div className="p-4 rounded-2xl th-panel border th-border">
               <h3 className="text-sm font-medium text-white/60 mb-2">Game Status</h3>
               <p className="text-sm text-white/80">
                 {isGameOver
@@ -363,7 +363,7 @@ export default function Clearing() {
             </div>
 
             {/* Move History */}
-            <div className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]">
+            <div className="p-4 rounded-2xl th-panel border th-border">
               <h3 className="text-sm font-medium text-white/60 mb-3">Move History</h3>
               <div className="space-y-1 max-h-64 overflow-y-auto">
                 {moves.length === 0 ? (
@@ -397,7 +397,7 @@ export default function Clearing() {
               </button>
               <button
                 onClick={handleDrawOffer}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white/60 text-sm font-medium hover:border-amber-500/30 hover:text-amber-400 transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl th-panel border th-border text-white/60 text-sm font-medium hover:border-amber-500/30 hover:text-amber-400 transition-colors"
               >
                 <Handshake size={14} />
                 Draw
@@ -421,7 +421,7 @@ export default function Clearing() {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="bg-[#141422] border border-[#2a2a3e] rounded-2xl p-6 max-w-sm w-full"
+              className="th-panel border th-border rounded-2xl p-6 max-w-sm w-full"
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-lg font-bold text-white mb-4">Draw Offered</h2>
@@ -431,7 +431,7 @@ export default function Clearing() {
               <div className="flex gap-3">
                 <button
                   onClick={() => setShowDrawOffer(false)}
-                  className="flex-1 py-2.5 rounded-xl bg-[#2a2a3e] text-white/60 font-medium hover:bg-[#2a2a3e]/80 transition-colors"
+                  className="flex-1 py-2.5 rounded-xl th-panel text-white/60 font-medium hover:th-panel transition-colors"
                 >
                   Decline
                 </button>
@@ -461,7 +461,7 @@ export default function Clearing() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-              className="bg-[#141422] border border-[#2a2a3e] rounded-2xl p-8 max-w-sm w-full text-center"
+              className="th-panel border th-border rounded-2xl p-8 max-w-sm w-full text-center"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -489,7 +489,7 @@ export default function Clearing() {
               <div className="flex gap-3">
                 <button
                   onClick={() => setGameState('menu')}
-                  className="flex-1 py-3 rounded-xl bg-[#2a2a3e] text-white/60 font-medium hover:bg-[#2a2a3e]/80 transition-colors flex items-center justify-center gap-2"
+                  className="flex-1 py-3 rounded-xl th-panel text-white/60 font-medium hover:th-panel transition-colors flex items-center justify-center gap-2"
                 >
                   <Home size={16} />
                   Menu

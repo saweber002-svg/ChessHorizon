@@ -66,7 +66,7 @@ function TacticRow({
   };
 
   return (
-    <div className="w-full text-left p-4 rounded-xl bg-[#141422] border border-[#2a2a3e]">
+    <div className="w-full text-left p-4 rounded-xl th-panel border th-border">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
@@ -102,7 +102,7 @@ function TacticRow({
           {hasWhitePack && (
             <button
               onClick={() => goPack(whitePack)}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold text-sm hover:bg-[#00e0c0] transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-xl th-accent font-bold text-sm hover:bg-[#00e0c0] transition-colors"
             >
               <Swords size={14} /> White tactics
             </button>
@@ -160,7 +160,7 @@ export default function TacticSelection() {
     : null;
 
   return (
-    <div className="min-h-screen bg-[#0a0a1f] flex items-start justify-center p-6">
+    <div className="min-h-screen th-bg flex items-start justify-center p-6">
       <div className="max-w-2xl w-full">
         <button
           onClick={() => setLocation('/atlas')}

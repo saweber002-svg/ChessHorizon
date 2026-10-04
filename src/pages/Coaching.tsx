@@ -349,11 +349,11 @@ export default function Coaching() {
 
   if (!gameState.gameStarted) {
     return (
-      <div className="w-screen h-screen bg-[#050510] flex items-center justify-center p-6">
+      <div className="w-screen h-screen th-bg flex items-center justify-center p-6">
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="max-w-md w-full bg-[#0a0a1f] border border-[#00f5d4]/20 rounded-3xl p-8 text-center shadow-2xl"
+          className="max-w-md w-full th-bg border th-accent-border rounded-3xl p-8 text-center shadow-2xl"
         >
           <div className="w-20 h-20 bg-purple-500/10 border border-purple-500/30 rounded-2xl flex items-center justify-center mx-auto mb-6 text-purple-400">
             <Swords size={40} />
@@ -371,7 +371,7 @@ export default function Coaching() {
                   title={d.hint}
                   className={`py-2.5 px-1 rounded-xl text-xs font-bold transition-all border ${
                     pendingDifficulty === d.id
-                      ? 'bg-[#00f5d4]/15 border-[#00f5d4]/50 text-[#00f5d4]'
+                      ? 'th-accent/15 th-accent-border th-accent-text'
                       : 'bg-white/5 border-white/10 text-white/50 hover:border-white/25 hover:text-white/80'
                   }`}
                 >
@@ -387,7 +387,7 @@ export default function Coaching() {
           <div className="grid grid-cols-2 gap-4">
             <button
               onClick={() => startGame('w')}
-              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#00f5d4]/50 hover:bg-[#00f5d4]/5 transition-all group"
+              className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 border border-white/10 th-hover-accent-border th-hover-accent-soft transition-all group"
             >
               <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#0a0a1f]">
                 <User size={24} />
@@ -398,7 +398,7 @@ export default function Coaching() {
               onClick={() => startGame('b')}
               className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#ff4757]/50 hover:bg-[#ff4757]/5 transition-all group"
             >
-              <div className="w-12 h-12 rounded-full bg-[#141422] border border-white/20 flex items-center justify-center text-white">
+              <div className="w-12 h-12 rounded-full th-panel border border-white/20 flex items-center justify-center text-white">
                 <User size={24} />
               </div>
               <span className="text-white font-bold">Play Black</span>
@@ -407,9 +407,9 @@ export default function Coaching() {
           
           <button
             onClick={() => { hapticTap(); setLocation('/coaching/spar'); }}
-            className="mt-4 w-full flex items-center justify-center gap-3 p-4 rounded-2xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 hover:bg-[#00f5d4]/20 transition-all"
+            className="mt-4 w-full flex items-center justify-center gap-3 p-4 rounded-2xl th-accent-soft border th-accent-border th-hover-accent-soft transition-all"
           >
-            <Swords size={20} className="text-[#00f5d4]" />
+            <Swords size={20} className="th-accent-text" />
             <span className="text-left">
               <span className="block text-white font-bold text-sm">Sparring Board</span>
               <span className="block text-white/40 text-xs">Play openings move-by-move with live coaching</span>
@@ -428,8 +428,8 @@ export default function Coaching() {
   }
 
   return (
-    <div className="w-screen h-screen bg-[#050510] overflow-hidden flex flex-col font-sans">
-      <header className="h-20 border-b border-[#00f5d4]/10 bg-[#0a0a1f]/80 backdrop-blur-md flex items-center justify-between px-8 z-20">
+    <div className="w-screen h-screen th-bg overflow-hidden flex flex-col font-sans">
+      <header className="h-20 border-b th-accent-border th-bg-soft backdrop-blur-md flex items-center justify-between px-8 z-20">
         <div className="flex items-center gap-6">
           <button onClick={resetGame} className="w-10 h-10 rounded-full flex items-center justify-center bg-white/5 hover:bg-white/10 text-white/70 transition-all border border-white/10">
             <ChevronLeft size={20} />
@@ -437,8 +437,8 @@ export default function Coaching() {
           <div>
             <h1 className="text-xl font-bold text-white">Coaching Pavilion</h1>
             <div className="flex items-center gap-2 mt-0.5">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#00f5d4] animate-pulse" />
-              <span className="text-[10px] text-[#00f5d4] uppercase tracking-[0.2em] font-bold opacity-80">Stockfish 18 · Live Engine</span>
+              <div className="w-1.5 h-1.5 rounded-full th-accent animate-pulse" />
+              <span className="text-[10px] th-accent-text uppercase tracking-[0.2em] font-bold opacity-80">Stockfish 18 · Live Engine</span>
             </div>
           </div>
         </div>
@@ -451,7 +451,7 @@ export default function Coaching() {
           </div>
         )}
         <div className="flex flex-col min-w-0 lg:flex-[1.2] w-full">
-          <div className="flex items-center justify-center bg-[#0a0a1f] rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
+          <div className="flex items-center justify-center th-bg rounded-3xl border border-white/5 shadow-2xl relative overflow-hidden">
             <div className="w-full max-w-[600px] p-4 z-10">
               <BoardWithEval fen={gameState.isExploring ? gameState.explorationBoard : viewedFen}>
                 <ChessBoard
@@ -464,10 +464,10 @@ export default function Coaching() {
             </div>
             <AnimatePresence>
               {isAnalyzing && (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-[#0a0a1f]/40 backdrop-blur-[2px] z-20 flex items-center justify-center">
-                  <div className="bg-[#141422] border border-[#00f5d4]/30 px-6 py-3 rounded-2xl flex items-center gap-4 shadow-2xl">
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 th-bg/40 backdrop-blur-[2px] z-20 flex items-center justify-center">
+                  <div className="th-panel border th-accent-border px-6 py-3 rounded-2xl flex items-center gap-4 shadow-2xl">
                     <div className="w-4 h-4 border-2 border-[#00f5d4] border-t-transparent rounded-full animate-spin" />
-                    <span className="text-[#00f5d4] font-bold text-sm uppercase tracking-widest">Analyzing</span>
+                    <span className="th-accent-text font-bold text-sm uppercase tracking-widest">Analyzing</span>
                   </div>
                 </motion.div>
               )}
@@ -517,14 +517,14 @@ export default function Coaching() {
             {gameState.isPaused && (
               <div className="flex-[2] flex gap-4">
                 <button onClick={takeBackMove} className="flex-1 py-3 lg:py-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-500 font-bold hover:bg-amber-500/20 transition-all">Take Back</button>
-                <button onClick={resumeGame} className="flex-1 py-3 lg:py-4 rounded-2xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-white transition-all">Resume Game</button>
+                <button onClick={resumeGame} className="flex-1 py-3 lg:py-4 rounded-2xl th-accent font-bold hover:bg-white transition-all">Resume Game</button>
               </div>
             )}
           </div>
         </div>
 
         <div className="flex flex-col gap-6 min-w-0 lg:min-w-[380px] lg:flex-1 w-full">
-          <div className="flex-1 bg-[#0a0a1f] rounded-3xl border border-white/5 flex flex-col overflow-hidden shadow-xl p-6 space-y-6">
+          <div className="flex-1 th-bg rounded-3xl border border-white/5 flex flex-col overflow-hidden shadow-xl p-6 space-y-6">
             {showReview ? (
               <>
                 <div className="flex items-center justify-between border-b border-white/5 pb-4">
@@ -578,7 +578,7 @@ export default function Coaching() {
                                   key={offset}
                                   onClick={() => goToPly(idx + 1)}
                                   className={`flex-1 flex items-center justify-between px-3 py-1.5 rounded-lg text-sm transition-all ${
-                                    isViewing ? 'bg-[#00f5d4]/15 border border-[#00f5d4]/30' : 'bg-white/5 border border-transparent hover:border-white/15'
+                                    isViewing ? 'th-accent/15 border th-accent-border' : 'bg-white/5 border border-transparent hover:border-white/15'
                                   }`}
                                 >
                                   <span className="text-white font-mono">{analysis.move}</span>

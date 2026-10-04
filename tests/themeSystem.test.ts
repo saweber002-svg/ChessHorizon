@@ -1,84 +1,74 @@
 import { describe, it, expect } from 'vitest';
-import { getPieceSvg, PIECE_STYLES, type PieceStyleId } from '@/components/pieceStyles';
-import { PIECE_COLOR_THEMES, getPieceColorTheme } from '@/data/pieceColors';
-import { BOARD_THEMES, getBoardTheme } from '@/data/boardThemes';
-import type { PieceSymbol, Color } from 'chess.js';
+import { GAME_THEMES, getGameTheme, pieceSpriteUrl } from '@/data/gameThemes';
 
-const theme = {
-  whiteFill: '#FFFFFF',
-  whiteStroke: '#000000',
-  blackFill: '#000000',
-  blackStroke: '#FFFFFF',
-};
-
-const symbols: PieceSymbol[] = ['p', 'n', 'b', 'r', 'q', 'k'];
-const colors: Color[] = ['w', 'b'];
-const styleIds: PieceStyleId[] = ['staunton', 'alpha', 'pirouetti', 'chessnut'];
-
-describe('Piece styles', () => {
-  it('has 4 styles', () => {
-    expect(PIECE_STYLES).toHaveLength(4);
-    expect(PIECE_STYLES.map((s) => s.id).sort()).toEqual(['alpha', 'chessnut', 'pirouetti', 'staunton']);
+describe('unified theme system', () => {
+  it('has exactly the seven shipped themes, no Black & White', () => {
+    const ids = GAME_THEMES.map((t) => t.id);
+    expect(ids).toEqual([
+      'horizon',
+      'gatsby',
+      'terracotta',
+      'plum',
+      'glacier',
+      'emerald',
+      'crimson',
+    ]);
+    expect(ids).not.toContain('mono');
+    expect(ids).not.toContain('chess-horizon');
   });
 
-  it('generates valid SVG for all styles, pieces, and colors', () => {
-    for (const style of styleIds) {
-      for (const color of colors) {
-        for (const symbol of symbols) {
-          const svg = getPieceSvg(style, symbol, color, theme);
-          expect(svg).toContain('<svg');
-          expect(svg).toContain('</svg>');
-          expect(svg).not.toContain('__FILL__');
-          expect(svg).not.toContain('__STROKE__');
-          // Should contain the theme colors
-          const expectedFill = color === 'w' ? theme.whiteFill : theme.blackFill;
-          expect(svg).toContain(expectedFill);
-        }
+  it('defaults to the fire-vs-ice Chess Horizon theme', () => {
+    expect(GAME_THEMES[0].id).toBe('horizon');
+    expect(getGameTheme('nope').id).toBe('horizon');
+  });
+
+  it('gives every theme a complete board/pieces/UI package', () => {
+    for (const theme of GAME_THEMES) {
+      expect(theme.name.length).toBeGreaterThan(0);
+      // Board image + grid geometry
+      expect(theme.board.image, `${theme.id}.board.image`).toMatch(/\.jpg$/);
+      for (const key of ['gridX', 'gridY', 'gridW', 'gridH'] as const) {
+        const v = theme.board[key];
+        expect(typeof v, `${theme.id}.board.${key}`).toBe('number');
+        expect(v, `${theme.id}.board.${key}`).toBeGreaterThan(0);
+        expect(v, `${theme.id}.board.${key}`).toBeLessThanOrEqual(1);
+      }
+      // Grid must fit inside the image
+      expect(theme.board.gridX + theme.board.gridW, `${theme.id} grid right`).toBeLessThanOrEqual(1.001);
+      expect(theme.board.gridY + theme.board.gridH, `${theme.id} grid bottom`).toBeLessThanOrEqual(1.001);
+      for (const key of ['selectColor', 'lastMoveColor', 'dotColor'] as const) {
+        expect(theme.board[key], `${theme.id}.board.${key}`).toMatch(/^#|rgba/);
+      }
+      for (const key of ['lightSquare', 'darkSquare', 'frameColor'] as const) {
+        expect(theme.board[key], `${theme.id}.board.${key}`).toMatch(/^#/);
+      }
+      // Piece sprites
+      expect(theme.pieces.spriteBase.length, `${theme.id}.pieces.spriteBase`).toBeGreaterThan(0);
+      for (const key of [
+        'bg',
+        'panel',
+        'border',
+        'text',
+        'muted',
+        'accent',
+        'accentInk',
+        'accentSoft',
+      ] as const) {
+        expect(theme.ui[key], `${theme.id}.ui.${key}`).toMatch(/^#|rgba/);
       }
     }
   });
-});
 
-describe('Piece colors', () => {
-  it('has 5 color themes', () => {
-    expect(PIECE_COLOR_THEMES).toHaveLength(5);
-    expect(PIECE_COLOR_THEMES.map((c) => c.id).sort()).toEqual(['emerald', 'gold', 'horizon', 'plain', 'violet']);
-  });
-
-  it('plain has no glow', () => {
-    const plain = getPieceColorTheme('plain');
-    expect(plain.whiteGlow).toBeNull();
-    expect(plain.blackGlow).toBeNull();
-  });
-
-  it('horizon is dark-boards-only with cyan/red glows', () => {
-    const horizon = getPieceColorTheme('horizon');
-    expect(horizon.darkBoardsOnly).toBe(true);
-    expect(horizon.whiteGlow).toBeTruthy();
-    expect(horizon.blackGlow).toBeTruthy();
-    // White stays white, black stays black
-    expect(horizon.whiteFill).toBe('#FFFFFF');
-    expect(horizon.blackFill).toBe('#0A0A0A');
-  });
-
-  it('falls back to plain for unknown id', () => {
-    expect(getPieceColorTheme('nonexistent').id).toBe('plain');
-  });
-});
-
-describe('Board themes', () => {
-  it('marks dark boards correctly', () => {
-    const midnight = getBoardTheme('midnight');
-    const ocean = getBoardTheme('ocean');
-    const classic = getBoardTheme('classic');
-    const walnut = getBoardTheme('walnut');
-    expect(midnight.isDark).toBe(true);
-    expect(ocean.isDark).toBe(true);
-    expect(classic.isDark).toBe(false);
-    expect(walnut.isDark).toBe(false);
-  });
-
-  it('still has 5 board themes', () => {
-    expect(BOARD_THEMES).toHaveLength(5);
+  it('builds sprite URLs for all 12 pieces per theme', () => {
+    for (const theme of GAME_THEMES) {
+      for (const color of ['w', 'b']) {
+        for (const symbol of ['p', 'n', 'b', 'r', 'q', 'k']) {
+          const url = pieceSpriteUrl(theme, `${color}${symbol}`);
+          expect(url, `${theme.id} ${color}${symbol}`).toMatch(
+            new RegExp(`pieces/${theme.id}/${color}_${symbol}\\.png$`)
+          );
+        }
+      }
+    }
   });
 });
