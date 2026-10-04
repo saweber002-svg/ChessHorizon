@@ -1,84 +1,107 @@
 import { describe, it, expect } from 'vitest';
-import { getPieceSvg, PIECE_STYLES, type PieceStyleId } from '@/components/pieceStyles';
-import { PIECE_COLOR_THEMES, getPieceColorTheme } from '@/data/pieceColors';
-import { BOARD_THEMES, getBoardTheme } from '@/data/boardThemes';
-import type { PieceSymbol, Color } from 'chess.js';
+import { GAME_THEMES, getGameTheme } from '@/data/gameThemes';
+import { PIECE_STYLES, getPieceSvg } from '@/components/pieceStyles';
 
-const theme = {
-  whiteFill: '#FFFFFF',
-  whiteStroke: '#000000',
-  blackFill: '#000000',
-  blackStroke: '#FFFFFF',
-};
-
-const symbols: PieceSymbol[] = ['p', 'n', 'b', 'r', 'q', 'k'];
-const colors: Color[] = ['w', 'b'];
-const styleIds: PieceStyleId[] = ['staunton', 'alpha', 'pirouetti', 'chessnut'];
-
-describe('Piece styles', () => {
-  it('has 4 styles', () => {
-    expect(PIECE_STYLES).toHaveLength(4);
-    expect(PIECE_STYLES.map((s) => s.id).sort()).toEqual(['alpha', 'chessnut', 'pirouetti', 'staunton']);
+describe('unified theme system', () => {
+  it('has exactly the seven shipped themes, no Black & White', () => {
+    const ids = GAME_THEMES.map((t) => t.id);
+    expect(ids).toEqual([
+      'chess-horizon',
+      'gatsby',
+      'terracotta',
+      'plum',
+      'glacier',
+      'emerald',
+      'crimson',
+    ]);
+    expect(ids).not.toContain('mono');
   });
 
-  it('generates valid SVG for all styles, pieces, and colors', () => {
-    for (const style of styleIds) {
-      for (const color of colors) {
-        for (const symbol of symbols) {
-          const svg = getPieceSvg(style, symbol, color, theme);
-          expect(svg).toContain('<svg');
-          expect(svg).toContain('</svg>');
-          expect(svg).not.toContain('__FILL__');
-          expect(svg).not.toContain('__STROKE__');
-          // Should contain the theme colors
-          const expectedFill = color === 'w' ? theme.whiteFill : theme.blackFill;
-          expect(svg).toContain(expectedFill);
-        }
+  it('defaults to the fire-vs-ice Chess Horizon theme', () => {
+    expect(GAME_THEMES[0].id).toBe('chess-horizon');
+    expect(getGameTheme('nope').id).toBe('chess-horizon');
+  });
+
+  it('gives every theme a complete board/pieces/UI package', () => {
+    for (const theme of GAME_THEMES) {
+      expect(theme.name.length).toBeGreaterThan(0);
+      for (const key of [
+        'lightSquare',
+        'darkSquare',
+        'frameColor',
+        'selectColor',
+        'lastMoveLight',
+        'lastMoveDark',
+        'dotColor',
+      ] as const) {
+        expect(theme.board[key], `${theme.id}.board.${key}`).toMatch(/^#|rgba/);
+      }
+      for (const key of ['whiteFill', 'whiteStroke', 'blackFill', 'blackStroke'] as const) {
+        expect(theme.pieces[key].length, `${theme.id}.pieces.${key}`).toBeGreaterThan(0);
+      }
+      expect(typeof theme.pieces.glowBlur).toBe('number');
+      for (const key of [
+        'bg',
+        'panel',
+        'border',
+        'text',
+        'muted',
+        'accent',
+        'accentInk',
+        'accentSoft',
+      ] as const) {
+        expect(theme.ui[key], `${theme.id}.ui.${key}`).toMatch(/^#|rgba/);
       }
     }
   });
-});
 
-describe('Piece colors', () => {
-  it('has 5 color themes', () => {
-    expect(PIECE_COLOR_THEMES).toHaveLength(5);
-    expect(PIECE_COLOR_THEMES.map((c) => c.id).sort()).toEqual(['emerald', 'gold', 'horizon', 'plain', 'violet']);
+  it('uses only valid piece style ids', () => {
+    const valid = new Set(PIECE_STYLES.map((s) => s.id));
+    for (const theme of GAME_THEMES) {
+      expect(valid.has(theme.pieces.styleId), theme.id).toBe(true);
+    }
   });
 
-  it('plain has no glow', () => {
-    const plain = getPieceColorTheme('plain');
-    expect(plain.whiteGlow).toBeNull();
-    expect(plain.blackGlow).toBeNull();
+  it('keeps gradient ids unique per theme', () => {
+    const seen = new Set<string>();
+    for (const theme of GAME_THEMES) {
+      for (const match of theme.pieces.defs?.matchAll(/id="([^"]+)"/g) ?? []) {
+        expect(seen.has(match[1]), `duplicate gradient id ${match[1]}`).toBe(false);
+        seen.add(match[1]);
+      }
+    }
   });
 
-  it('horizon is dark-boards-only with cyan/red glows', () => {
-    const horizon = getPieceColorTheme('horizon');
-    expect(horizon.darkBoardsOnly).toBe(true);
-    expect(horizon.whiteGlow).toBeTruthy();
-    expect(horizon.blackGlow).toBeTruthy();
-    // White stays white, black stays black
-    expect(horizon.whiteFill).toBe('#FFFFFF');
-    expect(horizon.blackFill).toBe('#0A0A0A');
-  });
-
-  it('falls back to plain for unknown id', () => {
-    expect(getPieceColorTheme('nonexistent').id).toBe('plain');
-  });
-});
-
-describe('Board themes', () => {
-  it('marks dark boards correctly', () => {
-    const midnight = getBoardTheme('midnight');
-    const ocean = getBoardTheme('ocean');
-    const classic = getBoardTheme('classic');
-    const walnut = getBoardTheme('walnut');
-    expect(midnight.isDark).toBe(true);
-    expect(ocean.isDark).toBe(true);
-    expect(classic.isDark).toBe(false);
-    expect(walnut.isDark).toBe(false);
-  });
-
-  it('still has 5 board themes', () => {
-    expect(BOARD_THEMES).toHaveLength(5);
+  it('references only gradients and filters the theme defines, and injects defs into SVGs', () => {
+    for (const theme of GAME_THEMES) {
+      const defined = new Set(
+        [...(theme.pieces.defs?.matchAll(/id="([^"]+)"/g) ?? [])].map((m) => m[1])
+      );
+      for (const ref of [
+        ...theme.pieces.whiteFill.matchAll(/url\(#([^)]+)\)/g),
+        ...theme.pieces.blackFill.matchAll(/url\(#([^)]+)\)/g),
+      ]) {
+        expect(defined.has(ref[1]), `${theme.id} references #${ref[1]}`).toBe(true);
+      }
+      for (const f of [theme.pieces.whiteFilter, theme.pieces.blackFilter]) {
+        if (f) {
+          const id = f.match(/url\(#([^)]+)\)/)?.[1];
+          expect(id, `${theme.id} filter ${f}`).toBeTruthy();
+          expect(defined.has(id!), `${theme.id} defines filter #${id}`).toBe(true);
+        }
+      }
+      const svg = getPieceSvg(theme.pieces.styleId, 'n', 'w', {
+        whiteFill: theme.pieces.whiteFill,
+        whiteStroke: theme.pieces.whiteStroke,
+        blackFill: theme.pieces.blackFill,
+        blackStroke: theme.pieces.blackStroke,
+        defs: theme.pieces.defs,
+      });
+      if (theme.pieces.defs) {
+        expect(svg).toContain('<defs>');
+        expect(svg).not.toContain('__FILL__');
+      }
+      expect(svg).not.toContain('__STROKE__');
+    }
   });
 });

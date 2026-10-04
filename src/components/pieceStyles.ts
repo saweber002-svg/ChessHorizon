@@ -28,6 +28,17 @@ export interface PieceThemeColors {
   whiteStroke: string;
   blackFill: string;
   blackStroke: string;
+  /**
+   * Optional SVG <defs> (e.g. gradients) injected into every rendered piece.
+   * Fills may reference them via url(#id).
+   */
+  defs?: string;
+  /**
+   * Optional SVG filters applied to the whole piece, per side
+   * (e.g. metallic emboss, engraved inner line). Values like 'url(#id)'.
+   */
+  whiteFilter?: string;
+  blackFilter?: string;
 }
 
 const TEMPLATES: Record<PieceStyleId, Record<Color, Record<PieceSymbol, string>>> = {
@@ -250,5 +261,13 @@ export function getPieceSvg(style: PieceStyleId, symbol: PieceSymbol, color: Col
   const template = TEMPLATES[style][color][symbol];
   const fill = color === 'w' ? theme.whiteFill : theme.blackFill;
   const stroke = color === 'w' ? theme.whiteStroke : theme.blackStroke;
-  return template.replace(/__FILL__/g, fill).replace(/__STROKE__/g, stroke);
+  const filter = color === 'w' ? theme.whiteFilter : theme.blackFilter;
+  let svg = template.replace(/__FILL__/g, fill).replace(/__STROKE__/g, stroke);
+  if (theme.defs) {
+    svg = svg.replace(/(<svg[^>]*>)/, `$1<defs>${theme.defs}</defs>`);
+  }
+  if (filter) {
+    svg = svg.replace(/(<svg)(\s|>)/, `$1 filter="${filter}"$2`);
+  }
+  return svg;
 }

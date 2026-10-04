@@ -11,12 +11,16 @@ import { useTheme } from '@/contexts/ThemeContext';
 import { useProgress } from '@/contexts/ProgressContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { trpc } from '@/lib/trpc';
-import { getPieceSvg } from '@/components/pieceStyles';
-import { PIECE_COLOR_THEMES, type PieceColorTheme } from '@/data/pieceColors';
+import { getPieceSvg, type PieceThemeColors } from '@/components/pieceStyles';
 import { getTierColor, getTierLabel, type Tier } from '@/types';
 
-const PLAIN_COLORS: PieceColorTheme =
-  PIECE_COLOR_THEMES.find((t) => t.id === 'plain') ?? PIECE_COLOR_THEMES[0];
+/** Neutral black/white piece colors for unearned trophy tiers. */
+const PLAIN_COLORS: PieceThemeColors = {
+  whiteFill: '#F9F9F9',
+  whiteStroke: '#1A1A1A',
+  blackFill: '#1A1A1A',
+  blackStroke: '#F9F9F9',
+};
 
 const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as const;
 const RANKS = ['8', '7', '6', '5', '4', '3', '2', '1'] as const;
@@ -80,7 +84,9 @@ export function TrophyBoard({
   onSelectSide,
   onBack,
 }: TrophyBoardProps) {
-  const { boardTheme, pieceStyleId, pieceColor } = useTheme();
+  const { theme, pieceStyleId } = useTheme();
+  const boardTheme = theme.board;
+  const themePieces = theme.pieces;
   const { state } = useProgress();
   const { user } = useAuth();
   const [data, setData] = useState<TrophyData | null>(null);
@@ -242,13 +248,13 @@ export function TrophyBoard({
   const renderPiece = (piece: TrophyPiece, sizeClass: string) => {
     const useSelectedStyle = piece.tier >= 3;
     const styleId = useSelectedStyle ? pieceStyleId : 'staunton';
-    const colors = piece.tier >= 4 ? pieceColor : PLAIN_COLORS;
+    const colors = piece.tier >= 4 ? themePieces : PLAIN_COLORS;
     const opacity = piece.tier === 0 ? 0.15 : piece.tier === 1 ? 0.45 : 1;
     const glow =
       piece.tier >= 4
         ? piece.color === 'w'
-          ? pieceColor.whiteGlow
-          : pieceColor.blackGlow
+          ? themePieces.whiteGlow
+          : themePieces.blackGlow
         : null;
     // Tactical prestige animates only the pieces that earned it: a small
     // bob whose amplitude and speed grow with the tactical tier.
@@ -259,7 +265,7 @@ export function TrophyBoard({
         title={animated ? `Tactical prestige: ${getTierLabel(piece.tacticalTier)}` : undefined}
         style={{
           opacity,
-          filter: glow ? `drop-shadow(0 0 ${pieceColor.glowBlur}px ${glow})` : undefined,
+          filter: glow ? `drop-shadow(0 0 ${themePieces.glowBlur}px ${glow})` : undefined,
           ...(animated
             ? ({
                 '--tactic-bob': `${1.5 + piece.tacticalTier}%`,
@@ -268,12 +274,7 @@ export function TrophyBoard({
             : {}),
         }}
         dangerouslySetInnerHTML={{
-          __html: getPieceSvg(styleId, piece.type, piece.color, {
-            whiteFill: colors.whiteFill,
-            whiteStroke: colors.whiteStroke,
-            blackFill: colors.blackFill,
-            blackStroke: colors.blackStroke,
-          }),
+          __html: getPieceSvg(styleId, piece.type, piece.color, colors),
         }}
       />
     );
@@ -281,9 +282,9 @@ export function TrophyBoard({
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center p-6 text-center">
+      <div className="min-h-screen th-bg flex flex-col items-center justify-center p-6 text-center">
         <p className="text-white/60 mb-4">Couldn't load this opening's trophy board.</p>
-        <button onClick={onBack} className="text-[#00f5d4] hover:underline">
+        <button onClick={onBack} className="th-accent-text hover:underline">
           Back to the kingdom
         </button>
       </div>
@@ -292,8 +293,8 @@ export function TrophyBoard({
 
   if (!data) {
     return (
-      <div className="min-h-screen bg-[#0a0a1f] flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-2 border-[#00f5d4]/30 border-t-[#00f5d4] animate-spin" />
+      <div className="min-h-screen th-bg flex items-center justify-center">
+        <div className="w-8 h-8 rounded-full border-2 th-accent-border border-t-[var(--th-accent)] animate-spin" />
       </div>
     );
   }
@@ -302,7 +303,7 @@ export function TrophyBoard({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen bg-[#0a0a1f] flex flex-col items-center px-4 py-6"
+      className="min-h-screen th-bg flex flex-col items-center px-4 py-6"
     >
       <div className="w-full max-w-lg">
         <div className="flex items-center justify-between mb-4">
@@ -348,7 +349,7 @@ export function TrophyBoard({
           </div>
         </div>
 
-        <p className="text-[#00f5d4] text-xs uppercase tracking-[0.3em] mb-1 text-center">
+        <p className="th-accent-text text-xs uppercase tracking-[0.3em] mb-1 text-center">
           Choose your banner
         </p>
         <h1 className="text-xl font-bold text-white text-center mb-1">{data.packName}</h1>
@@ -397,7 +398,7 @@ export function TrophyBoard({
           {/* All-master celebration sparkles */}
           {data.allMaster && (
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-              <Sparkles size={28} className="text-[#00f5d4] animate-pulse" />
+              <Sparkles size={28} className="th-accent-text animate-pulse" />
             </div>
           )}
 
@@ -415,7 +416,7 @@ export function TrophyBoard({
             aria-label="Play as White"
             className="absolute bottom-0 left-0 right-0 h-1/2 group"
           >
-            <span className="absolute inset-0 bg-cyan-400/0 group-hover:bg-cyan-400/10 group-active:bg-cyan-400/15 transition-colors" />
+            <span className="absolute inset-0 th-accent/0 group-hover:th-accent/10 group-active:th-accent/15 transition-colors" />
           </button>
         </div>
 
@@ -442,7 +443,7 @@ export function TrophyBoard({
         <div className="flex gap-3 mb-4">
           <button
             onClick={() => onSelectSide('w')}
-            className="flex-1 py-3 rounded-xl border border-cyan-400/30 bg-cyan-400/5 text-cyan-300 hover:bg-cyan-400/15 transition-colors flex items-center justify-center gap-2 text-sm font-semibold"
+            className="flex-1 py-3 rounded-xl border th-accent-border th-accent/5 th-accent-text hover:th-accent/15 transition-colors flex items-center justify-center gap-2 text-sm font-semibold"
           >
             <span aria-hidden>♔</span> Play as White
           </button>

@@ -394,9 +394,9 @@ export default function CoachingSpar() {
           : null;
 
   return (
-    <div className="min-h-screen bg-[#0a0a1f]">
+    <div className="min-h-screen th-bg">
       {/* Header */}
-      <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
+      <div className="sticky top-0 z-30 th-bg-soft backdrop-blur-md border-b th-border">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -502,7 +502,7 @@ export default function CoachingSpar() {
                   )}
                 </div>
                 {gameOver && (
-                  <div className="mt-3 p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e] text-center">
+                  <div className="mt-3 p-4 rounded-2xl th-panel border th-border text-center">
                     <p className="text-white font-semibold">{gameOverText}</p>
                     <p className="text-white/40 text-sm mt-1">Review the moves on the right, or save this line as an opening.</p>
                   </div>
@@ -523,7 +523,7 @@ export default function CoachingSpar() {
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-2xl bg-[#141422] border border-[#00f5d4]/30"
+                  className="p-4 rounded-2xl th-panel border th-accent-border"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xs font-bold text-white uppercase tracking-widest">
@@ -544,7 +544,7 @@ export default function CoachingSpar() {
                         onClick={() => setLineStep(i + 1)}
                         className={`px-2.5 py-1 rounded-lg font-mono text-sm transition-colors ${
                           i < lineStep
-                            ? 'bg-[#00f5d4]/20 text-[#00f5d4] border border-[#00f5d4]/40'
+                            ? 'th-accent-soft th-accent-text border th-accent-border'
                             : 'bg-white/5 text-white/60 border border-transparent hover:border-white/20'
                         }`}
                       >
@@ -574,7 +574,7 @@ export default function CoachingSpar() {
                     </button>
                     <button
                       onClick={closeLine}
-                      className="px-3 py-2 rounded-lg bg-[#00f5d4]/10 border border-[#00f5d4]/30 text-[#00f5d4] text-xs font-semibold hover:bg-[#00f5d4]/20"
+                      className="px-3 py-2 rounded-lg th-accent-soft border th-accent-border th-accent-text text-xs font-semibold th-hover-accent-soft"
                     >
                       Return to live
                     </button>
@@ -588,7 +588,7 @@ export default function CoachingSpar() {
                   key={moveSans.length}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]"
+                  className="p-4 rounded-2xl th-panel border th-border"
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-mono text-white font-bold">{latestAnalysis.move}</span>
@@ -606,7 +606,7 @@ export default function CoachingSpar() {
                         const ply = analyses.lastIndexOf(latestAnalysis);
                         if (ply >= 0) showLine(ply);
                       }}
-                      className="mt-3 flex items-center gap-2 px-3 py-2 rounded-xl bg-[#00f5d4]/10 border border-[#00f5d4]/30 text-[#00f5d4] text-xs font-semibold hover:bg-[#00f5d4]/20 transition-colors"
+                      className="mt-3 flex items-center gap-2 px-3 py-2 rounded-xl th-accent-soft border th-accent-border th-accent-text text-xs font-semibold th-hover-accent-soft transition-colors"
                     >
                       <Eye size={14} />
                       Show best line ({latestAnalysis.pv.length} moves)
@@ -616,13 +616,13 @@ export default function CoachingSpar() {
               )}
 
               {/* Move list */}
-              <div className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]">
+              <div className="p-4 rounded-2xl th-panel border th-border">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-xs font-bold text-white uppercase tracking-widest">Moves</h3>
                   {viewPly !== null && (
                     <button
                       onClick={() => goToPly(null)}
-                      className="text-xs text-[#00f5d4] font-semibold hover:underline"
+                      className="text-xs th-accent-text font-semibold hover:underline"
                     >
                       Return to live
                     </button>
@@ -647,7 +647,7 @@ export default function CoachingSpar() {
                               onClick={() => goToPly(isViewing ? null : idx + 1)}
                               className={`flex-1 flex items-center justify-between px-2.5 py-1.5 rounded-lg text-sm transition-all ${
                                 isViewing
-                                  ? 'bg-[#00f5d4]/15 border border-[#00f5d4]/30'
+                                  ? 'th-accent/15 border th-accent-border'
                                   : 'bg-white/5 border border-transparent hover:border-white/15'
                               }`}
                             >
@@ -687,7 +687,7 @@ export default function CoachingSpar() {
                   <p className="text-white/60 text-xs">{analyses[viewPly - 1]!.explanation}</p>
                   <button
                     onClick={() => showLine(viewPly - 1)}
-                    className="mt-2 flex items-center gap-2 text-xs text-[#00f5d4] font-semibold hover:underline"
+                    className="mt-2 flex items-center gap-2 text-xs th-accent-text font-semibold hover:underline"
                   >
                     <Eye size={12} />
                     Step through the best line
@@ -713,7 +713,7 @@ export default function CoachingSpar() {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="bg-[#141422] border border-[#2a2a3e] rounded-2xl p-6 max-w-md w-full"
+              className="th-panel border th-border rounded-2xl p-6 max-w-md w-full"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-4">
@@ -730,14 +730,14 @@ export default function CoachingSpar() {
                 value={saveName}
                 onChange={(e) => setSaveName(e.target.value)}
                 placeholder="e.g., My Sicilian Line"
-                className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 mb-4"
+                className="w-full px-4 py-2.5 rounded-xl th-panel border th-border text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 mb-4"
                 onKeyDown={(e) => e.key === 'Enter' && handleSave()}
                 autoFocus
               />
               <div className="flex gap-3">
                 <button
                   onClick={() => setShowSave(false)}
-                  className="flex-1 py-3 rounded-xl bg-[#2a2a3e] text-white/60 font-medium hover:bg-[#2a2a3e]/80 transition-colors"
+                  className="flex-1 py-3 rounded-xl th-panel text-white/60 font-medium hover:th-panel transition-colors"
                 >
                   Cancel
                 </button>
@@ -806,7 +806,7 @@ function SetupScreen({
   };
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl mx-auto">
-      <div className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] mb-4">
+      <div className="p-6 rounded-2xl th-panel border th-border mb-4">
         <div className="flex items-center gap-3 mb-2">
           <Swords size={20} className="text-emerald-400" />
           <h2 className="text-lg font-bold text-white">How it works</h2>
@@ -818,7 +818,7 @@ function SetupScreen({
         </p>
       </div>
 
-      <div className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] mb-4">
+      <div className="p-6 rounded-2xl th-panel border th-border mb-4">
         <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Play as</p>
         <div className="grid grid-cols-3 gap-2">
           {SIDE_OPTIONS.map((s) => (
@@ -841,7 +841,7 @@ function SetupScreen({
       </div>
 
       {sideChoice !== 'both' && (
-        <div className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] mb-4">
+        <div className="p-6 rounded-2xl th-panel border th-border mb-4">
           <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Engine strength</p>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
             {DIFFICULTY_LEVELS.map((d) => (
@@ -864,13 +864,13 @@ function SetupScreen({
         </div>
       )}
 
-      <div className="p-6 rounded-2xl bg-[#141422] border border-[#2a2a3e] mb-6">
+      <div className="p-6 rounded-2xl th-panel border th-border mb-6">
         <p className="text-white/40 text-xs uppercase tracking-widest mb-3">Start from an opening (optional)</p>
         <p className="text-white/40 text-[11px] uppercase tracking-widest mb-1.5">Kingdom</p>
         <select
           value={startKingdom}
           onChange={(e) => handleKingdomChange(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white focus:outline-none focus:border-emerald-500/50"
+          className="w-full px-4 py-2.5 rounded-xl th-panel border th-border text-white focus:outline-none focus:border-emerald-500/50"
         >
           <option value="">Standard starting position</option>
           {kingdomGroups.map((g) => (
@@ -886,7 +886,7 @@ function SetupScreen({
             <select
               value={startOpeningId}
               onChange={(e) => setStartOpeningId(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white focus:outline-none focus:border-emerald-500/50"
+              className="w-full px-4 py-2.5 rounded-xl th-panel border th-border text-white focus:outline-none focus:border-emerald-500/50"
             >
               {openings.map((o) => (
                 <option key={o.id} value={o.id}>
@@ -902,7 +902,7 @@ function SetupScreen({
             <select
               value={startOpeningId}
               onChange={(e) => setStartOpeningId(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white focus:outline-none focus:border-emerald-500/50"
+              className="w-full px-4 py-2.5 rounded-xl th-panel border th-border text-white focus:outline-none focus:border-emerald-500/50"
             >
               {activeGroup.openings.map((o) => (
                 <option key={o.drillFileId} value={o.drillFileId}>

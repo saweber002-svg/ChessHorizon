@@ -65,7 +65,7 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: 420, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 280, damping: 28 }}
-      className="absolute right-0 top-0 bottom-0 z-30 w-full max-w-md bg-[#0a0a1f]/95 backdrop-blur-xl border-l border-[#00f5d4]/20 shadow-[-20px_0_80px_rgba(0,245,212,0.08)] flex flex-col"
+      className="absolute right-0 top-0 bottom-0 z-30 w-full max-w-md th-bg-soft backdrop-blur-xl border-l th-accent-border shadow-[-20px_0_80px_rgba(0,245,212,0.08)] flex flex-col"
     >
       <motion.div
         className="absolute inset-0 pointer-events-none opacity-30"
@@ -94,12 +94,12 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
           {location.symbol}
         </div>
 
-        <p className="text-[10px] uppercase tracking-[0.25em] text-[#00f5d4]/70 mb-1">{location.subname}</p>
+        <p className="text-[10px] uppercase tracking-[0.25em] th-accent-text/70 mb-1">{location.subname}</p>
         <h2 className="text-2xl font-bold text-white mb-2">{location.name}</h2>
         <p className="text-sm text-white/50 leading-relaxed mb-6">{location.description}</p>
 
         {!isUnlocked ? (
-          <div className="flex flex-col gap-3 p-4 rounded-xl bg-[#141422] border border-[#2a2a3e] mb-6">
+          <div className="flex flex-col gap-3 p-4 rounded-xl th-panel border th-border mb-6">
             <div className="flex items-center gap-2">
               <Lock size={18} className="text-white/40" />
               <p className="text-sm text-white/50">
@@ -117,7 +117,7 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
               <span>Realm progress</span>
               <span>{completionPct}%</span>
             </motion.div>
-            <div className="h-1.5 rounded-full bg-[#141422] overflow-hidden">
+            <div className="h-1.5 rounded-full th-panel overflow-hidden">
               <motion.div
                 className="h-full rounded-full"
                 style={{ background: `linear-gradient(90deg, ${location.color}, #00f5d4)` }}
@@ -161,7 +161,7 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
                   location.variationId ?? 'giuoco-piano'
                 )
               }
-              className="w-full gap-2 bg-gradient-to-r from-[#00f5d4] to-[#00c4aa] text-[#0a0a1f] font-bold hover:opacity-90"
+              className="w-full gap-2 th-accent th-accent-hover font-bold hover:opacity-90"
             >
               <Swords size={18} />
               Start Drill
@@ -176,10 +176,10 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
               <button
                 key={v.drillFileId}
                 onClick={() => startDrill(v.drillFileId, 'italian', v.variationId)}
-                className="w-full flex items-center justify-between p-3 rounded-xl bg-[#141422]/80 border border-[#2a2a3e] hover:border-[#00f5d4]/40 transition-colors text-left group"
+                className="w-full flex items-center justify-between p-3 rounded-xl th-panel/80 border th-border th-hover-accent-border transition-colors text-left group"
               >
                 <span className="text-sm text-white/80 group-hover:text-white">{v.label}</span>
-                <Swords size={16} className="text-[#00f5d4]/50 group-hover:text-[#00f5d4]" />
+                <Swords size={16} className="th-accent-text/50 group-th-hover-accent-text" />
               </button>
             ))}
           </div>
@@ -215,10 +215,10 @@ export function KingdomPanel({ location, onClose }: KingdomPanelProps) {
                 <button
                   key={d.id}
                   onClick={() => startDrill(d.id, location.openingId, variationId)}
-                  className="w-full flex items-center justify-between p-3 rounded-xl bg-[#141422]/80 border border-[#2a2a3e] hover:border-[#00f5d4]/40 transition-colors text-left group"
+                  className="w-full flex items-center justify-between p-3 rounded-xl th-panel/80 border th-border th-hover-accent-border transition-colors text-left group"
                 >
                   <span className="text-sm text-white/80 group-hover:text-white">{d.label}</span>
-                  <Swords size={16} className="text-[#00f5d4]/50 group-hover:text-[#00f5d4]" />
+                  <Swords size={16} className="th-accent-text/50 group-th-hover-accent-text" />
                 </button>
               );
             })}

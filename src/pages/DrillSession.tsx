@@ -757,7 +757,7 @@ hapticSuccess();
     const isTactical = isTacticalPackId(drillFileId);
     const isQuarantined = isQuarantinedTacticalFileId(drillFileId);
     return (
-      <motion.div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center gap-4 p-6 text-center">
+      <motion.div className="min-h-screen th-bg flex flex-col items-center justify-center gap-4 p-6 text-center">
         {isQuarantined ? (
           <>
             <p className="text-amber-300 text-lg">This tactical pack is temporarily unavailable.</p>
@@ -777,7 +777,7 @@ hapticSuccess();
         )}
         <button
           onClick={() => setLocation('/atlas')}
-          className="mt-2 px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
+          className="mt-2 px-6 py-3 rounded-xl th-accent font-bold"
         >
           Return to Atlas
         </button>
@@ -789,7 +789,7 @@ hapticSuccess();
   if (isTacticalPack && !line && pack) {
     const hasDrills = pack.lines && pack.lines.length > 0;
     return (
-      <div className="min-h-screen bg-[#0a0a1f] flex items-center justify-center p-6">
+      <div className="min-h-screen th-bg flex items-center justify-center p-6">
         <div className="max-w-2xl w-full">
           <button
             onClick={() => setLocation('/atlas')}
@@ -811,9 +811,9 @@ hapticSuccess();
                 <button
                   key={tactic.id}
                   onClick={() => selectTactic(tactic)}
-                  className="w-full text-left p-4 rounded-xl bg-[#141422] border border-[#2a2a3e] hover:border-[#00f5d4]/40 transition-colors group"
+                  className="w-full text-left p-4 rounded-xl th-panel border th-border th-hover-accent-border transition-colors group"
                 >
-                  <div className="font-semibold text-white group-hover:text-[#00f5d4]">
+                  <div className="font-semibold text-white group-th-hover-accent-text">
                     {tactic.name}
                   </div>
                   {tactic.leadInMoves && tactic.leadInMoves.length > 0 && (
@@ -833,7 +833,7 @@ hapticSuccess();
             <div className="text-center">
               <button
                 onClick={() => setLocation('/atlas')}
-                className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
+                className="px-6 py-3 rounded-xl th-accent font-bold"
               >
                 Return to Atlas
               </button>
@@ -846,19 +846,19 @@ hapticSuccess();
 
   if (!pack || !line) {
     return (
-      <motion.div className="min-h-screen bg-[#0a0a1f] flex items-center justify-center">
-        <p className="text-[#00f5d4] animate-pulse tracking-widest uppercase text-sm">Loading drill…</p>
+      <motion.div className="min-h-screen th-bg flex items-center justify-center">
+        <p className="th-accent-text animate-pulse tracking-widest uppercase text-sm">Loading drill…</p>
       </motion.div>
     );
   }
 
   if (line.moves.length === 0) {
     return (
-      <motion.div className="min-h-screen bg-[#0a0a1f] flex flex-col items-center justify-center gap-4 p-6 text-center">
+      <motion.div className="min-h-screen th-bg flex flex-col items-center justify-center gap-4 p-6 text-center">
         <p className="text-red-400">This drill does not contain any playable moves.</p>
         <button
           onClick={() => setLocation('/atlas')}
-          className="px-6 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold"
+          className="px-6 py-3 rounded-xl th-accent font-bold"
         >
           Return to Atlas
         </button>
@@ -897,8 +897,8 @@ hapticSuccess();
   const kingdomReturnLabel = inKingdom ? 'Return to Kingdom' : 'Return to Atlas';
 
   return (
-    <motion.div className="min-h-screen bg-[#0a0a1f]">
-      <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
+    <motion.div className="min-h-screen th-bg">
+      <div className="sticky top-0 z-30 th-bg-soft backdrop-blur-md border-b th-border">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <button
             onClick={() => setLocation('/atlas')}
@@ -923,7 +923,7 @@ hapticSuccess();
             </button>
           </div>
         </div>
-        <div className="h-1 bg-[#141422]">
+        <div className="h-1 th-panel">
           <motion.div
             className="h-full bg-gradient-to-r from-[#00f5d4] to-[#f5a623]"
             animate={{ width: `${sessionComplete ? 100 : progressPct}%` }}
@@ -965,7 +965,7 @@ hapticSuccess();
                 </div>
                 <button
                   onClick={() => setResultsOpen(true)}
-                  className="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-[#00e0c0] transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-3 rounded-xl th-accent font-bold hover:bg-[#00e0c0] transition-colors"
                 >
                   Continue <ArrowRight size={18} />
                 </button>
@@ -981,14 +981,14 @@ hapticSuccess();
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="fixed inset-0 z-50 flex items-center justify-center bg-[#050510]/90 backdrop-blur-sm p-4"
+                  className="fixed inset-0 z-50 flex items-center justify-center th-bg/90 backdrop-blur-sm p-4"
                   onClick={() => setResultsOpen(false)}
                 >
                   <motion.div
                     initial={{ scale: 0.95, y: 20 }}
                     animate={{ scale: 1, y: 0 }}
                     exit={{ scale: 0.95, y: 20 }}
-                    className="w-full max-w-md rounded-2xl bg-[#141422] border border-[#2a2a3e] p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto"
+                    className="w-full max-w-md rounded-2xl th-panel border th-border p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <div className="text-center w-full">
@@ -1034,7 +1034,7 @@ hapticSuccess();
                                 `/drill-session/${variationId}-puzzles?opening=${openingId}&variation=${variationId}`
                               );
                             }}
-                            className="px-4 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-bold hover:bg-[#00e0c0] transition-colors"
+                            className="px-4 py-3 rounded-xl th-accent font-bold hover:bg-[#00e0c0] transition-colors"
                           >
                             Practice real puzzles
                           </button>
@@ -1058,16 +1058,16 @@ hapticSuccess();
                                 onClick={() => selectTactic(tactic)}
                                 className={`w-full text-left p-3 rounded-xl border transition-all group ${
                                   line?.id === tactic.id
-                                    ? 'bg-[#00f5d4]/5 border-[#00f5d4]/30 cursor-default'
-                                    : 'bg-[#141422] border-[#2a2a3e] hover:border-[#00f5d4]/40 hover:bg-[#1a1a2e]'
+                                    ? 'th-accent/5 th-accent-border cursor-default'
+                                    : 'th-panel th-border th-hover-accent-border hover:th-panel'
                                 }`}
                               >
                                 <div className="flex items-center justify-between">
-                                  <div className={`font-semibold text-sm ${line?.id === tactic.id ? 'text-[#00f5d4]' : 'text-white group-hover:text-[#00f5d4]'}`}>
+                                  <div className={`font-semibold text-sm ${line?.id === tactic.id ? 'th-accent-text' : 'text-white group-th-hover-accent-text'}`}>
                                     {tactic.name}
                                   </div>
                                   {line?.id === tactic.id && (
-                                    <span className="text-[10px] font-bold bg-[#00f5d4]/20 text-[#00f5d4] px-2 py-0.5 rounded-full uppercase tracking-wider">
+                                    <span className="text-[10px] font-bold th-accent-soft th-accent-text px-2 py-0.5 rounded-full uppercase tracking-wider">
                                       Just Completed
                                     </span>
                                   )}
@@ -1093,7 +1093,7 @@ hapticSuccess();
                   </span>
                 )}
                 {sparringOver && (
-                  <span className="text-sm font-bold text-[#00f5d4] uppercase tracking-widest">
+                  <span className="text-sm font-bold th-accent-text uppercase tracking-widest">
                     Game over
                   </span>
                 )}
@@ -1118,11 +1118,11 @@ hapticSuccess();
           <>
             <p className="text-center text-sm text-white/50 mb-4">
               {watching ? (
-                <span className="text-[#00f5d4]/80 animate-pulse">
+                <span className="th-accent-text/80 animate-pulse">
                   Watching the line… single play
                 </span>
               ) : waitingOpponent ? (
-                <span className="text-[#00f5d4]/80 animate-pulse">Opponent is moving…</span>
+                <span className="th-accent-text/80 animate-pulse">Opponent is moving…</span>
               ) : (
                 <>
                   Your move {moveIndex + 1} of {playerMoveIndices.length}
@@ -1219,7 +1219,7 @@ hapticSuccess();
               {watching ? (
                 <button
                   onClick={exitWatch}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#141422] border border-[#00f5d4]/40 text-[#00f5d4] text-sm whitespace-nowrap"
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg th-panel border th-accent-border th-accent-text text-sm whitespace-nowrap"
                 >
                   <X size={16} /> Exit watch
                 </button>
@@ -1227,14 +1227,14 @@ hapticSuccess();
                 <>
                   <button
                     onClick={() => beginSession(playerColor)}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm whitespace-nowrap"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg th-panel border th-border text-white/60 text-sm whitespace-nowrap"
                   >
                     <RotateCcw size={16} /> Restart
                   </button>
                   <button
                     onClick={startWatch}
                     disabled={showStars || waitingOpponent}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm whitespace-nowrap hover:text-[#00f5d4] hover:border-[#00f5d4]/30 disabled:opacity-40 disabled:hover:text-white/60 disabled:hover:border-[#2a2a3e]"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg th-panel border th-border text-white/60 text-sm whitespace-nowrap th-hover-accent-text th-hover-accent-border disabled:opacity-40 disabled:hover:text-white/60 disabled:hover:th-border"
                     title="Watch the full line once"
                   >
                     <Eye size={16} /> Watch
@@ -1246,8 +1246,8 @@ hapticSuccess();
                 disabled={hintUsed || sessionComplete || showStars || watching}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-sm whitespace-nowrap transition-colors ${
                   hintUsed
-                    ? 'bg-[#141422] border-[#2a2a3e] text-white/30 cursor-not-allowed'
-                    : 'bg-[#141422] border-[#2a2a3e] text-white/60 hover:text-[#00f5d4] hover:border-[#00f5d4]/30'
+                    ? 'th-panel th-border text-white/30 cursor-not-allowed'
+                    : 'th-panel th-border text-white/60 th-hover-accent-text th-hover-accent-border'
                 }`}
               >
                 <Lightbulb size={16} />
@@ -1255,7 +1255,7 @@ hapticSuccess();
               </button>
               <button
                 onClick={() => setDrillMode((m) => (m === 'in-order' ? 'random' : 'in-order'))}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white/60 text-sm whitespace-nowrap"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg th-panel border th-border text-white/60 text-sm whitespace-nowrap"
               >
                 {drillMode === 'in-order' ? <ListOrdered size={16} /> : <Shuffle size={16} />}
                 {drillMode === 'in-order' ? 'In order' : 'Random'}
@@ -1282,13 +1282,13 @@ hapticSuccess();
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 20 }}
-              className="w-full max-w-md mx-auto my-auto rounded-2xl bg-[#141422] border border-[#2a2a3e] p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain"
+              className="w-full max-w-md mx-auto my-auto rounded-2xl th-panel border th-border p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain"
               style={{ WebkitOverflowScrolling: 'touch' }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  <Pause size={20} className="text-[#00f5d4]" /> Paused
+                  <Pause size={20} className="th-accent-text" /> Paused
                 </h2>
                 <button
                   onClick={() => setShowPauseMenu(false)}
@@ -1300,13 +1300,13 @@ hapticSuccess();
               </div>
               <h3 className="text-sm font-semibold text-white/70 mb-3">Board Theme</h3>
               <ThemePicker />
-              <div className="mt-6 pt-6 border-t border-[#2a2a3e]">
+              <div className="mt-6 pt-6 border-t th-border">
                 <h3 className="text-sm font-semibold text-white/70 mb-3">Sound</h3>
                 <SoundPicker />
               </div>
               <button
                 onClick={() => setShowPauseMenu(false)}
-                className="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#00f5d4] text-[#0a0a1f] font-semibold hover:bg-[#00f5d4]/90 transition-colors"
+                className="mt-6 w-full flex items-center justify-center gap-2 py-3 rounded-xl th-accent font-semibold th-accent-hover transition-colors"
               >
                 <Play size={18} /> Resume Drill
               </button>

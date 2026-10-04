@@ -1,6 +1,11 @@
+/**
+ * Unified theme context for Chess Horizon.
+ *
+ * One theme selects everything — board colors, piece design + colors, and the
+ * menu/UI aesthetic. There is no mix-and-match.
+ */
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
-import { getBoardTheme, type BoardTheme } from '@/data/boardThemes';
-import { getPieceColorTheme, type PieceColorTheme } from '@/data/pieceColors';
+import { GAME_THEMES, getGameTheme, type GameTheme } from '@/data/gameThemes';
 import { PIECE_STYLES, type PieceStyleId } from '@/components/pieceStyles';
 import {
   DEFAULT_EVAL_BAR_POSITION,
@@ -8,33 +13,44 @@ import {
   type EvalBarPosition,
 } from '@/lib/evalBar';
 
-const BOARD_KEY = 'chess_horizon_board_theme';
-const STYLE_KEY = 'chess_horizon_piece_style';
-const COLOR_KEY = 'chess_horizon_piece_color';
+const THEME_KEY = 'chess_horizon_theme';
+const LEGACY_BOARD_KEY = 'chess_horizon_board_theme';
+const PIECE_STYLE_KEY = 'chess_horizon_piece_style';
 const EVAL_BAR_KEY = 'chess_horizon_eval_bar';
 
-const DEFAULT_BOARD = 'mono';
-const DEFAULT_STYLE: PieceStyleId = 'staunton';
-const DEFAULT_COLOR = 'plain';
+const DEFAULT_THEME = 'chess-horizon';
 
-interface ThemeContextValue {
-  // Board theme
-  boardTheme: BoardTheme;
-  boardThemeId: string;
-  setBoardThemeId: (id: string) => void;
-  // Piece style
-  pieceStyleId: PieceStyleId;
-  setPieceStyleId: (id: PieceStyleId) => void;
-  // Piece color
-  pieceColor: PieceColorTheme;
-  pieceColorId: string;
-  setPieceColorId: (id: string) => void;
-  // Evaluation bar
-  evalBarPosition: EvalBarPosition;
-  setEvalBarPosition: (position: EvalBarPosition) => void;
+const CSS_VARS: Array<[string, keyof GameTheme['ui']]> = [
+  ['--th-bg', 'bg'],
+  ['--th-panel', 'panel'],
+  ['--th-border', 'border'],
+  ['--th-text', 'text'],
+  ['--th-muted', 'muted'],
+  ['--th-accent', 'accent'],
+  ['--th-accent-ink', 'accentInk'],
+  ['--th-accent-soft', 'accentSoft'],
+];
+
+function applyUiVars(ui: GameTheme['ui']) {
+  if (typeof document === 'undefined') return;
+  const root = document.documentElement;
+  for (const [varName, key] of CSS_VARS) {
+    root.style.setProperty(varName, ui[key]);
+  }
 }
 
-const ThemeContext = createContext<ThemeContextValue | null>(null);
+function loadThemeId(): string {
+  try {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved && GAME_THEMES.some((t) => t.id === saved)) return saved;
+    // Migrate the legacy separate board-theme choice when it still exists.
+    const legacy = localStorage.getItem(LEGACY_BOARD_KEY);
+    if (legacy && GAME_THEMES.some((t) => t.id === legacy)) return legacy;
+  } catch {
+    // ignore
+  }
+  return DEFAULT_THEME;
+}
 
 function load(key: string, fallback: string): string {
   try {
@@ -52,12 +68,25 @@ function save(key: string, value: string) {
   }
 }
 
+interface ThemeContextValue {
+  theme: GameTheme;
+  themeId: string;
+  setThemeId: (id: string) => void;
+  /** Independent piece silhouette choice — every theme's paint works with any design. */
+  pieceStyleId: PieceStyleId;
+  setPieceStyleId: (id: PieceStyleId) => void;
+  evalBarPosition: EvalBarPosition;
+  setEvalBarPosition: (position: EvalBarPosition) => void;
+}
+
+const ThemeContext = createContext<ThemeContextValue | null>(null);
+
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [boardThemeId, setBoardThemeIdState] = useState<string>(() => load(BOARD_KEY, DEFAULT_BOARD));
-  const [pieceStyleId, setPieceStyleIdState] = useState<PieceStyleId>(
-    () => load(STYLE_KEY, DEFAULT_STYLE) as PieceStyleId
-  );
-  const [pieceColorId, setPieceColorIdState] = useState<string>(() => load(COLOR_KEY, DEFAULT_COLOR));
+  const [themeId, setThemeIdState] = useState<string>(loadThemeId);
+  const [pieceStyleId, setPieceStyleIdState] = useState<PieceStyleId>(() => {
+    const saved = load(PIECE_STYLE_KEY, 'staunton');
+    return PIECE_STYLES.some((s) => s.id === saved) ? (saved as PieceStyleId) : 'staunton';
+  });
   const [evalBarPosition, setEvalBarPositionState] = useState<EvalBarPosition>(() => {
     const saved = load(EVAL_BAR_KEY, DEFAULT_EVAL_BAR_POSITION);
     return EVAL_BAR_POSITIONS.includes(saved as EvalBarPosition)
@@ -65,33 +94,25 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       : DEFAULT_EVAL_BAR_POSITION;
   });
 
-  const boardTheme = getBoardTheme(boardThemeId);
-  const pieceColor = getPieceColorTheme(pieceColorId);
+  const theme = getGameTheme(themeId);
 
-  // If Horizon color is active but board is not dark, fall back to plain
+  // Apply the theme's UI variables to the document root.
   useEffect(() => {
-    if (pieceColor.darkBoardsOnly && !boardTheme.isDark) {
-      setPieceColorIdState(DEFAULT_COLOR);
-      save(COLOR_KEY, DEFAULT_COLOR);
-    }
-  }, [pieceColor.darkBoardsOnly, boardTheme.isDark]);
+    applyUiVars(theme.ui);
+  }, [theme]);
 
-  const setBoardThemeId = useCallback((id: string) => {
-    setBoardThemeIdState(id);
-    save(BOARD_KEY, id);
+  const setThemeId = useCallback((id: string) => {
+    if (GAME_THEMES.some((t) => t.id === id)) {
+      setThemeIdState(id);
+      save(THEME_KEY, id);
+    }
   }, []);
 
   const setPieceStyleId = useCallback((id: PieceStyleId) => {
-    // Validate it's a known style
     if (PIECE_STYLES.some((s) => s.id === id)) {
       setPieceStyleIdState(id);
-      save(STYLE_KEY, id);
+      save(PIECE_STYLE_KEY, id);
     }
-  }, []);
-
-  const setPieceColorId = useCallback((id: string) => {
-    setPieceColorIdState(id);
-    save(COLOR_KEY, id);
   }, []);
 
   const setEvalBarPosition = useCallback((position: EvalBarPosition) => {
@@ -102,20 +123,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <ThemeContext.Provider
-      value={{
-        boardTheme,
-        boardThemeId,
-        setBoardThemeId,
-        pieceStyleId,
-        setPieceStyleId,
-        pieceColor,
-        pieceColorId,
-        setPieceColorId,
-        evalBarPosition,
-        setEvalBarPosition,
-      }}
-    >
+    <ThemeContext.Provider value={{ theme, themeId, setThemeId, pieceStyleId, setPieceStyleId, evalBarPosition, setEvalBarPosition }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -125,11 +133,4 @@ export function useTheme(): ThemeContextValue {
   const ctx = useContext(ThemeContext);
   if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
   return ctx;
-}
-
-// Backwards compatibility for existing imports
-export const BoardThemeProvider = ThemeProvider;
-export function useBoardTheme() {
-  const { boardTheme, boardThemeId, setBoardThemeId } = useTheme();
-  return { theme: boardTheme, themeId: boardThemeId, setThemeId: setBoardThemeId };
 }

@@ -134,7 +134,9 @@ export default function ChessBoard({
   lastMove,
   orientation = 'white',
 }: ChessBoardProps) {
-  const { boardTheme: theme, pieceStyleId, pieceColor } = useTheme();
+  const { theme: gameTheme, pieceStyleId } = useTheme();
+  const theme = gameTheme.board;
+  const themePieces = gameTheme.pieces;
   const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
   const [legalMoves, setLegalMoves] = useState<Square[]>([]);
   const [draggedPiece, setDraggedPiece] = useState<{
@@ -251,8 +253,8 @@ export default function ChessBoard({
         className="w-full h-full p-[2px]"
         style={{
           filter: (() => {
-            const glow = piece[0] === 'w' ? pieceColor.whiteGlow : pieceColor.blackGlow;
-            return glow ? `drop-shadow(0 0 ${pieceColor.glowBlur}px ${glow})` : undefined;
+            const glow = piece[0] === 'w' ? themePieces.whiteGlow : themePieces.blackGlow;
+            return glow ? `drop-shadow(0 0 ${themePieces.glowBlur}px ${glow})` : undefined;
           })(),
         }}
         dangerouslySetInnerHTML={{
@@ -260,17 +262,12 @@ export default function ChessBoard({
             pieceStyleId,
             piece[1] as PieceSymbol,
             piece[0] as Color,
-            {
-              whiteFill: pieceColor.whiteFill,
-              whiteStroke: pieceColor.whiteStroke,
-              blackFill: pieceColor.blackFill,
-              blackStroke: pieceColor.blackStroke,
-            }
+            themePieces
           ),
         }}
       />
     ),
-    [pieceStyleId, pieceColor]
+    [pieceStyleId, themePieces]
   );
 
   const getSquareFromRC = useCallback(
@@ -431,8 +428,8 @@ export default function ChessBoard({
                     `}
                     style={{
                       filter: (() => {
-                        const glow = piece[0] === 'w' ? pieceColor.whiteGlow : pieceColor.blackGlow;
-                        return glow ? `drop-shadow(0 0 ${pieceColor.glowBlur}px ${glow})` : undefined;
+                        const glow = piece[0] === 'w' ? themePieces.whiteGlow : themePieces.blackGlow;
+                        return glow ? `drop-shadow(0 0 ${themePieces.glowBlur}px ${glow})` : undefined;
                       })(),
                     }}
                     dangerouslySetInnerHTML={{
@@ -440,12 +437,7 @@ export default function ChessBoard({
                         pieceStyleId,
                         piece[1] as PieceSymbol,
                         piece[0] as Color,
-                        {
-                          whiteFill: pieceColor.whiteFill,
-                          whiteStroke: pieceColor.whiteStroke,
-                          blackFill: pieceColor.blackFill,
-                          blackStroke: pieceColor.blackStroke,
-                        }
+                        themePieces
                       ),
                     }}
                   />

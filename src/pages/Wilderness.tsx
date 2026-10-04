@@ -32,9 +32,9 @@ export default function Wilderness() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a1f]">
+    <div className="min-h-screen th-bg">
       {/* Header */}
-      <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
+      <div className="sticky top-0 z-30 th-bg-soft backdrop-blur-md border-b th-border">
         <div className="max-w-4xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -69,7 +69,7 @@ export default function Wilderness() {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6 p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e]"
+          className="mb-6 p-4 rounded-2xl th-panel border th-border"
         >
           <p className="text-sm text-white/50">
             The Wilderness is where the community shares and explores custom chess openings.
@@ -100,7 +100,7 @@ export default function Wilderness() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e] hover:border-emerald-500/20 transition-colors group"
+                  className="p-4 rounded-2xl th-panel border th-border hover:border-emerald-500/20 transition-colors group"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1 min-w-0">
@@ -148,7 +148,7 @@ export default function Wilderness() {
                     {opening.variations.map((variation) => (
                       <div
                         key={variation.id}
-                        className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#1a1a2e] border border-[#2a2a3e]"
+                        className="flex items-center justify-between px-3 py-2 rounded-lg th-panel border th-border"
                       >
                         <div className="flex items-center gap-2">
                           <GripVertical size={14} className="text-white/20" />
@@ -179,7 +179,7 @@ export default function Wilderness() {
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="bg-[#141422] border border-[#2a2a3e] rounded-2xl p-6 max-w-md w-full"
+              className="th-panel border th-border rounded-2xl p-6 max-w-md w-full"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-4">
@@ -196,7 +196,7 @@ export default function Wilderness() {
                     value={newName}
                     onChange={(e) => setNewName(e.target.value)}
                     placeholder="e.g., My Secret Gambit"
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50"
+                    className="w-full px-4 py-2.5 rounded-xl th-panel border th-border text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50"
                     onKeyDown={(e) => e.key === 'Enter' && handleCreate()}
                   />
                 </div>
@@ -207,7 +207,7 @@ export default function Wilderness() {
                     onChange={(e) => setNewDesc(e.target.value)}
                     placeholder="Describe your opening..."
                     rows={3}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#1a1a2e] border border-[#2a2a3e] text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl th-panel border th-border text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 resize-none"
                   />
                 </div>
                 <button

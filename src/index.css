@@ -284,3 +284,36 @@
     background: #3a3a4e;
   }
 }
+
+/* ── Unified theme variables (applied to :root by ThemeContext) ── */
+:root {
+  --th-bg: #070C14;
+  --th-panel: #0E1622;
+  --th-border: #1E2C3D;
+  --th-text: #E8F1F8;
+  --th-muted: #8496AC;
+  --th-accent: #22D3EE;
+  --th-accent-ink: #04202A;
+  --th-accent-soft: rgba(34, 211, 238, 0.14);
+}
+
+@layer utilities {
+  .th-bg { background-color: var(--th-bg); }
+  .th-bg-soft { background-color: color-mix(in srgb, var(--th-bg) 88%, transparent); }
+  .th-panel { background-color: var(--th-panel); }
+  .th-border { border-color: var(--th-border); }
+  .th-accent-border { border-color: var(--th-accent); }
+  .th-text { color: var(--th-text); }
+  .th-muted { color: var(--th-muted); }
+  .th-accent { background-color: var(--th-accent); color: var(--th-accent-ink); }
+  .th-accent-hover:hover { filter: brightness(1.12); }
+  .th-hover-accent-soft:hover { background-color: var(--th-accent-soft); }
+  .th-hover-accent-text:hover { color: var(--th-accent); }
+  .th-hover-accent-border:hover { border-color: var(--th-accent); }
+  .th-focus-accent-border:focus { border-color: var(--th-accent); }
+  .th-ring { --tw-ring-color: var(--th-accent); }
+  .th-ring-border { --tw-ring-color: var(--th-border); }
+  .group:hover .th-group-hover-accent-soft { background-color: var(--th-accent-soft); }
+  .th-accent-text { color: var(--th-accent); }
+  .th-accent-soft { background-color: var(--th-accent-soft); }
+}

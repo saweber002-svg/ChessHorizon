@@ -62,7 +62,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-[#0a0a1f] border border-[#00f5d4]/30 rounded-2xl p-8 max-w-md w-full shadow-[0_0_80px_rgba(0,245,212,0.15)]"
+            className="th-bg border th-accent-border rounded-2xl p-8 max-w-md w-full shadow-[0_0_80px_rgba(0,245,212,0.15)]"
           >
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-white">
@@ -83,7 +83,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 className="text-center py-8"
               >
                 <div className="text-4xl mb-3">✅</div>
-                <p className="text-[#00f5d4] font-semibold mb-1">Account created!</p>
+                <p className="th-accent-text font-semibold mb-1">Account created!</p>
                 <p className="text-sm text-white/50">Welcome to Chess Horizon</p>
               </motion.div>
             ) : (
@@ -97,7 +97,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@example.com"
-                      className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white placeholder-white/30 focus:border-[#00f5d4]/50 focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-lg th-panel border th-border text-white placeholder-white/30 th-focus-accent-border focus:outline-none transition-colors"
                       required
                       disabled={isLoading}
                     />
@@ -114,7 +114,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Your player name"
-                        className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white placeholder-white/30 focus:border-[#00f5d4]/50 focus:outline-none transition-colors"
+                        className="w-full pl-10 pr-4 py-2.5 rounded-lg th-panel border th-border text-white placeholder-white/30 th-focus-accent-border focus:outline-none transition-colors"
                         required
                         disabled={isLoading}
                       />
@@ -131,7 +131,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-10 pr-4 py-2.5 rounded-lg bg-[#141422] border border-[#2a2a3e] text-white placeholder-white/30 focus:border-[#00f5d4]/50 focus:outline-none transition-colors"
+                      className="w-full pl-10 pr-4 py-2.5 rounded-lg th-panel border th-border text-white placeholder-white/30 th-focus-accent-border focus:outline-none transition-colors"
                       required
                       disabled={isLoading}
                       minLength={6}
@@ -152,7 +152,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-[#00f5d4] to-[#00c4aa] text-[#0a0a1f] font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full py-3 rounded-xl th-accent th-accent-hover font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isLoading ? (
                     <>
@@ -168,10 +168,10 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
 
                 <div className="relative py-4">
                   <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-[#2a2a3e]" />
+                    <div className="w-full border-t th-border" />
                   </div>
                   <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-[#0a0a1f] text-white/40">
+                    <span className="px-2 th-bg text-white/40">
                       {mode === 'signin' ? 'New here?' : 'Already have an account?'}
                     </span>
                   </div>
@@ -183,7 +183,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
                     setMode(mode === 'signin' ? 'signup' : 'signin');
                     setError(null);
                   }}
-                  className="w-full py-2.5 rounded-xl border border-[#2a2a3e] text-white/70 hover:text-[#00f5d4] hover:border-[#00f5d4]/30 transition-colors font-medium"
+                  className="w-full py-2.5 rounded-xl border th-border text-white/70 th-hover-accent-text th-hover-accent-border transition-colors font-medium"
                 >
                   {mode === 'signin' ? 'Create an account' : 'Sign in instead'}
                 </button>
