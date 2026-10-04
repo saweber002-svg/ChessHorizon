@@ -18,8 +18,8 @@ const KingdomPage = lazy(() => import('@/pages/KingdomPage'));
 const TacticSelection = lazy(() => import('@/pages/TacticSelection'));
 
 const Loading = () => (
-  <div className="min-h-screen bg-[#0a0a1f] flex items-center justify-center">
-    <p className="text-[#00f5d4] animate-pulse tracking-widest uppercase text-sm">Loading...</p>
+  <div className="min-h-screen th-bg flex items-center justify-center">
+    <p className="th-accent-text animate-pulse tracking-widest uppercase text-sm">Loading...</p>
   </div>
 );
 

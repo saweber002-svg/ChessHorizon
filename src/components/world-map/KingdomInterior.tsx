@@ -581,7 +581,7 @@ const HEADER_OFFSET_PX = 92;
   return (
     <div
       ref={containerRef}
-      className="w-screen h-screen bg-[#050510] overflow-hidden relative"
+      className="w-screen h-screen th-bg overflow-hidden relative"
       style={{ touchAction: 'none' }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -639,7 +639,7 @@ const HEADER_OFFSET_PX = 92;
               <div className="absolute inset-0 rounded-full group-hover:bg-white/10 transition-colors" />
               {place && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-[#0a0a1f]/85 backdrop-blur border border-white/10 text-center whitespace-nowrap"
+                  className="absolute left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full th-bg/85 backdrop-blur border border-white/10 text-center whitespace-nowrap"
                   style={
                     place === 'below'
                       ? { top: 'calc(100% + 4px)' }
@@ -662,16 +662,16 @@ const HEADER_OFFSET_PX = 92;
 
       {/* Header */}
       <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
-        <div className="bg-gradient-to-b from-[#0a0a1f]/95 to-transparent pt-4 pb-10 px-4">
+        <div className="bg-gradient-to-b from-[var(--th-bg)] to-transparent pt-4 pb-10 px-4">
           <div className="flex items-center gap-3 max-w-3xl mx-auto pointer-events-auto">
             <button
               onClick={onBack}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-[#141422]/90 border border-[#2a2a3e] text-white/70 hover:text-white hover:border-[#00f5d4]/40 transition-colors text-sm"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl th-panel border th-border text-white/70 hover:text-white th-hover-accent-border transition-colors text-sm"
             >
               <ArrowLeft size={16} /> Atlas
             </button>
             <div className="flex-1 min-w-0">
-              <p className="text-[10px] uppercase tracking-[0.25em] text-[#00f5d4]/70">{location.subname}</p>
+              <p className="text-[10px] uppercase tracking-[0.25em] th-accent-text/70">{location.subname}</p>
               <h1 className="text-lg md:text-xl font-bold text-white truncate">{location.name}</h1>
             </div>
           </div>
@@ -680,7 +680,7 @@ const HEADER_OFFSET_PX = 92;
               <span>Realm progress</span>
               <span>{realmPct}%</span>
             </div>
-            <div className="h-1.5 rounded-full bg-[#141422]/90 overflow-hidden">
+            <div className="h-1.5 rounded-full th-panel overflow-hidden">
               <motion.div
                 className="h-full rounded-full"
                 style={{ background: `linear-gradient(90deg, ${location.color}, #00f5d4)` }}

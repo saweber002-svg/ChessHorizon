@@ -56,9 +56,9 @@ export default function WildernessBoard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a1f]">
+    <div className="min-h-screen th-bg">
       {/* Header */}
-      <div className="sticky top-0 z-30 bg-[#0a0a1f]/95 backdrop-blur-md border-b border-[#2a2a3e]/50">
+      <div className="sticky top-0 z-30 th-bg-soft backdrop-blur-md border-b th-border">
         <div className="max-w-6xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -140,7 +140,7 @@ export default function WildernessBoard() {
           </div>
 
           {/* Move list */}
-          <div className="p-4 rounded-2xl bg-[#141422] border border-[#2a2a3e] h-fit">
+          <div className="p-4 rounded-2xl th-panel border th-border h-fit">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-xs font-bold text-white uppercase tracking-widest">Line</h3>
               <span className="text-xs text-white/30">{moveSans.length} moves</span>

@@ -30,7 +30,7 @@ export default function StarOverlay({ stars, onComplete }: StarOverlayProps) {
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 260, damping: 22, delay: 0.05 }}
-        className="flex items-center gap-3 rounded-2xl border border-cyan-400/20 bg-[#060712]/95 px-4 py-2 shadow-[0_8px_40px_rgba(0,245,212,0.14)] backdrop-blur-xl"
+        className="flex items-center gap-3 rounded-2xl border th-accent-border th-bg-soft px-4 py-2 shadow-[0_8px_40px_rgba(0,245,212,0.14)] backdrop-blur-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <motion.span
@@ -79,7 +79,7 @@ export default function StarOverlay({ stars, onComplete }: StarOverlayProps) {
           transition={{ delay: 0.6 }}
         >
           <motion.div
-            className="h-full bg-[#00f5d4] rounded-full"
+            className="h-full th-accent rounded-full"
             initial={{ width: '0%' }}
             animate={{ width: '100%' }}
             transition={{ duration: 1.8, ease: 'linear' }}

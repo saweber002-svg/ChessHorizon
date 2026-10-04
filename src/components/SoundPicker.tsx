@@ -17,11 +17,11 @@ export default function SoundPicker() {
     <div className="space-y-6">
       {/* Enable/disable */}
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-slate-300">Sound Effects</span>
+        <span className="text-sm font-medium th-text">Sound Effects</span>
         <button
           onClick={() => setEnabled(!enabled)}
           className={`relative w-12 h-6 rounded-full transition-colors ${
-            enabled ? 'bg-cyan-500' : 'bg-slate-700'
+            enabled ? 'th-accent' : 'th-panel'
           }`}
           aria-label={enabled ? 'Mute sounds' : 'Unmute sounds'}
         >
@@ -31,9 +31,9 @@ export default function SoundPicker() {
             }`}
           >
             {enabled ? (
-              <Volume2 className="w-3 h-3 text-cyan-600" />
+              <Volume2 className="w-3 h-3 th-accent-text" />
             ) : (
-              <VolumeX className="w-3 h-3 text-slate-500" />
+              <VolumeX className="w-3 h-3 th-muted" />
             )}
           </div>
         </button>
@@ -43,8 +43,8 @@ export default function SoundPicker() {
       {enabled && (
         <div>
           <div className="flex items-center justify-between mb-2">
-            <span className="text-sm font-medium text-slate-300">Volume</span>
-            <span className="text-xs text-slate-400">{Math.round(volume * 100)}%</span>
+            <span className="text-sm font-medium th-text">Volume</span>
+            <span className="text-xs th-muted">{Math.round(volume * 100)}%</span>
           </div>
           <input
             type="range"
@@ -53,7 +53,7 @@ export default function SoundPicker() {
             step="0.05"
             value={volume}
             onChange={(e) => setVolume(parseFloat(e.target.value))}
-            className="w-full h-2 rounded-full appearance-none bg-slate-700 accent-cyan-400"
+            className="w-full h-2 rounded-full appearance-none th-panel accent-[var(--th-accent)]"
           />
         </div>
       )}
@@ -61,7 +61,7 @@ export default function SoundPicker() {
       {/* Pack selection */}
       {enabled && (
         <div>
-          <h3 className="text-sm font-semibold text-slate-300 mb-3">Sound Pack</h3>
+          <h3 className="text-sm font-semibold th-text mb-3">Sound Pack</h3>
           <div className="grid grid-cols-3 gap-3">
             {SOUND_PACKS.map((pack) => {
               const isActive = pack.id === packId;
@@ -71,27 +71,27 @@ export default function SoundPicker() {
                   onClick={() => handlePackSelect(pack.id)}
                   className={`relative p-4 rounded-xl border-2 text-left transition-all ${
                     isActive
-                      ? 'border-cyan-400 bg-cyan-400/10'
-                      : 'border-slate-700 bg-slate-800/50 hover:border-slate-600'
+                      ? 'th-accent-border th-accent-soft'
+                      : 'th-border th-panel hover:th-border'
                   }`}
                   title={pack.description}
                 >
                   {isActive && (
-                    <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-cyan-400 flex items-center justify-center">
+                    <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full th-accent flex items-center justify-center">
                       <svg className="w-3 h-3 text-slate-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
                   )}
-                  <div className={`text-sm font-semibold ${isActive ? 'text-cyan-300' : 'text-slate-200'}`}>
+                  <div className={`text-sm font-semibold ${isActive ? 'th-accent-text' : 'th-text'}`}>
                     {pack.name}
                   </div>
-                  <div className="text-xs text-slate-400 mt-1">{pack.description}</div>
+                  <div className="text-xs th-muted mt-1">{pack.description}</div>
                 </button>
               );
             })}
           </div>
-          <p className="text-xs text-slate-500 mt-2">
+          <p className="text-xs th-muted mt-2">
             Tap a pack to preview its move sound.
           </p>
         </div>
