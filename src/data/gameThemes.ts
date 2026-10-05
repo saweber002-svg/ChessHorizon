@@ -127,12 +127,12 @@ export const GAME_THEMES: GameTheme[] = [
     },
   },
   {
-    id: 'gatsby',
-    name: 'Gatsby Gold',
+    id: 'artdeco',
+    name: 'Art Deco',
     description: 'Art-deco gold and navy',
     board: makeBoard(
-      'gatsby',
-      { x: 0.0582, y: 0.0607, w: 0.8836, h: 0.8786 },
+      'artdeco',
+      { x: 0.0590, y: 0.0605, w: 0.8808, h: 0.8718 },
       {
         selectColor: 'rgba(255, 213, 79, 0.5)',
         lastMoveColor: 'rgba(255, 213, 79, 0.3)',
@@ -140,7 +140,7 @@ export const GAME_THEMES: GameTheme[] = [
       },
       { lightSquare: '#D3B16D', darkSquare: '#13263B', frameColor: '#142437' }
     ),
-    pieces: makePieces('gatsby'),
+    pieces: makePieces('artdeco'),
     ui: {
       bg: '#0A0F1C',
       panel: '#131C33',

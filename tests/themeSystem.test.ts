@@ -6,7 +6,7 @@ describe('unified theme system', () => {
     const ids = GAME_THEMES.map((t) => t.id);
     expect(ids).toEqual([
       'horizon',
-      'gatsby',
+      'artdeco',
       'terracotta',
       'violet',
       'cobalt',
