@@ -136,6 +136,7 @@ export default function ChessBoard({
 }: ChessBoardProps) {
   const { theme: gameTheme } = useTheme();
   const theme = gameTheme.board;
+  const [boardImageFailed, setBoardImageFailed] = useState(false);
   const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
   const [legalMoves, setLegalMoves] = useState<Square[]>([]);
   const [draggedPiece, setDraggedPiece] = useState<{
@@ -362,7 +363,9 @@ export default function ChessBoard({
         alt=""
         draggable={false}
         className="block w-full select-none"
+        onLoad={() => setBoardImageFailed(false)}
         onError={(e) => {
+          setBoardImageFailed(true);
           (e.target as HTMLImageElement).style.display = 'none';
         }}
       />
@@ -399,7 +402,13 @@ export default function ChessBoard({
                     ${isSelected ? 'z-10' : ''}
                   `}
                   style={{
-                    backgroundColor: isLastMove ? theme.lastMoveColor : undefined,
+                    backgroundColor: isLastMove
+                      ? theme.lastMoveColor
+                      : boardImageFailed
+                        ? (br + bc) % 2 === 0
+                          ? theme.lightSquare
+                          : theme.darkSquare
+                        : undefined,
                     boxShadow: isSelected ? `inset 0 0 0 3px ${theme.selectColor}` : undefined,
                   }}
                   onClick={() => handleSquareClick(square)}

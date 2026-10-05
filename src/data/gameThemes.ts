@@ -109,7 +109,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Fire vs ice — the signature Chess Horizon theme',
     board: makeBoard(
       'horizon',
-      { x: 0.0103, y: 0.012, w: 0.9709, h: 0.9778 },
+      { x: 0.0215, y: 0.0234, w: 0.9575, h: 0.9512 },
       {
         selectColor: 'rgba(125, 211, 252, 0.45)',
         lastMoveColor: 'rgba(125, 211, 252, 0.28)',
@@ -135,7 +135,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Art-deco gold and navy',
     board: makeBoard(
       'gatsby',
-      { x: 0.0607, y: 0.0547, w: 0.8829, h: 0.8897 },
+      { x: 0.0615, y: 0.0542, w: 0.8828, h: 0.8921 },
       {
         selectColor: 'rgba(255, 213, 79, 0.5)',
         lastMoveColor: 'rgba(255, 213, 79, 0.3)',
@@ -161,7 +161,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Glazed ceramic teal and rust',
     board: makeBoard(
       'terracotta',
-      { x: 0.065, y: 0.0547, w: 0.8692, h: 0.8957 },
+      { x: 0.0640, y: 0.0547, w: 0.8714, h: 0.8970 },
       {
         selectColor: 'rgba(255, 213, 79, 0.5)',
         lastMoveColor: 'rgba(255, 213, 79, 0.28)',
@@ -187,7 +187,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Royal plum with engraved linework',
     board: makeBoard(
       'plum',
-      { x: 0.0385, y: 0.0436, w: 0.9222, h: 0.9248 },
+      { x: 0.0369, y: 0.0369, w: 0.9233, h: 0.9318 },
       {
         selectColor: 'rgba(216, 180, 255, 0.45)',
         lastMoveColor: 'rgba(216, 180, 255, 0.28)',
@@ -213,7 +213,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Neon glacier rims',
     board: makeBoard(
       'glacier',
-      { x: 0.0521, y: 0.047, w: 0.8949, h: 0.9077 },
+      { x: 0.0518, y: 0.0469, w: 0.8970, h: 0.9020 },
       {
         selectColor: 'rgba(125, 211, 252, 0.5)',
         lastMoveColor: 'rgba(125, 211, 252, 0.3)',
@@ -239,7 +239,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Tournament forest green',
     board: makeBoard(
       'emerald',
-      { x: 0.0342, y: 0.041, w: 0.9299, h: 0.9316 },
+      { x: 0.0433, y: 0.0419, w: 0.9148, h: 0.9098 },
       {
         selectColor: 'rgba(255, 213, 79, 0.55)',
         lastMoveColor: 'rgba(255, 213, 79, 0.3)',
@@ -265,7 +265,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Lacquered crimson and cream',
     board: makeBoard(
       'crimson',
-      { x: 0.0239, y: 0.0222, w: 0.9513, h: 0.947 },
+      { x: 0.0366, y: 0.0356, w: 0.9268, h: 0.9282 },
       {
         selectColor: 'rgba(255, 120, 120, 0.45)',
         lastMoveColor: 'rgba(255, 120, 120, 0.28)',
