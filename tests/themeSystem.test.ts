@@ -9,7 +9,7 @@ describe('unified theme system', () => {
       'gatsby',
       'terracotta',
       'plum',
-      'glacier',
+      'cobalt',
       'emerald',
       'crimson',
     ]);
