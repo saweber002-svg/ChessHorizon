@@ -8,7 +8,7 @@ describe('unified theme system', () => {
       'horizon',
       'gatsby',
       'terracotta',
-      'plum',
+      'violet',
       'cobalt',
       'emerald',
       'crimson',

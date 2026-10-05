@@ -179,12 +179,12 @@ export const GAME_THEMES: GameTheme[] = [
     },
   },
   {
-    id: 'plum',
-    name: 'Royal Plum',
-    description: 'Royal plum with engraved linework',
+    id: 'violet',
+    name: 'Violet',
+    description: 'Royal violet with engraved linework',
     board: makeBoard(
-      'plum',
-      { x: 0.0395, y: 0.0404, w: 0.921, h: 0.9193 },
+      'violet',
+      { x: 0.0393, y: 0.0503, w: 0.9204, h: 0.9203 },
       {
         selectColor: 'rgba(216, 180, 255, 0.45)',
         lastMoveColor: 'rgba(216, 180, 255, 0.28)',
@@ -192,7 +192,7 @@ export const GAME_THEMES: GameTheme[] = [
       },
       { lightSquare: '#B5ADBB', darkSquare: '#452340', frameColor: '#2E1834' }
     ),
-    pieces: makePieces('plum'),
+    pieces: makePieces('violet'),
     ui: {
       bg: '#170D20',
       panel: '#241430',
