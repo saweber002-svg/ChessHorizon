@@ -236,7 +236,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Tournament forest green',
     board: makeBoard(
       'emerald',
-      { x: 0.0419, y: 0.0428, w: 0.9162, h: 0.9145 },
+      { x: 0.0382, y: 0.0460, w: 0.9229, h: 0.9236 },
       {
         selectColor: 'rgba(255, 213, 79, 0.55)',
         lastMoveColor: 'rgba(255, 213, 79, 0.3)',
