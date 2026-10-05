@@ -262,7 +262,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Lacquered crimson and cream',
     board: makeBoard(
       'crimson',
-      { x: 0.0223, y: 0.0223, w: 0.9553, h: 0.9553 },
+      { x: 0.0308, y: 0.0295, w: 0.9382, h: 0.9363 },
       {
         selectColor: 'rgba(255, 120, 120, 0.45)',
         lastMoveColor: 'rgba(255, 120, 120, 0.28)',
