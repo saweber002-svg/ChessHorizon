@@ -158,7 +158,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Glazed ceramic teal and rust',
     board: makeBoard(
       'terracotta',
-      { x: 0.0591, y: 0.0575, w: 0.8818, h: 0.8851 },
+      { x: 0.0674, y: 0.0696, w: 0.8635, h: 0.8673 },
       {
         selectColor: 'rgba(255, 213, 79, 0.5)',
         lastMoveColor: 'rgba(255, 213, 79, 0.28)',
