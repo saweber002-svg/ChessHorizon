@@ -1,15 +1,18 @@
 /**
- * Unified Chess Horizon themes — exact artwork edition.
+ * Unified Chess Horizon themes — Scott's 7-theme edition (2026-10-04).
  *
  * One theme = exact board image + exact piece sprites + menu/UI aesthetic,
- * all extracted from Scott's reference images (2026-10-04). There is no
+ * all extracted from Scott's 7 full-board design images. There is no
  * mix-and-match: selecting a theme selects the whole package.
  *
  * Board: each theme ships a full board background (empty 8x8 squares plus
- * the ornate frame) as a JPG. `grid` gives the playable 8x8 area as
- * fractions of the image, so pieces and overlays align exactly.
+ * the ornate frame) as a JPG, reconstructed from the design image by
+ * replacing occupied squares with matching empty ones. `grid` gives the
+ * playable 8x8 area as fractions of the image, so pieces and overlays
+ * align exactly.
  * Pieces: 12 transparent PNG sprites per theme (w/b × p/n/b/r/q/k),
- * extracted from the reference images.
+ * extracted from the design images with a faint drop shadow baked in
+ * so they stand out on their boards.
  */
 export interface ThemeBoard {
   /** Board background image (empty squares + frame). */
@@ -106,13 +109,13 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Fire vs ice — the signature Chess Horizon theme',
     board: makeBoard(
       'horizon',
-      { x: 0.0155, y: 0.0157, w: 0.9691, h: 0.9686 },
+      { x: 0.0103, y: 0.012, w: 0.9709, h: 0.9778 },
       {
         selectColor: 'rgba(125, 211, 252, 0.45)',
         lastMoveColor: 'rgba(125, 211, 252, 0.28)',
         dotColor: 'rgba(125, 211, 252, 0.5)',
       },
-      { lightSquare: '#334B62', darkSquare: '#1D2C3C', frameColor: '#102233' }
+      { lightSquare: '#3C6C96', darkSquare: '#081A2E', frameColor: '#102233' }
     ),
     pieces: makePieces('horizon'),
     ui: {
@@ -132,13 +135,13 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Art-deco gold and navy',
     board: makeBoard(
       'gatsby',
-      { x: 0.0582, y: 0.0607, w: 0.8836, h: 0.8786 },
+      { x: 0.0607, y: 0.0547, w: 0.8829, h: 0.8897 },
       {
         selectColor: 'rgba(255, 213, 79, 0.5)',
         lastMoveColor: 'rgba(255, 213, 79, 0.3)',
         dotColor: 'rgba(240, 200, 120, 0.55)',
       },
-      { lightSquare: '#D3B16D', darkSquare: '#13263B', frameColor: '#142437' }
+      { lightSquare: '#DAAC5E', darkSquare: '#0A1A2A', frameColor: '#142437' }
     ),
     pieces: makePieces('gatsby'),
     ui: {
@@ -158,13 +161,13 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Glazed ceramic teal and rust',
     board: makeBoard(
       'terracotta',
-      { x: 0.0591, y: 0.0575, w: 0.8818, h: 0.8851 },
+      { x: 0.065, y: 0.0547, w: 0.8692, h: 0.8957 },
       {
         selectColor: 'rgba(255, 213, 79, 0.5)',
         lastMoveColor: 'rgba(255, 213, 79, 0.28)',
         dotColor: 'rgba(0, 0, 0, 0.35)',
       },
-      { lightSquare: '#E9CEA6', darkSquare: '#BD6137', frameColor: '#104753' }
+      { lightSquare: '#E4C39A', darkSquare: '#AD5620', frameColor: '#104753' }
     ),
     pieces: makePieces('terracotta'),
     ui: {
@@ -184,13 +187,13 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Royal plum with engraved linework',
     board: makeBoard(
       'plum',
-      { x: 0.0395, y: 0.0404, w: 0.921, h: 0.9193 },
+      { x: 0.0385, y: 0.0436, w: 0.9222, h: 0.9248 },
       {
         selectColor: 'rgba(216, 180, 255, 0.45)',
         lastMoveColor: 'rgba(216, 180, 255, 0.28)',
         dotColor: 'rgba(230, 210, 240, 0.45)',
       },
-      { lightSquare: '#B5ADBB', darkSquare: '#452340', frameColor: '#2E1834' }
+      { lightSquare: '#B1A9B4', darkSquare: '#311928', frameColor: '#2E1834' }
     ),
     pieces: makePieces('plum'),
     ui: {
@@ -210,13 +213,13 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Neon glacier rims',
     board: makeBoard(
       'glacier',
-      { x: 0.054, y: 0.0548, w: 0.8919, h: 0.8904 },
+      { x: 0.0521, y: 0.047, w: 0.8949, h: 0.9077 },
       {
         selectColor: 'rgba(125, 211, 252, 0.5)',
         lastMoveColor: 'rgba(125, 211, 252, 0.3)',
         dotColor: 'rgba(160, 220, 250, 0.5)',
       },
-      { lightSquare: '#94DDE8', darkSquare: '#0247AE', frameColor: '#013388' }
+      { lightSquare: '#8DD7E4', darkSquare: '#003B95', frameColor: '#013388' }
     ),
     pieces: makePieces('glacier'),
     ui: {
@@ -236,13 +239,13 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Tournament forest green',
     board: makeBoard(
       'emerald',
-      { x: 0.0419, y: 0.0428, w: 0.9162, h: 0.9145 },
+      { x: 0.0342, y: 0.041, w: 0.9299, h: 0.9316 },
       {
         selectColor: 'rgba(255, 213, 79, 0.55)',
         lastMoveColor: 'rgba(255, 213, 79, 0.3)',
         dotColor: 'rgba(0, 0, 0, 0.35)',
       },
-      { lightSquare: '#EDE1BC', darkSquare: '#185439', frameColor: '#185338' }
+      { lightSquare: '#EEDFBC', darkSquare: '#0F4B2F', frameColor: '#185338' }
     ),
     pieces: makePieces('emerald'),
     ui: {
@@ -262,7 +265,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Lacquered crimson and cream',
     board: makeBoard(
       'crimson',
-      { x: 0.0223, y: 0.0223, w: 0.9553, h: 0.9553 },
+      { x: 0.0239, y: 0.0222, w: 0.9513, h: 0.947 },
       {
         selectColor: 'rgba(255, 120, 120, 0.45)',
         lastMoveColor: 'rgba(255, 120, 120, 0.28)',
