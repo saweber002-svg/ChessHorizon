@@ -205,12 +205,12 @@ export const GAME_THEMES: GameTheme[] = [
     },
   },
   {
-    id: 'glacier',
-    name: 'Glacier',
-    description: 'Neon glacier rims',
+    id: 'cobalt',
+    name: 'Cobalt',
+    description: 'Neon cobalt rims',
     board: makeBoard(
-      'glacier',
-      { x: 0.054, y: 0.0548, w: 0.8919, h: 0.8904 },
+      'cobalt',
+      { x: 0.0533, y: 0.0521, w: 0.8923, h: 0.8987 },
       {
         selectColor: 'rgba(125, 211, 252, 0.5)',
         lastMoveColor: 'rgba(125, 211, 252, 0.3)',
@@ -218,7 +218,7 @@ export const GAME_THEMES: GameTheme[] = [
       },
       { lightSquare: '#94DDE8', darkSquare: '#0247AE', frameColor: '#013388' }
     ),
-    pieces: makePieces('glacier'),
+    pieces: makePieces('cobalt'),
     ui: {
       bg: '#050F1B',
       panel: '#0A2033',
