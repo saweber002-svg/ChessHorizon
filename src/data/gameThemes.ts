@@ -106,7 +106,7 @@ export const GAME_THEMES: GameTheme[] = [
     description: 'Fire vs ice — the signature Chess Horizon theme',
     board: makeBoard(
       'horizon',
-      { x: 0.0155, y: 0.0157, w: 0.9691, h: 0.9686 },
+      { x: 0.0105, y: 0.0304, w: 0.9774, h: 0.9556 },
       {
         selectColor: 'rgba(125, 211, 252, 0.45)',
         lastMoveColor: 'rgba(125, 211, 252, 0.28)',
