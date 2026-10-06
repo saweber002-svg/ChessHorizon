@@ -8,8 +8,28 @@
       "id": "french-classical",
       "name": "Classical Variation — Main Line",
       "description": "White develops the knight to c3 and pins with Bg5. Black develops solidly with Be7. The e5 pawn gives White space, but Black has a solid structure and counter-attacking chances on the queenside.",
-      "moves": ["e4", "e6", "d4", "d5", "Nc3", "Nf6", "Bg5", "Be7", "e5", "Nfd7", "Bxe7", "Qxe7", "f4", "O-O"],
-      "moveCount": 14,
+      "moves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "Nc3",
+        "Nf6",
+        "Bg5",
+        "Be7",
+        "e5",
+        "Nfd7",
+        "Bxe7",
+        "Qxe7",
+        "f4",
+        "O-O",
+        "Nf3",
+        "c5",
+        "Bd3",
+        "Nc6",
+        "O-O"
+      ],
+      "moveCount": 19,
       "difficulty": "Intermediate"
     }
   ]

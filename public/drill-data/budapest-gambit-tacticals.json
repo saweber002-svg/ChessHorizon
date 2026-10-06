@@ -1,0 +1,140 @@
+{
+  "id": "budapest-gambit-tacticals",
+  "name": "Budapest Gambit — Black Tactics",
+  "description": "4 tactical challenges for Black in the Budapest Gambit. Find the sharpest continuation after 3...Ng4 as Black hunts the e5 pawn and seizes the initiative.",
+  "arena": "budapest-gambit",
+  "drills": [
+    {
+      "drillId": "bg-t1",
+      "name": "Regaining the Pawn",
+      "theme": "Pawn Recovery",
+      "description": "Strike back in the center with Nxe5, regaining the gambit pawn with tempo. After White develops Be2, solidify with d6, then trade on f3 to damage White's kingside structure.",
+      "fen": "r1bqkb1r/pppp1ppp/2n5/4P3/2P3n1/4PN2/PP3PPP/RNBQKB1R b KQkq - 0 5",
+      "solutionMoves": [
+        "Ngxe5",
+        "Be2",
+        "d6",
+        "Nc3",
+        "Nxf3+"
+      ],
+      "opponentResponse": "Be2",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "Ngxe5 regains the pawn with tempo. After Be2 and d6, Nxf3+ saddles White with doubled isolated f-pawns.",
+      "explanation": "Ngxe5 is the point of the Budapest — Black regains the gambit pawn with tempo, since the knight lands on a dominant central square attacking nothing yet but eyeing f3 and d3. White's most natural reply is Be2, developing the kingside bishop and preparing to castle, but it concedes the initiative. Black follows with d6, the thematic central break: it blunts White's bishop on c1, prepares ...Bc5 or ...Be7, and reinforces the e5 knight. After Nc3 develops, Black cashes in with Nxf3+, a forcing trade that damages White's pawn structure — recapturing with gxf3 leaves doubled isolated f-pawns and a drafty kingside, while Bxf3 surrenders the bishop pair. Black has fully equalized with the more active pieces, which is all the Budapest ever promises.",
+      "leadInMoves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "e5",
+        "dxe5",
+        "Ng4",
+        "Nf3",
+        "Nc6",
+        "e3"
+      ]
+    },
+    {
+      "drillId": "bg-t2",
+      "name": "The Qe7 Trap",
+      "theme": "Piece Win",
+      "description": "Lure White into overconfidence with Qe7, threatening to regain the pawn. When White tries to kick the bishop with a3, spring Ngxe5 and emerge a clean pawn ahead.",
+      "fen": "r1bqk2r/pppp1ppp/2n5/4P3/1bP2Bn1/5N2/PP1NPPPP/R2QKB1R b KQkq - 6 6",
+      "solutionMoves": [
+        "Qe7",
+        "a3",
+        "Ngxe5",
+        "Nxe5",
+        "Nxe5"
+      ],
+      "opponentResponse": "a3",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "Qe7 eyes the e5 pawn. After a3, Ngxe5! wins the pawn — White's recapture just trades knights.",
+      "explanation": "Qe7 is a multipurpose star move: it develops the queen with tempo against the e5 pawn, prepares ...Ngxe5, and keeps ...O-O-O options alive. White's a3 looks natural — kicking the bishop on b4 before it does damage — but it walks into the trap. Ngxe5! strikes: the g4 knight captures the pawn White thought was defended, because the f3 knight is pinned to nothing yet still can't hold everything. White's best try is Nxe5, eliminating the intruder, but Nxe5 calmly recaptures and Black is simply a pawn up with a crushing position — the queen on e7, knight on e5, and bishop pair bearing down on White's uncastled king. This exact trap has claimed countless victims who assumed the gambit pawn was poisoned.",
+      "leadInMoves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "e5",
+        "dxe5",
+        "Ng4",
+        "Bf4",
+        "Nc6",
+        "Nf3",
+        "Bb4+",
+        "Nbd2"
+      ]
+    },
+    {
+      "drillId": "bg-t3",
+      "name": "Rapid Development",
+      "theme": "Piece Activity",
+      "description": "Develop the bishop to c5 with tempo, then finish kingside development with Nc6 and O-O while White is still uncastled. Play d6 to blunt White's light-squared bishop and prepare central counterplay.",
+      "fen": "rnbqk2r/pppp1ppp/8/2b1P3/2P3n1/5N2/PP2PPPP/RNBQKB1R w KQkq - 3 5",
+      "solutionMoves": [
+        "e3",
+        "Nc6",
+        "Nc3",
+        "O-O",
+        "Bd3",
+        "d6"
+      ],
+      "opponentResponse": "e3",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "Bc5 develops with tempo on the a7-g1 diagonal. After e3, Nc6 and O-O complete development while White's king is still home, then d6 solidifies.",
+      "explanation": "Bc5 is the most aggressive developing move in the Budapest — the bishop lands on its ideal diagonal in one move, eyeing f2 and making White think twice about e3-e4 pawn pushes. White's e3 is the solid reply, blunting the bishop and preparing development, but it surrenders time. Black pounces with Nc6, developing with tempo toward e5 and d4, and after Nc3, castles at once: with White's king still on e1 and the queenside undeveloped, Black already has a lead in development despite being the gambiteer. White's Bd3 develops the last kingside minor piece, and d6 is the thematic capstone — it blunts White's light-squared bishop, reinforces e5 for a future knight outpost, and prepares ...Re8 or ...Bg4 ideas. Black has full piece activity and the easier game, which is exactly what Budapest players sign up for.",
+      "leadInMoves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "e5",
+        "dxe5",
+        "Ng4",
+        "Nf3",
+        "Bc5"
+      ]
+    },
+    {
+      "drillId": "bg-t4",
+      "name": "Punishing e4",
+      "theme": "Trap Punishment",
+      "description": "White's greedy 4.e4?! tries to hold everything, but Nxe5! wins the pawn anyway. After f4, retreat Ng6 and develop with tempo — Black is a pawn up with a dream position.",
+      "fen": "rnbqkb1r/pppp1ppp/8/4P3/2P1P1n1/8/PP3PPP/RNBQKBNR b KQkq - 0 4",
+      "solutionMoves": [
+        "Nxe5",
+        "f4",
+        "Ng6",
+        "Nf3",
+        "Bc5"
+      ],
+      "opponentResponse": "f4",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "4.e4?! is refuted by Nxe5!. After f4 Ng6, Black keeps the extra pawn and develops with tempo via Bc5.",
+      "explanation": "4.e4?! is the classic beginner's mistake — White tries to cling to the extra pawn AND grab the center, but the position can't stretch that far. Nxe5! is the cold-blooded refutation: the knight simply takes the pawn, and White has no good way to regain it because the e4 pawn itself is now hanging. White's most testing try is f4, kicking the knight, but Ng6 calmly retreats to a superb square — eyeing f4, e5, and h4, while keeping the extra pawn. After Nf3 develops, Bc5 comes with tempo, targeting f2 and completing Black's development with gain of time. Black is a clean pawn ahead with the bishop pair and the initiative: a textbook punishment of greed and one of the most satisfying traps in all of gambit play.",
+      "leadInMoves": [
+        "d4",
+        "Nf6",
+        "c4",
+        "e5",
+        "dxe5",
+        "Ng4",
+        "e4"
+      ]
+    }
+  ]
+}

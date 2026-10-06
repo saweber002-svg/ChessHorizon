@@ -1,1 +1,33 @@
-{"description":"White's sharpest try against the Dutch: an immediate pawn sacrifice for rapid development and open lines. Black must return the pawn at the right moment while completing development — a practical lesson in gambit defense where one passive move can be fatal.","id":"dutch-staunton-gambit-main","lines":[{"description":"After 1.d4 f5, White sacrifices with 2.e4 and Black accepts 2...fxe4. White develops rapidly with 3.Nc3 Nf6, and after 4.Bg5 Black fianchettoes 4...g6 to blunt the bishop. White keeps the initiative with 5.f3, challenging the extra pawn at once. Black must decide between returning the pawn with ...exf3 or holding with ...d5 — passive play lets White's lead in development become overwhelming.","difficulty":"Intermediate","id":"dutch-staunton-gambit","moveCount":9,"moves":["d4","f5","e4","fxe4","Nc3","Nf6","Bg5","g6","f3"],"name":"Dutch Defense — Staunton Gambit"}],"name":"Dutch Defense — Staunton Gambit","startFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
+{
+  "description": "White's sharpest try against the Dutch: an immediate pawn sacrifice for rapid development and open lines. Black must return the pawn at the right moment while completing development — a practical lesson in gambit defense where one passive move can be fatal.",
+  "id": "dutch-staunton-gambit-main",
+  "lines": [
+    {
+      "description": "After 1.d4 f5, White sacrifices with 2.e4 and Black accepts 2...fxe4. White develops rapidly with 3.Nc3 Nf6, and after 4.Bg5 Black fianchettoes 4...g6 to blunt the bishop. White keeps the initiative with 5.f3, challenging the extra pawn at once. Black must decide between returning the pawn with ...exf3 or holding with ...d5 — passive play lets White's lead in development become overwhelming.",
+      "difficulty": "Intermediate",
+      "id": "dutch-staunton-gambit",
+      "moveCount": 16,
+      "moves": [
+        "d4",
+        "f5",
+        "e4",
+        "fxe4",
+        "Nc3",
+        "Nf6",
+        "Bg5",
+        "g6",
+        "f3",
+        "exf3",
+        "Nxf3",
+        "d5",
+        "Bd3",
+        "Bg7",
+        "O-O",
+        "O-O"
+      ],
+      "name": "Dutch Defense — Staunton Gambit"
+    }
+  ],
+  "name": "Dutch Defense — Staunton Gambit",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+}

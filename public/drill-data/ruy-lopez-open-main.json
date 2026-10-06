@@ -8,8 +8,29 @@
       "id": "ruy-lopez-open",
       "name": "Open Defense — Main Line",
       "description": "Black plays 5...Nxe4 — the most combative answer to the Ruy López. After 6.d4 b5 7.Bb3, Black plays 7...d5 to support the knight on e4. After 8.dxe5 Be6, the position requires precise handling from both sides. White has the e5-pawn wedge and active pieces; Black has a strong knight on e4 and the bishop pair. Theory runs very deep.",
-      "moves": ["e4", "e5", "Nf3", "Nc6", "Bb5", "a6", "Ba4", "Nf6", "O-O", "Nxe4", "d4", "b5", "Bb3", "d5", "dxe5", "Be6"],
-      "moveCount": 16,
+      "moves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bb5",
+        "a6",
+        "Ba4",
+        "Nf6",
+        "O-O",
+        "Nxe4",
+        "d4",
+        "b5",
+        "Bb3",
+        "d5",
+        "dxe5",
+        "Be6",
+        "c3",
+        "Bc5",
+        "Nbd2",
+        "O-O"
+      ],
+      "moveCount": 20,
       "difficulty": "Advanced"
     }
   ]

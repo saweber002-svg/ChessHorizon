@@ -87,6 +87,9 @@ export const CASTLE_LOCATIONS: CastleLocation[] = [
   { variationId: 'english-four-knights', castle: 'Bamburgh Castle', place: 'Northumberland, England', lat: 55.6082, lng: -1.7116 },
   { variationId: 'english-mikenas-carls', castle: 'Warwick Castle', place: 'Warwick, England', lat: 52.2793, lng: -1.5852 },
   { variationId: 'english-bremen', castle: 'Bodiam Castle', place: 'East Sussex, England', lat: 51.0025, lng: 0.5436 },
+  { variationId: 'english-kings-fianchetto', castle: 'Alnwick Castle', place: 'Northumberland, England', lat: 55.4158, lng: -1.7059 },
+  { variationId: 'english-agincourt', castle: 'Kenilworth Castle', place: 'Warwickshire, England', lat: 52.3427, lng: -1.5765 },
+  { variationId: 'english-reti', castle: 'Pevensey Castle', place: 'East Sussex, England', lat: 50.8192, lng: 0.3347 },
 ];
 
 export const CASTLE_BY_VARIATION: Record<string, CastleLocation> = Object.fromEntries(

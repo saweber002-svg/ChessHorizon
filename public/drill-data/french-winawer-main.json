@@ -8,8 +8,29 @@
       "id": "french-winawer",
       "name": "Winawer Variation — Main Line",
       "description": "After 3.Nc3 Bb4, White plays e5 and a3. Black captures on c3, creating doubled pawns for White but gaining time and dark-square control. The position is unbalanced and full of tactics.",
-      "moves": ["e4", "e6", "d4", "d5", "Nc3", "Bb4", "e5", "c5", "a3", "Bxc3+", "bxc3", "Ne7", "Nf3", "Nbc6"],
-      "moveCount": 14,
+      "moves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "Nc3",
+        "Bb4",
+        "e5",
+        "c5",
+        "a3",
+        "Bxc3+",
+        "bxc3",
+        "Ne7",
+        "Nf3",
+        "Nbc6",
+        "Bd3",
+        "Qa5",
+        "O-O",
+        "Ng6",
+        "Bd2",
+        "O-O"
+      ],
+      "moveCount": 20,
       "difficulty": "Intermediate"
     }
   ]

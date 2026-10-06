@@ -1,1 +1,31 @@
-{"description":"The Stonewall erects the famous c6-d5-e6-f5 pawn wall with the bishop actively posted on d6. The structure is rock-solid but leaves the e5 square as a permanent target — White attacks it with b3, Ba3, and Ne5 plans while Black prepares the ...f4 break.","id":"dutch-stonewall-main","lines":[{"description":"After 1.d4 f5 2.g3 Nf6 3.Bg2 e6 4.Nf3 d5, Black commits to the Stonewall with the active 5...Bd6 instead of the passive ...Be7, and White castles 5.O-O. White challenges the wall's base with 6.c4 and Black reinforces with 6...c6, completing the c6-d5-e6-f5 formation. White's standard plan is b3, Ba3, and Ne5 targeting the weakened light squares; Black aims for ...Ne4 and the ...f4 pawn storm.","difficulty":"Intermediate","id":"dutch-stonewall","moveCount":12,"moves":["d4","f5","g3","Nf6","Bg2","e6","Nf3","d5","O-O","Bd6","c4","c6"],"name":"Dutch Defense — Stonewall Variation"}],"name":"Dutch Defense — Stonewall Variation","startFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
+{
+  "description": "The Stonewall erects the famous c6-d5-e6-f5 pawn wall with the bishop actively posted on d6. The structure is rock-solid but leaves the e5 square as a permanent target — White attacks it with b3, Ba3, and Ne5 plans while Black prepares the ...f4 break.",
+  "id": "dutch-stonewall-main",
+  "lines": [
+    {
+      "description": "After 1.d4 f5 2.g3 Nf6 3.Bg2 e6 4.Nf3 d5, Black commits to the Stonewall with the active 5...Bd6 instead of the passive ...Be7, and White castles 5.O-O. White challenges the wall's base with 6.c4 and Black reinforces with 6...c6, completing the c6-d5-e6-f5 formation. White's standard plan is b3, Ba3, and Ne5 targeting the weakened light squares; Black aims for ...Ne4 and the ...f4 pawn storm.",
+      "difficulty": "Intermediate",
+      "id": "dutch-stonewall",
+      "moveCount": 14,
+      "moves": [
+        "d4",
+        "f5",
+        "g3",
+        "Nf6",
+        "Bg2",
+        "e6",
+        "Nf3",
+        "d5",
+        "O-O",
+        "Bd6",
+        "c4",
+        "c6",
+        "Nc3",
+        "O-O"
+      ],
+      "name": "Dutch Defense — Stonewall Variation"
+    }
+  ],
+  "name": "Dutch Defense — Stonewall Variation",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+}

@@ -1,1 +1,36 @@
-{"description":"The Mikenas-Carls is the English's sharpest weapon: White grabs space with e4 and e5, and Black counterattacks in the center with ...d5-d4. The result is an imbalanced, tactical struggle where White's shattered queenside pawns are compensated by the bishop pair and central control.","id":"english-mikenas-carls-main","lines":[{"description":"After 1.c4 Nf6 2.Nc3 e6, White seizes space with 3.e4 and Black immediately challenges with 3...d5. White pushes 4.e5 and Black sacrifices a pawn with 4...d4, attacking the knight. After 5.exf6 dxc3 6.bxc3 Qxf6, White has the bishop pair and a central pawn mass against Black's better structure. Both sides must play energetically — White to exploit the bishops, Black to blockade and attack the weak pawns.","difficulty":"Intermediate","id":"english-mikenas-carls","moveCount":12,"moves":["c4","Nf6","Nc3","e6","e4","d5","e5","d4","exf6","dxc3","bxc3","Qxf6"],"name":"English Opening — Mikenas-Carls Variation"}],"name":"English Opening — Mikenas-Carls Variation","startFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
+{
+  "description": "The Mikenas-Carls is the English's sharpest weapon: White grabs space with e4 and e5, and Black counterattacks in the center with ...d5-d4. The result is an imbalanced, tactical struggle where White's shattered queenside pawns are compensated by the bishop pair and central control.",
+  "id": "english-mikenas-carls-main",
+  "lines": [
+    {
+      "description": "After 1.c4 Nf6 2.Nc3 e6, White seizes space with 3.e4 and Black immediately challenges with 3...d5. White pushes 4.e5 and Black sacrifices a pawn with 4...d4, attacking the knight. After 5.exf6 dxc3 6.bxc3 Qxf6, White has the bishop pair and a central pawn mass against Black's better structure. Both sides must play energetically — White to exploit the bishops, Black to blockade and attack the weak pawns.",
+      "difficulty": "Intermediate",
+      "id": "english-mikenas-carls",
+      "moveCount": 19,
+      "moves": [
+        "c4",
+        "Nf6",
+        "Nc3",
+        "e6",
+        "e4",
+        "d5",
+        "e5",
+        "d4",
+        "exf6",
+        "dxc3",
+        "bxc3",
+        "Qxf6",
+        "Nf3",
+        "Bd6",
+        "d4",
+        "O-O",
+        "Bd3",
+        "Nc6",
+        "O-O"
+      ],
+      "name": "English Opening — Mikenas-Carls Variation"
+    }
+  ],
+  "name": "English Opening — Mikenas-Carls Variation",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+}

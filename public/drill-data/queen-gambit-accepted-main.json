@@ -20,9 +20,19 @@
         "Bxc4",
         "c5",
         "O-O",
-        "a6"
+        "a6",
+        "Qe2",
+        "b5",
+        "Bb3",
+        "Bb7",
+        "Nc3",
+        "Nbd7",
+        "e4",
+        "Be7",
+        "Bf4",
+        "O-O"
       ],
-      "moveCount": 12,
+      "moveCount": 22,
       "difficulty": "Intermediate"
     }
   ]
