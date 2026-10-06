@@ -1,0 +1,108 @@
+{
+  "arena": "englund-gambit",
+  "description": "4 tactical challenges for Black in the Englund Gambit (1.d4 e5), the cheeky countergambit. Punish White's pawn grab with Qe7 tricks, Nxe5 regains, and rapid development after 3...Qe7.",
+  "drills": [
+    {
+      "briefExplanation": "Nxe5 regains the pawn with tempo. After Bf4, Ng6 attacks the bishop, and d6 solidifies the center.",
+      "description": "Regain the gambit pawn with Nxe5. After White develops the bishop, kick it with Ng6 gaining tempo, then solidify with d6.",
+      "drillId": "eng-t1",
+      "explanation": "Nxe5 is the point of the Englund Gambit \u2014 Black sacrifices a pawn on move 1 to regain it on move 4 with a tempo. The knight on e5 is perfectly centralized: it attacks c4 and d3, supports ...d5, and cannot easily be kicked out. White develops with Bf4, attacking the knight, but Black simply plays Ng6!, gaining a tempo by attacking the bishop. The knight on g6 is well-placed: it eyes f4 and h4, supports ...e5, and prepares ...Bg7. White retreats Bg3, and Black plays d6, solidifying the center. Black has regained the pawn, developed two pieces, and White has nothing to show for the opening. The Englund's opening trap has worked perfectly \u2014 Black is already slightly better.",
+      "fen": "r1b1kbnr/ppppqppp/2n5/4P3/8/2N2N2/PPP1PPPP/R1BQKB1R b KQkq - 4 4",
+      "leadInMoves": [
+        "Nc3"
+      ],
+      "name": "Regaining the Pawn",
+      "opponentResponse": "Bf4",
+      "solutionMoves": [
+        "Nxe5",
+        "Bf4",
+        "Ng6",
+        "Bg3",
+        "d6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Regain"
+    },
+    {
+      "briefExplanation": "Qb4+ exploits White's slow development. After Bd2 blocks, Qxb2 wins a pawn with tempo.",
+      "description": "Punish White's bishop development with the Qb4+ check. After White blocks, snatch the b2 pawn and retreat the queen to safety.",
+      "drillId": "eng-t2",
+      "explanation": "Qb4+ is the Englund's signature trick \u2014 Black exploits White's undeveloped queenside with a devastating check. The queen on b4 attacks the b2 pawn and creates multiple threats. White's only sensible block is Bd2, interposing the bishop, but Black simply plays Qxb2!, winning a clean pawn. The b2 pawn falls because White's queenside is completely undeveloped \u2014 the knight is still on b1 and the rook on a1 is undefended. White develops with Nc3, attacking the queen, but Black retreats Qb6, keeping the extra pawn. Black is up a pawn with a solid position. This Qb4+ idea is why White must be careful in the Englund \u2014 one slow move and the b2 pawn drops.",
+      "fen": "r1b1kbnr/ppppqppp/2n5/4P3/5B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 4 4",
+      "leadInMoves": [
+        "Bf4"
+      ],
+      "name": "Queen Check Wins a Pawn",
+      "opponentResponse": "Bd2",
+      "solutionMoves": [
+        "Qb4+",
+        "Bd2",
+        "Qxb2",
+        "Nc3",
+        "Qb6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Trick"
+    },
+    {
+      "briefExplanation": "Qb4+ punishes the greedy e4 push. After Bd2, Qxb2 wins a pawn and Qxa2 grabs a second.",
+      "description": "After White pushes e4 to hold the pawn, strike with Qb4+. White blocks with Bd2, but Black wins the b2 pawn and retreats to safety.",
+      "drillId": "eng-t3",
+      "explanation": "Qb4+ is even stronger after White's greedy 4.e4 \u2014 White tried to hold the extra pawn with a pawn push, but this weakens the queenside further. The queen check on b4 is devastating: White must block with Bd2. Black plays Qxb2!, winning the b-pawn because White's queenside is completely undeveloped. White develops with Nc3, attacking the queen, but Black retreats Qb6, keeping the extra pawn and eyeing b2. Black is up a pawn with a solid position. The e4 push was a mistake \u2014 it didn't consolidate anything and just gave Black a target. This is the Englund's punishment for greed.",
+      "fen": "r1b1kbnr/ppppqppp/2n5/4P3/4P3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+      "leadInMoves": [
+        "e4"
+      ],
+      "name": "Punishing the e4 Push",
+      "opponentResponse": "Bd2",
+      "solutionMoves": [
+        "Qb4+",
+        "Bd2",
+        "Qxb2",
+        "Nc3",
+        "Qb6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Punishing Greed"
+    },
+    {
+      "briefExplanation": "Nxe5 regains the pawn. After e4, Nf6 develops with tempo, and d5 strikes at White's center.",
+      "description": "Regain the pawn with Nxe5. After White pushes e4, develop the knight with tempo, then blast the center with d5.",
+      "drillId": "eng-t4",
+      "explanation": "Nxe5 regains the gambit pawn, and after White pushes e4 to build a center, Black develops with Nf6, attacking the e4 pawn with tempo. The knight on f6 is perfectly placed: it pressures e4, prepares ...d5, and supports kingside castling. White defends with Bd3, but Black strikes with d5!, the thematic Englund counter. The d5 pawn break challenges White's center immediately \u2014 if White plays exd5, Black recaptures with the knight and has a beautiful centralized position. If White doesn't capture, Black will play dxe4 and White's center collapses. Black has full equality with active piece play, all from a 'dubious' gambit. The Englund's ...d5 break is the great equalizer.",
+      "fen": "r1b1kbnr/ppppqppp/2n5/4P3/8/5N2/PPPNPPPP/R1BQKB1R b KQkq - 4 4",
+      "leadInMoves": [
+        "Nbd2"
+      ],
+      "name": "The d5 Counterstrike",
+      "opponentResponse": "e4",
+      "solutionMoves": [
+        "Nxe5",
+        "e4",
+        "Nf6",
+        "Bd3",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Counter"
+    }
+  ],
+  "id": "englund-gambit-tacticals",
+  "name": "Englund Gambit \u2014 Black Tactics"
+}

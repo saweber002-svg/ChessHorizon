@@ -1,13 +1,13 @@
 {
   "id": "ruy-lopez-exchange-main",
-  "name": "Ruy L\u00f3pez \u2014 Exchange Variation",
-  "description": "The Exchange Variation \u2014 White gives up the bishop pair with 4.Bxc6, saddling Black with doubled c-pawns. After 5.O-O f6 6.d4 exd4 7.Nxd4 c5, the position is structurally imbalanced: White has a mobile pawn center; Black has the bishop pair and fighting chances. A positional endgame battle.",
+  "name": "Ruy López — Exchange Variation",
+  "description": "The Exchange Variation — White gives up the bishop pair with 4.Bxc6, saddling Black with doubled c-pawns. After 5.O-O f6 6.d4 exd4 7.Nxd4 c5, the position is structurally imbalanced: White has a mobile pawn center; Black has the bishop pair and fighting chances. A positional endgame battle.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   "lines": [
     {
       "id": "ruy-lopez-exchange",
-      "name": "Exchange Variation \u2014 Main Line",
-      "description": "White plays 4.Bxc6 immediately, doubling Black's c-pawns. After 5.O-O f6 6.d4 exd4, White recaptures 7.Nxd4 and Black gains space with 7...c5, attacking the knight. White retreats 8.Nb3 \u2014 the natural square \u2014 and Black forces the queen trade with 8...Qxd1. White recaptures 9.Rxd1, reaching the famous Exchange endgame, and Black develops 9...Bd6 with the bishop pair as compensation.",
+      "name": "Exchange Variation — Main Line",
+      "description": "White plays 4.Bxc6 immediately, doubling Black's c-pawns. After 5.O-O f6 6.d4 exd4, White recaptures 7.Nxd4 and Black gains space with 7...c5, attacking the knight. White retreats 8.Nb3 — the natural square — and Black forces the queen trade with 8...Qxd1. White recaptures 9.Rxd1, reaching the famous Exchange endgame, and Black develops 9...Bd6 with the bishop pair as compensation.",
       "moves": [
         "e4",
         "e5",
@@ -26,9 +26,15 @@
         "Nb3",
         "Qxd1",
         "Rxd1",
-        "Bd6"
+        "Bd6",
+        "Nc3",
+        "Ne7",
+        "Bf4",
+        "Be6",
+        "Rd2",
+        "O-O-O"
       ],
-      "moveCount": 18,
+      "moveCount": 24,
       "difficulty": "Intermediate"
     }
   ]

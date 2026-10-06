@@ -8,8 +8,31 @@
       "id": "french-advance",
       "name": "Advance Variation — Main Line",
       "description": "White pushes e5 immediately, gaining a space advantage. Black typically develops the knight to c6 and pressures d4 with ...c5 and ...Qb6.",
-      "moves": ["e4", "e6", "d4", "d5", "e5", "c5", "c3", "Nc6", "Nf3", "Qb6", "a3", "Bd7", "b4", "cxd4"],
-      "moveCount": 14,
+      "moves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "e5",
+        "c5",
+        "c3",
+        "Nc6",
+        "Nf3",
+        "Qb6",
+        "a3",
+        "Bd7",
+        "b4",
+        "cxd4",
+        "cxd4",
+        "Rc8",
+        "Be2",
+        "Be7",
+        "O-O",
+        "Nh6",
+        "Bd3",
+        "O-O"
+      ],
+      "moveCount": 22,
       "difficulty": "Intermediate"
     }
   ]

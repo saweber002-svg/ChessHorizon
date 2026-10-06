@@ -1,0 +1,124 @@
+{
+  "arena": "sicilian-classical",
+  "description": "4 strategic challenges for White in the Velimirovic Attack (Sicilian Classical with 6.Bc4). Exploit the Bc4 battery targeting f7, the Nd5 outpost, and kingside pawn storms after 7...a6.",
+  "drills": [
+    {
+      "briefExplanation": "e5 breaks the center. After dxe5, Nd5 sacrifices to wreck Black's setup, and Nxe7+ wins material.",
+      "description": "Break in the center with e5. After Black captures dxe5, sacrifice the knight on d5 to destroy Black's coordination, then pick up the e7 bishop with check.",
+      "drillId": "vel-t1",
+      "explanation": "e5 is the thematic central break in the Velimirovic \u2014 White uses the e4 pawn to blast open the position before Black consolidates. After dxe5, White sacrifices with Nd5!, a devastating knight leap that attacks the queen on c7 and threatens to destroy Black's kingside. Black retreats Qd8, but White follows with Nxe7+!, forking the queen and winning the dark-squared bishop with check. After Qxe7, White plays f4, attacking the e5 pawn and seizing a massive central bind. Black's position is in ruins: the e5 pawn is weak, White controls the center, and the Bc4+Be3 battery eyes the kingside. This e5-Nd5-Nxe7+ sequence is the signature Velimirovic tactic \u2014 the Bc4 bishop makes it all possible by pressuring f7 and keeping Black's king insecure.",
+      "fen": "r1b2rk1/1pq1bppp/p1nppn2/8/2BNP3/2N1B3/PPP1QPPP/3R1RK1 w - - 6 11",
+      "leadInMoves": [
+        "O-O",
+        "Be7",
+        "Qe2",
+        "O-O",
+        "Rad1",
+        "Qc7"
+      ],
+      "name": "The e5 Breakthrough",
+      "opponentResponse": "dxe5",
+      "solutionMoves": [
+        "e5",
+        "dxe5",
+        "Nd5",
+        "Qd8",
+        "Nxe7+",
+        "Qxe7",
+        "f4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    },
+    {
+      "briefExplanation": "Nd5 sacrifices the knight to open lines. After exd5, the pawn wedge on d5 cramps Black, and Re1 seizes the e-file.",
+      "description": "Leap the knight to d5, sacrificing it to open the e-file. After Black captures, push the pawn to d5 and drive the knight back, then seize the open e-file.",
+      "drillId": "vel-t2",
+      "explanation": "Nd5 is the purest Velimirovic idea \u2014 White sacrifices a knight to shatter Black's pawn structure. After exd5, White recaptures exd5, establishing a powerful pawn wedge on d5 that attacks the c6 knight and cramps Black's entire queenside. The d5 pawn is a monster: it restricts the c6 knight (which must retreat to b8), blocks Black's development, and gives White a permanent central outpost. Black plays Nb8, retreating the attacked knight to safety, but White follows with Re1, seizing the half-open e-file. The rook on e1 pressures the e6 pawn and prepares to swing into the attack. White has a knight for a pawn but owns the center, the open files, and all the attacking chances \u2014 classic Velimirovic compensation.",
+      "fen": "r1bq1rk1/1p2bppp/p1nppn2/8/3NP3/1BN1B3/PPP2PPP/R2Q1RK1 w - - 4 10",
+      "leadInMoves": [
+        "Bb3",
+        "Be7",
+        "O-O",
+        "O-O"
+      ],
+      "name": "The Nd5 Outpost",
+      "opponentResponse": "exd5",
+      "solutionMoves": [
+        "Nd5",
+        "exd5",
+        "exd5",
+        "Nb8",
+        "Re1"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Knight Outpost"
+    },
+    {
+      "briefExplanation": "f4 starts the pawn storm. After Be7, f5 gains kingside space and cramps Black. Nf3 completes the attacking setup.",
+      "description": "Launch the kingside pawn storm with f4. After Black develops, push f5 to gain space and cramp Black's kingside, then bring the knight to f3 to support the attack.",
+      "drillId": "vel-t3",
+      "explanation": "f4 is the aggressive Velimirovic plan \u2014 White launches a kingside pawn storm before Black can castle to safety. The f-pawn push does three things: it prepares f5 to gain space, it supports a future e5 break, and it activates the Bc4 bishop by opening lines. Black develops with Be7, preparing to castle, but White strikes immediately with f5!. The f5 pawn is a battering ram: it attacks the e6 pawn, gains kingside space, and threatens to open the f-file. Black blocks with e5, but this is a concession \u2014 the e5 pawn is now a fixed target and Black's kingside is cramped. White plays Nf3, bringing the last piece into the attack. The knight on f3 supports the f5 pawn, eyes e5, and prepares Ng5 ideas. White has a full kingside initiative \u2014 the Velimirovic pawn storm in action.",
+      "fen": "r2qkb1r/1b3ppp/p1nppn2/1p6/3NP3/1BN1B3/PPP2PPP/R2Q1RK1 w kq - 2 10",
+      "leadInMoves": [
+        "O-O",
+        "b5",
+        "Bb3",
+        "Bb7"
+      ],
+      "name": "The f4-f5 Pawn Storm",
+      "opponentResponse": "Be7",
+      "solutionMoves": [
+        "f4",
+        "Be7",
+        "f5",
+        "e5",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Kingside Pawn Storm"
+    },
+    {
+      "briefExplanation": "O-O-O sets up opposite-side castling. After Be7, f4 starts the kingside storm, and Kb1 secures the king.",
+      "description": "Castle queenside to launch a direct kingside attack. After Black develops, push f4 to start the pawn storm and tuck the king safely on b1.",
+      "drillId": "vel-t4",
+      "explanation": "O-O-O is the most aggressive Velimirovic setup \u2014 White castles queenside to launch a full-blooded kingside pawn storm. With opposite-side castling, White can push the kingside pawns without worrying about king safety. Black develops with Be7, preparing to castle kingside, but White is already faster. f4 begins the pawn storm: the f-pawn will advance to f5, gaining space and opening lines against Black's king. Black castles O-O, tucking the king away, but White has a clear plan. Kb1 is the prophylactic king move \u2014 the king steps to b1, safe from any checks on the a2-g8 diagonal, and the a1 rook is freed to join the attack via the d-file. White's plan is simple and deadly: push f5, play g4-g5, and mate Black's king. The Bc4 bishop is perfectly placed for this attack, eyeing f7.",
+      "fen": "r2qkb1r/1b3ppp/p1nppn2/1p6/3NP3/1BN1B3/PPP1QPPP/R3K2R w KQkq - 2 10",
+      "leadInMoves": [
+        "Qe2",
+        "b5",
+        "Bb3",
+        "Bb7"
+      ],
+      "name": "Queenside Castling Attack",
+      "opponentResponse": "Be7",
+      "solutionMoves": [
+        "O-O-O",
+        "Be7",
+        "f4",
+        "O-O",
+        "Kb1"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Opposite-Side Castling"
+    }
+  ],
+  "id": "velimirovic-attack-tacticals",
+  "name": "Velimirovic Attack \u2014 White Tactics"
+}

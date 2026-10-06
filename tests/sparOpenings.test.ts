@@ -19,10 +19,10 @@ describe('builtinSparKingdoms', () => {
     ]);
   });
 
-  it('includes every non-demoted built-in main-line pack exactly once (42 openings)', () => {
+  it('includes every non-demoted built-in main-line pack exactly once (45 openings)', () => {
     const ids = groups.flatMap((g) => g.openings.map((o) => o.drillFileId));
-    expect(ids).toHaveLength(42);
-    expect(new Set(ids).size).toBe(42);
+    expect(ids).toHaveLength(45);
+    expect(new Set(ids).size).toBe(45);
     expect(ids.every((id) => id.endsWith('-main'))).toBe(true);
     expect(ids.every((id) => ALL_DRILL_FILE_IDS.includes(id))).toBe(true);
   });

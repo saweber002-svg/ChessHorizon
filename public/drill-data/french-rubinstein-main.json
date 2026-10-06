@@ -1,1 +1,33 @@
-{"description":"Black voluntarily releases the central tension with 3...dxe4, accepting a slightly passive but rock-solid position. White gets the two bishops after the knight exchanges and plays for a long-term space and development edge — a completely different French from the counterattacking ...c5 breaks.","id":"french-rubinstein-main","lines":[{"description":"After 1.e4 e6 2.d4 d5 3.Nc3, Black trades the center pawn with 3...dxe4 instead of the Winawer pin or Classical knight attack. White recaptures 4.Nxe4 and Black develops 4...Nd7, preparing ...Ngf6. After 5.Nf3 Ngf6, White forces the exchange with 6.Nxf6+ Nxf6. White's bishop pair and space advantage are long-term assets; Black's solid structure and ...c5 break offer counterplay.","difficulty":"Intermediate","id":"french-rubinstein","moveCount":12,"moves":["e4","e6","d4","d5","Nc3","dxe4","Nxe4","Nd7","Nf3","Ngf6","Nxf6+","Nxf6"],"name":"French Defense — Rubinstein Variation"}],"name":"French Defense — Rubinstein Variation","startFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
+{
+  "description": "Black voluntarily releases the central tension with 3...dxe4, accepting a slightly passive but rock-solid position. White gets the two bishops after the knight exchanges and plays for a long-term space and development edge — a completely different French from the counterattacking ...c5 breaks.",
+  "id": "french-rubinstein-main",
+  "lines": [
+    {
+      "description": "After 1.e4 e6 2.d4 d5 3.Nc3, Black trades the center pawn with 3...dxe4 instead of the Winawer pin or Classical knight attack. White recaptures 4.Nxe4 and Black develops 4...Nd7, preparing ...Ngf6. After 5.Nf3 Ngf6, White forces the exchange with 6.Nxf6+ Nxf6. White's bishop pair and space advantage are long-term assets; Black's solid structure and ...c5 break offer counterplay.",
+      "difficulty": "Intermediate",
+      "id": "french-rubinstein",
+      "moveCount": 16,
+      "moves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "Nc3",
+        "dxe4",
+        "Nxe4",
+        "Nd7",
+        "Nf3",
+        "Ngf6",
+        "Nxf6+",
+        "Nxf6",
+        "Bd3",
+        "Be7",
+        "O-O",
+        "O-O"
+      ],
+      "name": "French Defense — Rubinstein Variation"
+    }
+  ],
+  "name": "French Defense — Rubinstein Variation",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+}

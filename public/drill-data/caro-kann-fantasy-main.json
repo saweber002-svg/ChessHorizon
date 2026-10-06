@@ -1,1 +1,35 @@
-{"description":"White's provocative 3.f3 avoids all main-line Caro-Kann theory and keeps the center fluid. Black strikes back immediately with ...dxe4 and ...e5, leading to open, tactical positions — an aggressive anti-theory weapon for players who want a fight from move 3.","id":"caro-kann-fantasy-main","lines":[{"description":"After 1.e4 c6 2.d4 d5, White plays the startling 3.f3, supporting e4 while avoiding every theoretical branch. Black accepts the challenge with 3...dxe4 4.fxe4 and immediately strikes at the center with 4...e5. After 5.Nf3 Black develops 5...Bg4, pinning the knight, and White steadies with 6.c3. The open center and lead in development give White attacking chances, but the overextended pawns demand precise play.","difficulty":"Intermediate","id":"caro-kann-fantasy","moveCount":11,"moves":["e4","c6","d4","d5","f3","dxe4","fxe4","e5","Nf3","Bg4","c3"],"name":"Caro-Kann — Fantasy Variation"}],"name":"Caro-Kann — Fantasy Variation","startFen":"rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
+{
+  "description": "White's provocative 3.f3 avoids all main-line Caro-Kann theory and keeps the center fluid. Black strikes back immediately with ...dxe4 and ...e5, leading to open, tactical positions — an aggressive anti-theory weapon for players who want a fight from move 3.",
+  "id": "caro-kann-fantasy-main",
+  "lines": [
+    {
+      "description": "After 1.e4 c6 2.d4 d5, White plays the startling 3.f3, supporting e4 while avoiding every theoretical branch. Black accepts the challenge with 3...dxe4 4.fxe4 and immediately strikes at the center with 4...e5. After 5.Nf3 Black develops 5...Bg4, pinning the knight, and White steadies with 6.c3. The open center and lead in development give White attacking chances, but the overextended pawns demand precise play.",
+      "difficulty": "Intermediate",
+      "id": "caro-kann-fantasy",
+      "moveCount": 18,
+      "moves": [
+        "e4",
+        "c6",
+        "d4",
+        "d5",
+        "f3",
+        "dxe4",
+        "fxe4",
+        "e5",
+        "Nf3",
+        "Bg4",
+        "c3",
+        "Nd7",
+        "Bc4",
+        "Ngf6",
+        "O-O",
+        "Be7",
+        "d5",
+        "O-O"
+      ],
+      "name": "Caro-Kann — Fantasy Variation"
+    }
+  ],
+  "name": "Caro-Kann — Fantasy Variation",
+  "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+}

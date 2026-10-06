@@ -1,13 +1,13 @@
 {
   "id": "queen-gambit-declined-main",
-  "name": "Queen's Gambit Declined \u2014 Orthodox",
-  "description": "Main line for the Queen's Gambit Declined \u2014 Orthodox.",
+  "name": "Queen's Gambit Declined — Orthodox",
+  "description": "Main line for the Queen's Gambit Declined — Orthodox.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   "lines": [
     {
       "id": "queen-gambit-declined-l1",
-      "name": "Queen's Gambit Declined \u2014 Orthodox",
-      "description": "Master the standard moves of the Queen's Gambit Declined \u2014 Orthodox.",
+      "name": "Queen's Gambit Declined — Orthodox",
+      "description": "Master the standard moves of the Queen's Gambit Declined — Orthodox.",
       "moves": [
         "d4",
         "d5",
@@ -22,9 +22,18 @@
         "Nf3",
         "h6",
         "Bh4",
-        "b6"
+        "b6",
+        "cxd5",
+        "Nxd5",
+        "Bxe7",
+        "Qxe7",
+        "Ncxd5",
+        "exd5",
+        "Bd3",
+        "Bb7",
+        "O-O"
       ],
-      "moveCount": 14,
+      "moveCount": 23,
       "difficulty": "Intermediate"
     }
   ]

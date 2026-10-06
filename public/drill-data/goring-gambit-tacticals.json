@@ -1,0 +1,164 @@
+{
+  "id": "goring-gambit-tacticals",
+  "name": "Göring Gambit — White Tactics",
+  "description": "4 tactical challenges for White in the Göring Gambit. Find the most aggressive continuation after 6.Bxb2 as White's bishops rake the black kingside.",
+  "arena": "goring-gambit",
+  "drills": [
+    {
+      "drillId": "gg-t1",
+      "name": "Castling into the Attack",
+      "theme": "Rapid Development",
+      "description": "Castle quickly and bring the rook to the open e-file. After Black solidifies with d6, swing the queen to b3, hitting b7 and x-raying f7 down the diagonal.",
+      "fen": "r1bqk2r/pppp1ppp/2n2n2/8/1bB1P3/2N2N2/PB3PPP/R2QK2R w KQkq - 3 8",
+      "solutionMoves": [
+        "O-O",
+        "O-O",
+        "Re1",
+        "d6",
+        "Qb3"
+      ],
+      "opponentResponse": "O-O",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "O-O brings the king to safety and activates the rook. Re1 pressures the e-file, and Qb3 attacks b7 while eyeing f7.",
+      "explanation": "In the Göring, White's compensation is all about time — every developing move comes with a threat. O-O is the most natural: the king reaches safety while the rook swings toward the center, and Black has no time to exploit anything. After Black castles too, Re1 is the thematic rook lift: the rook pressures the e-file, supports a future e5 break, and makes ...d6 awkward since the d-pawn will be pinned to nothing yet still tactically fragile. Black's d6 is the solid choice, blunting the b2 bishop, but Qb3 is the sting — the queen hits the b7 pawn and x-rays down the a2-g8 diagonal toward f7. Black must attend to b7 (usually with Kh8 or Qe7), and White's initiative rolls on: two bishops raking the kingside, rooks ready, and Black permanently on the defensive.",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "c3",
+        "dxc3",
+        "Bc4",
+        "cxb2",
+        "Bxb2",
+        "Bb4+",
+        "Nc3",
+        "Nf6"
+      ]
+    },
+    {
+      "drillId": "gg-t2",
+      "name": "The e5 Break",
+      "theme": "Pawn Break",
+      "description": "Blast the center open with e5. After Black captures, jump Ng5 attacking e6 and f7, then shatter Black's structure with Nxe6.",
+      "fen": "r1bqkb1r/ppp2ppp/2np1n2/8/2B1P3/5N2/PB3PPP/RN1Q1RK1 w kq - 2 8",
+      "solutionMoves": [
+        "e5",
+        "dxe5",
+        "Ng5",
+        "Be6",
+        "Nxe6"
+      ],
+      "opponentResponse": "dxe5",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "e5 cracks the center. After dxe5, Ng5 hits e6 and f7 — Nxe6 ruins Black's pawn structure and opens the f-file.",
+      "explanation": "e5 is the thematic Göring break — White sacrifices a second pawn to rip open the center while Black is still undeveloped. Black has little choice but dxe5, opening the d-file toward the queen but, more importantly, giving White's pieces open lines. Ng5 is the point: the knight leaps toward e6 and f7, and Black's position is suddenly full of tactical holes — the f7 pawn is attacked twice, the e6 square beckons, and the b2 bishop's diagonal is about to become lethal. Be6 tries to blunt the attack by challenging the c4 bishop, but Nxe6! is the crusher: fxe6 is forced (the queen can't recapture into the pin), and Black's kingside pawn structure is shattered — doubled isolated e-pawns, an open f-file for White's rook, and the f7 square permanently weak. White's gambit has paid off in full.",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "c3",
+        "dxc3",
+        "Bc4",
+        "cxb2",
+        "Bxb2",
+        "d6",
+        "O-O",
+        "Nf6"
+      ]
+    },
+    {
+      "drillId": "gg-t3",
+      "name": "Qb3 Double Attack",
+      "theme": "Double Attack",
+      "description": "Develop the queen to b3 with a double attack on b7 and pressure down the diagonal. Castle Black's king out, then double rooks on the central files.",
+      "fen": "r1bqk2r/ppp1bppp/2np1n2/8/2B1P3/2N2N2/PB3PPP/R2Q1RK1 w kq - 2 9",
+      "solutionMoves": [
+        "Qb3",
+        "O-O",
+        "Rad1",
+        "Kh8",
+        "Rfe1"
+      ],
+      "opponentResponse": "O-O",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "Qb3 attacks b7 and eyes f7. After O-O, Rad1 and Rfe1 pile onto the center while Black shuffles the king to h8.",
+      "explanation": "Qb3 is one of White's most venomous ideas in the Göring — the queen simultaneously attacks the b7 pawn and peers down the a2-g8 diagonal at f7, forcing Black into passive defense. Black's O-O gets the king off the open files, but it's a concession: the king is now a target on g8 with White's bishops aimed at it. Rad1 follows the classical recipe — the rook claims the half-open d-file, supports a future d5 break, and connects the rooks. Black's Kh8 is the tell: Black is already playing purely defensively, tucking the king away from the b2 bishop's diagonal. Rfe1 completes White's setup: both rooks on central files, queen pressuring b7, bishops raking the kingside. Black is cramped and White's initiative is worth far more than the gambit pawn.",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "c3",
+        "dxc3",
+        "Bc4",
+        "cxb2",
+        "Bxb2",
+        "Nf6",
+        "Nc3",
+        "d6",
+        "O-O",
+        "Be7"
+      ]
+    },
+    {
+      "drillId": "gg-t4",
+      "name": "The f7 Sacrifice",
+      "theme": "Sacrificial Attack",
+      "description": "Black greedily grabs the e4 pawn — punish it with the classic Bxf7+ sacrifice. After Kxf7, Qd5+ forks king and knight, and Qxe4+ regains the piece with a winning attack.",
+      "fen": "r1bqk2r/pppp1ppp/2n5/8/1bB1n3/2N2N2/PB3PPP/R2Q1RK1 w kq - 0 9",
+      "solutionMoves": [
+        "Bxf7+",
+        "Kxf7",
+        "Qd5+",
+        "Ke8",
+        "Qxe4+"
+      ],
+      "opponentResponse": "Kxf7",
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "briefExplanation": "8...Nxe4?? is refuted by Bxf7+!. After Kxf7 Qd5+ forks the king and the e4 knight, and Qxe4+ wins the piece with check.",
+      "explanation": "8...Nxe4?? is the greedy mistake every Göring player dreams of facing — Black snatches a second pawn while ignoring development, and White has a forced refutation. Bxf7+! is the classic Greek Gift pattern: the bishop sacrifices itself on f7, dragging the king into the open. Kxf7 is practically forced (Ke7 walks into Re1+ winning the knight at once). Then Qd5+ is the killer fork — check on the exposed king while simultaneously attacking the knight on e4. Black's king must scurry back with Ke8, and Qxe4+ regains the sacrificed piece with check and a decisive advantage: Black's king has lost castling rights, the e-file is about to open, and White's bishops still rake the board. Two pawns for a winning attack — the Göring at its most beautiful.",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "c3",
+        "dxc3",
+        "Bc4",
+        "cxb2",
+        "Bxb2",
+        "Bb4+",
+        "Nc3",
+        "Nf6",
+        "O-O",
+        "Nxe4"
+      ]
+    }
+  ]
+}

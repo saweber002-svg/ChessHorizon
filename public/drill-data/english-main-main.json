@@ -1,13 +1,13 @@
 {
   "id": "english-main-main",
-  "name": "English Opening \u2014 Symmetrical",
+  "name": "English Opening — Symmetrical",
   "description": "After 1.c4 c5, both sides develop symmetrically in the Symmetrical English. White fianchettoes the king's bishop and exchanges on d5; Black answers with the modern 6...Nc7 retreat and the central 7...e5. The game revolves around White's d4 break and the battle for the d4 square.",
   "startFen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
   "lines": [
     {
       "id": "english-main",
-      "name": "English Opening \u2014 Symmetrical",
-      "description": "After 1.c4 c5 2.Nf3 Nf6 3.Nc3 Nc6 4.g3 d5 5.cxd5 Nxd5 6.Bg2, Black retreats 6...Nc7 \u2014 the modern main line \u2014 and claims the center with 7...e5. White restrains with 8.d3 and Black develops 8...Be7. The battle for d4 defines the middlegame.",
+      "name": "English Opening — Symmetrical",
+      "description": "After 1.c4 c5 2.Nf3 Nf6 3.Nc3 Nc6 4.g3 d5 5.cxd5 Nxd5 6.Bg2, Black retreats 6...Nc7 — the modern main line — and claims the center with 7...e5. White restrains with 8.d3 and Black develops 8...Be7. The battle for d4 defines the middlegame.",
       "moves": [
         "c4",
         "c5",
@@ -24,9 +24,11 @@
         "O-O",
         "e5",
         "d3",
-        "Be7"
+        "Be7",
+        "Bg5",
+        "O-O"
       ],
-      "moveCount": 16,
+      "moveCount": 18,
       "difficulty": "Intermediate"
     }
   ]

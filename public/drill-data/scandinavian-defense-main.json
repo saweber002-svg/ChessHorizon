@@ -8,8 +8,27 @@
       "id": "scandinavian-defense",
       "name": "Scandinavian Defense — Qa5 Main Line",
       "description": "The classical main line with Qa5. After 3...Qa5, Black's queen is active but needs support. White plays 4.d4 to reclaim the center, then develops both knights and the f1 bishop to c4. Black responds with 4...Nf6 (developing with tempo), 5...Bf5 (the critical light bishop), 6...e6, 7...c6 (solid pawn chain), and 8...Bb4 (pinning the Nc3). Both sides race to complete development. White's Qe2 prepares O-O-O or O-O and maintains central tension.",
-      "moves": ["e4", "d5", "exd5", "Qxd5", "Nc3", "Qa5", "d4", "Nf6", "Nf3", "Bf5", "Bc4", "e6", "Bd2", "c6", "Qe2", "Bb4"],
-      "moveCount": 16,
+      "moves": [
+        "e4",
+        "d5",
+        "exd5",
+        "Qxd5",
+        "Nc3",
+        "Qa5",
+        "d4",
+        "Nf6",
+        "Nf3",
+        "Bf5",
+        "Bc4",
+        "e6",
+        "Bd2",
+        "c6",
+        "Qe2",
+        "Bb4",
+        "O-O-O",
+        "O-O"
+      ],
+      "moveCount": 18,
       "difficulty": "Intermediate"
     }
   ]
