@@ -79,13 +79,20 @@ function trueCastleSpots(kingdom: KingdomId, drills: KingdomDrill[]): CastleSpot
  * Pan the interior camera by a pointer drag. Positive dxPx (pointer moved
  * right) moves the camera left so the map follows the pointer.
  */
-export function panCamera(view: FitView, dxPx: number, dyPx: number, wPx: number, hPx: number): FitView {
+export function panCamera(
+  view: FitView,
+  dxPx: number,
+  dyPx: number,
+  wPx: number,
+  hPx: number,
+  mapAspect: number = 1,
+): FitView {
   if (wPx <= 0 || hPx <= 0) return view;
-  const cAspect = wPx / hPx;
+  const yScale = (wPx / hPx) / mapAspect;
   return {
     zoom: view.zoom,
     centerX: view.centerX - ((dxPx / wPx) * 100) / view.zoom,
-    centerY: view.centerY - ((dyPx / hPx) * 100) / (view.zoom * cAspect),
+    centerY: view.centerY - ((dyPx / hPx) * 100) / (view.zoom * yScale),
   };
 }
 
@@ -100,27 +107,29 @@ export function zoomCamera(
   fxPct: number,
   fyPct: number,
   cAspect: number = 1,
+  mapAspect: number = 1,
 ): FitView {
   const z2 = Math.min(INTERIOR_MAX_ZOOM, Math.max(minZoom, view.zoom * factor));
   if (z2 === view.zoom) return view;
+  const yScale = cAspect / mapAspect;
   const left = 50 - view.zoom * view.centerX;
-  const top = 50 - view.zoom * cAspect * view.centerY;
+  const top = 50 - view.zoom * yScale * view.centerY;
   const mx = (fxPct - left) / view.zoom;
-  const my = (fyPct - top) / (view.zoom * cAspect);
+  const my = (fyPct - top) / (view.zoom * yScale);
   return {
     zoom: z2,
     centerX: (50 - (fxPct - z2 * mx)) / z2,
-    centerY: (50 - (fyPct - z2 * cAspect * my)) / (z2 * cAspect),
+    centerY: (50 - (fyPct - z2 * yScale * my)) / (z2 * yScale),
   };
 }
 
 /** Clamp the camera center so the map never slides past the container edges. */
-export function clampCamera(v: FitView, cAspect: number = 1): FitView {
+export function clampCamera(v: FitView, cAspect: number = 1, mapAspect: number = 1): FitView {
   const lo = 50 / v.zoom;
   const hi = 100 - 50 / v.zoom;
   const cx = Math.min(Math.max(v.centerX, lo), hi);
   // Vertical range is 0-MAP_H, scaled by container aspect.
-  const yZoom = v.zoom * cAspect;
+  const yZoom = (v.zoom * cAspect) / mapAspect;
   const loY = 50 / yZoom;
   const hiY = MAP_H - 50 / yZoom;
   // If the whole map height fits in view (portrait / zoomed out), center it
@@ -159,17 +168,25 @@ export function KingdomInterior({ kingdom, onBack, onSelectDrill }: KingdomInter
   // Baked interior texture when available; falls back to the main atlas.
   const interiorUrl = INTERIOR_TEXTURE_URL(kingdom);
   const mapUrl = interiorUrl ?? ATLAS_MAP_URL;
-  // All interior textures and the main atlas are square (1:1).
-  const mapAspect = '1 / 1';
-  const mapAspectNum = 1;
+  const [mapAspectNum, setMapAspectNum] = useState(1);
+  useEffect(() => {
+    const image = new Image();
+    image.onload = () => {
+      if (image.naturalWidth > 0 && image.naturalHeight > 0) {
+        setMapAspectNum(image.naturalWidth / image.naturalHeight);
+      }
+    };
+    image.src = mapUrl;
+  }, [mapUrl]);
+  const mapAspect = `${mapAspectNum} / 1`;
 
   // Fill zoom: the minimum zoom where the square image covers the container
-  // (no black bars). For portrait (cAspect < 1), height is the constraint:
-  // zoom >= 1/cAspect. For landscape, width is the constraint: zoom >= 1.
+  // (no black bars). Width is the constraint for wide maps; height is the
+  // constraint for portrait maps based on the image's intrinsic aspect.
   const fillZoom = useMemo(() => {
     const cAspect = size.w > 0 && size.h > 0 ? size.w / size.h : 1;
-    return Math.max(1, 1 / cAspect);
-  }, [size]);
+    return Math.max(1, mapAspectNum / cAspect);
+  }, [mapAspectNum, size]);
 
   // Start fully zoomed out: the whole interior is visible on entry (no
   // black bars — fillZoom is the minimum). Users pinch/drag to explore.
@@ -201,11 +218,11 @@ const HEADER_OFFSET_PX = 92;
     // Vertical % refers to container height, horizontal to width — scale the
     // vertical zoom by the container aspect so map units stay square.
     const cAspect = size.w > 0 && size.h > 0 ? size.w / size.h : 1;
-    const yZoom = view.zoom * cAspect;
+    const yZoom = (view.zoom * cAspect) / mapAspectNum;
     const rawL = 50 - view.zoom * view.centerX;
     const rawT = 50 - yZoom * view.centerY;
     const minL = 100 - view.zoom * 100;
-    const minT = 100 - (view.zoom * 100 * cAspect) / mapAspectNum;
+    const minT = 100 - yZoom * 100;
     // On portrait/mobile, bottom-align the map when it doesn't fill the
     // container vertically (minT > 0) so the image sits on the screen bottom.
     const baseTop =
@@ -223,7 +240,7 @@ const HEADER_OFFSET_PX = 92;
     const cAspect = size.w > 0 && size.h > 0 ? size.w / size.h : 1;
     return {
       x: mapOffset.left + view.zoom * mx,
-      y: mapOffset.top + view.zoom * cAspect * my,
+      y: mapOffset.top + ((view.zoom * cAspect) / mapAspectNum) * my,
     };
   };
 
@@ -260,7 +277,7 @@ const HEADER_OFFSET_PX = 92;
     const iconR = iconPx / 2;
     const centers = castles.map(({ mx, my }) => ({
       cx: ((mapOffset.left + view.zoom * mx) / 100) * size.w,
-      cy: ((mapOffset.top + view.zoom * my) / 100) * size.h,
+      cy: ((mapOffset.top + ((view.zoom * (size.w / size.h)) / mapAspectNum) * my) / 100) * size.h,
     }));
     // Reserve every icon's rect so labels never cover a neighboring castle.
     centers.forEach(({ cx, cy }) =>
@@ -297,7 +314,7 @@ const HEADER_OFFSET_PX = 92;
       }
     });
     return placement;
-  }, [castles, view, size, mapOffset, iconPx]);
+  }, [castles, view, size, mapAspectNum, mapOffset, iconPx]);
 
   // --- Pan / pinch gestures -----------------------------------------------
   // Pointer events drive mouse + pen. Touch goes through the native
@@ -323,8 +340,8 @@ const HEADER_OFFSET_PX = 92;
   const applyPan = useCallback((dxPx: number, dyPx: number) => {
     const { w, h } = sizeRef.current;
     const cAspect = w > 0 && h > 0 ? w / h : 1;
-    setView((v) => clampCamera(panCamera(v, dxPx, dyPx, w, h), cAspect));
-  }, []);
+    setView((v) => clampCamera(panCamera(v, dxPx, dyPx, w, h, mapAspectNum), cAspect, mapAspectNum));
+  }, [mapAspectNum]);
 
   const applyZoom = useCallback((factor: number, clientX: number, clientY: number) => {
     const p = toLocal(clientX, clientY);
@@ -332,8 +349,12 @@ const HEADER_OFFSET_PX = 92;
     const fyPct = (p.y / p.h) * 100;
     const { w, h } = sizeRef.current;
     const cAspect = w > 0 && h > 0 ? w / h : 1;
-    setView((v) => clampCamera(zoomCamera(v, minZoomRef.current, factor, fxPct, fyPct, cAspect), cAspect));
-  }, [toLocal]);
+    setView((v) => clampCamera(
+      zoomCamera(v, minZoomRef.current, factor, fxPct, fyPct, cAspect, mapAspectNum),
+      cAspect,
+      mapAspectNum,
+    ));
+  }, [mapAspectNum, toLocal]);
 
   const markMoved = useCallback((x: number, y: number) => {
     const down = downPosRef.current;
@@ -424,11 +445,15 @@ const HEADER_OFFSET_PX = 92;
       const factor = Math.exp(-e.deltaY * 0.0015);
       const r = el.getBoundingClientRect();
       const cAspect = r.width > 0 && r.height > 0 ? r.width / r.height : 1;
-      setView((v) => clampCamera(zoomCamera(v, minZoomRef.current, factor, fxPct, fyPct, cAspect), cAspect));
+      setView((v) => clampCamera(
+        zoomCamera(v, minZoomRef.current, factor, fxPct, fyPct, cAspect, mapAspectNum),
+        cAspect,
+        mapAspectNum,
+      ));
     };
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => el.removeEventListener('wheel', onWheel);
-  }, [toLocal]);
+  }, [mapAspectNum, toLocal]);
 
   // Touch gestures (native listeners): a non-passive touchmove lets us
   // preventDefault once a real drag starts; taps never reach the drag
@@ -447,7 +472,7 @@ const HEADER_OFFSET_PX = 92;
     const setViewClamped = (fn: (v: FitView) => FitView) => {
       const r = el.getBoundingClientRect();
       const cAspect = r.width > 0 && r.height > 0 ? r.width / r.height : 1;
-      setView((v) => clampCamera(fn(v), cAspect));
+      setView((v) => clampCamera(fn(v), cAspect, mapAspectNum));
     };
 
     const onTouchStart = (e: TouchEvent) => {
@@ -497,9 +522,11 @@ const HEADER_OFFSET_PX = 92;
           const fyPct = (my / r.height) * 100;
           const cAspect = r.width > 0 && r.height > 0 ? r.width / r.height : 1;
           setViewClamped((v) =>
-            zoomCamera(v, minZoomRef.current, dist / pinchDist, fxPct, fyPct, cAspect),
+            zoomCamera(v, minZoomRef.current, dist / pinchDist, fxPct, fyPct, cAspect, mapAspectNum),
           );
-          setViewClamped((v) => panCamera(v, mx - pinchMx, my - pinchMy, r.width, r.height));
+          setViewClamped((v) =>
+            panCamera(v, mx - pinchMx, my - pinchMy, r.width, r.height, mapAspectNum),
+          );
         }
         pinch = { dist, mx, my };
         return;
@@ -512,7 +539,9 @@ const HEADER_OFFSET_PX = 92;
           suppressClickRef.current = true;
           if (old) {
             const r = el.getBoundingClientRect();
-            setViewClamped((v) => panCamera(v, p.x - old.x, p.y - old.y, r.width, r.height));
+            setViewClamped((v) =>
+              panCamera(v, p.x - old.x, p.y - old.y, r.width, r.height, mapAspectNum),
+            );
           }
         }
       }
@@ -534,7 +563,7 @@ const HEADER_OFFSET_PX = 92;
       el.removeEventListener('touchend', onTouchEnd);
       el.removeEventListener('touchcancel', onTouchEnd);
     };
-  }, []);
+  }, [mapAspectNum]);
 
   const handleCastleClick = useCallback(
     (drill: KingdomDrill) => {
