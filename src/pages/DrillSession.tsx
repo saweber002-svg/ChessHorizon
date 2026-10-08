@@ -376,6 +376,18 @@ export default function DrillSession() {
   const currentPlayerMoveIdx = playerMoveIndices[moveIndex] ?? -1;
   const correctMove = currentPlayerMoveIdx >= 0 ? moves[currentPlayerMoveIdx] : undefined;
 
+  // Target square for the mobile tap-expansion: the square the drill expects.
+  const targetSquare = useMemo(() => {
+    if (!correctMove || sessionComplete || showStars) return null;
+    try {
+      const testChess = new Chess(fen);
+      const m = testChess.moves({ verbose: true }).find((mv) => mv.san === correctMove);
+      return m ? (m.to as Square) : null;
+    } catch {
+      return null;
+    }
+  }, [fen, correctMove, sessionComplete, showStars]);
+
   const applyMovesUpTo = useCallback(
     (upTo: number) => {
       setFen(buildFenFromMoves(startFen, moves, upTo));
@@ -1149,6 +1161,7 @@ hapticSuccess();
                   lastMove={lastMove}
                   interactive={!waitingOpponent && !showStars && !watching}
                   orientation={playerColor === 'b' ? 'black' : 'white'}
+                  targetSquare={targetSquare}
                 />
               </BoardWithEval>
             </div>

@@ -110,7 +110,7 @@ export const GAME_THEMES: GameTheme[] = [
       {
         selectColor: 'rgba(125, 211, 252, 0.45)',
         lastMoveColor: 'rgba(125, 211, 252, 0.28)',
-        dotColor: 'rgba(125, 211, 252, 0.5)',
+        dotColor: 'rgba(70, 150, 200, 0.65)',
       },
       { lightSquare: '#334B62', darkSquare: '#1D2C3C', frameColor: '#102233' }
     ),
@@ -136,7 +136,7 @@ export const GAME_THEMES: GameTheme[] = [
       {
         selectColor: 'rgba(255, 213, 79, 0.5)',
         lastMoveColor: 'rgba(255, 213, 79, 0.3)',
-        dotColor: 'rgba(240, 200, 120, 0.55)',
+        dotColor: 'rgba(180, 140, 60, 0.65)',
       },
       { lightSquare: '#D3B16D', darkSquare: '#13263B', frameColor: '#142437' }
     ),
@@ -162,7 +162,7 @@ export const GAME_THEMES: GameTheme[] = [
       {
         selectColor: 'rgba(255, 213, 79, 0.5)',
         lastMoveColor: 'rgba(255, 213, 79, 0.28)',
-        dotColor: 'rgba(0, 0, 0, 0.35)',
+        dotColor: 'rgba(0, 0, 0, 0.45)',
       },
       { lightSquare: '#E9CEA6', darkSquare: '#BD6137', frameColor: '#104753' }
     ),
@@ -188,7 +188,7 @@ export const GAME_THEMES: GameTheme[] = [
       {
         selectColor: 'rgba(216, 180, 255, 0.45)',
         lastMoveColor: 'rgba(216, 180, 255, 0.28)',
-        dotColor: 'rgba(230, 210, 240, 0.45)',
+        dotColor: 'rgba(150, 120, 180, 0.65)',
       },
       { lightSquare: '#B5ADBB', darkSquare: '#452340', frameColor: '#2E1834' }
     ),
@@ -214,7 +214,7 @@ export const GAME_THEMES: GameTheme[] = [
       {
         selectColor: 'rgba(125, 211, 252, 0.5)',
         lastMoveColor: 'rgba(125, 211, 252, 0.3)',
-        dotColor: 'rgba(160, 220, 250, 0.5)',
+        dotColor: 'rgba(80, 160, 210, 0.65)',
       },
       { lightSquare: '#94DDE8', darkSquare: '#0247AE', frameColor: '#013388' }
     ),
@@ -240,7 +240,7 @@ export const GAME_THEMES: GameTheme[] = [
       {
         selectColor: 'rgba(255, 213, 79, 0.55)',
         lastMoveColor: 'rgba(255, 213, 79, 0.3)',
-        dotColor: 'rgba(0, 0, 0, 0.35)',
+        dotColor: 'rgba(0, 0, 0, 0.45)',
       },
       { lightSquare: '#EDE1BC', darkSquare: '#185439', frameColor: '#185338' }
     ),
@@ -266,7 +266,7 @@ export const GAME_THEMES: GameTheme[] = [
       {
         selectColor: 'rgba(255, 120, 120, 0.45)',
         lastMoveColor: 'rgba(255, 120, 120, 0.28)',
-        dotColor: 'rgba(255, 180, 180, 0.45)',
+        dotColor: 'rgba(200, 100, 100, 0.65)',
       },
       { lightSquare: '#690D10', darkSquare: '#171B1E', frameColor: '#5A0A0A' }
     ),
