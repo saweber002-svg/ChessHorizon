@@ -7,13 +7,16 @@
  * best move. Low skill levels alone still play like a strong player who
  * occasionally "tries" less — the blunder rate is what makes the lower
  * levels feel human: they hang pieces and miss tactics sometimes.
+ *
+ * Target Elos (2026-10-07): beginner ~400, casual ~800, club ~1200,
+ * expert ~1600, master ~2200.
  */
 export const DIFFICULTY_LEVELS = [
-  { id: 'beginner', label: 'Beginner', skill: 0, blunder: 0.45, hint: 'Learning the moves' },
-  { id: 'casual', label: 'Casual', skill: 2, blunder: 0.25, hint: 'Relaxed games' },
-  { id: 'club', label: 'Club', skill: 8, blunder: 0.08, hint: 'Solid club player' },
-  { id: 'expert', label: 'Expert', skill: 14, blunder: 0, hint: 'Strong tournament player' },
-  { id: 'master', label: 'Master', skill: 20, blunder: 0, hint: 'Full strength' },
+  { id: 'beginner', label: 'Beginner', skill: 0, blunder: 0.65, hint: 'Learning the moves' },
+  { id: 'casual', label: 'Casual', skill: 1, blunder: 0.35, hint: 'Relaxed games' },
+  { id: 'club', label: 'Club', skill: 5, blunder: 0.15, hint: 'Solid club player' },
+  { id: 'expert', label: 'Expert', skill: 10, blunder: 0.05, hint: 'Strong tournament player' },
+  { id: 'master', label: 'Master', skill: 19, blunder: 0, hint: 'Full strength' },
 ] as const;
 
 export type DifficultyId = (typeof DIFFICULTY_LEVELS)[number]['id'];

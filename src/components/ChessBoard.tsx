@@ -13,6 +13,11 @@ interface ChessBoardProps {
   lastMove?: { from: Square; to: Square } | null;
   /** Which side sits at the bottom of the board. Defaults to 'white'. */
   orientation?: 'white' | 'black';
+  /**
+   * The drill's expected target square. On mobile, an invisible 20%-larger
+   * tap area is rendered over it so streaks aren't lost to misclicks.
+   */
+  targetSquare?: Square | null;
 }
 
 const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as const;
@@ -133,8 +138,23 @@ export default function ChessBoard({
   hintSquares = [],
   lastMove,
   orientation = 'white',
+  targetSquare = null,
 }: ChessBoardProps) {
   const { theme: gameTheme } = useTheme();
+
+  // Mobile target-square tap expansion: compute the target's grid position
+  // so we can render a 20%-larger invisible hit area over it (mobile only).
+  const targetPos = useMemo(() => {
+    if (!targetSquare) return null;
+    const file = targetSquare.charCodeAt(0) - 97; // a=0..h=7
+    const rank = parseInt(targetSquare[1], 10); // 1..8
+    if (file < 0 || file > 7 || rank < 1 || rank > 8) return null;
+    // Grid row 0 is the top rank; flip for black orientation.
+    const c = orientation === 'black' ? 7 - file : file;
+    const r = orientation === 'black' ? rank - 1 : 8 - rank;
+    // Each square is 12.5%; overlay is 15% (20% larger), centered.
+    return { left: c * 12.5 - 1.25, top: r * 12.5 - 1.25 };
+  }, [targetSquare, orientation]);
   const theme = gameTheme.board;
   const [selectedSquare, setSelectedSquare] = useState<Square | null>(null);
   const [legalMoves, setLegalMoves] = useState<Square[]>([]);
@@ -447,6 +467,20 @@ export default function ChessBoard({
             })
           )}
         </div>
+        {/* Mobile: 20%-larger invisible tap area over the drill's target square. */}
+        {targetPos && targetSquare && (
+          <div
+            className="absolute z-30 md:hidden"
+            style={{
+              left: `${targetPos.left}%`,
+              top: `${targetPos.top}%`,
+              width: '15%',
+              height: '15%',
+            }}
+            onClick={() => handleSquareClick(targetSquare)}
+            aria-hidden="true"
+          />
+        )}
         {/* Sliding pieces: absolutely positioned sprites that glide from the
             old square to the new one while the static piece stays hidden. */}
         {anim && (
