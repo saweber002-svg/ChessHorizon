@@ -18,7 +18,6 @@ import { REALM_TOTAL_MOVES } from '@/data/realmDrillTotals';
 import {
   INTERIOR_CASTLE_SPOTS,
   INTERIOR_TEXTURE_URL,
-  MAIN_ATLAS_CASTLE_SPOTS,
 } from '@/data/interiorCastleSpots';
 
 const ATLAS_MAP_URL = `${import.meta.env.BASE_URL}atlas/atlas-map.webp`; // fallback for kingdoms without a baked interior
@@ -39,10 +38,9 @@ interface CastleSpot {
 /**
  * Castle positions for the interior view.
  *
- * Kingdoms with a baked interior texture use the hand-mapped spots from
- * interiorCastleSpots.ts (the castles are baked into the art). Kingdoms
- * without one (scandinavian) fall back to true geographic positions on
- * the main atlas.
+ * Kingdoms use the hand-mapped spots from interiorCastleSpots.ts (the
+ * castles are baked into the art). Wilderness, clearing, and coaching
+ * have no interior and fall back to the main atlas.
  */
 function trueCastleSpots(kingdom: KingdomId, drills: KingdomDrill[]): CastleSpot[] {
   const baked = INTERIOR_CASTLE_SPOTS[kingdom as keyof typeof INTERIOR_CASTLE_SPOTS];
@@ -60,17 +58,15 @@ function trueCastleSpots(kingdom: KingdomId, drills: KingdomDrill[]): CastleSpot
       };
     });
   }
-  // Fallback: main-atlas positions for kingdoms without a baked interior.
-  const mainAtlas = new Map(MAIN_ATLAS_CASTLE_SPOTS.map((s) => [s.variationId, s]));
+  // Fallback: kingdom center for any drill missing a baked spot.
   const fallback = KINGDOM_POSITIONS[kingdom];
   return drills.map((drill) => {
-    const spot = mainAtlas.get(drill.variationId);
     const castle = CASTLE_BY_VARIATION[drill.variationId] ?? null;
     return {
       drill,
       castle,
-      mx: spot ? spot.x : fallback.x,
-      my: spot ? spot.y : fallback.y,
+      mx: fallback.x,
+      my: fallback.y,
     };
   });
 }
