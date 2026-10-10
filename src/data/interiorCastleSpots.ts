@@ -1,18 +1,14 @@
 /**
  * Castle positions on the baked kingdom interior textures.
  *
- * Each kingdom (except scandinavian) has its own interior texture at
+ * Each kingdom has its own interior texture at
  * `public/atlas/interiors/<kingdom>.webp` with the castles baked in.
  * This file maps each opening's variationId to its castle's position
  * on that interior, in 0-100 normalized coordinates.
  *
- * Positions derived from Scott's new interior art (2026-10-06). If Scott
+ * Positions derived from Scott's interior art pass 2 (2026-10-10). If Scott
  * re-bakes an interior with moved castles, update the coordinates here —
  * the texture files are drag-and-drop replaceable.
- *
- * NOTE: Germany's caro-kann-classical and caro-kann-advance are at TEMPORARY
- * positions — the new Germany art has no castles for them. Scott will send
- * updated art with the castles added; remap when it lands.
  */
 
 import type { KingdomId } from '@/types';
@@ -25,83 +21,78 @@ export interface InteriorCastleSpot {
   y: number;
 }
 
-/** Interior texture URL for a kingdom, or null if it uses the main atlas. */
+/** Interior texture URL for a kingdom. */
 export const INTERIOR_TEXTURE_URL = (kingdom: KingdomId): string | null => {
-  // Scandinavian has no baked interior; it falls back to the main atlas.
-  if (kingdom === 'scandinavian') return null;
+  // Wilderness, clearing, and coaching use the main atlas, not interiors.
+  if (kingdom === 'wilderness' || kingdom === 'clearing' || kingdom === 'coaching') return null;
   return `${import.meta.env.BASE_URL}atlas/interiors/${kingdom}.webp`;
 };
 
-/**
- * Castle spots on the main atlas for kingdoms without a baked interior.
- * Currently only scandinavian. Positions are 0-100 on the 1170×1170 atlas.
- */
-export const MAIN_ATLAS_CASTLE_SPOTS: InteriorCastleSpot[] = [
-  { variationId: 'scandinavian-nf6', x: 53.5, y: 30.5 }, // Akershus (Oslo)
-  { variationId: 'scandinavian-defense', x: 60.0, y: 33.5 }, // Kronborg (Danish strait)
-  { variationId: 'scandinavian-qd6', x: 68.0, y: 28.5 }, // Kalmar (SE Sweden)
-];
-
 export const INTERIOR_CASTLE_SPOTS: Record<
-  Exclude<KingdomId, 'scandinavian' | 'wilderness' | 'clearing' | 'coaching'>,
+  Exclude<KingdomId, 'wilderness' | 'clearing' | 'coaching'>,
   InteriorCastleSpot[]
 > = {
   italian: [
-    { variationId: 'two-knights', x: 31.9, y: 31.2 }, // Castello di Fénis (NW, Alps)
-    { variationId: 'giuoco-pianissimo', x: 41.5, y: 34.2 }, // Castello Sforzesco (N)
-    { variationId: 'giuoco-piano', x: 50.9, y: 55.6 }, // Castel Sant'Angelo (center)
-    { variationId: 'greco-counter-attack', x: 60.6, y: 61.3 }, // Castel del Monte (SE)
+    { variationId: 'two-knights', x: 27.1, y: 19.4 }, // Castello di Fénis (NW, Alps)
+    { variationId: 'giuoco-pianissimo', x: 36.8, y: 23.5 }, // Castello Sforzesco (N)
+    { variationId: 'giuoco-piano', x: 49.5, y: 45.8 }, // Castel Sant'Angelo (center)
+    { variationId: 'greco-counter-attack', x: 69.6, y: 53.8 }, // Castel del Monte (SE)
   ],
   sicilian: [
-    { variationId: 'sicilian-najdorf', x: 27.2, y: 36.4 }, // La Zisa (Palermo, NW)
-    { variationId: 'sicilian-sveshnikov', x: 36.7, y: 49.9 }, // Castello di Mussomeli (center)
-    { variationId: 'sicilian-scheveningen', x: 50.4, y: 70.6 }, // Castello di Paternò (E)
-    { variationId: 'sicilian-classical', x: 57.4, y: 52.8 }, // Castello Ursino (Catania, E coast)
-    { variationId: 'sicilian-dragon', x: 50.7, y: 44.5 }, // Castello di Donnafugata (S)
-    { variationId: 'sicilian-kan', x: 60.3, y: 72.5 }, // Castello Maniace (Syracuse, SE)
+    { variationId: 'sicilian-najdorf', x: 27.8, y: 36.2 }, // La Zisa (Palermo, NW)
+    { variationId: 'sicilian-sveshnikov', x: 47.3, y: 52.4 }, // Castello di Mussomeli (center)
+    { variationId: 'sicilian-scheveningen', x: 61.3, y: 49.2 }, // Castello di Paternò (near Etna)
+    { variationId: 'sicilian-classical', x: 70.6, y: 55.2 }, // Castello Ursino (Catania, E coast)
+    { variationId: 'sicilian-dragon', x: 61.0, y: 69.8 }, // Castello di Donnafugata (S)
+    { variationId: 'sicilian-kan', x: 78.8, y: 73.2 }, // Castello Maniace (Syracuse, SE)
   ],
   french: [
-    { variationId: 'french-rubinstein', x: 45.4, y: 21.6 }, // Versailles (N)
-    { variationId: 'french-advance', x: 44.6, y: 32.8 }, // Chambord (N-center)
-    { variationId: 'french-tarrasch', x: 31.9, y: 34.9 }, // Villandry (W)
-    { variationId: 'french-classical', x: 49.2, y: 38.3 }, // Chenonceau (center)
-    { variationId: 'french-exchange', x: 35.6, y: 42.2 }, // Azay-le-Rideau (W-center)
-    { variationId: 'french-winawer', x: 46.1, y: 70.0 }, // Carcassonne (S)
+    { variationId: 'french-rubinstein', x: 47.5, y: 30.5 }, // Versailles (N)
+    { variationId: 'french-advance', x: 47.0, y: 41.5 }, // Chambord (N-center)
+    { variationId: 'french-tarrasch', x: 32.2, y: 43.8 }, // Villandry (W)
+    { variationId: 'french-classical', x: 49.8, y: 47.0 }, // Chenonceau (center)
+    { variationId: 'french-exchange', x: 36.5, y: 51.3 }, // Azay-le-Rideau (W-center)
+    { variationId: 'french-winawer', x: 46.4, y: 77.3 }, // Carcassonne (S)
   ],
   germany: [
-    { variationId: 'caro-kann-classical', x: 18.0, y: 22.0 }, // Burg Eltz (NW, TEMPORARY - no castle in art)
-    { variationId: 'caro-kann-panov', x: 36.5, y: 38.5 }, // Heidelberg (W-center)
-    { variationId: 'caro-kann-exchange', x: 46.6, y: 29.1 }, // Wartburg (N)
-    { variationId: 'caro-kann-fantasy', x: 41.0, y: 61.8 }, // Hohenzollern (center-S)
-    { variationId: 'caro-kann-advance', x: 58.0, y: 82.0 }, // Neuschwanstein (S, TEMPORARY - no castle in art)
+    { variationId: 'caro-kann-exchange', x: 59.0, y: 41.2 }, // Wartburg (N-center)
+    { variationId: 'caro-kann-panov', x: 30.5, y: 54.4 }, // Heidelberg (W)
+    { variationId: 'caro-kann-fantasy', x: 46.2, y: 65.4 }, // Hohenzollern (center-S)
+    { variationId: 'caro-kann-classical', x: 20.2, y: 38.6 }, // Burg Eltz (W)
+    { variationId: 'caro-kann-advance', x: 64.3, y: 74.2 }, // Neuschwanstein (S)
   ],
   dutch: [
-    { variationId: 'dutch-leningrad', x: 44.4, y: 37.2 }, // Muiderslot (N)
-    { variationId: 'dutch-classical', x: 48.5, y: 52.0 }, // De Haar (center)
-    { variationId: 'dutch-stonewall', x: 63.6, y: 58.6 }, // Doorwerth (E)
+    { variationId: 'dutch-leningrad', x: 42.6, y: 33.8 }, // Muiderslot (N)
+    { variationId: 'dutch-classical', x: 51.2, y: 46.5 }, // De Haar (center)
+    { variationId: 'dutch-stonewall', x: 72.4, y: 54.8 }, // Doorwerth (E)
   ],
   spanish: [
-    { variationId: 'ruy-lopez-open', x: 59.2, y: 22.2 }, // Palace of Olite (N)
-    { variationId: 'ruy-lopez-berlin', x: 47.4, y: 33.6 }, // Alcázar of Segovia (N-center)
-    { variationId: 'ruy-lopez-morphy', x: 53.7, y: 47.1 }, // Alcázar of Toledo (center)
-    { variationId: 'ruy-lopez-exchange', x: 50.2, y: 66.3 }, // Alhambra (S)
+    { variationId: 'ruy-lopez-open', x: 57.5, y: 20.0 }, // Palace of Olite (N)
+    { variationId: 'ruy-lopez-berlin', x: 43.0, y: 32.5 }, // Alcázar of Segovia (N-center)
+    { variationId: 'ruy-lopez-morphy', x: 53.2, y: 49.4 }, // Alcázar of Toledo (center)
+    { variationId: 'ruy-lopez-exchange', x: 48.9, y: 70.7 }, // Alhambra (S)
   ],
   english: [
-    { variationId: 'english-four-knights', x: 53.7, y: 11.9 }, // Bamburgh (far N)
-    { variationId: 'english-kings-fianchetto', x: 37.8, y: 35.5 }, // Alnwick (N-center)
-    { variationId: 'london-vs-kings-indian', x: 20.4, y: 49.8 }, // Hampton Court (W)
-    { variationId: 'english-mikenas-carls', x: 48.2, y: 41.0 }, // Warwick (center)
-    { variationId: 'london-system', x: 62.5, y: 50.9 }, // Tower of London (E-center)
-    { variationId: 'english-agincourt', x: 59.5, y: 43.2 }, // Kenilworth (center-E)
-    { variationId: 'english-main', x: 49.4, y: 47.2 }, // Windsor (center-S)
-    { variationId: 'english-reversed-sicilian', x: 67.4, y: 42.7 }, // Leeds (SE)
-    { variationId: 'english-reti', x: 76.2, y: 54.3 }, // Pevensey (SE coast)
-    { variationId: 'london-vs-qgd', x: 84.0, y: 60.0 }, // Dover (far SE coast, estimated)
-    { variationId: 'english-bremen', x: 57.6, y: 56.1 }, // Bodiam (S)
+    { variationId: 'english-four-knights', x: 62.1, y: 31.8 }, // Bamburgh (far N)
+    { variationId: 'english-kings-fianchetto', x: 57.0, y: 30.0 }, // Alnwick (N)
+    { variationId: 'london-vs-kings-indian', x: 60.9, y: 65.9 }, // Hampton Court (W)
+    { variationId: 'english-mikenas-carls', x: 51.0, y: 55.2 }, // Warwick (center)
+    { variationId: 'english-agincourt', x: 50.0, y: 53.7 }, // Kenilworth (center)
+    { variationId: 'english-main', x: 62.5, y: 61.1 }, // Windsor (center-S)
+    { variationId: 'london-system', x: 71.2, y: 63.0 }, // Tower of London (E)
+    { variationId: 'english-reversed-sicilian', x: 75.8, y: 69.8 }, // Leeds (SE)
+    { variationId: 'english-bremen', x: 65.4, y: 74.8 }, // Bodiam (S)
+    { variationId: 'english-reti', x: 64.5, y: 73.0 }, // Pevensey (SE coast)
+    { variationId: 'london-vs-qgd', x: 81.8, y: 74.1 }, // Dover (SE coast)
+  ],
+  scandinavian: [
+    { variationId: 'scandinavian-nf6', x: 39.8, y: 60.2 }, // Akershus (Oslo, W)
+    { variationId: 'scandinavian-defense', x: 35.3, y: 80.1 }, // Kronborg (Denmark, S)
+    { variationId: 'scandinavian-qd6', x: 70.2, y: 74.9 }, // Kalmar (Sweden, E)
   ],
   queendom: [
-    { variationId: 'queen-gambit-declined', x: 43.8, y: 25.3 }, // Prague Castle (N)
-    { variationId: 'slav-defense', x: 30.5, y: 41.4 }, // Karlštejn (W)
-    { variationId: 'queen-gambit-accepted', x: 33.7, y: 77.9 }, // Český Krumlov (S)
+    { variationId: 'queen-gambit-declined', x: 46.4, y: 27.3 }, // Prague Castle (N)
+    { variationId: 'slav-defense', x: 34.2, y: 39.4 }, // Karlštejn (W)
+    { variationId: 'queen-gambit-accepted', x: 39.8, y: 69.4 }, // Český Krumlov (S)
   ],
 };

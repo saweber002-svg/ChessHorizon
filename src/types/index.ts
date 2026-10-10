@@ -210,20 +210,20 @@ export function reconcileUnlocks(
 }
 
 export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
-  // Measured on Scott's Age of Exploration atlas (1170x1170 square), 2026-10-03.
+  // Measured on Scott's Age of Exploration atlas pass 2 (1170x1170 square), 2026-10-10.
   // Both axes are 0-100. Geographic kingdoms were pin-pointed with visual
   // grounding against the new artwork. Queendom is offset SE of Germany for
   // UI separation (Czechia sits inside German territory geographically).
   // Wilderness/clearing/coaching are design placements.
-  italian: { x: 57.5, y: 64.0 },
-  spanish: { x: 24.0, y: 68.5 },
-  sicilian: { x: 56.5, y: 75.5 },
-  english: { x: 32.2, y: 40.5 },
-  scandinavian: { x: 63.5, y: 22.5 },
-  queendom: { x: 46.0, y: 48.5 },
-  french: { x: 35.5, y: 53.0 },
-  dutch: { x: 44.2, y: 39.0 },
-  germany: { x: 56.0, y: 44.0 },
+  italian: { x: 57.5, y: 63.7 },
+  spanish: { x: 22.8, y: 66.2 },
+  sicilian: { x: 56.2, y: 73.3 },
+  english: { x: 28.5, y: 37.5 },
+  scandinavian: { x: 60.6, y: 20.7 },
+  queendom: { x: 42.5, y: 47.0 },
+  french: { x: 35.2, y: 52.1 },
+  dutch: { x: 46.3, y: 40.4 },
+  germany: { x: 52.5, y: 42.5 },
   wilderness: { x: 75.0, y: 77.0 },
   clearing: { x: 55.0, y: 53.0 },
   coaching: { x: 71.0, y: 34.0 },
