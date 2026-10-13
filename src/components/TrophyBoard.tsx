@@ -60,7 +60,7 @@ interface TrophyBoardProps {
   drillFileId: string;
   openingId: string;
   variationId: string;
-  onSelectSide: (side: 'w' | 'b') => void;
+  onSelectSide: (side: 'w' | 'b' | 'both', dominant?: 'w' | 'b') => void;
   onBack: () => void;
 }
 
@@ -82,6 +82,7 @@ export function TrophyBoard({
   const { user } = useAuth();
   const [data, setData] = useState<TrophyData | null>(null);
   const [error, setError] = useState(false);
+  const [showBothSelect, setShowBothSelect] = useState(false);
 
   // Server-authoritative opening prestige for signed-in users (perfect
   // completions recorded before local tracking existed). Anonymous users rely
@@ -445,6 +446,35 @@ export function TrophyBoard({
             <span aria-hidden>♚</span> Play as Black
           </button>
         </div>
+        <div className="flex gap-3 mb-4">
+          <button
+            onClick={() => setShowBothSelect(true)}
+            className="flex-1 py-3 rounded-xl border border-purple-400/30 bg-purple-400/5 text-purple-300 hover:bg-purple-400/15 transition-colors flex items-center justify-center gap-2 text-sm font-semibold"
+          >
+            <span aria-hidden>♔♚</span> Play Both Sides
+          </button>
+        </div>
+        {showBothSelect && (
+          <div className="mb-4 p-4 rounded-xl border border-purple-400/30 bg-purple-400/5">
+            <p className="text-center text-purple-200 text-sm mb-3">
+              Choose your board perspective:
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => { setShowBothSelect(false); onSelectSide('both', 'w'); }}
+                className="flex-1 py-2 rounded-lg border th-accent-border th-accent/10 th-accent-text hover:th-accent/20 text-sm font-semibold"
+              >
+                ♔ White view
+              </button>
+              <button
+                onClick={() => { setShowBothSelect(false); onSelectSide('both', 'b'); }}
+                className="flex-1 py-2 rounded-lg border border-red-400/30 bg-red-400/10 text-red-300 hover:bg-red-400/20 text-sm font-semibold"
+              >
+                ♚ Black view
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </motion.div>
   );

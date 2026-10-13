@@ -70,9 +70,15 @@ export default function DrillSession() {
   const [loadError, setLoadError] = useState<string | null>(null);
 
   const [playerColor, setPlayerColor] = useState<PlayerColor | null>(null);
+  /** When true, the player makes moves for both sides. */
+  const [playBoth, setPlayBoth] = useState(false);
+  /** Board perspective when playing both sides. */
+  const [dominantColor, setDominantColor] = useState<PlayerColor>('w');
   const [drillMode, setDrillMode] = useState<DrillMode>('in-order');
   const [moveIndex, setMoveIndex] = useState(0);
   const [fen, setFen] = useState<string>('');
+  /** Ply being viewed in history browser (null = live position). */
+  const [viewPly, setViewPly] = useState<number | null>(null);
   const [attempts, setAttempts] = useState(0);
   const [glowColor, setGlowColor] = useState<'idle' | 'correct' | 'incorrect'>('idle');
   const [showStars, setShowStars] = useState(false);
@@ -364,14 +370,16 @@ export default function DrillSession() {
   }, [drillFileId, clearDeviation]);
 
   const playerMoveIndices = useMemo(() => {
-    if (!playerColor || moves.length === 0) return [];
+    if ((!playerColor && !playBoth) || moves.length === 0) return [];
+    // In both-sides mode, the player makes every move.
+    if (playBoth) return moves.map((_, i) => i);
     const indices: number[] = [];
     for (let i = 0; i < moves.length; i++) {
       const fenBefore = buildFenFromMoves(startFen, moves, i);
-      if (isPlayerTurn(fenBefore, playerColor)) indices.push(i);
+      if (isPlayerTurn(fenBefore, playerColor!)) indices.push(i);
     }
     return indices;
-  }, [moves, playerColor, startFen]);
+  }, [moves, playerColor, playBoth, startFen]);
 
   const currentPlayerMoveIdx = playerMoveIndices[moveIndex] ?? -1;
   const correctMove = currentPlayerMoveIdx >= 0 ? moves[currentPlayerMoveIdx] : undefined;
@@ -388,9 +396,14 @@ export default function DrillSession() {
     }
   }, [fen, correctMove, sessionComplete, showStars]);
 
+  // Display FEN: historical position when browsing, live otherwise.
+  const displayFen = viewPly !== null ? buildFenFromMoves(startFen, moves, viewPly) : fen;
+  const isBrowsing = viewPly !== null;
+
   const applyMovesUpTo = useCallback(
     (upTo: number) => {
       setFen(buildFenFromMoves(startFen, moves, upTo));
+      setViewPly(null);
     },
     [startFen, moves]
   );
@@ -426,9 +439,19 @@ hapticSuccess();
   );
 
   const beginSession = useCallback(
-    (color: PlayerColor) => {
+    (color: PlayerColor | 'both', dominant?: PlayerColor) => {
       hapticTap();
-      setPlayerColor(color);
+      if (color === 'both') {
+        // Both-sides mode: the player makes every move in the line, so
+        // nothing auto-plays. playerColor keeps the dominant side for
+        // orientation and prestige recording.
+        setPlayBoth(true);
+        setDominantColor(dominant ?? 'w');
+        setPlayerColor(dominant ?? 'w');
+      } else {
+        setPlayBoth(false);
+        setPlayerColor(color);
+      }
       setMoveIndex(0);
       setAttempts(0);
       setMoveResults([]);
@@ -441,7 +464,8 @@ hapticSuccess();
       // Pre-warm the engine so the first deviation check doesn't pay the WASM download.
       getEngine().ensureReady().catch(() => {});
       applyMovesUpTo(0);
-      setTimeout(() => playOpponentMoves(0, color), 300);
+      // In both-sides mode the player makes the first move too — nothing auto-plays.
+      if (color !== 'both') setTimeout(() => playOpponentMoves(0, color), 300);
     },
     [applyMovesUpTo, playOpponentMoves, clearDeviation]
   );
@@ -458,9 +482,11 @@ hapticSuccess();
     setSparHistory([]);
     setSparLastMoves([]);
     if (playerColor) {
-      beginSession(playerColor);
+      // Stay in both-sides mode on restart; a plain color would silently
+      // drop the player back to single-side.
+      beginSession(playBoth ? 'both' : playerColor, playBoth ? dominantColor : undefined);
     }
-  }, [playerColor, beginSession]);
+  }, [playerColor, beginSession, playBoth, dominantColor]);
 
   // A ?side=w|b param skips the trophy side-select (e.g. deep links).
   useEffect(() => {
@@ -615,32 +641,54 @@ hapticSuccess();
         if (nextMoveIndex >= playerMoveIndices.length) {
           const allResults = [...moveResults, stars];
           const avgStars = allResults.reduce((a, b) => a + b, 0) / allResults.length;
-          // Play completion sound based on performance
-          if (avgStars >= 2.8) {
-            playSound('perfectCompletion');
-          } else if (avgStars >= 1.5) {
-            playSound('drillCompleted');
-          } else {
-            playSound('drillFailed');
-          }
-          void recordOpeningCompletion({
-            openingId,
-            variationId,
-            side: playerColor === 'w' ? 'white' : 'black',
-            moveResults: [
-              ...moveResults.map((value, index) => ({ moveIndex: playerMoveIndices[index] ?? index, stars: Math.max(0, Math.min(3, value)) as 0 | 1 | 2 | 3 })),
-              { moveIndex: currentPlayerMoveIdx, stars: Math.max(0, Math.min(3, stars)) as 0 | 1 | 2 | 3 },
-            ],
-            // Tactical drills prestige on their own track, not the opening's.
-            tacticKey: isTacticalPack && line ? line.id : undefined,
-          });
+          const lastPlayerIdx = playerMoveIndices[playerMoveIndices.length - 1] ?? -1;
+          const doFinish = () => {
+            // Play completion sound based on performance
+            if (avgStars >= 2.8) {
+              playSound('perfectCompletion');
+            } else if (avgStars >= 1.5) {
+              playSound('drillCompleted');
+            } else {
+              playSound('drillFailed');
+            }
+            void recordOpeningCompletion({
+              openingId,
+              variationId,
+              side: playerColor === 'w' ? 'white' : 'black',
+              moveResults: [
+                ...moveResults.map((value, index) => ({ moveIndex: playerMoveIndices[index] ?? index, stars: Math.max(0, Math.min(3, value)) as 0 | 1 | 2 | 3 })),
+                { moveIndex: currentPlayerMoveIdx, stars: Math.max(0, Math.min(3, stars)) as 0 | 1 | 2 | 3 },
+              ],
+              // Tactical drills prestige on their own track, not the opening's.
+              tacticKey: isTacticalPack && line ? line.id : undefined,
+            });
 hapticSuccess();
-          setSessionComplete(true);
+            setSessionComplete(true);
+          };
+          // Play any trailing opponent moves (with sound) before finishing,
+          // so the drill ends on the line's actual final position.
+          if (!playBoth && lastPlayerIdx + 1 < moves.length) {
+            let ti = lastPlayerIdx + 1;
+            const playTrailing = () => {
+              if (ti >= moves.length) {
+                doFinish();
+                return;
+              }
+              applyMovesUpTo(ti + 1);
+              playSound(moveSoundFor(moves[ti] ?? ''));
+              ti++;
+              setTimeout(playTrailing, 450);
+            };
+            playTrailing();
+          } else {
+            doFinish();
+          }
           return;
         }
         setMoveIndex(nextMoveIndex);
         const nextIdx = playerMoveIndices[nextMoveIndex];
-        if (playerColor) playOpponentMoves(nextIdx, playerColor);
+        // In both-sides mode the player makes the opponent's moves too.
+        if (playerColor && !playBoth) playOpponentMoves(nextIdx, playerColor);
       }, 1200);
     },
     [
@@ -653,8 +701,11 @@ hapticSuccess();
       recordOpeningCompletion,
       moveResults,
       playOpponentMoves,
+      applyMovesUpTo,
+      moves,
       clearDeviation,
       playerColor,
+      playBoth,
       playSound,
       isTacticalPack,
       line,
@@ -727,7 +778,7 @@ hapticSuccess();
                 setHintSquares([]);
                 setGlowColor('idle');
                 clearDeviation();
-                if (playerColor) playOpponentMoves(playerMoveIndices[nextMoveIndex], playerColor);
+                if (playerColor && !playBoth) playOpponentMoves(playerMoveIndices[nextMoveIndex], playerColor);
               }, 800);
             }, 600);
           } else {
@@ -746,6 +797,7 @@ hapticSuccess();
       sessionComplete,
       showStars,
       playerColor,
+      playBoth,
       advanceAfterCorrect,
       applyMovesUpTo,
       currentPlayerMoveIdx,
@@ -887,7 +939,7 @@ hapticSuccess();
         drillFileId={drillFileId}
         openingId={openingId}
         variationId={variationId}
-        onSelectSide={(side) => beginSession(side)}
+        onSelectSide={(side, dominant) => beginSession(side, dominant)}
         onBack={() => setLocation(backTarget)}
       />
     );
@@ -947,14 +999,14 @@ hapticSuccess();
         {sessionComplete ? (
           <div className="relative">
             {/* Board stays visible — final drill position, or live sparring game */}
-            <BoardWithEval fen={fen} orientation={playerColor === 'b' ? 'black' : 'white'}>
+            <BoardWithEval fen={fen} orientation={(playBoth ? dominantColor : playerColor) === 'b' ? 'black' : 'white'}>
               <ChessBoard
                 fen={fen}
                 onMove={handleSparringMove}
                 glowColor={glowColor}
                 lastMove={lastMove}
                 interactive={sparring && !sparringOver && !sparringThinking}
-                orientation={playerColor === 'b' ? 'black' : 'white'}
+                orientation={(playBoth ? dominantColor : playerColor) === 'b' ? 'black' : 'white'}
               />
             </BoardWithEval>
 
@@ -1145,6 +1197,44 @@ hapticSuccess();
               )}
             </p>
 
+            {/* Move history navigation */}
+            {!sessionComplete && (
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <button
+                  onClick={() => {
+                    const currentPly = playerMoveIndices[moveIndex] ?? 0;
+                    const target = viewPly !== null ? Math.max(0, viewPly - 1) : Math.max(0, currentPly - 1);
+                    setViewPly(target);
+                  }}
+                  disabled={(viewPly ?? (playerMoveIndices[moveIndex] ?? 0)) <= 0}
+                  className="px-3 py-1 rounded bg-white/10 text-white/80 text-sm disabled:opacity-30 hover:bg-white/20"
+                  aria-label="Previous move"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={() => {
+                    const currentPly = playerMoveIndices[moveIndex] ?? 0;
+                    const target = viewPly !== null ? Math.min(currentPly, viewPly + 1) : currentPly;
+                    setViewPly(target >= currentPly ? null : target);
+                  }}
+                  disabled={viewPly === null}
+                  className="px-3 py-1 rounded bg-white/10 text-white/80 text-sm disabled:opacity-30 hover:bg-white/20"
+                  aria-label="Next move"
+                >
+                  →
+                </button>
+                {viewPly !== null && (
+                  <button
+                    onClick={() => setViewPly(null)}
+                    className="px-3 py-1 rounded bg-blue-500/30 text-blue-200 text-sm hover:bg-blue-500/40"
+                  >
+                    Return to current
+                  </button>
+                )}
+              </div>
+            )}
+
             <div className="relative pt-14">
               <AnimatePresence>
                 {showStars && (
@@ -1152,15 +1242,15 @@ hapticSuccess();
                 )}
               </AnimatePresence>
 
-              <BoardWithEval fen={fen} orientation={playerColor === 'b' ? 'black' : 'white'}>
+              <BoardWithEval fen={displayFen} orientation={(playBoth ? dominantColor : playerColor) === 'b' ? 'black' : 'white'}>
                 <ChessBoard
-                  fen={fen}
+                  fen={displayFen}
                   onMove={handleMove}
                   glowColor={glowColor}
                   hintSquares={hintSquares}
                   lastMove={lastMove}
-                  interactive={!waitingOpponent && !showStars && !watching}
-                  orientation={playerColor === 'b' ? 'black' : 'white'}
+                  interactive={!isBrowsing && !waitingOpponent && !showStars && !watching}
+                  orientation={(playBoth ? dominantColor : playerColor) === 'b' ? 'black' : 'white'}
                   targetSquare={targetSquare}
                 />
               </BoardWithEval>

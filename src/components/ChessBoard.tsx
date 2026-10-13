@@ -427,7 +427,7 @@ export default function ChessBoard({
                   onDrop={(e) => handleDrop(e, square)}
                 >
                   {isHint && (
-                    <div className="absolute inset-0" style={{ backgroundColor: theme.selectColor, opacity: 0.35 }} />
+                    <div className="absolute inset-0" style={{ backgroundColor: theme.selectColor, opacity: 0.55, boxShadow: `inset 0 0 0 3px ${theme.selectColor}` }} />
                   )}
                   {isLegalMove && !piece && (
                     <div className="absolute w-3 h-3 rounded-full" style={{ backgroundColor: theme.dotColor }} />

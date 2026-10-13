@@ -76,13 +76,13 @@ export const INTERIOR_CASTLE_SPOTS: Record<
     { variationId: 'english-four-knights', x: 62.1, y: 31.8 }, // Bamburgh (far N)
     { variationId: 'english-kings-fianchetto', x: 57.0, y: 30.0 }, // Alnwick (N)
     { variationId: 'london-vs-kings-indian', x: 60.9, y: 65.9 }, // Hampton Court (W)
-    { variationId: 'english-mikenas-carls', x: 51.0, y: 55.2 }, // Warwick (center)
-    { variationId: 'english-agincourt', x: 50.0, y: 53.7 }, // Kenilworth (center)
+    { variationId: 'english-mikenas-carls', x: 52.5, y: 55.5 }, // Warwick (center)
+    { variationId: 'english-agincourt', x: 48.5, y: 53.5 }, // Kenilworth (center)
     { variationId: 'english-main', x: 62.5, y: 61.1 }, // Windsor (center-S)
     { variationId: 'london-system', x: 71.2, y: 63.0 }, // Tower of London (E)
     { variationId: 'english-reversed-sicilian', x: 75.8, y: 69.8 }, // Leeds (SE)
-    { variationId: 'english-bremen', x: 65.4, y: 74.8 }, // Bodiam (S)
-    { variationId: 'english-reti', x: 64.5, y: 73.0 }, // Pevensey (SE coast)
+    { variationId: 'english-bremen', x: 65.0, y: 76.0 }, // Bodiam (S)
+    { variationId: 'english-reti', x: 64.0, y: 71.5 }, // Pevensey (SE coast)
     { variationId: 'london-vs-qgd', x: 81.8, y: 74.1 }, // Dover (SE coast)
   ],
   scandinavian: [
