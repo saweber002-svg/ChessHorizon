@@ -55,8 +55,9 @@ function TacticRow({
 }) {
   const [, setLocation] = useLocation();
   const executingTier = tactic.executingColor === 'w' ? whiteTier : blackTier;
-  const whitePack = `${tactic.id}-tacticals`;
-  const blackPack = `${tactic.id}-black-tacticals`;
+  const prefix = tactic.packPrefix ?? tactic.id;
+  const whitePack = `${prefix}-tacticals`;
+  const blackPack = `${prefix}-black-tacticals`;
   const hasWhitePack = TACTICAL_FILE_IDS.includes(whitePack);
   const hasBlackPack = TACTICAL_FILE_IDS.includes(blackPack);
   const subTactics = tacticsListedUnder(tactic.id);
