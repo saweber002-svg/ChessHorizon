@@ -9,6 +9,7 @@ import {
   isTacticalPackId,
   TACTICAL_FILE_IDS,
 } from '@/data/drillRegistry';
+import { TACTICAL_VARIATIONS } from '@/data/tacticalVariations';
 
 const DRILL_DATA = join(__dirname, '..', 'public', 'drill-data');
 
@@ -132,5 +133,19 @@ describe('slice-G lead-in moves', () => {
       const chess = new Chess(line!.startFen!);
       for (const san of line!.moves) chess.move(san);
     }
+  });
+
+  it('resolves icelandic-gambit to the scandinavian-icelandic-gambit pack prefix', () => {
+    const icelandic = TACTICAL_VARIATIONS.find((t) => t.id === 'icelandic-gambit');
+    expect(icelandic).toBeDefined();
+    expect(icelandic?.packPrefix).toBe('scandinavian-icelandic-gambit');
+
+    const prefix = icelandic!.packPrefix ?? icelandic!.id;
+    const whitePack = `${prefix}-tacticals`;
+    const blackPack = `${prefix}-black-tacticals`;
+    expect(whitePack).toBe('scandinavian-icelandic-gambit-tacticals');
+    expect(blackPack).toBe('scandinavian-icelandic-gambit-black-tacticals');
+    expect(TACTICAL_FILE_IDS).toContain(whitePack);
+    expect(TACTICAL_FILE_IDS).toContain(blackPack);
   });
 });
