@@ -162,7 +162,7 @@ describe('deviationCopy', () => {
     expect(copy.mild).toBe(false);
     expect(copy.title).toContain('Mistake');
     expect(copy.title).toContain('+0.4 → -1.9');
-    expect(copy.detail).toContain('Book plays d4');
+    expect(copy.detail).not.toContain('d4');
     expect(copy.refutationLine).toBe('e5 Nxe5 d4');
   });
 
@@ -173,14 +173,14 @@ describe('deviationCopy', () => {
 
   it('flags when the engine prefers something else', () => {
     const copy = deviationCopy({ ...base, engineBest: 'c4', bookMove: 'd4' });
-    expect(copy.detail).toContain("The engine's top choice is c4");
+    expect(copy.detail).not.toContain('c4');
   });
 
   it('is gentle when the off-book move loses nothing', () => {
     const copy = deviationCopy({ ...base, cpLoss: 12, classification: 'Excellent', evalAfter: 35 });
     expect(copy.mild).toBe(true);
     expect(copy.title).toContain('no damage');
-    expect(copy.detail).toContain('d4');
+    expect(copy.detail).not.toContain('d4');
     expect(copy.refutationLine).toBeNull();
   });
 });

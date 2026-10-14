@@ -215,17 +215,17 @@ export const KINGDOM_POSITIONS: Record<KingdomId, { x: number; y: number }> = {
   // grounding against the new artwork. Queendom is offset SE of Germany for
   // UI separation (Czechia sits inside German territory geographically).
   // Wilderness/clearing/coaching are design placements.
-  italian: { x: 57.5, y: 63.7 },
+  italian: { x: 52.0, y: 60.0 },
   spanish: { x: 22.8, y: 66.2 },
-  sicilian: { x: 56.2, y: 73.3 },
+  sicilian: { x: 58.0, y: 74.0 },
   english: { x: 28.5, y: 37.5 },
-  scandinavian: { x: 60.6, y: 20.7 },
+  scandinavian: { x: 42.0, y: 30.0 },
   queendom: { x: 42.5, y: 47.0 },
   french: { x: 35.2, y: 52.1 },
   dutch: { x: 46.3, y: 40.4 },
   germany: { x: 52.5, y: 42.5 },
-  wilderness: { x: 75.0, y: 77.0 },
-  clearing: { x: 55.0, y: 53.0 },
+  wilderness: { x: 82.0, y: 68.0 },
+  clearing: { x: 50.0, y: 50.0 },
   coaching: { x: 71.0, y: 34.0 },
 };
 

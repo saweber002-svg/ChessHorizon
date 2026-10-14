@@ -444,7 +444,7 @@ export function deviationCopy(d: DeviationAnalysis): DeviationCopy {
     return {
       mild: true,
       title: 'Not the book move — but no damage',
-      detail: `${d.move} holds the position (${formatEval(d.evalAfter)}). This drill is teaching ${d.bookMove} here.`,
+      detail: `${d.move} holds the position (${formatEval(d.evalAfter)}). The idea here is worth another look.`,
       refutationLine: null,
     };
   }
@@ -453,8 +453,8 @@ export function deviationCopy(d: DeviationAnalysis): DeviationCopy {
     mild: false,
     title: `${d.classification} — ${d.move} (${swing})`,
     detail:
-      `Book plays ${d.bookMove}.` +
-      (d.engineBest !== d.bookMove ? ` The engine's top choice is ${d.engineBest}.` : ''),
+      `That move gives up ${Math.round(d.cpLoss)} centipawns of advantage. ` +
+      `Look for the move that keeps the pressure on.`,
     refutationLine: d.refutation.length > 0 ? d.refutation.join(' ') : null,
   };
 }
