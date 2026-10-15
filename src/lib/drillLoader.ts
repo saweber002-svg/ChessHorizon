@@ -12,10 +12,17 @@ export interface DrillLine {
   startFen?: string;
   /**
    * Optional lead-in moves (parent main-line plies immediately before startFen).
-   * Slice H will auto-play these as context before the graded tactic begins;
-   * until then they are informational only and never graded.
+   * Auto-played as context before the graded portion begins.
    */
   leadInMoves?: string[];
+  /** Deviation-drill metadata (preserved from JSON) */
+  deviationOf?: string;
+  band?: number;
+  badMove?: string;
+  explanation?: string;
+  frequency?: number;
+  evalDropCp?: number;
+  sampleGames?: number;
 }
 
 export interface DrillPack {
@@ -75,6 +82,14 @@ export async function loadDrillPack(drillFileId: string): Promise<DrillPack> {
           moveCount: moves.length,
           difficulty: line.difficulty ?? 'Standard',
           startFen: line.startFen,
+          ...(Array.isArray(line.leadInMoves) ? { leadInMoves: line.leadInMoves } : {}),
+          ...(line.deviationOf !== undefined ? { deviationOf: line.deviationOf } : {}),
+          ...(line.band !== undefined ? { band: line.band } : {}),
+          ...(line.badMove !== undefined ? { badMove: line.badMove } : {}),
+          ...(line.explanation !== undefined ? { explanation: line.explanation } : {}),
+          ...(line.frequency !== undefined ? { frequency: line.frequency } : {}),
+          ...(line.evalDropCp !== undefined ? { evalDropCp: line.evalDropCp } : {}),
+          ...(line.sampleGames !== undefined ? { sampleGames: line.sampleGames } : {}),
         };
       }),
     };

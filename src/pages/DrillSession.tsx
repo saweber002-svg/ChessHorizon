@@ -114,6 +114,7 @@ export default function DrillSession() {
   const watchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isTacticalPack = isTacticalPackId(drillFileId);
+  const isDeviationPack = drillFileId.includes('deviations');
 
   // Server-enforced watch quota for signed-in drills.
   const watchSide = playerColor === 'b' ? 'black' : 'white';
@@ -1055,6 +1056,12 @@ hapticSuccess();
                     className="w-full max-w-md rounded-2xl th-panel border th-border p-6 max-h-[calc(100dvh-2rem)] overflow-y-auto"
                     onClick={(e) => e.stopPropagation()}
                   >
+                    {isDeviationPack && line?.explanation && (
+                      <div className="mb-4 p-3 rounded-lg bg-amber-500/10 border border-amber-400/30">
+                        <p className="text-[10px] uppercase tracking-wider text-amber-300/80 mb-1">Why this was bad</p>
+                        <p className="text-sm text-white/90 leading-relaxed">{line.explanation}</p>
+                      </div>
+                    )}
                     <div className="text-center w-full">
                       <h2 className="text-2xl font-bold text-white mb-3">Drill Complete</h2>
                       <div className="flex justify-center gap-1 mb-5">
@@ -1334,14 +1341,16 @@ hapticSuccess();
                   >
                     <RotateCcw size={16} /> Restart
                   </button>
-                  <button
-                    onClick={startWatch}
-                    disabled={showStars || waitingOpponent}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg th-panel border th-border text-white/60 text-sm whitespace-nowrap th-hover-accent-text th-hover-accent-border disabled:opacity-40 disabled:hover:text-white/60 disabled:hover:th-border"
-                    title="Watch the full line once"
-                  >
-                    <Eye size={16} /> Watch
-                  </button>
+                  {!isDeviationPack && (
+                    <button
+                      onClick={startWatch}
+                      disabled={showStars || waitingOpponent}
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg th-panel border th-border text-white/60 text-sm whitespace-nowrap th-hover-accent-text th-hover-accent-border disabled:opacity-40 disabled:hover:text-white/60 disabled:hover:th-border"
+                      title="Watch the full line once"
+                    >
+                      <Eye size={16} /> Watch
+                    </button>
+                  )}
                 </>
               )}
               <button

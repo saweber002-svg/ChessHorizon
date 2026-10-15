@@ -27,6 +27,13 @@ const INTERIOR_MAX_ZOOM = 8;
 /** Drag distance in px before a gesture counts as a pan (not a tap). */
 const DRAG_THRESHOLD_PX = 8;
 
+function deviationPackForTier(tier: number): { id: string; label: string } {
+  if (tier <= 1) return { id: 'giuoco-piano-deviations-1200', label: 'Club mistakes' };
+  if (tier === 2) return { id: 'giuoco-piano-deviations-1600', label: 'Tournament mistakes' };
+  return { id: 'giuoco-piano-deviations-2000', label: 'Expert mistakes' };
+}
+
+
 interface CastleSpot {
   drill: KingdomDrill;
   castle: CastleLocation | null;
@@ -681,6 +688,21 @@ const HEADER_OFFSET_PX = 92;
                 </div>
               )}
             </motion.button>
+            {drill.variationId === 'giuoco-piano' && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const { id } = deviationPackForTier(prog.tier);
+                  onSelectDrill(id, drill.openingId, drill.variationId);
+                }}
+                className="absolute left-1/2 -translate-x-1/2 mt-1 px-2 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-[9px] font-semibold text-amber-200 hover:bg-amber-500/30 whitespace-nowrap z-20"
+                style={{ top: 'calc(100% + 22px)' }}
+                title="Deviation Drills"
+              >
+                Deviation Drills · {deviationPackForTier(prog.tier).label}
+              </button>
+            )}
           </div>
         );
       })}
