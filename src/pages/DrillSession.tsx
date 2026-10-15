@@ -362,8 +362,9 @@ export default function DrillSession() {
         setPack(data);
         // For tactical packs (-tacticals), do NOT auto-start the first one.
         // Let the user choose from the list below.
-        const isTacticalPack = isTacticalPackId(drillFileId);
-        if (!isTacticalPack) {
+        const isTactical = isTacticalPackId(drillFileId);
+        const isDeviation = drillFileId.includes('deviations');
+        if (!isTactical && !isDeviation) {
           setLine(data.lines[0] ?? null);
         }
       })
@@ -851,7 +852,7 @@ hapticSuccess();
   }
 
   // Tactical selector takes priority for -tacticals packs (show list before color choice)
-  if (isTacticalPack && !line && pack) {
+  if ((isTacticalPack || isDeviationPack) && !line && pack) {
     const hasDrills = pack.lines && pack.lines.length > 0;
     return (
       <div className="min-h-screen th-bg flex items-center justify-center p-6">
@@ -863,11 +864,17 @@ hapticSuccess();
             <ArrowLeft size={18} /> Back to Atlas
           </button>
 
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">Tactical Drills</h2>
+          <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            {isDeviationPack ? 'Deviation Drills' : 'Tactical Drills'}
+          </h2>
           <p className="text-center text-white/60 mb-8">
             {hasDrills
-              ? 'Choose a tactic to practice for this variation'
-              : 'Tactical puzzles for this line are being prepared.'}
+              ? (isDeviationPack
+                  ? 'Choose a deviation to refute'
+                  : 'Choose a tactic to practice for this variation')
+              : (isDeviationPack
+                  ? 'Deviation drills for this line are being prepared.'
+                  : 'Tactical puzzles for this line are being prepared.')}
           </p>
 
           {hasDrills ? (
@@ -1119,9 +1126,9 @@ hapticSuccess();
                       </div>
 
                       {/* If we are in a tactical pack, show the other tactics to practice next */}
-                      {isTacticalPack && pack && pack.lines.length > 0 && (
+                      {(isTacticalPack || isDeviationPack) && pack && pack.lines.length > 0 && (
                         <div className="mt-6 w-full text-left">
-                          <p className="text-xs uppercase tracking-[0.2em] text-white/30 mb-3 text-center">Practice another tactic</p>
+                          <p className="text-xs uppercase tracking-[0.2em] text-white/30 mb-3 text-center">{isDeviationPack ? 'Practice another deviation' : 'Practice another tactic'}</p>
                           <div className="grid gap-2 max-h-48 overflow-y-auto">
                             {pack.lines.map((tactic) => (
                               <button

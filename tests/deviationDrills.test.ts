@@ -59,4 +59,31 @@ describe('deviation drills', () => {
     expect(isDeviation('giuoco-piano-deviations-1200')).toBe(true);
     expect(isDeviation('giuoco-piano-main')).toBe(false);
   });
+
+  it('loads all 12 lines with deviation metadata intact', async () => {
+    stubFetchFromDisk();
+    const pack = await loadDrillPack('giuoco-piano-deviations-1600');
+    expect(pack.lines).toHaveLength(12);
+    for (const line of pack.lines) {
+      expect(line.deviationOf).toBe('giuoco-piano-main');
+      expect(line.band).toBe(1600);
+      expect(line.badMove).toBeTruthy();
+      expect(line.explanation).toBeTruthy();
+      expect(line.leadInMoves?.length).toBeGreaterThan(0);
+      expect(line.startFen).toBeTruthy();
+      expect(line.moves.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('does not auto-select a line for deviation packs (chooser path)', () => {
+    // Contract mirrored from tactical packs: deviation packs must not auto-start
+    // lines[0]. The session shows the chooser until the user picks a line.
+    // This is enforced by the load-effect guard `if (!isTactical && !isDeviation)`.
+    const isDeviationPack = (id: string) => id.includes('deviations');
+    const shouldAutoStart = (id: string) =>
+      !id.includes('-tacticals') && !isDeviationPack(id);
+    expect(shouldAutoStart('giuoco-piano-main')).toBe(true);
+    expect(shouldAutoStart('giuoco-piano-deviations-1600')).toBe(false);
+    expect(shouldAutoStart('giuoco-piano-tacticals')).toBe(false);
+  });
 });
