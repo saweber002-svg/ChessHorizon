@@ -34,7 +34,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "Ng5",
-   "explanation": "TODO (Scott): why 4.Ng5?! is bad here, and what plan it hands the opponent.",
+   "explanation": "4.Ng5 attacks f7 with one piece and nothing behind it. The knight has moved twice while no other White piece ADDs pressure \u2014 and Black doesn't even have to defend: \u2026Qxg5 simply takes the knight, because once it left f3, nothing guards it. White subtracted a developed piece from his own position and handed Black a free piece. An attack only works when the pieces behind it add up.",
    "frequency": 0.0085,
    "evalDropCp": 684,
    "sampleGames": 31076
@@ -69,7 +69,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "Bxf7+",
-   "explanation": "TODO (Scott): why 4.Bxf7+?! is bad here, and what plan it hands the opponent.",
+   "explanation": "4.Bxf7+ is hope chess: a bishop sacrificed on a check, with no second attacker ready to ADD to it. After \u2026Kxf7, Nxe5+ \u2026Nxe5, Qh5+ Kf8, Qxe5, every trade subtracts another White attacker until the attack is gone and the Black king is safe on f8. Black then takes the center with \u2026d5 and develops with tempo against the exposed queen. White paid his best bishop for an attack that removed itself.",
    "frequency": 0.0091,
    "evalDropCp": 375,
    "sampleGames": 31076
@@ -104,7 +104,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "d4",
-   "explanation": "TODO (Scott): why 4.d4?! is bad here, and what plan it hands the opponent.",
+   "explanation": "4.d4 breaks the center before c3 is there to support it. The push looks like it ADDs, but a pawn break with no backup subtracts in every trade: \u2026Nxd4 and \u2026exd4 leave White recapturing into Black's development, with the center open while his king is still in the middle. Black is handed the plan White wanted \u2014 fast development and pressure against e4. The supported break (c3 first, then d4) is the whole point of this opening.",
    "frequency": 0.0597,
    "evalDropCp": 40,
    "sampleGames": 31076
@@ -139,7 +139,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "b4",
-   "explanation": "TODO (Scott): why 4.b4?! is bad here, and what plan it hands the opponent.",
+   "explanation": "4.b4 is the Evans Gambit idea: a pawn offered for speed. Here Black simply takes it and steps back \u2014 \u2026Bxb4, c3 Be7 \u2014 keeps the pawn, then plays \u2026Na5 to trade off White's best bishop and \u2026d5 to take the center White paid for. Every exchange subtracts a little more of White's compensation, until the gambit is just a pawn down and Black holds the plan. If you play b4, the compensation has to ADD up before it gets traded away.",
    "frequency": 0.061,
    "evalDropCp": 31,
    "sampleGames": 31076
@@ -176,7 +176,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "O-O",
-   "explanation": "TODO (Scott): why 5.O-O?! is bad here, and what plan it hands the opponent.",
+   "explanation": "5.O-O looks safe, but it spends the tempo White needed to protect e4 and fight for d4. Black takes the pawn at once: \u2026Nxe4, because trying to win it back runs into \u2026d5, opening the c5-bishop's diagonal against f2 \u2014 now aimed at a king that just committed to g1. White does regain the pawn (dxe5), but pays for it with \u2026Bb6, \u2026Qh4, and a passive Qe1 just to hold f2. Black ends up developed, active, and aiming at the king White showed him.",
    "frequency": 0.0556,
    "evalDropCp": 70,
    "sampleGames": 4607
@@ -213,7 +213,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "Ng5",
-   "explanation": "TODO (Scott): why 5.Ng5?! is bad here, and what plan it hands the opponent.",
+   "explanation": "5.Ng5 aims at f7 again, but this time Black is too developed for a one-piece attack: \u2026O-O just removes the target. The knight's whole trip \u2014 g5, back to f3 after \u2026h6 \u2014 costs White two tempi and ADDs nothing, and while it wanders Black strikes first with \u2026d5 and takes the center. White showed his idea before he had the pieces to back it, and handed Black the central break.",
    "frequency": 0.0158,
    "evalDropCp": 74,
    "sampleGames": 4607
@@ -250,7 +250,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "Qb3",
-   "explanation": "TODO (Scott): why 5.Qb3?! is bad here, and what plan it hands the opponent.",
+   "explanation": "5.Qb3 sends the queen out alone after f7 and b7 before White has developed anything else. Black castles out of the f7 attack, grabs the center with \u2026Nxe4, and then every Black move ADDs a tempo against her: \u2026Na5 hits the queen, and after Qa4, Qxa5, \u2026b6 she is chased back to a4 having bought nothing. A queen attack that subtracts your own development just hands the opponent free moves.",
    "frequency": 0.0076,
    "evalDropCp": 130,
    "sampleGames": 4607
@@ -286,7 +286,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "d3",
-   "explanation": "TODO (Scott): why 5.d3?! is bad here, and what plan it hands the opponent.",
+   "explanation": "5.d3 loses nothing; it's the quiet Giuoco Pianissimo. What it gives up is White's one chance to ADD in the center: d4, played now while Black is still uncastled. Against d3 Black is handed a plan with no problems to solve \u2014 \u2026d6, castle, \u2026Bb6, \u2026Be6 \u2014 every piece developed comfortably, and White's first-move advantage subtracted to zero. The lesson isn't \"d3 is bad,\" it's what the position was offering before White chose quiet.",
    "frequency": 0.3011,
    "evalDropCp": 3,
    "sampleGames": 4607
@@ -326,7 +326,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "Bb6",
-   "explanation": "TODO (Scott): why 6...Bb6?! is bad here, and what plan it hands the opponent.",
+   "explanation": "6\u2026Bb6 takes the bishop off the fight for the center in the exact position where White's pawn pair is ready to roll. With no check and no pressure on d4, White ADDs for free: d5 kicks the c6-knight to the passive e7 square, e5 kicks the other knight out to e4, and White castles behind a rolling center while Black's knights are tangled on squares they're about to be chased from. The retreat handed White the center expansion \u2026Bb4+ exists to prevent.",
    "frequency": 0.1184,
    "evalDropCp": 217,
    "sampleGames": 1749
@@ -366,7 +366,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "Nxd4",
-   "explanation": "TODO (Scott): why 6...Nxd4?! is bad here, and what plan it hands the opponent.",
+   "explanation": "6\u2026Nxd4 grabs a center pawn by trading away the knight that was pressuring White's center \u2014 and White's recapture, Nxd4, lands a knight on the perfect central square for free. Black has spent his best-placed piece, given up the \u2026Bb4+ check, and still has no pawn in the center: the e-pawn is already gone. White castles, develops Nc3, Bd3, Nf3 with everything pointing at the middle, and Black is reduced to trying \u2026d5 late, into a finished White setup.",
    "frequency": 0.0086,
    "evalDropCp": 458,
    "sampleGames": 1749
@@ -406,7 +406,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "Bxd4",
-   "explanation": "TODO (Scott): why 6...Bxd4?! is bad here, and what plan it hands the opponent.",
+   "explanation": "6\u2026Bxd4 is the biggest concession in the set: Black's best bishop \u2014 his \u2026Bb4+ piece \u2014 traded for a pawn, and White's knight recaptures onto d4, centralised for free. When Black tries to recover with \u2026Ne5 and \u2026Nxe4, White just castles and hits both knights with Nf3; after \u2026Nxf3+, Qxf3, Black has traded his way down to no bishops against White's center pair, and \u2026d5 comes as a late break into a position White already owns. Never trade your active piece for the recapture that improves the opponent.",
    "frequency": 0.0057,
    "evalDropCp": 599,
    "sampleGames": 1749
@@ -446,7 +446,7 @@
    "deviationOf": "giuoco-piano-main",
    "band": 1600,
    "badMove": "Be7",
-   "explanation": "TODO (Scott): why 6...Be7?! is bad here, and what plan it hands the opponent.",
+   "explanation": "6\u2026Be7 puts the bishop back on a passive square inside Black's own position \u2014 no check, no pressure, nothing ADDed. White uses the free move the same way as against \u2026Bb6, but harder: d5 removes the c6-knight from the center and drives it to the rim (\u2026Na5, later marooned on b7), White reroutes with Bd3 so the bishop can't even be traded, castles, and builds behind the d5 wedge. Black's own queenside pawns have to lunge (\u2026b5, \u2026b4) just to find his pieces squares, weakening themselves in the process.",
    "frequency": 0.0069,
    "evalDropCp": 277,
    "sampleGames": 1749

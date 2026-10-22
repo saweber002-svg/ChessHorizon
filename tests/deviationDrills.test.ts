@@ -49,7 +49,8 @@ describe('deviation drills', () => {
     expect(line.deviationOf).toBe('giuoco-piano-main');
     expect(line.band).toBe(1600);
     expect(line.badMove).toBeTruthy();
-    expect(line.explanation).toMatch(/TODO/);
+    expect(line.explanation).toBeTruthy();
+    expect(line.explanation).not.toMatch(/TODO/);
     expect(line.leadInMoves?.length).toBeGreaterThan(0);
     expect(line.startFen).toBeTruthy();
   });
