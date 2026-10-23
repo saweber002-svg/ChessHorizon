@@ -2,6 +2,7 @@ import React, { createContext, useContext, useReducer, useCallback, useEffect, u
 import type { MoveProgress, OpeningProgressLocal, ProgressState, KingdomId, TacticalProgressLocal, Tier } from '@/types';
 import { calculateTier, reconcileUnlocks } from '@/types';
 import { getWatchStatus, isPerfectCompletion, type OpeningProgressSnapshot, type WatchStatus } from '../../shared/progressRules';
+import { buildUnlockGates } from '@/data/unlockGates';
 import { useAuth } from './AuthContext';
 import { trpc } from '@/lib/trpc';
 
@@ -36,7 +37,7 @@ function loadState(): ProgressState {
       // Reconcile unlocks: saves created before a kingdom joined the unlock
       // order (e.g. Scandinavia) pick it up on load instead of staying locked
       // until the next recorded drill.
-      state.unlockedRegions = reconcileUnlocks(state.unlockedRegions, state.totalStars ?? 0);
+      state.unlockedRegions = reconcileUnlocks(state.unlockedRegions, buildUnlockGates(state.moveProgress ?? {}));
 
       return state;
     }
@@ -145,7 +146,7 @@ export function progressReducer(state: ProgressState, action: ProgressAction): P
       );
 
       // Check kingdom unlocks based on KINGDOM_UNLOCK_ORDER
-      const unlockedRegions = reconcileUnlocks(state.unlockedRegions, totalStars);
+      const unlockedRegions = reconcileUnlocks(state.unlockedRegions, buildUnlockGates(moveProgress));
 
       // Update streak
       let prestigeStreak = state.prestigeStreak;
@@ -212,7 +213,7 @@ export function progressReducer(state: ProgressState, action: ProgressAction): P
         ...action.state,
         unlockedRegions: reconcileUnlocks(
           action.state.unlockedRegions ?? [],
-          action.state.totalStars ?? 0,
+          buildUnlockGates(action.state.moveProgress ?? {}),
         ),
       };
       break;
