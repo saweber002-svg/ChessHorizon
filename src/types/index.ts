@@ -160,46 +160,79 @@ export const KINGDOM_UNLOCK_ORDER: Array<{
   kingdom: KingdomId;
   previousKingdom?: KingdomId;
   prerequisiteVariation?: string;
+  /**
+   * Legacy display hint only (KingdomPanel's "stars to unlock" meter).
+   * NOT a gate since Patch 43 — kingdom gates are cleared-based; see
+   * reconcileUnlocks. S4 replaces the meter with cleared-progress.
+   */
   starThreshold: number;
 }> = [
   { kingdom: 'italian', starThreshold: 0 },
-  { kingdom: 'spanish', previousKingdom: 'italian', prerequisiteVariation: 'italian', starThreshold: 8 },
-  { kingdom: 'french', previousKingdom: 'spanish', prerequisiteVariation: 'spanish', starThreshold: 10 },
-  { kingdom: 'germany', previousKingdom: 'french', prerequisiteVariation: 'french', starThreshold: 12 },
-  { kingdom: 'sicilian', previousKingdom: 'germany', prerequisiteVariation: 'german', starThreshold: 15 },
-  { kingdom: 'english', previousKingdom: 'sicilian', prerequisiteVariation: 'sicilian', starThreshold: 12 },
-  { kingdom: 'dutch', previousKingdom: 'english', prerequisiteVariation: 'english', starThreshold: 14 },
-  { kingdom: 'scandinavian', previousKingdom: 'dutch', prerequisiteVariation: 'dutch', starThreshold: 18 },
-  { kingdom: 'queendom', previousKingdom: 'dutch', prerequisiteVariation: 'dutch', starThreshold: 20 },
+  // Prerequisite variation = the previous kingdom's first story variation
+  // (registry order). For spanish the previous kingdom is Italy, whose order
+  // is settled: Giuoco Piano first. Later prerequisites are provisional in
+  // the same way until Scott's pedagogical pass on those kingdoms (S5).
+  { kingdom: 'spanish', previousKingdom: 'italian', prerequisiteVariation: 'giuoco-piano', starThreshold: 8 },
+  { kingdom: 'french', previousKingdom: 'spanish', prerequisiteVariation: 'ruy-lopez-berlin', starThreshold: 10 },
+  { kingdom: 'germany', previousKingdom: 'french', prerequisiteVariation: 'french-advance', starThreshold: 12 },
+  { kingdom: 'sicilian', previousKingdom: 'germany', prerequisiteVariation: 'caro-kann-advance', starThreshold: 15 },
+  { kingdom: 'english', previousKingdom: 'sicilian', prerequisiteVariation: 'sicilian-classical', starThreshold: 12 },
+  { kingdom: 'dutch', previousKingdom: 'english', prerequisiteVariation: 'english-agincourt', starThreshold: 14 },
+  { kingdom: 'scandinavian', previousKingdom: 'dutch', prerequisiteVariation: 'dutch-classical', starThreshold: 18 },
+  { kingdom: 'queendom', previousKingdom: 'dutch', prerequisiteVariation: 'dutch-classical', starThreshold: 20 },
   { kingdom: 'coaching', starThreshold: 0 }, // Always accessible for live coaching
 ];
 
+/** Cleared-state lookups reconcileUnlocks gates on (see src/data/unlockGates.ts). */
+export interface UnlockGates {
+  kingdomCleared: (kingdom: KingdomId) => boolean;
+  variationCleared: (variationId: string) => boolean;
+}
+
 /**
- * Recompute kingdom unlocks from KINGDOM_UNLOCK_ORDER: any kingdom whose star
- * threshold is met and whose previous kingdom is already unlocked gets added.
- * Idempotent — only ever adds regions, never removes.
+ * Recompute kingdom unlocks from KINGDOM_UNLOCK_ORDER (Patch 43): a kingdom
+ * opens when its previous kingdom is unlocked AND cleared (>= 2 stars on
+ * every slot of every variation, both colors) AND its prerequisite
+ * variation — the previous kingdom's first story variation — is cleared
+ * (>= 1 star on every slot). Raw star totals no longer gate anything.
+ *
+ * Add-only and idempotent: regions already in `unlockedRegions` are never
+ * removed, so saves that unlocked kingdoms under the old star thresholds
+ * keep every unlock they had.
  *
  * Run on load (so saves created before a kingdom joined the order — e.g.
  * Scandinavia — pick it up immediately) and after every recorded drill.
  */
 export function reconcileUnlocks(
   unlockedRegions: KingdomId[],
-  totalStars: number,
+  gates: UnlockGates,
 ): KingdomId[] {
   const unlocked = [...unlockedRegions];
   for (const unlockDef of KINGDOM_UNLOCK_ORDER) {
-    // Skip if already unlocked
+    // Skip if already unlocked (add-only: existing unlocks are never revoked)
     if (unlocked.includes(unlockDef.kingdom)) {
       continue;
     }
 
-    // Check if total stars threshold is met
-    if (totalStars < unlockDef.starThreshold) {
+    // Kingdoms with no predecessor (italian, coaching) are always open
+    if (!unlockDef.previousKingdom) {
+      unlocked.push(unlockDef.kingdom);
       continue;
     }
 
-    // If there's a previous kingdom requirement, check if it's unlocked
-    if (unlockDef.previousKingdom && !unlocked.includes(unlockDef.previousKingdom)) {
+    // Previous kingdom must be unlocked and cleared
+    if (!unlocked.includes(unlockDef.previousKingdom)) {
+      continue;
+    }
+    if (!gates.kingdomCleared(unlockDef.previousKingdom)) {
+      continue;
+    }
+
+    // Prerequisite variation (entry-point sanity) must be cleared
+    if (
+      unlockDef.prerequisiteVariation &&
+      !gates.variationCleared(unlockDef.prerequisiteVariation)
+    ) {
       continue;
     }
 

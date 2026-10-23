@@ -159,3 +159,62 @@ export function consumeWatch(progress: OpeningProgressSnapshot): OpeningProgress
   }
   return { ...progress, lastWatchAttempt: progress.totalAttempts };
 }
+
+/**
+ * Story-progression cleared predicates (Patch 43).
+ *
+ * Move-progress keys are `${openingId}:${variationId}:${moveIndex}` where
+ * moveIndex is the GLOBAL index into the variation's main line (confirmed in
+ * DrillSession: `playerMoveIndices` are global line indices, filtered by
+ * whose turn it is). A line's slots therefore partition by color on their
+ * own: the slots where White moves are White's, the slots where Black moves
+ * are Black's, and "cleared on both colors" is measurable from the
+ * move-progress record alone. Tactical packs write under a `:tactical:`
+ * infix and are never part of a variation's slot set.
+ */
+export interface MoveSlot {
+  key: string;
+  side: DrillSide;
+}
+
+/** Minimal structural view of a move-progress record (best stars per key). */
+export type MoveStarsLookup = Readonly<Record<string, { stars: number } | undefined>>;
+
+/**
+ * Derive a line's slot set from its length and the side to move first.
+ * Sides alternate every ply, so slot i belongs to `startSide` when the
+ * number of plies since the start is even, and to the other side when odd.
+ */
+export function slotsForLine(
+  openingId: string,
+  variationId: string,
+  moveCount: number,
+  startSide: DrillSide = "white",
+): MoveSlot[] {
+  const slots: MoveSlot[] = [];
+  for (let i = 0; i < moveCount; i++) {
+    const side = i % 2 === 0 ? startSide : startSide === "white" ? "black" : "white";
+    slots.push({ key: `${openingId}:${variationId}:${i}`, side });
+  }
+  return slots;
+}
+
+/** Variation standard: every slot (both colors) at >= minStars. Empty slot set is never cleared. */
+export function isVariationCleared(
+  moveProgress: MoveStarsLookup,
+  slots: readonly MoveSlot[],
+  minStars = 1,
+): boolean {
+  if (slots.length === 0) return false;
+  return slots.every((slot) => (moveProgress[slot.key]?.stars ?? 0) >= minStars);
+}
+
+/** Kingdom standard: every variation non-empty, and every slot (both colors) at >= minStars. */
+export function isKingdomCleared(
+  moveProgress: MoveStarsLookup,
+  kingdomSlots: readonly (readonly MoveSlot[])[],
+  minStars = 2,
+): boolean {
+  if (kingdomSlots.length === 0) return false;
+  return kingdomSlots.every((slots) => isVariationCleared(moveProgress, slots, minStars));
+}
