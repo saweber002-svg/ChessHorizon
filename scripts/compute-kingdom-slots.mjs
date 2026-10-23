@@ -37,7 +37,6 @@ const ALL_IDS = extractIds(join(ROOT, 'src/data/drillRegistry.ts'), 'ALL_DRILL_F
 
 // Must mirror DEMOTED_TACTIC_VARIATION_IDS in src/data/kingdomDrills.ts.
 const DEMOTED = new Set([
-  'evans-gambit',
   'fried-liver-attack',
   'traxler-counter-attack',
   'ulvestad-variation',
@@ -51,6 +50,7 @@ const ITALIAN = [
   { variationId: 'giuoco-piano', drillFileId: 'giuoco-piano-main', openingId: 'italian' },
   { variationId: 'giuoco-pianissimo', drillFileId: 'giuoco-pianissimo-main', openingId: 'italian' },
   { variationId: 'two-knights', drillFileId: 'two-knights-main', openingId: 'italian' },
+  { variationId: 'evans-gambit', drillFileId: 'evans-gambit-main', openingId: 'italian' },
   { variationId: 'greco-counter-attack', drillFileId: 'greco-counter-attack-main', openingId: 'italian' },
 ];
 

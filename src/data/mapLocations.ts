@@ -65,6 +65,7 @@ export const ITALIAN_DRILL_VARIATIONS = [
   { variationId: 'giuoco-piano', drillFileId: 'giuoco-piano-main', label: 'Giuoco Piano' },
   { variationId: 'giuoco-pianissimo', drillFileId: 'giuoco-pianissimo-main', label: 'Giuoco Pianissimo' },
   { variationId: 'two-knights', drillFileId: 'two-knights-main', label: 'Two Knights' },
+  { variationId: 'evans-gambit', drillFileId: 'evans-gambit-main', label: 'Evans Gambit' },
   { variationId: 'greco-counter-attack', drillFileId: 'greco-counter-attack-main', label: 'Greco Counter Attack' },
 ] as const;
 

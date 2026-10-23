@@ -20,7 +20,6 @@ export interface KingdomDrill {
  * a parent opening drill, never atlas destinations of their own.
  */
 export const DEMOTED_TACTIC_VARIATION_IDS: ReadonlySet<string> = new Set([
-  'evans-gambit',
   'fried-liver-attack',
   'traxler-counter-attack',
   'ulvestad-variation',

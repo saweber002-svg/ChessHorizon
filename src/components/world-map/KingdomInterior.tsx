@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Star } from 'lucide-react';
+import { ArrowLeft, Lock, Star } from 'lucide-react';
 import type { KingdomId } from '@/types';
 import { KINGDOM_POSITIONS } from '@/types';
 import { MAP_LOCATIONS } from '@/data/mapLocations';
@@ -14,6 +14,7 @@ import {
 } from '@/data/castleLocations';
 import { useProgress } from '@/contexts/ProgressContext';
 import { REALM_TOTAL_MOVES } from '@/data/realmDrillTotals';
+import { gateTripped, variationStoryStatus } from '@/data/storyProgression';
 
 import {
   INTERIOR_CASTLE_SPOTS,
@@ -574,10 +575,27 @@ const HEADER_OFFSET_PX = 92;
         suppressClickRef.current = false;
         return;
       }
+      if (
+        state.storyMode !== false &&
+        kingdom === 'italian' &&
+        variationStoryStatus(state, kingdom, drill.variationId) === 'locked'
+      )
+        return;
       onSelectDrill(drill.drillFileId, drill.openingId, drill.variationId);
     },
-    [onSelectDrill],
+    [onSelectDrill, state, kingdom],
   );
+
+  // Story mode (S2): inside Italy, variations ahead of the frontier are
+  // locked (not selectable); the deviation button appears only once the
+  // deviation gate has tripped for Giuoco Piano. Free mode gates nothing.
+  const storyMode = state.storyMode !== false;
+  const isStoryLocked = (variationId: string): boolean =>
+    storyMode &&
+    kingdom === 'italian' &&
+    variationStoryStatus(state, kingdom, variationId) === 'locked';
+  const deviationsDue =
+    !storyMode || gateTripped(state, 'italian', 'giuoco-piano', 'deviation');
 
   // Per-variation progress: stars + best prestige tier.
   const variationProgress = useMemo(() => {
@@ -640,6 +658,7 @@ const HEADER_OFFSET_PX = 92;
       {/* Castles */}
       {castles.map(({ drill, castle, mx, my }, i) => {
         const pos = toScreen(mx, my);
+        const locked = isStoryLocked(drill.variationId);
         const prog = variationProgress.get(drill.drillFileId) ?? { stars: 0, tier: 0 };
         const castleName = castle ? `${castle.castle}, ${castle.place}` : drill.label;
         // The (invisible) hit area is anchored on the castle's map position; the
@@ -649,13 +668,14 @@ const HEADER_OFFSET_PX = 92;
           <div
             key={drill.drillFileId}
             className="absolute z-10"
-            style={{ left: `${pos.x}%`, top: `${pos.y}%` }}
+            style={{ left: `${pos.x}%`, top: `${pos.y}%`, opacity: locked ? 0.55 : 1 }}
           >
             <motion.button
               initial={{ opacity: 0, scale: 0.6, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 0.15 + i * 0.07, type: 'spring', stiffness: 260, damping: 20 }}
               onClick={() => handleCastleClick(drill)}
+              disabled={locked}
               className="group absolute"
               style={{
                 width: iconPx,
@@ -680,15 +700,22 @@ const HEADER_OFFSET_PX = 92;
                 >
                   <p className="text-[10px] font-semibold text-white whitespace-nowrap leading-tight">
                     {drill.label}{' '}
-                    <span className="inline-flex items-center gap-0.5 font-normal text-white/50">
-                      <Star size={8} className="text-yellow-400 fill-yellow-400" />
-                      {prog.stars}
-                    </span>
+                    {locked ? (
+                      <span className="inline-flex items-center gap-0.5 font-normal text-white/50">
+                        <Lock size={8} />
+                        Locked
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-0.5 font-normal text-white/50">
+                        <Star size={8} className="text-yellow-400 fill-yellow-400" />
+                        {prog.stars}
+                      </span>
+                    )}
                   </p>
                 </div>
               )}
             </motion.button>
-            {drill.variationId === 'giuoco-piano' && (
+            {drill.variationId === 'giuoco-piano' && deviationsDue && (
               <button
                 type="button"
                 onClick={(e) => {

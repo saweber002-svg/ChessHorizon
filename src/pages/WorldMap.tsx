@@ -1,25 +1,20 @@
-import { useState, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useCallback } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Swords, Star, Flame, Home } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { useProgress } from '@/contexts/ProgressContext';
 import Atlas2D from '@/components/world-map/Atlas2D';
 import { KingdomPanel } from '@/components/world-map/KingdomPanel';
 import { kingdomHasDrills } from '@/data/kingdomDrills';
+import { IntroVideo } from '@/components/IntroVideo';
 import type { MapLocation } from '@/data/mapLocations';
 import { MAP_LOCATIONS } from '@/data/mapLocations';
 import { tap as hapticTap } from '@/lib/haptics';
 
 export default function WorldMap() {
   const [, setLocation] = useLocation();
-  const { state } = useProgress();
+  const { state, markIntroSeen } = useProgress();
   const [selected, setSelected] = useState<MapLocation | null>(null);
-  const [showIntro, setShowIntro] = useState(false);
-
-  useEffect(() => {
-    const seen = localStorage.getItem('ch_atlas_intro_seen');
-    if (!seen) setShowIntro(true);
-  }, []);
 
   const handleSelectLocation = useCallback((location: MapLocation) => {
     hapticTap();
@@ -33,10 +28,13 @@ export default function WorldMap() {
     setSelected(location);
   }, [state.unlockedRegions, setLocation]);
 
-  const dismissIntro = () => {
-    setShowIntro(false);
-    localStorage.setItem('ch_atlas_intro_seen', 'true');
-  };
+  // First atlas entry (scope §8): the intro video plays UNSKIPPABLE and
+  // ends by transitioning into Italy's interior, story mode, with only
+  // Giuoco Piano selectable (the Italy frontier does the selecting).
+  const finishIntro = useCallback(() => {
+    markIntroSeen();
+    setLocation('/kingdom/italian');
+  }, [markIntroSeen, setLocation]);
 
   return (
     <div className="w-screen h-screen th-bg overflow-hidden relative">
@@ -86,39 +84,10 @@ export default function WorldMap() {
         )}
       </AnimatePresence>
 
-      {/* Intro overlay */}
-      <AnimatePresence>
-        {showIntro && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
-            onClick={dismissIntro}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="max-w-md w-full p-8 rounded-2xl th-bg border th-accent-border text-center shadow-[0_0_80px_rgba(0,245,212,0.15)]"
-            >
-              <p className="th-accent-text text-xs uppercase tracking-[0.3em] mb-3">Welcome, traveler</p>
-              <h2 className="text-2xl font-bold text-white mb-3">The Fantasy Atlas</h2>
-              <p className="text-white/50 text-sm leading-relaxed mb-6">
-                Explore the atlas of realms. Click glowing markers to open kingdoms and start opening drills
-                powered by real variation data.
-              </p>
-              <button
-                onClick={dismissIntro}
-                className="w-full py-3 rounded-xl th-accent th-accent-hover font-bold"
-              >
-                Enter the Atlas
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* First-entry intro video (replaces the old welcome card) */}
+      {!state.introVideoSeen && (
+        <IntroVideo skippable={false} onDone={finishIntro} />
+      )}
     </div>
   );
 }

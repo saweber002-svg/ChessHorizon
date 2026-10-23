@@ -70,16 +70,17 @@ describe('cleared predicates', () => {
 });
 
 describe('generated Italy slots', () => {
-  it('cover the four Italy variations with 85 slots partitioned by color', () => {
+  it('cover the five Italy variations with 107 slots partitioned by color', () => {
     const variations = KINGDOM_VARIATION_SLOTS.italian ?? [];
     expect(variations.map((v) => v.variationId)).toEqual([
       'giuoco-piano',
       'giuoco-pianissimo',
       'two-knights',
+      'evans-gambit',
       'greco-counter-attack',
     ]);
     const slots = italySlots();
-    expect(slots).toHaveLength(85);
+    expect(slots).toHaveLength(107);
     expect(slots.every((s) => s.key.startsWith('italian:'))).toBe(true);
     expect(slots.some((s) => s.side === 'white')).toBe(true);
     expect(slots.some((s) => s.side === 'black')).toBe(true);

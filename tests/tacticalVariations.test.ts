@@ -15,8 +15,9 @@ const OPENING_IDS = new Set(MAIN_DRILLS.map((d) => d.id.replace(/-main$/, '')));
 const TACTIC_IDS = new Set(TACTICAL_VARIATIONS.map((t) => t.id));
 
 describe('tacticalVariations data integrity', () => {
-  it('registers the full approved catalog (42 parented + 3 orphans + 6 Slice-G deviations)', () => {
-    expect(TACTICAL_VARIATIONS).toHaveLength(51);
+  it('registers the full approved catalog (41 parented + 3 orphans + 6 Slice-G deviations)', () => {
+    // 50 since S2: evans-gambit was promoted from tactic to opening.
+    expect(TACTICAL_VARIATIONS).toHaveLength(50);
     expect(orphanTactics().map((t) => t.id).sort()).toEqual([
       'cochrane-gambit',
       'halloween-gambit',
@@ -64,14 +65,14 @@ describe('tactic gating', () => {
   it('tier 0 (Locked) unlocks nothing; gates open at their tier', () => {
     const jerome = getTacticalVariation('jerome-gambit')!;
     const milnerBarry = getTacticalVariation('milner-barry-gambit')!;
-    const evans = getTacticalVariation('evans-gambit')!;
+    const moeller = getTacticalVariation('moeller-attack')!;
     expect(isTacticUnlocked(jerome, 0)).toBe(false);
     expect(isTacticUnlocked(jerome, 1)).toBe(true);
     expect(isTacticUnlocked(milnerBarry, 1)).toBe(false);
     expect(isTacticUnlocked(milnerBarry, 2)).toBe(true);
-    expect(isTacticUnlocked(evans, 2)).toBe(false);
-    expect(isTacticUnlocked(evans, 3)).toBe(true);
-    expect(isTacticUnlocked(evans, 4)).toBe(true);
+    expect(isTacticUnlocked(moeller, 2)).toBe(false);
+    expect(isTacticUnlocked(moeller, 3)).toBe(true);
+    expect(isTacticUnlocked(moeller, 4)).toBe(true);
   });
 
   it('gates are per executing color: White prestige never unlocks Black tactics', () => {
@@ -94,7 +95,6 @@ describe('tactic gating', () => {
     const unlocked = unlockedTacticsUnder('giuoco-piano', 1, 1).map((t) => t.id);
     expect(unlocked).toContain('jerome-gambit');
     expect(unlocked).toContain('blackburne-shilling-gambit');
-    expect(unlocked).not.toContain('evans-gambit'); // Journeyman gate
     expect(unlocked).not.toContain('moeller-attack'); // Journeyman gate
   });
 
@@ -159,7 +159,8 @@ describe('tactic selection helpers', () => {
     expect(twoKnights).toContain('ulvestad-variation');
     expect(twoKnights).toContain('max-lange-attack');
     const giuoco = tacticsListedUnder('giuoco-piano').map((t) => t.id);
-    expect(giuoco).toContain('evans-gambit');
+    // Evans is no longer listed: S2 promoted it to a full opening.
+    expect(giuoco).not.toContain('evans-gambit');
     expect(giuoco).toContain('moeller-attack');
   });
 });

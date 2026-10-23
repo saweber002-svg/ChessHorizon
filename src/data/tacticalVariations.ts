@@ -70,7 +70,9 @@ export const TACTICAL_VARIATIONS: TacticalVariation[] = [
   { id: 'traxler-counter-attack', name: 'Traxler Counter Attack', executingColor: 'b', gateTier: 3, parents: ['two-knights'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'Bc5'] },
   { id: 'fried-liver-attack', name: 'Fried Liver Attack', executingColor: 'w', gateTier: 3, parents: ['two-knights'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'd5', 'exd5', 'Nxd5'] },
   { id: 'ulvestad-variation', name: 'Ulvestad Variation', executingColor: 'b', gateTier: 3, parents: ['two-knights'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'd5', 'exd5', 'b5'] },
-  { id: 'evans-gambit', name: 'Evans Gambit', executingColor: 'w', gateTier: 3, parents: ['giuoco-piano'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5', 'b4'] },
+  // evans-gambit REMOVED 2026-10-23 (S2): promoted to a full opening — the
+  // Italy capstone with its own interior node (Castel Nuovo). Its
+  // -tacticals packs are now its own opening tactic packs.
   { id: 'moeller-attack', name: 'Moeller Attack', executingColor: 'w', gateTier: 3, parents: ['giuoco-piano'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5', 'c3', 'Nf6', 'd4', 'exd4', 'cxd4', 'Bb4+', 'Nc3'] },
   { id: 'icelandic-gambit', name: 'Icelandic Gambit', executingColor: 'b', gateTier: 3, parents: ['scandinavian-nf6'], line: ['e4', 'd5', 'exd5', 'Nf6', 'c4', 'e6'], packPrefix: 'scandinavian-icelandic-gambit' },
   { id: 'dutch-staunton-gambit', name: 'Staunton Gambit', executingColor: 'w', gateTier: 3, parents: ['dutch-classical'], line: ['d4', 'f5', 'e4'] },
