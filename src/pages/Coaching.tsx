@@ -10,6 +10,7 @@ import { getEngine } from '@/engine/stockfish';
 import { tap as hapticTap, success as hapticSuccess, error as hapticError } from '@/lib/haptics';
 import { DIFFICULTY_LEVELS, blunderForDifficulty, skillForDifficulty, type DifficultyId } from '@/lib/difficulty';
 import { classificationColors, classificationIcons } from '@/lib/classificationStyle';
+import { IntroVideo } from '@/components/IntroVideo';
 
 const START_FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
@@ -44,6 +45,7 @@ export default function Coaching() {
   const [isReviewing, setIsReviewing] = useState(false);
   const [reviewProgress, setReviewProgress] = useState({ completed: 0, total: 0 });
   const [showReview, setShowReview] = useState(false);
+  const [showIntro, setShowIntro] = useState(false);
   const [gameState, setGameState] = useState<GameState>({
     fen: START_FEN,
     history: [],
@@ -442,7 +444,16 @@ export default function Coaching() {
             </div>
           </div>
         </div>
+        <button
+          onClick={() => setShowIntro(true)}
+          className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-all border border-white/10 text-xs font-semibold uppercase tracking-widest"
+        >
+          Rewatch Introduction
+        </button>
       </header>
+      {showIntro && (
+        <IntroVideo skippable onDone={() => setShowIntro(false)} />
+      )}
 
       <main className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden p-4 lg:p-8 gap-4 lg:gap-8">
         {engineError && (

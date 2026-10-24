@@ -87,6 +87,12 @@ export interface ProgressState {
   /** Optional so older saved states and hand-built test states keep working. */
   openingProgress?: Record<string, OpeningProgressLocal>;
   tacticalProgress?: Record<string, TacticalProgressLocal>;
+  /** S2: intro video has been shown (first atlas entry gate). */
+  introVideoSeen?: boolean;
+  /** S2: story mode on/off. Absent = on (the default path). */
+  storyMode?: boolean;
+  /** S2: drill packs completed at least once (thread cursor backing). */
+  completedPacks?: Record<string, true>;
 }
 
 export type GlowColor = 'idle' | 'correct' | 'incorrect';

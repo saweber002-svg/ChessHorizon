@@ -41,6 +41,7 @@ export const CASTLE_LOCATIONS: CastleLocation[] = [
   { variationId: 'giuoco-pianissimo', castle: 'Castello Sforzesco', place: 'Milan, Italy', lat: 45.47, lng: 9.1786 },
   { variationId: 'two-knights', castle: 'Castello di Fénis', place: 'Aosta Valley, Italy', lat: 45.7374, lng: 7.4896 },
   { variationId: 'greco-counter-attack', castle: 'Castel del Monte', place: 'Andria, Italy', lat: 41.0848, lng: 16.2709 },
+  { variationId: 'evans-gambit', castle: 'Castel Nuovo (Maschio Angioino)', place: 'Naples, Italy', lat: 40.8384, lng: 14.2524 },
   // -- Queendom: queen's-pawn openings ------------------------------------------
   { variationId: 'london-system', castle: 'Tower of London', place: 'London, England', lat: 51.5081, lng: -0.0761 },
   { variationId: 'london-vs-kings-indian', castle: 'Hampton Court Palace', place: 'London, England', lat: 51.4036, lng: -0.3378 },

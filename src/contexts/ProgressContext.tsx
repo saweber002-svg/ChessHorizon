@@ -17,6 +17,9 @@ const defaultState: ProgressState = {
   sideMode: 'both',
   openingProgress: {},
   tacticalProgress: {},
+  introVideoSeen: false,
+  storyMode: true,
+  completedPacks: {},
 };
 
 function loadState(): ProgressState {
@@ -57,6 +60,9 @@ function saveState(state: ProgressState) {
 
 export type ProgressAction =
   | { type: 'RECORD_DRILL'; key: string; stars: number }
+  | { type: 'MARK_INTRO_SEEN' }
+  | { type: 'SET_STORY_MODE'; enabled: boolean }
+  | { type: 'MARK_PACK_COMPLETED'; packId: string }
   | { type: 'RECORD_OPENING_COMPLETION'; key: string; isPerfect: boolean }
   | { type: 'RECORD_TACTICAL_COMPLETION'; key: string; isPerfect: boolean }
   | { type: 'CONSUME_WATCH'; key: string }
@@ -199,6 +205,18 @@ export function progressReducer(state: ProgressState, action: ProgressAction): P
       newState = { ...state, openingProgress };
       break;
     }
+    case 'MARK_INTRO_SEEN':
+      newState = { ...state, introVideoSeen: true };
+      break;
+    case 'SET_STORY_MODE':
+      newState = { ...state, storyMode: action.enabled };
+      break;
+    case 'MARK_PACK_COMPLETED':
+      newState = {
+        ...state,
+        completedPacks: { ...(state.completedPacks ?? {}), [action.packId]: true as const },
+      };
+      break;
     case 'SET_DRILL_MODE':
       newState = { ...state, drillMode: action.mode };
       break;
@@ -240,6 +258,8 @@ interface ProgressContextValue {
      * identity, matching historical behavior.
      */
     tacticKey?: string;
+    /** S2: the pack that was completed; recorded into completedPacks. */
+    drillFileId?: string;
   }) => Promise<void>;
   setDrillMode: (mode: 'random' | 'in-order') => void;
   setSideMode: (mode: 'white' | 'black' | 'both') => void;
@@ -254,6 +274,10 @@ interface ProgressContextValue {
   getLocalWatchStatus: (openingId: string, variationId: string, side: 'white' | 'black') => WatchStatus;
   /** Consumes one local watch when the quota allows; returns false when it doesn't. */
   consumeLocalWatch: (openingId: string, variationId: string, side: 'white' | 'black') => boolean;
+  /** S2: mark the intro video as seen (first-entry gate). */
+  markIntroSeen: () => void;
+  /** S2: toggle story mode. */
+  setStoryMode: (enabled: boolean) => void;
 }
 
 const ProgressContext = createContext<ProgressContextValue | null>(null);
@@ -285,6 +309,7 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
     side: 'white' | 'black';
     moveResults: Array<{ moveIndex: number; stars: 0 | 1 | 2 | 3 }>;
     tacticKey?: string;
+    drillFileId?: string;
   }) => {
     const isPerfect = isPerfectCompletion(input.moveResults);
     if (input.tacticKey) {
@@ -300,12 +325,23 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         isPerfect,
       });
     }
+    if (input.drillFileId) {
+      dispatch({ type: 'MARK_PACK_COMPLETED', packId: input.drillFileId });
+    }
     if (!user) return;
     const idempotencyKey = globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random()}`;
     // tacticKey is local-only; the server keeps the historical variation identity.
-    const { tacticKey: _localOnly, ...serverInput } = input;
+    const { tacticKey: _localOnly, drillFileId: _localOnly2, ...serverInput } = input;
     await recordCompletionMutation.mutateAsync({ ...serverInput, idempotencyKey });
   }, [recordCompletionMutation, user]);
+
+  const markIntroSeen = useCallback(() => {
+    dispatch({ type: 'MARK_INTRO_SEEN' });
+  }, []);
+
+  const setStoryMode = useCallback((enabled: boolean) => {
+    dispatch({ type: 'SET_STORY_MODE', enabled });
+  }, []);
 
   const getLocalWatchStatus = useCallback(
     (openingId: string, variationId: string, side: 'white' | 'black'): WatchStatus => {
@@ -388,6 +424,8 @@ export function ProgressProvider({ children }: { children: React.ReactNode }) {
         getMasteredCount,
         getLocalWatchStatus,
         consumeLocalWatch,
+        markIntroSeen,
+        setStoryMode,
       }}
     >
       {children}

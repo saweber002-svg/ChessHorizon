@@ -663,6 +663,7 @@ hapticSuccess();
               ],
               // Tactical drills prestige on their own track, not the opening's.
               tacticKey: isTacticalPack && line ? line.id : undefined,
+              drillFileId,
             });
 hapticSuccess();
             setSessionComplete(true);
@@ -699,6 +700,7 @@ hapticSuccess();
       currentPlayerMoveIdx,
       openingId,
       variationId,
+      drillFileId,
       recordDrillResult,
       recordOpeningCompletion,
       moveResults,

@@ -88,10 +88,11 @@ describe('individual piece identity', () => {
 });
 
 describe('getKingdomDrills', () => {
-  it('returns the four Italian variations (demoted tactics excluded)', () => {
+  it('returns the five Italian variations (demoted tactics excluded, Evans promoted)', () => {
     const drills = getKingdomDrills('italian');
     expect(drills.map((d) => d.drillFileId).sort()).toEqual(
       [
+        'evans-gambit-main',
         'giuoco-pianissimo-main',
         'giuoco-piano-main',
         'greco-counter-attack-main',

@@ -37,6 +37,10 @@ export const INTERIOR_CASTLE_SPOTS: Record<
     { variationId: 'giuoco-pianissimo', x: 36.8, y: 23.5 }, // Castello Sforzesco (N)
     { variationId: 'giuoco-piano', x: 49.5, y: 45.8 }, // Castel Sant'Angelo (center)
     { variationId: 'greco-counter-attack', x: 69.6, y: 53.8 }, // Castel del Monte (SE)
+    // Castel Nuovo (Naples, S of Rome): PROVISIONAL spot (S2, 2026-10-23) — no
+    // castle is baked into the current interior texture at Naples; Scott's
+    // art pass owns the final art/position. Label pill + hit area work now.
+    { variationId: 'evans-gambit', x: 56.5, y: 61.5 },
   ],
   sicilian: [
     { variationId: 'sicilian-najdorf', x: 27.8, y: 36.2 }, // La Zisa (Palermo, NW)

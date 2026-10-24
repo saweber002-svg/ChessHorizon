@@ -13,6 +13,9 @@ const initialState: ProgressState = {
   sideMode: 'both',
   openingProgress: {},
   tacticalProgress: {},
+  introVideoSeen: false,
+  storyMode: true,
+  completedPacks: {},
 };
 
 describe('progress reducer', () => {
@@ -243,5 +246,19 @@ describe('opening and tactical progress', () => {
     });
     const reconsumed = progressReducer(attempted, { type: 'CONSUME_WATCH', key });
     expect(reconsumed.openingProgress?.[key]?.lastWatchAttempt).toBe(1);
+  });
+});
+
+describe('S2 story state actions', () => {
+  it('marks intro seen, toggles story mode, records completed packs', () => {
+    const seen = progressReducer(initialState, { type: 'MARK_INTRO_SEEN' });
+    expect(seen.introVideoSeen).toBe(true);
+    const free = progressReducer(seen, { type: 'SET_STORY_MODE', enabled: false });
+    expect(free.storyMode).toBe(false);
+    const done = progressReducer(free, {
+      type: 'MARK_PACK_COMPLETED',
+      packId: 'giuoco-piano-main',
+    });
+    expect(done.completedPacks).toEqual({ 'giuoco-piano-main': true });
   });
 });

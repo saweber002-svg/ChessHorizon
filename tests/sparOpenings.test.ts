@@ -19,10 +19,10 @@ describe('builtinSparKingdoms', () => {
     ]);
   });
 
-  it('includes every non-demoted built-in main-line pack exactly once (45 openings)', () => {
+  it('includes every non-demoted built-in main-line pack exactly once (46 openings)', () => {
     const ids = groups.flatMap((g) => g.openings.map((o) => o.drillFileId));
-    expect(ids).toHaveLength(45);
-    expect(new Set(ids).size).toBe(45);
+    expect(ids).toHaveLength(46);
+    expect(new Set(ids).size).toBe(46);
     expect(ids.every((id) => id.endsWith('-main'))).toBe(true);
     expect(ids.every((id) => ALL_DRILL_FILE_IDS.includes(id))).toBe(true);
   });
@@ -37,15 +37,16 @@ describe('builtinSparKingdoms', () => {
     }
   });
 
-  it('files the remaining Italian lines under Italy (demoted tactics excluded)', () => {
+  it('files the Italian lines under Italy (demoted tactics excluded, Evans promoted)', () => {
     const italy = groups.find((g) => g.kingdomId === 'italian');
     const ids = italy?.openings.map((o) => o.drillFileId) ?? [];
     expect(ids).toContain('two-knights-main');
     expect(ids).toContain('giuoco-piano-main');
-    // Reclassified as tactics: no interior node, no spar entry.
+    // Evans Gambit was promoted to a full opening in S2: it has a spar entry.
+    expect(ids).toContain('evans-gambit-main');
+    // Still reclassified as tactics: no interior node, no spar entry.
     expect(ids).not.toContain('traxler-counter-attack-main');
     expect(ids).not.toContain('fried-liver-attack-main');
-    expect(ids).not.toContain('evans-gambit-main');
     expect(ids).not.toContain('ulvestad-variation-main');
     expect(ids).not.toContain('moeller-attack-main');
   });
