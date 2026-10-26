@@ -5,10 +5,11 @@ import {
   Trophy,
   Zap,
   Brain,
+  BookOpen,
+  History,
   ChevronRight,
   Sparkles,
   Swords,
-  Globe,
   LogOut,
   User,
   Settings,
@@ -20,6 +21,22 @@ import { useLocation } from 'wouter';
 import { tap as hapticTap } from '@/lib/haptics';
 import { useAuth } from '@/contexts/AuthContext';
 import AuthModal from '@/components/AuthModal';
+import { KINGDOM_VARIATION_SLOTS } from '@/data/kingdomSlots';
+import { TIER_NAMES } from '@/types';
+
+// Landing stats are computed from the game's own data modules at build
+// time, so the page can never drift from the actual content again
+// (Patch 45: it previously advertised 6 kingdoms / 26 variations).
+const KINGDOM_COUNT = Object.values(KINGDOM_VARIATION_SLOTS).filter(
+  (v) => v && v.length > 0,
+).length;
+const VARIATION_COUNT = Object.values(KINGDOM_VARIATION_SLOTS).reduce(
+  (sum, v) => sum + (v?.length ?? 0),
+  0,
+);
+const PRESTIGE_TIER_COUNT = Object.values(TIER_NAMES).filter(
+  (name) => name !== 'Locked',
+).length;
 import ThemePicker from '@/components/ThemePicker';
 import SoundPicker from '@/components/SoundPicker';
 
@@ -28,13 +45,13 @@ const FEATURES = [
     icon: Map,
     title: 'Explore the Atlas',
     description:
-      'Navigate a fantasy world map to discover chess opening kingdoms. Pinch, zoom, and pan your way through uncharted territories.',
+      'Navigate a fantasy world map to discover chess opening kingdoms. Every opening stands at a real castle, from Castel Sant\'Angelo in Rome to Castel Nuovo in Naples.',
   },
   {
     icon: Target,
     title: 'Precision Drills',
     description:
-      'Practice specific moves from the active opening repertoire. Get immediate feedback with the interactive chess board.',
+      "Practice specific moves from the active opening repertoire. Get immediate feedback with the interactive chess board, and face deviation drills that punish the move you'd actually play, at your level.",
   },
   {
     icon: Trophy,
@@ -43,10 +60,10 @@ const FEATURES = [
       'Progress from Novice to Master. Earn stars, build streaks, and watch your pieces evolve as you climb the ranks.',
   },
   {
-    icon: Zap,
-    title: 'Spaced Repetition',
+    icon: BookOpen,
+    title: 'Follow the Story',
     description:
-      'Our intelligent system tracks when you last drilled each position, optimizing your learning schedule.',
+      'A short film opens your journey. Clear an opening to unlock the next as the path winds from kingdom to kingdom — tactics and traps join the road as you earn them.',
   },
 ];
 
@@ -59,6 +76,13 @@ const BENEFITS = [
       'Return to specific positions and opening ideas to build focused pattern-recognition practice.',
   },
   {
+    icon: Zap,
+    stat: 'TACTICS',
+    label: 'Tactical Variations',
+    description:
+      'Fifty named tactical variations — Traxler, Fried Liver, the Evans Gambit — each one a real idea from real games, woven into the story as you reach them.',
+  },
+  {
     icon: Swords,
     stat: 'LINES',
     label: 'Opening Recall',
@@ -66,18 +90,11 @@ const BENEFITS = [
       'Use active recall and immediate move feedback to rehearse the opening lines you choose.',
   },
   {
-    icon: Sparkles,
-    stat: 'PLAY',
-    label: 'Engaged Practice',
+    icon: History,
+    stat: 'TRACK',
+    label: 'Progress That Persists',
     description:
-      'A narrative map, progress milestones, and trophies keep practice organized and visible.',
-  },
-  {
-    icon: Globe,
-    stat: 'ATLAS',
-    label: 'Kingdom Repertoire',
-    description:
-      'Explore opening variations through the Atlas and progress through the available kingdoms step by step.',
+      'Every position remembers your stars, streaks, and best runs — pick up exactly where you left off.',
   },
 ];
 
@@ -125,7 +142,7 @@ export default function Home() {
               <Button
                 variant="ghost"
                 className="text-white/70 hover:text-white hover:bg-white/10"
-                onClick={() => go('/drill/italian/giuoco-piano/0')}
+                onClick={() => go('/kingdom/italian')}
               >
                 Drill
               </Button>
@@ -246,8 +263,9 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-10"
           >
-            Explore a fantasy world of chess openings. Drill moves, earn stars,
-            build streaks, and rise from Novice to Master.
+            Explore a fantasy world of chess openings. Follow the story from
+            the gates of Italy, drill moves, earn stars, and rise from Novice
+            to Master.
           </motion.p>
 
           {/* CTAs */}
@@ -272,7 +290,7 @@ export default function Home() {
               size="lg"
               variant="outline"
               className="th-border text-white hover:bg-white/5 text-lg px-8 py-6"
-              onClick={() => go('/drill/italian/giuoco-piano/0')}
+              onClick={() => go('/kingdom/italian')}
             >
               Start Drilling
             </Button>
@@ -286,17 +304,17 @@ export default function Home() {
             className="flex items-center justify-center gap-8 sm:gap-12 mt-16"
           >
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-white">6</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white">{KINGDOM_COUNT}</div>
               <div className="text-sm text-white/50">Kingdoms</div>
             </div>
             <div className="w-px h-10 th-panel" />
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-white">26</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white">{VARIATION_COUNT}</div>
               <div className="text-sm text-white/50">Variations</div>
             </div>
             <div className="w-px h-10 th-panel" />
             <div className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-white">4</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white">{PRESTIGE_TIER_COUNT}</div>
               <div className="text-sm text-white/50">Prestige Tiers</div>
             </div>
           </motion.div>
@@ -373,8 +391,8 @@ export default function Home() {
               <span className="neon-text-teal">Focused Practice</span>
             </h2>
             <p className="text-white/50 max-w-2xl mx-auto">
-              Our approach combines spaced repetition, deliberate practice, and
-              gamification into a structured opening-training loop.
+              Our approach combines deliberate practice, real tactics, and
+              progress you can see into a structured opening-training loop.
             </p>
           </motion.div>
 
@@ -419,8 +437,8 @@ export default function Home() {
               Ready to Begin Your Journey?
             </h2>
             <p className="text-white/50 mb-8 max-w-xl mx-auto">
-              Enter the Atlas and start exploring the Italian Kingdom. Your
-              opening mastery journey begins with a single move.
+              Enter the Atlas and start exploring the Italian Kingdom — your
+              journey begins with a short film, and a single move.
             </p>
             <Button
               size="lg"
