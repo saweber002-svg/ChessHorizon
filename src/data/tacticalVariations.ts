@@ -132,6 +132,37 @@ export const TACTICAL_VARIATIONS: TacticalVariation[] = [
   { id: 'stafford-gambit', name: 'Stafford Gambit', executingColor: 'b', gateTier: 1, parents: [], line: ['e4', 'e5', 'Nf3', 'Nf6', 'Nxe5', 'Nc6'] },
   { id: 'cochrane-gambit', name: 'Cochrane Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['e4', 'e5', 'Nf3', 'Nf6', 'Nxe5', 'd6', 'Nxf7'] },
   { id: 'halloween-gambit', name: 'Halloween Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Nc3', 'Nf6', 'Nxe5'] },
+
+  // ——— Background hunt additions (approved by Scott 2026-11-09) ———
+  // Journeyman gate (GM level)
+  { id: 'muzio-gambit', name: 'Muzio Gambit', executingColor: 'w', gateTier: 3, parents: [], line: ['e4', 'e5', 'f4', 'exf4', 'Nf3', 'g5', 'Bc4', 'g4', 'O-O'] },
+  { id: 'allgaier-gambit', name: 'Allgaier Gambit', executingColor: 'w', gateTier: 3, parents: [], line: ['e4', 'e5', 'f4', 'exf4', 'Nf3', 'g5', 'h4', 'g4', 'Ng5'] },
+  { id: 'benko-gambit', name: 'Benko Gambit', executingColor: 'b', gateTier: 3, parents: [], line: ['d4', 'Nf6', 'c4', 'c5', 'd5', 'b5'] },
+  { id: 'kieseritzky-gambit', name: 'Kieseritzky Gambit', executingColor: 'w', gateTier: 3, parents: [], line: ['e4', 'e5', 'f4', 'exf4', 'Nf3', 'g5', 'h4', 'g4', 'Ne5'] },
+  { id: 'kramnik-shirov-counterattack', name: 'Kramnik-Shirov Counterattack', executingColor: 'b', gateTier: 3, parents: ['english-reversed-sicilian'], line: ['c4', 'e5', 'Nc3', 'Bb4'] },
+  { id: 'sozin-attack', name: 'Sozin Attack', executingColor: 'w', gateTier: 3, parents: ['sicilian-najdorf'], line: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6', 'Nc3', 'a6', 'Bc4'] },
+  { id: 'adams-attack', name: 'Adams Attack', executingColor: 'w', gateTier: 3, parents: ['sicilian-najdorf'], line: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6', 'Nc3', 'a6', 'h3'] },
+  { id: 'worrall-attack', name: 'Worrall Attack', executingColor: 'w', gateTier: 3, parents: ['ruy-lopez-morphy'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bb5', 'a6', 'Ba4', 'Nf6', 'Qe2'] },
+  // Apprentice gate (strong at IM, not GM)
+  { id: 'winckelmann-riemer-gambit', name: 'Winckelmann-Riemer Gambit', executingColor: 'w', gateTier: 2, parents: ['french-winawer'], line: ['e4', 'e6', 'd4', 'd5', 'Nc3', 'Bb4', 'a3'] },
+  { id: 'vienna-gambit', name: 'Vienna Gambit', executingColor: 'w', gateTier: 2, parents: [], line: ['e4', 'e5', 'Nc3', 'Nf6', 'f4', 'd5'] },
+  { id: 'falkbeer-countergambit', name: 'Falkbeer Countergambit', executingColor: 'b', gateTier: 2, parents: [], line: ['e4', 'e5', 'f4', 'd5'] },
+  { id: 'belgrade-gambit', name: 'Belgrade Gambit', executingColor: 'w', gateTier: 2, parents: [], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Nc3', 'Nf6', 'd4', 'exd4', 'Nd5'] },
+  { id: 'riga-variation', name: 'Riga Variation', executingColor: 'b', gateTier: 2, parents: ['ruy-lopez-open'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bb5', 'a6', 'Ba4', 'Nf6', 'O-O', 'Nxe4', 'd4', 'exd4'] },
+  { id: 'levenfish-variation', name: 'Levenfish Variation', executingColor: 'w', gateTier: 2, parents: ['sicilian-dragon'], line: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6', 'Nc3', 'g6', 'f4'] },
+  { id: 'von-hennig-schara-gambit', name: 'Von Hennig-Schara Gambit', executingColor: 'b', gateTier: 2, parents: ['queen-gambit-declined'], line: ['d4', 'd5', 'c4', 'e6', 'Nc3', 'c5', 'cxd5', 'cxd4'] },
+  { id: 'tal-variation', name: 'Tal Variation', executingColor: 'w', gateTier: 2, parents: ['caro-kann-advance'], line: ['e4', 'c6', 'd4', 'd5', 'e5', 'Bf5', 'h4'] },
+  // Novice gate (club level)
+  { id: 'italian-gambit', name: 'Italian Gambit', executingColor: 'w', gateTier: 1, parents: ['giuoco-piano'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Bc5', 'd4'] },
+  { id: 'fritz-variation', name: 'Fritz Variation', executingColor: 'b', gateTier: 1, parents: ['two-knights'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'Ng5', 'd5', 'exd5', 'Nd4'] },
+  { id: 'scotch-gambit', name: 'Scotch Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['e4', 'e5', 'Nf3', 'Nc6', 'd4', 'exd4', 'Bc4'] },
+  { id: 'nakhmanson-gambit', name: 'Nakhmanson Gambit', executingColor: 'w', gateTier: 1, parents: ['two-knights'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bc4', 'Nf6', 'd4'] },
+  { id: 'boden-kieseritzky-gambit', name: 'Boden-Kieseritzky Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['e4', 'e5', 'Nf3', 'Nf6', 'Bc4', 'Nxe4', 'Nc3'] },
+  { id: 'froms-gambit', name: "From's Gambit", executingColor: 'b', gateTier: 1, parents: [], line: ['f4', 'e5'] },
+  { id: 'philidor-countergambit', name: 'Philidor Countergambit', executingColor: 'b', gateTier: 1, parents: [], line: ['e4', 'e5', 'Nf3', 'd6', 'd4', 'f5'] },
+  { id: 'tennison-gambit', name: 'Tennison Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['Nf3', 'd5', 'e4'] },
+  { id: 'urusov-gambit', name: 'Urusov Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['e4', 'e5', 'Bc4', 'Nf6', 'd4'] },
+  { id: 'ponziani-gambit', name: 'Ponziani Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['e4', 'e5', 'Nf3', 'Nc6', 'c3', 'd5', 'Qa4'] },
 ];
 
 export function getTacticalVariation(id: string): TacticalVariation | undefined {

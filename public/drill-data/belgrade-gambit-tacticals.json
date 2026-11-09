@@ -1,0 +1,152 @@
+{
+  "arena": "belgrade-gambit",
+  "description": "4 tactical challenges for White in the Belgrade Gambit (Four Knights, 5.Nd5), the sharpest line in the Four Knights Game. Spring the Qe2 pin, raid with Nxc7+, and smash the defenses of the e4 knight.",
+  "drills": [
+    {
+      "briefExplanation": "Nxc7+ wins the exchange — the knight forks king and rook. After Nxa8, Black traps the knight with ...b6, but Bg5 develops with tempo and White is winning the material battle.",
+      "description": "Black defends the knight with 6...Qe7, so raid the queenside: Nxc7+ forking king and rook, grab the rook on a8, and develop Bg5 while Black traps the knight.",
+      "drillId": "bel-t1",
+      "explanation": "This is the Belgrade Gambit's signature image — a White knight stranded on a8, and White winning anyway. The queen defense 6...Qe7 protects the e4 knight along the e-file, so White ignores it and raids: 7.Nxc7+! The knight captures with check, forking the king and the a8 rook. The king must move — 7...Kd8 steps toward the queenside to hunt the raider — and White collects 8.Nxa8. Black's consolation is 8...b6, trapping the cornered knight: its escapes b6 and c7 are both covered, by the pawn and the king. But White has the last move of the sequence, 9.Bg5!, developing the bishop with tempo — it presses the queen along the g5–e7 diagonal and joins the fight. Do the full accounting the Belgrade way: White will lose the a8 knight, but has won a rook and a pawn for it, and meanwhile Black's knight still sits pinned on e4, the queenside is full of holes, and White develops for free. Net result: White emerges roughly the exchange ahead with the initiative. The Belgrade teaches that a trapped piece isn't lost if the price was high enough — count the whole board, not just the corner.",
+      "fen": "r1b1kb1r/ppppqppp/2n5/3N4/3pn3/5N2/PPP1QPPP/R1B1KB1R w KQkq - 2 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Nc3",
+        "Nf6",
+        "d4",
+        "exd4",
+        "Nd5",
+        "Nxe4",
+        "Qe2",
+        "Qe7"
+      ],
+      "name": "The Belgrade Raid",
+      "opponentResponse": "Kd8",
+      "solutionMoves": [
+        "Nxc7+",
+        "Kd8",
+        "Nxa8",
+        "b6",
+        "Bg5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Rook Hunt"
+    },
+    {
+      "briefExplanation": "Qxe4 wins the pinned knight outright — the bishop on e7 doesn't defend e4. After Bd3 and castling, White is a piece ahead with a solid position.",
+      "description": "Black develops with 6...Be7, forgetting the knight on e4 is pinned and undefended. Simply capture it with the queen and consolidate — White has won a piece for a pawn.",
+      "drillId": "bel-t2",
+      "explanation": "The whole Belgrade Gambit rests on one tactical fact: the knight on e4 is pinned by Qe2 against the king on e8, and a pinned piece needs defenders. Black's 6...Be7 develops a piece but adds no defender — the bishop on e7 guards f6 and d6, not e4 — so White simply collects: 7.Qxe4. (It isn't check; the bishop on e7 blocks the e-file, which is exactly the detail that makes Black's move look safe.) Black castles 7...O-O to get the king out of the center, and White consolidates with 8.Bd3, developing the bishop to the diagonal where it eyes h7 and keeps watch over the center. Black tries 8...Re8 to pressure the middle, and White castles 9.O-O, completing the picture: White is up a clean piece for the e-pawn sacrificed on move five, the king is safe, and Black has no counterplay faster than White's development. The Belgrade punishes natural moves — 'just develop the bishop' is the most natural move in chess, and here it loses a piece. Whenever a queen pins a knight against a king along an open file, count the defenders twice: once is not enough, and zero is a blunder.",
+      "fen": "r1bqk2r/ppppbppp/2n5/3N4/3pn3/5N2/PPP1QPPP/R1B1KB1R w KQkq - 2 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Nc3",
+        "Nf6",
+        "d4",
+        "exd4",
+        "Nd5",
+        "Nxe4",
+        "Qe2",
+        "Be7"
+      ],
+      "name": "The Pin Pays Off",
+      "opponentResponse": "O-O",
+      "solutionMoves": [
+        "Qxe4",
+        "O-O",
+        "Bd3",
+        "Re8",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pin"
+    },
+    {
+      "briefExplanation": "a3 forces the knight to declare itself. After ...Nxd5, Qxe4+ wins the pinned knight with check, and Qxd5 recovers the second knight — White comes out a piece for a pawn ahead.",
+      "description": "Black counterattacks with 6...Nb4, hitting the d5 knight and c2. Kick it with a3, and after it captures on d5, win the e4 knight with check and take the knight back on d5.",
+      "drillId": "bel-t3",
+      "explanation": "Black's 6...Nb4 is the counterpunch — the knight attacks White's hero on d5 and threatens ...Nxc2+ forking king and rook. White kicks it immediately with 7.a3, and the knight must capture: 7...Nxd5, since retreating strands it on a6 and abandons the e4 knight. Now the pin decides: 8.Qxe4+! The queen captures the e4 knight with check — it was pinned all along, and with Black's other knight committed to d5, nothing recaptures. Black blocks with the bishop, 8...Be7, and White finishes the sequence with 9.Qxd5, taking the knight that captured on d5. The full trade favors White decisively: both Black knights are gone, White lost only the d5 knight, and Black's extra pawn on d4 is poor compensation for a missing piece. Better still, White's queen is centralized and Black's king is still on e8. The Belgrade's tactical web is woven from two threads — the pin on e4 and the outpost on d5 — and this variation shows them working together: defending d5 actively with a3 turned Black's counterattack into a trade that costs Black a piece for a pawn. When both sides have hanging pieces, the side with the pin usually wins the sequence.",
+      "fen": "r1bqkb1r/pppp1ppp/8/3N4/1n1pn3/5N2/PPP1QPPP/R1B1KB1R w KQkq - 2 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Nc3",
+        "Nf6",
+        "d4",
+        "exd4",
+        "Nd5",
+        "Nxe4",
+        "Qe2",
+        "Nb4"
+      ],
+      "name": "Countering the Counter",
+      "opponentResponse": "Nxd5",
+      "solutionMoves": [
+        "a3",
+        "Nxd5",
+        "Qxe4+",
+        "Be7",
+        "Qxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Counterattack"
+    },
+    {
+      "briefExplanation": "g3 blocks the queen's diagonal and kicks her with tempo. After ...Qe7 defends the knight, the Belgrade raid proceeds on schedule — Nxc7+ and Nxa8 collect the rook.",
+      "description": "Black counterattacks with 6...Qh4, eyeing f2. Chase the queen with g3, and after she retreats to defend e4, switch wings: Nxc7+ and Nxa8 win the exchange.",
+      "drillId": "bel-t4",
+      "explanation": "Black's 6...Qh4 is the mirage attack. The queen eyes f2 and dreams of ...Qxf2+ tricks, but f2 is defended by the king, and the sortie defends nothing — least of all the pinned knight on e4. White replies 7.g3, which does two jobs at once: it blocks the h4–e1 diagonal forever, and it attacks the queen with tempo. She must retreat to the one square that defends the knight, 7...Qe7, and now White switches wings and runs the Belgrade's signature play: 8.Nxc7+! The knight captures with check, forking king and rook; the king hunts toward the queenside 8...Kd8, and White collects 9.Nxa8. Black will trap and win the cornered knight with ...b6, just as in the main raid — but the accounting still favors White: a rook and a pawn collected for a knight that was always going to be the price, the e4 knight still pinned and short of defenders, and Black's queen having spent three moves to stand where she started the defense. The lesson: counterattacks that neither defend the pinned piece nor develop a new one are just tempi donated to the gambiteer. White banked one with g3, improved the king's shelter, and raided anyway.",
+      "fen": "r1b1kb1r/pppp1ppp/2n5/3N4/3pn2q/5N2/PPP1QPPP/R1B1KB1R w KQkq - 2 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Nc3",
+        "Nf6",
+        "d4",
+        "exd4",
+        "Nd5",
+        "Nxe4",
+        "Qe2",
+        "Qh4"
+      ],
+      "name": "Rebuff and Raid",
+      "opponentResponse": "Qe7",
+      "solutionMoves": [
+        "g3",
+        "Qe7",
+        "Nxc7+",
+        "Kd8",
+        "Nxa8"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Chase"
+    }
+  ],
+  "id": "belgrade-gambit-tacticals",
+  "name": "Belgrade Gambit — White Tactics"
+}

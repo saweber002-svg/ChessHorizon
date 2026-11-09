@@ -1,0 +1,108 @@
+{
+  "arena": "sozin-attack",
+  "description": "4 tactical challenges for White in the Sozin Attack (1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Bc4), the venomous anti-Najdorf system. Break through with f5, e5, and piece sacrifices on e6.",
+  "drills": [
+    {
+      "briefExplanation": "f4 and Qf3 build the classic Sozin battery, then f5 crashes into e6. Black's center pawn is besieged before his queenside play even starts.",
+      "description": "Build up with f4 and Qf3 in classic Sozin style, then ram the center with f5 to tear at the e6 pawn.",
+      "drillId": "soz-t1",
+      "explanation": "The Sozin Attack is a machine with one purpose: the f5 break. f4 supports it, Qf3 supports it — the queen on f3 both protects f5 and eyes the b7 bishop and the a8 rook along the diagonal — and the bishops on b3 and the knights complete a formation Bobby Fischer used to dismantle the Najdorf. When f5 lands, Black faces miserable choices: take with the e-pawn and open the f-file and the b3 bishop's diagonal against his king, or allow fxe6, when the e6 pawn falls and the same lines open anyway. Meanwhile Black's queenside demonstration with b5 has achieved nothing except weakening his own king's pawn cover and giving White's a-pawn a future target. Notice how economical White is: no premature attacks, just every piece placed on its Sozin square and then the lever. The bishop retreat to b3 on move seven, which looks passive, is actually the key — from b3 it cannot be hit by ...b4 or ...Na5, and it permanently x-rays e6 and f7. Learn this setup against any Sicilian with ...e6 and ...a6: f4, Qf3, and f5 will serve you for a lifetime of attacking chess.",
+      "fen": "rnbqkb1r/5ppp/p2ppn2/1p6/3NP3/1BN5/PPP2PPP/R1BQK2R w KQkq - 0 8",
+      "leadInMoves": [
+        "b5"
+      ],
+      "name": "The f5 Break",
+      "opponentResponse": "Bb7",
+      "solutionMoves": [
+        "f4",
+        "Bb7",
+        "Qf3",
+        "Nbd7",
+        "f5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Break"
+    },
+    {
+      "briefExplanation": "Castle long and answer b4 by ignoring the knight: g4-g5 storms the kingside while Black's queenside bites on granite. Opposite castles, and White is faster.",
+      "description": "Castle queenside, shrug off the b4 pawn push, and launch g4-g5 at Black's king. In opposite-castle races, the Sozin storm arrives first.",
+      "drillId": "soz-t2",
+      "explanation": "Opposite-side castling turns the game into a race, and this line shows why the Sozin usually wins it. White castles long — the king is tucked away, the d-file rook supports the center — and when Black starts his own demonstration with b4, attacking the c3 knight, White does not waste a tempo retreating it. Instead g4! begins the storm: the knight on c3 is taboo in spirit, because while Black spends moves capturing it, g5 will tear into the f6 knight, the one defender Black cannot spare. After Nd5 tries to block the center and slow White down, g5 still comes, and now f6 must move, opening the g-file and exposing e6 and the black king. The race math favors White because his pawns were already on f4, one step ahead, and because Black's b-pawn pushes do not create a single threat against the white king on c1 — the a6 and b4 pawns are simply too far away and unsupported. This is a vital attacking principle: when kings are castled on opposite wings, do not defend — attack faster, and let your opponent's captures be the tempi that bury him.",
+      "fen": "2rqkb1r/1b1n1ppp/p2ppn2/1p6/3NPP2/1BN1BQ2/PPP3PP/R3K2R w KQk - 5 11",
+      "leadInMoves": [
+        "Rc8"
+      ],
+      "name": "Long Castle Pawn Storm",
+      "opponentResponse": "b4",
+      "solutionMoves": [
+        "O-O-O",
+        "b4",
+        "g4",
+        "Nd5",
+        "g5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Storm"
+    },
+    {
+      "briefExplanation": "f5 provokes Nc5 hitting the bishop, but fxe6 tears the position open anyway. After fxe6, Qh5+ exploits the stripped king and the attack crashes through.",
+      "description": "Play f5, ignore the attack on your bishop, and rip Black open with fxe6. Then land Qh5+ against the exposed king.",
+      "drillId": "soz-t3",
+      "explanation": "This is the Sozin at its most violent. f5 threatens to demolish e6, and Black's Nc5 seems clever — it attacks the b3 bishop, the guardian of the a2-g1 diagonal and the x-ray on f7, while defending e6 from afar. But White's idea was never to preserve the bishop: fxe6! tears the center open on the spot. After fxe6 recaptures, Black's king has lost its f-pawn shield, the e-file and the h5-e8 diagonal are both weak, and Qh5+ arrives with devastating effect — the king must move or block with g6, which walks into fresh tactics against the pinned and overloaded defenders. White will follow with O-O, Bxe6 or Nf5 ideas, and Black's extra piece on c5 is a bystander that cannot help the king. The sacrifice is positional at heart: White is not calculating a forced mate, he is buying open lines, dark-square control, and a permanent initiative for a pawn. Fischer scored point after point with exactly these f5 and fxe6 ideas, because Black's position, for all its solidity on paper, has no good answer to the opening of lines while his queenside is still undeveloped.",
+      "fen": "r2qkb1r/1b1n1ppp/p2ppn2/1p6/3NPP2/1BN2Q2/PPP3PP/R1B1K2R w KQkq - 3 10",
+      "leadInMoves": [
+        "Nbd7"
+      ],
+      "name": "The fxe6 Sacrifice",
+      "opponentResponse": "Nc5",
+      "solutionMoves": [
+        "f5",
+        "Nc5",
+        "fxe6",
+        "fxe6",
+        "Qh5+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Positional Sacrifice"
+    },
+    {
+      "briefExplanation": "e5 blows the center open, and when Black captures, Nxe6 smashes the f7 shield. Bxe6 completes the demolition with a crushing initiative.",
+      "description": "Detonate the center with e5, sacrifice the knight on e6 to strip the king, and recapture with the bishop into a dominant position.",
+      "drillId": "soz-t4",
+      "explanation": "e5 is the Sozin's other great lever, and against a king still in the center it can be even stronger than f5. The pawn thrust attacks d6 and f6 simultaneously; when Black captures dxe5 to keep the center closed, White reveals the point: Nxe6! The knight cannot be ignored, and after fxe6 the f7 shield is gone — but White is not finished, because Bxe6 recaptures with the bishop landing on the very square Black just weakened, attacking f7, eyeing the king on e8, and opening the e-file for the rooks. Material is roughly balanced after the sequence, yet the position is a massacre in practical terms: Black's king is stuck in the center with no pawn cover, White's queen comes to h5 or f3 with check ideas, and every white piece is developed while Black's queenside sleeps. The combination of e5, Nxe6, and Bxe6 is a pattern worth memorizing in all Sicilians with ...e6: whenever the e6 pawn can be induced to leave or be captured and f7 is defended only by the king, this demolition is in the air. Black's early ...b5, expanding instead of developing, is precisely what makes it work here.",
+      "fen": "rn1qkb1r/1b3ppp/p2ppn2/1p6/3NP3/1BN5/PPP2PPP/R1BQ1RK1 w kq - 2 9",
+      "leadInMoves": [
+        "Bb7"
+      ],
+      "name": "The e5 Break",
+      "opponentResponse": "dxe5",
+      "solutionMoves": [
+        "e5",
+        "dxe5",
+        "Nxe6",
+        "fxe6",
+        "Bxe6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Breakthrough"
+    }
+  ],
+  "id": "sozin-attack-tacticals",
+  "name": "Sozin Attack — White Tactics"
+}

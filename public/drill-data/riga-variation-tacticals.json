@@ -1,0 +1,180 @@
+{
+  "arena": "riga-variation",
+  "description": "4 tactical challenges for Black in the Riga Variation of the Open Spanish. Detonate the Bxh2+ sacrifice, hunt the king on both wings, convert the exchange-up endgame, and learn the solid alternative.",
+  "drills": [
+    {
+      "briefExplanation": "Bxh2+ and Qh4 create threats White cannot ignore. The only defense is Rxe4+, giving up the exchange.",
+      "description": "Detonate the Riga sacrifice: Bxh2+ tears at the king's cover, Qh4 creates decisive threats, and White must surrender the exchange on e4 to survive.",
+      "drillId": "rig-t1",
+      "explanation": "Bxh2+ is one of the great opening sacrifices, and the Riga Variation is its home. The bishop cannot be ignored: if the king captures it, Qh4+ starts a king hunt with the knight on e4 still untouchable; if the king sidesteps to h1, Black plays Qh4 anyway, and the threats against f2 and the h-file — with ...Bg3 the quiet killer — are already more than White can meet. White has exactly one move that does not lose on the spot: Rxe4+, sacrificing the exchange to eliminate the monster knight on e4 and gain a tempo to organize the defense. Black recaptures dxe4, and now count the material: Black has won the exchange, keeps a bishop and a passed e-pawn, and White's king is still drafty on h1 with the h-file half open. This is why the Riga Variation has been feared for a century: the sacrifice is not a gamble but an investment with a guaranteed return. The bishop on h2 buys the exchange, the wrecked white kingside, and the initiative — a trade any attacker should make without a second thought.",
+      "fen": "r1bqk2r/1pp2ppp/p1Nb4/3p4/B3n3/8/PPP2PPP/RNBQR1K1 b kq - 0 9",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bb5",
+        "a6",
+        "Ba4",
+        "Nf6",
+        "O-O",
+        "Nxe4",
+        "d4",
+        "exd4",
+        "Re1",
+        "d5",
+        "Nxd4",
+        "Bd6",
+        "Nxc6"
+      ],
+      "name": "The Riga Sacrifice",
+      "opponentResponse": "Kh1",
+      "solutionMoves": [
+        "Bxh2+",
+        "Kh1",
+        "Qh4",
+        "Rxe4+",
+        "dxe4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Greek Gift"
+    },
+    {
+      "briefExplanation": "Kf1 avoids the h-file but walks into a different net. Bg3 prises the kingside open and Qh1+ keeps the king hunted.",
+      "description": "White's king flees to f1 instead of hiding on h1. Hunt it anyway: Qh4, the quiet Bg3 wedge, and Qh1+ drive the king into the open.",
+      "drillId": "rig-t2",
+      "explanation": "Running to f1 looks safer than hiding on h1 — the king escapes the h-file, and the bishop on h2 can even be won in some lines. But the Riga attack is a hydra. Qh4 arrives anyway, threatening the f2 pawn that now shields the king, and after Be3 develops to cover the danger squares, Black plays the quiet, deadly Bg3! The bishop wedges into the kingside where it cannot be tolerated — ...Qh1 ideas hang over the position — and cannot be captured safely: fxg3 simply opens the h-file the king just fled, and Qh1+ follows with White's king stripped bare in the center of the board. Notice White's coordination: the rook on e1 and king on f1 clog their own camp, the queenside knight and rook are spectators, and Black's knight on e4 — still alive in this branch — joins the hunt from the center. Whether the king hides or runs, the Riga finds it. The sacrifice on h2 was never about a single mate; it was about tearing the position open while White was undeveloped, and letting the hunt develop itself.",
+      "fen": "r1bqk2r/1pp2ppp/p1N5/3p4/B3n3/8/PPP2PPb/RNBQRK2 b kq - 1 10",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bb5",
+        "a6",
+        "Ba4",
+        "Nf6",
+        "O-O",
+        "Nxe4",
+        "d4",
+        "exd4",
+        "Re1",
+        "d5",
+        "Nxd4",
+        "Bd6",
+        "Nxc6",
+        "Bxh2+",
+        "Kf1"
+      ],
+      "name": "The King Hunt",
+      "opponentResponse": "Be3",
+      "solutionMoves": [
+        "Qh4",
+        "Be3",
+        "Bg3",
+        "fxg3",
+        "Qh1+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Kingside Attack"
+    },
+    {
+      "briefExplanation": "Up the exchange with a passed e-pawn, Black's technique is simple: Be6, Ke8 heading for f7, and f5. The endgame plays itself.",
+      "description": "The smoke has cleared and Black is up the exchange with a passed pawn. Convert it like a technician: develop the bishop, reroute the king toward f7, and support the passer with f5.",
+      "drillId": "rig-t3",
+      "explanation": "After the fireworks, the accounting is brutal: Black has two rooks and six pawns against rook, bishop, knight, and five pawns — up the exchange and a pawn, with the passed pawn on e4 as a permanent endgame asset. But advantages do not convert themselves. Be6 develops the last piece toward the center, where the bishop will support the e-pawn and watch both wings. White retreats Bb3 to keep the bishop active, and Black reroutes the king with Ke8, heading for f7 — in endgames the king is a fighting piece, and from f7 it will shepherd the passed pawn down the board. After c3 tries to undermine the passed pawn, f5! is the model move: the f-pawn now defends e4, gains kingside space, and if White ever captures the e-pawn, the f-pawn becomes a second runner. The rooks will double behind the passer or invade on the open files. The Riga's lesson is now complete: sacrifice bravely for the attack, and when the attack spends itself, be the side holding the better endgame. Tactics win the middlegame; technique banks the point.",
+      "fen": "r1bk3r/1pp2ppp/p7/8/B3p3/8/PPP2PPK/RNB5 b - - 0 14",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bb5",
+        "a6",
+        "Ba4",
+        "Nf6",
+        "O-O",
+        "Nxe4",
+        "d4",
+        "exd4",
+        "Re1",
+        "d5",
+        "Nxd4",
+        "Bd6",
+        "Nxc6",
+        "Bxh2+",
+        "Kh1",
+        "Qh4",
+        "Rxe4+",
+        "dxe4",
+        "Qd8+",
+        "Qxd8",
+        "Nxd8+",
+        "Kxd8",
+        "Kxh2"
+      ],
+      "name": "The Riga Endgame",
+      "opponentResponse": "Bb3",
+      "solutionMoves": [
+        "Be6",
+        "Bb3",
+        "Ke8",
+        "c3",
+        "f5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Endgame Technique"
+    },
+    {
+      "briefExplanation": "b5 and d5 give Black the classic Open Spanish position: an active knight, a central break, and easy development. No sacrifice required.",
+      "description": "If the Riga fireworks are not to your taste, Black has a principled alternative: support the knight with b5, break with d5, and develop with total equality.",
+      "drillId": "rig-t4",
+      "explanation": "Not every Open Spanish player wants the Riga's chaos, and Black's sixth move offers a completely different philosophy. Supporting the knight with b5 first drives the bishop to b3, and then d5! stakes the central claim the whole variation is built on: the e4 knight stands firm because opening the center favors Black's better-developed army. White captures dxe5, but this simply opens lines for the side with more pieces out — Be6 develops the bishop to a natural square, and Bc5 activates the second bishop with gain of time on the position. Black will castle next, the e4 knight remains a permanent splinter in White's camp, and the d5 pawn cramps White's center. Compare this with the Riga: same opening, same fearless knight capture on e4, but here Black's edge is structural and permanent rather than sacrificial. A complete Open Spanish repertoire needs both weapons — the Riga for opponents who grab and overextend, and this solid line for opponents who play carefully. Knowing when to burn the boats and when to build them is what separates a variation from a repertoire.",
+      "fen": "r1bqkb1r/2pp1ppp/p1n5/1p2p3/3Pn3/1B3N2/PPP2PPP/RNBQ1RK1 b kq - 1 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bb5",
+        "a6",
+        "Ba4",
+        "Nf6",
+        "O-O",
+        "Nxe4",
+        "d4",
+        "b5",
+        "Bb3"
+      ],
+      "name": "The Solid Alternative",
+      "opponentResponse": "dxe5",
+      "solutionMoves": [
+        "d5",
+        "dxe5",
+        "Be6",
+        "c3",
+        "Bc5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Open Spanish Counterplay"
+    }
+  ],
+  "id": "riga-variation-tacticals",
+  "name": "Riga Variation — Black Tactics"
+}

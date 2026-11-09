@@ -1,0 +1,114 @@
+{
+  "arena": "halloween-gambit",
+  "description": "4 tactical challenges for White in the Halloween Gambit (1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.Nxe5), the Four Knights sacrifice. Bury Black under the e5 pawn wedge and a rolling central pawn mass.",
+  "drills": [
+    {
+      "briefExplanation": "Nxe5 gives a piece for a pawn roller. d4 and e5 chase both black knights home, and Bc4 completes the picture with a monster center.",
+      "description": "Sacrifice a knight on e5 for a thundering central pawn duo. Drive both black knights backward and develop Bc4 behind a crushing pawn wedge.",
+      "drillId": "hal-t1",
+      "explanation": "Nxe5 is the Halloween Gambit — White sacrifices a full knight for one pawn and a dream: the central pawn roller. Black must capture, and then the pawns do all the work. d4 attacks the knight on e5, driving it back to g6, and e5! follows with tempo, kicking the f6 knight all the way home to g8, the square it started on. Count the tempi: Black has spent the opening moving two knights forward and then backward while White built a pawn center most openings only dream about. Bc4 develops the bishop to its best square, eyeing f7 and supporting a future d5 break. White is down a piece, but the e5 pawn is a wedge that cramps Black's entire position, the d4 pawn supports breaks on both wings, and Black's knights are spectators on g6 and g8. The Halloween is objectively daring but practically terrifying — Black must defend precisely for many moves while White's pawns keep asking questions that have no easy answers.",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 4 4",
+      "leadInMoves": [
+        "Nc3",
+        "Nf6"
+      ],
+      "name": "The Halloween Sacrifice",
+      "opponentResponse": "Nxe5",
+      "solutionMoves": [
+        "Nxe5",
+        "Nxe5",
+        "d4",
+        "Ng6",
+        "e5",
+        "Ng8",
+        "Bc4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Knight Sacrifice"
+    },
+    {
+      "briefExplanation": "Bc4 develops with f7 in sight. After d6 challenges the wedge, exd6 trades favorably and d5 kicks the c6 knight while seizing space.",
+      "description": "Develop Bc4, and when Black challenges the wedge with d6, capture through it. Then push d5 to gain still more space with tempo on the c6 knight.",
+      "drillId": "hal-t2",
+      "explanation": "Bc4 is the Halloween's favorite developing move — the bishop eyes f7, supports the center, and makes every future break stronger. Black challenges the wedge at once with d6, hoping to dissolve the e5 pawn before it strangles the position completely. White captures exd6, and after Bxd6 the trade has clarified the battle: Black's bishop owns an open diagonal, but White's center remains enormous. Now d5! gains another tempo, attacking the c6 knight and seizing more space in the middle of the board. If the knight retreats, White has won the fight for the center without spending any of the gambit's remaining capital. This is the Halloween method: the sacrificed knight bought pawns, the pawns buy space, and the space buys time to develop every remaining piece with threats. Black is up material but playing defense-only chess, one inaccurate move away from being overrun by the mass of white pawns and pieces.",
+      "fen": "r1bqkbnr/pppp1ppp/6n1/4P3/3P4/2N5/PPP2PPP/R1BQKB1R w KQkq - 1 7",
+      "leadInMoves": [
+        "e5",
+        "Ng8"
+      ],
+      "name": "Space for the Wedge",
+      "opponentResponse": "d6",
+      "solutionMoves": [
+        "Bc4",
+        "d6",
+        "exd6",
+        "Bxd6",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Wedge"
+    },
+    {
+      "briefExplanation": "exd6 en passant removes the counter before it lands. d5 gains space, and Qh5 swings the attack onto f7 with the bishop behind it.",
+      "description": "When Black counters with d5, strike with the en passant capture exd6. Follow with d5 for space and Qh5, turning the attack toward f7.",
+      "drillId": "hal-t3",
+      "explanation": "Black's d5 is the textbook counter — challenge the center before the pawn wedge sets in stone. The Halloween has a tactical answer ready: exd6 en passant! The pawn that just advanced two squares is swept off the board, and White's pawn lands on d6, deep inside Black's position. Black recaptures Bxd6, but now d5! seizes the space the counter was meant to contest, and the c6 knight must retreat to e5, where it blocks its own bishop and can be attacked again. White then switches wings with Qh5!, where the queen and the c4 bishop form a battery against f7, the weakest square in Black's camp. The black king still sits on e8 with a knight marooned on g8, and every White piece is one move from joining the attack. En passant is the easiest rule in chess to forget — and here it is the move that keeps the entire gambit alive, turning Black's proudest counter into another tempo for White.",
+      "fen": "r1bqkbnr/ppp2ppp/6n1/3pP3/2BP4/2N5/PPP2PPP/R1BQK2R w KQkq d6 0 8",
+      "leadInMoves": [
+        "Bc4",
+        "d5"
+      ],
+      "name": "En Passant Ambush",
+      "opponentResponse": "Bxd6",
+      "solutionMoves": [
+        "exd6",
+        "Bxd6",
+        "d5",
+        "Ne5",
+        "Qh5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "En Passant Break"
+    },
+    {
+      "briefExplanation": "d5 blows up the blockade before it sets. After cxd5, Bxd5 recaptures with the bishop, and Qh5 creates a deadly battery on f7.",
+      "description": "When Black bolsters the center with c6, smash through with d5 anyway. Recapture with the bishop and swing the queen to h5 against f7.",
+      "drillId": "hal-t4",
+      "explanation": "Black plays c6 to blunt the c4 bishop and prepare a solid d5 — the Halloween answer is to strike before the preparations are finished. d5! smashes the blockade while it is still being built. Black captures cxd5, but White recaptures Bxd5, and the bishop that Black tried to blunt now sits in the center, attacking f7 in one direction and the a8 rook's diagonal in the other. Black develops Be7, and White completes the attacking setup with Qh5!, forming the classic battery: queen and bishop both train on f7, the square Black has been nervously guarding since the gambit began. Threats of Qxf7 hang over every black reply, and the king cannot castle into a kingside whose defenders have been driven off. This is the Halloween in miniature: do not count the sacrificed piece — count the tempi and the targets. White's pawns rolled, Black's knights toured the board and came home, and now the heavy pieces arrive with the attack already built for them.",
+      "fen": "r1bqkbnr/pp1p1ppp/2p3n1/4P3/2BP4/2N5/PPP2PPP/R1BQK2R w KQkq - 0 8",
+      "leadInMoves": [
+        "Bc4",
+        "c6"
+      ],
+      "name": "Breaking the Blockade",
+      "opponentResponse": "cxd5",
+      "solutionMoves": [
+        "d5",
+        "cxd5",
+        "Bxd5",
+        "Be7",
+        "Qh5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    }
+  ],
+  "id": "halloween-gambit-tacticals",
+  "name": "Halloween Gambit — White Tactics"
+}

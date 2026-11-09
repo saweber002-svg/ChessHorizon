@@ -1,0 +1,112 @@
+{
+  "arena": "cochrane-gambit",
+  "description": "4 tactical challenges for White in the Cochrane Gambit (1.e4 e5 2.Nf3 Nf6 3.Nxe5 d6 4.Nxf7), the wild Petroff sacrifice. Rip the black king into the open with Nxf7 and hunt it with Bc4+, d4, and relentless development.",
+  "drills": [
+    {
+      "briefExplanation": "Nxf7 smashes the king's cover. After Kxf7, Bc4+ drives the king further out, and d4 seizes the center while Black is undeveloped.",
+      "description": "Detonate the position with Nxf7, dragging the black king into the open. Follow with Bc4+ and the central break d4 while Black is still undeveloped.",
+      "drillId": "coc-t1",
+      "explanation": "Nxf7 is the Cochrane Gambit — White gives up a whole knight to rip the black king from its shelter. After the forced Kxf7, the king stands on f7 with no pawn cover and no developed pieces to protect it. Bc4+ is the perfect follow-up: the bishop arrives with check, fixes the king's position in the center, and eyes the f7 square the king just vacated. Black blocks with Be6, developing the bishop and shielding the king, but White strikes with d4!, seizing the center with tempo. The point of the sacrifice is not immediate mate — it is that Black's king will spend the next ten moves running while White develops every piece with gain of time. White has pawns and a lasting initiative for the knight, and the exposed king means every White developing move arrives with a threat. The Cochrane is White's most violent answer to the Petroff, and this sequence is its beating heart: sacrifice first, develop with checks, and let the king hunt itself.",
+      "fen": "rnbqkb1r/ppp2ppp/3p1n2/4N3/4P3/8/PPPP1PPP/RNBQKB1R w KQkq - 0 4",
+      "leadInMoves": [
+        "Nxe5",
+        "d6"
+      ],
+      "name": "The f7 Sacrifice",
+      "opponentResponse": "Kxf7",
+      "solutionMoves": [
+        "Nxf7",
+        "Kxf7",
+        "Bc4+",
+        "Be6",
+        "d4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Knight Sacrifice"
+    },
+    {
+      "briefExplanation": "Bxe6+ forces Kxe6, stranding the king mid-board. d4 opens the center and Nc3 piles on the pressure.",
+      "description": "Swap bishops with check on e6, forcing the king to recapture in the middle of the board. Then d4 and Nc3 build an overwhelming development lead.",
+      "drillId": "coc-t2",
+      "explanation": "Bxe6+ is a forcing way to keep the king hunt alive — White trades bishops with check, and the black king must recapture on e6, stepping into the middle of the board just as the center is about to open. d4! is the key follow-up: White challenges the center at once, threatening to tear open lines while Black has only one piece developed. The king scurries back with Kf7, but the damage is done — Black has lost castling rights forever and the king remains a target near the half-open f-file. Nc3 develops with purpose, eyeing d5 and e4, and White will follow with Qf3 or Bg5 ideas against the f6 knight. White is down material on paper, but piece activity is the real currency here: every White piece enters the game with tempo while Black's queenside sleeps. This is the Cochrane bargain — central pawns and a permanent king problem for the sacrificed knight, with interest collected on every single move.",
+      "fen": "rn1q1b1r/ppp2kpp/3pbn2/8/2B1P3/8/PPPP1PPP/RNBQK2R w KQ - 2 6",
+      "leadInMoves": [
+        "Bc4+",
+        "Be6"
+      ],
+      "name": "Trading into the Exposed King",
+      "opponentResponse": "Kxe6",
+      "solutionMoves": [
+        "Bxe6+",
+        "Kxe6",
+        "d4",
+        "Kf7",
+        "Nc3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Bishop Exchange"
+    },
+    {
+      "briefExplanation": "exd5+ removes the blocker and reopens the bishop's check. Qg4+ drives the king to the h-file edge, where it lives in a mating net.",
+      "description": "When Black blocks the bishop check with d5, smash the block with exd5+, reopening the diagonal. Herd the king to h6 with Qg4+ and develop behind the attack.",
+      "drillId": "coc-t3",
+      "explanation": "Black's d5 is the most stubborn defense to Bc4+ — the pawn steps into the bishop's diagonal and blocks the check. White's answer is to smash the block: exd5+! The interposing pawn is captured, the c4 bishop's diagonal reopens, and the check returns — a discovered check created by a pawn capture. The king cannot go back, because f7 and g8 are both covered by that same bishop, so it walks forward: Kg6. White herds it further with Qg4+, a check down the open g-file that leaves the king exactly one legal square — h6, the edge of the board, in front of its own pawns with no defenders nearby. White finishes with d3 — and even this quiet developing move is a discovered check, because the pawn steps off the c1 bishop's diagonal and that bishop suddenly bears down on the king on h6. That is the deepest Cochrane lesson: once the king is exiled, White does not need to force anything at all. Every developing move adds a new threat — Bg5, Qg5, and h4 are all coming — and Black has no road home.",
+      "fen": "rnbq1b1r/ppp2kpp/5n2/3p4/2B1P3/8/PPPP1PPP/RNBQK2R w KQ - 0 6",
+      "leadInMoves": [
+        "Bc4+",
+        "d5"
+      ],
+      "name": "Smashing the d5 Block",
+      "opponentResponse": "Kg6",
+      "solutionMoves": [
+        "exd5",
+        "Kg6",
+        "Qg4+",
+        "Kh6",
+        "d3+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Discovered Check"
+    },
+    {
+      "briefExplanation": "exd5 rips the center open. Bb5+ develops with check, and after Nc6 blocks, White castles — one king is safe, the other is not.",
+      "description": "When Black builds with c6 and d5, capture through the center, then give a developing check with Bb5+. After the block, castle into safety while Black's king still wanders.",
+      "drillId": "coc-t4",
+      "explanation": "Black tries to build a solid center with c6 and d5, but in the Cochrane solidity is an illusion while the king stands on f7. White captures exd5, and after cxd5 the center is open and Black's king has no pawn cover on the light squares. Bb5+! is the star move: the bishop develops with check, forcing Black to interpose Nc6, which spends another tempo on defense and leaves the knight tied to the blockade. Now White castles — and the contrast is the whole lesson. White's king tucks away on g1 while Black's king remains on f7, in the middle of the board, with open lines running at it from every direction. White threatens Qf3, Bg5, and pressure down the e-file, and every exchange of blows favors the side whose pieces are already developed. The gambit's compensation is not a single tactic but this picture: a safe king, a full army in play, and a target that never goes away.",
+      "fen": "rn1q1b1r/pp3kpp/2p1bn2/3p4/2BPP3/2N5/PPP2PPP/R1BQK2R w KQ - 0 8",
+      "leadInMoves": [
+        "Nc3",
+        "d5"
+      ],
+      "name": "Check, Block, Castle",
+      "opponentResponse": "cxd5",
+      "solutionMoves": [
+        "exd5",
+        "cxd5",
+        "Bb5",
+        "Nc6",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development with Tempo"
+    }
+  ],
+  "id": "cochrane-gambit-tacticals",
+  "name": "Cochrane Gambit — White Tactics"
+}

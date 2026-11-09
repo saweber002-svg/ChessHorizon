@@ -15,13 +15,28 @@ const OPENING_IDS = new Set(MAIN_DRILLS.map((d) => d.id.replace(/-main$/, '')));
 const TACTIC_IDS = new Set(TACTICAL_VARIATIONS.map((t) => t.id));
 
 describe('tacticalVariations data integrity', () => {
-  it('registers the full approved catalog (41 parented + 3 orphans + 6 Slice-G deviations)', () => {
+  it('registers the full approved catalog (53 parented + 17 orphans + 6 Slice-G deviations)', () => {
     // 50 since S2: evans-gambit was promoted from tactic to opening.
-    expect(TACTICAL_VARIATIONS).toHaveLength(50);
+    // 76 since 2026-11-09: the 26 background-hunt tactics Scott approved were registered.
+    expect(TACTICAL_VARIATIONS).toHaveLength(76);
     expect(orphanTactics().map((t) => t.id).sort()).toEqual([
+      'allgaier-gambit',
+      'belgrade-gambit',
+      'benko-gambit',
+      'boden-kieseritzky-gambit',
       'cochrane-gambit',
+      'falkbeer-countergambit',
+      'froms-gambit',
       'halloween-gambit',
+      'kieseritzky-gambit',
+      'muzio-gambit',
+      'philidor-countergambit',
+      'ponziani-gambit',
+      'scotch-gambit',
       'stafford-gambit',
+      'tennison-gambit',
+      'urusov-gambit',
+      'vienna-gambit',
     ]);
   });
 

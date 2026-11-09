@@ -1,0 +1,110 @@
+{
+  "arena": "tennison-gambit",
+  "description": "4 tactical challenges for White in the Tennison Gambit (1.Nf3 d5 2.e4), the club-level Réti gambit named for Otto Tennison. Offer the e-pawn, plant the knight on g5, and convert rapid development into an attack.",
+  "drills": [
+    {
+      "briefExplanation": "The Tennison offer: the pawn goes, but the knight lands on g5 eyeing e4 and f7, and d3 prepares to recover it with interest.",
+      "description": "Offer the e-pawn with e4, and after Black grabs it, plant the knight on g5 and attack the pawn with d3.",
+      "drillId": "ten-t1",
+      "explanation": "The Tennison Gambit starts like a Réti and then offers a pawn out of nowhere: 2.e4!? Black accepts with dxe4, and White reveals the idea — Ng5! The knight lands on the rim with three threats at once. It attacks the pawn on e4, it eyes the f7 square next to the king, and combined with a quick d3 and Bxd3 it promises White a lead in development that no single pawn can match. Black develops the knight to f6, defending e4 and covering h7, and White plays d3, challenging the pawn before it can be consolidated. If Black captures on d3, the bishop recaptures with tempo and White castles into a position where every piece is developed and Black's extra pawn is meaningless. If Black defends with e6 or d5 ideas, White recovers the pawn on e4 anyway with the knight or bishop. This is the gambit's whole philosophy, and why it has trapped club players for over a century: the pawn is not really sacrificed, it is loaned — and the interest is paid in tempi. Black must solve problems from move three, while White's moves are all natural, developing, and aimed at the king.",
+      "fen": "rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 0 2",
+      "leadInMoves": [
+        "Nf3",
+        "d5"
+      ],
+      "name": "The Knight Sacrifice Offer",
+      "opponentResponse": "dxe4",
+      "solutionMoves": [
+        "e4",
+        "dxe4",
+        "Ng5",
+        "Nf6",
+        "d3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Gambit Offer"
+    },
+    {
+      "briefExplanation": "Qh5! threatens Qxf7 mate because the knight guards f7. After g6 blocks, Qh4 stays dangerous and Nxe4 restores material equality.",
+      "description": "When Black pushes e5 instead of developing, raid with Qh5 threatening mate on f7, then swing the queen to h4 and recover the pawn on e4.",
+      "drillId": "ten-t2",
+      "explanation": "Black tries to hold the extra pawn actively with e5, blocking the bishop and gaining space. Against a gambit, pawn-grabbing walks into the oldest punishment in chess: Qh5! The queen raids to the kingside with a concrete threat — Qxf7 is checkmate in spirit, because the knight on g5 guards the f7 square, so the king cannot capture and nothing else can defend in time. Black's only good answer is g6, blocking the diagonal and kicking the queen. But the raid is not over. The queen slides to h4, still on the kingside, still eyeing the dark squares and the e7 bishop's future, and having dragged the g-pawn forward she has created permanent dark-square holes around the black king. Only now does White bother with the pawn: Nxe4 recovers it, and the material is level again. Compare the positions, though. White's queen is active, the knight is centralized, and development will finish in two moves. Black has holes on f6 and h6, a pawn on e5 that can become a target, and a king that will never feel safe on either wing. The Tennison's lesson: in a gambit, threats come before refunds.",
+      "fen": "rnbqkbnr/ppp2ppp/8/4p1N1/4p3/8/PPPP1PPP/RNBQKB1R w KQkq - 0 4",
+      "leadInMoves": [
+        "e5"
+      ],
+      "name": "The Queen Raid",
+      "opponentResponse": "g6",
+      "solutionMoves": [
+        "Qh5",
+        "g6",
+        "Qh4",
+        "Be7",
+        "Nxe4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Mate Threat"
+    },
+    {
+      "briefExplanation": "h6 looks like it wins time, but the knight was ready to capture e4 anyway. White recovers the pawn and finishes development a tempo ahead.",
+      "description": "If Black kicks the knight with h6, simply capture the gambit pawn on e4, develop the bishop, and castle into a clean position.",
+      "drillId": "ten-t3",
+      "explanation": "The most natural club move against the Tennison knight is h6 — kick the intruder and ask where it is going. The gambit's answer is insultingly simple: the knight captures the pawn it was always going to capture. Nxe4 restores material equality, and the h6 pawn has accomplished nothing except weakening the squares g6 and f6 and spending a tempo Black needed for development. Black develops the knight to f6, and White plays Bd3, the second developing move with a threat built in — the bishop eyes h7, the square the h6 pawn was supposed to protect. Black blocks the diagonal with e6, another pawn move, another tempo gone. White castles, and the opening is effectively over: White has a king safely tucked away, two minor pieces out, and the rook coming to e1 to pressure the center. Black still has both bishops at home and a queenside that has not moved. The deep point of the Tennison is that the knight on g5 attacks two things — the e4 pawn and the f7 square — so every defensive move Black makes against one threat concedes time to the other. Chasing the knight with h6 defends neither; it just pays a tempo to watch the knight collect its pawn.",
+      "fen": "rnbqkbnr/ppp1ppp1/7p/6N1/4p3/8/PPPP1PPP/RNBQKB1R w KQkq - 0 4",
+      "leadInMoves": [
+        "h6"
+      ],
+      "name": "The Kicked Knight Recovers",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Nxe4",
+        "Nf6",
+        "Bd3",
+        "e6",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Recovery"
+    },
+    {
+      "briefExplanation": "Bxd3 recaptures with development. Castling and Re1 finish the setup: every White piece is active while Black still holds a meaningless extra pawn's worth of nothing.",
+      "description": "Capture back on d3 with the bishop, castle at once, and bring the rook to e1 to complete the gambit's development scheme.",
+      "drillId": "ten-t4",
+      "explanation": "When Black captures on d3, the Tennison reaches its ideal position type. White recaptures with the bishop — Bxd3 develops a piece, recovers the pawn, and puts the bishop on the diagonal aimed at h7, all in one move. Black finally develops the queenside knight, and White castles immediately. There is no greed here, no attempt to win the pawn back twice; the gambit player knows the compensation is development itself. Black plays e6 to free the dark-squared bishop, and White completes the picture with Re1: the rook takes the half-open e-file, the same file Black's pawn left when it went wandering to d3 and died there. Count the tempi. White has king safe, bishop on d3, knight on g5, rook on e1, and queen ready to come to f3 or h5. Black has two knights out and nothing else, with a king still in the center and the e6 pawn blocking his own bishop. Material is equal, but the game is not. This is the Tennison Gambit played correctly — not a cheap trick, but a development scheme where the early pawn offer bought exactly what it was supposed to buy: time, lines, and targets.",
+      "fen": "rnbqkb1r/ppp1pppp/5n2/6N1/8/3p4/PPP2PPP/RNBQKB1R w KQkq - 0 5",
+      "leadInMoves": [
+        "d3",
+        "exd3"
+      ],
+      "name": "Recapture and Castle",
+      "opponentResponse": "Nc6",
+      "solutionMoves": [
+        "Bxd3",
+        "Nc6",
+        "O-O",
+        "e6",
+        "Re1"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Rapid Development"
+    }
+  ],
+  "id": "tennison-gambit-tacticals",
+  "name": "Tennison Gambit — White Tactics"
+}

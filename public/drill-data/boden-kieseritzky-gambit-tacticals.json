@@ -1,0 +1,112 @@
+{
+  "arena": "boden-kieseritzky-gambit",
+  "description": "4 tactical challenges for White in the Boden-Kieseritzky Gambit (1.e4 e5 2.Nf3 Nf6 3.Bc4 Nxe4 4.Nc3), the Petroff's classical gambit. Trade central pawns for open lines, a lead in development, and lasting pressure against f7.",
+  "drills": [
+    {
+      "briefExplanation": "Nc3 dares Nxc3. dxc3 opens the d-file and the bishop's diagonal, and after f6 blunts the bishop, White castles with a lasting initiative.",
+      "description": "Offer the knight with Nc3, recapture with the d-pawn to open lines, and castle after f6. White's development and the permanent f7 target are the compensation.",
+      "drillId": "bod-t1",
+      "explanation": "The Boden-Kieseritzky is the Petroff's classical gambit: White develops Bc4, and when Black grabs the e-pawn, Nc3 offers the knight itself. Black accepts with Nxc3, and White recaptures dxc3 — and the recapture is the point. The d-file opens toward Black's queen, the c1 bishop's diagonal clears, and White's development races several tempi ahead. Black plays f6, the standard defensive move, blunting the c4 bishop and guarding the e5 pawn, but the pawn move loosens the dark squares and weakens f7's support. White castles, and the picture is complete: every White piece is in play or one move away, the d-file is half open, and the pressure on f7 never expires. Black has an extra pawn and a long defensive task ahead. Named for Samuel Boden and Lionel Kieseritzky in the 1850s, this gambit is older than the Petroff's modern theory — and its lesson is permanent: open lines and a lead in development are a currency that spends in every era of chess.",
+      "fen": "rnbqkb1r/pppp1ppp/8/4p3/2B1n3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4",
+      "leadInMoves": [
+        "Bc4",
+        "Nxe4"
+      ],
+      "name": "The Classical Offer",
+      "opponentResponse": "Nxc3",
+      "solutionMoves": [
+        "Nc3",
+        "Nxc3",
+        "dxc3",
+        "f6",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Recapture"
+    },
+    {
+      "briefExplanation": "Nh4 threatens Ng6 and Qh5 ideas, forcing g6. f4 rips the center open, and Bxf4 lands the bishop on a dominant diagonal.",
+      "description": "Raid with Nh4, provoking the loosening g6. Then blast the center open with f4, and recapture with the bishop to dominate the dark squares Black just weakened.",
+      "drillId": "bod-t2",
+      "explanation": "Nh4 is the Boden-Kieseritzky's signature raid — the knight heads for f5 and g6, and simply by existing on h4 it asks Black an awkward question: how exactly will you stop Ng6 and Qh5? Black answers g6, walling off the knight but loosening the dark squares around the king and handing White a hook to attack later. Now White changes direction completely: f4! The pawn opens the f-file for the rook on f1 and challenges Black's e5 pawn before it can be supported. Black captures exf4, and White recaptures Bxf4 — the bishop lands on the long dark diagonal, eyeing h6 and g5 and every square that g6 just weakened. Notice the pattern of Black's defense: f6 weakened the light squares, d6 blocked in the bishop, and g6 weakened the dark squares. White's gambit pawn bought all three concessions. The raid has worked even though the knight never landed on g6 — its threat alone rearranged Black's pawn structure into a target-rich position.",
+      "fen": "rnbqkb1r/ppp3pp/3p1p2/4p3/2B5/2P2N2/PPP2PPP/R1BQ1RK1 w kq - 0 7",
+      "leadInMoves": [
+        "O-O",
+        "d6"
+      ],
+      "name": "The Knight Raid",
+      "opponentResponse": "g6",
+      "solutionMoves": [
+        "Nh4",
+        "g6",
+        "f4",
+        "exf4",
+        "Bxf4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Provocation"
+    },
+    {
+      "briefExplanation": "Nh4 provokes g6 even against Qe7. After f4 and exf4 clear the path, Qh5 joins the c4 bishop in a battery aimed at f7.",
+      "description": "When Black defends f7 with Qe7, raid with Nh4 anyway. After the forced g6 and the f4 break, bring the queen to h5 to form a battery against f7.",
+      "drillId": "bod-t3",
+      "explanation": "Black's Qe7 is a sensible defensive try — the queen guards f7 a second time and prepares to develop the queenside. White raids anyway with Nh4, because the threat of Ng6 still forces a concession, and Black duly plays g6. The pawn wall stops the knight, but it weakens the squares around f7 and does nothing at all about the center. White strikes f4!, and when Black captures exf4, the f3 square the knight vacated becomes the queen's highway: Qh5! The queen arrives on the kingside and forms the battery this gambit dreams about — queen on h5 and bishop on c4 both point at f7, the square Black has been defending since move five. Threats of Qxf7 now hang over the position, the g6 pawn is pinned to the king's safety, and Black's queen on e7 is tied to defensive duty instead of development. The gambit has followed its script perfectly: provoke pawn moves, open a file, and let the heavy pieces use the squares those pawns abandoned.",
+      "fen": "rnb1kb1r/ppppq1pp/5p2/4p3/2B5/2P2N2/PPP2PPP/R1BQ1RK1 w kq - 2 7",
+      "leadInMoves": [
+        "O-O",
+        "Qe7"
+      ],
+      "name": "The f7 Battery",
+      "opponentResponse": "g6",
+      "solutionMoves": [
+        "Nh4",
+        "g6",
+        "f4",
+        "exf4",
+        "Qh5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Kingside Battery"
+    },
+    {
+      "briefExplanation": "Qd5 threatens Qxf7 with the bishop defending the square. After Be6 blocks, Qb5+ keeps the queen touring Black's loose queenside with check.",
+      "description": "If Black skips f6 for quiet development with d6, castle and strike with Qd5, threatening f7. When the bishop blocks, hop to b5 with check and keep the queen raiding.",
+      "drillId": "bod-t4",
+      "explanation": "If Black develops quietly with d6 instead of blunting the bishop with f6, White's queen becomes the star of the gambit. After castling and Be7, White plays Qd5! — a move with a concrete threat behind it: Qxf7+ is coming, and because the c4 bishop defends f7 along its diagonal, the queen cannot simply be captured, so Black must react. The bishop blocks with Be6, attacking the queen and closing the diagonal, but the queen has a second act ready: Qb5+! She hops across the board to the queenside with check, attacking the loose b7 pawn and forcing Black's centralized king to declare itself. This queen tour — kingside threat on d5, queenside check on b5 — is only possible because Black's pieces are undeveloped and the pawns on b7 and around the king have no defenders. The Boden-Kieseritzky does not promise checkmate; it promises that Black's extra pawn will be guarded by an army that has barely moved, against an attack that never quite goes away.",
+      "fen": "rnbqkb1r/ppp2ppp/3p4/4p3/2B5/2P2N2/PPP2PPP/R1BQK2R w KQkq - 0 6",
+      "leadInMoves": [
+        "dxc3",
+        "d6"
+      ],
+      "name": "The Queen's Tour",
+      "opponentResponse": "Be7",
+      "solutionMoves": [
+        "O-O",
+        "Be7",
+        "Qd5",
+        "Be6",
+        "Qb5+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Raid"
+    }
+  ],
+  "id": "boden-kieseritzky-gambit-tacticals",
+  "name": "Boden-Kieseritzky Gambit — White Tactics"
+}

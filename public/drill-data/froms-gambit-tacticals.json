@@ -1,0 +1,112 @@
+{
+  "arena": "froms-gambit",
+  "description": "4 tactical challenges for Black in From's Gambit (1.f4 e5 2.fxe5 d6 3.exd6 Bxd6 4.Nf3 g5), the Bird Opening's sharpest counter. Storm White's bare king with g4, queen checks, and the diagonal the missing f-pawn left behind.",
+  "drills": [
+    {
+      "briefExplanation": "g4 gains space with tempo. After Bxe5 clears the knight, Qh4+ exploits the diagonal White's f-pawn used to guard.",
+      "description": "Kick the knight with g4, trade off its outpost on e5, and land Qh4+ — a check made possible by White's missing f-pawn.",
+      "drillId": "fro-t1",
+      "explanation": "From's Gambit lives on one fact: White's f-pawn is gone, and the diagonal from h4 to e1 is a highway into White's king. Black first gains space with g4, kicking the f3 knight and seizing the kingside. The knight lands on e5, its best square, attacking the g4 pawn and centralizing — so Black simply removes it with Bxe5. White recaptures dxe5, opening the d-file but also clearing the black queen's path, and now the highway opens: Qh4+! The check cannot be met comfortably — blocking with g3 walks into further pawn storms, and the king has no f-pawn to hide behind and no good square to run to. Black has traded the gambit bishop for White's best minor piece and landed a queen check that forces White's king position to loosen still further. This is From's Gambit in a single line: the f-pawn's absence is not a detail, it is the entire strategy, and every black piece aims at the squares that pawn left behind.",
+      "fen": "rnbqk1nr/ppp2p1p/3b4/6p1/3P4/5N2/PPP1P1PP/RNBQKB1R b KQkq - 0 5",
+      "leadInMoves": [
+        "g5",
+        "d4"
+      ],
+      "name": "Check on the Empty Diagonal",
+      "opponentResponse": "Ne5",
+      "solutionMoves": [
+        "g4",
+        "Ne5",
+        "Bxe5",
+        "dxe5",
+        "Qh4+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Check"
+    },
+    {
+      "briefExplanation": "h5 backs up the g-pawn. g4 breaks through into hxg4, and Bxg4 develops the bishop with the h-file half open against White's king.",
+      "description": "When White plays h3 to fence off the storm, support the breakthrough with h5 first. Then g4 crashes through anyway and the bishop recaptures on g4.",
+      "drillId": "fro-t2",
+      "explanation": "White's h3 is the cautious move — it tries to fence off the g-pawn's advance before the storm can start. Black's answer is a lesson in how pawn storms actually work: h5! first, supporting the g-pawn so the breakthrough arrives with backup. White builds in the center with d4, and Black crashes through with g4 anyway. The pawn cannot be ignored, because it attacks the f3 knight and tears at the h3 pawn; White captures hxg4, opening the h-file — but that file now belongs to Black's rook, and it is White's king that lives at the end of it. Black recaptures Bxg4, developing the last bishop with tempo and pointing it at the f3 knight and the squares behind it. The storm has spent structure to open lines against a king whose own h-pawn advanced hopefully and then vanished. From's Gambit does not ask permission: every defensive pawn move White makes becomes another open line, and h3 has proven to be no exception at all.",
+      "fen": "rnbqk1nr/ppp2p1p/3b4/6p1/8/5N1P/PPPPP1P1/RNBQKB1R b KQkq - 0 5",
+      "leadInMoves": [
+        "g5",
+        "h3"
+      ],
+      "name": "h3 Stops Nothing",
+      "opponentResponse": "d4",
+      "solutionMoves": [
+        "h5",
+        "d4",
+        "g4",
+        "hxg4",
+        "Bxg4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Storm"
+    },
+    {
+      "briefExplanation": "g4 and Bxe5 remove the knight again. When d4 attacks the bishop, it advances to f4 instead of retreating.",
+      "description": "Kick the knight, trade it off on e5, and when White counters with d4, do not retreat — land the bishop on f4, a dominant outpost in front of White's king.",
+      "drillId": "fro-t3",
+      "explanation": "White develops Nc3, hoping to simply out-develop the gambit, but the kingside script does not change: g4 kicks the knight, and when it lands on e5, Bxe5 removes it before it can support White's center. White counters with d4, attacking the bishop with tempo and finally opening the c1 bishop's diagonal. The bishop's answer is the move that defines From's Gambit: Bf4! It does not retreat — it advances, landing on an outpost directly in front of White's king, where it eyes the e3 and g3 squares and stares down the long diagonal. A bishop on f4 cannot be chased by g3 without opening the h-file, cannot be captured, and radiates pressure on every single move. White's extra development on the queenside has purchased nothing on the side of the board where this game will be decided. From's Gambit trades the e-pawn for exactly this: tempi, space, and a bishop that sits permanently in White's face.",
+      "fen": "rnbqk1nr/ppp2p1p/3b4/6p1/8/2N2N2/PPPPP1PP/R1BQKB1R b KQkq - 1 5",
+      "leadInMoves": [
+        "g5",
+        "Nc3"
+      ],
+      "name": "The f4 Outpost",
+      "opponentResponse": "Ne5",
+      "solutionMoves": [
+        "g4",
+        "Ne5",
+        "Bxe5",
+        "d4",
+        "Bf4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Bishop Outpost"
+    },
+    {
+      "briefExplanation": "g4 gains tempo, Nf6 develops while guarding the pawn. Nxg4 is met by Nxg4 — the knight lands on g4 itself, eyeing f2 and h2.",
+      "description": "When White grabs the center with e4, kick the knight and develop Nf6. If White snatches the g4 pawn, recapture with the knight onto a menacing outpost.",
+      "drillId": "fro-t4",
+      "explanation": "White tries to refute the gambit by seizing the center with e4, but the kingside mechanism still runs on schedule: g4 attacks the knight with tempo, and this time Black develops Nf6, adding a defender to the g4 pawn and an attacker to the e4 pawn in one move. White's knight on e5 grabs the pawn with Nxg4 — and discovers the point: Nxg4! The f6 knight recaptures and lands on g4 itself, a square from which it attacks f2, the very square White's missing f-pawn used to defend, and h2, and supports queen checks arriving on h4. Material is level again, but the position is not: Black has two knights and a bishop developed with threats, White's king is bare on the kingside, and the e4 pawn is already under attack. The gambit's deepest lesson is that the g-pawn was never really being offered — it is a toll booth. White may pass through, but the price is a black knight installed on g4, in the heart of the position White's first move was supposed to control.",
+      "fen": "rnbqk1nr/ppp2p1p/3b4/6p1/4P3/5N2/PPPP2PP/RNBQKB1R b KQkq - 0 5",
+      "leadInMoves": [
+        "g5",
+        "e4"
+      ],
+      "name": "The Toll Booth on g4",
+      "opponentResponse": "Ne5",
+      "solutionMoves": [
+        "g4",
+        "Ne5",
+        "Nf6",
+        "Nxg4",
+        "Nxg4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Counterplay"
+    }
+  ],
+  "id": "froms-gambit-tacticals",
+  "name": "From's Gambit — Black Tactics"
+}

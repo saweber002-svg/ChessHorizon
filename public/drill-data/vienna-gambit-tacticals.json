@@ -1,0 +1,152 @@
+{
+  "arena": "vienna-gambit",
+  "description": "4 tactical challenges for White in the Vienna Gambit (2.Nc3 Nf6 3.f4 d5), where White seizes the center and the initiative. Exploit the e5 pawn, the Qf3 battery, and Black's exposed center.",
+  "drills": [
+    {
+      "briefExplanation": "Bd3 and Ne2 develop with purpose, and after castling White owns the e5 pawn, the bishop pair, and easy play against Black's d5 pawn.",
+      "description": "Black develops quietly with 6...Be7. Reply in classical style — Bd3, Ne2, castling — and White's center and bishop pair promise a lasting edge.",
+      "drillId": "vie-t1",
+      "explanation": "The Vienna Gambit's compensation is positional as much as tactical: White has the e5 space advantage, both bishops, and a queen already posted on f3. Against the quiet 6...Be7, White develops in textbook fashion — 7.Bd3 (the bishop takes the diagonal toward h7), 8.Ne2 (the knight reroutes toward g3 and f4, since the queen owns f3), and 9.O-O after Black castles and develops 8...Nc6. Nothing has been sacrificed in this sequence, and that is the point: Black gave White a free hand after 5...Nxc3 6.dxc3, and White's ideal setup assembles itself. From here the plans are clear: the c1 bishop comes to g5 or f4, the rooks double on the central files, and the break c3–c4 undermines d5 while e5 cramps every Black piece. Black's problem is that d5 pawn — it is attacked by c4 ideas and defended by little. The Vienna teaches an underrated lesson: a gambit doesn't always demand an attack. Sometimes the correct follow-up to winning the opening battle is simply to develop every piece to its best square and let the structural advantages — space, bishops, the half-open f-file — squeeze the opponent for forty moves.",
+      "fen": "rnbqk2r/ppp1bppp/8/3pP3/8/2P2Q2/PPP3PP/R1B1KBNR w KQkq - 1 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nc3",
+        "Nf6",
+        "f4",
+        "d5",
+        "fxe5",
+        "Nxe4",
+        "Qf3",
+        "Nxc3",
+        "dxc3",
+        "Be7"
+      ],
+      "name": "Classical Development",
+      "opponentResponse": "O-O",
+      "solutionMoves": [
+        "Bd3",
+        "O-O",
+        "Ne2",
+        "Nc6",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development"
+    },
+    {
+      "briefExplanation": "Bb5 pins the knight against the king. After Bd7 and Bxc6, White trades into a position with an active bishop and Black's d5 pawn under fire.",
+      "description": "Black develops the knight with 6...Nc6. Pin it with Bb5, trade on c6, and develop the remaining bishop to f4 — White keeps the e5 pawn and the better structure.",
+      "drillId": "vie-t2",
+      "explanation": "The pin is mightier than the grab. When Black develops 6...Nc6, White replies 7.Bb5!, pinning the knight against the king on the b5–e8 diagonal. Black breaks the pin the standard way, 7...Bd7, and White executes the plan: 8.Bxc6 Bxc6. At first glance White has traded bishop for knight for no reason, but look closer — White's remaining bishop is about to become the best minor piece on the board, while Black's knight was the natural pressurer of the e5 pawn and a future ...d4 supporter; now the d5 pawn stands nearly alone, attacked by c4 next. White finishes the sequence with 9.Bf4, developing the c1 bishop to its dream square where it eyes c7 and d6, and the position is a Vienna Gambit postcard: space on e5, the queen on f3 eyeing b7, and a clear plan of c4, Bd3, and O-O. The teaching point: in gambit positions, trading the RIGHT pieces matters more than keeping all of them. White traded the bishop that could be replaced for the knight that held Black's center together.",
+      "fen": "r1bqkb1r/ppp2ppp/2n5/3pP3/8/2P2Q2/PPP3PP/R1B1KBNR w KQkq - 1 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nc3",
+        "Nf6",
+        "f4",
+        "d5",
+        "fxe5",
+        "Nxe4",
+        "Qf3",
+        "Nxc3",
+        "dxc3",
+        "Nc6"
+      ],
+      "name": "Pin and Trade",
+      "opponentResponse": "Bd7",
+      "solutionMoves": [
+        "Bb5",
+        "Bd7",
+        "Bxc6",
+        "Bxc6",
+        "Bf4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pin"
+    },
+    {
+      "briefExplanation": "g3 calmly blocks the check and the queen must retreat. Ne2 and Bg2 complete a harmonious setup — Black's queen raid has only cost time.",
+      "description": "Black checks with 6...Qh4+, hoping to disrupt White. Block with g3, and after the queen retreats, develop Ne2 and Bg2 into a rock-solid position with the better center.",
+      "drillId": "vie-t3",
+      "explanation": "Checks feel dangerous, but most early queen checks are just tempi donated to the defender. Black's 6...Qh4+ attacks along the h4–e1 diagonal, cleared when White's f-pawn marched to e5 and the e4 knight vanished. White blocks with the simple 7.g3, and the queen must retreat — 7...Qe7 is best, since staying on the h-file loses time to Bg2 anyway. White develops 8.Ne2 — the knight heads for g3, where it supports the center and the kingside at once — Black brings out the last knight 8...Nc6, and White completes the setup with 9.Bg2 — the bishop fianchettoes to a square where it defends the king's neighborhood, eyes the long diagonal toward c6 and b7, and supports e5 forever. The scoreboard after nine moves: White has queen, knight, and bishop developed, castling available whenever wanted, and a pawn on e5; Black's queen has wandered out and back, achieving nothing. The Vienna Gambit's e5 pawn is the unsung hero — it made the check possible by clearing the diagonal, but it also guarantees White's space advantage no matter how Black wriggles. Meet early checks with calm blocks, not king moves, whenever the block also improves your position.",
+      "fen": "rnb1kb1r/ppp2ppp/8/3pP3/7q/2P2Q2/PPP3PP/R1B1KBNR w KQkq - 1 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nc3",
+        "Nf6",
+        "f4",
+        "d5",
+        "fxe5",
+        "Nxe4",
+        "Qf3",
+        "Nxc3",
+        "dxc3",
+        "Qh4+"
+      ],
+      "name": "Blunting the Check",
+      "opponentResponse": "Qe7",
+      "solutionMoves": [
+        "g3",
+        "Qe7",
+        "Ne2",
+        "Nc6",
+        "Bg2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "King Safety"
+    },
+    {
+      "briefExplanation": "c4! is the Vienna's undermining break. When Black captures, Bxc4 lands the bishop on its best square — White has two active bishops, the e5 outpost, and lasting pressure.",
+      "description": "Black bolsters the center with 6...Be6. Develop Bd3, and when the bishop comes to e7, strike with c4! — undermining the d5 pawn and letting the bishop capture on c4.",
+      "drillId": "vie-t4",
+      "explanation": "Every strong pawn center has a lever, and in the Vienna Gambit the lever is c3–c4. Black's 6...Be6 defends the d5 pawn and prepares development, so White develops first: 7.Bd3, and after 7...Be7 strikes 8.c4! The c-pawn, which arrived on c3 via the gambit's dxc3 recapture, now advances to challenge d5 directly. Black captures 8...dxc4 — declining leaves the pawn to be taken with a worse structure — and White recaptures 9.Bxc4, sliding the bishop from d3 to its best square in one move. The transformation is complete: White has both bishops ready to activate (the c1 bishop comes to g5 or f4 next), the e5 pawn untouched, rooks ready for the central files, and Black's proud d5 pawn has vanished from the board. Material is level, and White holds every positional asset. This is how gambits mature into strategy: the Vienna's tactical shot (3.f4) created the e5 pawn and the c3 pawn, and those two pawns dismantle Black's center with c4. Always look for the lever against the pawn your gambit left standing in the middle.",
+      "fen": "rn1qkb1r/ppp2ppp/4b3/3pP3/8/2P2Q2/PPP3PP/R1B1KBNR w KQkq - 1 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nc3",
+        "Nf6",
+        "f4",
+        "d5",
+        "fxe5",
+        "Nxe4",
+        "Qf3",
+        "Nxc3",
+        "dxc3",
+        "Be6"
+      ],
+      "name": "Undermining d5",
+      "opponentResponse": "Be7",
+      "solutionMoves": [
+        "Bd3",
+        "Be7",
+        "c4",
+        "dxc4",
+        "Bxc4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Break"
+    }
+  ],
+  "id": "vienna-gambit-tacticals",
+  "name": "Vienna Gambit — White Tactics"
+}

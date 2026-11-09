@@ -1,0 +1,118 @@
+{
+  "arena": "worrall-attack",
+  "description": "4 tactical challenges for White in the Worrall Attack against the Ruy Lopez Morphy (5.Qe2), the queen-supported system named for Thomas Worrall. Back the e5 push with the queen, undermine the queenside with a4, and strike in the center.",
+  "drills": [
+    {
+      "briefExplanation": "Qe2 supports e5 and a4 in advance. Bb3 keeps the bishop active, c3 prepares d4, and a4 attacks the b5 pawn chain.",
+      "description": "Retreat the bishop to b3, solidify with c3, and undermine Black's queenside with a4 — the complete Worrall setup.",
+      "drillId": "wor-t1",
+      "explanation": "The Worrall Attack is defined by one move: Qe2 instead of castling. The queen looks modest on e2, but she does three jobs at once — she defends the e4 pawn, she supports the future break e5, and she keeps the option of castling queenside alive. Black expands with b5, driving the bishop back, and White retreats it to b3, where it still aims at the tender f7 square. Then c3 builds the classic Ruy Lopez center: the pawn both supports d4 and opens a retreat for the bishop on c2 if Black ever plays ...Na5. Black settles with d6, and White plays the move the whole system makes possible — a4! Because the queen on e2 guards the kingside and the center is solid, White can spend a tempo prying at the queenside. The a4 pawn attacks b5, and Black must either exchange and open the a-file for White's rook or push past and create new weaknesses. This is Worrall's quiet menace: nothing looks attacked, yet every Black pawn move creates a target, and the queen on e2 means White is always one tempo away from the e5 break that blows the center open.",
+      "fen": "r1bqkb1r/2pp1ppp/p1n2n2/1p2p3/B3P3/5N2/PPPPQPPP/RNB1K2R w KQkq - 0 6",
+      "leadInMoves": [
+        "Qe2",
+        "b5"
+      ],
+      "name": "The Worrall Setup",
+      "opponentResponse": "Be7",
+      "solutionMoves": [
+        "Bb3",
+        "Be7",
+        "c3",
+        "d6",
+        "a4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Support"
+    },
+    {
+      "briefExplanation": "The knight on a5 attacks nothing that matters. d4! opens the center while the knight is offside, and Bxb3 removes it when it grabs at the rook.",
+      "description": "When Black sends the knight to the rim to hunt the bishop, ignore it, smash the center with d4, and simply capture the knight when it dives to b3.",
+      "drillId": "wor-t2",
+      "explanation": "Black's knight sortie to a5 looks aggressive — it eyes b3 and c4 and dreams of embarrassing the Spanish bishop. But look at what the knight actually attacks from a5: nothing. The bishop on a4 is not en prise, and the knight has wandered far from the center at the exact moment White is ready to open it. White plays d4!, the break the queen on e2 was posted to support. Black captures, White recaptures with the knight, and now the offside knight tries one last trick, diving to b3 to attack the rook on a1. White is not impressed: Bxb3 simply removes it. The bishop the knight set out to hunt ends up eating the hunter. The material is level, but the position is not — White has a knight on d4, a bishop on b3 aiming at f7, the queen and rook ready to flood the center, while Black's queenside is full of holes and the a6 pawn is backward. The lesson of the Worrall is patience with a purpose: White's setup looks slow, but it means every Black adventure away from the center can be answered by opening the center, where White's better development tells.",
+      "fen": "r1bqkb1r/1ppp1ppp/p4n2/n3p3/B3P3/5N2/PPPPQPPP/RNB1K2R w KQkq - 4 6",
+      "leadInMoves": [
+        "Qe2",
+        "Na5"
+      ],
+      "name": "Punishing the Knight Sortie",
+      "opponentResponse": "exd4",
+      "solutionMoves": [
+        "d4",
+        "exd4",
+        "Nxd4",
+        "Nb3",
+        "Bxb3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    },
+    {
+      "briefExplanation": "cxd4 is the Worrall point: White gets a two-pawn center and open lines, and Be3 consolidates while eyeing the queenside.",
+      "description": "Strike with d4 and recapture with the c-pawn to build a mobile center, then develop Be3 as Black pressures the e-file.",
+      "drillId": "wor-t3",
+      "explanation": "Once Black castles, White cashes in the setup with d4. The center break is the move Qe2 and c3 were both preparing — the queen guards e4 so the d-pawn can advance without the e-pawn collapsing behind it. Black captures on d4, and White makes the system's signature recapture: cxd4. Taking back with the knight would leave White with the isolated e-pawn and no majority; taking back with the pawn gives White the classic two-pawn center, pawns on d4 and e4 side by side, controlling every central square and ready to roll forward with d5 or e5. Black puts the rook on e8 to pressure the e4 pawn — the one tactical justification for the whole line, since the queen on e2 sits behind the pawn — but White calmly develops Be3. The bishop defends d4, eyes the queenside dark squares, and completes development. Now count Black's problems: the center majority cramps his pieces, the bishop on b3 cuts toward f7, and every freeing break like ...d5 can be met by e5 because the queen supports it. The Worrall does not win by one blow; it wins by making the center a permanent advantage.",
+      "fen": "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1PQPPP/RNB1K2R w KQ - 1 8",
+      "leadInMoves": [
+        "Qe2",
+        "b5",
+        "Bb3",
+        "Be7",
+        "c3",
+        "O-O"
+      ],
+      "name": "Pawn Recapture in the Center",
+      "opponentResponse": "exd4",
+      "solutionMoves": [
+        "d4",
+        "exd4",
+        "cxd4",
+        "Re8",
+        "Be3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Majority"
+    },
+    {
+      "briefExplanation": "a4 is the Worrall lever. If Black advances b4 to dodge the exchange, cxb4 wins the pawn's outpost and opens lines against a6.",
+      "description": "Build with c3, challenge the pawn chain with a4, and when Black pushes past with b4, capture it to open the c-file and expose the queenside.",
+      "drillId": "wor-t4",
+      "explanation": "The a4 lever is the Worrall Attack's second front. After the standard setup — bishop to b3, c3 to support the center — White challenges the b5 pawn before Black's queenside expansion becomes a strength. Black solidifies with d6, and White plays a4. Now Black faces the lever's dilemma. Exchanging on a4 opens the a-file for White's rook against the a6 pawn. Holding with a bishop move allows axb5, shattering the chain. So Black tries the third option: b4, pushing past to keep the structure closed and attack the c3 pawn. White simply captures, cxb4, and the queenside opens on White's terms. The b-pawn's advance has left the a6 pawn backward and the c6 knight short of support, and the c-file and a-file both become highways for White's rooks. Notice how the queen on e2 makes all of this possible: because she guards the center, White can afford to spend two tempi — a4 and the capture — on the wing. In most Ruy Lopez lines the queenside pressure is a distraction from the real game. In the Worrall, the center is so secure that the distraction is the game, and Black's expanded queenside becomes the weakness that decides it.",
+      "fen": "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPPQPPP/RNB1K2R w KQkq - 2 7",
+      "leadInMoves": [
+        "Qe2",
+        "b5",
+        "Bb3",
+        "Be7"
+      ],
+      "name": "Undermining the Queenside",
+      "opponentResponse": "d6",
+      "solutionMoves": [
+        "c3",
+        "d6",
+        "a4",
+        "b4",
+        "cxb4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queenside Pressure"
+    }
+  ],
+  "id": "worrall-attack-tacticals",
+  "name": "Worrall Attack — White Tactics"
+}

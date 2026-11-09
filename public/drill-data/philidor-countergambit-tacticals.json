@@ -1,0 +1,112 @@
+{
+  "arena": "philidor-countergambit",
+  "description": "4 tactical challenges for Black in the Philidor Countergambit (1.e4 e5 2.Nf3 d6 3.d4 f5), the Philidor Defence's fighting counter. Roll the f-pawn through White's center and punish the greedy queen raid that grabs on g6.",
+  "drills": [
+    {
+      "briefExplanation": "fxe4 starts the roller. After Nxe4, d5 defends the pawn and attacks, and dxe4 removes the second knight — the pawn mass rolls on.",
+      "description": "Capture through the center with fxe4, support the pawn with d5, and capture the second knight as well. Black's pawn lands on e4 with White's pieces driven off the board's center.",
+      "drillId": "phi-t1",
+      "explanation": "The Philidor Countergambit's idea is outrageously direct: the f-pawn, supposedly the weakest pawn on the board, marches through the center eating everything in its path. fxe4 captures the first pawn, and when the c3 knight recaptures, d5! supports the advanced pawn while attacking that knight. White tries the other knight — Nxe5 grabs a pawn with the f3 knight — but the roller does not stop: dxe4 captures the knight that took on e4, and Black's pawn sits deep in White's position. Count what this pawn has done: it left f7, captured on e4, was defended by its neighbor, and then captured a knight, all while White's development went nowhere. Black has given up the e5 pawn but owns the center's most advanced post and cramps every White piece — the surviving knight has few good squares, and White's queen is the only developed piece remaining. Countergambits are not about the pawn count; they are about which side's pieces get to play, and after this sequence only Black's are playing.",
+      "fen": "rnbqkbnr/ppp3pp/3p4/4pp2/3PP3/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 1 4",
+      "leadInMoves": [
+        "f5",
+        "Nc3"
+      ],
+      "name": "The Pawn Roller",
+      "opponentResponse": "Nxe4",
+      "solutionMoves": [
+        "fxe4",
+        "Nxe4",
+        "d5",
+        "Nxe5",
+        "dxe4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Roller"
+    },
+    {
+      "briefExplanation": "g6 blocks and tempts Nxg6. Nf6 attacks the queen, and after Qe5+, Be7 blocks calmly — the g6 knight has no way home.",
+      "description": "Block the queen check with g6, and when White's knight greedily captures it, attack the queen with Nf6. Block the next check with Be7 and start hunting the stranded knight.",
+      "drillId": "phi-t2",
+      "explanation": "White's queen raid Qh5+ looks dangerous, but the countergambit has seen this trick before: g6 blocks the check and calmly offers the pawn as bait. White's knight takes it — Nxg6 — and now the trap's shape appears. Nf6 attacks the queen with tempo, and the queen must keep checking just to stay safe: Qe5+. Black blocks without a care with Be7, and the position's secret stands revealed: the knight on g6 is stranded behind enemy lines. Its retreat squares are covered one by one — the e5 square is occupied by its own queen, f4 is watched by the rook on f8, h4 is covered by the bishop that just landed on e7 — and its only real adventure is snatching the h8 rook and being buried in the corner with it. Black, meanwhile, develops with threats: Nc6 and Bg4 are coming, the e4 pawn cramps White's entire game, and material will soon follow the initiative. The queen raid won a pawn and lost a knight; the countergambit's books have balanced themselves.",
+      "fen": "rnbqkbnr/ppp3pp/8/4N2Q/3Pp3/8/PPP2PPP/R1B1KB1R b KQkq - 1 7",
+      "leadInMoves": [
+        "dxe4",
+        "Qh5+"
+      ],
+      "name": "Greed Punished on g6",
+      "opponentResponse": "Nxg6",
+      "solutionMoves": [
+        "g6",
+        "Nxg6",
+        "Nf6",
+        "Qe5+",
+        "Be7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Trap Setup"
+    },
+    {
+      "briefExplanation": "Nf6 sends the queen home. Rg8 eyes the stranded knight down the file, and Nc6 develops while attacking the knight that fled to e5.",
+      "description": "Attack the queen with Nf6, lift the rook to g8 to glare at the g6 knight, and develop Nc6 with tempo. White's raiders are being rounded up one by one.",
+      "drillId": "phi-t3",
+      "explanation": "The counterattack begins with Nf6, attacking the queen and developing a piece in the same move. This time White retreats Qh4, avoiding the checking pattern but handing Black the move that defines the whole position: Rg8! The rook slides onto the g-file and stares directly at the knight on g6 — a knight that captured a pawn and has now discovered that every retreat square is mined. White chooses Ne5, the most respectable escape, bringing the knight back toward the center with its tail between its legs. Black does not hurry to collect: Nc6 develops the last queenside piece and attacks the knight again, while also eyeing the d4 pawn behind it. The material count still favors White, but the trend is unmistakable — Black's entire army is entering the game with tempo, the e4 pawn splits White's position in two, and White's queen and knight have spent the opening touring Black's camp instead of developing. The Philidor Countergambit punishes greed not with one tactic but with arithmetic: every tempo White spent grabbing pawns, Black spends developing pieces.",
+      "fen": "rnbqkbnr/ppp4p/6N1/7Q/3Pp3/8/PPP2PPP/R1B1KB1R b KQkq - 0 8",
+      "leadInMoves": [
+        "g6",
+        "Nxg6"
+      ],
+      "name": "The Rook Lift",
+      "opponentResponse": "Qh4",
+      "solutionMoves": [
+        "Nf6",
+        "Qh4",
+        "Rg8",
+        "Ne5",
+        "Nc6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Rook Activation"
+    },
+    {
+      "briefExplanation": "fxe4 and d5 keep the pawn mass moving. The e6 wedge threatens f7, but Nh6 guards it from the rim — the countergambit's center survives.",
+      "description": "When White captures on e5 instead, keep rolling with fxe4 and d5. When the e6 wedge attacks f7, defend it elegantly with Nh6 and keep the center intact.",
+      "drillId": "phi-t4",
+      "explanation": "White can avoid the knight captures by taking on e5 at once, but the countergambit's engine is the pawn mass, not any single capture. fxe4 removes the e-pawn and opens the f-file for the rook, and when White's knight jumps to g5, eyeing f7 and the loose e4 pawn, d5! supports everything at once — the pawn defends e4, opens the c8 bishop's diagonal, and claims the center. White lunges with e6, a wedge pawn that attacks f7 and tries to split Black's position before it can consolidate. The defense is the elegant Nh6: the knight guards f7 from the rim, the one square from which it also eyes f5 and g4 for the counterattack still to come. Black's center stands complete — pawns on d5 and e4, the wedge's target defended, and every piece ready to develop behind it. White's early capture on e5 was supposed to punish the countergambit; instead it fed the roller another tempo, and the pawn mass that started its journey on f7 now decides where the game is played.",
+      "fen": "rnbqkbnr/ppp3pp/3p4/4Pp2/4P3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 4",
+      "leadInMoves": [
+        "f5",
+        "dxe5"
+      ],
+      "name": "Defending f7, Rolling On",
+      "opponentResponse": "Ng5",
+      "solutionMoves": [
+        "fxe4",
+        "Ng5",
+        "d5",
+        "e6",
+        "Nh6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Wedge Defense"
+    }
+  ],
+  "id": "philidor-countergambit-tacticals",
+  "name": "Philidor Countergambit — Black Tactics"
+}

@@ -1,0 +1,110 @@
+{
+  "arena": "levenfish-variation",
+  "description": "4 tactical challenges for White in the Levenfish Variation (1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 g6 6.f4), the anti-Dragon system. Strike with the signature e5 break and pry open Black's king position.",
+  "drills": [
+    {
+      "briefExplanation": "e5 is the whole point of the Levenfish. After the pawn trades, e6 wedges into Black's position, cramping the Dragon setup and menacing f7.",
+      "description": "Play the signature e5 break. Trade pawns in the center, then wedge the pawn to e6 to suffocate Black's Dragon formation.",
+      "drillId": "lev-t1",
+      "explanation": "The Levenfish Variation exists for one move: e5. White's entire setup — f4 instead of f3, the knight retreating to f3, the bishop developing to c4 rather than e2 — is engineered so that this break lands with maximum force against the Dragon. When Black captures dxe5, White recaptures fxe5, and now the f-file is open, the c4 bishop x-rays f7, and Black's knight is driven to the passive d7 square. Then e6! drives the wedge home: the pawn cannot be taken by the f-pawn without opening the position against Black's king and surrendering the e6 square to White's bishop, and if it is left alone it cramps Black forever, cutting the position in two. Compare this to the Yugoslav Attack, where White spends three tempi castling long before attacking — the Levenfish is the sprinter's version, striking before Black's Dragon counterplay with ...Rc8 and ...Ne5 ever begins. Georgy Levenfish, one of the strongest Soviet players of the 1930s, understood that against the Dragon the center is the battleground: hit it first, and the famous Dragon bishop spends the game staring at its own pawns.",
+      "fen": "r1bq1rk1/pp2ppbp/2np1np1/8/2B1PP2/2N2N2/PPP3PP/R1BQK2R w KQ - 5 9",
+      "leadInMoves": [
+        "Nc6"
+      ],
+      "name": "The Levenfish Break",
+      "opponentResponse": "dxe5",
+      "solutionMoves": [
+        "e5",
+        "dxe5",
+        "fxe5",
+        "Nd7",
+        "e6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "e5 Break"
+    },
+    {
+      "briefExplanation": "e6 forces the issue: fxe6 opens the king, and Bxe6+ lands with check. After Kh8, Qe2 lines up against e6 and the initiative is permanent.",
+      "description": "Push the wedge to e6, and when Black captures, take back with check on e6. Consolidate with Qe2 and a lasting attack.",
+      "drillId": "lev-t2",
+      "explanation": "The wedge pawn on e6 is a splinter in Black's position, and this line shows how White cashes it in. Black cannot tolerate the pawn — it severs his kingside from his queenside and menaces f7 — so fxe6 is practically forced, but that capture is exactly what White wants: the f-file pawn shield vanishes, and Bxe6+ lands with check, the bishop arriving on the square the pawn just vacated. After Kh8, White calmly plays Qe2, and the threats accumulate: the bishop on e6 attacks the rook on f8 and the pawn on g6's neighbor squares, the queen eyes e6 and h5, and Nxd5 or Nd5 ideas hover. Black has nominal material equality but a king on h8 with no f-pawn, a Dragon bishop blocked by its own structure, and pieces tripping over each other on the queenside. This is the Levenfish's strategic triumph — the e5 break was not a one-move tactic but the start of a permanent positional squeeze. When you play this variation, remember the sequence: break with e5, wedge with e6, and if the wedge is captured, recapture with a piece and check. The pattern recurs constantly against Dragon and Najdorf setups alike.",
+      "fen": "r1bq1rk1/pp1nppbp/2n3p1/4P3/2B5/2N2N2/PPP3PP/R1BQK2R w KQ - 1 11",
+      "leadInMoves": [
+        "Nd7"
+      ],
+      "name": "The e6 Wedge",
+      "opponentResponse": "fxe6",
+      "solutionMoves": [
+        "e6",
+        "fxe6",
+        "Bxe6+",
+        "Kh8",
+        "Qe2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Wedge"
+    },
+    {
+      "briefExplanation": "Black's Qb6 comes with check, but Kh1 sidesteps it. After Bd7, the queen maneuver runs: Qe1, Qh4 — and e5 crashes through anyway.",
+      "description": "Sidestep the queen check with Kh1, swing the queen via e1 to h4, and crash through with e5 when Black tries to close the center.",
+      "drillId": "lev-t3",
+      "explanation": "Qe1 is one of those quiet moves that separates understanding from memorization — but first White must earn the right to play it. Black's Qb6 arrives with check, because the knight's retreat from d4 opened the b6-g1 diagonal, so Kh1 steps aside: a useful prophylactic move in its own right, tucking the king away from all future diagonal tricks. After Bd7 develops, the maneuver begins — the queen steps back to e1 not to retreat, but to reach h4, the square from which she will glare at h7, support e5, and combine with a future Bh6 or Ng5. Black strikes back with d5, the principled attempt to fight the center before the attack lands, yet after Qh4 completes the journey and e6 tries to close things down, e5! crashes through anyway, opening the e-file and the c4 bishop's diagonal exactly when the queen has arrived. Now Black must watch everything at once — Ng5 ideas hitting f7 and h7, Bh6 trading the Dragon bishop, f5 breaks — while his own queen excursion achieved nothing but lost time. The Levenfish lesson is coordination: the e5 break is ten times stronger when the queen is already on h4 and the bishop already on c4. Build the battery first, then pull the trigger.",
+      "fen": "r4rk1/pp1bppbp/1qnp1np1/8/2B1PP2/2N2N2/PPP3PP/R1BQ1R1K w - - 9 11",
+      "leadInMoves": [
+        "Bd7"
+      ],
+      "name": "Queen Swing to h4",
+      "opponentResponse": "d5",
+      "solutionMoves": [
+        "Qe1",
+        "d5",
+        "Qh4",
+        "e6",
+        "e5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Maneuver"
+    },
+    {
+      "briefExplanation": "fxe5 opens the f-file, Ng5 menaces f7, and when Black blocks with Be6, Bxe6 smashes the shield anyway. Qh5 arrives with the attack in full flow.",
+      "description": "Answer Black's e5 counter by opening the f-file, threatening f7 with Ng5, demolishing the e6 cover, and swinging the queen to h5.",
+      "drillId": "lev-t4",
+      "explanation": "Black's ...e5 is the principled Dragon counter — fight the center before the Levenfish break lands — so White must handle it precisely. fxe5 opens the f-file and forces a decision; after dxe5 recaptures, White unveils the real point: Ng5! The knight lands with a direct threat against f7, the square the c4 bishop already x-rays, and suddenly Black's kingside is a emergency. Be6 is the natural block — it covers f7 and challenges the c4 bishop — but White simply demolishes it: Bxe6, and after fxe6 the f7 shield is gone for good, replaced by a weak pawn on e6 that blocks Black's own pieces. Then Qh5 arrives, eyeing the e5 pawn, the g6 pawn, and the h7 square all at once, with Ng5 still alive and Bh6 ideas in reserve. Material is level, but the position is anything but: Black's king has lost its pawn cover, the Dragon bishop is entombed behind its own pawns, and every white piece is aimed at the wreckage. The lesson generalizes across the Sicilian: when the defender's king shelter depends on one pawn and one blocking piece, consider smashing both — the open lines and permanent weaknesses are worth far more than the bishop you trade away.",
+      "fen": "r1bq1rk1/pp3pbp/2np1np1/4p3/2B1PP2/2N1BN2/PPP3PP/R2QK2R w KQ - 0 10",
+      "leadInMoves": [
+        "e5"
+      ],
+      "name": "Smashing the Shield",
+      "opponentResponse": "dxe5",
+      "solutionMoves": [
+        "fxe5",
+        "dxe5",
+        "Ng5",
+        "Be6",
+        "Bxe6",
+        "fxe6",
+        "Qh5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Demolition"
+    }
+  ],
+  "id": "levenfish-variation-tacticals",
+  "name": "Levenfish Variation — White Tactics"
+}

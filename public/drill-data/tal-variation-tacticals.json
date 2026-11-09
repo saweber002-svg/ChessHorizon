@@ -1,0 +1,110 @@
+{
+  "arena": "tal-variation",
+  "description": "4 tactical challenges for White in the Tal Variation of the Caro-Kann Advance (3.e5 Bf5), the sharp pawn-storm line named for Mikhail Tal. Storm the kingside with h4 and g4, then blast the position open with the e6 pawn sacrifice.",
+  "drills": [
+    {
+      "briefExplanation": "h4 and g4 gain space and trap the bishop's retreat. Then e6! tears open the center while Black's king is still in the middle.",
+      "description": "Launch the Tal pawn storm with h4 and g4, driving the bishop to h7, then detonate the position with the e6 sacrifice.",
+      "drillId": "tal-t1",
+      "explanation": "The Tal Variation begins with a pawn storm, not piece play. After 3.e5 Bf5, White plays h4!, threatening to trap the light-squared bishop with h5 and g4. Black's h6 stops the immediate trap but weakens the kingside pawn cover. White continues g4 anyway, and the bishop must retreat to h7, where it stares at its own pawn on h6 and has almost no scope. Now comes the point of the whole variation: e6! White sacrifices the advanced pawn to rip open the position before Black can castle. If Black captures with the f-pawn, the e-file and the a2-g8 diagonal open against the stranded king. If Black declines with Qd6, White captures on f7 with check and drags the king into the open. The bishop on h7, the uncastled king, and White's space advantage are the three ingredients Tal loved: the attack plays itself because every White piece can join with tempo while Black is still untangling. The lesson is that the storm pawns are not just gaining space — they are buying the right to sacrifice on e6.",
+      "fen": "rn1qkbnr/pp2pppp/2p5/3pPb2/3P4/8/PPP2PPP/RNBQKBNR w KQkq - 1 4",
+      "leadInMoves": [
+        "e5",
+        "Bf5"
+      ],
+      "name": "The Pawn Storm and the e6 Break",
+      "opponentResponse": "h6",
+      "solutionMoves": [
+        "h4",
+        "h6",
+        "g4",
+        "Bh7",
+        "e6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Sacrifice"
+    },
+    {
+      "briefExplanation": "exf7+ forces the king to capture and lose castling rights. Nf3 develops, and dxe5 opens lines toward the exposed king.",
+      "description": "After Black declines the pawn with Qd6, capture on f7 with check, drag the king out, and open the center with dxe5.",
+      "drillId": "tal-t2",
+      "explanation": "When Black tries to decline the sacrifice with Qd6, White cashes in immediately: exf7+! The pawn cannot be ignored because it promotes or wins the rook next, so the black king must capture on f7 — and step into the middle of the board. That single move changes the whole game. Black will never castle, the e-file is about to open, and the bishop on h7 is cut off from the defense. White develops with Nf3, and when Black strikes back with e5, trying to build a center and free the queen, White simply captures: dxe5. Now the d-file and e-file are both open, White's queen and rooks have clear highways toward the king, and Black's queen on d6 is suddenly a target as well as a defender. Notice what White has not done: there is no rush to give check or grab material. The Tal method is to open lines first and let the exposed king create the tactics. Every developing move — Nf3, dxe5, Bd3 next — arrives with a threat, so Black never gets the tempo needed to consolidate or hide the king on the queenside.",
+      "fen": "rn2kbnr/pp2pppb/2pqP2p/3p4/3P2PP/8/PPP2P2/RNBQKBNR w KQkq - 1 7",
+      "leadInMoves": [
+        "e6",
+        "Qd6"
+      ],
+      "name": "Cashing In on f7",
+      "opponentResponse": "Kxf7",
+      "solutionMoves": [
+        "exf7+",
+        "Kxf7",
+        "Nf3",
+        "e5",
+        "dxe5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "King Hunt"
+    },
+    {
+      "briefExplanation": "dxe5 opens the d-file against the exposed king. Bd3 develops and attacks the bishop on h7 along the long diagonal.",
+      "description": "Open the center with dxe5, then develop the bishop to d3 with tempo against the stranded bishop on h7.",
+      "drillId": "tal-t3",
+      "explanation": "With the black king stranded on f7, White's priority is open lines and fast development — not check-chasing. Black's e5 tries to fight for the center and give the queen room, but dxe5 removes that pawn and opens the d-file, where the white queen and rook will soon stare at the soft spots around the king. Black's queen retreats to c5, still eyeing the kingside and hoping to organize a defense. White answers with the calm, crushing Bd3. The bishop develops to its best diagonal in one move: from d3 it attacks the bishop on h7, the piece that started all of Black's trouble back on move three. Black must spend another tempo saving or exchanging that bishop, and every tempo spent defending is a tempo not spent evacuating the king. This is the discipline inside Tal's chaos: the sacrifice on e6 was the spark, but the win is built by ordinary developing moves that each carry a threat. Nf3, dxe5, and Bd3 put three pieces into the attack while Black has developed almost nothing that helps the king. When the rooks land on the e- and d-files, the defense finally cracks.",
+      "fen": "rn3bnr/pp3kpb/2pq3p/3pp3/3P2PP/5N2/PPP2P2/RNBQKB1R w KQ - 0 9",
+      "leadInMoves": [
+        "Nf3",
+        "e5"
+      ],
+      "name": "Development with Tempo",
+      "opponentResponse": "Qc5",
+      "solutionMoves": [
+        "dxe5",
+        "Qc5",
+        "Bd3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Exposed King"
+    },
+    {
+      "briefExplanation": "Capturing on e6 leaves the h7 bishop trapped. Bd3 eyes it, Bxh7 collects it, and h5 continues the attack after Black grabs g4.",
+      "description": "If Black captures the e6 pawn with the f-pawn, develop Bd3, win the entombed bishop on h7, and keep the storm rolling with h5.",
+      "drillId": "tal-t4",
+      "explanation": "Black can accept the sacrifice with fxe6, opening the f-file but leaving a different problem unsolved: the bishop on h7 is entombed. Its own pawns on h6 and g7 block the exits, the knight on g8 blocks the last retreat square, and White's g4 pawn controls f5. White develops Bd3, pointing straight down the diagonal at h7. Black develops Nf6, hoping counterplay will save the day, but White simply plays Bxh7, collecting the bishop that the pawn storm trapped. Black grabs the g4 pawn with the knight as compensation and to open lines of his own, yet White is not finished: h5! The h-pawn, the very first pawn of the storm, advances again, fixing Black's kingside pawns and threatening to pry open the h-file against the king. The material count tells the story of the variation: White's storm pawns looked reckless, but each one had a job — h4 prepared the trap, g4 drove the bishop into its cage, e6 opened the center, and now h5 keeps the pressure on. In the Tal Variation, the pawns are not weaknesses; they are the attacking pieces.",
+      "fen": "rn1qkbnr/pp2p1pb/2p1p2p/3p4/3P2PP/8/PPP2P2/RNBQKBNR w KQkq - 0 7",
+      "leadInMoves": [
+        "e6",
+        "fxe6"
+      ],
+      "name": "When Black Captures on e6",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Bd3",
+        "Nf6",
+        "Bxh7",
+        "Nxg4",
+        "h5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Bishop Hunt"
+    }
+  ],
+  "id": "tal-variation-tacticals",
+  "name": "Tal Variation — White Tactics"
+}

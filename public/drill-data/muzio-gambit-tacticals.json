@@ -1,0 +1,152 @@
+{
+  "arena": "muzio-gambit",
+  "description": "4 tactical challenges for White in the Muzio Gambit (King's Gambit Accepted), the most romantic sacrifice in chess — a whole knight for the attack. Storm f7 with Qxf3, Bxf7+, and the d4 break.",
+  "drills": [
+    {
+      "briefExplanation": "e5 attacks the queen, and when she captures, Bxf7+! sacrifices the second piece. After Kxf7, d4 opens the c1 bishop and White's attack is overwhelming.",
+      "description": "Black defends with 6...Qf6, so blow the doors off: e5 drives the queen to capture, and Bxf7+! drags the king into the open with d4 to follow.",
+      "drillId": "muz-t1",
+      "explanation": "This is the Muzio Gambit at full throttle — down a whole knight, White now offers the bishop too. The queen sortie 6...Qf6 is Black's most solid defense, so White undermines it with 7.e5!, attacking the queen. She grabs the pawn 7...Qxe5, and now comes the point: 8.Bxf7+! The bishop cannot be ignored — after 8...Kxf7 the Black king stands naked on f7, and White plays 9.d4!, attacking the queen and unmasking the c1 bishop in one move. The queen must flee (9...Qf5 or 9...Qd6), and White follows with Bxf4, Nc3, and Qh5+, when the attack plays itself: rooks come to the e- and f-files, the bishops rake the kingside, and Black's king has no pawn cover and no defenders. Material counters will say White is down the exchange and more; the Muzio player counts differently — every White piece is developed and aiming at the king, while Black's entire queenside is still asleep. This position has been winning games for White since the 1800s. The lesson: in the Muzio, f7 is not a pawn — it is a door, and Bxf7+ is how you knock it down.",
+      "fen": "rnb1kbnr/pppp1p1p/5q2/8/2B1Pp2/5Q2/PPPP2PP/RNB2RK1 w kq - 1 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Nf3",
+        "g5",
+        "Bc4",
+        "g4",
+        "O-O",
+        "gxf3",
+        "Qxf3",
+        "Qf6"
+      ],
+      "name": "The Muzio Sacrifice",
+      "opponentResponse": "Qxe5",
+      "solutionMoves": [
+        "e5",
+        "Qxe5",
+        "Bxf7+",
+        "Kxf7",
+        "d4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "f7 Sacrifice"
+    },
+    {
+      "briefExplanation": "d4 opens the center, Bxe6 trades into open lines after ...fxe6, and Bxf4 removes Black's extra pawn while completing White's development.",
+      "description": "Black plays the solid 6...d6. Break with d4, trade bishops on e6 to open lines, and capture on f4 with a development lead that promises a lasting attack.",
+      "drillId": "muz-t2",
+      "explanation": "Not every Muzio becomes a king hunt in ten moves — against the solid 6...d6, White wins by development. The break 7.d4! opens the center before Black can build a shelter, and after 7...Be6 White trades 8.Bxe6, damaging Black's structure: 8...fxe6 doubles the e-pawns and, more importantly, strips the f7 square of its pawn shield while opening the f-file for White's rook. Then 9.Bxf4 collects Black's extra pawn — the gambit pawn from move two finally comes home — and White emerges with queen on f3, bishop on f4, knight coming to c3, and a rook ready to double on the f-file. Black is not mated, but the position is miserable: a king on e8, an isolated e6 pawn, and f7 permanently tender. This is the Muzio's second face. If Black refuses to be blown away, White simply develops every piece to its best square, recovers the pawn, and keeps the initiative forever. Amateurs fear the quiet lines more than the sacrifices — there is no single tactic to find, just a position where every White move improves a piece and every Black move is a concession.",
+      "fen": "rnbqkbnr/ppp2p1p/3p4/8/2B1Pp2/5Q2/PPPP2PP/RNB2RK1 w kq - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Nf3",
+        "g5",
+        "Bc4",
+        "g4",
+        "O-O",
+        "gxf3",
+        "Qxf3",
+        "d6"
+      ],
+      "name": "Trading into the Attack",
+      "opponentResponse": "Be6",
+      "solutionMoves": [
+        "d4",
+        "Be6",
+        "Bxe6",
+        "fxe6",
+        "Bxf4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development"
+    },
+    {
+      "briefExplanation": "Bxf4 challenges the pawn's defender, and after ...Bxf4 the queen recaptures with gain of time. White keeps every attacker and removes Black's best defensive piece.",
+      "description": "Black defends the f4 pawn with 6...Bh6. Play d4, trade on f4 with the bishop, and recapture with the queen — White's attack rolls on with queen and bishops aimed at f7.",
+      "drillId": "muz-t3",
+      "explanation": "The bishop on h6 is Black's best defender in the Muzio — it guards the f4 pawn, watches g5 and f8, and gives the king a friend on the kingside. White's method is systematic: 7.d4 develops the center, Black consolidates with 7...Qe7, and now 8.Bxf4! challenges the defender directly. Black must recapture 8...Bxf4 — otherwise the pawn falls and the f-file opens for free — and then 9.Qxf4 lands White's queen on the perfect square, having developed with every move. Tally the exchange of ideas: White traded the c1 bishop for Black's best defender, and now the queen on f4 eyes f7, h4, and c7, while Bc4 still burns down the a2–g8 diagonal and Nc3–e4 ideas are coming. Black's king remains on e8 with a pawn on f7 defended only by the king itself. The Muzio lesson here is about targets: the attack is not always a sacrifice. Sometimes it is the patient removal of the one piece holding the defense together. Once the h6 bishop is gone, Black has no good answer to Qh5 ideas and doubling rooks on the f-file — the attack doesn't need to calculate; it accumulates.",
+      "fen": "rnbqk1nr/pppp1p1p/7b/8/2B1Pp2/5Q2/PPPP2PP/RNB2RK1 w kq - 1 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Nf3",
+        "g5",
+        "Bc4",
+        "g4",
+        "O-O",
+        "gxf3",
+        "Qxf3",
+        "Bh6"
+      ],
+      "name": "Removing the Defender",
+      "opponentResponse": "Qe7",
+      "solutionMoves": [
+        "d4",
+        "Qe7",
+        "Bxf4",
+        "Bxf4",
+        "Qxf4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Deflection"
+    },
+    {
+      "briefExplanation": "Bxd5 removes the counterattacking pawn, and after ...Nf6 attacks the bishop, Bxf7+! sacrifices it anyway. Kxf7 walks into d4 and a decisive attack.",
+      "description": "Black counterattacks the bishop with 6...d5. Take it, let the knight come to f6, and sacrifice on f7 anyway — Bxf7+! with d4 behind it is the Muzio's answer to everything.",
+      "drillId": "muz-t4",
+      "explanation": "Black's 6...d5 is the counterpunch — hit the c4 bishop and fight for the center instead of defending. The Muzio answer is pure insolence: 7.Bxd5 takes the pawn, and when the knight develops with tempo 7...Nf6, White sacrifices the bishop anyway: 8.Bxf7+! After 8...Kxf7, White plays 9.d4!, unmasking the c1 bishop and preparing Nc3 and Bxf4. Why does this work? Because Black's 'counterattack' spent two tempi (…d5 and …Nf6) that did nothing to defend the king, while every White move developed or opened a line. The king on f7 is attacked by the queen on f3 the moment the f4 pawn moves or is captured, the bishop on c1 is one move from f4, and the knight comes to c3 and e4 with tempo. Black is up material on paper and lost in practice — the queenside pieces might as well be spectators. This is the Muzio's deepest truth, worth learning in every line: the attack's value is measured in tempi and open lines, not in the material sacrificed. When your opponent spends moves grabbing pawns and hitting bishops while his king sits in the center, the correct response is usually to give him the piece.",
+      "fen": "rnbqkbnr/ppp2p1p/8/3p4/2B1Pp2/5Q2/PPPP2PP/RNB2RK1 w kq - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Nf3",
+        "g5",
+        "Bc4",
+        "g4",
+        "O-O",
+        "gxf3",
+        "Qxf3",
+        "d5"
+      ],
+      "name": "Second Helping",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Bxd5",
+        "Nf6",
+        "Bxf7+",
+        "Kxf7",
+        "d4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Double Sacrifice"
+    }
+  ],
+  "id": "muzio-gambit-tacticals",
+  "name": "Muzio Gambit — White Tactics"
+}

@@ -1,0 +1,144 @@
+{
+  "arena": "scotch-gambit",
+  "description": "4 tactical challenges for White in the Scotch Gambit (3.d4 exd4 4.Bc4). Sacrifice pawns for development, stab with e5, and make Black's king the target of your open lines.",
+  "drills": [
+    {
+      "briefExplanation": "e5 forces Black's hand: after the d5 counter, Bb5 pins and Nxd4 recovers the pawn with the better center and development.",
+      "description": "Black has developed solidly behind your gambit pawn. Smash the center anyway with e5, pin with Bb5, and recapture on d4 with a dominating position.",
+      "drillId": "scg-t1",
+      "explanation": "The Scotch Gambit is not really about the pawn — it is about the e5 break. After Black develops naturally with Bc5 and Nf6, White strikes e5!, attacking the knight and seizing the center Black thought was safe. Black's best answer is the counter-break d5!, hitting the c4 bishop and fighting for the middle, and now White clarifies with Bb5!, pinning the c6 knight against its king. The pin matters because it freezes Black's best defender of the d4 square; after Ne4 centralizes the attacked knight, White simply recaptures Nxd4 and the opening battle is over. Count what White has: the pawn is returned, yes, but in exchange White owns a broad center, bishops aimed at the kingside, and natural squares for every piece, while Black's e4 knight will soon be chased by f3 or Bd3 with tempo. This is the gambit's philosophy in one line — the pawn was never sacrificed for an attack out of nowhere; it was invested in the e5 break and the development that makes such breaks possible. When you play the Scotch Gambit, do not count pawns; count tempi and open lines.",
+      "fen": "r1bqk2r/pppp1ppp/2n2n2/2b5/2BpP3/2P2N2/PP3PPP/RNBQK2R w KQkq - 1 6",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Bc4",
+        "Bc5",
+        "c3",
+        "Nf6"
+      ],
+      "name": "Breaking Through the Center",
+      "opponentResponse": "d5",
+      "solutionMoves": [
+        "e5",
+        "d5",
+        "Bb5",
+        "Ne4",
+        "Nxd4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    },
+    {
+      "briefExplanation": "Two pawns for a raging initiative: after O-O and Bxb2, White's bishops, queen, and the Ng5 thrust all point at Black's king.",
+      "description": "Black checks and grabs your c-pawn. Do not recapture — castle, let Black take a second pawn on b2, and unleash both bishops and Ng5 against the king.",
+      "drillId": "scg-t2",
+      "explanation": "This is the Scotch Gambit at its most romantic — the Danish Gambit's spirit in a Scotch move order. When Black captures on c3, recapturing with bxc3 is the accountant's move; castling is the player's move. White allows cxb2, a second pawn swallowed, and only then recaptures Bxb2, because the true compensation is visible in the position: White is castled and developed, both bishops rake open diagonals toward the kingside, and Black's king is still on e8 with a pawn-grabbing expedition to show for the last three moves. Black develops Nf6 to catch up, and White plays Ng5!, the natural attacking move — f7 is in the bishop's sights, Qh5 is coming, and Black must spend precious tempi defending instead of developing. Add up the score honestly: White is down two pawns and winning the development race by three moves, with the safer king and all the threats. Engines may call it roughly balanced; human beings defending Black's position call it miserable. The Scotch Gambit player must internalize this trade — pawns are the price, the initiative is the product, and Black's greedy captures are what make the product possible.",
+      "fen": "r1bqk1nr/pppp1ppp/2n5/8/1bB1P3/2p2N2/PP3PPP/RNBQK2R w KQkq - 0 6",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Bc4",
+        "Bb4+",
+        "c3",
+        "dxc3"
+      ],
+      "name": "The Danish Sacrifice",
+      "opponentResponse": "cxb2",
+      "solutionMoves": [
+        "O-O",
+        "cxb2",
+        "Bxb2",
+        "Nf6",
+        "Ng5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Double Pawn Sacrifice"
+    },
+    {
+      "briefExplanation": "h3 puts the question to the bishop, and after it retreats, cxd4 restores White's center with interest.",
+      "description": "Black pins your knight and holds the gambit pawn with d6. Question the bishop with h3, then recapture cxd4 and build the ideal center.",
+      "drillId": "scg-t3",
+      "explanation": "Against the solid d6, White's task is to recapture the gambit pawn without letting Black's pin become a problem. The move order is everything: h3 first, putting the question to the bishop before recapturing. Black retreats Bh5 — capturing on f3 would surrender the bishop pair and open the g-file toward Black's own king, since gxf3 recaptures with a pawn and gives White's rook a highway. Only now does White play cxd4, restoring the pawn center on White's terms. The difference the h3 move makes is subtle but decisive: Black's bishop is a bystander on h5 instead of a pinning piece, and White's center stands ready to roll. Black develops Nf6, and White completes the ideal setup with Nc3, supporting future e5 breaks and d5 advances. The position is the Scotch Gambit's quiet victory: material is level, but White has the center, the space, and the easier plans, while Black's extra pawn turned out to be a mirage. Not every gambit needs a sacrifice — sometimes the win is simply choosing the exact moment to take your pawn back.",
+      "fen": "r2qkbnr/ppp2ppp/2np4/8/2BpP1b1/2P2N2/PP3PPP/RNBQK2R w KQkq - 1 6",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Bc4",
+        "d6",
+        "c3",
+        "Bg4"
+      ],
+      "name": "Recapturing on Your Terms",
+      "opponentResponse": "Bh5",
+      "solutionMoves": [
+        "h3",
+        "Bh5",
+        "cxd4",
+        "Nf6",
+        "Nc3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Center Recapture"
+    },
+    {
+      "briefExplanation": "Bb5 pins the c6 knight so that Nxd4 recaptures cleanly. White castles with the center and the initiative intact.",
+      "description": "Black meets your gambit with Nf6 and answers e5 with the d5 counter. Pin the knight's defender with Bb5, recapture on d4, and castle into a lasting bind.",
+      "drillId": "scg-t4",
+      "explanation": "When Black develops the knight to f6, the Scotch Gambit borrows the Two Knights' sharpest idea: the immediate e5 stab. The knight is attacked before Black has castled, and Black's correct response is the counter-stab d5!, opening the center while the bishop on c4 is hit. White's answer is the pin: Bb5! fixes the c6 knight in place, and that pin is what makes the recapture work — after Ne4, the knight flees forward rather than backward, and Nxd4 restores material equality with White keeping every positional gain. The d4 knight is centralized, Black's e4 knight is exposed to Bd3 or f3 ideas, and the pin on c6 still restricts Black's best developing moves. Black develops Bd6 to untangle, and White castles, completing the model development the gambit promises: king safe, rooks ready to claim the central files, and every minor piece active. The Scotch Gambit's e5 stab works because it is played before Black is ready — one tempo gained in the center echoes through the entire middlegame.",
+      "fen": "r1bqkb1r/ppp2ppp/2n2n2/3pP3/2Bp4/5N2/PPP2PPP/RNBQK2R w KQkq d6 0 6",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "d4",
+        "exd4",
+        "Bc4",
+        "Nf6",
+        "e5",
+        "d5"
+      ],
+      "name": "The Pin After the Stab",
+      "opponentResponse": "Ne4",
+      "solutionMoves": [
+        "Bb5",
+        "Ne4",
+        "Nxd4",
+        "Bd6",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pin"
+    }
+  ],
+  "id": "scotch-gambit-tacticals",
+  "name": "Scotch Gambit — White Tactics"
+}

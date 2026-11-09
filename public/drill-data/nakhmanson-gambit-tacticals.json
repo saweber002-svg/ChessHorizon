@@ -1,0 +1,114 @@
+{
+  "arena": "nakhmanson-gambit",
+  "description": "4 tactical challenges for White in the Nakhmanson Gambit (1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.d4 exd4 5.O-O Nxe4 6.Nc3 dxc3 7.Bxf7+), the Italian Game's wildest sacrifice. Give up the pieces and hunt the king with Qd5+.",
+  "drills": [
+    {
+      "briefExplanation": "Nc3 invites dxc3, swallowing a whole knight. Bxf7+ drags the king out, and Qd5+ starts the harvest.",
+      "description": "Offer a second piece with Nc3, and when Black grabs it, rip f7 open with Bxf7+. Finish with Qd5+, checking the exposed king and eyeing the loose knight.",
+      "drillId": "nak-t1",
+      "explanation": "The Nakhmanson Gambit is built on an outrageous idea: White offers not one piece but two. After Nxe4 grabs a pawn, White plays Nc3, inviting dxc3 — Black swallows the knight and stands two pieces ahead on the material count. Then comes the point of the whole conception: Bxf7+! The bishop cannot be ignored, the king must capture, and after Kxf7 the black king stands naked on f7 with the center wide open. Qd5+ lands with check, and the geometry is beautiful — the queen simultaneously checks the king and eyes the loose e4 knight, so one sacrificed piece is already coming home next move. White's compensation is written into the position: Black's extra pieces are undeveloped, the pawn on c3 is both a target and a traffic jam in Black's own camp, and White's queen, the rook on f1, and the bishop on c1 all join the attack within a move or two. Two pieces is an enormous price — the Nakhmanson simply argues that this king is worth more.",
+      "fen": "r1bqkb1r/pppp1ppp/2n5/8/2Bpn3/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 6",
+      "leadInMoves": [
+        "O-O",
+        "Nxe4"
+      ],
+      "name": "Two Pieces for the King",
+      "opponentResponse": "dxc3",
+      "solutionMoves": [
+        "Nc3",
+        "dxc3",
+        "Bxf7+",
+        "Kxf7",
+        "Qd5+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Double Sacrifice"
+    },
+    {
+      "briefExplanation": "Qd5+ forces the king home. Qxe4+ regains the knight with check, and Re1 turns the e-file into a pin machine.",
+      "description": "Give the check Qd5+, and when the king runs home to e8, harvest the knight with Qxe4+. Then Re1 pins the bishop against the king on the open e-file.",
+      "drillId": "nak-t2",
+      "explanation": "Qd5+ is the move the entire gambit exists to play — the queen checks the wandering king and simultaneously attacks the e4 knight, so one of White's sacrificed pieces is already coming home. The king retreats Ke8, and White plays Qxe4+, regaining the knight with a second check and forcing Black to interpose Be7. Now the position's second idea appears: Re1! The rook slides onto the open e-file, and the bishop on e7 is pinned against the king standing behind it — it cannot move without exposing the king to check. White has climbed from two pieces down to one, and the remaining deficit buys a pin, a cramped black position, and a pawn on c3 that blocks Black's own development and can be rounded up at leisure. This is mature gambit play in two waves: the first wave, Qd5+ and Qxe4+, restores most of the material, and the second wave, Re1, converts the king's displacement into lasting pressure. Black is still defending; White is still playing.",
+      "fen": "r1bq1b1r/pppp1kpp/2n5/8/4n3/2p2N2/PPP2PPP/R1BQ1RK1 w - - 0 8",
+      "leadInMoves": [
+        "Bxf7+",
+        "Kxf7"
+      ],
+      "name": "The Pin After the Harvest",
+      "opponentResponse": "Ke8",
+      "solutionMoves": [
+        "Qd5+",
+        "Ke8",
+        "Qxe4+",
+        "Be7",
+        "Re1"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Regain and Pin"
+    },
+    {
+      "briefExplanation": "Bxf7+ drags the king out. If it walks to g6 after Qd5+, White simply takes the knight — the king's adventure creates brand-new targets.",
+      "description": "Sacrifice on f7, and when the king walks toward the fire with Kg6 instead of retreating, calmly harvest the knight with Qxe4. The king on g6 becomes a target for everything.",
+      "drillId": "nak-t3",
+      "explanation": "After Bxf7+ and Kxf7, the check Qd5+ gives Black a choice, and Kg6 is the brave one — the king walks toward White's army rather than retreating home. White stays calm and plays Qxe4, regaining the knight and completing the first phase of the gambit with a healthy position. But look at where the king has ended up: on g6 it stands in front of its own pawn shield, in range of the rook on f1, within reach of the c1 bishop's long diagonal, and one h-pawn push away from having the h-file opened against it. White's next moves suggest themselves — h4 threatens to pry the file open, Bd3+ ideas appear if the king lingers, and every black piece is still at home or tied to defensive duty. The lesson of the Nakhmanson is that the counterattack does not need to deliver mate immediately; it needs the king to stay uncomfortable. A king on g6 in the middlegame is a permanent weakness, and White's development lead means Black will be answering threats for a long time to come.",
+      "fen": "r1bqkb1r/pppp1ppp/2n5/8/2B1n3/2p2N2/PPP2PPP/R1BQ1RK1 w kq - 0 7",
+      "leadInMoves": [
+        "Nc3",
+        "dxc3"
+      ],
+      "name": "When the King Walks",
+      "opponentResponse": "Kxf7",
+      "solutionMoves": [
+        "Bxf7+",
+        "Kxf7",
+        "Qd5+",
+        "Kg6",
+        "Qxe4+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "King Hunt"
+    },
+    {
+      "briefExplanation": "bxc3 opens the b-file. Even after the cramping d3, Bxf7+ works, Ng5+ chases the king home, and Qh5 threatens Qxf7 mate.",
+      "description": "If Black grabs the knight with Nxc3 instead, recapture and shrug off the cramping d3 pawn — the f7 sacrifice works anyway. Follow with Ng5+ and Qh5, threatening mate.",
+      "drillId": "nak-t4",
+      "explanation": "Black can grab the offered knight differently with Nxc3, and after bxc3 the pawn thrust d3 looks genuinely annoying — it cramps White's position and sits deep inside White's camp. The Nakhmanson does not care: Bxf7+! works exactly as before, because the tactic never depended on the queenside. The king captures and steps onto f7, and now Ng5+! is the star move — the knight arrives with check, chasing the king back to the corner on g8. That sets up the finale: Qh5!, swinging the queen to the kingside, where she and the knight form a mating battery. Qxf7 is a genuine mate threat, because the queen would be defended by the knight on g5 and the black king has no escape squares left. Black must spend precious moves stopping mate while White's rook and bishop still wait to join the fight. The gambit's moral is clear: the attack lives on f7 and around the black king, and no queenside distraction — not even a pawn planted on d3 — can talk White out of playing it.",
+      "fen": "r1bqkb1r/pppp1ppp/2n5/8/2Bp4/2n2N2/PPP2PPP/R1BQ1RK1 w kq - 0 7",
+      "leadInMoves": [
+        "Nc3",
+        "Nxc3"
+      ],
+      "name": "The Sacrifice Survives",
+      "opponentResponse": "d3",
+      "solutionMoves": [
+        "bxc3",
+        "d3",
+        "Bxf7+",
+        "Kxf7",
+        "Ng5+",
+        "Kg8",
+        "Qh5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Persistent Attack"
+    }
+  ],
+  "id": "nakhmanson-gambit-tacticals",
+  "name": "Nakhmanson Gambit — White Tactics"
+}
