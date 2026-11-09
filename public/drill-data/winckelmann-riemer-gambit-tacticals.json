@@ -1,0 +1,152 @@
+{
+  "arena": "winckelmann-riemer-gambit",
+  "description": "4 tactical challenges for White in the Winckelmann-Riemer Gambit (French Winawer, 6.f3), where White gives a pawn for a development avalanche. Meet ...exf3, ...Nf6, ...c5, and ...e3 with rapid mobilization.",
+  "drills": [
+    {
+      "briefExplanation": "Nxf3 recaptures and develops at once. After Bd3 and O-O, White has every piece ready while Black still has an uncastled king and no development to speak of.",
+      "description": "Black grabs the gambit pawn with 6...exf3. Recapture with the knight and complete development at lightning speed — Bd3, castling, and a monster center.",
+      "drillId": "wri-t1",
+      "explanation": "This is the Winckelmann-Riemer Gambit's whole business plan: White offers the f-pawn, and if Black accepts with 6...exf3, White recaptures 7.Nxf3, developing the kingside knight for free. After 7...Nf6, White plays 8.Bd3 — the bishop lands on the perfect diagonal, eyeing h7 and supporting e4 ideas — and after 8...O-O White castles too, 9.O-O. Now count: White has a knight developed, both bishops one move from their best squares (the c1 bishop comes to g5 or f4), a castled king, a rook ready for e1, and a massive pawn center with d4 and c3. Black has an extra pawn and absolutely nothing else — no developed pieces beyond the f6 knight, and a queenside that will take three moves to untangle. The gambit's arithmetic is ruthless: a pawn is worth roughly three tempi, and White has collected about five. From here White plays Bg5, Qe2 or Qd3, and Rae1, and the e4–e5 or d4–d5 breaks arrive with every piece participating. When Black grabs on f3, don't mourn the pawn — invoice him for it.",
+      "fen": "rnbqk1nr/ppp2ppp/4p3/8/3P4/P1P2p2/2P3PP/R1BQKBNR w KQkq - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "Nc3",
+        "Bb4",
+        "a3",
+        "Bxc3+",
+        "bxc3",
+        "dxe4",
+        "f3",
+        "exf3"
+      ],
+      "name": "Development Dividend",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Nxf3",
+        "Nf6",
+        "Bd3",
+        "O-O",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn for Development"
+    },
+    {
+      "briefExplanation": "fxe4 regains the pawn and attacks the knight's support. Bd3 menaces the knight, and even the check ...Qh4+ is comfortably met by g3.",
+      "description": "Black declines with 6...Nf6, so take the pawn yourself: fxe4 wins material back, and after Bd3 the knight on e4 lives dangerously with Qh4+ coming.",
+      "drillId": "wri-t2",
+      "explanation": "When Black declines the gambit with 6...Nf6, White simply takes the pawn back: 7.fxe4, and the knight must capture 7...Nxe4 to avoid losing a piece for nothing. Now White develops with the menacing 8.Bd3, and the knight on e4 is in real trouble — it is attacked, and its escape squares are watched by White's pawn mass. Black's best try is the check 8...Qh4+, hoping to disrupt White's coordination, but 9.g3 calmly blocks, and the queen must retreat while White continues Nf3, O-O, and Bf4 with a crushing position. The deeper point of the Winckelmann-Riemer is visible here: the gambit pawn on f3 was never really about the pawn. By advancing, it opened lines, cleared f3 for the knight, and dragged Black's pieces onto awkward squares. Black's knight on e4 looks centralized, but it is actually a target — White's bishops and the c3 pawn (which guards b4 and d4) give White every tempo. If Black later exchanges on c3, White recaptures and the half-open b-file joins the attack. Declining the gambit doesn't save Black; it just changes how White collects.",
+      "fen": "rnbqk2r/ppp2ppp/4pn2/8/3Pp3/P1P2P2/2P3PP/R1BQKBNR w KQkq - 1 7",
+      "leadInMoves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "Nc3",
+        "Bb4",
+        "a3",
+        "Bxc3+",
+        "bxc3",
+        "dxe4",
+        "f3",
+        "Nf6"
+      ],
+      "name": "Knight Bait",
+      "opponentResponse": "Nxe4",
+      "solutionMoves": [
+        "fxe4",
+        "Nxe4",
+        "Bd3",
+        "Qh4+",
+        "g3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Exposed Knight"
+    },
+    {
+      "briefExplanation": "fxe4 regains the pawn at once. After the d4 trade — cxd4 answered by cxd4 — Nf3 completes the mobilization: White has the center, the bishops, and the easier game.",
+      "description": "Black counterattacks the center with 6...c5. Take the gambit pawn back with fxe4, trade on d4, and develop Nf3 into White's ideal Winckelmann-Riemer setup.",
+      "drillId": "wri-t3",
+      "explanation": "Black's 6...c5 is the principled French answer — strike the d4 pawn and fight for the center before White's development tells. White's answer is to restore material first: 7.fxe4. The gambit pawn comes home, and Black's counter continues 7...cxd4, capturing the d4 pawn. White recaptures 8.cxd4 — the c3 pawn, product of the Winawer's doubled pawns, proves its worth by re-establishing a pawn on d4 and keeping White's center intact. Black develops the knight 8...Nc6, pressuring d4, and White completes the mobilization with 9.Nf3. Survey the position: material is dead level — both gambit pawns and both c-pawns have been exchanged — but the development ledger is all White. Knight out, both bishops one move from their dream squares (Bd3 and Bg5), castling next, and a solid d4 pawn anchoring the center. Black still has an uncastled king, a knight that will be kicked by d5 ideas, and the e6 pawn as a permanent target on the half-open e-file. The Winckelmann-Riemer lesson repeats in every variation: Black can grab the pawn or fight the center, but each choice costs the tempi White needs. Trade the blows calmly, and the bishops decide the game later.",
+      "fen": "rnbqk1nr/pp3ppp/4p3/2p5/3Pp3/P1P2P2/2P3PP/R1BQKBNR w KQkq - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "Nc3",
+        "Bb4",
+        "a3",
+        "Bxc3+",
+        "bxc3",
+        "dxe4",
+        "f3",
+        "c5"
+      ],
+      "name": "Trading Blows",
+      "opponentResponse": "cxd4",
+      "solutionMoves": [
+        "fxe4",
+        "cxd4",
+        "cxd4",
+        "Nc6",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Counter"
+    },
+    {
+      "briefExplanation": "Bxe3 removes the wedge at once. After Bd3 and Qd2, White has the two bishops, a solid center, and easy development — Black's cramping try has failed.",
+      "description": "Black returns the pawn with 6...e3, trying to cramp White's development. Simply capture it with the bishop and develop normally — Bd3 and Qd2 follow, and White emerges with the bishop pair and no weaknesses.",
+      "drillId": "wri-t4",
+      "explanation": "Black's 6...e3 is the cagey option: instead of keeping the pawn or capturing on f3, Black shoves it deeper, hoping the pawn on e3 will cramp White's bishops and disrupt castling. The answer is disdainfully simple: 7.Bxe3. The c1 bishop captures the intruder and lands on a fine square, eyeing c5 and g5. Black develops 7...Nf6, and White continues 8.Bd3 — the second bishop takes the ideal diagonal — and after 8...O-O White plays 9.Qd2, developing the queen, supporting Bh6 ideas, and preparing to castle whenever convenient. Compare what each side got from the opening: White traded the f-pawn for Black's advanced e-pawn, kept the big d4/c3 center, owns the bishop pair, and has every piece either developed or one move away. Black's 'cramping' pawn is gone, the f-file is half-open for White's rook, and the e3 square Black fought for is occupied by a White bishop. The teaching point: a wedge pawn is only strong if it can't be captured favorably. When the capture develops a piece and leaves no weaknesses — no doubled pawns, no exposed king — just take it and enjoy the bishop pair. Sometimes it is Black who overreaches.",
+      "fen": "rnbqk1nr/ppp2ppp/4p3/8/3P4/P1P1pP2/2P3PP/R1BQKBNR w KQkq - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e6",
+        "d4",
+        "d5",
+        "Nc3",
+        "Bb4",
+        "a3",
+        "Bxc3+",
+        "bxc3",
+        "dxe4",
+        "f3",
+        "e3"
+      ],
+      "name": "Swallowing the Wedge",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Bxe3",
+        "Nf6",
+        "Bd3",
+        "O-O",
+        "Qd2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Accepting the Pawn"
+    }
+  ],
+  "id": "winckelmann-riemer-gambit-tacticals",
+  "name": "Winckelmann-Riemer Gambit — White Tactics"
+}

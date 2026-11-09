@@ -1,0 +1,154 @@
+{
+  "arena": "italian-gambit",
+  "description": "4 tactical challenges for White in the Italian Gambit (3.Bc4 Bc5 4.d4), the romantic pawn sacrifice. Cash in White's development lead with the f4 break, the e5 fork, and relentless pressure on f7.",
+  "drills": [
+    {
+      "briefExplanation": "f4! is the Italian Gambit's signature break. After exf4, Bxf4 develops with tempo, and e5 drives the knight away while opening the position for White's bishops.",
+      "description": "Against Black's solid 6...d6, unleash the thematic f4 break. Open the f-file, recapture with the bishop, and drive at Black's center with e5.",
+      "drillId": "itg-t1",
+      "explanation": "This is the position the Italian Gambit promises: White gave a pawn and in return owns the two bishops, a lead in development, and a Black king still in the center. The lever is f4! — the f-pawn smashes into e5 before Black can consolidate with ...Be6 and ...O-O. After 7...exf4, White recaptures 8.Bxf4, developing the last bishop to a perfect square where it eyes c7 and d6. Black develops 8...Nf6, but White isn't finished: 9.e5! attacks the knight and the d6 pawn simultaneously. Black must capture 9...dxe5, and after 10.Bxe5 White's bishop pair rakes the board, the f1 rook owns the half-open f-file, and Black's king still has no safe home. Every tempo matters in the Italian Gambit — White traded a pawn for three tempi and open lines, and this sequence shows exactly how to cash them in. Notice that White never hurries to regain the pawn; the compensation IS the attack. When you play the Italian Gambit, breaks like f4 and e5 are your salary — collect them before Black's extra pawn starts to matter.",
+      "fen": "r1bqk1nr/ppp2ppp/3p4/4p3/2BnP3/8/PPP2PPP/RNBQ1RK1 w kq - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "d4",
+        "Bxd4",
+        "Nxd4",
+        "Nxd4",
+        "O-O",
+        "d6"
+      ],
+      "name": "The f4 Break",
+      "opponentResponse": "exf4",
+      "solutionMoves": [
+        "f4",
+        "exf4",
+        "Bxf4",
+        "Nf6",
+        "e5",
+        "dxe5",
+        "Bxe5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    },
+    {
+      "briefExplanation": "c3 drives the d4 knight back to e6, and f4 opens the f-file at once. After Bxf4, White has both bishops, the open file, and a lasting lead in development.",
+      "description": "Black develops 6...Nf6, but the gambit's prize knight sits on d4. Kick it with c3, and when it retreats to e6, break with f4 and recapture with the bishop.",
+      "drillId": "itg-t2",
+      "explanation": "Black's proudest asset from the gambit is the knight on d4 — it captured the bishop and then White's knight, and it radiates power from the center. But it has a flaw: it is short of support, and White kicks it before doing anything else with 7.c3. The knight must retreat — 7...Ne6 (7...Nf5 allows similar treatment, and 7...Nb3 runs into Qxb3 ideas) — and a knight on e6 is a shadow of the one on d4: it blocks the c8 bishop, eyes nothing important, and no longer slows White down. Now the second lever: 8.f4! The f-pawn smashes into e5 before Black can organize, and after 8...exf4 White recaptures 9.Bxf4, landing the bishop on its ideal diagonal. Survey the result: White has two bishops, the half-open f-file, a castled king, and Nc3 coming; Black has a passive knight on e6, a bishop still on c8, and a king on e8. The Italian Gambit's compensation was never about one tactic — it is the sum of small humiliations like this one. A knight driven from d4 to e6 is a tempo won, a file opened is a tempo won, and together they are why the gambit works.",
+      "fen": "r1bqk2r/pppp1ppp/5n2/4p3/2BnP3/8/PPP2PPP/RNBQ1RK1 w kq - 2 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "d4",
+        "Bxd4",
+        "Nxd4",
+        "Nxd4",
+        "O-O",
+        "Nf6"
+      ],
+      "name": "Kick and Break",
+      "opponentResponse": "Ne6",
+      "solutionMoves": [
+        "c3",
+        "Ne6",
+        "f4",
+        "exf4",
+        "Bxf4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Driving the Knight"
+    },
+    {
+      "briefExplanation": "Against ...g6, White's f4 break is even stronger — Black has spent a tempo on a pawn move while White opens lines and completes development.",
+      "description": "Black tries the slow 6...g6, preparing to fianchetto a bishop that no longer exists on f8. Race ahead with f4, Bxf4, and Nc3.",
+      "drillId": "itg-t3",
+      "explanation": "Black's 6...g6 is a conceptual mistake worth remembering: the bishop that belongs on g7 was the one sacrificed on d4, so Black is preparing a fianchetto for the wrong bishop while White opens the center. White strikes immediately with 7.f4! and after 7...exf4 recaptures 8.Bxf4, when the bishop lands on its ideal diagonal, eyeing d6 and c7. Black develops the knight 8...Ne7, heading for g6 or f5, but White completes the mobilization with 9.Nc3. Look at the scoreboard: White has two bishops, three developed pieces, a castled king, and the open f-file; Black has a pawn on g6 that weakens f7 and h6, a king on e8, and not a single minor piece developed except the knight on e7. This is the Italian Gambit's core lesson in its purest form — the gambit pawn buys time, and time must be spent opening lines before the defender organizes. Slow pawn moves like ...g6 are exactly what the gambiteer dreams about. Punish them with f4, develop with tempo, and let the bishops do the talking.",
+      "fen": "r1bqk1nr/pppp1p1p/6p1/4p3/2BnP3/8/PPP2PPP/RNBQ1RK1 w kq - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "d4",
+        "Bxd4",
+        "Nxd4",
+        "Nxd4",
+        "O-O",
+        "g6"
+      ],
+      "name": "Outpacing the Fianchetto",
+      "opponentResponse": "exf4",
+      "solutionMoves": [
+        "f4",
+        "exf4",
+        "Bxf4",
+        "Ne7",
+        "Nc3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development Race"
+    },
+    {
+      "briefExplanation": "After ...Qe7, White develops with tempo: Nc3, Bg5 pins the f6 knight against the queen, and Nd5 seizes the central outpost, hitting both the queen and the pinned knight.",
+      "description": "Black centralizes the queen with 6...Qe7, eyeing the e4 pawn. Answer with calm development — Nc3, Bg5 pinning the knight, and Nd5 landing on the perfect outpost.",
+      "drillId": "itg-t4",
+      "explanation": "Black's 6...Qe7 looks active — the queen eyes e4 and prepares ...Nf6 and ...d6 — but it walks into a tactical web. White develops 7.Nc3 and after 7...Nf6 plays 8.Bg5, pinning the knight against the queen on the g5–e7 diagonal. Black solidifies with 8...d6, and now White strikes with 9.Nd5! The knight lands on the perfect central outpost, and it is a double attack in disguise: from d5 it hits the queen on e7 and the pinned knight on f6 at the same time. Black must retreat the queen (9...Qd8 is the usual choice), because capturing or ignoring the knight sheds material, and the knight cannot be tolerated anyway — it also eyes c7 and f4. The Italian Gambit is famous for sacrifices, but its quieter lesson is just as valuable: development creates outposts. Because White's pieces came out with tempo — bishop with a pin, knight with a double attack — Black's 'active' queen ended up running home. When you have the bishops and the lead in development, moves like Nd5 are often stronger than any check.",
+      "fen": "r1b1k1nr/ppppqppp/8/4p3/2BnP3/8/PPP2PPP/RNBQ1RK1 w kq - 2 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Bc5",
+        "d4",
+        "Bxd4",
+        "Nxd4",
+        "Nxd4",
+        "O-O",
+        "Qe7"
+      ],
+      "name": "The Nd5 Outpost",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Nc3",
+        "Nf6",
+        "Bg5",
+        "d6",
+        "Nd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Knight Outpost"
+    }
+  ],
+  "id": "italian-gambit-tacticals",
+  "name": "Italian Gambit — White Tactics"
+}

@@ -1,0 +1,113 @@
+{
+  "arena": "stafford-gambit",
+  "description": "4 tactical challenges for Black in the Stafford Gambit (1.e4 e5 2.Nf3 Nf6 3.Nxe5 Nc6), the notorious Petroff trap. Punish White's pawn grab with Bc5, h5, and the Ng4 assault on f2.",
+  "drills": [
+    {
+      "briefExplanation": "h5 stops Bg5 ideas and asks White a question. After castling, Ng4 forces Bxg4, opening the h-file for a direct assault with Qh4.",
+      "description": "Play the Stafford's signature h5 thrust. When White castles and takes the knight, recapture down the h-file and bring the queen to h4 with mate threats.",
+      "drillId": "sta-t1",
+      "explanation": "h5 is the Stafford Gambit's signature move, and its point is subtle: it stops White from ever pinning the f6 knight with Bg5, because the pawn now controls g4. Just as importantly, it prepares to pry open the h-file the moment White castles. When White plays O-O and grabs the knight with Bxg4, Black recaptures hxg4 and the h-file yawns open in front of White's king. White's desperate h3 tries to keep the queen out, but Qh4 arrives anyway, eyeing the weak h3 pawn and threatening brutal ideas like Qxh3 followed by Bc5xf2+. White's extra pawn is meaningless while his king is this exposed — Black's bishop on c5, queen on h4, and open h-file generate threats faster than White can organize a defense. This is the Stafford in a nutshell: give up a pawn, develop every piece with tempo, and attack the king before White untangles. Notice that White never got to use the extra pawn, and moves like Nc3 or c3 only lose more time. When you play the Stafford, moves like h5 are worth more than material: every tempo spent on defense is a tempo Black spends loading the kingside with attackers.",
+      "fen": "r1bqk2r/ppp2ppp/2p2n2/2b5/4P3/3P4/PPP1BPPP/RNBQK2R b KQkq - 2 6",
+      "leadInMoves": [
+        "Be2"
+      ],
+      "name": "The h5 Thrust",
+      "opponentResponse": "O-O",
+      "solutionMoves": [
+        "h5",
+        "O-O",
+        "Ng4",
+        "Bxg4",
+        "hxg4",
+        "h3",
+        "Qh4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Kingside Attack"
+    },
+    {
+      "briefExplanation": "Bg5 looks like a pin, but Nxe4 blows it up. After dxe4, Qxg5 wins the bishop, and Qh4 keeps the attack rolling against f2 and h2.",
+      "description": "Punish the natural Bg5 pin with the Nxe4 shot. Win the bishop with Qxg5 and swing the queen to h4 to keep White's king under fire.",
+      "drillId": "sta-t2",
+      "explanation": "Bg5 is the move every Stafford player hopes to see. It looks completely natural — pin the knight, develop the bishop — but it walks straight into Nxe4!, the tactical shot the whole gambit is built around. The trick is that the pin is an illusion: after dxe4, White has merely traded a pawn for the knight, and now Qxg5 simply removes the 'pinning' bishop, because the knight it was pinning no longer exists. Black emerges a full piece ahead for a pawn, since White cannot recapture anything. White tries Nc3 to develop and chase the queen, but Qh4 keeps her on the kingside, attacking f2 and eyeing h2, with the Bc5 bishop raking the a7-g1 diagonal. This is why experienced players refuse to play Bg5 in the Stafford: the geometry of the position means the pin costs a piece. The lesson generalizes beyond this one gambit — whenever your opponent pins a piece that is about to move or be sacrificed anyway, check whether the pin actually binds anything. Here it bound nothing, and White paid a bishop for the lesson. Black is winning, and the attack continues.",
+      "fen": "r1bqk2r/ppp2ppp/2p2n2/2b3B1/4P3/3P4/PPP2PPP/RN1QKB1R b KQkq - 2 6",
+      "leadInMoves": [
+        "Bg5"
+      ],
+      "name": "The Nxe4 Shot",
+      "opponentResponse": "dxe4",
+      "solutionMoves": [
+        "Nxe4",
+        "dxe4",
+        "Qxg5",
+        "Nc3",
+        "Qh4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Opening Trap"
+    },
+    {
+      "briefExplanation": "Ng4 provokes h3, then Nxf2 smashes through anyway. After Rxf2, Bxf2+ drags the king out, and Black's queen and h-pawn finish the job.",
+      "description": "Provoke h3 with Ng4, then sacrifice on f2 regardless. Drag White's king into the open with Bxf2+ and let the attack play itself.",
+      "drillId": "sta-t3",
+      "explanation": "Ng4 is the Stafford's battering ram: the knight cannot really be ignored, because it threatens to land on f2 and e3, so White almost always kicks it with h3. But in the Stafford, h3 is not a refutation — it is an invitation. Nxf2! smashes through anyway, and after Rxf2 Black has the second wave ready: Bxf2+ drags the white king onto f2, stripped of its pawn cover and stranded in the middle of the board. Black has given up two minor pieces for a rook and a pawn, which sounds like a bad trade until you count what matters: White's king is exposed, his h-pawn is a hook for the h5 pawn to lever against, and Black's queen enters via h4 with check ideas while White's pieces are still asleep on the queenside. Engines may grumble, but in practical play this is terrifying to defend — every check must be calculated precisely, and one slip is mate. The Stafford lives on exactly this energy: the sacrifice on f2 is not a one-move trick but the start of a king hunt, and the open h-file plus the c5 bishop guarantee Black's attack keeps regenerating.",
+      "fen": "r1bqk2r/1pp2pp1/2p2n2/p1b4p/4P3/2PP4/PP2BPPP/RNBQ1RK1 b kq - 1 8",
+      "leadInMoves": [
+        "O-O"
+      ],
+      "name": "The f2 Sacrifice",
+      "opponentResponse": "h3",
+      "solutionMoves": [
+        "Ng4",
+        "h3",
+        "Nxf2",
+        "Rxf2",
+        "Bxf2+",
+        "Kxf2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "King Hunt"
+    },
+    {
+      "briefExplanation": "Ng4 invites Bxg4, and hxg4 tears the h-file open. The g-pawn then trades off the h3 cover, and Qh4 arrives with unstoppable mate threats.",
+      "description": "Offer the knight on g4 to rip open the h-file. Trade pawns down to White's king shelter, then land the queen on h4.",
+      "drillId": "sta-t4",
+      "explanation": "This is the Stafford's cleanest attacking blueprint. Ng4 dares White to take: if he refuses, the knight reaches f2 or e3 with chaos; if he captures with Bxg4, Black recaptures hxg4 and instantly owns the open h-file pointing at the castled king. White's h3 is the instinctive attempt to build a wall, but the g4 pawn simply removes it — gxh3 — and after gxh3 the queen lands on h4 with threats that are very hard to meet: Qxh3 is coming, Bc5 eyes f2 and g1, and the rook on h8 is already on the open file behind the queen. White's problem is that every defender is on the wrong side of the board: the queenside pieces cannot cross in time, and the extra pawn from the opening is a spectator. Notice the economy of Black's play — no wild sacrifices, just the h5 pawn, one knight offer, and the file opens itself. That is why h5 is played so early in the modern Stafford: it is not only about stopping Bg5, it is about preparing this exact lever against the castled king. White is surviving only with perfect defense, and in practice he usually does not.",
+      "fen": "r1bqk2r/ppp2pp1/2p2n2/2b4p/4P3/3P4/PPP1BPPP/RNBQ1RK1 b kq - 1 7",
+      "leadInMoves": [
+        "O-O"
+      ],
+      "name": "Opening the h-File",
+      "opponentResponse": "Bxg4",
+      "solutionMoves": [
+        "Ng4",
+        "Bxg4",
+        "hxg4",
+        "h3",
+        "gxh3",
+        "gxh3",
+        "Qh4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "h-File Attack"
+    }
+  ],
+  "id": "stafford-gambit-tacticals",
+  "name": "Stafford Gambit — Black Tactics"
+}

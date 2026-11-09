@@ -1,0 +1,108 @@
+{
+  "arena": "von-hennig-schara-gambit",
+  "description": "4 tactical challenges for Black in the Von Hennig-Schara Gambit (1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 cxd4), the counterattacking Tarrasch sideline. Develop with tempo against White's exposed queen and seize the center.",
+  "drills": [
+    {
+      "briefExplanation": "Bc5 attacks the queen with tempo, and development cascades: Nc6, castling, and a ready-made center. Black's gambit pawn bought a whole army's worth of time.",
+      "description": "Attack White's queen with Bc5, develop the knight, castle, and enjoy the lead in development the gambit pawn purchased.",
+      "drillId": "vhs-t1",
+      "explanation": "The Von Hennig-Schara Gambit is the Tarrasch Defense's wild sibling: Black gives up a pawn not for a file or a diagonal, but for pure time, and Bc5 is where the bill comes due. The bishop develops to its best square and attacks the queen on d4, which must scurry home to d1 — count the moves White's queen has made: Qa4+, Qxd4, Qd1, three moves to end up back home, while Black developed a bishop for free. Nc6 follows, eyeing d4 and e5, and after castling Black has a dream position: a central pawn on d5, every piece developed or one move away, and plans like Re8, Bg4, and Rc8 queuing up. White, meanwhile, still has bishops at home and a queen that has toured the board to no purpose. This is the gambit's entire philosophy — the d-pawn is not coming back, and it does not need to: Black's compensation is measured in tempi, and tempi convert into central control and attacking chances. When you adopt this gambit, play moves like Bc5 with absolute confidence; every developing move that hits the queen is another installment of the debt White must repay.",
+      "fen": "rn1qkb1r/pp1b1ppp/5n2/3p4/3Q4/2N1PN2/PP3PPP/R1B1KB1R b KQkq - 0 8",
+      "leadInMoves": [
+        "e3"
+      ],
+      "name": "Development with Tempo",
+      "opponentResponse": "Qd1",
+      "solutionMoves": [
+        "Bc5",
+        "Qd1",
+        "Nc6",
+        "Be2",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Tempo Development"
+    },
+    {
+      "briefExplanation": "Develop with Nc6, connect with Qe7, and castle long the moment White castles short. Opposite wings mean a pawn-storm race Black's lead in development should win.",
+      "description": "Complete development with Nc6 and Qe7, then castle queenside opposite White's king and prepare the pawn-storm race.",
+      "drillId": "vhs-t2",
+      "explanation": "Castling long is the Von Hennig-Schara's most dangerous declaration of intent. The groundwork matters: Nc6 develops the last queenside piece and clears b8, Qe7 vacates d8 and connects the queen with the e-file, and the bishop that once stood on c8 now sits on d7 — every square the king passes through or lands on has been carefully emptied. When White castles short, Black answers O-O-O, and the game becomes a race on opposite wings where Black holds all the trumps: his king is actually safer behind the d5 pawn and the queenside majority, his rook arrives on d8 directly opposite White's center, and pawn storms with ...b5-b4 or ...g5-g4 come with the development lead already banked. White's queen, which wandered to a4 and back, watches from d2 while Black's pieces are all playing. The gambit pawn is long forgotten — what matters is that Black's attack starts two moves before White's, and in opposite-castle races two moves is an eternity. Remember the recipe: Bc5 for tempo, Nc6, Qe7 to clear the path, and only then the castle. Played in the wrong order, the king gets stuck in the center; played in this order, it is a weapon.",
+      "fen": "rn1qk2r/pp1b1ppp/5n2/2bp4/8/2N1PN2/PP1Q1PPP/R1B1KB1R b KQkq - 2 9",
+      "leadInMoves": [
+        "Qd2"
+      ],
+      "name": "Opposite Castles Race",
+      "opponentResponse": "Be2",
+      "solutionMoves": [
+        "Nc6",
+        "Be2",
+        "Qe7",
+        "O-O",
+        "O-O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Opposite-Side Castling"
+    },
+    {
+      "briefExplanation": "Bc5 forces the queen to d3, Nc6 develops, and then d4 crashes through the center White neglected. The gambit's pawn majority becomes a battering ram.",
+      "description": "Chase the queen with Bc5, develop Nc6, and smash the center with d4 while White's pieces are still finding their feet.",
+      "drillId": "vhs-t3",
+      "explanation": "The d4 break is the Von Hennig-Schara's second act. The first act was tempo: Bc5 chases the queen yet again — she has now visited a4, d4, and d3 — and Nc6 completes a development scheme most queen's pawn players only dream of after nine moves. Then comes the point of everything: d4! Black's surviving center pawn, the one White's gambit adventure left standing, advances into the heart of White's position, attacking the c3 knight and threatening to simply roll forward. White's a3 was meant to prevent Nb4 ideas, but it does nothing about the center, and that is the story of the whole gambit — White has spent the opening capturing a pawn and shuffling his queen, while Black built a center and an army. If White takes on d4, lines open against his king and Black's bishops feast; if he allows the pawn to live on d4, it cramps his position permanently and supports a knight landing on e5 or c5. A single center pawn, properly supported, is worth the gambit pawn many times over. This break is why the gambit bears two names and a century of practice: the center is not a place, it is a weapon, and Black has sharpened it.",
+      "fen": "rn1qkb1r/pp1b1ppp/5n2/3p4/3Q4/2N1PN2/PP3PPP/R1B1KB1R b KQkq - 0 8",
+      "leadInMoves": [
+        "e3"
+      ],
+      "name": "The d4 Break",
+      "opponentResponse": "Qd3",
+      "solutionMoves": [
+        "Bc5",
+        "Qd3",
+        "Nc6",
+        "a3",
+        "d4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Breakthrough"
+    },
+    {
+      "briefExplanation": "Bc5 chases the queen to f4, then Qb6 doubles on b2. When White pushes e3 to develop, Qxb2 simply takes the pawn — White's wandering queen left the queenside bare.",
+      "description": "Drive the queen away with Bc5, swing your own queen to b6, and harvest the undefended b2 pawn White's adventures abandoned.",
+      "drillId": "vhs-t4",
+      "explanation": "There is a special pleasure in winning back a gambit pawn with interest, and this line delivers it. Bc5 begins the now-familiar chase — the queen must move again, this time to f4, where she is safe but spectating. Black's queen then takes the stage: Qb6! eyes two things at once, the b2 pawn and the f2 square along the diagonal, and White has no comfortable answer because his own queen is too far away to defend the queenside. When White plays e3 to finally develop his kingside, Qxb2 simply collects the pawn: the rook on a1 is attacked, the queenside is bare, and Black has not just recovered the gambit pawn but kept every scrap of the initiative — the queen on b2 will retreat with tempo whenever chased, and Black's center and development remain superior. Trace the queenside weakness back to its source: White's queen spent the opening on a4 and d4 instead of covering b2, and his c-pawn vanished in the opening exchanges. The Von Hennig-Schara punishes exactly this kind of greed in stages — first tempi, then the center, and finally, as here, the material itself. Black is better, and the queen raid is just the beginning.",
+      "fen": "rn1qkb1r/pp1b1ppp/5n2/3p4/3Q4/2N2N2/PP1BPPPP/R3KB1R b KQkq - 3 8",
+      "leadInMoves": [
+        "Bd2"
+      ],
+      "name": "The b2 Raid",
+      "opponentResponse": "Qf4",
+      "solutionMoves": [
+        "Bc5",
+        "Qf4",
+        "Qb6",
+        "e3",
+        "Qxb2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queenside Raid"
+    }
+  ],
+  "id": "von-hennig-schara-gambit-tacticals",
+  "name": "Von Hennig-Schara Gambit — Black Tactics"
+}

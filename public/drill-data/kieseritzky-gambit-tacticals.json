@@ -1,0 +1,112 @@
+{
+  "arena": "kieseritzky-gambit",
+  "description": "4 tactical challenges for White in the Kieseritzky Gambit (1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ne5), the romantic King's Gambit line. Regain the pawn and develop with tempo against Black's exposed position.",
+  "drills": [
+    {
+      "briefExplanation": "Bxf4 regains the pawn and develops. Qf3 then hits the e4 knight and the b7 pawn at once, forcing it to retreat while White finishes development.",
+      "description": "Take back the gambit pawn with Bxf4, then play Qf3 with a double attack on the knight and b7 to seize the initiative.",
+      "drillId": "kie-t1",
+      "explanation": "The Kieseritzky Gambit is a race: Black has grabbed a pawn and advanced his kingside, so White must convert his development lead before Black consolidates. Bxf4 is the natural start — it regains the pawn, develops the bishop to its best square, and eyes the weakened dark squares around Black's king. After Bg7, White strikes with Qf3!, a classic Kieseritzky double attack: the queen hits the knight on e4 and simultaneously stares at b7 along the diagonal, so Black cannot defend both and the knight must retreat Nf6. Now count the tempi: White has a bishop on f4, a knight on d3 heading for f4 or c5, the queen active on f3, and Nc3 coming — while Black has spent his moves pushing pawns that now sit on g4 as weaknesses rather than strengths. The knight excursion to e4, which looked so aggressive, achieved nothing but lost time. This is the romantic logic of the King's Gambit in one line: material is negotiable, but tempi are gold, and White's pieces are all flowing toward the black king while Black's are still tripping over his own advanced pawns.",
+      "fen": "rnbqkb1r/ppp2p1p/3p4/8/3PnppP/3N4/PPP3P1/RNBQKB1R w KQkq - 0 8",
+      "leadInMoves": [
+        "Nxe4"
+      ],
+      "name": "Regaining the Pawn",
+      "opponentResponse": "Bg7",
+      "solutionMoves": [
+        "Bxf4",
+        "Bg7",
+        "Qf3",
+        "Nf6",
+        "Nc3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development with Tempo"
+    },
+    {
+      "briefExplanation": "Qf3 drives the knight back — but uncovers an e-file check from Black's queen. Be3 blocks it coolly, and White castles long with the initiative intact.",
+      "description": "Chase the e4 knight with Qf3, parry the discovered e-file check with a calm Be3, develop Nc3, and castle queenside.",
+      "drillId": "kie-t2",
+      "explanation": "This line teaches the Kieseritzky's hidden subtlety: the e-file. Black's Qe7 quietly lines the queen up against White's king, with only the e4 knight blocking her path — so when Qf3 drives that knight back to f6, the retreat itself uncovers a check. Panic is the natural reaction; technique is the correct one. Be3 calmly interposes on the file, and the discovered check is spent — Black has used his one trick and gained nothing, while White's bishop now sits on a better square, eyeing a7 and supporting d4. Nc3 develops the last queenside piece, and when Black strikes back with d5, White simply castles long: O-O-O removes the king from every open file at once and lands the rook on the d-file opposite Black's new pawn. Take stock of the whole picture — White has bishops on e3 and f4, knights on d3 and c3, a queen on f3, and a rook already in the center, while Black's advanced g4 pawn is a weakness and his queenside bishop has never moved. The gambit's logic held even through a check: meet every tactical annoyance with a developing move, and the initiative never leaves your hands. That composure, more than any single sacrifice, is what made the old King's Gambit masters so dangerous.",
+      "fen": "rnb1kb1r/ppp1qp1p/3p4/8/3PnBpP/3N4/PPP3P1/RN1QKB1R w KQkq - 1 9",
+      "leadInMoves": [
+        "Qe7"
+      ],
+      "name": "The Cool Block",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Qf3",
+        "Nf6",
+        "Be3",
+        "d5",
+        "Nc3",
+        "Bg7",
+        "O-O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Defense and Counter"
+    },
+    {
+      "briefExplanation": "g3 undermines the g4 pawn and opens the fianchetto. After Bg2, White castles with a harmonious setup: two bishops, central pawns, and lasting pressure.",
+      "description": "Undermine Black's advanced g-pawn with g3, fianchetto the second bishop, and castle into a powerful attacking formation.",
+      "drillId": "kie-t3",
+      "explanation": "Once Black has castled, White's task changes: the king is no longer in the center, so the attack must be built rather than improvised — and g3 is the builder's move. It undermines the g4 pawn, Black's proudest achievement, because that pawn now needs constant protection and can be rounded up after a future h5 or fxg4-style capture; it also vacates g2 for the f1 bishop, which will stare down the long diagonal at b7 and support e5 ideas. After Bg2 and O-O, admire White's harmony: bishops on f4 and g2, knights on d3 and c3 ready to hop to f4, e5, or b5, the queen bound for f3 or d2, and a pawn center on d4 and e4 that Black's pieces cannot touch. Black's Qe7 and Re8 are the moves of a player hoping to survive, not to thrive — the e-file pressure is easily met, and the g4 pawn remains a permanent weakness that White can attack at leisure. The Kieseritzky rewards patience as much as violence: first regain the pawn, then develop with tempo, and only then squeeze the weaknesses that Black's early pawn storms created.",
+      "fen": "rnbq1rk1/ppp2pbp/3p4/8/3PnBpP/2NN4/PPP3P1/R2QKB1R w KQ - 3 10",
+      "leadInMoves": [
+        "O-O"
+      ],
+      "name": "The g3 Break",
+      "opponentResponse": "Qe7",
+      "solutionMoves": [
+        "g3",
+        "Qe7",
+        "Bg2",
+        "Re8",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Kingside Build-up"
+    },
+    {
+      "briefExplanation": "d5 smashes the center before Black's c6 setup is ready. After cxd5, Qf3 chases the knight, Be3 blocks the discovered check, and O-O-O crowns the breakthrough.",
+      "description": "Blast the center open with d5 the moment Black plays c6. Chase the e4 knight, parry the e-file check with Be3, and castle long.",
+      "drillId": "kie-t4",
+      "explanation": "Black's c6 is meant to be the solid move — supporting a future d5 and giving the queen's bishop an escape — but it fatally slows Black down, and White answers with the break it was meant to prevent: d5! The point is that the center opens while Black's king is still on e8 and his queenside is asleep. After cxd5, White does not recapture the pawn; instead Qf3! attacks the e4 knight with tempo, because regaining material can wait while there are tempi to steal. The knight retreats Nf6 for the second time in the game — and uncovers Black's last trick, an e-file check from the queen on e7, which Be3 calmly blocks. Then O-O-O completes the picture: White's rook arrives on the open d-file, the king is safe, and threats like Bxd5 and g3 hang over Black permanently. Study the geometry of White's pieces — bishops on e3 and f4, knights on d3 and c3, queen on f3, rook on d1 — every single one is developed and coordinated, while Black has a bishop on c8 that has never moved and a pawn on g4 that is more weakness than weapon. This is the essence of gambit play that the Kieseritzky teaches better than almost any opening: sacrifice, develop, break the center at the perfect moment, and meet every check with another developing move.",
+      "fen": "rnb1kb1r/pp2qp1p/2pp4/8/3PnBpP/2NN4/PPP3P1/R2QKB1R w KQkq - 0 10",
+      "leadInMoves": [
+        "c6"
+      ],
+      "name": "Central Breakthrough",
+      "opponentResponse": "cxd5",
+      "solutionMoves": [
+        "d5",
+        "cxd5",
+        "Qf3",
+        "Nf6",
+        "Be3",
+        "Bg7",
+        "O-O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    }
+  ],
+  "id": "kieseritzky-gambit-tacticals",
+  "name": "Kieseritzky Gambit — White Tactics"
+}

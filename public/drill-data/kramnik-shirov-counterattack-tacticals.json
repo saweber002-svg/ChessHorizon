@@ -1,0 +1,148 @@
+{
+  "arena": "kramnik-shirov-counterattack",
+  "description": "4 tactical challenges for Black in the Kramnik-Shirov Counterattack (1.c4 e5 2.Nc3 Bb4), the provocative bishop sortie against the English. Expel the d5 knight with c6, break with d5, and turn White's central ambitions into targets.",
+  "drills": [
+    {
+      "briefExplanation": "c6 expels the d5 knight, d5 breaks the center, and Nxd5 leaves Black with a dominant central knight and full equality.",
+      "description": "After White recaptures on d4 with the queen, drive the d5 knight away with c6, then blast the center open with d5 and recapture with the knight.",
+      "drillId": "ksh-t1",
+      "explanation": "c6 is the Kramnik-Shirov in one move — the whole counterattack is built on embarrassing White's advanced knight. The knight on d5 looks dominant, but it is actually exposed: c6 attacks it, and after Ne3 retreats, Black strikes with d5!, the thematic break. White's problem is that the center cannot be held: cxd5 simply allows Nxd5, when Black's knight lands on the very square White's knight just vacated, and Black has a beautiful outpost, easy development, and no weaknesses. If White declines the capture, Black will take on c4 or e4 next and the center dissolves anyway. Notice how the bishop on e7 and the knight on f6 both support the break — the provocative 2...Bb4 was no wasted tempo, because it lured the knight to d5 where it became a target. White's queen recapture on d4 also cost time, and Black's development now flows naturally: castling, ...Re8, and ...Bg4 are all coming. The lesson of the Kramnik-Shirov is that an outpost is only strong if it cannot be challenged — here c6 and d5 arrive with tempo, and White's imposing center turns out to be built on sand.",
+      "fen": "rnbqk2r/ppppbppp/5n2/3N4/2PQP3/8/PP3PPP/R1B1KBNR b KQkq - 0 6",
+      "leadInMoves": [
+        "c4",
+        "e5",
+        "Nc3",
+        "Bb4",
+        "Nd5",
+        "Be7",
+        "e4",
+        "Nf6",
+        "d4",
+        "exd4",
+        "Qxd4"
+      ],
+      "name": "Expel and Break",
+      "opponentResponse": "Ne3",
+      "solutionMoves": [
+        "c6",
+        "Ne3",
+        "d5",
+        "cxd5",
+        "Nxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    },
+    {
+      "briefExplanation": "Ne4 turns defense into attack. Nc5 chases the bishop, and c6 expels the d5 knight while White is still untangling.",
+      "description": "White stabs with e5 to chase your knight. Instead of retreating, dive into e4, swing to c5 to hound the bishop, then expel the d5 knight with c6.",
+      "drillId": "ksh-t2",
+      "explanation": "When White pushes e5, the natural instinct is to retreat the knight — but the Kramnik-Shirov knight has a better square: e4! The knight dives into the heart of White's position, where it attacks f2 and d2 and cannot be captured. White tries Bd3 to chase it away, but the knight simply tours onward to c5, gaining another tempo on the bishop, which must drop back to c2. Only now, with White's pieces pushed to passive squares, does Black play c6!, expelling the knight from d5 — the outpost White built the whole position around simply disappears, and the knight must retreat to e3 or b4 with nothing to show for its adventure. The coming ...d5 break will then decide the center on Black's terms. Compare the piece activity: Black's knight has visited f6, e4, and c5, improving with every move, while White's bishop has shuffled from f1 to d3 to c2 and the ambitious e5 pawn has become a target rather than a strength. This is the counterattacking spirit Kramnik and Shirov loved — every White thrust is met not by retreat but by a counterblow that asks harder questions.",
+      "fen": "rnbqk2r/ppppbppp/5n2/3NP3/2Pp4/8/PP3PPP/R1BQKBNR b KQkq - 0 6",
+      "leadInMoves": [
+        "c4",
+        "e5",
+        "Nc3",
+        "Bb4",
+        "Nd5",
+        "Be7",
+        "e4",
+        "Nf6",
+        "d4",
+        "exd4",
+        "e5"
+      ],
+      "name": "The Knight's Grand Tour",
+      "opponentResponse": "Bd3",
+      "solutionMoves": [
+        "Ne4",
+        "Bd3",
+        "Nc5",
+        "Bc2",
+        "c6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Knight Tour"
+    },
+    {
+      "briefExplanation": "Nc6 and Bc5 develop while gaining time on White's queen and the f2 pawn. Black castles with easy equality.",
+      "description": "Instead of kicking the d5 knight first, develop with tempo: Nc6 attacks the queen, Bc5 eyes f2, and after White develops you castle into a rock-solid position.",
+      "drillId": "ksh-t3",
+      "explanation": "Black has a second way to punish the queen recapture: simply develop, and let White's queen become the target. Nc6 attacks the queen on d4 and renews the pressure on the d5 knight. White retreats Qe3, but Black continues with Bc5!, developing the bishop to its best square, where it eyes the tender f2 pawn and adds another attacker against White's center. After Nf3, Black castles, and the verdict is clear: Black has developed every kingside piece, the king is safe, and White still has to solve the problem of the exposed knight on d5 and the pawn on e4. Moves like ...d6, ...Re8, and ...Bg4 will increase the pressure naturally. The deeper lesson is about move-order economy: White spent three moves with the queen while Black developed three pieces. In the Kramnik-Shirov, Black deliberately invites White to grab space and material because every grab costs a tempo — and in an open position, tempi are worth more than pawns. Patience plus development beats greed, and the counterattack arrives on schedule.",
+      "fen": "rnbqk2r/ppppbppp/5n2/3N4/2PQP3/8/PP3PPP/R1B1KBNR b KQkq - 0 6",
+      "leadInMoves": [
+        "c4",
+        "e5",
+        "Nc3",
+        "Bb4",
+        "Nd5",
+        "Be7",
+        "e4",
+        "Nf6",
+        "d4",
+        "exd4",
+        "Qxd4"
+      ],
+      "name": "Chasing the Queen",
+      "opponentResponse": "Qe3",
+      "solutionMoves": [
+        "Nc6",
+        "Qe3",
+        "Bc5",
+        "Nf3",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development with Tempo"
+    },
+    {
+      "briefExplanation": "Bc5 develops with pressure on f2, d6 undermines e5 before it can stick, and Qxf6 leaves Black with active pieces and no weaknesses.",
+      "description": "White ignores the d4 pawn and simply develops. Build pressure with Bc5, undermine the e5 stab with d6, and recapture on f6 with the queen into a comfortable position.",
+      "drillId": "ksh-t4",
+      "explanation": "White declines to recapture on d4 at all, developing Nf3 and daring Black to hold the extra pawn. Black does something better than holding it: Bc5! develops the bishop to its most active square, where it eyes f2 and adds another attacker against White's center. White tries to seize the initiative with e5, attacking the f6 knight and grabbing space, but Black answers with the classic undermining move d6!, challenging the stab at its base before it can be supported. White captures exf6, eliminating the knight, and Black recaptures Qxf6, bringing the queen to an active post where she watches f2 and the center alike. Now assess the position honestly: White has space and a proud knight on d5, but ...c6 will challenge that knight next, and Black's development flows with castling, ...Re8, and ...Bg4 all to come. The d4 pawn, meanwhile, still sits deep in White's camp, cramping the c3 and e3 squares. The Kramnik-Shirov repeatedly asks White the same question — your pieces look active, but can they stay where they are? Here, one by one, the answer is no.",
+      "fen": "rnbqk2r/ppppbppp/5n2/3N4/2PpP3/5N2/PP3PPP/R1BQKB1R b KQkq - 1 6",
+      "leadInMoves": [
+        "c4",
+        "e5",
+        "Nc3",
+        "Bb4",
+        "Nd5",
+        "Be7",
+        "e4",
+        "Nf6",
+        "d4",
+        "exd4",
+        "Nf3"
+      ],
+      "name": "Develop, Then Undermine",
+      "opponentResponse": "e5",
+      "solutionMoves": [
+        "Bc5",
+        "e5",
+        "d6",
+        "exf6",
+        "Qxf6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Undermining the Center"
+    }
+  ],
+  "id": "kramnik-shirov-counterattack-tacticals",
+  "name": "Kramnik-Shirov Counterattack — Black Tactics"
+}

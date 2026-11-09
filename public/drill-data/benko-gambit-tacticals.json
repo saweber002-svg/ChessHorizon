@@ -1,0 +1,116 @@
+{
+  "arena": "benko-gambit",
+  "description": "4 tactical challenges for Black in the Benko Gambit (1.d4 Nf6 2.c4 c5 3.d5 b5), the positional pawn sacrifice. Strangle White with queenside pressure down the a- and b-files.",
+  "drills": [
+    {
+      "briefExplanation": "Fianchetto, castle, and let the a6 bishop and the open files do the strangling. This calm development is the Benko's standard and most dangerous setup.",
+      "description": "Set up the classic Benko formation: fianchetto the dark-squared bishop, castle, and prepare the queenside squeeze with total calm.",
+      "drillId": "ben-t1",
+      "explanation": "The Benko Gambit is a positional sacrifice, and this unhurried development is its beating heart. Black fianchettoes with g6 and Bg7 — the bishop joins the a6 bishop on a long diagonal, and together they stare at White's queenside from opposite ends. Castling is essential: the king must be safe before the long positional squeeze begins, because White's only counterplay is a central break that could open lines toward an uncastled king. Once Black has castled, the picture is complete and deeply unpleasant for White: the rook will come to b8, the queen to a5 or c7, and the a- and b-files will become avenues of permanent pressure against the fixed pawns on a2 and b2. The a6 bishop deserves special attention — it eyes c4 and f1, discourages White from ever castling queenside, and can sometimes simply capture on f1 to shatter White's structure. Engines call this roughly equal for a pawn, but in practice White is the one suffering: there is no active plan, only forty moves of defense. This is what Benko players buy with the pawn — not a trick, but a bind that lasts into the endgame, where these structures are famously miserable for the defender.",
+      "fen": "rn1qkb1r/3ppppp/b4n2/2pP4/8/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 6",
+      "leadInMoves": [
+        "Nc3"
+      ],
+      "name": "The Benko Setup",
+      "opponentResponse": "e4",
+      "solutionMoves": [
+        "g6",
+        "e4",
+        "Bg7",
+        "Bd2",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development Scheme"
+    },
+    {
+      "briefExplanation": "Recapture on a6 and meet White's fianchetto with one of your own: g6, Bg7, castling, and d6 to complete the bind's foundation.",
+      "description": "Take back on a6 and answer White's fianchetto in kind — g6 and Bg7, an early castle, and d6 reinforcing the center.",
+      "drillId": "ben-t2",
+      "explanation": "When White fianchettoes with g3 and Bg2, he is hoping to blunt the a6 bishop and control the long diagonal — but the Benko bind does not depend on one diagonal. Black recaptures Bxa6, gaining the bishop that eyes f1 and c4, then answers the fianchetto in kind: g6 and Bg7 contest the long diagonal directly, castling brings the king to safety and the rook toward the queenside files, and d6 reinforces the c5 pawn while opening the c8 bishop's diagonal. The strategic picture is unchanged: White is up a pawn, but his a- and b-pawns are weak, the b-file is about to be doubled against, and the fianchetto bishop on g2 is biting on the granite of the d5 pawn rather than creating threats. A subtle point: after Bxa6, White's king can never castle into comfort on the queenside, and the a6 bishop makes even kingside castling slightly awkward because Bxf1 ideas hang in the air. Black does not need to win the pawn back — the pressure itself is the compensation, and it lasts into the endgame, where Benko structures are famously miserable for White. Patience is the skill being tested here: develop everything, castle, and let the bind tighten by itself.",
+      "fen": "rnbqkb1r/3ppppp/P4n2/2pP4/8/8/PP2PPPP/RNBQKBNR b KQkq - 0 5",
+      "leadInMoves": [
+        "bxa6"
+      ],
+      "name": "Fianchetto Counter",
+      "opponentResponse": "g3",
+      "solutionMoves": [
+        "Bxa6",
+        "g3",
+        "g6",
+        "Bg2",
+        "Bg7",
+        "Nf3",
+        "O-O",
+        "Nc3",
+        "d6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Positional Bind"
+    },
+    {
+      "briefExplanation": "Qa5+ exploits White's e4 push: the knight must block on c3, pinning itself. Fianchetto and castle behind the pin, and White's center starts to creak.",
+      "description": "Check with Qa5 to pin White's knight against the a-file, then fianchetto and castle while the bind tightens around White's center.",
+      "drillId": "ben-t3",
+      "explanation": "Qa5+ is the Benko's favorite early harassment, and e4 walks into it: White advanced the e-pawn to support d5, but in doing so he left the a5-e1 diagonal wide open, and the queen check forces a concession. Nc3 is the only block that does not lose material, yet the knight lands on c3 half-pinned — it shields the king, but it also stands in the a-file queen's crossfire and blocks the c-pawn ideas White might want. Black calmly fianchettoes and castles: Bd2 unpins and connects White's rooks, but Be2 is still a confession that White is a full tempo behind in the race to organize, and the pressure never relents — Rb8 and the e6 break are both coming, and if d5 falls or advances awkwardly, White's whole structure loosens and the queenside files become highways for Black's rooks. The deeper lesson of the Benko is timing: Black does not rush to recover the pawn, because every developing move comes with a small threat — a check here, a pin there, a pawn break at the perfect moment. White, meanwhile, must solve a fresh problem every move while a pawn down in activity. Play Qa5+ with confidence whenever the diagonal opens; it is free pressure, and free pressure is the entire Benko business model.",
+      "fen": "rn1qkb1r/3ppppp/b4n2/2pP4/4P3/8/PP3PPP/RNBQKBNR b KQkq - 0 6",
+      "leadInMoves": [
+        "e4"
+      ],
+      "name": "The Qa5 Pin",
+      "opponentResponse": "Nc3",
+      "solutionMoves": [
+        "Qa5+",
+        "Nc3",
+        "g6",
+        "Bd2",
+        "Bg7",
+        "Be2",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Harassment"
+    },
+    {
+      "briefExplanation": "Develop Nbd7, and when White plays the passive b3, strike with e6. After the trade, fxe6 and d5 give Black a central majority to go with the bind.",
+      "description": "Bring the knight to d7, wait for the passive b3, then challenge the d5 wedge with e6 and follow with a central pawn roller.",
+      "drillId": "ben-t4",
+      "explanation": "Timing is everything in the Benko, and b3 is the signal to strike. Black first completes the model development with Nbd7 — the knight supports c5, eyes b6 and e5, and clears the way for the queen — and White responds with a purely defensive move, shoring up the queenside before the b-file pressure arrives. But b3 does nothing for the center, so Black plays e6, directly challenging the d5 pawn that anchors White's whole position. White captures dxe6 to open lines of his own, yet after fxe6 the second wave arrives: d5! The pawn that was challenged simply advances to the square it vacated, and Black suddenly owns a central majority — pawns on c5, d5, and e6 against White's lone e-pawn — to go with the queenside bind. Compare the minor pieces: Black's bishops rake both long diagonals and the knights have e5 and b6 waiting, while White's queenside pawns on a2 and b3 remain targets. This is the Benko player's discipline in one line: build the bind first, develop every piece, and only break in the center when White has taken his eye off it. The extra pawn White grabbed on move four has become a distant memory.",
+      "fen": "rn1q1rk1/4ppbp/b2p1np1/2pP4/8/2N2NP1/PP2PPBP/R1BQ1RK1 b - - 5 10",
+      "leadInMoves": [
+        "Nc3"
+      ],
+      "name": "The e6 Break",
+      "opponentResponse": "b3",
+      "solutionMoves": [
+        "Nbd7",
+        "b3",
+        "e6",
+        "dxe6",
+        "fxe6",
+        "Bd2",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    }
+  ],
+  "id": "benko-gambit-tacticals",
+  "name": "Benko Gambit — Black Tactics"
+}

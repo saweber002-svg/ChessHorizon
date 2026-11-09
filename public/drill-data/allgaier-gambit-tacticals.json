@@ -1,0 +1,152 @@
+{
+  "arena": "allgaier-gambit",
+  "description": "4 tactical challenges for White in the Allgaier Gambit (5.Ng5), the King's Gambit's most violent sacrificial line. Rip the f7 pawn out with Nxf7, drag the king into the open, and hunt it with every piece you own.",
+  "drills": [
+    {
+      "briefExplanation": "Nxf7 is the Allgaier's soul. After Kxf7, Bc4+ and Bxd5+ keep the king exposed while White's army mobilizes.",
+      "description": "Black attacks your advanced knight with h6, daring you to sacrifice. Accept the dare: Nxf7 drags the king out, and Bc4+ keeps it in the crossfire.",
+      "drillId": "alg-t1",
+      "explanation": "Nxf7 is not a hope — it is a calculation, and it is the reason the Allgaier Gambit has survived two centuries of analysis. The knight cannot be saved after h6, so White invests it in the most valuable currency in the King's Gambit: the black king's safety. Kxf7 is forced in practice — declining leaves White with a pawn and a monster knight embedded on f7 — and after Bc4+ the king's problems compound. Black's main defense is the block d5, interposing a pawn on the diagonal, but Bxd5+ simply removes it with check again, and the king remains stranded on f7 with White's queen, rooks, and bishops all about to join the hunt. Count the attackers White develops with tempo: Qxg4 wins a second pawn and hits f4, d4 opens the c1 bishop, and every Black move must be a defensive reaction. The Allgaier does not promise a forced mate; it promises a king hunted through an open center by an army that develops for free. For the gambiteer, that is promise enough.",
+      "fen": "rnbqkbnr/pppp1p2/7p/6N1/4PppP/8/PPPP2P1/RNBQKB1R w KQkq - 0 6",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Nf3",
+        "g5",
+        "h4",
+        "g4",
+        "Ng5",
+        "h6"
+      ],
+      "name": "The Knight Sacrifice",
+      "opponentResponse": "Kxf7",
+      "solutionMoves": [
+        "Nxf7",
+        "Kxf7",
+        "Bc4+",
+        "d5",
+        "Bxd5+"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Knight Sacrifice"
+    },
+    {
+      "briefExplanation": "Qxg4 wins the first pawn; after Nf6 chases, Qxf4 wins the second. The queen retreats only when Black has spent his tempi.",
+      "description": "Instead of checking with the bishop, bring the queen out with Qxg4, harvesting pawns as Black's pieces chase her — every chase only develops your attack.",
+      "drillId": "alg-t2",
+      "explanation": "The queen is White's second wave in the Allgaier, and Qxg4 brings her into the hunt at a profit — the g4 pawn falls, and she simultaneously eyes the f4 pawn and the exposed king. Black's Nf6 is the natural chase, developing a piece and hitting the queen, but the hunt has a rhythm: Qxf4 simply collects the second pawn, restoring material equality while Black's king still stands on f7 in the middle of the board. Bd6 develops and hits the queen once more, and now Qf3 is the calm star move of the sequence — the queen steps back to a square where she keeps the f6 knight in her sights and supports the coming central mobilization. The material count says equal; the position says otherwise. Black's king has lost castling rights forever, the h6 and g5 pawn advances have left holes everywhere, and White's simple plan — d4, Nc3, a bishop to c4 or d3, and rooks to the open files — plays itself. The Allgaier queen sortie teaches the gambit's arithmetic: the knight bought the king's shelter, and the queen collects the rent.",
+      "fen": "rnbq1bnr/pppp1k2/7p/8/4PppP/8/PPPP2P1/RNBQKB1R w KQ - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Nf3",
+        "g5",
+        "h4",
+        "g4",
+        "Ng5",
+        "h6",
+        "Nxf7",
+        "Kxf7"
+      ],
+      "name": "The Queen Joins the Hunt",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Qxg4",
+        "Nf6",
+        "Qxf4",
+        "Bd6",
+        "Qf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Attack"
+    },
+    {
+      "briefExplanation": "h5+ denies the king its outpost — it cannot capture the pawn, for the h1 rook guards the file. Qxg4 and d4 keep the hunt at full speed.",
+      "description": "Black's king walks to g6, attacking your bishop and braving the center. Drive it back with h5+, harvest g4 with the queen, and open the center with d4.",
+      "drillId": "alg-t3",
+      "explanation": "Kg6 is Black's bravest defense — the king walks toward the fire, attacks the bishop on d5, and dares White to prove the attack. h5+ is the refutation's first chapter: the pawn advances with check, and the king cannot capture it, because the rook on h1 x-rays down the emptied h-file to defend it; retreating to h7 buries the king on the edge of the board behind its own h6 pawn. White now collects with Qxg4, winning the pawn and renewing every threat, and after Nf6 develops, d4! opens the center at the perfect moment: the c1 bishop wakes, the e-file beckons for a rook, and Black's king on h7 is cut off from the theater of war. This is the Allgaier's verdict on the opening phase — not mate, but something nearly as permanent: a king exiled, coordination destroyed, and an open center for White's better army. The king's walk to g6 was brave; the gambiteer's job is to make bravery expensive.",
+      "fen": "rnbq1bnr/ppp5/6kp/3B4/4PppP/8/PPPP2P1/RNBQK2R w KQ - 1 9",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Nf3",
+        "g5",
+        "h4",
+        "g4",
+        "Ng5",
+        "h6",
+        "Nxf7",
+        "Kxf7",
+        "Bc4+",
+        "d5",
+        "Bxd5+",
+        "Kg6"
+      ],
+      "name": "Hunting the Exposed King",
+      "opponentResponse": "Kh7",
+      "solutionMoves": [
+        "h5+",
+        "Kh7",
+        "Qxg4",
+        "Nf6",
+        "d4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "King Hunt"
+    },
+    {
+      "briefExplanation": "e5 drives the knight forward into danger. Qxg4 and Qxf4 win both gambited pawns back while Black's king is still uncastled.",
+      "description": "Black declines the h6 provocation and develops Nf6 instead. Stab with e5, and when the knight dives to e4, harvest g4 with the queen and collect f4 after the d5 counter.",
+      "drillId": "alg-t4",
+      "explanation": "Black's 5...Nf6 is the attempt to refuse the Allgaier's terms — develop, ignore the knight on g5, and play chess. The stab e5! is White's answer: the knight is attacked and dives forward to e4, attacking the g5 knight and seizing the center. White responds with Qxg4!, harvesting the pawn that advanced too far — capturing the g5 knight instead would open the h-file for White's rook with Black's king still in the center, a trade Black cannot want. Black's real counter is d5!, opening the c8 bishop's diagonal onto the queen — but Qxf4 simply steps away with a second pawn, and the position crystallizes: material level again, but Black's king is uncastled, the advanced f4 and g4 pawns are gone, and White's knight still sits on g5 like a splinter. Refusing the Allgaier does not neutralize it; it merely chooses a slower poison, and White's development lead makes every ending and every middlegame easier to play.",
+      "fen": "rnbqkb1r/pppp1p1p/5n2/6N1/4PppP/8/PPPP2P1/RNBQKB1R w KQkq - 2 6",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "f4",
+        "exf4",
+        "Nf3",
+        "g5",
+        "h4",
+        "g4",
+        "Ng5",
+        "Nf6"
+      ],
+      "name": "Stabbing the Knight Defense",
+      "opponentResponse": "Ne4",
+      "solutionMoves": [
+        "e5",
+        "Ne4",
+        "Qxg4",
+        "d5",
+        "Qxf4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "e5 Stab"
+    }
+  ],
+  "id": "allgaier-gambit-tacticals",
+  "name": "Allgaier Gambit — White Tactics"
+}

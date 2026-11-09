@@ -1,0 +1,120 @@
+{
+  "arena": "adams-attack",
+  "description": "4 tactical challenges for White in the Adams Attack against the Sicilian Najdorf (6.h3), the prophylactic weapon of GM Michael Adams. Prevent ...Ng4 with h3, reroute the knight, and launch the g4 kingside storm.",
+  "drills": [
+    {
+      "briefExplanation": "h3 is prophylaxis: no ...Ng4 tricks will disturb the storm. Nde2 clears the way, and g4 starts the attack.",
+      "description": "Play the Adams move h3 to stop ...Ng4, reroute the knight with Nde2, and launch the kingside storm with g4.",
+      "drillId": "ada-t1",
+      "explanation": "The Adams Attack begins with one of the quietest moves in chess: h3. Its purpose is pure prophylaxis. In the Najdorf, Black dreams of ...Ng4 hitting a bishop on e3, so White spends one tempo to take g4 away from the knight forever. Only then does the storm begin. Black strikes the center with e5, attacking the knight on d4, and White retreats it to e2 — a modest square with a big future. From e2 the knight supports the g4 pawn push, can hop to g3 or c1, and no longer blocks the f-pawn or the queen's path. Black develops the bishop, and White plays the move the whole setup was built for: g4! The storm is rolling. White's plan is now clear — castle queenside, push g5 to drive away the f6 knight, then h4 and h5 to pry at the black king. The beauty of the Adams Attack is the order of operations: because h3 came first, Black cannot harass the storm with ...Ng4, and because Nde2 came second, every pawn push is supported. Grandmaster patience first, violence second — that is the Adams recipe, and it has scored heavily at the highest level.",
+      "fen": "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6",
+      "leadInMoves": [
+        "Nc3",
+        "a6"
+      ],
+      "name": "The Adams Storm",
+      "opponentResponse": "e5",
+      "solutionMoves": [
+        "h3",
+        "e5",
+        "Nde2",
+        "Be7",
+        "g4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Kingside Storm"
+    },
+    {
+      "briefExplanation": "The e6 structure does not stop the storm. g4 gains space, Be3 and Qd2 connect the attack, and White will castle long.",
+      "description": "When Black chooses the solid Scheveningen pawn structure with e6, storm anyway: g4, develop Be3 and Qd2, and prepare to castle queenside.",
+      "drillId": "ada-t2",
+      "explanation": "Black does not have to challenge the center with e5. With e6, Black chooses the Scheveningen structure: solid, flexible, and famously hard to crack. The Adams answer is to storm anyway. White plays g4, gaining kingside space and announcing that Black's king will not rest easy after castling. The bishop develops to e3 — a move only possible because h3 already denied Black the ...Ng4 tempo that would have kicked it. Black castles into the storm, trusting the solid pawn cover, and White completes the classic attacking setup with Qd2. The queen and bishop now form the famous battery aimed at the dark squares around the black king, and White is ready to castle queenside and push g5. Notice the division of labor: the g-pawn is the battering ram, Be3 and Qd2 are the support crew, and the h3 pawn quietly guarantees that none of it can be disturbed by a knight raid. Against the Scheveningen, many attacks fail because Black's position has no weaknesses. The Adams Attack does not look for existing weaknesses — the pawn storm creates them, one push at a time, until the king's cover cracks.",
+      "fen": "rnbqkb1r/1p3ppp/p2ppn2/8/3NP3/2N4P/PPP2PP1/R1BQKB1R w KQkq - 0 7",
+      "leadInMoves": [
+        "Nc3",
+        "a6",
+        "h3",
+        "e6"
+      ],
+      "name": "Storm Against the Scheveningen",
+      "opponentResponse": "Be7",
+      "solutionMoves": [
+        "g4",
+        "Be7",
+        "Be3",
+        "O-O",
+        "Qd2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Storm"
+    },
+    {
+      "briefExplanation": "Against the fianchetto, g4 and Qd2 prepare the standard plan: castle long, push h4-h5, and attack the Dragon bishop's home.",
+      "description": "When Black fianchettoes toward a Dragon setup, roll the g-pawn, develop Be3 and Qd2, and get ready to castle queenside and attack down the h-file.",
+      "drillId": "ada-t3",
+      "explanation": "Black can steer toward Dragon-style play with g6, planning to fianchetto the bishop and castle quickly. The Adams Attack treats this as an invitation. White pushes g4 at once, claiming space before the bishop settles, and after Bg7 develops Be3. Once again h3 earns its keep: the bishop on e3 can never be harassed by ...Ng4. Black castles, and Qd2 completes the setup White wants against every fianchetto: the queen eyes the h6 square and the dark diagonal, the bishop on e3 supports the center, and White will castle queenside next. Then the plan is mechanical and deadly — h4, h5, and hxg6 will tear at the very pawn that shields the Dragon bishop, while the g-pawn advances to g5 to drive away the f6 knight, the king's best defender. The fianchetto looks safe because the bishop guards the king, but it also creates targets: the g6 pawn can be attacked by pawns, and pawns, unlike pieces, cannot be driven away by the bishop. Adams understood that the prophylactic h3 and the patient buildup make the storm stronger, not slower — when it lands, it lands with everything behind it.",
+      "fen": "rnbqkb1r/1p2pp1p/p2p1np1/8/3NP3/2N4P/PPP2PP1/R1BQKB1R w KQkq - 0 7",
+      "leadInMoves": [
+        "Nc3",
+        "a6",
+        "h3",
+        "g6"
+      ],
+      "name": "Storm Against the Fianchetto",
+      "opponentResponse": "Bg7",
+      "solutionMoves": [
+        "g4",
+        "Bg7",
+        "Be3",
+        "O-O",
+        "Qd2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queenside Castling Plan"
+    },
+    {
+      "briefExplanation": "h5 cannot stop a storm that changes direction. Ng3 eyes f5 and h5, Nf5 lands the knight on the outpost, and exf5 opens lines.",
+      "description": "When Black tries to stop the storm with h5, reroute the knight through g3 to the f5 outpost and open the e-file by capturing back with the e-pawn.",
+      "drillId": "ada-t4",
+      "explanation": "Black's most direct answer to the coming storm is h5, physically blocking the g-pawn's path. The Adams Attack simply changes direction. The knight that retreated to e2 now reroutes with Ng3, where it attacks the h5 pawn and eyes the beautiful f5 square. Black develops the bishop, and White plays Nf5! The knight lands on the outpost in front of Black's pawn chain, attacking the bishop on e7 and the pawn on d6, and it cannot be chased by ...g6 without wrecking the kingside. Black decides to eliminate it with Bxf5, but the recapture is the point: exf5 opens the e-file for White's rooks and queen, fixes Black's e5 pawn as a target, and clears e4 for White's other pieces. Look at what h5 accomplished: it stopped g4, but it also created the f5 square by removing any pawn that could guard it, and it weakened g6 and the whole kingside light-square complex. This is why Adams' system is so hard to stop. The storm is not one pawn push; it is a network of threats. Block the pawns, and the knights come through the squares the blocking pawns left behind.",
+      "fen": "rnbqkb1r/1p3pp1/p2p1n2/4p2p/4P3/2N4P/PPP1NPP1/R1BQKB1R w KQkq - 0 8",
+      "leadInMoves": [
+        "Nc3",
+        "a6",
+        "h3",
+        "e5",
+        "Nde2",
+        "h5"
+      ],
+      "name": "The Knight Lands on f5",
+      "opponentResponse": "Be7",
+      "solutionMoves": [
+        "Ng3",
+        "Be7",
+        "Nf5",
+        "Bxf5",
+        "exf5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Knight Outpost"
+    }
+  ],
+  "id": "adams-attack-tacticals",
+  "name": "Adams Attack — White Tactics"
+}

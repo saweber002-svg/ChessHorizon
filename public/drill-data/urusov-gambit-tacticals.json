@@ -1,0 +1,110 @@
+{
+  "arena": "urusov-gambit",
+  "description": "4 tactical challenges for White in the Urusov Gambit (2.Bc4 Nf6 3.d4), the 19th-century Bishop's Opening gambit named for Sergey Urusov. Blast the center with d4, castle fast, and strike with the e5 break.",
+  "drills": [
+    {
+      "briefExplanation": "d4! is the gambit: White gives a pawn to open the center while Black is undeveloped, and Nf3 immediately attacks the prize.",
+      "description": "Develop the bishop to c4, then blast the center with d4 — the Urusov offer — and attack the pawn with Nf3 after Black captures.",
+      "drillId": "uru-t1",
+      "explanation": "The Urusov Gambit is nineteenth-century chess at its most direct. White develops the bishop to c4, eyeing f7, and when Black counterattacks the e-pawn with Nf6, White ignores the threat and plays d4! The center pawn is the real offer. Black captures on d4, opening the position, and White develops Nf3 with tempo, attacking the captured pawn and preparing to castle. The logic is pure development arithmetic. If Black tries to hold the pawn with c5 or Bc5 setups, White castles and plays e5 or c3 with a raging initiative; if Black returns the pawn, White has the bishop pair's favorite open game with every piece developed first. Notice that White never defended e4 — the pawn Black's knight attacked is still standing there, and capturing it walks into Re1 pins after castling. The bishop on c4 is the gambit's soul: it makes f7 tender, it supports the e5 break, and it means every central opening favors White because tactics against f7 are always in the air. Urusov understood what modern engine chess confirms — in an open position, three tempi are worth more than one pawn, and the side that castles first chooses where the fight happens.",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2",
+      "leadInMoves": [
+        "e4",
+        "e5"
+      ],
+      "name": "The Urusov Offer",
+      "opponentResponse": "Nf6",
+      "solutionMoves": [
+        "Bc4",
+        "Nf6",
+        "d4",
+        "exd4",
+        "Nf3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Gambit Offer"
+    },
+    {
+      "briefExplanation": "Two pawns down means nothing here. Castling threatens Re1 against the knight, and Bb3 keeps the bishop on the a2-g8 diagonal.",
+      "description": "When Black grabs the e-pawn with the knight instead of defending d4, castle at once and let the bishop retreat to b3 with the initiative intact.",
+      "drillId": "uru-t2",
+      "explanation": "Black can try to punish the gambit by capturing a second pawn: after Nf3 attacks d4, the knight dives to e4 and grabs e4 as well. Club players panic here; the Urusov player castles. O-O is the cold-blooded answer, and its threat is concrete — Re1 is coming, and the knight on e4 stands exactly on that file, pinned against nothing but its own lack of support. Black must react, and d5 is the sensible try: it attacks the bishop on c4, opens the c8 bishop, and gives the e4 knight a defender's pawn chain to hide behind. White retreats the bishop to b3, and the a2-g8 diagonal still points at f7. Now do the real count. White is two pawns down on paper, but the king is safe, the rooks are connected, the knight on f3 attacks d4, and Black's knight on e4 is a target that Re1 and Bd5 ideas will harass for the next five moves. Black's king is in the center, his queenside is asleep, and every pawn he grabbed opened a line White is using. The Urusov lesson is the hardest in gambit chess: when your compensation is development, do not spend it recovering pawns one at a time.",
+      "fen": "rnbqkb1r/pppp1ppp/5n2/8/2BpP3/8/PPP2PPP/RNBQK1NR w KQkq - 0 4",
+      "leadInMoves": [
+        "d4",
+        "exd4"
+      ],
+      "name": "Ignore the Counterattack",
+      "opponentResponse": "Nxe4",
+      "solutionMoves": [
+        "Nf3",
+        "Nxe4",
+        "O-O",
+        "d5",
+        "Bb3"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development over Material"
+    },
+    {
+      "briefExplanation": "e5! is the break the whole gambit prepares. When d5 blocks the bishop's diagonal, Bb5 escapes with tempo by pinning the c6 knight.",
+      "description": "Strike with e5 to drive at the f6 knight, and when Black blocks the bishop with d5, step to b5 and pin the knight on c6 to the king.",
+      "drillId": "uru-t3",
+      "explanation": "Everything in the Urusov builds toward one move: e5! After castling, White finally advances the pawn Black attacked on move two, and now it comes with the whole army behind it. The pawn attacks the knight on f6, opens the c4 bishop's diagonal toward f7, and threatens to blow the center apart with exf6. Black's most principled answer is d5, blocking the bishop's diagonal and attacking it at the same time — the pawn must be dealt with. White's reply is the tactical point of the position: Bb5! The bishop sidesteps the pawn with tempo by pinning the knight on c6 against the king on e8. The knight cannot move, which means the d5 pawn's defender is frozen, the e5 pawn cannot be safely captured, and White threatens Bxc6 followed by exf6 wrecking the kingside. If Black breaks the pin with a6, the bishop retreats to a4 and the pin's damage is done — tempi spent, queenside weakened. This is the gambit's compensation in its final form: not a one-move trick, but a web where the e5 break, the f7 diagonal, and the pin on c6 all pull at Black's position at once. One of the threads always snaps.",
+      "fen": "r1bqk2r/pppp1ppp/2n2n2/2b5/2BpP3/5N2/PPP2PPP/RNBQ1RK1 w kq - 4 6",
+      "leadInMoves": [
+        "O-O",
+        "Bc5"
+      ],
+      "name": "The e5 Break and the Pin",
+      "opponentResponse": "d5",
+      "solutionMoves": [
+        "e5",
+        "d5",
+        "Bb5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Break"
+    },
+    {
+      "briefExplanation": "The knight's escape route is a tour of the rim. h3 and g4 kick it from square to square while White regains the pawn and keeps the initiative.",
+      "description": "When the attacked knight escapes to g4 and then h6, chase it with h3 and g4 while recovering the gambit pawn with Nxd4.",
+      "drillId": "uru-t4",
+      "explanation": "After e5, the f6 knight has several escapes, and the most ambitious is Ng4, eyeing f2 and e3 with mischief in mind. White's answer shows why gambit players love loose knights: h3! The pawn kicks the knight and asks the question again. The knight retreats to h6, the rim square where knights go to be forgotten, and White uses the free tempo for the position's real business — Nxd4 recovers the gambit pawn with the knight landing in the center. Black tries to reactivate the knight with Nf5, attacking the newly centralized knight and heading back toward the game. White kicks it again with g4! The pawn advances with tempo, gains kingside space, and the knight must flee a third time in five moves. Tally the exchange of tempi: Black spent three moves moving one knight to worse and worse squares; White spent those same moves regaining the pawn, centralizing, and expanding on the kingside. Material is equal now, but White has the bishop pair's open game, the better center, and a knight on h6's file that will take two more moves to matter. In the Urusov, the attack is often just bookkeeping: count the tempi, and the position plays itself.",
+      "fen": "r1bqk2r/pppp1ppp/2n5/2b1P3/2Bp2n1/5N2/PPP2PPP/RNBQ1RK1 w kq - 1 7",
+      "leadInMoves": [
+        "e5",
+        "Ng4"
+      ],
+      "name": "Driving Off the Knight",
+      "opponentResponse": "Nh6",
+      "solutionMoves": [
+        "h3",
+        "Nh6",
+        "Nxd4",
+        "Nf5",
+        "g4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Knight Hunt"
+    }
+  ],
+  "id": "urusov-gambit-tacticals",
+  "name": "Urusov Gambit — White Tactics"
+}

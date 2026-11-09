@@ -1,0 +1,168 @@
+{
+  "arena": "fritz-variation",
+  "description": "4 tactical challenges for Black in the Fritz Variation (5...Nd4) of the Two Knights Defense. Unleash the Qh4 attack, punish the greedy bishop grab, and ride the two-knight bind that made this line famous.",
+  "drills": [
+    {
+      "briefExplanation": "Qh4 hits the e4 knight and eyes f2. Even after the Bxb5+ check, c6 blocks and Black's attack rolls on.",
+      "description": "Unleash the signature Fritz blow Qh4, driving at the exposed e4 knight. After Ng3 and Bd6, meet the bishop check with c6 and keep the bind.",
+      "drillId": "frz-t1",
+      "explanation": "Qh4 is the move the entire Fritz Variation exists to play. Black's knights on d4 and d5 look exotic, but their purpose is revealed here: the f6 knight has vacated its square to clear the queen's path, and she lands on h4 with devastating effect, attacking the loose knight on e4 and staring at f2. White's best defense is Ng3, shielding the knight and blocking the queen's route into f2. Black develops with Bd6, adding another active piece and eyeing the h2 pawn. White tries to relieve the pressure with Bxb5+, grabbing the pawn that advanced so boldly — but c6 calmly blocks the check and attacks the bishop, and Black emerges with two active knights, a queen on h4, and lasting compensation for the pawn. Note the material situation honestly: White is a pawn up and utterly tied down, with the queenside still undeveloped. The Fritz teaches a vital lesson: when your pieces are this active, material is negotiable. Every White piece is still at home while Black is conducting an attack, and in such positions the attack usually collects its debt with interest.",
+      "fen": "r1bqkb1r/p1p2ppp/8/1p1np3/3nN3/2P5/PP1P1PPP/RNBQKB1R b KQkq - 1 8",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Nf6",
+        "Ng5",
+        "d5",
+        "exd5",
+        "Nd4",
+        "c3",
+        "b5",
+        "Bf1",
+        "Nxd5",
+        "Ne4"
+      ],
+      "name": "The Fritz Queen Attack",
+      "opponentResponse": "Ng3",
+      "solutionMoves": [
+        "Qh4",
+        "Ng3",
+        "Bd6",
+        "Bxb5+",
+        "c6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Attack"
+    },
+    {
+      "briefExplanation": "c6 blocks the check and hits the bishop. Nxd5 restores material with interest — Black's knights dominate the center.",
+      "description": "White grabs the b5 pawn with check instead of retreating the bishop. Block with c6, win the d5 pawn back with the knight, and develop as White castles into your bind.",
+      "drillId": "frz-t2",
+      "explanation": "Grabbing on b5 is the move Black is hoping for. White's bishop has wandered far from the kingside, and the check changes nothing: c6 blocks the diagonal and attacks the bishop in a single move. After Ba4 retreats, Black plays Nxd5 — note carefully which knight does the work. The d4 knight cannot reach d5, but the f6 knight captures the pawn that has sat on d5 since move five, and suddenly Black has two knights radiating power from d4 and d5, a solid center, and White's bishop marooned on a4. White castles to get the king safe, and Black develops Be6, after which Bc5 and Qh4 ideas are both in the air. The Fritz knights are a matched pair: one on d4 cramps White's queenside and supports the b5 break, one on d5 rules the center, and the bishop White used to grab a pawn is the worst piece on the board. Material is equal, but the position is anything but — Black has the development, the outposts, and the plans. Greed in the opening is punished not always by tactics, but by the slow torture of a worse position.",
+      "fen": "r1bqkb1r/p1p2ppp/5n2/1B1Pp1N1/3n4/2P5/PP1P1PPP/RNBQK2R b KQkq - 0 7",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Nf6",
+        "Ng5",
+        "d5",
+        "exd5",
+        "Nd4",
+        "c3",
+        "b5",
+        "Bxb5+"
+      ],
+      "name": "Punishing the Greedy Grab",
+      "opponentResponse": "Ba4",
+      "solutionMoves": [
+        "c6",
+        "Ba4",
+        "Nxd5",
+        "O-O",
+        "Be6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Block and Counter"
+    },
+    {
+      "briefExplanation": "g3 stops the queen but loosens White's kingside dark squares. Qh6 and Bb7 convert the attack into a long-term squeeze.",
+      "description": "After Qh4, White kicks the queen with g3, blunting the attack but weakening the king. Sidestep to h6, then develop the bishop to b7 and squeeze.",
+      "drillId": "frz-t3",
+      "explanation": "White's g3 is a natural reaction to Qh4 — kick the queen, blunt the attack — but every pawn move in front of a king is a confession of weakness. The dark squares around White's king, f3 and h3 above all, can never be guarded by that pawn again. Black does not panic: Qh6 sidesteps, keeping the queen trained on the kingside, where she eyes e3 and c1 along the diagonal and waits for the h-file to matter. After d3 consolidates, Black completes development with Bb7, harmonizing the last piece and supporting a future ...c5 break that will challenge White's center. The position's logic is now clear: Black's knights still sit on their d4 and d5 thrones, the queen hovers, and White's bishop on f1 is entombed behind its own pawns while the e4 knight can be challenged at any moment. The Fritz Variation is not only about the immediate Qh4 attack; when White defends accurately, Black transitions into a positional squeeze where the two knights and the weakened white kingside tell the story. Attackers must know when to stop swinging and start squeezing.",
+      "fen": "r1bqkb1r/p1p2ppp/8/1p1np3/3nN3/2P5/PP1P1PPP/RNBQKB1R b KQkq - 1 8",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Nf6",
+        "Ng5",
+        "d5",
+        "exd5",
+        "Nd4",
+        "c3",
+        "b5",
+        "Bf1",
+        "Nxd5",
+        "Ne4"
+      ],
+      "name": "The Queen Sidestep",
+      "opponentResponse": "g3",
+      "solutionMoves": [
+        "Qh4",
+        "g3",
+        "Qh6",
+        "d3",
+        "Bb7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Queen Maneuver"
+    },
+    {
+      "briefExplanation": "Nxc6 restores order on your terms. Nb4 and Bg4 keep White's undeveloped army under permanent restraint.",
+      "description": "White has grabbed a second pawn with Bxc6+. Recapture with the knight, centralize with Ne5, and develop Bg4 with tempo to keep White tied down.",
+      "drillId": "frz-t4",
+      "explanation": "White's second grab on c6 feels like the refutation of the Fritz — a pawn to the good with check! — but the recapture reveals the position's truth. Nxc6 removes the checking bishop — it is the d4 knight that finally collects, while its partner keeps the d5 throne — and leaves Black with the most active minor pieces on the board. White tries d3 to finally develop, but Black improves again with Nb4!, attacking the d3 pawn White just advanced and threatening to raid c2 and a2 next. Qe2 covers the d3 pawn and connects the rooks, and Bg4! develops with tempo, attacking the queen and daring White to weaken the kingside further with f3. The pattern should be familiar by now: White has a pawn, Black has the position. Knights tour through outposts, the bishop pair... the queen and bishops are active, and White's queenside pieces are still asleep on b1, c1, and a1. In the Fritz, activity is the currency — pawns are merely the price Black pays to buy it, and by this point the investment is paying dividends on every move. White will spend the middlegame untangling; Black will spend it attacking.",
+      "fen": "r1b1k2r/p4ppp/2Bb4/3np3/3n3q/2P3N1/PP1P1PPP/RNBQK2R b KQkq - 0 11",
+      "leadInMoves": [
+        "e4",
+        "e5",
+        "Nf3",
+        "Nc6",
+        "Bc4",
+        "Nf6",
+        "Ng5",
+        "d5",
+        "exd5",
+        "Nd4",
+        "c3",
+        "b5",
+        "Bf1",
+        "Nxd5",
+        "Ne4",
+        "Qh4",
+        "Ng3",
+        "Bd6",
+        "Bxb5+",
+        "c6",
+        "Bxc6+"
+      ],
+      "name": "The Bind Tightens",
+      "opponentResponse": "d3",
+      "solutionMoves": [
+        "Nxc6",
+        "d3",
+        "Ncb4",
+        "Qe2",
+        "Bg4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Counterattack"
+    }
+  ],
+  "id": "fritz-variation-tacticals",
+  "name": "Fritz Variation — Black Tactics"
+}
