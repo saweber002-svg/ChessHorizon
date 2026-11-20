@@ -1,0 +1,108 @@
+{
+  "arena": "fischer-defense",
+  "description": "4 tactical challenges for Black in the Fischer Defense (1.e4 e5 2.f4 exf4 3.Nf3 d6 4.d4 g5 5.h4 g4 6.Ng1), built on Fischer's ...f3 wedge and the art of holding the gambit pawn.",
+  "drills": [
+    {
+      "briefExplanation": "Fischer's wedge ...f3! rips at White's king cover before White is developed. Force gxf3, fianchetto, and strike the center with ...d5.",
+      "description": "Play Fischer's ...f3 wedge, open the g-file with gxf3, develop the bishop to g7, then break with ...d5.",
+      "drillId": "fis-t1",
+      "explanation": "This is the move Fischer's whole defense is remembered for. The pawn on f4 is not defended by sitting still — it becomes a wedge with ...f3!, one step from White's king, prising at the g2-pawn that holds White's king cover together before White has even castled. White more or less has to capture, and gxf3 is exactly what Black wants: the g-file opens, White's king cover is dragged apart, and the pawn that lands on f3 is exposed rather than strong. Black then develops with threats — ...Bg7 puts the bishop on the long diagonal, where it stares through f6 and e5 at the d4-pawn, and White's knight hurries out to c3 to hold the center together. Only now comes ...d5, striking the center while White's king still sits in the middle and the g1-knight is a spectator. The pawn is guarded tactically by the queen along the d-file. The principle is Fischer's own: an extra pawn justifies itself by the lines it opens. Black isn't clinging to material — he's converting it into open files, diagonals, and a central break, all aimed at a king that never got out of the center.",
+      "fen": "rnbqkbnr/ppp2p1p/3p4/8/3PPppP/8/PPP3P1/RNBQKBNR b KQkq - 1 6",
+      "leadInMoves": [],
+      "name": "Fischer's f3!",
+      "opponentResponse": "gxf3",
+      "solutionMoves": [
+        "f3",
+        "gxf3",
+        "Bg7",
+        "Nc3",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Break"
+    },
+    {
+      "briefExplanation": "The knight heads for its dream square: ...Nh6 eyes f5, and once White's e-pawn advances, the knight lands there hitting d4 and guarding d6.",
+      "description": "Route the knight Nh6-f5: advance ...f3 to open White's king cover, then plant the knight on f5.",
+      "drillId": "fis-t2",
+      "explanation": "Knights belong on outposts — squares deep in enemy territory that no pawn can chase them from. Black's knight starts the long walk with ...Nh6, a move that looks clumsy until you see the destination: f5. White pushes e5 to attack the d6-pawn and open lines, but the advance has a hidden cost — the e-pawn no longer guards f5. Black plays the familiar wedge ...f3!, and after gxf3 tears White's king cover open, the knight completes its tour: ...Nf5. From f5 the knight does three jobs at once. It attacks the d4-pawn, the base of White's center. It guards the d6-pawn that e5 was threatening, so Black's structure holds. And it eyes g3 and e3, squares right next to White's exposed king. The principle is to evaluate a pawn push by the squares it surrenders, not just the ones it attacks. White gained space and a threat with e5; Black gained a permanent knight. Because White's g-pawn was dragged to f3 and the e-pawn left f5 behind, the knight cannot be evicted — it will sit there radiating pressure while Black finishes development a pawn to the good.",
+      "fen": "rnbqkbnr/ppp2p1p/3p4/8/3PPppP/8/PPP3P1/RNBQKBNR b KQkq - 1 6",
+      "leadInMoves": [],
+      "name": "The Knight Tour: Nh6-f5",
+      "opponentResponse": "e5",
+      "solutionMoves": [
+        "Nh6",
+        "e5",
+        "f3",
+        "gxf3",
+        "Nf5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Outpost"
+    },
+    {
+      "briefExplanation": "With the g-file already torn open by the wedge, Black gets the king safe first — then strikes the center with ...d5 from behind a castled king.",
+      "description": "Develop ...Nf6, castle, and answer White's development with the central counter ...d5.",
+      "drillId": "fis-t3",
+      "explanation": "Open lines cut both ways, so the first job is the king. The wedge has already done its work — ...f3 forced gxf3, White's g-pawn sits exposed on f3, and the bishop on g7 owns the long diagonal — but Black's own king still stands on e8 in front of the half-open center. So Black develops ...Nf6, adding an attacker to e4, and castles at the first chance. White develops naturally in reply: one knight comes to c3 to support the center, and the other finally leaves g1 for e2, where it eyes the f4-pawn. Only with the king safe does Black open the position himself with ...d5. The timing is the lesson. The break is sound because it is defended twice over — the f6-knight and the queen both guard d5 — and because opening the center no longer endangers Black's king; it endangers White's, which still sits in the middle behind a torn pawn cover. The principle: castle before you open the center, and strike only when every tactic defends your break. Players lose gambits by grabbing lines while their own king is the one exposed. Black here does the opposite — safety first, then the counterpunch, with White's damaged structure as the lasting prize.",
+      "fen": "rnbqk1nr/ppp2pbp/3p4/8/3PP1pP/3B1P2/PPP5/RNBQK1NR b KQkq - 2 8",
+      "leadInMoves": [
+        "f3",
+        "gxf3",
+        "Bg7",
+        "Bd3"
+      ],
+      "name": "Castle and Counter",
+      "opponentResponse": "Nc3",
+      "solutionMoves": [
+        "Nf6",
+        "Nc3",
+        "O-O",
+        "Nge2",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "King Safety"
+    },
+    {
+      "briefExplanation": "Black is a pawn up, but the gambit pawn only stays won if White never gets coordinated. Develop, castle, and stack pressure on e4 with ...Re8.",
+      "description": "Keep the extra pawn by developing: ...Nf6, castle, and bring the rook to e8 against the e4-pawn.",
+      "drillId": "fis-t4",
+      "explanation": "Holding an extra pawn is a development race, not a pawn-grabbing contest. Black's bishop is already fianchettoed on g7, eyeing the long diagonal, and White's bishop has come to c4 to pressure f7 — the traditional King's Gambit target. Black ignores the temptation to chase it and simply develops: ...Nf6 attacks the e4-pawn, White's bishop retreats to d3 to defend it, and Black castles, removing the king from the center and from the c4-bishop's diagonal in one move. White finally gets a knight out to c3, and Black answers ...Re8, stacking the rook behind the knight's attack on e4 so the pawn needs constant watching. Look at what White has to show for the sacrificed pawn: a knight still asleep on g1, a bishop on c1 that hasn't moved, and an e-pawn that needs two defenders. The f4-pawn survives not because Black defends it directly — nobody attacks it — but because White's pieces are too uncoordinated to create a real threat. The principle Fischer built his defense on: return the attacker's momentum with calm development, and the extra pawn stops being a loan and becomes a permanent asset.",
+      "fen": "rnbqk1nr/ppp2pbp/3p4/8/2BPPppP/8/PPP3P1/RNBQK1NR b KQkq - 3 7",
+      "leadInMoves": [
+        "Bg7",
+        "Bc4"
+      ],
+      "name": "Hold the Gambit Pawn",
+      "opponentResponse": "Bd3",
+      "solutionMoves": [
+        "Nf6",
+        "Bd3",
+        "O-O",
+        "Nc3",
+        "Re8"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development"
+    }
+  ],
+  "id": "fischer-defense-tacticals",
+  "name": "Fischer Defense — Black Tactics"
+}

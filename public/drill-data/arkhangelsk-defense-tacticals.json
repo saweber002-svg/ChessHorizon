@@ -1,0 +1,112 @@
+{
+  "arena": "arkhangelsk-defense",
+  "description": "4 tactical challenges for Black in the Arkhangelsk Defense (1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O b5 6.Bb3 Bc5 7.a4 Rb8 8.c3 d6), where the Møller bishop on c5 fights White's center from the flank.",
+  "drills": [
+    {
+      "briefExplanation": "Black meets d4 by opening the center, trades knights on d4, and the Møller bishop retreats to b6 where it permanently pressures the pawn White just advanced.",
+      "description": "Trade pawns and knights on d4, then retreat your bishop to b6 so it keeps firing at White's new center pawn.",
+      "drillId": "ark-t1",
+      "explanation": "The bishop on c5 is the Møller idea in one piece: developed outside the pawn chain, it fights for the center from the flank instead of hiding behind pawns on e7. When White challenges the e5 pawn with d4, Black's answer is to open the position, not to defend it. The exchanges on d4 follow a clear logic — first the pawn trade, then the knight trade — because each capture drags a white piece forward and then removes it. After cxd4 the white pawn on d4 looks imposing, but it is exactly the target the c5 bishop was built to attack. The retreat to b6 is the move beginners miss: the bishop steps back one square, keeps its diagonal, and now eyes both d4 and f2, while no white piece can chase it away cheaply. The principle is that a flank bishop does not need to stand its ground — it needs its diagonal. Black emerges with two active bishops, lasting pressure against d4, and a position where White's center has become a responsibility instead of an asset. Counterplay means turning the opponent's strength into their job.",
+      "fen": "1rbqk2r/2p2ppp/p1np1n2/1pb1p3/P2PP3/1BP2N2/1P3PPP/RNBQ1RK1 b k - 0 9",
+      "leadInMoves": [
+        "d4"
+      ],
+      "name": "The d4 Counterstrike",
+      "opponentResponse": "Nxd4",
+      "solutionMoves": [
+        "exd4",
+        "Nxd4",
+        "Nxd4",
+        "cxd4",
+        "Bb6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Counterplay"
+    },
+    {
+      "briefExplanation": "The bishop pins the f3 knight against the queen, and when White strikes with d4, Black cashes in the pin and opens the e-file with ...exd4.",
+      "description": "Pin the knight with ...Bg4, capture it when White pushes d4, and open the center with ...exd4 after the queen recaptures.",
+      "drillId": "ark-t2",
+      "explanation": "A pin is not really an attack on the pinned piece — it is an attack on everything the pinned piece was protecting. The knight on f3 guards d4 and supports White's whole kingside, so when the bishop lands on g4, White's center loses its silent defender. That is why d4 comes immediately: White tries to break through before the pin bites. Black's response follows the pin's logic to the end. Capturing on f3 forces a decision — recapture with the g-pawn and wreck the king's shelter, or recapture with the queen and step into the opening center. White chooses the queen, and ...exd4 lands as the position cracks open: the e-file points toward White's king, the queen on f3 is exposed to future tempos, and Black's rooks have files to occupy. Notice that Black never won the pinned knight for free; the profit is tactical and positional pressure combined. The principle: when you pin a defender, strike the thing it defends. The pin holds the piece still — the break collects the payment.",
+      "fen": "1rbqk2r/2p2ppp/p1np1n2/1pb1p3/P3P3/1BP2N1P/1P1P1PP1/RNBQ1RK1 b k - 0 9",
+      "leadInMoves": [
+        "h3"
+      ],
+      "name": "The Bg4 Pin",
+      "opponentResponse": "d4",
+      "solutionMoves": [
+        "Bg4",
+        "d4",
+        "Bxf3",
+        "Qxf3",
+        "exd4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pin"
+    },
+    {
+      "briefExplanation": "White's a5 clamp is met by the ...b4 counter-thrust, the b3 bishop is driven to c2, and the Møller bishop reroutes to a7 in time for the central break.",
+      "description": "Answer the a5 clamp with ...b4, reroute your bishop to a7 once White's bishop retreats, and break with ...exd4 when White pushes in the center.",
+      "drillId": "ark-t3",
+      "explanation": "Wing advances ask a question, and the worst answer is to retreat everywhere. White's a5 clamps down on the queenside and threatens to squeeze it shut, so Black answers with the counter-thrust ...b4 — gaining space, prying at the c3 pawn, and reminding White that the b3 bishop's world can shrink. The bishop's retreat to c2 is an admission: its proud diagonal is closed for now. Black then reroutes the Møller bishop to a7, a square beginners underrate. From a7 the bishop sits on the long diagonal aimed through d4 and e3 toward f2, it cannot be chased away by pawns, and it supports the coming central break. When White finally plays d4, ...exd4 opens the position with the a7 bishop suddenly one of the strongest minor pieces on the board. The principle is to meet a flank clamp with a counter-punch, not a crouch: every pawn that advances leaves a square behind it, and Black's pieces — the space the b4 pawn gained, the diagonal the a7 bishop owns — are placed exactly on those squares.",
+      "fen": "1rbqk2r/2p2ppp/p1np1n2/Ppb1p3/4P3/1BP2N2/1P1P1PPP/RNBQ1RK1 b k - 0 9",
+      "leadInMoves": [
+        "a5"
+      ],
+      "name": "Answering a5 with b4",
+      "opponentResponse": "Bc2",
+      "solutionMoves": [
+        "b4",
+        "Bc2",
+        "Ba7",
+        "d4",
+        "exd4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Counterplay"
+    },
+    {
+      "briefExplanation": "Backed by the Bg4 pin, Black plays the ...d5 break, and after the captures the knight lands on d4, taking the pawn White just fought to establish.",
+      "description": "Strike with ...d5, let the pin collect on f3, and finish by capturing on d4 with your knight into the center.",
+      "drillId": "ark-t4",
+      "explanation": "Some breaks are prepared for ten moves; this one is justified by a pin and a simple count of attackers. Start with the position's facts: the g4 bishop pins the f3 knight against the queen, White's d4 pawn has just been created by a recapture and is defended more thinly than it looks, and Black's pieces outnumber White's around d5. The strike ...d5 works because the tactics protect it. White's exd5 opens lines Black wants opened, and then the pin collects its debt: Bxf3 removes the knight, Qxf3 is forced into the open, and the knight lands on d4 — capturing the very pawn White just fought to establish and occupying the central square with effect. Count what has changed: White's center is gone, Black's knight sits where the pawn stood, the c5 bishop keeps its diagonal, and the b8 rook is ready to join through the center. The principle is calculation before courage. A central break is not a gamble when every capture sequence has been counted and the final position favors you. Breaks like this are not hopes — they are conclusions.",
+      "fen": "1r1qk2r/2p2ppp/p1np1n2/1pb5/P2PP1b1/1B2BN2/1P3PPP/RN1Q1RK1 b k - 0 11",
+      "leadInMoves": [
+        "d4",
+        "Bg4",
+        "Be3",
+        "exd4",
+        "cxd4"
+      ],
+      "name": "The d5 Break",
+      "opponentResponse": "exd5",
+      "solutionMoves": [
+        "d5",
+        "exd5",
+        "Bxf3",
+        "Qxf3",
+        "Nxd4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Breakthrough"
+    }
+  ],
+  "id": "arkhangelsk-defense-tacticals",
+  "name": "Arkhangelsk Defense — Black Tactics"
+}

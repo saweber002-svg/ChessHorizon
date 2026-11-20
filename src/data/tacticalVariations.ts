@@ -163,6 +163,16 @@ export const TACTICAL_VARIATIONS: TacticalVariation[] = [
   { id: 'tennison-gambit', name: 'Tennison Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['Nf3', 'd5', 'e4'] },
   { id: 'urusov-gambit', name: 'Urusov Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['e4', 'e5', 'Bc4', 'Nf6', 'd4'] },
   { id: 'ponziani-gambit', name: 'Ponziani Gambit', executingColor: 'w', gateTier: 1, parents: [], line: ['e4', 'e5', 'Nf3', 'Nc6', 'c3', 'd5', 'Qa4'] },
+
+  // ——— Background hunt run 7 (approved by Scott 2026-11-17) ———
+  // Journeyman gate (GM level)
+  { id: 'english-attack', name: 'English Attack', executingColor: 'w', gateTier: 3, parents: ['sicilian-najdorf', 'sicilian-scheveningen'], line: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6', 'Nc3', 'a6', 'Be3', 'e5', 'Nb3', 'Be6', 'f3'] },
+  { id: 'boleslavsky-variation', name: 'Boleslavsky Variation', executingColor: 'b', gateTier: 3, parents: ['sicilian-classical'], line: ['e4', 'c5', 'Nf3', 'd6', 'd4', 'cxd4', 'Nxd4', 'Nf6', 'Nc3', 'Nc6', 'Be2', 'e5', 'Nb3', 'Be7', 'O-O', 'O-O'] },
+  { id: 'ragozin-defense', name: 'Ragozin Defense', executingColor: 'b', gateTier: 3, parents: ['queen-gambit-declined'], line: ['d4', 'd5', 'c4', 'e6', 'Nf3', 'Nf6', 'Nc3', 'Bb4', 'e3', 'O-O', 'Bd2', 'b6', 'Bd3', 'Bb7'] },
+  { id: 'arkhangelsk-defense', name: 'Arkhangelsk Defense', executingColor: 'b', gateTier: 3, parents: ['ruy-lopez-morphy'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bb5', 'a6', 'Ba4', 'Nf6', 'O-O', 'b5', 'Bb3', 'Bc5', 'a4', 'Rb8', 'c3', 'd6'] },
+  // Apprentice gate (strong at IM, not GM)
+  { id: 'birds-defense', name: "Bird's Defense", executingColor: 'b', gateTier: 2, parents: ['ruy-lopez-morphy'], line: ['e4', 'e5', 'Nf3', 'Nc6', 'Bb5', 'Nd4', 'Nxd4', 'exd4', 'O-O', 'Bc5', 'd3', 'c6'] },
+  { id: 'fischer-defense', name: 'Fischer Defense', executingColor: 'b', gateTier: 2, parents: [], line: ['e4', 'e5', 'f4', 'exf4', 'Nf3', 'd6', 'd4', 'g5', 'h4', 'g4', 'Ng1'] },
 ];
 
 export function getTacticalVariation(id: string): TacticalVariation | undefined {
