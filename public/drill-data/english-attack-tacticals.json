@@ -1,0 +1,124 @@
+{
+  "arena": "english-attack",
+  "description": "4 tactical challenges for White in the English Attack (1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e5 7.Nb3 Be6 8.f3), White's most principled anti-Najdorf setup: support e4, castle long, and storm the kingside. The same ideas transpose against the Scheveningen (1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 e6 6.Be3 a6 7.f3 b5 8.g4), where Qd2, O-O-O and the g-pawn race work exactly the same way.",
+  "drills": [
+    {
+      "briefExplanation": "The English Attack blueprint: Qd2 connects the rooks and eyes h6, then White castles long and steps the king off the open diagonal with Kb1.",
+      "description": "Play the setup: bring the queen to d2, castle queenside, and tuck the king on b1 before starting the pawn storm.",
+      "drillId": "ena-t1",
+      "explanation": "Opposite-side castling turns the game into arithmetic: both kings are targets, so the winner is usually whoever lands threats one tempo faster. That is why the English Attack begins with moves that each do two jobs. Qd2 connects the rooks, supports the bishop on e3, and quietly eyes the h6 square and the dark diagonal toward Black's king. Castling long is not just king safety — it puts a rook on the d-file and frees every queenside pawn to become a spectator while the g- and h-pawns become battering rams. Black's ...b5 is the mirror-image plan: his pawns will race toward your king, so nothing here is wasted motion. Kb1 looks slow, but it is the highest-value tempo in the whole system. The king steps off the a7–g1 diagonal, removes cheap ...Qa5+ and ...Bb6 ideas, and clears c1 so the rook can swing later. Principle: in a pawn race you do not count material, you count tempi — and a tempo spent making your own king untouchable is worth more than a tempo spent on a threat the opponent can ignore. Finish the setup first; the storm moves g4 and h4 only work because the king behind them is safe.",
+      "fen": "rn1qk2r/1p2bppp/p2pbn2/4p3/4P3/1NN1BP2/PPP3PP/R2QKB1R w KQkq - 1 9",
+      "leadInMoves": [
+        "Be7"
+      ],
+      "name": "The Setup: Qd2 and Long Castle",
+      "opponentResponse": "b5",
+      "solutionMoves": [
+        "Qd2",
+        "b5",
+        "O-O-O",
+        "Nbd7",
+        "Kb1"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development"
+    },
+    {
+      "briefExplanation": "White starts the g-pawn rolling, and when Black kicks the c3 knight with ...b4, White ignores the flank and strikes in the center with Nd5.",
+      "description": "Push g4 to open the kingside race, then answer ...b4 not by retreating but by planting the knight on d5.",
+      "drillId": "ena-t2",
+      "explanation": "A pawn storm is a promise: every pawn move must either open a line or gain a tempo, because pawns that advance cannot retreat. g4 begins the kingside race and prepares g5, which will ask the knight on f6 where it intends to live. Black replies with the principled counter — ...b4 attacks your knight and starts his own storm against the castled king. The beginner retreats. The English Attack instead changes the subject: Nd5! The flank skirmish stops mattering because the center is now the loudest voice on the board. If Black captures, exd5 gives White a protected central pawn that cramps his position, opens the e-file toward his king, and leaves his b-pawn stranded on b4 as a target rather than a threat. Notice the tempo math: Black spent a move attacking a knight, and White spent the same move improving that knight to its best square. Principle: the correct answer to a wing attack is usually a central counterstrike, because central pawns and pieces influence both wings at once. The g-pawn storm is the noise; Nd5 is the argument. Once the center is yours, g5 and h4–h5 follow almost by themselves.",
+      "fen": "r2qk2r/3nbppp/p2pbn2/1p2p3/4P3/1NN1BP2/PPPQ2PP/2KR1B1R w kq - 2 11",
+      "leadInMoves": [
+        "Be7",
+        "Qd2",
+        "b5",
+        "O-O-O",
+        "Nbd7"
+      ],
+      "name": "The g4 Storm",
+      "opponentResponse": "b4",
+      "solutionMoves": [
+        "g4",
+        "b4",
+        "Nd5",
+        "Nxd5",
+        "exd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Storm"
+    },
+    {
+      "briefExplanation": "With both kings castled on opposite wings, White strikes the head of Black's center with f4, recaptures with the bishop, and starts the h-pawn.",
+      "description": "Challenge the e5 pawn with f4. After the trade, recapture on f4 with the bishop and begin the kingside storm with h4.",
+      "drillId": "ena-t3",
+      "explanation": "Every pawn center has a head — the pawn doing the most work — and in the Najdorf that pawn is e5. It controls d4 and f4, supports Black's whole position, and cramps your knight on b3. The f4 break exists to remove it. When Black captures, do not think of it as losing a pawn duel; think of what changed. Your f-pawn, which was only a shield for e4, has traded itself for the strongest black pawn, your bishop recaptures on f4 developed and aiming at d6 and h6, and the f-file and the e-file both breathe. Meanwhile Black's bishop comes back to e6 to hold d5 and f7, a purely defensive posture. Then h4: with the center loosened, the race resumes, and the h-pawn is the next ram against a castled king whose defenders have drifted toward the middle. Principle: a pawn break is good when the pieces behind it are better placed than the pieces behind the pawn it destroys. Here bishop, rooks and queen all gain lines, while Black gains nothing but a half-open e-file he is too busy defending to use. Break first, storm second — the order is the whole lesson.",
+      "fen": "rn1q1rk1/3bbppp/p2p1n2/1p2p3/4P3/1NN1BP2/PPPQ2PP/1K1R1B1R w - - 4 12",
+      "leadInMoves": [
+        "Be7",
+        "Qd2",
+        "b5",
+        "O-O-O",
+        "O-O",
+        "Kb1",
+        "Bd7"
+      ],
+      "name": "The f4 Break",
+      "opponentResponse": "exf4",
+      "solutionMoves": [
+        "f4",
+        "exf4",
+        "Bxf4",
+        "Be6",
+        "h4"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Break"
+    },
+    {
+      "briefExplanation": "g5 drives the f6 knight to the rim on h5, h4 starts undermining it, and Ne2 reroutes White's worst-placed knight toward g3 to expel it.",
+      "description": "Clamp down with g5, chase the knight to the edge with h4 behind it, then reroute your knight via e2 toward g3.",
+      "drillId": "ena-t4",
+      "explanation": "Space is not measured in squares you occupy but in squares the opponent can no longer use. g5 asks the knight on f6 a question it hates: every retreat is worse than where it stood, and ...Nh5 parks it on the rim, where a knight controls four squares and influences nothing central. h4 is the follow-up with a double purpose — it is the next storm pawn against the castled king, and it takes g4-style support away from any ...g6 defense while eyeing the h5 knight itself, since gxh5 ideas and a future Ng3 both hang over it. Black's ...b4 is his only counterplay, so White spends the last move of the drill on the position's worst piece: Ne2. The c3 knight was kicked, passive, and blocking nothing useful; from e2 it travels to g3, where it expels the rim knight, covers f5 and h5, and joins the attack. Principle: once you have won space, do not cash it in immediately — improve your worst piece and let the opponent suffocate. A clamped position loses slowly, which is exactly why strong players fear it more than a direct attack.",
+      "fen": "rn1q1rk1/3bbppp/p2p1n2/1p2p3/4P1P1/1NN1BP2/PPPQ3P/2KR1B1R w - - 1 12",
+      "leadInMoves": [
+        "Be7",
+        "Qd2",
+        "O-O",
+        "O-O-O",
+        "b5",
+        "g4",
+        "Bd7"
+      ],
+      "name": "The g5 Clamp",
+      "opponentResponse": "Nh5",
+      "solutionMoves": [
+        "g5",
+        "Nh5",
+        "h4",
+        "b4",
+        "Ne2"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Space"
+    }
+  ],
+  "id": "english-attack-tacticals",
+  "name": "English Attack — White Tactics"
+}

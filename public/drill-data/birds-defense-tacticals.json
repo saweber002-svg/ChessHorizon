@@ -1,0 +1,108 @@
+{
+  "arena": "birds-defense",
+  "description": "4 tactical challenges for Black in the Bird's Defense (1.e4 e5 2.Nf3 Nc6 3.Bb5 Nd4 4.Nxd4 exd4 5.O-O Bc5 6.d3 c6), built on the d4 wedge that damages White's structure and cramps his game.",
+  "drills": [
+    {
+      "briefExplanation": "Black's d4-pawn wedge cramps White, but wedges need support. Gain time on the bishop, develop, and strike with ...d5 while the tactics protect the break.",
+      "description": "Use ...b5 and ...Nf6 to gain time and develop, then answer c3 with the central break ...d5.",
+      "drillId": "bir-t1",
+      "explanation": "Start from the bargain Black made on move three: the knight tour to d4 traded a piece for White's knight and planted a pawn deep on d4. That pawn is both a strength and a target — it cramps White and blocks the d3-pawn, but c3 is coming to challenge it. So Black first collects free time. ...b5 gains a tempo on the bishop, which must retreat to b3, and ...Nf6 develops toward the center while adding a second attacker to the e4-pawn. Only then does White's c3 get its answer: ...d5, the second central pawn joining the fight. The break looks loose but the tactics hold it together — the c6-pawn guards d5 against the b3-bishop, since Bxd5 simply loses the bishop to ...cxd5, and exd5 is met by the same recapture toward the center. The principle is sequencing: a central break works when your development is finished enough to defend it tactically. Black doesn't defend the wedge passively or push pawns at random; every move either gains time, develops, or strikes, and White's damaged structure — the blocked d-pawn, the missing knight — never gets a quiet moment to heal.",
+      "fen": "r1bqk1nr/pp1p1ppp/2p5/2b5/B2pP3/3P4/PPP2PPP/RNBQ1RK1 b kq - 1 7",
+      "leadInMoves": [
+        "Ba4"
+      ],
+      "name": "Consolidate and Break with d5",
+      "opponentResponse": "Bb3",
+      "solutionMoves": [
+        "b5",
+        "Bb3",
+        "Nf6",
+        "c3",
+        "d5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Breakthrough"
+    },
+    {
+      "briefExplanation": "White's knight comes out with a hit on the b5-bishop. Black turns the attack into a queenside land-grab, gaining a tempo with every pawn push.",
+      "description": "Answer Nc3 with ...a6 and ...b5, driving the bishop back twice, then expand with ...a5.",
+      "drillId": "bir-t2",
+      "explanation": "When a pawn move gains time on an enemy piece, it is almost free — and Black gets three of them here. Nc3 develops, but it also attacks the bishop on b5, and ...a6 asks the bishop its first question. The bishop retreats to a4, where ...b5 asks the second question, this time expanding with tempo as the bishop drops to b3. Now ...a5 threatens ...a4, which would ask a third question and leave the bishop short of squares. Notice what Black has bought without spending a single developing move: queenside space, a grip on b4 and a4, and a bishop driven to the edge of its own diagonal. The principle is to expand on the wing where your pawns attack things. Space gained without tempi is just overextension; space gained by hitting pieces is real progress, because the opponent spends his moves retreating instead of improving. White's knight on c3 also blocks the c-pawn, so the usual c3 challenge to the d4-wedge is delayed — one more quiet dividend. Black's queenside is becoming a strength while White is still untangling, and the d4-pawn sits untouched in the center of it all.",
+      "fen": "r1bqk1nr/pp1p1ppp/2p5/1Bb5/3pP3/2NP4/PPP2PPP/R1BQ1RK1 b kq - 1 7",
+      "leadInMoves": [
+        "Nc3"
+      ],
+      "name": "Queenside Expansion",
+      "opponentResponse": "Ba4",
+      "solutionMoves": [
+        "a6",
+        "Ba4",
+        "b5",
+        "Bb3",
+        "a5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Counterplay"
+    },
+    {
+      "briefExplanation": "White challenges the d4-wedge with c3, hoping to undermine Black's center. Instead of defending, Black counterstrikes with ...d5 — and recaptures with the queen, because the c6-pawn is pinned.",
+      "description": "Meet c3 with ...d5, recapture with the queen after exd5, and keep the bishop active with ...Bb6.",
+      "drillId": "bir-t3",
+      "explanation": "A wedge pawn like the one on d4 survives by making its removal expensive. When White plays c3 to undermine it, the passive answers — retreating or trading on White's terms — hand over the initiative. Black instead counterstrikes with ...d5, opening a second front in the center before White's challenge lands. Now comes the tactical detail that makes the break work. The natural recapture ...cxd5 is actually illegal: the bishop on b5 x-rays through c6 and the square d7 — vacated by the very pawn that just advanced — straight to the king on e8, so the c6-pawn is pinned and cannot move. Black recaptures with the queen instead, ...Qxd5, landing her in the center where she eyes the g2-pawn along the diagonal and cannot easily be chased away. The bishop then steps back to b6, a classic Bird's Defense square: it keeps the a7-g1 diagonal, eyes the f2-pawn near White's king, and sidesteps the b4 tempo White would love to gain. The principle is twofold: a challenged center is often best met by expanding it, not clutching it — but a break is only as good as the tactics underneath it, pins included.",
+      "fen": "r1bqk1nr/pp1p1ppp/2p5/1Bb5/3pP3/2PP4/PP3PPP/RNBQ1RK1 b kq - 0 7",
+      "leadInMoves": [
+        "c3"
+      ],
+      "name": "Counterstrike with d5",
+      "opponentResponse": "exd5",
+      "solutionMoves": [
+        "d5",
+        "exd5",
+        "Qxd5",
+        "Ba4",
+        "Bb6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Counterplay"
+    },
+    {
+      "briefExplanation": "White shores up the e4-pawn with Re1. Black simply finishes development — knight out, a tempo on the bishop, king castled — with lasting pressure on e4.",
+      "description": "Develop with ...Nf6, gain a tempo with ...b5, and complete castling while keeping two attackers on e4.",
+      "drillId": "bir-t4",
+      "explanation": "Not every position needs a tactic; some just need the last pieces out and the king safe. White's Re1 adds a second defender to e4, so Black develops with ...Nf6 anyway — the knight belongs on f6 in almost every Ruy Lopez structure, it pressures e4, and it clears the way for castling. The bishop retreats from the c6-pawn to a4, and ...b5 gains the usual tempo, pushing it on to b3 while claiming queenside space. Then ...O-O finishes the job: king tucked away, rooks ready to connect, every black piece in the game. The principle is that development is a form of pressure. White has spent moves defending one pawn and retreating one bishop; Black has spent the same moves improving everything. The e4-pawn still has the knight staring at it, the d4-wedge still cramps White's queenside, and Black can choose the next fight — ...d5 in the center or more queenside expansion — from a position where nothing is loose. Beginners rush to attack; strong players first make their position unattackable, then let the opponent's weaknesses ripen. This is what consolidation looks like when it is played with tempo.",
+      "fen": "r1bqk1nr/pp1p1ppp/2p5/1Bb5/3pP3/3P4/PPP2PPP/RNBQR1K1 b kq - 1 7",
+      "leadInMoves": [
+        "Re1"
+      ],
+      "name": "Develop and Pressure e4",
+      "opponentResponse": "Ba4",
+      "solutionMoves": [
+        "Nf6",
+        "Ba4",
+        "b5",
+        "Bb3",
+        "O-O"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development"
+    }
+  ],
+  "id": "birds-defense-tacticals",
+  "name": "Bird's Defense — Black Tactics"
+}

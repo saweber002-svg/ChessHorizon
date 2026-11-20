@@ -1,0 +1,116 @@
+{
+  "arena": "boleslavsky-variation",
+  "description": "4 tactical challenges for Black in the Boleslavsky Variation (1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 Nc6 6.Be2 e5 7.Nb3 Be7 8.O-O O-O), the classical Sicilian structure where Black accepts a backward d-pawn and a hole on d5 in exchange for central space — then cashes the whole position in with the liberating ...d5 break.",
+  "drills": [
+    {
+      "briefExplanation": "Black completes the classical Boleslavsky setup: Be6 eyes the b3 knight, Rc8 mans the half-open c-file, and Qc7 connects everything while supporting e5.",
+      "description": "Develop the bishop to e6, put the rook on the c-file, and bring the queen to c7 so the whole position points at ...d5.",
+      "drillId": "bol-t1",
+      "explanation": "The Boleslavsky structure is a savings account. By playing ...e5 Black buys central space and drives White's knight to b3, but the price is visible: the d6 pawn is backward and the d5 square is a hole White dreams of occupying. The setup moves in this drill are how Black protects the investment until it matures. Be6 develops the last minor piece and stares at b3 and a2, reminding White that his queenside is not free. Rc8 is the most Sicilian move in chess: the c-file is half-open because the c-pawn traded itself on d4, so the rook belongs there, eyeing c3 and everything behind it. Qc7 finishes the circuit — the queen supports e5, connects the rooks, steps off the d-file where tactics breed, and above all prepares the position's entire point, ...d5. Principle: in a structure with a known weakness, development is not generic — every piece should either defend the weakness or prepare the pawn break that deletes it. When White spends tempi on a4 and h3, flank precautions that do nothing about d5, Black is winning the argument without a single capture.",
+      "fen": "r1bq1rk1/pp2bppp/2np1n2/4p3/4P3/1NN5/PPPQBPPP/R1B2RK1 b - - 5 9",
+      "leadInMoves": [
+        "Qd2"
+      ],
+      "name": "The Classical Setup",
+      "opponentResponse": "a4",
+      "solutionMoves": [
+        "Be6",
+        "a4",
+        "Rc8",
+        "h3",
+        "Qc7"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Development"
+    },
+    {
+      "briefExplanation": "The break the whole variation exists for: ...d5 liquidates the backward d-pawn, and after the series of captures Black's bishop lands on the beautiful d5 square.",
+      "description": "Play the liberating ...d5. Trade everything off on d5 and finish with the bishop occupying the square White was supposed to own.",
+      "drillId": "bol-t2",
+      "explanation": "This is the payoff the entire Boleslavsky structure was saving for. The backward d6 pawn and the hole on d5 look like permanent weaknesses — until you realize a weakness you can liquidate on your own terms is not permanent at all. ...d5 works now for concrete reasons: White's rook has come to d1, which means every capture on d5 opens lines against his own position, his knight sits far away on b3, and Black's pieces — queen on c7, rook on d8, bishop on e6 — are all aimed at the square. After ...exd5, the knight recaptures from f6 — it was developed to guard exactly this square — and when White's knight takes back, Bxd5 completes the transformation. Look at the final picture: the backward pawn is gone, the hole is occupied — by Black's bishop — the e-file and both diagonals breathe, and White is left with an isolated e-pawn's memory and no outpost. Principle: pawn breaks are how cramped positions breathe, and a structural weakness is only real if the opponent can stop you from trading it away. Black did not defend d5 for ten moves. He sold it, at full price, the moment the market peaked.",
+      "fen": "r2r2k1/ppq1bppp/2npbn2/4p3/P3P3/1NN4P/1PPQBPP1/R1BR2K1 b - - 0 12",
+      "leadInMoves": [
+        "a4",
+        "Be6",
+        "Qd2",
+        "Qc7",
+        "Rd1",
+        "Rfd8",
+        "h3"
+      ],
+      "name": "The d5 Break",
+      "opponentResponse": "exd5",
+      "solutionMoves": [
+        "d5",
+        "exd5",
+        "Nxd5",
+        "Nxd5",
+        "Bxd5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Breakthrough"
+    },
+    {
+      "briefExplanation": "White's a4 tries to clamp the queenside and stop ...b5 forever. Black answers ...a5: the clamp is frozen, a tempo is banked, and development continues as if nothing happened.",
+      "description": "Meet a4 with ...a5 to halt White's queenside expansion, then calmly continue the setup with Be6 and Rc8.",
+      "drillId": "bol-t3",
+      "explanation": "Prophylaxis means answering the opponent's idea before it becomes a threat, at the cheapest possible price. White's a4 has a real point: it stops ...b5, grabs queenside space, and dreams of a5 followed by pressure on Black's whole wing. The wrong response is to ignore it and discover three moves later that the queenside is frozen shut. ...a5 spends one tempo to delete the idea entirely — now a5 can never come with effect, the b4 square is weakened in White's own camp, and Black's a-pawn becomes a fixed, useful space advantage rather than a bystander. Notice what Black does next: nothing dramatic. Be6 and Rc8 are the same setup moves from the classical plan, played as if White's flank adventure changed nothing — because after ...a5, it didn't. Principle: when you meet a wing advance by blocking it, you are not being passive; you are collecting a tempo tax. White spent a move to threaten something, you spent a move to make that something impossible, and the position returns to the central argument — the ...d5 break — where Black's pieces are better prepared. Stop their plan, then play yours.",
+      "fen": "r1bq1rk1/pp2bppp/2np1n2/4p3/P3P3/1NN5/1PP1BPPP/R1BQ1RK1 b - - 0 9",
+      "leadInMoves": [
+        "a4"
+      ],
+      "name": "Answering a4",
+      "opponentResponse": "Qd2",
+      "solutionMoves": [
+        "a5",
+        "Qd2",
+        "Be6",
+        "Rfd1",
+        "Rc8"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Prophylaxis"
+    },
+    {
+      "briefExplanation": "Black seizes queenside space with ...b5, and when White strikes in the center with f4, Black trades on f4 and finishes with Rc8 — pressure down the c-file against White's position.",
+      "description": "Expand with ...b5, meet the f4 break by capturing on f4, and bring the rook to c8 to build counterplay on the half-open file.",
+      "drillId": "bol-t4",
+      "explanation": "Counterplay is the art of answering a threat by making one of your own, on the part of the board where you are stronger. White has just played f3 and is clearly loading the f4 break against Black's e5 pawn — the center is about to become his stage. Black does not wait on that stage. ...b5 claims queenside space, prepares ...b4 to kick the c3 knight, and announces that while White attacks on one wing, his own queenside pieces will have to watch the other. When f4 comes anyway, ...exf4 is the correct concession: the e-pawn was going to be undermined regardless, so Black trades it to open the e-file and loosen White's center, and after Rxf4 the rook has been dragged to a square where it defends nothing. Rc8 completes the picture — the rook mans the half-open c-file, eyes the c3 knight and the c2 pawn behind it, and teams up with the b5 pawn to ask White how solid his queenside really is. Principle: passive defense of a pawn center loses slowly; trading the center at the right moment to activate files on your strong wing is how the Sicilian fights back.",
+      "fen": "r2q1rk1/pp2bppp/2npbn2/4p3/4P3/1NN2P2/PPPQB1PP/R1B2RK1 b - - 0 10",
+      "leadInMoves": [
+        "Qd2",
+        "Be6",
+        "f3"
+      ],
+      "name": "Queenside Counterplay",
+      "opponentResponse": "f4",
+      "solutionMoves": [
+        "b5",
+        "f4",
+        "exf4",
+        "Rxf4",
+        "Rc8"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Counterplay"
+    }
+  ],
+  "id": "boleslavsky-variation-tacticals",
+  "name": "Boleslavsky Variation — Black Tactics"
+}

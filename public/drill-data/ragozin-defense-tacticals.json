@@ -1,0 +1,112 @@
+{
+  "arena": "ragozin-defense",
+  "description": "4 tactical challenges for Black in the Ragozin Defense (1.d4 d5 2.c4 e6 3.Nf3 Nf6 4.Nc3 Bb4 5.e3 O-O 6.Bd2 b6 7.Bd3 Bb7), where the bishop's pin on c3 turns a quiet Queen's Gambit into a fight for the center.",
+  "drills": [
+    {
+      "briefExplanation": "Black strikes the d4 pawn with ...c5 before White consolidates, and the Ragozin bishop ends up recapturing on c5 in the center of the board.",
+      "description": "Play the ...c5 break, recapture toward the center with the e-pawn, and land your bishop on c5 when White grabs the pawn.",
+      "drillId": "rag-t1",
+      "explanation": "The Ragozin is a Queen's Gambit Declined where Black refuses to sit still, and ...c5 is that refusal in its purest form. White's whole position rests on the d4 pawn and the space it buys, so Black strikes that pawn the moment White's rook steps to c1. After cxd5 exd5 the position changes character: Black's e-pawn recaptures toward the center, the b7 bishop's long diagonal starts to breathe, and White must decide whether the isolated d-pawn will be a strength or a target. When White grabs with dxc5, the b4 bishop — the piece that defines the Ragozin — recaptures and lands on c5: active, centralized, and staring at f2. The principle is timing. A freeing break works best before the opponent finishes developing and coordinates against it, and here every black piece improves as the center opens. Black has not solved every problem — White keeps the bishop pair and pressure against d5 — but the cramped QGD structure is gone. In its place stands an open, dynamic position where Black's active pieces, not White's space, set the terms. Break first, consolidate second: that order is the lesson of this drill.",
+      "fen": "rn1q1rk1/pbp2ppp/1p2pn2/3p4/1bPP4/2NBPN2/PP1B1PPP/2RQK2R b K - 3 8",
+      "leadInMoves": [
+        "Rc1"
+      ],
+      "name": "The c5 Break",
+      "opponentResponse": "cxd5",
+      "solutionMoves": [
+        "c5",
+        "cxd5",
+        "exd5",
+        "dxc5",
+        "Bxc5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Central Breakthrough"
+    },
+    {
+      "briefExplanation": "The bishop steps back to a5 keeping its pressure, the knight plants itself on the e4 outpost, and only then does Black strike with ...c5.",
+      "description": "Retreat the bishop to a5, occupy the e4 outpost with your knight, and follow with the ...c5 break from a position of strength.",
+      "drillId": "rag-t2",
+      "explanation": "Every opening has a signature square, and in the Ragozin that square is e4. The knight's route there explains the whole system. The b4 bishop pressures the c3 knight and White's coordination, so when White spends a tempo on a3, the bishop simply steps back to a5 and keeps the pressure — the pin was never about staying on b4. From f6 the knight then lands on e4, and it is a true outpost. It cannot be chased by f3 without loosening White's king and abandoning the e3 pawn, and capturing it with the c3 knight runs into dxe4, opening lines against White's center. Notice the support structure: the a5 bishop eyes the c3 knight that might capture, and the d5 pawn guards the square directly. Only after the outpost is planted does Black play ...c5, striking d4 from a position of strength rather than hope. The principle generalizes far beyond this opening: an advanced knight is only as strong as the pawns and pieces standing behind it. Build the support first, occupy the square second, and play the break third — in that order, the Ragozin nearly plays itself.",
+      "fen": "rn1q1rk1/pbp2ppp/1p2pn2/3p4/1bPP4/P1NBPN2/1P1B1PPP/R2QK2R b KQ - 0 8",
+      "leadInMoves": [
+        "a3"
+      ],
+      "name": "The Ne4 Outpost",
+      "opponentResponse": "Rc1",
+      "solutionMoves": [
+        "Ba5",
+        "Rc1",
+        "Ne4",
+        "Qc2",
+        "c5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Outpost"
+    },
+    {
+      "briefExplanation": "Black releases the central tension with ...dxc4, hits the recapturing bishop with tempo, and finishes development with pressure on d4.",
+      "description": "Capture on c4 to free your game, strike back with ...c5 against the exposed bishop, and complete development with ...Nc6.",
+      "drillId": "rag-t3",
+      "explanation": "Cramped positions are freed by exchanges, and ...dxc4 is the Ragozin's classic release valve. As long as Black holds the tension on c4, White's light-squared bishop sits comfortably on d3, the c-file stays closed, and Black's queenside has nowhere to go. Capturing changes the bargain: White's bishop must spend a second move recapturing on c4, and it lands on a square where Black's next moves gain time against it. The follow-up ...c5 is the point — played not despite the bishop on c4 but because of it, since the c-file now opens for Black's rook and the bishop itself becomes a target. White castling changes nothing; Black simply completes development with ...Nc6, eyeing d4 and e5 and joining the fight for the center. Compare the starting position: Black has traded a passive structure for active pieces, an open c-file, and targets on c4 and d4. The principle is to exchange your way out of cramp before the squeeze tightens — every pawn trade opens a line for the side with less space. Free the position first, then develop with threats: that is counterplay, Ragozin style.",
+      "fen": "rn1q1rk1/pbp2ppp/1p2pn2/3p4/1bPP4/2NBPN2/PPQB1PPP/R3K2R b KQ - 3 8",
+      "leadInMoves": [
+        "Qc2"
+      ],
+      "name": "Freeing with dxc4",
+      "opponentResponse": "Bxc4",
+      "solutionMoves": [
+        "dxc4",
+        "Bxc4",
+        "c5",
+        "O-O",
+        "Nc6"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Counterplay"
+    },
+    {
+      "briefExplanation": "With the bishop active on c5 and the knight developed to c6, Black absorbs White's queenside push and lands the ...e5 break before White consolidates.",
+      "description": "Develop your knight to c6, retreat the bishop when White hits it with b4, and strike with ...e5 once White's queenside pawns have overextended.",
+      "drillId": "rag-t4",
+      "explanation": "A pawn break is a promise: give me two moves and the position opens on my terms. Here Black first cashes in the Ragozin's bishop — White's dxc5 looks like it wins the argument about the center, but Bxc5 leaves the bishop on its best diagonal, trained on f2. Development comes next, because breaks played with pieces still at home are just pawn moves: ...Nc6 adds an attacker of d4 and a future supporter of the break before it is even threatened. When White clamps down with b4, the bishop retreats to e7 without complaint — it has done its work by provoking the pawn forward, and b4 leaves soft squares behind it on the queenside. White's queen then centralizes its defense on c2, and only now does ...e5 arrive. Notice what it accomplishes at once: it challenges the center White just tried to secure, it opens the e-file, and it activates both black bishops behind a mobile pawn front. The principle is preparation. Support the break, provoke a weakness, retreat what is attacked without resentment, and strike when the opponent's last moves have helped you. Breaks are earned, not announced.",
+      "fen": "rn1q1rk1/pb3ppp/1p2pn2/2bp4/2P5/P1NBPN2/1P1B1PPP/2RQK2R b K - 0 10",
+      "leadInMoves": [
+        "Rc1",
+        "c5",
+        "dxc5",
+        "Bxc5",
+        "a3"
+      ],
+      "name": "The e5 Break",
+      "opponentResponse": "b4",
+      "solutionMoves": [
+        "Nc6",
+        "b4",
+        "Be7",
+        "Qc2",
+        "e5"
+      ],
+      "stars": {
+        "1": "Third attempt",
+        "2": "Second attempt",
+        "3": "First move correct"
+      },
+      "theme": "Pawn Break"
+    }
+  ],
+  "id": "ragozin-defense-tacticals",
+  "name": "Ragozin Defense — Black Tactics"
+}
